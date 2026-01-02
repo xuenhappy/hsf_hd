@@ -1,0 +1,161 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{ctex} % 中文支持
+
+\begin{document}
+% 加载必要的 TikZ 库
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, shadows, backgrounds, fit}
+
+% --- 颜色定义 (HSF-HD 风格) ---
+\definecolor{hsfBlue}{RGB}{22, 160, 133}   % 几何/结构
+\definecolor{hsfRed}{RGB}{192, 57, 43}     % 外部/激波
+\definecolor{hsfPurple}{RGB}{142, 68, 173} % 价值/目的
+\definecolor{hsfOrange}{RGB}{211, 84, 0}   % 意志/控制
+\definecolor{hsfDark}{RGB}{44, 62, 80}     % 核心思维
+
+
+
+\begin{tikzpicture}[
+    node distance=2.5cm and 4cm,
+    % --- 节点样式 ---
+    core/.style={
+        circle, 
+        draw=hsfDark, 
+        ultra thick, 
+        fill=hsfDark!10, 
+        minimum size=3.5cm, 
+        align=center, 
+        drop shadow,
+        font=\bfseries
+    },
+    component/.style={
+        rectangle, 
+        rounded corners=8pt, 
+        draw=black!60, 
+        thick, 
+        minimum width=4cm, 
+        minimum height=1.8cm, 
+        align=center, 
+        drop shadow,
+        font=\small
+    },
+    % --- 连线样式 ---
+    link/.style={
+        <->, 
+        >={Latex[length=3mm, width=2mm]}, 
+        line width=1.5pt, 
+        draw=gray!80
+    },
+    dashed_link/.style={
+        ->, 
+        >={Latex[length=2mm, width=1.5mm]}, 
+        line width=1pt, 
+        draw=gray!60,
+        dashed
+    },
+    % --- 标签样式 ---
+    label_text/.style={
+        fill=white, 
+        fill opacity=0.9, 
+        text opacity=1, 
+        font=\footnotesize\sffamily, 
+        align=center,
+        inner sep=2pt,
+        text=black!80
+    }
+]
+
+    % =================================================
+    % 1. 核心节点：TDE (思维流)
+    % =================================================
+    \node[core] (TDE) {
+        \textcolor{hsfDark}{\Large \textbf{TDE}}\\
+        \textbf{目的论狄拉克方程}\\
+        \textit{思维流 $\Psi$}\\
+        (推理/演化)
+    };
+
+    % =================================================
+    % 2. 周围节点：内部组件
+    % =================================================
+    
+    % 左侧：CEFE (结构)
+    \node[component, left=of TDE, fill=hsfBlue!10, draw=hsfBlue] (CEFE) {
+        \textcolor{hsfBlue}{\large \textbf{CEFE}}\\
+        \textbf{认知爱因斯坦方程}\\
+        \textit{度量 $g_{\mu\nu}$}\\
+        (记忆/习惯/形)
+    };
+
+    % 右侧：CYME (价值)
+    \node[component, right=of TDE, fill=hsfPurple!10, draw=hsfPurple] (CYME) {
+        \textcolor{hsfPurple}{\large \textbf{CYME}}\\
+        \textbf{认知杨-米尔斯方程}\\
+        \textit{规范势 $\mathcal{A}_\mu$}\\
+        (偏好/目的/质)
+    };
+
+    % 下方：TCE (意志)
+    \node[component, below=of TDE, fill=hsfOrange!10, draw=hsfOrange, yshift=-0.5cm] (TCE) {
+        \textcolor{hsfOrange}{\large \textbf{TCE}}\\
+        \textbf{目的论控制方程}\\
+        \textit{宏观算子 $\hat{\mathcal{O}}$}\\
+        (控制/注意/元认知)
+    };
+
+    % =================================================
+    % 3. 外部节点：环境
+    % =================================================
+    
+    % 上方：ENV (环境)
+    \node[component, above=of TDE, fill=hsfRed!10, draw=hsfRed, yshift=0.5cm] (ENV) {
+        \textcolor{hsfRed}{\large \textbf{External Env}}\\
+        \textbf{外部物理世界}\\
+        \textit{源流 $\vec{J}_{ext}$ / 动作 Action}
+    };
+
+    % =================================================
+    % 4. 绘制背景框 (区分内外)
+    % =================================================
+    \begin{scope}[on background layer]
+        \node[fit=(CEFE)(CYME)(TCE)(TDE), 
+              draw=gray!30, dashed, rounded corners=15pt, 
+              fill=gray!5, inner sep=15pt,
+              label={[anchor=north west, xshift=10pt, yshift=-5pt, text=gray]north west:\textbf{智能体内部 (Internal Manifold)}}] (box) {};
+    \end{scope}
+
+    % =================================================
+    % 5. 绘制连线 (主要耦合) - 星型拓扑无交叉
+    % =================================================
+
+    % I. 现实耦合 (ENV <-> TDE)
+    \draw[link, draw=hsfRed] (ENV) -- (TDE) 
+        node[midway, label_text] {I. 现实耦合\\(感知 $\downarrow$ / 行动 $\uparrow$)};
+
+    % II. 结构耦合 (TDE <-> CEFE)
+    \draw[link, draw=hsfBlue] (TDE) -- (CEFE) 
+        node[midway, label_text] {II. 结构耦合\\(认知应力 $\to$ / $\leftarrow$ 几何惯性)};
+
+    % III. 价值耦合 (TDE <-> CYME)
+    \draw[link, draw=hsfPurple] (TDE) -- (CYME) 
+        node[midway, label_text] {III. 价值耦合\\(价值流 $\to$ / $\leftarrow$ 洛伦兹力)};
+
+    % IV. 控制耦合 (TDE <-> TCE)
+    \draw[link, draw=hsfOrange] (TDE) -- (TCE) 
+        node[midway, label_text] {IV. 控制耦合\\(偏差检测 $\downarrow$ / $\uparrow$ 算子注入)};
+
+    % =================================================
+    % 6. 隐式/次级耦合 (可选，使用曲线避免交叉)
+    % =================================================
+    
+    % TCE -> CEFE (塑性重构)
+    \draw[dashed_link, bend left=45] (TCE.west) to node[label_text, font=\tiny] {V. 塑性重构} (CEFE.south);
+    
+    % TCE -> CYME (价值重估)
+    \draw[dashed_link, bend right=45] (TCE.east) to node[label_text, font=\tiny] {VI. 价值重估} (CYME.south);
+
+\end{tikzpicture}
+
+\end{document}

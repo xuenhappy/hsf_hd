@@ -2,6 +2,16 @@
 \usepackage{makecell}
 \usepackage{tabularx}
 \usepackage{url} 
+% 1. 引入 standalone 包，让它可以识别并处理包含完整导言区的子文件
+\usepackage{standalone} 
+\usepackage{graphicx} % 用于插入图片
+% 2. 必须在主文档也加载绘图所需的包
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{amsmath}
+\usepackage{ctex}
+\usetikzlibrary{arrows.meta, calc, fadings, positioning}
+
 
 \title{通用智能的生成式动力学架构 (全息语义场与层级化动力学 HSF-HD 2.0)}
 \subtitle{宇宙与智能的源代码}
@@ -1060,6 +1070,11 @@ $$ \mathbf{F} = [\nabla_\mu, \nabla_\nu] $$
 \item   \textbf{语义对应}：\textbf{语境效应}。同一个词在不同上下文中意思不同，这代表语义流形是\textbf{弯曲}的。
 \end{itemize}
 
+\begin{figure}[h]
+    \centering
+    \input{figure/msc1.tex}
+    \caption{形与质的组装}
+\end{figure}
 
 
 \begin{quote}\textbf{本章结语}：\end{quote}
@@ -8416,37 +8431,11 @@ $$ \hat{\mathcal{O}}_{slow} = \frac{\delta g_{\mu\nu}}{\delta t} $$
 
 我们将之前的线性流图升级为\textbf{星形-网状全互联拓扑}。中心是 \textbf{思维流 ($\Psi$)}，四周环绕着约束它的物理法则与几何结构。
 
-\begin{lstlisting}
-graph TD
-    %% 节点定义
-    subgraph EXTERNAL [外部世界]
-        Env["环境 Environment"]
-    end
-
-    subgraph INTERNAL [智能体内部]
-        TDE["TDE: 思维流 Psi (推理/演化)"]
-        CEFE["CEFE: 结构 g (记忆/习惯)"]
-        CYME["CYME: 价值 A (偏好/目的)"]
-        TCE["TCE: 意志 O (控制/注意)"]
-    end
-
-    %% 双向耦合 1: 现实环
-    Env <==>|"I. 感知 J_ext / 行动 Action"| TDE
-
-    %% 双向耦合 2: 学习环
-    TDE <==>|"II. 应力 T_uv / 几何约束 Gamma"| CEFE
-
-    %% 双向耦合 3: 价值环
-    TDE <==>|"III. 价值流 J_val / 规范力 Lorentz"| CYME
-
-    %% 双向耦合 4: 控制环
-    TDE <==>|"IV. 偏差 [A,Psi] / 算子注入 O"| TCE
-
-    %% 隐式耦合 (可选展示)
-    TCE -.->|V. 塑性重构| CEFE
-    TCE -.->|VI. 价值重估| CYME
-\end{lstlisting}
-
+\begin{figure}[h]
+    \centering
+    \resizebox{0.8\textwidth}{!}{ \input{figure/tdci.tex} }
+    \caption{全耦合拓扑图}
+\end{figure}
 
 
 \vspace{1em}\noindent\textbf{\textcolor{structurecolor}{耦合机制详解 (Detailed Coupling Mechanisms)}}
