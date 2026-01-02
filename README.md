@@ -32,8 +32,8 @@
 
 ## 贡献者
 
-- **作者**: Dongsheng Deng & Liam Huang
-- **维护者**: Ethan Deng, syvshc, sikouhjw
+- **作者**: XuEn
+
 
 ## 协议 License
 
