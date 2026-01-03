@@ -1,0 +1,128 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{amsmath}
+\usetikzlibrary{decorations.pathmorphing, arrows.meta, calc, fadings}
+
+% --- 颜色定义 (仿照原图风格) ---
+\definecolor{atomRed}{RGB}{205, 70, 60}       % 更加扁平的深红色
+\definecolor{atomBorder}{RGB}{140, 40, 30}    % 球体边缘颜色
+\definecolor{spinPurple}{RGB}{110, 40, 160}   % 自旋紫
+\definecolor{cloudBlue}{RGB}{235, 248, 252}   % 背景淡蓝
+\definecolor{waveGreen}{RGB}{80, 180, 100}    % 纠缠绿
+\definecolor{textDark}{RGB}{60, 60, 60}       % 字体黑灰
+
+\begin{document}
+
+% 设置3D视角
+\tdplotsetmaincoords{65}{115}
+
+\begin{tikzpicture}[
+    tdplot_main_coords,
+    scale=1.0,
+    % --- 样式 ---
+    gridline/.style={black!80, thick},
+    % 扁平化原子样式: 纯色填充 + 描边
+    atom/.style={fill=atomRed, draw=atomBorder, thick, opacity=1.0},
+    % 自旋样式
+    spin/.style={-{Latex[length=3mm, width=2mm]}, spinPurple, ultra thick},
+    % 波浪样式
+    wave/.style={waveGreen, thick, decorate, decoration={snake, amplitude=1.2mm, segment length=3.5mm, pre length=1mm, post length=1mm}},
+    % 标签文本样式
+    label text/.style={font=\bfseries\large, align=center}
+]
+
+    % 定义网格参数
+    \def\spacing{1.8} 
+    \def\gridsize{3} % 4x4 grid (0 to 3)
+
+    % ==========================================
+    % 1. 背景云团 (位置稍作调整以适应视角)
+    % ==========================================
+    \begin{scope}[canvas is xy plane at z=-0.6]
+        \fill[cloudBlue, rounded corners=40pt] 
+            (-2, -2) -- (\gridsize*\spacing + 2, -1.5) -- 
+            (\gridsize*\spacing + 2.5, \gridsize*\spacing + 2.5) -- 
+            (-1.5, \gridsize*\spacing + 2) -- cycle;
+    \end{scope}
+
+    % ==========================================
+    % 2. 绘制网格 (Form 的骨架)
+    % ==========================================
+    \foreach \i in {0,...,\gridsize} {
+        \draw[gridline] (\i*\spacing, 0, 0) -- (\i*\spacing, \gridsize*\spacing, 0);
+        \draw[gridline] (0, \i*\spacing, 0) -- (\gridsize*\spacing, \i*\spacing, 0);
+    }
+
+    % ==========================================
+    % 3. 绘制相互作用波 (纠缠)
+    % ==========================================
+    % 放在球体后面绘制，或者部分遮挡
+    \draw[wave] (0*\spacing, 1*\spacing, 0) -- (1*\spacing, 2*\spacing, 0);
+    \draw[wave] (2*\spacing, 0*\spacing, 0) -- (3*\spacing, 1*\spacing, 0);
+    \draw[wave] (1*\spacing, 1*\spacing, 0) -- (2*\spacing, 1*\spacing, 0);
+    \draw[wave] (2*\spacing, 2*\spacing, 0) -- (2*\spacing, 3*\spacing, 0);
+
+    % ==========================================
+    % 4. 绘制电子云 (流) - 简单的箭头表示
+    % ==========================================
+    % 简化为扁平的小箭头，风格统一
+    \newcommand{\drawElectron}[3]{
+        \begin{scope}[shift={(#1*\spacing,#2*\spacing,0.2)}, rotate around z=#3]
+             % 扁平化流线
+             \fill[cyan!30, opacity=0.7] (0,0) to[out=90,in=180] (0.4,0.15) to[out=0,in=90] (0.8,0) 
+                          to[out=-90,in=0] (0.4,-0.15) to[out=180,in=-90] (0,0);
+             \draw[->, cyan!60!blue, thick] (0.1,0) -- (0.7,0);
+        \end{scope}
+    }
+    \drawElectron{0.5}{0.5}{45}
+    \drawElectron{2.5}{1.5}{-10}
+
+    % ==========================================
+    % 5. 绘制原子与自旋 (扁平风格)
+    % ==========================================
+    \foreach \x in {0,...,\gridsize} {
+        \foreach \y in {0,...,\gridsize} {
+            % 坐标
+            \pgfmathsetmacro{\px}{\x*\spacing}
+            \pgfmathsetmacro{\py}{\y*\spacing}
+            
+            % 绘制红球 (直接画圆，不用 shading，实现扁平化)
+            % 注意：在 TikZ 3D 坐标中画 circle 会自动投影，产生椭圆效果，符合透视
+            % 为了让球看起来是正圆(像图标一样)，我们可以在节点中画，或者接受轻微透视
+            % 这里使用 shift 坐标画圆，保持一定的 3D 空间感但颜色是平的
+            \filldraw[atom] (\px, \py, 0) circle (0.4cm);
+            
+            % 绘制自旋
+            \draw[spin] (\px, \py, 0.25) -- ++(0, 0, 1.2);
+        }
+    }
+    
+    % 特殊倾斜自旋
+    \draw[spin, rotate around={25:(1*\spacing,1*\spacing,0)}] (1*\spacing, 1*\spacing, 0.25) -- ++(0, 0, 1.2);
+
+    % ==========================================
+    % 6. 紧凑的低空注释
+    % ==========================================
+    
+    % --- Form 注释 ---
+    % 起点：左上方的网格线交叉点附近
+    % 终点：文字标签 (高度降低到 2.0 左右)
+    \coordinate (FormTarget) at (0.2, 0.2, 0); 
+    \coordinate (FormLabel) at (-1.0, -1.0, 2.0);
+    
+    \draw[textDark, thick] (FormTarget) -- (FormLabel) 
+        node[label text, above, anchor=south east] {Form};
+        
+    % --- Qualia 注释 ---
+    % 起点：右侧的一个自旋箭头尖端
+    % 终点：文字标签 (高度降低，距离拉近)
+    \coordinate (QualiaTarget) at (\gridsize*\spacing, \gridsize*\spacing, 1.45);
+    \coordinate (QualiaLabel) at (\gridsize*\spacing + 0.5, \gridsize*\spacing + 0.5, 2.5);
+    
+    \draw[spinPurple, thick] (QualiaTarget) -- (QualiaLabel) 
+        node[label text, above, text=spinPurple, anchor=south west] {Qualia};
+
+\end{tikzpicture}
+
+\end{document}
