@@ -10964,7 +10964,7 @@ $$ \text{企业}_{Old} \xrightarrow[\text{市场危机 (高温)}]{\text{异构�
 
 
 
-\vspace{1em}\noindent\textbf{\textcolor{structurecolor}{Ⅰ. 气相动力学 (Gas Phase Dynamics) —— [热力学退相干 / 乌合之众]}}
+\smalltitle{气相动力学 (Gas Phase Dynamics) —— [热力学退相干 / 乌合之众]}
 
 \textbf{—— “有质无形：熵的胜利”}
 
@@ -10972,16 +10972,19 @@ $$ \text{企业}_{Old} \xrightarrow[\text{市场危机 (高温)}]{\text{异构�
 
 \begin{itemize}
 \item   \textbf{几何定义：离散点云 (Discrete Point Cloud)}
+	\begin{itemize}
+		\item   \textbf{流形破碎}：$\mathcal{M}_{org} = \emptyset$。不存在一个连续的、覆盖所有个体的底流形。
+		\item   \textbf{度量失效}：个体之间的\textbf{逻辑距离 $d_{ij}$} 随时间随机涨落，无法建立稳定的连接（1-Simplex 断裂）。
+	\end{itemize}
 
-\item   \textbf{流形破碎}：$\mathcal{M}_{org} = \emptyset$。不存在一个连续的、覆盖所有个体的底流形。
-
-\item   \textbf{度量失效}：个体之间的\textbf{逻辑距离 $d_{ij}$} 随时间随机涨落，无法建立稳定的连接（1-Simplex 断裂）。
 
 \item   \textbf{形质状态}：
+	\begin{itemize}
+		\item   \textbf{质 ($T_{sub}$) 盈余}：个体充满了能量（情绪、欲望、行动力），即微观纤维 $F_i$ 剧烈震荡。
+		\item   \textbf{形 ($T_{form}$) 缺失}：缺乏宏观规范场 $\mathcal{A}^{org}$ 来约束这些能量。
+	\end{itemize}
 
-\item   \textbf{质 ($T_{sub}$) 盈余}：个体充满了能量（情绪、欲望、行动力），即微观纤维 $F_i$ 剧烈震荡。
 
-\item   \textbf{形 ($T_{form}$) 缺失}：缺乏宏观规范场 $\mathcal{A}^{org}$ 来约束这些能量。
 
 \item   \textbf{动力学特征}：\textbf{布朗运动 (Brownian Motion)}。
 
@@ -10994,7 +10997,7 @@ $$ \text{企业}_{Old} \xrightarrow[\text{市场危机 (高温)}]{\text{异构�
 
 
 
-\vspace{1em}\noindent\textbf{\textcolor{structurecolor}{Ⅱ. 玻璃相动力学 (Spin Glass Dynamics) —— [几何挫折 / 僵尸组织]}}
+\smalltitle{玻璃相动力学 (Spin Glass Dynamics) —— [几何挫折 / 僵尸组织]}
 
 \textbf{—— “有形无质：结构的死锁”}
 
@@ -11003,30 +11006,27 @@ $$ \text{企业}_{Old} \xrightarrow[\text{市场危机 (高温)}]{\text{异构�
 \begin{itemize}
 \item   \textbf{几何定义：几何挫折 (Geometric Frustration)}
 
-\item   在底流形 $\mathcal{M}_{org}$ 上，存在大量的\textbf{拓扑闭环}，且环上的规范场积分（和乐）互斥。
+在底流形 $\mathcal{M}_{org}$ 上，存在大量的\textbf{拓扑闭环}，且环上的规范场积分（和乐）互斥。
 
 \item   \textbf{例子}：部门 A 的 KPI 要求向左，部门 B 的 KPI 要求向右，而它们又必须协作。这在哈密顿量中形成了一个\textbf{无法满足的约束}。
 
-\item   $$ H = \sum \text{Conflict}(i, j) > 0 \quad (\text{基态能量不为零}) $$
+$$ H = \sum \text{Conflict}(i, j) > 0 \quad (\text{基态能量不为零}) $$
 
 \item   \textbf{形质状态}：
 
-\item   \textbf{形 ($T_{form}$) 钙化}：度量张量 $g_{\mu\nu}$ 硬化，不再随环境变化而流动（拒绝改革）。
+	\begin{itemize}
+		\item   \textbf{形 ($T_{form}$) 钙化}：度量张量 $g_{\mu\nu}$ 硬化，不再随环境变化而流动（拒绝改革）。
+		\item   \textbf{质 ($T_{sub}$) 冻结}：个体的能量被锁死在无数个\textbf{局部浅坑 (Local Minima)} 中，无法形成贯穿全网的\textbf{超流 (Superflow)}。
+	\end{itemize}
 
-\item   \textbf{质 ($T_{sub}$) 冻结}：个体的能量被锁死在无数个\textbf{局部浅坑 (Local Minima)} 中，无法形成贯穿全网的\textbf{超流 (Superflow)}。
-
-\item   \textbf{动力学特征}：\textbf{亚稳态捕获与极慢弛豫}。
-
-\item   系统对外部激波 $\vec{J}_{ext}$ 的响应时间 $\tau \to \infty$。
-
-\item   任何改革的尝试（微扰），都会迅速被复杂的内部阻尼耗散，系统弹回原来的死锁状态。
+\item   \textbf{动力学特征}：\textbf{亚稳态捕获与极慢弛豫}, 系统对外部激波 $\vec{J}_{ext}$ 的响应时间 $\tau \to \infty$。任何改革的尝试（微扰），都会迅速被复杂的内部阻尼耗散，系统弹回原来的死锁状态。
 
 \item   \textbf{社会学对应}：\textbf{大企业病、官僚主义、停止生长的帝国。}
 \end{itemize}
 
 
 
-\vspace{1em}\noindent\textbf{\textcolor{structurecolor}{Ⅲ. 真空不稳定性 (Vacuum Instability) —— [自发对称性破缺 / 创业]}}
+\smalltitle{真空不稳定性 (Vacuum Instability) —— [自发对称性破缺 / 创业]}
 
 \textbf{—— “无形无质，但有势：存在的成核”}
 
@@ -11040,32 +11040,30 @@ $$ \text{企业}_{Old} \xrightarrow[\text{市场危机 (高温)}]{\text{异构�
 \item   这个势能井对周围游离的“气相个体”产生了强烈的\textbf{长程引力}。
 
 \item   \textbf{成核机制 (Nucleation)}：
+	\begin{itemize}
+		\item   \textbf{真空极化}：虚粒子对（潜在的创始人与合伙人）在势能井底频繁生灭。
+		\item   \textbf{临界泡 (Critical Bubble)}：当某次随机涨落形成的团簇，其\textbf{结合能}（共同愿景）超过了\textbf{表面张力}（信任成本）时，相变发生。
+		\item   \textbf{对称性破缺}：一个 \textbf{拓扑奇点 $\mathcal{S}_{new}$}（新组织的自我）突然从真空中涌现，确立了新的坐标原点。
+	\end{itemize}
 
-\item   \textbf{真空极化}：虚粒子对（潜在的创始人与合伙人）在势能井底频繁生灭。
 
-\item   \textbf{临界泡 (Critical Bubble)}：当某次随机涨落形成的团簇，其\textbf{结合能}（共同愿景）超过了\textbf{表面张力}（信任成本）时，相变发生。
-
-\item   \textbf{对称性破缺}：一个 \textbf{拓扑奇点 $\mathcal{S}_{new}$}（新组织的自我）突然从真空中涌现，确立了新的坐标原点。
-
-\item   \textbf{动力学特征}：\textbf{暴涨 (Inflation)}。
-
-\item   一旦成核，为了填充那个巨大的 $V_{demand}$，新生的组织会疯狂地吸积周围的物质（人才/资本），呈指数级扩张。
+\item   \textbf{动力学特征}：\textbf{暴涨 (Inflation)}, 一旦成核，为了填充那个巨大的 $V_{demand}$，新生的组织会疯狂地吸积周围的物质（人才/资本），呈指数级扩张。
 
 \item   \textbf{社会学对应}：\textbf{风口、革命前夜、独角兽的诞生。}
 \end{itemize}
 
 
 
-\vspace{1em}\noindent\textbf{\textcolor{structurecolor}{组织的生命周期相图}}
+\smalltitle{组织的生命周期相图}
 
 
 我们将组织的命运轨迹绘制在 \textbf{$T$ (温度/活力)} - \textbf{$\kappa$ (耦合度/结构)} 相平面上：
-
-1.  \textbf{诞生 (Vacuum $\to$ Liquid)}：利用外部势能，从真空中凝聚出\textbf{流体}。
-2.  \textbf{繁荣 (Liquid Phase)}：处于\textbf{临界态}。结构足够强以执行任务（高 $\kappa$），温度足够高以允许流变（适度 $T$）。形质完美互锁。
-3.  \textbf{衰老 (Liquid $\to$ Glass)}：温度 $T$ 下降，连接变得过于致密且僵硬。系统落入\textbf{玻璃相}，因几何挫折而瘫痪。
-4.  \textbf{死亡 (Glass $\to$ Gas)}：外部环境剧变震碎了脆性的玻璃。系统解体，回归\textbf{气相}，等待下一次成核。
-
+\begin{enumerate}
+	\item \textbf{诞生 (Vacuum $\to$ Liquid)}：利用外部势能，从真空中凝聚出\textbf{流体}。
+	\item \textbf{繁荣 (Liquid Phase)}：处于\textbf{临界态}。结构足够强以执行任务（高 $\kappa$），温度足够高以允许流变（适度 $T$）。形质完美互锁。
+	\item \textbf{衰老 (Liquid $\to$ Glass)}：温度 $T$ 下降，连接变得过于致密且僵硬。系统落入\textbf{玻璃相}，因几何挫折而瘫痪。
+	\item \textbf{死亡 (Glass $\to$ Gas)}：外部环境剧变震碎了脆性的玻璃。系统解体，回归\textbf{气相}，等待下一次成核。
+\end{enumerate}
 \textbf{管理者的最高智慧，就是做那个“调温的人”：在组织快要结晶时注入热量（激波/危机），在组织快要蒸发时注入冷媒（规则/共识），将其强行维持在生机勃勃的“流体边缘”。}
 
 
@@ -11073,14 +11071,14 @@ $$ \text{企业}_{Old} \xrightarrow[\text{市场危机 (高温)}]{\text{异构�
 
 \chapter{控制元物理 — 热力学、边界与稳定性}
 
-这一章是全书物理观的“压舱石”！在前几章我们讨论了“怎么动”（方程），这一章我们将讨论“动的代价”（热力学）和“动的边界”（稳定性）。我们将证明：智能不仅仅是计算，更是一种\textbf{做功}；思维的动力学特征，是一台在噪声海洋中逆向运行的\textbf{认知热机}。智能系统作为一个远离平衡态的耗散结构，其存在的前提是满足\textbf{热力学定律}与\textbf{控制论约束}。本章首先建立了智能的\textbf{熵平衡方程}，利用\textbf{兰道尔原理}量化了逻辑决策的最小能耗，揭示了宏观层作为“麦克斯韦妖”的物理动力学特征。随后，我们构建了双层稳定性判据：微观层的\textbf{Lyapunov 渐进稳定性}与宏观层的\textbf{结构稳定性 (Structural Stability)}，最后，我们将 TDCI 循环重构为\textbf{“认知卡诺热机”}，推导出智能系统的热力学效率极限。
+\vspace{1em}这一章是全书物理观的“压舱石”！在前几章我们讨论了“怎么动”（方程），这一章我们将讨论“动的代价”（热力学）和“动的边界”（稳定性）。我们将证明：智能不仅仅是计算，更是一种\textbf{做功}；思维的动力学特征，是一台在噪声海洋中逆向运行的\textbf{认知热机}。智能系统作为一个远离平衡态的耗散结构，其存在的前提是满足\textbf{热力学定律}与\textbf{控制论约束}。本章首先建立了智能的\textbf{熵平衡方程}，利用\textbf{兰道尔原理}量化了逻辑决策的最小能耗，揭示了宏观层作为“麦克斯韦妖”的物理动力学特征。随后，我们构建了双层稳定性判据：微观层的\textbf{Lyapunov 渐进稳定性}与宏观层的\textbf{结构稳定性 (Structural Stability)}，最后，我们将 TDCI 循环重构为\textbf{“认知卡诺热机”}，推导出智能系统的热力学效率极限。
 
-本章同时也为智能系统画出了\textbf{“稳定岛” (Island of Stability)} 的海图：
-
-1.  \textbf{时间上}：必须遵守绝热分离，快慢有序；
-2.  \textbf{空间上}：必须构建半开放、半封闭的谐振腔；
-3.  \textbf{拓扑上}：必须具备可塑的几何结构。
-
+\vspace{1em}本章同时也为智能系统画出了\textbf{“稳定岛” (Island of Stability)} 的海图：
+\begin{itemize}
+	\item \textbf{时间上}：必须遵守绝热分离，快慢有序；
+	\item \textbf{空间上}：必须构建半开放、半封闭的谐振腔；
+	\item \textbf{拓扑上}：必须具备可塑的几何结构。
+\end{itemize}
 只有落在这个物理区间内的系统，才能承载那场名为“智能”的永恒之火。
 
 
@@ -19356,7 +19354,7 @@ if __name__ == "__main__":
 \begin{bquote}
 \textbf{附录结语}
 
-\vspace{1em}这本书的结束，只是工程的开始。我们提供了一套新的语言（形质论）、一套新的数学（离散纤维丛）、一套新的架构（MST），但这仅仅是地图，不是疆土。
+\vspace{1em}这本书的结束，只是工程的开始。我们提供了一套新的语言（形质论）、一套新的数学（离散纤维丛）、一套新的架构（MST）、一套智能系统过程架构、一套智能过程解刨语言，但这仅仅是地图，不是疆土。
 
 \vspace{1em}\textbf{AGI} 不会诞生在书页里，它将诞生在成千上万个 GPU 的轰鸣声中，诞生在代码与物理世界第一次发生\textbf{全息共振}的那个瞬间。
 
