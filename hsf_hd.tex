@@ -505,72 +505,65 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 当一个形 Token 被激活时，它会强行拉近或推远与之关联的节点，从而改变空间的\textbf{拓扑}和\textbf{度量}。
 
 我们将形 Token 分为三个层级的\textbf{编织算子}：
+\begin{enumerate}
+	\item \bluetext{粘合剂 —— 拓扑算子 (Topological Operators)}
+	
+	这类 Token 负责\textbf{“连线”}，它们决定了图的连通性（Adjacency Matrix）。
+	\begin{enumerate}
+		\item \textbf{邻接算子 \lstinline|[Link]| ($\sim_{adj}$)}：
+		\begin{itemize}
+			\item   \textbf{操作}：\lstinline|Link(A, B)| $\rightarrow$ 在节点 A 和 B 之间创建一条 \textbf{1-Simplex (边)}。
+			\item   \textbf{物理意义}：建立\textbf{局部性}。A 和 B 现在是邻居了，信息可以直接流转。
+			\item   \textit{代码隐喻}：\lstinline|Graph.add_edge(A, B)|。
+		\end{itemize}
+	
+		\item \textbf{包含算子 \lstinline|[Inside]| ($\subset$)}：
+		\begin{itemize}
+			\item   \textbf{操作}：\lstinline|Inside(A, B)| $\rightarrow$ 将 A 定义为 B 的\textbf{子空间}或\textbf{细节}。这通常意味着 B 是一个高阶节点（如“房间”），A 是低阶节点（如“椅子”）。
+			\item   \textbf{物理意义}：建立\textbf{层级 (Hierarchy)} 或 \textbf{重整化流}。在宏观尺度看 B 时，A 被折叠进去了。
+		\end{itemize}
 
+		\item \textbf{定向算子 \lstinline|[Flow]| ($\to$)}：
+		\begin{itemize}
+			\item   \textbf{操作}：\lstinline|Flow(A, B)| $\rightarrow$ 建立从 A 指向 B 的\textbf{单向通道}。
+			\item   \textbf{物理意义}：建立\textbf{因果}或\textbf{时间}。这定义了光锥结构，规定了 $\Psi$ 只能从 A 流向 B，不可逆。
+		\end{itemize}
+	\end{enumerate}
+	
+	
+	\item \bluetext{弹簧 —— 度量算子 (Metric Operators)}
 
+	这类 Token 负责\textbf{“拉伸/压缩”}，它们决定了边的权重（距离）和空间的刚度。
+	\begin{enumerate}
+		\item \textbf{距离算子 \lstinline|[Dist]| ($d_{ij}$)}：
+		\begin{itemize}
+			\item   \textbf{操作}：\lstinline|Dist(A, B, val)| $\rightarrow$ 设定边 $(A, B)$ 的\textbf{测地线长度}。
+			\item   \textbf{物理机制}：这是一个\textbf{虚拟弹簧}。
+		
+				\lstinline|val| 小（语义强相关）：弹簧劲度系数 $k$ 极大，强行把 A、B 拉到几何上的同一个点（重合）。
 
-\smalltitle{粘合剂 —— 拓扑算子 (Topological Operators)}
+				\lstinline|val| 大（语义弱相关）：弹簧松弛，A、B 虽然相连但距离很远。
+		\end{itemize}
 
+		\item \textbf{排斥算子 \lstinline|[Repel]| ($\perp$)}：
+		\begin{itemize}
+			\item   \textbf{操作}：\lstinline|Repel(A, B)| $\rightarrow$ 赋予 A、B 之间的\textbf{无穷大势垒}。
+			\item   \textbf{物理意义}：定义\textbf{互斥性}或\textbf{边界}。比如“杯子内部”和“杯子外部”必须被这种算子隔开，形成\textbf{墙}。
+		\end{itemize}
+	\end{enumerate}
+	
+	\item \bluetext{虫洞 —— 纠缠算子 (Entanglement Operators)}
 
-这类 Token 负责\textbf{“连线”}，它们决定了图的连通性（Adjacency Matrix）。
+	这类 Token 负责\textbf{“折叠”}，它们超越了欧氏几何。
+	\begin{enumerate}
+		\item \textbf{纠缠算子 \lstinline|[Bind]| ($\otimes$)}：
+		\begin{itemize}
+			\item   \textbf{操作}：\lstinline|Bind(A, B)| $\rightarrow$ 将 A 和 B 的状态向量在希尔伯特空间中\textbf{张量积耦合}，即使它们在几何距离上很远。
+		\item   \textbf{物理意义}：\textbf{非局域连接}。这在语义中对应“隐喻”（Metaphor）。“爱”和“火焰”在语义距离上很远，但通过隐喻 \lstinline|[Bind]|，它们发生了共振。
+		\end{itemize}
+	\end{enumerate}
+\end{enumerate}
 
-1.  \textbf{邻接算子 \lstinline|[Link]| ($\sim_{adj}$)}：
-\begin{itemize}
-\item   \textbf{操作}：\lstinline|Link(A, B)| $\rightarrow$ 在节点 A 和 B 之间创建一条 \textbf{1-Simplex (边)}。
-
-\item   \textbf{物理意义}：建立\textbf{局部性}。A 和 B 现在是邻居了，信息可以直接流转。
-
-\item   \textit{代码隐喻}：\lstinline|Graph.add_edge(A, B)|。
-\end{itemize}
-2.  \textbf{包含算子 \lstinline|[Inside]| ($\subset$)}：
-\begin{itemize}
-\item   \textbf{操作}：\lstinline|Inside(A, B)| $\rightarrow$ 将 A 定义为 B 的\textbf{子空间}或\textbf{细节}。这通常意味着 B 是一个高阶节点（如“房间”），A 是低阶节点（如“椅子”）。
-
-\item   \textbf{物理意义}：建立\textbf{层级 (Hierarchy)} 或 \textbf{重整化流}。在宏观尺度看 B 时，A 被折叠进去了。
-\end{itemize}
-3.  \textbf{定向算子 \lstinline|[Flow]| ($\to$)}：
-\begin{itemize}
-\item   \textbf{操作}：\lstinline|Flow(A, B)| $\rightarrow$ 建立从 A 指向 B 的\textbf{单向通道}。
-
-\item   \textbf{物理意义}：建立\textbf{因果}或\textbf{时间}。这定义了光锥结构，规定了 $\Psi$ 只能从 A 流向 B，不可逆。
-\end{itemize}
-
-
-
-\smalltitle{弹簧 —— 度量算子 (Metric Operators)}
-
-
-这类 Token 负责\textbf{“拉伸/压缩”}，它们决定了边的权重（距离）和空间的刚度。
-
-4.  \textbf{距离算子 \lstinline|[Dist]| ($d_{ij}$)}：
-\begin{itemize}
-\item   \textbf{操作}：\lstinline|Dist(A, B, val)| $\rightarrow$ 设定边 $(A, B)$ 的\textbf{测地线长度}。
-
-\item   \textbf{物理机制}：这是一个\textbf{虚拟弹簧}。
-
-\item   \lstinline|val| 小（语义强相关）：弹簧劲度系数 $k$ 极大，强行把 A、B 拉到几何上的同一个点（重合）。
-
-\item   \lstinline|val| 大（语义弱相关）：弹簧松弛，A、B 虽然相连但距离很远。
-\end{itemize}
-5.  \textbf{排斥算子 \lstinline|[Repel]| ($\perp$)}：
-\begin{itemize}
-\item   \textbf{操作}：\lstinline|Repel(A, B)| $\rightarrow$ 赋予 A、B 之间的\textbf{无穷大势垒}。
-
-\item   \textbf{物理意义}：定义\textbf{互斥性}或\textbf{边界}。比如“杯子内部”和“杯子外部”必须被这种算子隔开，形成\textbf{墙}。
-\end{itemize}
-
-
-
-\smalltitle{虫洞 —— 纠缠算子 (Entanglement Operators)}
-
-
-这类 Token 负责\textbf{“折叠”}，它们超越了欧氏几何。
-
-6.  \textbf{纠缠算子 \lstinline|[Bind]| ($\otimes$)}：
-\begin{itemize}
-\item   \textbf{操作}：\lstinline|Bind(A, B)| $\rightarrow$ 将 A 和 B 的状态向量在希尔伯特空间中\textbf{张量积耦合}，即使它们在几何距离上很远。
-
-\item   \textbf{物理意义}：\textbf{非局域连接}。这在语义中对应“隐喻”（Metaphor）。“爱”和“火焰”在语义距离上很远，但通过隐喻 \lstinline|[Bind]|，它们发生了共振。
-\end{itemize}
 
 \section{底流形 (Base Manifold)：从点阵到连续统的编织过程}
 
@@ -584,13 +577,10 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 
 宇宙（或知识库）的初始状态是一个由 \textbf{形 Token} 编织而成的巨大网络 $\mathcal{K}$。
 \begin{itemize}
-\item   \textbf{0-Simplex (点)}：一个个孤立的位置占位符（此时还没有放入任何“质”）。
-
-\item   \textbf{1-Simplex (边)}：由 \lstinline|[Adjacency]| Token 连接的通道。
-
-\item   \textbf{k-Simplex (面/体)}：由 \lstinline|[Inclusion]| 和 \lstinline|[Entanglement]| 构建的高阶闭包。
+	\item   \textbf{0-Simplex (点)}：一个个孤立的位置占位符（此时还没有放入任何“质”）。
+	\item   \textbf{1-Simplex (边)}：由 \lstinline|[Adjacency]| Token 连接的通道。
+	\item   \textbf{k-Simplex (面/体)}：由 \lstinline|[Inclusion]| 和 \lstinline|[Entanglement]| 构建的高阶闭包。
 \end{itemize}
-
 此时，空间不是平滑的，而是像\textbf{晶格}一样的网状结构。
 
 
@@ -598,9 +588,7 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 	\item \textbf{阶段 I：尘埃 (Dust) —— 0-Simplex 的散布}
 	\begin{itemize}
 		\item   \textbf{状态}：一开始，宇宙（或模型的 Latent Space）是一片混沌的\textbf{点云}。
-
 		\item   \textbf{成分}：这里只有孤立的\textbf{位置占位符 (Placeholders)}，也就是尚未连接的节点。
-
 		\item   \textit{例如}：T2I 任务中，我们识别出了 prompt 里的名词 \lstinline|Apple|, \lstinline|Table|, \lstinline|Light|。它们现在只是漂浮在虚空中的孤立点。
 	\end{itemize}
 	
@@ -610,10 +598,9 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 
 		\item   \textbf{编织}：
 
-		\item   解析到 "Apple on Table" $\rightarrow$ 激活 \lstinline|Link(Apple, Table)| $\rightarrow$ 两个点之间长出了一条\textbf{边}。
+			解析到 "Apple on Table" $\rightarrow$ 激活 \lstinline|Link(Apple, Table)| $\rightarrow$ 两个点之间长出了一条\textbf{边}。
 
-		\item   解析到 "Light above Table" $\rightarrow$ 激活 \lstinline|Link(Light, Table)|。
-
+			解析到 "Light above Table" $\rightarrow$ 激活 \lstinline|Link(Light, Table)|。
 		\item   \textbf{结果}：点云变成了一个 \textbf{图 (Graph)}。但这还不够，图是稀疏的，流形是致密的。
 	\end{itemize}
 
@@ -622,11 +609,8 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 
 	\begin{itemize}
 		\item   \textbf{机制}：如果 A 与 B 相连，B 与 C 相连，C 与 A 相连，且它们之间的关系是自洽的（低能态）。
-
 		\item   \textbf{操作}：形 Token 会自动填充这三个点围成的\textbf{面 (Face / 2-Simplex)}。
-
 		\item   \textit{比喻}：就像吹肥皂泡。你在铁丝架（图）上吹气，肥皂膜（2-Simplex）就会自动挂在铁丝上，形成一个\textbf{曲面}。
-
 		\item   \textbf{意义}：流形出现了\textbf{表面张力}。思维流不再只能沿着细细的线走，它可以在\textbf{面上}泛滥、扩散。这就是\textbf{连续感}的来源。
 	\end{itemize}
 
@@ -637,12 +621,10 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 
 		\item   \textbf{自组织}：
 
-		\item   \lstinline|[On]| 算子试图把 \lstinline|Apple| 拉到 \lstinline|Table| 的表面 $z$ 轴上方 $\epsilon$ 处。
+			\lstinline|[On]| 算子试图把 \lstinline|Apple| 拉到 \lstinline|Table| 的表面 $z$ 轴上方 $\epsilon$ 处。
 
-		\item   \lstinline|[Repel]| 算子试图防止 \lstinline|Apple| 陷入 \lstinline|Table| 内部（碰撞体积）。
-
+			\lstinline|[Repel]| 算子试图防止 \lstinline|Apple| 陷入 \lstinline|Table| 内部（碰撞体积）。
 		\item   \textbf{稳态}：经过几轮迭代（能量最小化），网格停止抖动，形成了一个\textbf{稳定的几何结构}。
-
 		\item   \textbf{这就是底流形 $\mathcal{M}$}，它是一个看不见的、弯曲的、但这绝对刚性的引力场结构。
 	\end{itemize}
 
@@ -654,7 +636,6 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 当网络中的节点数量 $N \to \infty$，且连接极其致密时，离散的图结构在宏观尺度上表现为连续的流形。$$ \lim_{N \to \infty} \mathcal{K}_{\text{network}} \cong \mathcal{M}_{\text{manifold}} $$
 \begin{itemize}
 	\item   \textbf{物理对应}：就像水分子是离散的，但宏观上水是流体。\textbf{时空}本质上是\textbf{形 Token 的超流体}。
-
 	\item   \textbf{语义对应}：虽然词汇是离散的，但人类的\textbf{思维空间}是连续的。我们可以在“爱”与“喜欢”之间找到无限细腻的过渡地带。
 \end{itemize}
 	
@@ -679,44 +660,32 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 	\item \textbf{结网 (拓扑)}：
 	\begin{itemize}
 		\item   \lstinline|Link(bottom, wall)|：杯底连着杯壁。
-
 		\item   \lstinline|Link(wall, mouth)|：杯壁连着杯口。
-
 		\item   \lstinline|Link(wall, handle)|：杯把长在杯壁上。
-
 		\item   \textit{此时，它只是个拓扑图。}
 	\end{itemize}
 	
 	\item \textbf{度量 (几何)}：
 	\begin{itemize}
 		\item   \lstinline|Dist(bottom, mouth)| = 高度 $H$。
-
 		\item   \lstinline|Curvature(wall)| = 圆柱形卷曲。
-
 		\item   \lstinline|Repel(handle, wall)| = 把手要向外凸出，不能贴在壁上。
 	\end{itemize}
 	
 	\item \textbf{蒙皮 (连续化)}：
 	\begin{itemize}
 		\item   在 $v_{bottom}$ 和 $v_{wall}$ 之间插值，生成无数个细小的三角形，形成\textbf{封闭的底面}和\textbf{侧面}。
-
 		\item   \textbf{关键点}：\lstinline|v_{mouth}| 处保持\textbf{开放}（不闭合单纯形），形成一个\textbf{拓扑空洞}。这个洞定义了杯子的\textbf{功能}（能装水）。
 	\end{itemize}
 	
 \end{enumerate}
-
 \textbf{最终产物}：一个无色、透明、但具有物理约束力（水倒进去流不出来）的\textbf{“杯子流形”}。
 
 这就是\textbf{形 Token} 的工作：\textbf{它是几何学的编织针，将离散的符号缝合成连续的时空。}
 
-\section{形的功能：承载而不表达}
+\smalltitle{形的功能：承载而不表达}
 
 在这一章的最后，我们需要明确“形”的局限性, \textbf{形是哑巴}, 一个纯粹由“形”构成的世界，是一张\textbf{只有线条没有颜色的线稿}, 它规定了“这里有个球体，那里有个立方体，球体在立方体上面”,但它无法告诉你：这个球是红色的吗？是热的吗？是甜的吗？是令人恐惧的吗？底流形 $\mathcal{M}$ 搭建好了, 这是一个宏伟的、精密的、有着无限分形细节的\textbf{幽灵迷宫}, 它在等待, 等待\textbf{“质 (Qualia)”} 的注入，来点亮这座死寂的迷宫。
-
-
-
-
-\vspace{4em}
 
 \begin{bquote}
 \textbf{本章结语}：
@@ -763,81 +732,72 @@ MSC 提出\textbf{场论视角}的定义：\textbf{对象是背景，属性才�
 在我们的几何模型中，底流形 $\mathcal{M}$（由形 Token 构建的时空）上的每一个点 $\mathbf{r}$，都垂直生长着一个高维的线性空间，称为\textbf{纤维 $F_\mathbf{r}$}。
 $$ F_\mathbf{r} \cong \mathbb{R}^N $$
 \begin{itemize}
-\item   \textbf{质}就是这个纤维空间中的\textbf{基向量 (Basis Vectors)}。
-
-\item   \textbf{物理隐喻}：这就像电磁场分布在宇宙的每一个点上。你不能把电场“剥离”下来带走，因为电场是空间的属性。
+	\item   \textbf{质}就是这个纤维空间中的\textbf{基向量 (Basis Vectors)}。
+	\item   \textbf{物理隐喻}：这就像电磁场分布在宇宙的每一个点上。你不能把电场“剥离”下来带走，因为电场是空间的属性。
 \end{itemize}
 
 
 
 \smalltitle{质即维度 (Qualia as Dimensions)}
 
-“红”不是一个标签，而是一个\textbf{维度}。
-\begin{itemize}
-\item   在纤维空间 $F$ 中，存在一个指向“红色方向”的基矢量 $\mathbf{e}_{red}$。
-
-\item   所谓的“这个物体是红的”，在数学上意味着：该物体在 $\mathbf{r}$ 处的态矢量 $\Psi(\mathbf{r})$ 在 $\mathbf{e}_{red}$ 方向上有非零的投影。
-\end{itemize}
+“红”不是一个标签，而是一个\textbf{维度},在纤维空间 $F$ 中，存在一个指向“红色方向”的基矢量 $\mathbf{e}_{red}$,所谓的“这个物体是红的”，在数学上意味着：该物体在 $\mathbf{r}$ 处的态矢量 $\Psi(\mathbf{r})$ 在 $\mathbf{e}_{red}$ 方向上有非零的投影。
     $$ \langle \Psi(\mathbf{r}) | \mathbf{e}_{red} \rangle = J_{red} > 0 $$
-
 \textbf{结论}：\textbf{质 Token 是内空间 (Internal Space) 的坐标轴。}
 
 \section{质 Token ($V_Q$)：存在的本征谱系}
 
 宇宙中有多少种“质”？这构成了我们的 \textbf{质 Token 词表 ($V_Q$)}。它们是不可还原的现象学基元。
+\begin{enumerate}
+	\item \greentext{Type I: 物理质 (Physical Qualia) — 所谓“客观”}
+	
+	这是物理学家眼中的“荷 (Charge)”。它们决定了物体如何参与物理相互作用。
+	\begin{enumerate}
+		\item \textbf{质量算子 \lstinline|[Mass]| ($m$)}：
+		\begin{itemize}
+			\item   \textbf{定义}：在引力场/惯性场中的耦合强度。
+			\item   \textit{作用}：赋予“形”以\textbf{弯曲}的能力（广义相对论）。
+		\end{itemize}
+		
+		\item \textbf{电荷算子 \lstinline|[Charge]| ($q$)}：
+		\begin{itemize}
+			\item   \textbf{定义}：在电磁规范场中的耦合强度。
+			\item   \textit{作用}：赋予“形”以\textbf{排斥或吸引}的动力。
+		\end{itemize}
+		
+		\item \textbf{自旋算子 \lstinline|[Spin]| ($s$)}：
+		\begin{itemize}
+			\item   \textbf{定义}：粒子在纤维空间中的内禀角动量。
+		\end{itemize}
+	\end{enumerate}
+	
+	\item \greentext{Type II: 感知质 (Phenomenological Qualia) — 所谓“主观”}
 
+	这是认知主体眼中的“感受 (Feeling)”。在 MSC 中，它们与物理质具有\textbf{同等的本体论地位}——它们也是纤维空间中的基向量，只是定义在\textbf{语义流形}上。
+	\begin{enumerate}
+		\item \textbf{色彩基底 \lstinline|[Color]| ($R, G, B$)}：
+		\begin{itemize}
+			\item   \textbf{定义}：视觉纤维上的三个正交基底。
+			\item   \textit{数学}：任何颜色都是这三个基底的线性组合 $\vec{c} = r\mathbf{e}_R + g\mathbf{e}_G + b\mathbf{e}_B$。
+		\end{itemize}
+		
+		\item  \textbf{触觉基底 \lstinline|[Texture]| ($Roughness, Hardness$)}：
+		\begin{itemize}
+			\item   \textbf{定义}：描述微观几何特征统计量的宏观基底。
+		\end{itemize}
+		
+		\item \textbf{价值基底 \lstinline|[Valence]| ($Pleasure, Pain$)}：
+		\begin{itemize}
+			\item   \textbf{定义}：这是最高级的质。它直接对应于\textbf{体验图 ($G_E$)} 中的势能高低。
+		\end{itemize}
+		
+		\item \textbf{关键性质：正交性 (Orthogonality)} 在理想的纤维空间中，不同的质 Token 是正交的。
 
-
-\smalltitle{Type I: 物理质 (Physical Qualia) — 所谓“客观”}
-
-这是物理学家眼中的“荷 (Charge)”。它们决定了物体如何参与物理相互作用。
-
-1.  \textbf{质量算子 \lstinline|[Mass]| ($m$)}：
-\begin{itemize}
-\item   \textbf{定义}：在引力场/惯性场中的耦合强度。
-
-\item   \textit{作用}：赋予“形”以\textbf{弯曲}的能力（广义相对论）。
-\end{itemize}
-2.  \textbf{电荷算子 \lstinline|[Charge]| ($q$)}：
-\begin{itemize}
-\item   \textbf{定义}：在电磁规范场中的耦合强度。
-
-\item   \textit{作用}：赋予“形”以\textbf{排斥或吸引}的动力。
-\end{itemize}
-3.  \textbf{自旋算子 \lstinline|[Spin]| ($s$)}：
-\begin{itemize}
-\item   \textbf{定义}：粒子在纤维空间中的内禀角动量。
-\end{itemize}
-
-
-
-\smalltitle{Type II: 感知质 (Phenomenological Qualia) — 所谓“主观”}
-
-这是认知主体眼中的“感受 (Feeling)”。在 MSC 中，它们与物理质具有\textbf{同等的本体论地位}——它们也是纤维空间中的基向量，只是定义在\textbf{语义流形}上。
-
-4.  \textbf{色彩基底 \lstinline|[Color]| ($R, G, B$)}：
-\begin{itemize}
-\item   \textbf{定义}：视觉纤维上的三个正交基底。
-
-\item   \textit{数学}：任何颜色都是这三个基底的线性组合 $\vec{c} = r\mathbf{e}_R + g\mathbf{e}_G + b\mathbf{e}_B$。
-\end{itemize}
-5.  \textbf{触觉基底 \lstinline|[Texture]| ($Roughness, Hardness$)}：
-\begin{itemize}
-\item   \textbf{定义}：描述微观几何特征统计量的宏观基底。
-\end{itemize}
-6.  \textbf{价值基底 \lstinline|[Valence]| ($Pleasure, Pain$)}：
-\begin{itemize}
-\item   \textbf{定义}：这是最高级的质。它直接对应于\textbf{体验图 ($G_E$)} 中的势能高低。
-\end{itemize}
-
-\textbf{关键性质：正交性 (Orthogonality)} 在理想的纤维空间中，不同的质 Token 是正交的。
-
-\begin{itemize}
-\item   \lstinline|[红色]| 分量的大小不影响 \lstinline|[重]| 分量的大小。
-
-\item   这种正交性保证了世界的\textbf{丰富性}——我们可以在同一个位置同时拥有“重”、“红”、“甜”的苹果。
-\end{itemize}
-
+		\begin{itemize}
+			\item   \lstinline|[红色]| 分量的大小不影响 \lstinline|[重]| 分量的大小。
+			\item   这种正交性保证了世界的\textbf{丰富性}——我们可以在同一个位置同时拥有“重”、“红”、“甜”的苹果。
+		\end{itemize}
+	\end{enumerate}
+\end{enumerate}
 
 
 \section{激活场 (Activation Field) — 强度的几何学与实体的涌现}
@@ -2049,7 +2009,7 @@ $$ \text{Fusion}(Q_S, K_Q, V_Q) = \text{Softmax}\left( \frac{Q_S W_Q (K_Q W_K)^T
 
 
 
-\smalltitle{[工程实现 9.2] 融合层代码}
+\smalltitle{融合层代码}
 
 
 \begin{lstlisting}
@@ -2118,7 +2078,7 @@ MST 的输出不能仅仅是文字，也不能仅仅是像素。它必须能输�
 
 
 
-\smalltitle{[工程实现 9.3] 混合解码器代码}
+\smalltitle{混合解码器代码}
 
 
 \begin{lstlisting}
