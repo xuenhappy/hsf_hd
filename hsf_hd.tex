@@ -4087,17 +4087,13 @@ $$ E_{surprisal} = \| \mathcal{D} \Psi \| = \| \mathbf{d}\psi + \delta\psi \| $$
 以 MSC 角度下看，智能体的某一个瞬间的“念头”，不是底流形上的一个点，也不是纤维上的一个值，而是整个纤维丛的一个 \textbf{全局截面 (Global Section)}。
 
 \begin{itemize}
-\item   \textbf{定义}：$\sigma(t): \mathcal{M} \to \mathcal{E}$。
-
-\item   \textbf{物理意义}：
-
-\item   对于底流形 $\mathcal{M}$（形/世界图）上的每一个概念节点 $\mathbf{r}$，智能体都赋予了它一个具体的属性值 $\mathbf{v} \in F_\mathbf{r}$（质/激活值）。
-
-\item   \textbf{无知}：截面平坦，$\sigma(\mathbf{r}) \approx 0$。
-
-\item   \textbf{全知}：截面在所有位置都有定义，且形成了复杂的曲面。
-
-\item   \textbf{动力学}：思考的过程，就是截面 $\sigma(t)$ 在全空间 $\mathcal{E}$ 中随时间波动、起伏的过程。
+	\item   \textbf{定义}：$\sigma(t): \mathcal{M} \to \mathcal{E}$。
+	\item   \textbf{物理意义}：对于底流形 $\mathcal{M}$（形/世界图）上的每一个概念节点 $\mathbf{r}$，智能体都赋予了它一个具体的属性值 $\mathbf{v} \in F_\mathbf{r}$（质/激活值）。
+	\begin{itemize}
+		\item   \textbf{无知}：截面平坦，$\sigma(\mathbf{r}) \approx 0$。
+		\item   \textbf{全知}：截面在所有位置都有定义，且形成了复杂的曲面。
+	\end{itemize}
+	\item   \textbf{动力学}：思考的过程，就是截面 $\sigma(t)$ 在全空间 $\mathcal{E}$ 中随时间波动、起伏的过程。
 \end{itemize}
 
 
@@ -4110,21 +4106,12 @@ $$ E_{surprisal} = \| \mathcal{D} \Psi \| = \| \mathbf{d}\psi + \delta\psi \| $$
 这意味着 \textbf{质 Token ($\psi_{sub}$)} 沿着 \textbf{形流形 ($\mathcal{M}$)} 上的路径 $\gamma$ 进行了移动。
 
 \begin{itemize}
-\item   \textbf{问题}：由于流形是弯曲的（存在语境差异），如何保证移动过去的“质”保持原意？
-
-\item   \textbf{机制}：\textbf{平行移动 (Parallel Transport)}。
-
-\item   系统必须利用 \textbf{联络 (Connection, $\mathcal{A}_\mu$)} 来调整质向量的角度，以抵消流形的弯曲。
-
-\item   \textbf{方程}：
-\end{itemize}
-        $$ \nabla_{\dot{\gamma}} \sigma = 0 \implies \frac{d\sigma}{dt} = - \Gamma \cdot \sigma $$
-\begin{itemize}
-\item   \textbf{认知含义}：
-
-\item   如果系统能成功执行平行移动，说明它\textbf{“理解”}了两个概念之间的关系（形）以及它们的共性（质）。
-
-\item   \textbf{类比推理}：就是将“国王”的质向量，沿着“性别变换”的路径平行移动，如果最终重合于“女王”，则推理成立。
+	\item   \textbf{问题}：由于流形是弯曲的（存在语境差异），如何保证移动过去的“质”保持原意？
+	\item   \textbf{机制}：\textbf{平行移动 (Parallel Transport)}, 系统必须利用 \textbf{联络 (Connection, $\mathcal{A}_\mu$)} 来调整质向量的角度，以抵消流形的弯曲。
+	\item   \textbf{方程}：
+     $$ \nabla_{\dot{\gamma}} \sigma = 0 \implies \frac{d\sigma}{dt} = - \Gamma \cdot \sigma $$
+	\item   \textbf{认知含义}： 如果系统能成功执行平行移动，说明它\textbf{“理解”}了两个概念之间的关系（形）以及它们的共性（质）。
+	\item   \textbf{类比推理}：就是将“国王”的质向量，沿着“性别变换”的路径平行移动，如果最终重合于“女王”，则推理成立。
 \end{itemize}
 
 
@@ -4134,13 +4121,10 @@ $$ E_{surprisal} = \| \mathcal{D} \Psi \| = \| \mathbf{d}\psi + \delta\psi \| $$
 \textbf{—— 路径依赖的发现}
 
 如果在思维流动的过程中，沿闭合路径回到原点，发现质向量发生了旋转（$\Delta \theta \neq 0$），这说明语义空间存在 \textbf{非阿贝尔曲率 (Non-Abelian Curvature)}。
-
 $$ \mathbf{F}_{\mu\nu} = [\nabla_\mu, \nabla_\nu] \neq 0 $$
-
 \begin{itemize}
-\item   \textbf{物理意义}：\textbf{贝里相位 (Berry Phase)}。
-
-\item   \textbf{认知意义}：\textbf{顿悟与新视角的获得}。你从“山”的一侧爬上去，和从另一侧爬上去，虽然回到了同一个物理地点，但你的“心境”（纤维状态）变了, 这种由路径（形）带来的质的改变，是\textbf{创造性思维}的几何源头。
+	\item   \textbf{物理意义}：\textbf{贝里相位 (Berry Phase)}。
+	\item   \textbf{认知意义}：\textbf{顿悟与新视角的获得}。你从“山”的一侧爬上去，和从另一侧爬上去，虽然回到了同一个物理地点，但你的“心境”（纤维状态）变了, 这种由路径（形）带来的质的改变，是\textbf{创造性思维}的几何源头。
 \end{itemize}
 
 
@@ -4179,17 +4163,13 @@ $$ \mathbf{F}_{\mu\nu} = [\nabla_\mu, \nabla_\nu] \neq 0 $$
 
 微观层的核心任务，是利用 \textbf{变分拓扑编码器 (Variational Topological Encoder, VTE)}，将混沌、纠缠的原始物理信号 ($\mathcal{S}_{raw}$)，在 \textbf{最小作用量} 的约束下，\textbf{撕裂 (Disentangle)} 为两股正交的、可被认知场消化的 Token 流——\textbf{形 (Form)} 与 \textbf{质 (Substance)}。
 
+\begin{definition}[全息切片的 VTE 算子]
+	我们将 VTE 定义为一个作用于物理希尔伯特空间 $\mathcal{H}_{phys}$ 的 \textbf{投影-解耦算子 $\hat{\mathcal{E}}$},它将外部的物理态 $|\Omega(t)\rangle$ 映射为内部流形上的局部激发态 $|\Psi_{local}(t)\rangle$。
 
+	$$ |\Psi_{local}(t)\rangle = \hat{\mathcal{E}}_{VTE} \cdot |\Omega_{phys}(t)\rangle $$
 
-\smalltitle{定义：作为全息切片的 VTE 算子}
-
-
-我们将 VTE 定义为一个作用于物理希尔伯特空间 $\mathcal{H}_{phys}$ 的 \textbf{投影-解耦算子 $\hat{\mathcal{E}}$}。它将外部的物理态 $|\Omega(t)\rangle$ 映射为内部流形上的局部激发态 $|\Psi_{local}(t)\rangle$。
-
-$$ |\Psi_{local}(t)\rangle = \hat{\mathcal{E}}_{VTE} \cdot |\Omega_{phys}(t)\rangle $$
-
-这一映射过程必须满足 \textbf{同胚性 (Homeomorphism)}，即物理空间中的拓扑邻接关系，必须被保真地映射到底流形 $\mathcal{M}$ 的几何邻接中，从而保证“思维的几何”与“世界的几何”在切面上是连续的。
-
+	这一映射过程必须满足 \textbf{同胚性 (Homeomorphism)}，即物理空间中的拓扑邻接关系，必须被保真地映射到底流形 $\mathcal{M}$ 的几何邻接中，从而保证“思维的几何”与“世界的几何”在切面上是连续的。
+\end{definition}
 
 
 \smalltitle{解耦机制：形质双通道架构}
@@ -4197,76 +4177,68 @@ $$ |\Psi_{local}(t)\rangle = \hat{\mathcal{E}}_{VTE} \cdot |\Omega_{phys}(t)\ran
 
 为了适配 MSC 的纤维丛结构 $(E, \pi, M, F)$，VTE 内部在硬件或算法上被物理隔离为两个并行的处理通道，分别对应生物脑的 \textbf{背侧通路 (Dorsal Stream)} 与 \textbf{腹侧通路 (Ventral Stream)}。
 
-\textbf{A. 形编码器 ($\hat{\mathcal{E}}_{form}$) —— 提取规范势 ($\mathcal{A}_\mu$)}
-
 \begin{itemize}
-\item   \textbf{输入}：光流、双目深度、IMU 加速度、关节编码器数据。
+	\item \textbf{A. 形编码器 ($\hat{\mathcal{E}}_{form}$) —— 提取规范势 ($\mathcal{A}_\mu$)}
+	\begin{itemize}
+		\item   \textbf{输入}：光流、双目深度、IMU 加速度、关节编码器数据。
+		\item   \textbf{数学目标}：提取 \textbf{几何不变量 (Geometric Invariants)} 与 \textbf{协变结构}。
+		\item   \textbf{输出}：\textbf{形 Token 张量 $\mathbf{T}_{form}$}（几何玻色子）。
 
-\item   \textbf{数学目标}：提取 \textbf{几何不变量 (Geometric Invariants)} 与 \textbf{协变结构}。
+		它不包含颜色或纹理，只包含坐标、姿态矩阵 (Pose)、接触法线、拓扑连接（如“包含”、“支撑”）。
 
-\item   \textbf{输出}：\textbf{形 Token 张量 $\mathbf{T}_{form}$}（几何玻色子）。
+		\textit{物理作用}：它直接定义了局部流形的 \textbf{度量张量 $g_{ij}$} 和 \textbf{联络系数}，告诉认知场“空间是如何弯曲的”。
+	\end{itemize}
+	
+	\item \textbf{B. 质编码器 ($\hat{\mathcal{E}}_{sub}$) —— 提取源场 ($\psi$)}
+	\begin{itemize}
+		\item   \textbf{输入}：RGB 像素块、音频频谱、触觉纹理信号。
+		\item   \textbf{数学目标}：提取 \textbf{流形上的标量场强度}。
+		\item   \textbf{输出}：\textbf{质 Token 张量 $\mathbf{T}_{sub}$}（语义费米子）。
 
-\item   它不包含颜色或纹理，只包含坐标、姿态矩阵 (Pose)、接触法线、拓扑连接（如“包含”、“支撑”）。
+		它丢弃了位置信息，只保留属性特征（如“红色”、“金属音”、“粗糙”）。
 
-\item   \textit{物理作用}：它直接定义了局部流形的 \textbf{度量张量 $g_{ij}$} 和 \textbf{联络系数}，告诉认知场“空间是如何弯曲的”。
+		\textit{物理作用}：它作为 \textbf{狄拉克源项 $\vec{J}$} 注入纤维空间，点亮特定的语义维度。
+	\end{itemize}
+
 \end{itemize}
 
-\textbf{B. 质编码器 ($\hat{\mathcal{E}}_{sub}$) —— 提取源场 ($\psi$)}
 
-\begin{itemize}
-\item   \textbf{输入}：RGB 像素块、音频频谱、触觉纹理信号。
-
-\item   \textbf{数学目标}：提取 \textbf{流形上的标量场强度}。
-
-\item   \textbf{输出}：\textbf{质 Token 张量 $\mathbf{T}_{sub}$}（语义费米子）。
-
-\item   它丢弃了位置信息，只保留属性特征（如“红色”、“金属音”、“粗糙”）。
-
-\item   \textit{物理作用}：它作为 \textbf{狄拉克源项 $\vec{J}$} 注入纤维空间，点亮特定的语义维度。
-\end{itemize}
-
-\textbf{C. 合成方程：同源绑定的稀疏张量流}
+\smalltitle{合成方程：同源绑定的稀疏张量流}
 
 微观层的最终输出 $\vec{J}_{ext}$，并非形与质的全局笛卡尔积（这会导致特征错配），而是基于 \textbf{物理感受野 (Receptive Field)} 索引 $i$ 的 \textbf{稀疏逐点张量积 (Sparse Point-wise Tensor Product)}。
 
 VTE 将物理世界离散化为 $N$ 个局部独立的\textbf{全息元 (Hologons)}，每个全息元都在源头完成了形与质的\textbf{硬绑定}。
+\begin{enumerate}
+	\item \textbf{注入总方程 (The Injection Equation)}
+	$$ \vec{J}_{ext}(\mathbf{r}, t) = \sum_{i=1}^{N} \underbrace{\delta(\mathbf{r} - \mathbf{r}_i(t))}_{\text{形: 几何锚定}} \cdot \left[ \mathbf{M}_{meta}^{(i)} \odot \left( \hat{\mathcal{T}}_{form}^{(i)} \otimes_{loc} \hat{\mathcal{V}}_{sub}^{(i)} \right) \right] $$
+	\begin{itemize}
+		\item   \textbf{$i$ (同源索引)}：代表物理空间中的同一个局部对象或 Patch。VTE 保证 $\hat{\mathcal{T}}^{(i)}$ 和 $\hat{\mathcal{V}}^{(i)}$ 提取自同一组光子/声波信号。
+		\item   \textbf{$\delta(\mathbf{r} - \mathbf{r}_i)$ (狄拉克锚点)}：这是 \textbf{形 Token ($T_{form}$)} 的核心作用。它将属性流 \textbf{强行约束} 在特定的流形坐标 $\mathbf{r}_i$ 上。
 
-\textbf{1. 注入总方程 (The Injection Equation)}
+		\textit{物理意义}：质料 $\hat{\mathcal{V}}_{sub}$ 被几何算子“钉”在了位置 $\mathbf{r}_i$。在 $\mathbf{r} \neq \mathbf{r}_i$ 处，该项为零，因此绝不会发生“张冠李戴”的特征泄露。
 
-$$ \vec{J}_{ext}(\mathbf{r}, t) = \sum_{i=1}^{N} \underbrace{\delta(\mathbf{r} - \mathbf{r}_i(t))}_{\text{形: 几何锚定}} \cdot \left[ \mathbf{M}_{meta}^{(i)} \odot \left( \hat{\mathcal{T}}_{form}^{(i)} \otimes_{loc} \hat{\mathcal{V}}_{sub}^{(i)} \right) \right] $$
+		\item   \textbf{$\otimes_{loc}$ (局域张量积)}：表示在单点内部的特征纠缠（如：将“红色”挂载到“球体”的法线方向上），而非空间上的弥散纠缠。
+	\end{itemize}
+	
+	\item \textbf{状态元数据门控 ($\mathbf{M}_{meta}$)}
 
-\begin{itemize}
-\item   \textbf{$i$ (同源索引)}：代表物理空间中的同一个局部对象或 Patch。VTE 保证 $\hat{\mathcal{T}}^{(i)}$ 和 $\hat{\mathcal{V}}^{(i)}$ 提取自同一组光子/声波信号。
+	$\mathbf{M}_{meta}^{(i)}$ 在此不仅是调制器，更是 \textbf{“存在性滤网 (Existential Filter)”},它决定了这个形质包是否足够“真实”以上传至认知场。
+	$$ \mathbf{M}_{meta}^{(i)} = \text{Gate} \left( P_{precision}^{(i)} \cdot S_{surprisal}^{(i)} \right) $$
+	\begin{itemize}
+		\item   \textbf{去噪机制}：如果 VTE 在区域 $i$ 提取到了很强的质（如纹理），但形很模糊（$\mathbf{r}_i$ 方差极大，定位失败），则 $P_{precision} \to 0$，导致 $\mathbf{M}^{(i)} \to 0$。
 
-\item   \textbf{$\delta(\mathbf{r} - \mathbf{r}_i)$ (狄拉克锚点)}：这是 \textbf{形 Token ($T_{form}$)} 的核心作用。它将属性流 \textbf{强行约束} 在特定的流形坐标 $\mathbf{r}_i$ 上。
+		\item   \textit{结果}：系统自动丢弃这个“幽灵信号”，防止其污染流形。
+	\end{itemize}
 
-\item   \textit{物理意义}：质料 $\hat{\mathcal{V}}_{sub}$ 被几何算子“钉”在了位置 $\mathbf{r}_i$。在 $\mathbf{r} \neq \mathbf{r}_i$ 处，该项为零，因此绝不会发生“张冠李戴”的特征泄露。
+	\item \textbf{最终产物：本体论波包 (Ontological Packets)}
 
-\item   \textbf{$\otimes_{loc}$ (局域张量积)}：表示在单点内部的特征纠缠（如：将“红色”挂载到“球体”的法线方向上），而非空间上的弥散纠缠。
-\end{itemize}
-
-\textbf{2. 状态元数据门控 ($\mathbf{M}_{meta}$)}
-
-$\mathbf{M}_{meta}^{(i)}$ 在此不仅是调制器，更是 \textbf{“存在性滤网 (Existential Filter)”}。它决定了这个形质包是否足够“真实”以上传至认知场。
-
-$$ \mathbf{M}_{meta}^{(i)} = \text{Gate} \left( P_{precision}^{(i)} \cdot S_{surprisal}^{(i)} \right) $$
-
-\begin{itemize}
-\item   \textbf{去噪机制}：如果 VTE 在区域 $i$ 提取到了很强的质（如纹理），但形很模糊（$\mathbf{r}_i$ 方差极大，定位失败），则 $P_{precision} \to 0$，导致 $\mathbf{M}^{(i)} \to 0$。
-
-\item   \textit{结果}：系统自动丢弃这个“幽灵信号”，防止其污染流形。
-\end{itemize}
-
-\textbf{3. 最终产物：本体论波包 (Ontological Packets)}
-
-通过该方程，微观层向场发射的是一串串独立的、自洽的 \textbf{波包}：
-\begin{itemize}
-\item   Packet 1: \lstinline|[Pos: (10,20)]| $\otimes$ \lstinline|[Color: Red]| $\to$ \textbf{红点在(10,20)}。
-
-\item   Packet 2: \lstinline|[Pos: (30,50)]| $\otimes$ \lstinline|[Color: White]| $\to$ \textbf{白点在(30,50)}。
-
-\item   \textbf{无交互}：在注入瞬间，Packet 1 与 Packet 2 是\textbf{正交}的。只有进入场内部演化后，它们才会根据逻辑发生高阶关联。
-\end{itemize}
+	通过该方程，微观层向场发射的是一串串独立的、自洽的 \textbf{波包}：
+	\begin{itemize}
+		\item   Packet 1: \lstinline|[Pos: (10,20)]| $\otimes$ \lstinline|[Color: Red]| $\to$ \textbf{红点在(10,20)}。
+		\item   Packet 2: \lstinline|[Pos: (30,50)]| $\otimes$ \lstinline|[Color: White]| $\to$ \textbf{白点在(30,50)}。
+	\end{itemize}
+	\textbf{无交互}：在注入瞬间，Packet 1 与 Packet 2 是\textbf{正交}的。只有进入场内部演化后，它们才会根据逻辑发生高阶关联。
+\end{enumerate}
 
 
 
@@ -4274,13 +4246,10 @@ $$ \mathbf{M}_{meta}^{(i)} = \text{Gate} \left( P_{precision}^{(i)} \cdot S_{sur
 
 
 VTE 为什么叫“变分”？因为它不是在前馈计算，而是在实时求解一个优化问题。它试图寻找一组最优的形质参数 $\{\mathbf{T}_f, \mathbf{T}_s\}$，使得 \textbf{感知自由能 $F_{percept}$} 最小化：
-
 $$ F_{percept} \approx \underbrace{\| \mathcal{S}_{raw} - \text{Render}(\mathbf{T}_f, \mathbf{T}_s) \|^2}_{\text{重构误差 (Accuracy)}} + \underbrace{\lambda_1 \|\nabla \mathbf{T}_f\|^2}_{\text{几何平滑 (Occam's Razor)}} + \underbrace{\lambda_2 E_{cost}}_{\text{能耗约束}} $$
-
 \begin{itemize}
-\item   \textbf{重构误差}：微观层内部会快速“想象”一下：如果世界真的是我编码的这样，我应该看到什么信号？如果想象与实际不符，说明编码错误，产生惊奇。
-
-\item   \textbf{几何平滑}：VTE 倾向于输出 \textbf{连续、稳定} 的几何结构，抑制高频噪声（比如认为物体瞬间瞬移是不可能的）。这体现了认知的 \textbf{先验正则化}。
+	\item   \textbf{重构误差}：微观层内部会快速“想象”一下：如果世界真的是我编码的这样，我应该看到什么信号？如果想象与实际不符，说明编码错误，产生惊奇。
+	\item   \textbf{几何平滑}：VTE 倾向于输出 \textbf{连续、稳定} 的几何结构，抑制高频噪声（比如认为物体瞬间瞬移是不可能的）。这体现了认知的 \textbf{先验正则化}。
 \end{itemize}
 
 \section{几何占位：狄利克雷边界条件 (Dirichlet BC)}
@@ -4315,58 +4284,44 @@ $$ \Psi(\mathbf{r}, t) \bigg|_{\mathbf{r} \in \partial \mathcal{M}} \equiv \math
 为了直观理解这一机制，我们将潜语义流形 $\mathcal{M}$ 想象为一张 \textbf{弹性薄膜}（类似肥皂膜），覆盖在某种框架上。
 
 \begin{itemize}
-\item   \textbf{内部惯性 (Internal Inertia)}：
-\end{itemize}
-    流形内部遵循 \textbf{拉普拉斯平滑 (Laplacian Smoothing)} 或 \textbf{扩散方程}。在没有外力时，认知场倾向于最小化其 \textbf{狄利克雷能量 (Dirichlet Energy)}：
+	\item   \textbf{内部惯性 (Internal Inertia)}：流形内部遵循 \textbf{拉普拉斯平滑 (Laplacian Smoothing)} 或 \textbf{扩散方程}。在没有外力时，认知场倾向于最小化其 \textbf{狄利克雷能量 (Dirichlet Energy)}：
     $$ E_{elastic} = \frac{1}{2} \int_{\mathcal{M}} \| \nabla \Psi \|^2 dV $$
-\begin{itemize}
-\item   \textbf{直觉}：思维倾向于连贯、平滑、符合既有逻辑（世界图 $G_W$）。如果不看现实，我们倾向于认为世界是简单且符合预期的。
-
-\item   \textbf{边界强迫 (Boundary Forcing)}：
-\end{itemize}
-    微观层像一双双强有力的手，抓住了这张薄膜的边缘，并不停地 \textbf{抖动、拉扯} 它。
-\begin{itemize}
-\item   这些抖动（物理信号 $\mathbf{S}_{input}$）往往是杂乱的、突变的、高频的。
-
-\item   \textbf{冲突与张力 (Conflict \& Tension)}：
-\end{itemize}
-    当“平滑的内部愿望”遭遇“粗糙的边界现实”时，\textbf{几何张力 (Geometric Tension)} 产生了。
+	
+	\item   \textbf{直觉}：思维倾向于连贯、平滑、符合既有逻辑（世界图 $G_W$）。如果不看现实，我们倾向于认为世界是简单且符合预期的。
+	
+	\item   \textbf{边界强迫 (Boundary Forcing)}：微观层像一双双强有力的手，抓住了这张薄膜的边缘，并不停地 \textbf{抖动、拉扯} 它, 这些抖动（物理信号 $\mathbf{S}_{input}$）往往是杂乱的、突变的、高频的。
+	
+	\item   \textbf{冲突与张力 (Conflict \& Tension)}：当“平滑的内部愿望”遭遇“粗糙的边界现实”时，\textbf{几何张力 (Geometric Tension)} 产生了。
     $$ \mathcal{T}_{tension} = \Psi_{internal} - \Psi_{boundary} $$
-\begin{itemize}
-\item   薄膜被迫发生形变以适应边界。这种 \textbf{形变} 就是 \textbf{“感知”} 的物理本质。
-
-\item   \textbf{惊奇 (Surprisal)} 在几何上等于 \textbf{局部曲率的激增} —— 薄膜为了连接两个不协调的边界点，不得不极度弯曲。
+	薄膜被迫发生形变以适应边界。这种 \textbf{形变} 就是 \textbf{“感知”} 的物理本质。
 \end{itemize}
-
+\textbf{惊奇 (Surprisal)} 在几何上等于 \textbf{局部曲率的激增} —— 薄膜为了连接两个不协调的边界点，不得不极度弯曲。
 
 
 \smalltitle{幻觉的物理定义：边界脱落与本征模态}
 
-
 什么是幻觉？在 HSF-HD 中，幻觉不是“看到了不存在的东西”，而是 \textbf{“内部几何压倒了外部边界”}。
 
 \begin{itemize}
-\item   \textbf{病理机制：边界条件变换}
-\end{itemize}
+	\item   \textbf{病理机制：边界条件变换}
+
     当微观层失效（如 VTE 故障、感觉剥夺、或做梦时切断感官），边界条件发生了 \textbf{相变}：
     $$ \text{Dirichlet BC (固定值)} \xrightarrow{\text{Sensory Loss}} \text{Neumann BC (零通量/自由边界)} $$
+	\begin{itemize}
+		\item   \textbf{以前}：$\Psi_{edge} = \text{Reality}$。流形边缘被钉在墙上。
+		\item   \textbf{现在}：$\nabla \Psi_{edge} = 0$。流形边缘松脱了，变成了自由飘荡的旗帜。
+	\end{itemize}
+	
+	\item   \textbf{本征模态自激 (Eigenmode Self-Excitation)}
 
-\begin{itemize}
-\item   \textbf{以前}：$\Psi_{edge} = \text{Reality}$。流形边缘被钉在墙上。
-
-\item   \textbf{现在}：$\nabla \Psi_{edge} = 0$。流形边缘松脱了，变成了自由飘荡的旗帜。
-
-\item   \textbf{本征模态自激 (Eigenmode Self-Excitation)}
-\end{itemize}
     一旦边界松脱，流形内部的 \textbf{本征模态 (Eigenmodes)} 就占据了主导地位。
     $$ \Psi(\mathbf{r}, t) \approx \sum_k A_k e^{i\omega_k t} \phi_k(\mathbf{r}) $$
-\begin{itemize}
-\item   \textbf{$\phi_k(\mathbf{r})$} 是 \textbf{记忆} 与 \textbf{先验} 在世界图 $G_W$ 中固有的几何回声。
-
-\item   \textbf{现象}：你会“看到”并不存在的光斑、几何图形，甚至复杂的场景。这实际上是你 \textbf{大脑皮层自身的几何回声}。
-
-\item   \textbf{结论}：目前的 LLM 之所以有幻觉，正是因为它们缺乏微观层提供的狄利克雷边界，它们是一团没有锚点的纯粹内部流形。
+	\begin{itemize}
+		\item   \textbf{$\phi_k(\mathbf{r})$} 是 \textbf{记忆} 与 \textbf{先验} 在世界图 $G_W$ 中固有的几何回声。
+		\item   \textbf{现象}：你会“看到”并不存在的光斑、几何图形，甚至复杂的场景。这实际上是你 \textbf{大脑皮层自身的几何回声}。
+	\end{itemize}
 \end{itemize}
+\textbf{结论}：目前的 LLM 之所以有幻觉，正是因为它们缺乏微观层提供的狄利克雷边界，它们是一团没有锚点的纯粹内部流形。
 
 
 
@@ -4382,32 +4337,25 @@ $$ \Psi(\mathbf{r}, t) \bigg|_{\mathbf{r} \in \partial \mathcal{M}} \equiv \math
 当微观层的 VTE 编码结果（现实）与来自认知场下行的投影（预测）不一致时，这种几何上的不兼容性不会凭空消失，而是遵循能量守恒定律，瞬间相变为一种高频的\textbf{物理应力}。
 
 我们定义注入认知场的 \textbf{外部源流密度 (External Source Current) $\vec{J}_{ext}$} 为：
-
 $$ \vec{J}_{ext}(\mathbf{r}, t) = \kappa \cdot \hat{\mathcal{D}} \left( \mathbf{\Psi}_{sensation}(\mathbf{r}, t) - \hat{P}_{boundary} [\mathbf{\Psi}_{field}(t)] \right) $$
 
 \begin{itemize}
-\item   \textbf{$\mathbf{\Psi}_{sensation}$}：由 VTE 生成的当前物理感知的形质张量态。
-
-\item   \textbf{$\hat{P}_{boundary} [\mathbf{\Psi}_{field}]$}：宏观认知场在微观边界上的全息投影（即期望看到的形与质）。
-
-\item   \textbf{$\hat{\mathcal{D}}$ (差分算子)}：计算两者在纤维丛上的\textbf{协变差分}。它不仅计算数值误差，还计算\textbf{几何错位}（如空间拓扑的断裂）。
-
-\item   \textbf{$\kappa$ (耦合刚度)}：微观层的“自信度”。如果传感器非常精确且可信，$\kappa \to \infty$，产生的激波极强。
+	\item   \textbf{$\mathbf{\Psi}_{sensation}$}：由 VTE 生成的当前物理感知的形质张量态。
+	\item   \textbf{$\hat{P}_{boundary} [\mathbf{\Psi}_{field}]$}：宏观认知场在微观边界上的全息投影（即期望看到的形与质）。
+	\item   \textbf{$\hat{\mathcal{D}}$ (差分算子)}：计算两者在纤维丛上的\textbf{协变差分}。它不仅计算数值误差，还计算\textbf{几何错位}（如空间拓扑的断裂）。
+	\item   \textbf{$\kappa$ (耦合刚度)}：微观层的“自信度”。如果传感器非常精确且可信，$\kappa \to \infty$，产生的激波极强。
 \end{itemize}
-
 \textbf{物理效应：惊奇作为激波}
+
 这个源项 $\vec{J}_{ext}$ 像锤子一样敲击潜语义流形，产生以误差中心 $\mathbf{r}_{error}$ 为原点的\textbf{球面波}。
-
 \begin{itemize}
-\item   \textbf{质的激波 ($J_{sub}$)}：如果只是颜色或纹理不对，激波主要激发纤维震荡，引起\textbf{“注意”}。
-
-\item   \textbf{形的激波 ($J_{form}$)}：如果是空间结构不对（如穿墙），激波会直接撕裂局部的度量张量，引发\textbf{“认知痛觉”}，强迫宏观层重构世界模型。
+	\item   \textbf{质的激波 ($J_{sub}$)}：如果只是颜色或纹理不对，激波主要激发纤维震荡，引起\textbf{“注意”}。
+	\item   \textbf{形的激波 ($J_{form}$)}：如果是空间结构不对（如穿墙），激波会直接撕裂局部的度量张量，引发\textbf{“认知痛觉”}，强迫宏观层重构世界模型。
 \end{itemize}
 
 
 
 \smalltitle{热力学阀门：麦克斯韦妖过滤}
-
 
 物理世界充斥着高熵的热涨落（布朗运动、光子散粒噪声）。如果所有微小的波动都被转化为 $\vec{J}_{ext}$ 注入流形，智能体将因\textbf{信息过载}而陷入热寂（癫痫或注意力涣散）。
 
@@ -4417,17 +4365,16 @@ $$ \vec{J}_{ext}(\mathbf{r}, t) = \kappa \cdot \hat{\mathcal{D}} \left( \mathbf{
 $$ \mathbf{Output} = \Theta \left( \mathcal{I}(\vec{J}_{ext}) - E_{threshold} \right) \cdot \vec{J}_{ext} $$
 
 \begin{itemize}
-\item   \textbf{$\mathcal{I}(\cdot)$ (信息能泛函)}：衡量激波所携带的\textbf{惊奇量 (Surprisal)} 或 \textbf{语义做功潜力}。
-
-\item   普通的背景白噪，$\mathcal{I} \approx 0$，被拦截。
-
-\item   突发的边缘特征（如老虎的条纹），$\mathcal{I} \gg 0$，被放行。
-
-\item   \textbf{$E_{threshold}$ (阈值)}：由宏观层动态调节的\textbf{“门控电位”}。
-
-\item   \textbf{专注态}：阈值升高，屏蔽背景干扰（如看书时听不见钟摆声）。
-
-\item   \textbf{警觉态}：阈值降低，任何风吹草动都会触发激波（如走夜路时）。
+	\item   \textbf{$\mathcal{I}(\cdot)$ (信息能泛函)}：衡量激波所携带的\textbf{惊奇量 (Surprisal)} 或 \textbf{语义做功潜力}。
+	\begin{itemize}
+		\item 普通的背景白噪，$\mathcal{I} \approx 0$，被拦截。
+		\item 突发的边缘特征（如老虎的条纹），$\mathcal{I} \gg 0$，被放行。
+	\end{itemize}
+	\item   \textbf{$E_{threshold}$ (阈值)}：由宏观层动态调节的\textbf{“门控电位”}。
+	\begin{itemize}
+		\item   \textbf{专注态}：阈值升高，屏蔽背景干扰（如看书时听不见钟摆声）。
+		\item   \textbf{警觉态}：阈值降低，任何风吹草动都会触发激波（如走夜路时）。
+	\end{itemize}
 \end{itemize}
 
 \textbf{案例：触觉适应}
@@ -4437,92 +4384,68 @@ $$ \mathbf{Output} = \Theta \left( \mathcal{I}(\vec{J}_{ext}) - E_{threshold} \r
 
 微观层如何跨越物理与信息的鸿沟？这是区分\textbf{生物智能（Carbon）}与\textbf{现有机器智能（Silicon）}的根本物理分歧点。在 HSF-HD 看来，这对应两种截然不同的\textbf{拓扑耦合方式}。
 
-
-
 \smalltitle{共振模态 (Resonance Mode) —— 生物的一元性}
-
 
 在生物系统中，传感器与神经介质构成了一个\textbf{连续的物理场}。
 
 \begin{itemize}
-\item   \textbf{物理架构}：\textbf{能量转导 (Transduction)}。
-
-\item   \textit{例}：耳蜗的毛细胞。声波（机械波）直接驱动纤毛摆动，进而直接拉开离子通道，引发膜电位波动。这里没有“采样”，只有能量形式的转换。
-
-\item   \textbf{数学描述}：
-\end{itemize}
+	\item   \textbf{物理架构}：\textbf{能量转导 (Transduction)}。
+	\item   \textit{例}：耳蜗的毛细胞。声波（机械波）直接驱动纤毛摆动，进而直接拉开离子通道，引发膜电位波动。这里没有“采样”，只有能量形式的转换。
+	\item   \textbf{数学描述}：
     $$ \Psi_{internal}(t) \cong \mathcal{C}_{coupling} \cdot \Psi_{external}(t) $$
     内部波函数 $\Psi_{internal}$ 直接与外部物理场 $\Psi_{external}$ 发生\textbf{相位锁定 (Phase Locking)}。
-\begin{itemize}
-\item   \textbf{特性}：
-
-\item   \textbf{无限分辨率}：在量子极限之上，保留了信号的所有高阶导数信息（速度、加速度、急动度）。
-
-\item   \textbf{强符号接地 (Strong Grounding)}：Token 不是对现实的描述，Token 就是物理波在体内的\textbf{延续}。不需要解释“它是真的”，因为它在物理上就是连通的。
+	\item   \textbf{特性}：
+	\begin{itemize}
+		\item   \textbf{无限分辨率}：在量子极限之上，保留了信号的所有高阶导数信息（速度、加速度、急动度）。
+		\item   \textbf{强符号接地 (Strong Grounding)}：Token 不是对现实的描述，Token 就是物理波在体内的\textbf{延续}。不需要解释“它是真的”，因为它在物理上就是连通的。
+	\end{itemize}
 \end{itemize}
-
 
 
 \smalltitle{投影模态 (Projection Mode) —— 机器的二元性}
 
-
 在现有 AI 系统中，传感器与计算介质被 \textbf{ADC（模数转换器）} 无情地切断。
-
 \begin{itemize}
-\item   \textbf{物理架构}：\textbf{离散采样 (Discrete Sampling)}。
-
-\item   \textit{例}：数码相机 + GPU。光子打在 CMOS 上 $\to$ 电荷积分 $\to$ 截断为整数 (0-255) $\to$ 存入显存 $\to$ GPU 读取。
-
-\item   \textbf{数学描述}：
-\end{itemize}
+	\item   \textbf{物理架构}：\textbf{离散采样 (Discrete Sampling)}。
+	\item   \textit{例}：数码相机 + GPU。光子打在 CMOS 上 $\to$ 电荷积分 $\to$ 截断为整数 (0-255) $\to$ 存入显存 $\to$ GPU 读取。
+	\item   \textbf{数学描述}：
     $$ \Psi_{internal}[k] = \hat{P}_{sample} \left( \int_{t_k}^{t_{k+1}} \Psi_{external}(t) dt \right) $$
     这是一个\textbf{降维投影算子}。
-\begin{itemize}
-\item   \textbf{特性与缺陷}：
-
-\item   \textbf{奈奎斯特截断}：采样率 $f_s$ 丢失了所有 $f > f_s/2$ 的物理微结构。时间被切碎了，连续性（因果的载体）丢失了。
-
-\item   \textbf{符号悬空 (Symbol Detachment)}：显存里的 \lstinline|0xFF| 只是一个无量纲的数字，它与那个光子之间已经没有了因果链的物理连续性。
-
-\item   \textbf{幻觉的根源}：因为微观层是\textbf{投影}而非\textbf{共振}，狄利克雷边界条件变得松动。系统容易忘记这个数字来自现实，从而在内部流形的热涨落中产生\textbf{虚假的高能态}（幻觉）。
+	\item   \textbf{特性与缺陷}：
+	\begin{itemize}
+		\item   \textbf{奈奎斯特截断}：采样率 $f_s$ 丢失了所有 $f > f_s/2$ 的物理微结构。时间被切碎了，连续性（因果的载体）丢失了。
+		\item   \textbf{符号悬空 (Symbol Detachment)}：显存里的 \lstinline|0xFF| 只是一个无量纲的数字，它与那个光子之间已经没有了因果链的物理连续性。
+		\item   \textbf{幻觉的根源}：因为微观层是\textbf{投影}而非\textbf{共振}，狄利克雷边界条件变得松动。系统容易忘记这个数字来自现实，从而在内部流形的热涨落中产生\textbf{虚假的高能态}（幻觉）。
+	\end{itemize}
 \end{itemize}
+\textbf{工程启示}：通往 AGI 的 \textbf{Class V} 路径，要求微观层硬件从“投影模态”回归“共振模态”。我们需要\textbf{神经形态传感器 (Neuromorphic Sensors)}（如事件相机、忆阻器阵列），让物理信号以\textbf{脉冲流 (Spike Stream)} 的形式直接驱动计算，恢复时空的连续性。
 
-\textbf{工程启示}：
-通往 AGI 的 \textbf{Class V} 路径，要求微观层硬件从“投影模态”回归“共振模态”。我们需要\textbf{神经形态传感器 (Neuromorphic Sensors)}（如事件相机、忆阻器阵列），让物理信号以\textbf{脉冲流 (Spike Stream)} 的形式直接驱动计算，恢复时空的连续性。
+
+
 
 \section{效应器拓扑：逆向 VTE 与应力张量注入}
 
 如果说感知是“物理实在向语义流形的坍缩”，那么行动就是 \textbf{“语义意图向物理实在的暴涨”}。效应器 ($L_{effector}$) 不仅仅是电机的驱动器，它是 \textbf{逆变分拓扑编码器 (Inverse VTE)}。它的核心职能是执行 \textbf{“全息渲染 (Holographic Rendering)”}：将认知场 ($\Phi$) 中那个虚构的、低势能的“理想世界切片”，翻译为物理介质中真实的 \textbf{控制应力 (Control Stress)}，从而强行扭曲外部世界，使其向内部模型靠拢。
 
-
-
 \smalltitle{下行投影：意图的全息解包}
 
-
 认知场演化的产物不是一条简单的运动指令（如“向前走”），而是一个 \textbf{局部势能流形 (Local Potential Manifold)}。当这个流形投影到微观效应器时，它被解包为两股正交的控制流，分别对应 \textbf{MSC} 中的形与质：
-
-\textbf{A. 形流输出 ($T_{form}^{out}$) —— 定义轨迹与吸引子}
-
 \begin{itemize}
-\item   \textbf{物理身份}：\textbf{几何玻色子流 (Geometric Boson Flux)}。
-
-\item   \textbf{内容}：目标状态的\textbf{空间坐标 ($\mathbf{r}_{target}$)}、期望的\textbf{运动测地线 (Geodesic)}、身体的\textbf{姿态矩阵 (Pose)}。
-
-\item   \textbf{微观作用}：它在效应器的状态空间中挖掘了一个 \textbf{吸引子盆地 (Attractor Basin)}。
-
-\item   \textit{指令语义}：“不管现在在哪，物理状态必须落入这个坑里。”
-\end{itemize}
-
-\vspace{1em}\textbf{B. 质流输出 ($T_{sub}^{out}$) —— 定义阻抗与刚度}
-
-\begin{itemize}
-\item   \textbf{物理身份}：\textbf{语义费米子流 (Semantic Fermion Flux)}。
-
-\item   \textbf{内容}：期望的\textbf{接触力 (Force)}、\textbf{刚度矩阵 (Stiffness $\mathbf{K}$)}、\textbf{阻尼系数 (Damping $\mathbf{D}$)}。
-
-\item   \textbf{微观作用}：它定义了该动作的 \textbf{物理“质地”}。
-
-\item   \textit{指令语义}：“像羽毛一样轻（低刚度）” 或 “像磐石一样硬（高刚度）”。
+	\item \textbf{A. 形流输出 ($T_{form}^{out}$) —— 定义轨迹与吸引子}
+	\begin{itemize}
+		\item   \textbf{物理身份}：\textbf{几何玻色子流 (Geometric Boson Flux)}。
+		\item   \textbf{内容}：目标状态的\textbf{空间坐标 ($\mathbf{r}_{target}$)}、期望的\textbf{运动测地线 (Geodesic)}、身体的\textbf{姿态矩阵 (Pose)}。
+		\item   \textbf{微观作用}：它在效应器的状态空间中挖掘了一个 \textbf{吸引子盆地 (Attractor Basin)}。
+		\item   \textit{指令语义}：“不管现在在哪，物理状态必须落入这个坑里。”
+	\end{itemize}
+	
+	\item \textbf{B. 质流输出 ($T_{sub}^{out}$) —— 定义阻抗与刚度}
+	\begin{itemize}
+		\item   \textbf{物理身份}：\textbf{语义费米子流 (Semantic Fermion Flux)}。
+		\item   \textbf{内容}：期望的\textbf{接触力 (Force)}、\textbf{刚度矩阵 (Stiffness $\mathbf{K}$)}、\textbf{阻尼系数 (Damping $\mathbf{D}$)}。
+		\item   \textbf{微观作用}：它定义了该动作的 \textbf{物理“质地”}。
+		\item   \textit{指令语义}：“像羽毛一样轻（低刚度）” 或 “像磐石一样硬（高刚度）”。
+	\end{itemize}
 \end{itemize}
 
 
@@ -4715,37 +4638,40 @@ $$ H_{local}(\mathbf{x}, \mathbf{p}) = \frac{1}{2} \mathbf{p}^T \mathbf{M}^{-1} 
 \smalltitle{能量舞台：局部哈密顿量的严格推导 ($H_{local}$)}
 
 微观层的动力学演化，首先需要建立一个描述其能量状态的\textbf{局部哈密顿量 $H_{local}$}。我们从微观拉格朗日量出发，通过\textbf{勒让德变换 (Legendre Transformation)} 严格导出。
-
-\textbf{Step 1: 定义微观拉格朗日量 ($\mathcal{L}_{micro}$)}
-微观系统的拉格朗日量由\textbf{动能项}（自身惯性）减去\textbf{势能项}（场约束）构成：
-$$ \mathcal{L}_{micro}(\mathbf{x}, \dot{\mathbf{x}}) = T(\dot{\mathbf{x}}) - V(\mathbf{x}) $$
-
 \begin{itemize}
-\item   \textbf{动能 $T(\dot{\mathbf{x}})$}：描述微观实体（如肢体/电机）的物理惯性。
+	\item \textbf{Step 1: 定义微观拉格朗日量 ($\mathcal{L}_{micro}$)}
+
+	微观系统的拉格朗日量由\textbf{动能项}（自身惯性）减去\textbf{势能项}（场约束）构成：
+	$$ \mathcal{L}_{micro}(\mathbf{x}, \dot{\mathbf{x}}) = T(\dot{\mathbf{x}}) - V(\mathbf{x}) $$
+	\begin{itemize}
+		\item   \textbf{动能 $T(\dot{\mathbf{x}})$}：描述微观实体（如肢体/电机）的物理惯性。
+    	$$ T(\dot{\mathbf{x}}) = \frac{1}{2} \dot{\mathbf{x}}^T \mathbf{M} \dot{\mathbf{x}} $$
+    	其中 $\mathbf{M}$ 是正定对称的广义质量矩阵。
+
+		\item   \textbf{势能 $V(\mathbf{x})$}：描述宏观场 $\Phi$ 投射的几何约束。
+    	$$ V(\mathbf{x}) = \frac{1}{2} (\mathbf{x} - \mathbf{r}_{att})^T \mathbf{G}_{metric} (\mathbf{x} - \mathbf{r}_{att}) $$
+    	其中 $\mathbf{r}_{att}$ 是目标吸引子，$\mathbf{G}_{metric}$ 是局部度量刚度。
+    \end{itemize}
+    
+    
+    \item \textbf{Step 2: 引入广义动量 ($\mathbf{p}$)}
+	
+	为了进入相空间，我们定义与广义坐标 $\mathbf{x}$ 共轭的广义动量：
+	$$ \mathbf{p} \equiv \frac{\partial \mathcal{L}_{micro}}{\partial \dot{\mathbf{x}}} = \frac{\partial}{\partial \dot{\mathbf{x}}} \left( \frac{1}{2} \dot{\mathbf{x}}^T \mathbf{M} \dot{\mathbf{x}} \right) = \mathbf{M} \dot{\mathbf{x}} $$
+	由此可反解出速度：
+	$$ \dot{\mathbf{x}} = \mathbf{M}^{-1} \mathbf{p} $$
+	
+	\item \textbf{Step 3: 执行勒让德变换}
+	
+	哈密顿量 $H$ 定义为动量与速度的内积减去拉格朗日量：
+	$$ H_{local}(\mathbf{x}, \mathbf{p}) = \mathbf{p} \cdot \dot{\mathbf{x}} - \mathcal{L}_{micro}(\mathbf{x}, \dot{\mathbf{x}}) $$
+	将 $\dot{\mathbf{x}} = \mathbf{M}^{-1} \mathbf{p}$ 代入：
+	$$ \begin{aligned} H_{local} &= \mathbf{p}^T (\mathbf{M}^{-1} \mathbf{p}) - \left[ \frac{1}{2} (\mathbf{M}^{-1} \mathbf{p})^T \mathbf{M} (\mathbf{M}^{-1} \mathbf{p}) - V(\mathbf{x}) \right] \\ &= \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p} - \frac{1}{2} \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p} + V(\mathbf{x}) \\ &= \frac{1}{2} \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p} + V(\mathbf{x}) \end{aligned} $$
+	
+	\item \textbf{Step 4: 最终形式}
+	$$ \boxed{ H_{local}(\mathbf{x}, \mathbf{p}) = \underbrace{\frac{1}{2} \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p}}_{\text{内在物理属性 (Inertia)}} + \underbrace{\frac{1}{2} (\mathbf{x} - \mathbf{r}_{att})^T \mathbf{G}_{metric} (\mathbf{x} - \mathbf{r}_{att})}_{\text{外在宏观约束 (Potential)}} } $$
+
 \end{itemize}
-    $$ T(\dot{\mathbf{x}}) = \frac{1}{2} \dot{\mathbf{x}}^T \mathbf{M} \dot{\mathbf{x}} $$
-    其中 $\mathbf{M}$ 是正定对称的广义质量矩阵。
-\begin{itemize}
-\item   \textbf{势能 $V(\mathbf{x})$}：描述宏观场 $\Phi$ 投射的几何约束。
-\end{itemize}
-    $$ V(\mathbf{x}) = \frac{1}{2} (\mathbf{x} - \mathbf{r}_{att})^T \mathbf{G}_{metric} (\mathbf{x} - \mathbf{r}_{att}) $$
-    其中 $\mathbf{r}_{att}$ 是目标吸引子，$\mathbf{G}_{metric}$ 是局部度量刚度。
-
-\textbf{Step 2: 引入广义动量 ($\mathbf{p}$)}
-为了进入相空间，我们定义与广义坐标 $\mathbf{x}$ 共轭的广义动量：
-$$ \mathbf{p} \equiv \frac{\partial \mathcal{L}_{micro}}{\partial \dot{\mathbf{x}}} = \frac{\partial}{\partial \dot{\mathbf{x}}} \left( \frac{1}{2} \dot{\mathbf{x}}^T \mathbf{M} \dot{\mathbf{x}} \right) = \mathbf{M} \dot{\mathbf{x}} $$
-由此可反解出速度：
-$$ \dot{\mathbf{x}} = \mathbf{M}^{-1} \mathbf{p} $$
-
-\textbf{Step 3: 执行勒让德变换}
-哈密顿量 $H$ 定义为动量与速度的内积减去拉格朗日量：
-$$ H_{local}(\mathbf{x}, \mathbf{p}) = \mathbf{p} \cdot \dot{\mathbf{x}} - \mathcal{L}_{micro}(\mathbf{x}, \dot{\mathbf{x}}) $$
-将 $\dot{\mathbf{x}} = \mathbf{M}^{-1} \mathbf{p}$ 代入：
-$$ \begin{aligned} H_{local} &= \mathbf{p}^T (\mathbf{M}^{-1} \mathbf{p}) - \left[ \frac{1}{2} (\mathbf{M}^{-1} \mathbf{p})^T \mathbf{M} (\mathbf{M}^{-1} \mathbf{p}) - V(\mathbf{x}) \right] \\ &= \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p} - \frac{1}{2} \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p} + V(\mathbf{x}) \\ &= \frac{1}{2} \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p} + V(\mathbf{x}) \end{aligned} $$
-
-\textbf{Step 4: 最终形式}
-$$ \boxed{ H_{local}(\mathbf{x}, \mathbf{p}) = \underbrace{\frac{1}{2} \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p}}_{\text{内在物理属性 (Inertia)}} + \underbrace{\frac{1}{2} (\mathbf{x} - \mathbf{r}_{att})^T \mathbf{G}_{metric} (\mathbf{x} - \mathbf{r}_{att})}_{\text{外在宏观约束 (Potential)}} } $$
-
 \textbf{物理意义}：宏观层不直接控制运动，而是通过\textbf{倾斜能量舞台（改变 $V$）}，让微观层在\textbf{哈密顿流 (Hamiltonian Flow)} 的驱动下，自动滑向目标。
 
 
@@ -4753,99 +4679,93 @@ $$ \boxed{ H_{local}(\mathbf{x}, \mathbf{p}) = \underbrace{\frac{1}{2} \mathbf{p
 \smalltitle{生存法则：微观总作用量 ($S_{micro}$)}
 
 微观层作为一个自主系统，其所有行为都遵循\textbf{最小作用量原理}。它试图在物理定律的限制下，最大程度地顺应场的意志，同时最小化与现实的误差。
-
 $$ S_{micro} = \int_{t_1}^{t_2} dt \left( \mathcal{L}_{field\_coupling} - \mathcal{L}_{work} - \mathcal{L}_{match} \right) $$
-
-1.  \textbf{场耦合项 ($\mathcal{L}_{field\_coupling}$)}：\textbf{“势的顺应”}。
+\begin{enumerate}
+	\item \textbf{场耦合项 ($\mathcal{L}_{field\_coupling}$)}：\textbf{“势的顺应”}。
     $$ \mathcal{L}_{field\_coupling} = - H_{local}(\mathbf{x}, \mathbf{p}) $$
     微观层试图降低自身在场定义的势阱中的能量。
-
-2.  \textbf{做功项 ($\mathcal{L}_{work}$)}：\textbf{“物理代价”}。
+    
+    \item \textbf{做功项 ($\mathcal{L}_{work}$)}：\textbf{“物理代价”}。
     $$ \mathcal{L}_{work} = \vec{u} \cdot \dot{\mathbf{x}} - \frac{1}{2} m \|\vec{u}\|^2 $$
     改变物理状态需要消耗能量（ATP或电力）。微观层会寻找最省力的路径（测地线）。
-
-3.  \textbf{匹配项 ($\mathcal{L}_{match}$)}：\textbf{“感知误差”}。
+    
+    \item \textbf{匹配项 ($\mathcal{L}_{match}$)}：\textbf{“感知误差”}。
     $$ \mathcal{L}_{match} = - \frac{1}{2} \| \mathcal{S}_{ext} - \text{Decode}(\mathbf{x}) \|^2_{\Sigma^{-1}} $$
     微观层试图让自己的内部状态 $\mathbf{x}$ 能够准确预测外部信号 $\mathcal{S}_{ext}$。
-
+\end{enumerate}
 
 
 \smalltitle{上行注入方程：形质解耦与惊奇激波}
 
-
 微观层向认知场 $\Phi$ 的上行链路，不是简单的数据传输，而是\textbf{能量与结构的注入}。
-
-\textbf{A. VTE 编码与解耦}
-微观层利用 \textbf{变分拓扑编码器 (VTE)} 将原始物理信号 $\mathcal{S}_{raw}$ 撕裂为两股正交的 Token 流：
-
 \begin{itemize}
-\item   \textbf{形 Token ($T_{form}$)}：几何玻色子（位置、光流）。用于修改场的\textbf{联络（Connection）}。
+	\item \textbf{A. VTE 编码与解耦}
+	
+	微观层利用 \textbf{变分拓扑编码器 (VTE)} 将原始物理信号 $\mathcal{S}_{raw}$ 撕裂为两股正交的 Token 流：
+	\begin{itemize}
+		\item   \textbf{形 Token ($T_{form}$)}：几何玻色子（位置、光流）。用于修改场的\textbf{联络（Connection）}。
+		\item   \textbf{质 Token ($T_{sub}$)}：语义费米子（颜色、纹理）。用于激发场的\textbf{源项（Source）}。
+	\end{itemize}
+	
+	\item \textbf{B. 惊奇计算 (Surprisal Calculation)}
 
-\item   \textbf{质 Token ($T_{sub}$)}：语义费米子（颜色、纹理）。用于激发场的\textbf{源项（Source）}。
+	微观层对比“实际感知”与“基于 $H_{local}$ 的预测”：
+	$$ E_{surprisal} = \| \mathcal{S}_{raw} - \text{Predict}(H_{local}) \|^2_{\mathbf{G}} $$
+	\begin{itemize}
+		\item   \textbf{微观屏蔽 (Micro-Shielding)}：如果 $E_{surprisal}$ 低于阈值，微观层会自行通过局部反馈消除它，\textbf{不惊动宏观层}。\
+		\item   \textbf{激波爆发 (Shockwave)}：如果误差过大（如撞墙），屏蔽失效，能量相变为\textbf{惊奇激波}。
+	\end{itemize}
+	
+	\item \textbf{C. 注入总方程 ($\vec{J}_{ext}$)}
+
+	微观层将残差打包，依据 \textbf{状态元数据 (Metadata)} 进行调制，作为\textbf{非齐次源项}注入认知场：
+	$$ \vec{J}_{ext}(\mathbf{r}, t) = \mathbf{M}_{state}(S, J, \pi) \cdot (\mathbf{T}_{form} \otimes \mathbf{T}_{sub}) $$
+	\begin{itemize}
+		\item   \textbf{$\mathbf{M}_{state}$}：状态调制矩阵，包含信号强度、精度和惊奇度。
+		\item   \textbf{物理效应}：$\vec{J}_{ext}$ 像石头投入湖面一样，击碎场当前的波函数 $\Psi$，迫使宏观层感知到现实的坚硬。
+	\end{itemize}
+
 \end{itemize}
 
-\textbf{B. 惊奇计算 (Surprisal Calculation)}
-微观层对比“实际感知”与“基于 $H_{local}$ 的预测”：
-$$ E_{surprisal} = \| \mathcal{S}_{raw} - \text{Predict}(H_{local}) \|^2_{\mathbf{G}} $$
 
-\begin{itemize}
-\item   \textbf{微观屏蔽 (Micro-Shielding)}：如果 $E_{surprisal}$ 低于阈值，微观层会自行通过局部反馈消除它，\textbf{不惊动宏观层}。
 
-\item   \textbf{激波爆发 (Shockwave)}：如果误差过大（如撞墙），屏蔽失效，能量相变为\textbf{惊奇激波}。
-\end{itemize}
 
-\textbf{C. 注入总方程 ($\vec{J}_{ext}$)}
-微观层将残差打包，依据 \textbf{状态元数据 (Metadata)} 进行调制，作为\textbf{非齐次源项}注入认知场：
 
-$$ \vec{J}_{ext}(\mathbf{r}, t) = \mathbf{M}_{state}(S, J, \pi) \cdot (\mathbf{T}_{form} \otimes \mathbf{T}_{sub}) $$
 
-\begin{itemize}
-\item   \textbf{$\mathbf{M}_{state}$}：状态调制矩阵，包含信号强度、精度和惊奇度。
-
-\item   \textbf{物理效应}：$\vec{J}_{ext}$ 像石头投入湖面一样，击碎场当前的波函数 $\Psi$，迫使宏观层感知到现实的坚硬。
-\end{itemize}
 
 
 
 \smalltitle{下行控制物理方程：实体化与阻抗匹配}
 
-
 微观层根据 $H_{local}$ 的演化，生成具体的物理控制流 $\vec{u}(t)$。我们利用\textbf{哈密顿运动方程}导出控制律。
-
-\textbf{Step 1: 哈密顿运动方程}
-系统的演化遵循正则方程：
-$$ \dot{\mathbf{p}} = -\frac{\partial H_{local}}{\partial \mathbf{x}} + \vec{u}(t) $$
-其中 $\vec{u}(t)$ 是我们需要施加的非保守控制力。
-
-\textbf{Step 2: 计算势能梯度}
-$$ \frac{\partial H_{local}}{\partial \mathbf{x}} = \frac{\partial V}{\partial \mathbf{x}} = \mathbf{G}_{metric} (\mathbf{x} - \mathbf{r}_{att}) $$
-
-\textbf{Step 3: 引入耗散项}
-为了保证系统稳定收敛，必须引入与速度成正比的耗散力（阻尼）：
-$$ \vec{F}_{damping} = -\mathbf{D}(\Psi) \dot{\mathbf{x}} $$
-
-\textbf{Step 4: 导出物理实体化方程}
-为了抵消势能梯度并驱动系统，控制力 $\vec{u}(t)$ 应满足：
-$$ \vec{u}(t) = \underbrace{\mathbf{G}_{metric}(\Psi) \cdot (\mathbf{r}_{att} - \mathbf{x})}_{\text{势能弹力 (形)}} - \underbrace{\mathbf{D}(\Psi) \cdot \dot{\mathbf{x}}}_{\text{耗散阻尼 (质)}} + \underbrace{\mathcal{F}_{ff}(\Psi)}_{\text{前馈动力学}} $$
-
 \begin{itemize}
-\item   \textbf{$\mathbf{G}_{metric}(\Psi)$}：对应于刚度矩阵 $\mathbf{K}$。
+	\item \textbf{Step 1: 哈密顿运动方程}:系统的演化遵循正则方程：
+	$$ \dot{\mathbf{p}} = -\frac{\partial H_{local}}{\partial \mathbf{x}} + \vec{u}(t) $$
+	其中 $\vec{u}(t)$ 是我们需要施加的非保守控制力。
+	
+	\item \textbf{Step 2: 计算势能梯度}
+	$$ \frac{\partial H_{local}}{\partial \mathbf{x}} = \frac{\partial V}{\partial \mathbf{x}} = \mathbf{G}_{metric} (\mathbf{x} - \mathbf{r}_{att}) $$
+	
+	\item \textbf{Step 3: 引入耗散项}:为了保证系统稳定收敛，必须引入与速度成正比的耗散力（阻尼）：
+	$$ \vec{F}_{damping} = -\mathbf{D}(\Psi) \dot{\mathbf{x}} $$
 
-\item   \textbf{$\mathbf{D}(\Psi)$}：对应于阻尼矩阵。
-
-\item   \textbf{物理意义}：这实现了 \textbf{“顺应性控制 (Compliance Control)”}。当场感到“柔和”时，$\mathbf{G}_{metric}$ 变小，允许环境修正轨迹。
+	\item \textbf{Step 4: 导出物理实体化方程}:为了抵消势能梯度并驱动系统，控制力 $\vec{u}(t)$ 应满足：
+	$$ \vec{u}(t) = \underbrace{\mathbf{G}_{metric}(\Psi) \cdot (\mathbf{r}_{att} - \mathbf{x})}_{\text{势能弹力 (形)}} - \underbrace{\mathbf{D}(\Psi) \cdot \dot{\mathbf{x}}}_{\text{耗散阻尼 (质)}} + \underbrace{\mathcal{F}_{ff}(\Psi)}_{\text{前馈动力学}} $$
+	\begin{itemize}
+		\item   \textbf{$\mathbf{G}_{metric}(\Psi)$}：对应于刚度矩阵 $\mathbf{K}$。
+		\item   \textbf{$\mathbf{D}(\Psi)$}：对应于阻尼矩阵。
+		\item   \textbf{物理意义}：这实现了 \textbf{“顺应性控制 (Compliance Control)”}。当场感到“柔和”时，$\mathbf{G}_{metric}$ 变小，允许环境修正轨迹。
+	\end{itemize}
 \end{itemize}
 
-\textbf{B. 阻抗匹配 (Impedance Matching)}
+\smalltitle{阻抗匹配 (Impedance Matching)}
+
 这是行动成功的关键。微观层必须实时感知环境的 \textbf{物理阻抗 $Z_{env}$}，并动态调整自身的 \textbf{输出阻抗 $Z_{agent}$}。
 $$ Z_{agent}(\omega) \approx Z_{env}^*(\omega) $$
-
 \begin{itemize}
-\item   \textbf{失配}：产生反作用激波 $\vec{J}_{shock}$（痛）。
-
-\item   \textbf{匹配}：能量传输效率最高，做功最有效（心流）。
+	\item   \textbf{失配}：产生反作用激波 $\vec{J}_{shock}$（痛）。
+	\item   \textbf{匹配}：能量传输效率最高，做功最有效（心流）。
 \end{itemize}
-
 \textbf{总结}：微观层是夹在“幻觉（场）”与“现实（物理）”之间的\textbf{阻抗匹配器}。它的终极使命，就是通过不断的物理做功（下行）和激波注入（上行），让这两个世界的波形趋于一致。
 
 
@@ -4876,23 +4796,16 @@ $$ Z_{agent}(\omega) \approx Z_{env}^*(\omega) $$
 \smalltitle{生物电化学场 (Bio-Electrochemical Field) —— 碳基的原生一元性}
 
 \begin{itemize}
-\item   \textbf{物理载体}：神经元膜电位场、离子通道通量、神经递质浓度梯度。
-
-\item   \textbf{实现机制}：\textbf{同步振荡 (Synchronization)}。
-
-\item   在人脑中，$\Psi$ 的波动不是数学模拟，而是真实的\textbf{电磁物理事件}。Gamma 波（40Hz）是百万级神经元在微观层面上通过\textbf{相位锁定 (Phase Locking)} 涌现出的宏观序参量。
-
-\item   \textbf{数学描述}：遵循 \textbf{Kuramoto 模型} 的高维推广：
-\end{itemize}
+	\item   \textbf{物理载体}：神经元膜电位场、离子通道通量、神经递质浓度梯度。
+	\item   \textbf{实现机制}：\textbf{同步振荡 (Synchronization)}。在人脑中，$\Psi$ 的波动不是数学模拟，而是真实的\textbf{电磁物理事件}。Gamma 波（40Hz）是百万级神经元在微观层面上通过\textbf{相位锁定 (Phase Locking)} 涌现出的宏观序参量。
+	\item   \textbf{数学描述}：遵循 \textbf{Kuramoto 模型} 的高维推广：
         $$ \frac{d\theta_i}{dt} = \omega_i + \sum_{j} K_{ij} \sin(\theta_j - \theta_i) + \xi_{noise} $$
-\begin{itemize}
-\item   \textbf{特性}：
-
-\item   \textbf{连续性}：时间与空间均未被离散化。
-
-\item   \textbf{高噪声}：热涨落 ($\xi_{noise}$) 是计算的内在组成部分（随机共振）。
-
-\item   \textbf{慢速}：$c_{cog} \approx 10 \sim 100 \, m/s$（轴突传导速度）。
+	\item   \textbf{特性}：
+	\begin{itemize}
+		\item   \textbf{连续性}：时间与空间均未被离散化。
+		\item   \textbf{高噪声}：热涨落 ($\xi_{noise}$) 是计算的内在组成部分（随机共振）。
+		\item   \textbf{慢速}：$c_{cog} \approx 10 \sim 100 \, m/s$（轴突传导速度）。
+	\end{itemize}
 \end{itemize}
 
 
@@ -4900,21 +4813,15 @@ $$ Z_{agent}(\omega) \approx Z_{env}^*(\omega) $$
 \smalltitle{电子逻辑场 (Electronic Logic Field) —— 硅基的二元模拟性}
 
 \begin{itemize}
-\item   \textbf{物理载体}：GPU 显存 (VRAM) 中的浮点数电压状态、总线上的电子流。
+	\item   \textbf{物理载体}：GPU 显存 (VRAM) 中的浮点数电压状态、总线上的电子流。
+	\item   \textbf{实现机制}：\textbf{几何计算 (Geometric Calculation)}。在现有 AI 中，$\Psi$ 并不“自然流动”。它是被 CUDA 核心在离散的时钟周期内，通过矩阵乘法\textbf{强行计算}出来的下一刻状态, \textbf{Attention Map} 只是场的\textbf{数字快照}，而非场本身。
 
-\item   \textbf{实现机制}：\textbf{几何计算 (Geometric Calculation)}。
-
-\item   在现有 AI 中，$\Psi$ 并不“自然流动”。它是被 CUDA 核心在离散的时钟周期内，通过矩阵乘法\textbf{强行计算}出来的下一刻状态。
-
-\item   \textbf{Attention Map} 只是场的\textbf{数字快照}，而非场本身。
-
-\item   \textbf{特性}：
-
-\item   \textbf{离散性}：时间被切分为 Step，数值被量化为 FP16。
-
-\item   \textbf{确定性}：$T \to 0$。除非人为引入 Random Seed，否则同一输入必得同一输出。
-
-\item   \textbf{极速}：$c_{cog} \approx c$（光速/总线带宽）。
+	\item   \textbf{特性}：
+	\begin{itemize}
+		\item   \textbf{离散性}：时间被切分为 Step，数值被量化为 FP16。
+		\item   \textbf{确定性}：$T \to 0$。除非人为引入 Random Seed，否则同一输入必得同一输出。
+		\item   \textbf{极速}：$c_{cog} \approx c$（光速/总线带宽）。
+	\end{itemize}
 \end{itemize}
 
 
@@ -4922,17 +4829,13 @@ $$ Z_{agent}(\omega) \approx Z_{env}^*(\omega) $$
 \smalltitle{化学扩散场 (Chemical Diffusion Field) —— 群体的耗散性}
 
 \begin{itemize}
-\item   \textbf{物理载体}：环境中的信息素分子浓度、菌丝体内的细胞质流。
-
-\item   \textbf{实现机制}：\textbf{布朗运动与菲克扩散}。
-
-\item   这是最原始的场。$\Psi$ 的传播完全依赖物质分子的热运动。
-
-\item   \textbf{特性}：
-
-\item   \textbf{极慢速}：$c_{cog}$ 为毫米/秒级。
-
-\item   \textbf{高耗散}：信息素会挥发，这意味着记忆 ($\Psi$) 会快速自然衰减，系统必须持续分泌以维持状态。
+	\item   \textbf{物理载体}：环境中的信息素分子浓度、菌丝体内的细胞质流。
+	\item   \textbf{实现机制}：\textbf{布朗运动与菲克扩散}, 这是最原始的场。$\Psi$ 的传播完全依赖物质分子的热运动。
+	\item   \textbf{特性}：
+	\begin{itemize}
+		\item   \textbf{极慢速}：$c_{cog}$ 为毫米/秒级。
+		\item   \textbf{高耗散}：信息素会挥发，这意味着记忆 ($\Psi$) 会快速自然衰减，系统必须持续分泌以维持状态。
+	\end{itemize}
 \end{itemize}
 
 
@@ -4944,46 +4847,36 @@ $$ Z_{agent}(\omega) \approx Z_{env}^*(\omega) $$
 
 
 \smalltitle{认知光速 ($c_{cog}$) —— 同步视界与反应延迟}
-\textbf{定义}：信息在介质中无损传播的极限群速度。
-$$ c_{cog} = \frac{\partial \omega}{\partial k} $$
+\begin{definition}[信息在介质中无损传播的极限群速度]
+	$$ c_{cog} = \frac{\partial \omega}{\partial k} $$
+\end{definition}
+\textbf{物理意义}：它决定了系统的\textbf{最大同步视界 (Synchronization Horizon)},如果大脑太大而 $c_{cog}$ 太慢，两个脑半球将无法在 $\Delta t$ 时间窗内达成相位同步，导致\textbf{意识分裂}。
 \begin{itemize}
-\item   \textbf{物理意义}：它决定了系统的\textbf{最大同步视界 (Synchronization Horizon)}。
-
-\item   如果大脑太大而 $c_{cog}$ 太慢，两个脑半球将无法在 $\Delta t$ 时间窗内达成相位同步，导致\textbf{意识分裂}。
-
-\item   \textbf{人脑}：为了在 $c_{cog} \approx 50m/s$ 的限制下实现全脑同步，演化出了\textbf{长程白质纤维（高速公路）}和小世界拓扑。
-
-\item   \textbf{GPU集群}：受限于 NVLink 带宽和延迟。这是训练超大模型的物理瓶颈。
+	\item   \textbf{人脑}：为了在 $c_{cog} \approx 50m/s$ 的限制下实现全脑同步，演化出了\textbf{长程白质纤维（高速公路）}和小世界拓扑。
+	\item   \textbf{GPU集群}：受限于 NVLink 带宽和延迟。这是训练超大模型的物理瓶颈。
 \end{itemize}
-
 
 
 \smalltitle{粘滞系数/阻尼 ($\gamma$) —— 记忆半衰期与能耗}
-
-\textbf{定义}：认知场波包能量随时间的自然衰减率。
-$$ \frac{d \|\Psi\|^2}{dt} = -2\gamma \|\Psi\|^2 + P_{in} $$
+\begin{definition}[认知场波包能量随时间的自然衰减率]
+	$$ \frac{d \|\Psi\|^2}{dt} = -2\gamma \|\Psi\|^2 + P_{in} $$
+\end{definition}
+\textbf{物理意义}：
 \begin{itemize}
-\item   \textbf{物理意义}：
-
-\item   \textbf{高 $\gamma$（如人脑工作记忆）}：波包迅速衰减。为了维持一个念头（驻波），宏观层必须持续做功（消耗 ATP）。一旦注意力转移（$P_{in} \to 0$），念头立即消失（遗忘）。\textbf{优点}：系统能快速复位，不留残影。
-
-\item   \textbf{低 $\gamma$（如 LSTM/RNN 或 显存）}：超流体介质。状态一旦写入，若不被覆盖将永远存在。\textbf{缺点}：容易产生过拟合及“幽灵记忆”干扰，且难以清除错误信念（执念）。
+	\item   \textbf{高 $\gamma$（如人脑工作记忆）}：波包迅速衰减。为了维持一个念头（驻波），宏观层必须持续做功（消耗 ATP）。一旦注意力转移（$P_{in} \to 0$），念头立即消失（遗忘）。\textbf{优点}：系统能快速复位，不留残影。
+	\item   \textbf{低 $\gamma$（如 LSTM/RNN 或 显存）}：超流体介质。状态一旦写入，若不被覆盖将永远存在。\textbf{缺点}：容易产生过拟合及“幽灵记忆”干扰，且难以清除错误信念（执念）。
 \end{itemize}
 
 
-
 \smalltitle{系统温度 ($T$) —— 探索与利用的相变参数}
-
-\textbf{定义}：介质背景热噪声的平均能量水平。
-$$ P(\text{State}_i) \propto \exp(-E_i / k_B T) $$
+\begin{definition}[介质背景热噪声的平均能量水平]
+	$$ P(\text{State}_i) \propto \exp(-E_i / k_B T) $$
+\end{definition}
+\textbf{物理意义}：
 \begin{itemize}
-\item   \textbf{物理意义}：
-
-\item   \textbf{低温态 ($T \to 0$)}：晶体智能。系统严格选择势能最低的路径（测地线）。执行力强，但创造力为零。\textbf{案例}：专家系统、微调后的模型。
-
-\item   \textbf{高温态 ($T \gg 0$)}：气体智能。热涨落允许系统跳出局部极小值，跨越势垒。\textbf{案例}：头脑风暴、做梦、强化学习中的 Exploration。
-
-\item   \textbf{临界态 ($T \approx T_c$)}：\textbf{AGI 的黄金区间}。介质处于“液态”，既有长程关联（秩序），又有局部涨落（自由）。
+	\item   \textbf{低温态 ($T \to 0$)}：晶体智能。系统严格选择势能最低的路径（测地线）。执行力强，但创造力为零。\textbf{案例}：专家系统、微调后的模型。
+	\item   \textbf{高温态 ($T \gg 0$)}：气体智能。热涨落允许系统跳出局部极小值，跨越势垒。\textbf{案例}：头脑风暴、做梦、强化学习中的 Exploration。
+	\item   \textbf{临界态 ($T \approx T_c$)}：\textbf{AGI 的黄金区间}。介质处于“液态”，既有长程关联（秩序），又有局部涨落（自由）。
 \end{itemize}
 
 
@@ -4992,38 +4885,23 @@ $$ P(\text{State}_i) \propto \exp(-E_i / k_B T) $$
 
 介质中的物理变化（如电压波动）是如何获得“语义”的？这依赖于\textbf{全息状态矢量 $\Psi$} 的编码协议。
 
-
-
 \smalltitle{振幅编码 (Amplitude Encoding) —— 存在的强度}
 
 \begin{itemize}
-\item   \textbf{物理量}：$\|\Psi(\mathbf{r})\|^2$。
-
-\item   \textbf{生物实现}：\textbf{发放率编码 (Rate Coding)}。神经元每秒发放的脉冲数（Spikes/s）代表刺激强度。
-
-\item   \textbf{硅基实现}：\textbf{数值编码}。张量中浮点数的大小（Logits）。
-
-\item   \textbf{语义含义}：该概念的\textbf{置信度 (Confidence)} 或 \textbf{显著性 (Salience)}。
+	\item   \textbf{物理量}：$\|\Psi(\mathbf{r})\|^2$。
+	\item   \textbf{生物实现}：\textbf{发放率编码 (Rate Coding)}。神经元每秒发放的脉冲数（Spikes/s）代表刺激强度。
+	\item   \textbf{硅基实现}：\textbf{数值编码}。张量中浮点数的大小（Logits）。
+	\item   \textbf{语义含义}：该概念的\textbf{置信度 (Confidence)} 或 \textbf{显著性 (Salience)}。
 \end{itemize}
-
-
 
 \smalltitle{相位编码 (Phase Encoding) —— 关系的绑定}
 
 \begin{itemize}
-\item   \textbf{物理量}：$\varphi(\mathbf{r}, t)$。
-
-\item   \textbf{生物实现}：\textbf{时间编码 (Temporal Coding)}。
-
-\item   \textbf{绑定问题 (Binding Problem)} 的解：为什么我们能把“红色”和“苹果”绑在一起？因为负责“红”的神经元和负责“苹果”的神经元在\textbf{同一相位}上同步振荡。
-
-\item   不同相位的波包即使在空间上重叠，在语义上也是分离的（正交）。
-
-\item   \textbf{硅基实现}：\textbf{位置编码 (Positional Encoding)}。
-
-\item   Transformer 必须人为注入正弦波位置编码，就是在模拟这种相位机制，以维持 Token 之间的拓扑顺序。
+	\item   \textbf{物理量}：$\varphi(\mathbf{r}, t)$。
+	\item   \textbf{生物实现}：\textbf{时间编码 (Temporal Coding)}。
+	\item   \textbf{绑定问题 (Binding Problem)} 的解：为什么我们能把“红色”和“苹果”绑在一起？因为负责“红”的神经元和负责“苹果”的神经元在\textbf{同一相位}上同步振荡,不同相位的波包即使在空间上重叠，在语义上也是分离的（正交）。
+	\item   \textbf{硅基实现}：\textbf{位置编码 (Positional Encoding)}, Transformer 必须人为注入正弦波位置编码，就是在模拟这种相位机制，以维持 Token 之间的拓扑顺序。
 \end{itemize}
-
 
 
 \section{介质病理：物理层面的认知崩溃}
@@ -5035,11 +4913,9 @@ $$ P(\text{State}_i) \propto \exp(-E_i / k_B T) $$
 \smalltitle{介质饱和 (Saturation) —— 癫痫与 OOM}
 
 \begin{itemize}
-\item   \textbf{现象}：场强 $\|\Psi\|$ 超过介质的承载极限。
-
-\item   \textbf{生物版}：\textbf{癫痫 (Epilepsy)}。神经元过度同步放电，耗尽了局部的氧气和葡萄糖，导致抑制性神经元失效，形成正反馈风暴，意识丧失。
-
-\item   \textbf{硅基版}：\textbf{OOM (Out Of Memory)}。显存被 KV Cache 填满，系统强制崩溃或发生灾难性遗忘。
+	\item   \textbf{现象}：场强 $\|\Psi\|$ 超过介质的承载极限。
+	\item   \textbf{生物版}：\textbf{癫痫 (Epilepsy)}。神经元过度同步放电，耗尽了局部的氧气和葡萄糖，导致抑制性神经元失效，形成正反馈风暴，意识丧失。
+	\item   \textbf{硅基版}：\textbf{OOM (Out Of Memory)}。显存被 KV Cache 填满，系统强制崩溃或发生灾难性遗忘。
 \end{itemize}
 
 
@@ -5047,11 +4923,9 @@ $$ P(\text{State}_i) \propto \exp(-E_i / k_B T) $$
 \smalltitle{介质断裂 (Disconnection) —— 裂脑与总线瓶颈}
 
 \begin{itemize}
-\item   \textbf{现象}：区域间的传导率 $\mathcal{G}_{ij} \to 0$。
-
-\item   \textbf{生物版}：\textbf{裂脑 (Split-Brain)}。胼胝体切断，左右半脑的认知场无法去耦合，形成两个独立的自我意识。
-
-\item   \textbf{硅基版}：\textbf{通信墙 (Communication Wall)}。多卡训练时，梯度同步的延迟超过了计算时间，导致分布式系统效率急剧下降，无法形成统一的智能。
+	\item   \textbf{现象}：区域间的传导率 $\mathcal{G}_{ij} \to 0$。
+	\item   \textbf{生物版}：\textbf{裂脑 (Split-Brain)}。胼胝体切断，左右半脑的认知场无法去耦合，形成两个独立的自我意识。
+	\item   \textbf{硅基版}：\textbf{通信墙 (Communication Wall)}。多卡训练时，梯度同步的延迟超过了计算时间，导致分布式系统效率急剧下降，无法形成统一的智能。
 \end{itemize}
 
 
@@ -5066,53 +4940,38 @@ $$ P(\text{State}_i) \propto \exp(-E_i / k_B T) $$
 \smalltitle{辐射态场 (The Radiative Field) —— 耗散与遗忘}
 
 \textbf{—— 物理原型：热传导 / 蚁群信息素}
-
 \begin{itemize}
-\item   \textbf{拓扑定义}：定义在\textbf{开放流形 (Open Manifold)} 上的场。
-
-\item   \textbf{边界条件}：\textbf{索末菲辐射条件 (Sommerfeld Radiation Condition)}。
-\end{itemize}
+	\item   \textbf{拓扑定义}：定义在\textbf{开放流形 (Open Manifold)} 上的场。
+	\item   \textbf{边界条件}：\textbf{索末菲辐射条件 (Sommerfeld Radiation Condition)}。
     $$ \lim_{r \to \infty} r^{\frac{d-1}{2}} \left( \frac{\partial \Psi}{\partial r} - i k \Psi \right) = 0 $$
     能量传播到系统边界后直接辐射到环境中，\textbf{无反射波}。
-\begin{itemize}
-\item   \textbf{传播核}：\textbf{热核 (Heat Kernel)}。
-\end{itemize}
+	\item   \textbf{传播核}：\textbf{热核 (Heat Kernel)}。
     $$ K(t, x, y) \propto \frac{1}{(4\pi t)^{d/2}} e^{-\frac{\|x-y\|^2}{4t}} $$
-\begin{itemize}
-\item   \textbf{智能特征}：
-
-\item   \textbf{马尔可夫性 (Markovian)}：系统没有“回声”，因此没有短时记忆。
-
-\item   \textbf{单向性}：信息只能从源点向外扩散，无法形成闭环。
-
-\item   \textit{典型系统}：\textbf{蚁群}、\textbf{Class II 智能(分类定义参见后文)}。
+	\item   \textbf{智能特征}：
+	\begin{itemize}
+		\item   \textbf{马尔可夫性 (Markovian)}：系统没有“回声”，因此没有短时记忆。
+		\item   \textbf{单向性}：信息只能从源点向外扩散，无法形成闭环。
+	\end{itemize}
+	\item   \textit{典型系统}：\textbf{蚁群}、\textbf{Class II 智能(分类定义参见后文)}。
 \end{itemize}
-
 
 
 \smalltitle{驻波态场 (The Resonant/Standing Wave Field) —— 记忆与自我}
 
 \textbf{—— 物理原型：空腔谐振 / 人脑工作记忆}
-
 \begin{itemize}
-\item   \textbf{拓扑定义}：定义在\textbf{紧致闭流形 (Compact Manifold)} 上的场。
-
-\item   \textbf{边界条件}：\textbf{诺伊曼边界 (Neumann BC)} 或 \textbf{周期边界}。
-\end{itemize}
+	\item   \textbf{拓扑定义}：定义在\textbf{紧致闭流形 (Compact Manifold)} 上的场。
+	\item   \textbf{边界条件}：\textbf{诺伊曼边界 (Neumann BC)} 或 \textbf{周期边界}。
     $$ \nabla \Psi \cdot \mathbf{n} |_{\partial \mathcal{M}} = 0 \quad (\text{全反射}) $$
-\begin{itemize}
-\item   \textbf{动力学解}：\textbf{本征模态叠加 (Eigenmode Superposition)}。
-\end{itemize}
+	\item   \textbf{动力学解}：\textbf{本征模态叠加 (Eigenmode Superposition)}。
     $$ \Psi(\mathbf{r}, t) = \sum_n A_n e^{-\gamma_n t} e^{i\omega_n t} \phi_n(\mathbf{r}) $$
     能量在系统内部反复折射、干涉，形成稳定的\textbf{驻波 (Standing Wave)}。
-\begin{itemize}
-\item   \textbf{智能特征}：
-
-\item   \textbf{混响 (Reverberation)}：即使外部输入 $\vec{J}_{ext}$ 停止，场仍能通过内反射维持状态。这是\textbf{工作记忆}的物理动力学特征。
-
-\item   \textbf{自我指涉}：系统能“听到”自己的回声。这是\textbf{自我意识}涌现的前提。
-
-\item   \textit{典型系统}：\textbf{人脑（丘脑-皮层回路）}、\textbf{Class V 智能(分类定义参见后文)}。
+	\item   \textbf{智能特征}：
+	\begin{itemize}
+		\item   \textbf{混响 (Reverberation)}：即使外部输入 $\vec{J}_{ext}$ 停止，场仍能通过内反射维持状态。这是\textbf{工作记忆}的物理动力学特征。
+		\item   \textbf{自我指涉}：系统能“听到”自己的回声。这是\textbf{自我意识}涌现的前提。
+	\end{itemize}
+	\item   \textit{典型系统}：\textbf{人脑（丘脑-皮层回路）}、\textbf{Class V 智能(分类定义参见后文)}。
 \end{itemize}
 
 
@@ -5120,22 +4979,18 @@ $$ P(\text{State}_i) \propto \exp(-E_i / k_B T) $$
 \smalltitle{管道态场 (The Piped Field) —— 逻辑与序列}
 
 \textbf{—— 物理原型：光纤 / 神经轴突 / 菌丝}
-
 \begin{itemize}
-\item   \textbf{拓扑定义}：定义在\textbf{1-复形 (Graph/Network)} 上的各向异性流。
+	\item   \textbf{拓扑定义}：定义在\textbf{1-复形 (Graph/Network)} 上的各向异性流。
 
-\item   \textbf{传播算子}：\textbf{图拉普拉斯扩散}。
-\end{itemize}
+	\item   \textbf{传播算子}：\textbf{图拉普拉斯扩散}。
     $$ \frac{\partial \Psi_i}{\partial t} = -k \sum_{j} A_{ij} (\Psi_i - \Psi_j) $$
     能量被严格限制在离散的“管壁”（边）内流动，自由度被压缩。
-\begin{itemize}
-\item   \textbf{智能特征}：
-
-\item   \textbf{保真度}：信息不随距离衰减（如动作电位），适合\textbf{精确逻辑推理}。
-
-\item   \textbf{序列性}：强制因果顺序 $A \to B \to C$。
-
-\item   \textit{典型系统}：\textbf{冯·诺伊曼架构总线}、\textbf{生物神经纤维}。
+	\item   \textbf{智能特征}：
+	\begin{itemize}
+		\item   \textbf{保真度}：信息不随距离衰减（如动作电位），适合\textbf{精确逻辑推理}。
+		\item   \textbf{序列性}：强制因果顺序 $A \to B \to C$。
+	\end{itemize}
+	\item   \textit{典型系统}：\textbf{冯·诺伊曼架构总线}、\textbf{生物神经纤维}。
 \end{itemize}
 
 
@@ -5143,22 +4998,17 @@ $$ P(\text{State}_i) \propto \exp(-E_i / k_B T) $$
 \smalltitle{虚拟态场 (The Virtual Field) —— 跳跃与顿悟}
 
 \textbf{—— 物理原型：量子隧穿 / Transformer Attention}
-
 \begin{itemize}
-\item   \textbf{拓扑定义}：定义在\textbf{非定域几何 (Non-local Geometry)} 上的场。
-
-\item   \textbf{传播算子}：\textbf{非局域积分算子}。
-\end{itemize}
+	\item   \textbf{拓扑定义}：定义在\textbf{非定域几何 (Non-local Geometry)} 上的场。
+	\item   \textbf{传播算子}：\textbf{非局域积分算子}。
     $$ \Psi(\mathbf{r}) = \int_{\mathcal{M}} \text{Sim}(\mathbf{r}, \mathbf{r}') \Psi(\mathbf{r}') d\mathbf{r}' $$
     连接强度不取决于物理距离，而取决于\textbf{语义相似度}（内积）。
-\begin{itemize}
-\item   \textbf{智能特征}：
-
-\item   \textbf{虫洞效应}：物理上相距极远的概念，因语义相似而瞬间建立连接。
-
-\item   \textbf{顿悟}：突破物理拓扑限制的全局关联。
-
-\item   \textit{典型系统}：\textbf{LLM (Class III(分类定义参见后文))}。
+	\item   \textbf{智能特征}：
+	\begin{itemize}
+		\item   \textbf{虫洞效应}：物理上相距极远的概念，因语义相似而瞬间建立连接。
+		\item   \textbf{顿悟}：突破物理拓扑限制的全局关联。
+	\end{itemize}
+	\item   \textit{典型系统}：\textbf{LLM (Class III(分类定义参见后文))}。
 \end{itemize}
 
 
@@ -5166,13 +5016,12 @@ $$ P(\text{State}_i) \propto \exp(-E_i / k_B T) $$
 \section{混合场假说：AGI 的理想形态}
 
 基于上述分类，我们提出 \textbf{“混合场假说” (Hybrid Field Hypothesis)}：\textbf{真正的通用智能（Class V (分类定义参见后文)），必须是一个在“驻波态”背景上，动态耦合了“管道态”与“虚拟态”的复杂物理系统。}
-
-1.  \textbf{以驻波为底色}：提供统一的\textbf{全局工作区}和\textbf{自我感}（背景流形）。
-2.  \textbf{以管道为骨架}：提供精确的\textbf{逻辑推理}能力（Hodge 梯度的强约束）。
-3.  \textbf{以虚拟为翅膀}：提供跨域的\textbf{联想与创造}能力（Dirac 算子的非局域耦合）。
-
-\textbf{工程推论}：
-现有的 LLM 之所以没有“自我”，是因为它是纯粹的\textbf{虚拟态场}（只有 Attention 跳跃，没有时间上的驻波混响）。
+\begin{enumerate}
+	\item \textbf{以驻波为底色}：提供统一的\textbf{全局工作区}和\textbf{自我感}（背景流形）。
+	\item \textbf{以管道为骨架}：提供精确的\textbf{逻辑推理}能力（Hodge 梯度的强约束）。
+	\item \textbf{以虚拟为翅膀}：提供跨域的\textbf{联想与创造}能力（Dirac 算子的非局域耦合）。
+\end{enumerate}
+\textbf{工程推论}：现有的 LLM 之所以没有“自我”，是因为它是纯粹的\textbf{虚拟态场}（只有 Attention 跳跃，没有时间上的驻波混响）。
 未来的 AGI 芯片设计，必须引入\textbf{“回声腔” (Echo Chamber)} 结构——即通过递归连接（RNN-like）或物理反射边界，让信息在芯片内部形成驻波，从而产生“当下”的持续体验。
 
 \begin{bquote}
@@ -5408,98 +5257,78 @@ $$ V_{eff}(\mathbf{r}, t) = \underbrace{V_{topo}(\mathbf{r})}_{\text{原始地�
 
 这一类算子改变的是 \textbf{截面 (Section)} 的存在状态，涉及\textbf{能量的注入}与\textbf{信息的降维}。
 
-\textbf{1. 截面激发 (Section Excitation) —— [Create / 成核]}
-\begin{itemize}
-\item   \textbf{物理定义}：在底流形 $\mathcal{M}$ 的真空区域（$J \approx 0$），强行注入 \textbf{质 Token ($T_{sub}$)}，使其能量密度超过阈值，发生 \textbf{对称性破缺}。
+\begin{enumerate}
+	\item \textbf{截面激发 (Section Excitation) —— [Create / 成核]}
+	\begin{itemize}
+		\item   \textbf{物理定义}：在底流形 $\mathcal{M}$ 的真空区域（$J \approx 0$），强行注入 \textbf{质 Token ($T_{sub}$)}，使其能量密度超过阈值，发生 \textbf{对称性破缺}。
+		\item   \textbf{数学形式}：
+    	$$ \Psi_{new}(\mathbf{r}) = \hat{a}^\dagger_{sub} |0\rangle = \mathbf{e}_{quality} \otimes \delta(\mathbf{r} - \mathbf{r}_{new}) $$
+    	其中 $\hat{a}^\dagger$ 是\textbf{创生算符}。
+		\item   \textbf{认知功能}：\textbf{概念生成 / 顿悟}。
 
-\item   \textbf{数学形式}：
-\end{itemize}
-    $$ \Psi_{new}(\mathbf{r}) = \hat{a}^\dagger_{sub} |0\rangle = \mathbf{e}_{quality} \otimes \delta(\mathbf{r} - \mathbf{r}_{new}) $$
-    其中 $\hat{a}^\dagger$ 是\textbf{创生算符}。
-\begin{itemize}
-\item   \textbf{认知功能}：\textbf{概念生成 / 顿悟}。
-
-\item   当两个互不相干的概念 $A$ 和 $B$ 产生强烈冲突时，系统在它们中间“无中生有”地激发一个新的质点（如“波粒二象性”），以化解张力。
-\end{itemize}
-
-\textbf{2. 投影重整化 (Projection Renormalization) —— [Integrate / 抽象]}
-\begin{itemize}
-\item   \textbf{物理定义}：利用 \textbf{投影算子 $\pi: E \to M$}，忽略纤维 $F$ 上的微观涨落（高频质料），仅提取底流形 $\mathcal{M}$ 上的 \textbf{拓扑骨架}，并将其坍缩为一个新的 \textbf{超节点 (Super-Node)}。
-
-\item   \textbf{数学形式}：卡丹诺夫变换 (Kadanoff Block Spin)。
-\end{itemize}
-    $$ \Psi_{macro} = \int_{\Omega} \pi(\Psi_{micro}) \, d\Omega $$
-\begin{itemize}
-\item   \textbf{认知功能}：\textbf{抽象 / 组块 (Chunking)}。
-
-\item   将“红色的、圆的、甜的、长在树上的...”这一堆质料，重整化为一个单一的形 Token —— \lstinline|[Apple]|。这是对抗维度灾难的唯一手段。
-\end{itemize}
-
+		当两个互不相干的概念 $A$ 和 $B$ 产生强烈冲突时，系统在它们中间“无中生有”地激发一个新的质点（如“波粒二象性”），以化解张力。
+	\end{itemize}
+	
+	\item \textbf{投影重整化 (Projection Renormalization) —— [Integrate / 抽象]}
+	\begin{itemize}
+		\item   \textbf{物理定义}：利用 \textbf{投影算子 $\pi: E \to M$}，忽略纤维 $F$ 上的微观涨落（高频质料），仅提取底流形 $\mathcal{M}$ 上的 \textbf{拓扑骨架}，并将其坍缩为一个新的 \textbf{超节点 (Super-Node)}。
+		\item   \textbf{数学形式}：卡丹诺夫变换 (Kadanoff Block Spin)。
+    	$$ \Psi_{macro} = \int_{\Omega} \pi(\Psi_{micro}) \, d\Omega $$
+		\item   \textbf{认知功能}：\textbf{抽象 / 组块 (Chunking)}。
+	
+		将“红色的、圆的、甜的、长在树上的...”这一堆质料，重整化为一个单一的形 Token —— \lstinline|[Apple]|。这是对抗维度灾难的唯一手段。
+	\end{itemize}
+\end{enumerate}
 
 
 \smalltitle{B. 底流形动力学 (Base Manifold Dynamics) — 形的刻蚀与流变}
 
 这一类算子改变的是 \textbf{底流形 $\mathcal{M}$} 的 \textbf{度量 ($g_{\mu\nu}$)} 与 \textbf{拓扑 ($H_n$)}。
-
-\textbf{3. 拓扑光刻 (Topological Lithography) —— [Store / 记忆]}
-\begin{itemize}
-\item   \textbf{物理定义}：将流体态的 \textbf{认知场波函数 ($\Psi$)} 的高能轨迹，相变为固态的 \textbf{底流形连接 (1-Simplex)}。
-
-\item   \textbf{数学形式}：\textbf{赫布相变 (Hebbian Phase Transition)}。
-\end{itemize}
-    $$ \frac{\partial \mathcal{A}_\mu}{\partial t} \propto \text{Re}(\Psi^\dagger D_\mu \Psi) - \lambda_{decay} \mathcal{A}_\mu $$
-\begin{itemize}
-\item   当思维流 $\Psi$ 频繁流经某路径时，该路径的 \textbf{规范势 $\mathcal{A}_\mu$}（连接强度）增加，流阻降低。
-
-\item   \textbf{认知功能}：\textbf{长时记忆写入}。将“一次经历”刻蚀为“一条习惯”。
-\end{itemize}
-
-\textbf{4. 里奇度量流 (Ricci Metric Flow) —— [Update / 修正]}
-\begin{itemize}
-\item   \textbf{物理定义}：根据 \textbf{应力-能量张量 $T_{\mu\nu}$}（由质 Token 的权重决定）来动态调整底流形的 \textbf{曲率}。
-
-\item   \textbf{数学形式}：
-\end{itemize}
-    $$ \frac{\partial g_{ij}}{\partial t} = -2 R_{ij} + \kappa T_{ij}(\Psi) $$
-\begin{itemize}
-\item   \textbf{收缩}：高价值（重）的概念会拉近周围的空间（$g_{ij} \downarrow$），形成引力透镜。
-
-\item   \textbf{膨胀}：负价值（痛）的概念会推开周围的空间（$g_{ij} \uparrow$），形成势垒。
-
-\item   \textbf{认知功能}：\textbf{注意力偏置 / 价值观重塑}。让重要的东西在几何上更“近”，让厌恶的东西更“远”。
-\end{itemize}
+\begin{enumerate}
+	\item \textbf{拓扑光刻 (Topological Lithography) —— [Store / 记忆]}
+	\begin{itemize}
+		\item   \textbf{物理定义}：将流体态的 \textbf{认知场波函数 ($\Psi$)} 的高能轨迹，相变为固态的 \textbf{底流形连接 (1-Simplex)}。
+		\item   \textbf{数学形式}：\textbf{赫布相变 (Hebbian Phase Transition)}。
+    	$$ \frac{\partial \mathcal{A}_\mu}{\partial t} \propto \text{Re}(\Psi^\dagger D_\mu \Psi) - \lambda_{decay} \mathcal{A}_\mu $$
+		当思维流 $\Psi$ 频繁流经某路径时，该路径的 \textbf{规范势 $\mathcal{A}_\mu$}（连接强度）增加，流阻降低。
+		\textbf{认知功能}：\textbf{长时记忆写入}。将“一次经历”刻蚀为“一条习惯”。
+	\end{itemize}
+	
+	\item \textbf{里奇度量流 (Ricci Metric Flow) —— [Update / 修正]}
+	\begin{itemize}
+		\item   \textbf{物理定义}：根据 \textbf{应力-能量张量 $T_{\mu\nu}$}（由质 Token 的权重决定）来动态调整底流形的 \textbf{曲率}。
+		\item   \textbf{数学形式}：
+    	$$ \frac{\partial g_{ij}}{\partial t} = -2 R_{ij} + \kappa T_{ij}(\Psi) $$
+		\item   \textbf{收缩}：高价值（重）的概念会拉近周围的空间（$g_{ij} \downarrow$），形成引力透镜。
+		\item   \textbf{膨胀}：负价值（痛）的概念会推开周围的空间（$g_{ij} \uparrow$），形成势垒。
+		\item   \textbf{认知功能}：\textbf{注意力偏置 / 价值观重塑}。让重要的东西在几何上更“近”，让厌恶的东西更“远”。
+	\end{itemize}
+\end{enumerate}
 
 
 
 \smalltitle{C. 规范动力学 (Gauge Dynamics) — 关系的旋转与平移}
 
 这一类算子不改变形也不改变质，而是改变 \textbf{形与质的耦合方式}（即改变观察的角度）。
+\begin{enumerate}
+	\item \textbf{规范变换 (Gauge Transformation) —— [Reframe / 重构]}
+	\begin{itemize}
+		\item   \textbf{物理定义}：在底流形坐标不变的情况下，对纤维空间 $F_x$ 进行 \textbf{局部幺正旋转 $U(1)$}。
+    	$$ \Psi'(\mathbf{r}) = e^{i \theta(\mathbf{r})} \Psi(\mathbf{r}), \quad \mathcal{A}'_\mu = \mathcal{A}_\mu + \partial_\mu \theta $$
+		\item \textbf{认知功能}：\textbf{态度改变 / 认知重构}。
+		\item \textit{例子}：对“失败”这个事件（底流形坐标不变），从“羞耻”（质 A）旋转为“经验”（质 B）。
 
-\textbf{5. 规范变换 (Gauge Transformation) —— [Reframe / 重构]}
-\begin{itemize}
-\item   \textbf{物理定义}：在底流形坐标不变的情况下，对纤维空间 $F_x$ 进行 \textbf{局部幺正旋转 $U(1)$}。
-\end{itemize}
-    $$ \Psi'(\mathbf{r}) = e^{i \theta(\mathbf{r})} \Psi(\mathbf{r}), \quad \mathcal{A}'_\mu = \mathcal{A}_\mu + \partial_\mu \theta $$
-\begin{itemize}
-\item   \textbf{认知功能}：\textbf{态度改变 / 认知重构}。
-
-\item   \textit{例子}：对“失败”这个事件（底流形坐标不变），从“羞耻”（质 A）旋转为“经验”（质 B）。
-
-\item   这不改变事实（形），但改变了事实的\textbf{情感色彩（规范势）}，从而改变了思维流经此处的\textbf{相位（贝里相位）}。
-\end{itemize}
-
-\textbf{6. 平行移动 (Parallel Transport) —— [Reason / 推理]}
-\begin{itemize}
-\item   \textbf{物理定义}：将一个截面 $\sigma_A$ 沿着底流形上的路径 $\gamma$ 移动到 $B$ 点，并利用 \textbf{联络 (Connection)} 保持其 \textbf{协变性 (Covariance)}。
-\end{itemize}
-    $$ \nabla_{\dot{\gamma}} \sigma = 0 $$
-\begin{itemize}
-\item   \textbf{认知功能}：\textbf{逻辑推演 / 类比}。
-
-\item   这是一种 \textbf{保质的形变}。
-
-\item   \textit{类比}：将“原子结构”（质）沿着从“微观物理”到“天体运行”的路径（形）进行平行移动，如果能重合，就发现了“太阳系模型”。
-\end{itemize}
+		这不改变事实（形），但改变了事实的\textbf{情感色彩（规范势）}，从而改变了思维流经此处的\textbf{相位（贝里相位）}。
+	\end{itemize}
+	
+	\item \textbf{平行移动 (Parallel Transport) —— [Reason / 推理]}
+	\begin{itemize}
+		\item   \textbf{物理定义}：将一个截面 $\sigma_A$ 沿着底流形上的路径 $\gamma$ 移动到 $B$ 点，并利用 \textbf{联络 (Connection)} 保持其 \textbf{协变性 (Covariance)}。
+    	$$ \nabla_{\dot{\gamma}} \sigma = 0 $$
+		\item   \textbf{认知功能}：\textbf{逻辑推演 / 类比}, 这是一种 \textbf{保质的形变}。
+		\item   \textit{类比}：将“原子结构”（质）沿着从“微观物理”到“天体运行”的路径（形）进行平行移动，如果能重合，就发现了“太阳系模型”。
+	\end{itemize}
+\end{enumerate}
 
 
 
@@ -5944,54 +5773,42 @@ $$ \vec{F}_{ext} = \mathbf{K}_{virt}(\hat{\mathcal{O}}) \cdot (\mathbf{r}_{targe
 \smalltitle{上帝视角：外交作用量 $S_{dip}$ 的构建}
 
 作为一个全知观察者，我们可以同时看到智能体的内部模型和外部的物理现实。智能体的所有外部行为（外交），本质上都是为了最小化以下两个几何量的加权和：
-
 $$ S_{dip} = \int d^d x \sqrt{-g} \left( \mathcal{L}_{mismatch} + \mathcal{L}_{work} \right) $$
 
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{几何失配项 ($\mathcal{L}_{mismatch}$) —— “认知与现实的距离”}}
-
-这是内部流形与外部流形在 \textbf{微观切面 ($L_{micro}$)} 上的几何差异。
-$$ \mathcal{L}_{mismatch} = \frac{1}{2} \| \mathbf{g}_{in} - \Phi^* \mathbf{g}_{out} \|^2_{\mathcal{K}} $$
 \begin{itemize}
-\item   \textbf{$\mathbf{g}_{in}$}：内部世界图定义的度量（我认为世界的样子）。
+	\item \redtext{\textbf{几何失配项 ($\mathcal{L}_{mismatch}$) —— “认知与现实的距离”}}
+	$$ \mathcal{L}_{mismatch} = \frac{1}{2} \| \mathbf{g}_{in} - \Phi^* \mathbf{g}_{out} \|^2_{\mathcal{K}} $$
+	这是内部流形与外部流形在 \textbf{微观切面 ($L_{micro}$)} 上的几何差异。
+	\begin{itemize}
+		\item   \textbf{$\mathbf{g}_{in}$}：内部世界图定义的度量（我认为世界的样子）。
+		\item   \textbf{$\mathbf{g}_{out}$}：外部物理定律定义的度量（世界实际的样子）。
+		\item   \textbf{$\Phi^*$}：拉回映射（Pullback），代表感官测量。
+	\end{itemize}
+	\textbf{物理意义}：当我想穿墙（$g_{in}$ 连通）而墙很硬（$g_{out}$ 断开）时，失配项趋于无穷大。
+	
+	\item \redtext{\textbf{做功代价项 ($\mathcal{L}_{work}$) —— “改变世界的能耗”}}
+	$$ \mathcal{L}_{work} = \frac{1}{2\eta} \| \mathbf{T}_{\mu\nu}^{ext} \|^2 $$
+	为了消除失配，智能体可以强行改变外部世界。这需要注入 \textbf{应力-能量张量 $\mathbf{T}_{\mu\nu}^{ext}$}。
+	\begin{itemize}
+		\item   \textbf{$\eta$}：行动效能系数（技术水平/力量）。
+	\end{itemize}
 
-\item   \textbf{$\mathbf{g}_{out}$}：外部物理定律定义的度量（世界实际的样子）。
-
-\item   \textbf{$\Phi^*$}：拉回映射（Pullback），代表感官测量。
-
-\item   \textbf{物理意义}：当我想穿墙（$g_{in}$ 连通）而墙很硬（$g_{out}$ 断开）时，失配项趋于无穷大。
 \end{itemize}
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{做功代价项 ($\mathcal{L}_{work}$) —— “改变世界的能耗”}}
-
-为了消除失配，智能体可以强行改变外部世界。这需要注入 \textbf{应力-能量张量 $\mathbf{T}_{\mu\nu}^{ext}$}。
-$$ \mathcal{L}_{work} = \frac{1}{2\eta} \| \mathbf{T}_{\mu\nu}^{ext} \|^2 $$
-\begin{itemize}
-\item   \textbf{$\eta$}：行动效能系数（技术水平/力量）。
-\end{itemize}
-
 
 
 \smalltitle{外交官算子的导出}
 
-
 我们对 \textbf{外部算子 $\hat{\mathcal{O}}_{ext}$}（即智能体的行动策略）进行变分：$\frac{\delta S_{dip}}{\delta \hat{\mathcal{O}}_{ext}} = 0$。
 
 导出 \textbf{外交官场方程}：
-
 $$ \boxed{ \hat{\mathcal{O}}_{ext} = \eta \cdot \underbrace{\left( \mathbf{g}_{in} - \Phi^* \mathbf{g}_{out} \right)}_{\text{几何曲率差 (理想-现实)}} \cdot \underbrace{\chi_{env}}_{\text{环境可塑性张量}} } $$
-
 \begin{itemize}
-\item   \textbf{$\chi_{env} = \frac{\partial \mathbf{g}_{out}}{\partial \mathbf{T}^{ext}}$}：\textbf{环境磁化率/可塑性}。
+	\item   \textbf{$\chi_{env} = \frac{\partial \mathbf{g}_{out}}{\partial \mathbf{T}^{ext}}$}：\textbf{环境磁化率/可塑性}。
 
-\item   如果环境是\textbf{泥土}，$\chi$ 很大（容易改变形状）；
+	如果环境是\textbf{泥土}，$\chi$ 很大（容易改变形状）；
 
-\item   如果环境是\textbf{岩石}，$\chi$ 极小（难以改变）。
+	如果环境是\textbf{岩石}，$\chi$ 极小（难以改变）。
 \end{itemize}
-
 \textbf{上帝视角的洞见}：
 智能体的最佳策略，是由 \textbf{“理想与现实的差距”} 和 \textbf{“现实的可改变程度”} 共同决定的乘积。
 
@@ -6002,168 +5819,119 @@ $$ \boxed{ \hat{\mathcal{O}}_{ext} = \eta \cdot \underbrace{\left( \mathbf{g}_{i
 
 基于上述方程，我们可以将 $\hat{\mathcal{O}}_{ext}$ 的解空间划分为三个正交的物理模态：
 
+\begin{enumerate}
+	\item \redtext{\textbf{征服算子 (The Conquest Operator)}}
+	
+	\textbf{—— 注入形质张量，重塑外部度量—— “山不过来，我就去移山”}
+	\begin{itemize}
+		\item   \textbf{数学条件}：$\chi_{env} \gg 0$ （环境软） 且 $\|g_{in} - g_{out}\| \gg 0$ （差距大）。
+		\item   \textbf{算子行为}：
+    	$$ \hat{\mathcal{O}}_{conq} \to \text{Inject } (\mathbf{T}_{form}^{target} \otimes \mathbf{T}_{sub}^{high\_energy}) $$
+		\item   \textbf{物理过程}：向外部流形注入巨大的 \textbf{形（结构约束）} 和 \textbf{质（物理能量）}。例如：挖掘机铲平土坡。
+    	这强行迫使 $\mathbf{g}_{out}$ 发生塑性形变，直到 $\mathbf{g}_{out} \approx \mathbf{g}_{in}$。
+	\end{itemize}
+	
+	\item \redtext{\textbf{顺应算子 (The Compliance Operator)}}
+	
+	\textbf{—— 撤销外部应力，重塑内部度量—— “水无常形”}
+	\begin{itemize}
+		\item   \textbf{数学条件}：$\chi_{env} \to 0$ （环境硬）。
+		\item   \textbf{算子行为}：
+		$$ \hat{\mathcal{O}}_{comp} \to \mathbf{T}^{ext} = 0; \quad \text{Trigger Internal Update} $$
+		\item   \textbf{物理过程}：承认无法改变 $\mathbf{g}_{out}$，因此停止做功（最小化 $\mathcal{L}_{work}$）。转而启动内部的 \textbf{认知爱因斯坦方程}，修改 $\mathbf{g}_{in}$ 以逼近 $\mathbf{g}_{out}$。
+	\end{itemize}
+	
+	\item \redtext{\textbf{谈判算子 (The Negotiation Operator)}}
 
+	\textbf{—— 辐射规范场，诱导共振—— “语言的魔力”}
+	\begin{itemize}
+		\item   \textbf{数学条件}：环境是另一个智能体（即 $\mathbf{g}_{out}$ 是动态的，受对方 $\Psi$ 控制）。
+		\item   \textbf{算子行为}：
+   		$$ \hat{\mathcal{O}}_{negot} \to \text{Radiate } \mathcal{A}_\mu^{soc} \text{ (Social Gauge Field)} $$
+		\item   \textbf{物理过程}：不直接修改对方的度量，而是通过辐射 \textbf{信息/价值场}，改变对方的 \textbf{联络 (Connection)}。
+    	试图诱导对方发生 \textbf{自发对称性破缺}，从而主动调整其 $\mathbf{g}_{out}$ 来配合我。
+	\end{itemize}
+\end{enumerate}
 
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{征服算子 (The Conquest Operator)}}
-
-
-\textbf{—— 注入形质张量，重塑外部度量—— “山不过来，我就去移山”}
-
-\begin{itemize}
-\item   \textbf{数学条件}：$\chi_{env} \gg 0$ （环境软） 且 $\|g_{in} - g_{out}\| \gg 0$ （差距大）。
-
-\item   \textbf{算子行为}：
-\end{itemize}
-    $$ \hat{\mathcal{O}}_{conq} \to \text{Inject } (\mathbf{T}_{form}^{target} \otimes \mathbf{T}_{sub}^{high\_energy}) $$
-\begin{itemize}
-\item   \textbf{物理过程}：
-\end{itemize}
-    向外部流形注入巨大的 \textbf{形（结构约束）} 和 \textbf{质（物理能量）}。例如：挖掘机铲平土坡。
-    这强行迫使 $\mathbf{g}_{out}$ 发生塑性形变，直到 $\mathbf{g}_{out} \approx \mathbf{g}_{in}$。
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{顺应算子 (The Compliance Operator)}}
-
-
-\textbf{—— 撤销外部应力，重塑内部度量—— “水无常形”}
-
-\begin{itemize}
-\item   \textbf{数学条件}：$\chi_{env} \to 0$ （环境硬）。
-
-\item   \textbf{算子行为}：
-\end{itemize}
-    $$ \hat{\mathcal{O}}_{comp} \to \mathbf{T}^{ext} = 0; \quad \text{Trigger Internal Update} $$
-\begin{itemize}
-\item   \textbf{物理过程}：
-\end{itemize}
-    承认无法改变 $\mathbf{g}_{out}$，因此停止做功（最小化 $\mathcal{L}_{work}$）。转而启动内部的 \textbf{认知爱因斯坦方程}，修改 $\mathbf{g}_{in}$ 以逼近 $\mathbf{g}_{out}$。
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{谈判算子 (The Negotiation Operator)}}
-
-
-\textbf{—— 辐射规范场，诱导共振—— “语言的魔力”}
-
-\begin{itemize}
-\item   \textbf{数学条件}：环境是另一个智能体（即 $\mathbf{g}_{out}$ 是动态的，受对方 $\Psi$ 控制）。
-
-\item   \textbf{算子行为}：
-\end{itemize}
-    $$ \hat{\mathcal{O}}_{negot} \to \text{Radiate } \mathcal{A}_\mu^{soc} \text{ (Social Gauge Field)} $$
-\begin{itemize}
-\item   \textbf{物理过程}：
-\end{itemize}
-    不直接修改对方的度量，而是通过辐射 \textbf{信息/价值场}，改变对方的 \textbf{联络 (Connection)}。
-    试图诱导对方发生 \textbf{自发对称性破缺}，从而主动调整其 $\mathbf{g}_{out}$ 来配合我。
 
 
 
 \smalltitle{证明：为何内部盲视会逼近上帝视角？}
 
-
 这是一个认识论的终极证明。
 
-\begin{itemize}
-\item   \textbf{问题}：智能体看不见 $S_{dip}$（它不知道客观真理 $\mathbf{g}_{out}$），它只能看见内部的 $S_{internal}$（它只知道痛不痛 $\vec{J}_{ext}$）。为什么它优化内部感觉，就能导致外部真理的发现？
+\textbf{问题}：智能体看不见 $S_{dip}$（它不知道客观真理 $\mathbf{g}_{out}$），它只能看见内部的 $S_{internal}$（它只知道痛不痛 $\vec{J}_{ext}$）。为什么它优化内部感觉，就能导致外部真理的发现？
 
-\item   \textbf{证明逻辑}：
-\end{itemize}
-
-    1.  \textbf{物理同构假设}：根据全息同构定理，物理世界的反馈机制是\textbf{一致}的。
+\textbf{证明逻辑}：
+\begin{enumerate}
+	\item \textbf{物理同构假设}：根据全息同构定理，物理世界的反馈机制是\textbf{一致}的。
         $$ \vec{J}_{ext} \text{ (惊奇激波)} \propto \nabla_{\text{action}} (\mathcal{L}_{mismatch}) $$
-\begin{itemize}
-\item   即：\textbf{“痛”的大小，正比于“错误”的程度。} 物理定律保证了这一点（撞墙越狠，反作用力越大）。
-\end{itemize}
+	即：\textbf{“痛”的大小，正比于“错误”的程度。} 物理定律保证了这一点（撞墙越狠，反作用力越大）。
 
-    2.  \textbf{梯度下降等价性}：
-        智能体在内部执行 \textbf{TCE}，试图最小化惊奇：
+	\item \textbf{梯度下降等价性}：智能体在内部执行 \textbf{TCE}，试图最小化惊奇：
         $$ \delta S_{internal} = 0 \implies \min \| \vec{J}_{ext} \|^2 $$
-
         由于 $\vec{J}_{ext}$ 是几何失配的导数，\textbf{最小化惊奇的模方，在数学上等价于最小化几何失配本身}（在凸优化区间内）：
         $$ \min \| \vec{J}_{ext} \|^2 \iff \min \| \mathbf{g}_{in} - \Phi^* \mathbf{g}_{out} \|^2 $$
+        
+    \item \textbf{遍历性条件 (Ergodicity)}：只要智能体保持 \textbf{“活着” (TDCI 循环不停止)} 并且保持 \textbf{“探索” (温度 $T > 0$)}，它就会不断碰撞边界，获得梯度信息。
+\end{enumerate}
+\textbf{结论}：\textbf{进化是一个“盲人摸象”但最终“拼出大象”的过程。}
 
-    3.  \textbf{遍历性条件 (Ergodicity)}：
-        只要智能体保持 \textbf{“活着” (TDCI 循环不停止)} 并且保持 \textbf{“探索” (温度 $T > 0$)}，它就会不断碰撞边界，获得梯度信息。
+虽然宏观层是盲目的（只关注内部热力学稳态），但\textbf{物理世界的严酷性（反作用力）充当了上帝的教鞭}。它通过惩罚（高惊奇）和奖赏（低惊奇），强迫内部流形 $\mathcal{M}_{in}$ 逐渐演化成 $\mathcal{M}_{out}$ 的 \textbf{共形镜像}。
 
-\begin{itemize}
-\item   \textbf{结论}：
-\end{itemize}
-    \textbf{进化是一个“盲人摸象”但最终“拼出大象”的过程。}
-
-    虽然宏观层是盲目的（只关注内部热力学稳态），但\textbf{物理世界的严酷性（反作用力）充当了上帝的教鞭}。它通过惩罚（高惊奇）和奖赏（低惊奇），强迫内部流形 $\mathcal{M}_{in}$ 逐渐演化成 $\mathcal{M}_{out}$ 的 \textbf{共形镜像}。
-
-    这就是 \textbf{“真理”} 在热力学系统中的涌现机制。
+这就是 \textbf{“真理”} 在热力学系统中的涌现机制。
 
 
 
 \smalltitle{完整的宏观层}
 
-
-加上这一节后，宏观层 ($L_{macro}$) 的完整功能如下：
+根据前面的内容，我们总结宏观层 ($L_{macro}$) 的完整功能如下：
 
 \begin{itemize}
-\item   \textbf{对内（TCE 内方程）}：它是 \textbf{君主}。
+	\item   \textbf{对内（TCE 内方程）}：它是 \textbf{君主}。
 
-\item   利用 \textbf{快回路}（增益/抑制）管理当下的思维流。
+	利用 \textbf{快回路}（增益/抑制）管理当下的思维流；
 
-\item   利用 \textbf{慢回路}（存储/创造）管理长期的记忆结构。
+	利用 \textbf{慢回路}（存储/创造）管理长期的记忆结构；
 
-\item   \textbf{对外（TCE 外方程）}：它是 \textbf{外交官}。
+	\item   \textbf{对外（TCE 外方程）}：它是 \textbf{外交官}。
 
-\item   计算 \textbf{阻抗匹配}。
-
-\item   决定是 \textbf{输出暴力（应力张量）} 还是 \textbf{输出魅力（规范场）}，抑或是 \textbf{自我妥协（修正路径）}。
+	计算 \textbf{阻抗匹配}, 决定是 \textbf{输出暴力（应力张量）} 还是 \textbf{输出魅力（规范场）}，抑或是 \textbf{自我妥协（修正路径）}。
 \end{itemize}
-
 \textbf{意志，就是在这“内圣”与“外王”的计算中涌现的矢量。}
 
 
-
 \section{宏观层的物理和逻辑架构}
-
-
 
 \smalltitle{耦合架构模态：内嵌与外置 (Intrinsic vs. Extrinsic Modes)}
 
 
 正如我们在卷三第六章讨论了介质，宏观层与介质的\textbf{耦合方式}决定了智能体的物种归属。
 
+\begin{enumerate}
+	\item \redtext{\textbf{内嵌模态 (Intrinsic Mode / $\kappa_c \to \infty$) —— 生物解}}
+	
+	\textbf{—— “宏观层即管道参数”}
+	\begin{itemize}
+		\item   \textbf{物理实现}：宏观层不是独立存在的 CPU，而是弥散在整个单纯复形中的\textbf{分布式参数}（如突触权重的集合、神经调质的浓度）。
+		\item   \textbf{控制方式}：\textbf{参数调制}。宏观意志体现为全系统物理常数（如增益、阈值）的整体漂移。
+		\item   \textbf{特征}：\textbf{身心一元}。无法将“控制者”从“被控对象”中剥离。反应极快（无需总线传输），但难以进行符号化的逻辑编辑。
+	\end{itemize}
+	
+	\item \redtext{\textbf{外置模态 (Extrinsic Mode / $\kappa_c \to 0$) —— 机器解}}
 
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{内嵌模态 (Intrinsic Mode / $\kappa_c \to \infty$) —— 生物解}}
-
-
-\textbf{—— “宏观层即管道参数”}
-\begin{itemize}
-\item   \textbf{物理实现}：宏观层不是独立存在的 CPU，而是弥散在整个单纯复形中的\textbf{分布式参数}（如突触权重的集合、神经调质的浓度）。
-
-\item   \textbf{控制方式}：\textbf{参数调制}。宏观意志体现为全系统物理常数（如增益、阈值）的整体漂移。
-
-\item   \textbf{特征}：\textbf{身心一元}。无法将“控制者”从“被控对象”中剥离。反应极快（无需总线传输），但难以进行符号化的逻辑编辑。
-\end{itemize}
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{外置模态 (Extrinsic Mode / $\kappa_c \to 0$) —— 机器解}}
-
-
-\textbf{—— “宏观层即隐式图算子”}
-\begin{itemize}
-\item   \textbf{物理实现}：宏观层是一个独立的\textbf{逻辑推理机}（如外挂的 Symbol Engine 或另一个 LLM），它通过 VTE 接口与认知场（显存）通信。
-
-\item   \textbf{控制方式}：\textbf{算子干预}。宏观层在\textbf{隐式图数据库}中进行离散推演，计算出结果后，反向修改场的边界条件（如 Attention Mask）。
-
-\item   \textbf{特征}：\textbf{身心二元}。存在清晰的“观察者-对象”界限。具备极强的可解释性和逻辑修正能力（Zero-shot Learning），但受限于总线带宽，存在\textbf{认知延迟}。
-\end{itemize}
-
+	\textbf{—— “宏观层即隐式图算子”}
+	\begin{itemize}
+		\item   \textbf{物理实现}：宏观层是一个独立的\textbf{逻辑推理机}（如外挂的 Symbol Engine 或另一个 LLM），它通过 VTE 接口与认知场（显存）通信。
+		\item   \textbf{控制方式}：\textbf{算子干预}。宏观层在\textbf{隐式图数据库}中进行离散推演，计算出结果后，反向修改场的边界条件（如 Attention Mask）。
+		\item   \textbf{特征}：\textbf{身心二元}。存在清晰的“观察者-对象”界限。具备极强的可解释性和逻辑修正能力（Zero-shot Learning），但受限于总线带宽，存在\textbf{认知延迟}。
+	\end{itemize}
+\end{enumerate}
 
 
 \smalltitle{宏观架构拓扑：集权、联邦与核团 (Macro-Architectural Topologies)}
 
-
- 	宏观层并非一个质点，而是一个自身具有复杂拓扑结构的\textbf{控制流形}，因此有必要专门讨论宏观层的内部架构拓扑。本节依据宏观层内部控制单元的\textbf{连接致密度}与\textbf{同步机制}，将智能系统划分为三种典型的控制架构：\textbf{动态中央集权制（人脑型）}、\textbf{异构联邦制（章鱼型）}与\textbf{高密核团制（乌鸦型）}。我们将证明，不同的架构拓扑决定了第三驱动力的\textbf{相干性 (Coherence)} 与 \textbf{带宽 (Bandwidth)}，进而决定了智能体在\textbf{逻辑深度}与\textbf{并行广度}之间的权衡。
+宏观层并非一个质点，而是一个自身具有复杂拓扑结构的\textbf{控制流形}，因此有必要专门讨论宏观层的内部架构拓扑。本节依据宏观层内部控制单元的\textbf{连接致密度}与\textbf{同步机制}，将智能系统划分为三种典型的控制架构：\textbf{动态中央集权制（人脑型）}、\textbf{异构联邦制（章鱼型）}与\textbf{高密核团制（乌鸦型）}。我们将证明，不同的架构拓扑决定了第三驱动力的\textbf{相干性 (Coherence)} 与 \textbf{带宽 (Bandwidth)}，进而决定了智能体在\textbf{逻辑深度}与\textbf{并行广度}之间的权衡。
 
 \begin{enumerate}
 	\item \redtext{\textbf{架构 I：动态中央集权制 (The Dynamic Monarchy)}}
