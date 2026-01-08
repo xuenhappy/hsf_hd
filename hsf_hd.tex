@@ -2498,17 +2498,18 @@ class MSC_Image2Text_Pipeline(nn.Module):
 
 \section{视频生成与物理模拟：流体演化与质料守恒}
 
-视频生成是 T2I 的时间维度推广，也是当前 AI（如 Sora）面临的最大挑战。核心痛点在于\textbf{一致性 (Consistency)}：为什么生成的猫走着走着变成了狗？为什么杯子掉在地上没有碎？
+视频生成是 T2I 的时间维度推广，也是当前 AI（如 Sora）面临的最大挑战, 核心痛点在于\textbf{一致性 (Consistency)}：为什么生成的猫走着走着变成了狗？为什么杯子掉在地上没有碎？
 
-MSC 认为，这不仅仅是数据量的问题，这是\textbf{物理定律缺失}的问题。用MSC角度，视频生成必须遵循\textbf{诺特定理 (Noether's Theorem)} 在语义空间中的对应形式。
+MSC 认为，这不仅仅是数据量的问题，这是\textbf{物理定律缺失}的问题, 用MSC角度，视频生成必须遵循\textbf{诺特定理 (Noether's Theorem)} 在语义空间中的对应形式。
 
 
 
 \smalltitle{质料守恒定律 (Conservation of Qualia)}
 
-
-\textbf{公理 10.3.1}：在封闭的物理过程中，\textbf{实体的“质 Token”是守恒的}，或者是缓慢变化的（平滑的）。
+\begin{theorem}[质料守恒定律]
+	在封闭的物理过程中，\textbf{实体的“质 Token”是守恒的}，或者是缓慢变化的（平滑的）。
 $$ \frac{D \mathbf{V}_Q}{Dt} = \frac{\partial \mathbf{V}_Q}{\partial t} + (\mathbf{v} \cdot \nabla) \mathbf{V}_Q \approx 0 $$
+\end{theorem}
 这意味着：当你生成下一帧时，你不能重新采样“质”（那会导致闪烁和变形），你只能\textbf{平移 (Advect)} 现有的“质”。
 
 
@@ -2529,32 +2530,19 @@ $$ \frac{D \mathbf{V}_Q}{Dt} = \frac{\partial \mathbf{V}_Q}{\partial t} + (\math
 
 
 我们的生成器不再是一个黑盒 U-Net，而是一个\textbf{双流系统}：
-
-1.  \textbf{形流 (Shape Flow)}：预测\textbf{运动场}。
-\begin{itemize}
-\item   类似于光流或 3D 骨骼动画。它计算物体去哪里、怎么变形。
-
-\item   这部分负责处理\textbf{物理一致性}（重力、碰撞、刚体运动）。
-\end{itemize}
-2.  \textbf{质流 (Quality Flow)}：维护\textbf{特征库}。
-\begin{itemize}
-\item   它是一个\textbf{静态的}（或极慢变化的）特征纹理映射 (Texture Map)。
-
-\item   它不参与演化，它只负责被\textbf{采样}。
-\end{itemize}
-
-
+\begin{enumerate}
+	\item \textbf{形流 (Shape Flow)}：预测\textbf{运动场},类似于光流或 3D 骨骼动画。它计算物体去哪里、怎么变形,这部分负责处理\textbf{物理一致性}（重力、碰撞、刚体运动）。
+	\item \textbf{质流 (Quality Flow)}：维护\textbf{特征库},它是一个\textbf{静态的}（或极慢变化的）特征纹理映射 (Texture Map), 它不参与演化，它只负责被\textbf{采样}。
+\end{enumerate}
 
 \smalltitle{渲染：将守恒的质映射到演化的形上}
-
 
 $$ \text{Frame}_{t+1} = \text{Warp}(\text{Frame}_t, \text{Flow}_{t \to t+1}) + \text{Inpaint}(\text{New Regions}) $$
 
 这种架构保证了：
 \begin{itemize}
-\item   \textbf{物体恒常性}：因为“质”是被锁定的，所以猫永远是那只猫。
-
-\item   \textbf{物理合理性}：因为“形”是由专门的物理预测头（Physics Head）生成的，所以运动符合力学定律。
+	\item   \textbf{物体恒常性}：因为“质”是被锁定的，所以猫永远是那只猫。
+	\item   \textbf{物理合理性}：因为“形”是由专门的物理预测头（Physics Head）生成的，所以运动符合力学定律。
 \end{itemize}
 
 
@@ -5550,40 +5538,33 @@ $$ V_{eff}(\mathbf{r}, t) = \underbrace{V_{topo}(\mathbf{r})}_{\text{原始地�
 
 \smalltitle{控制的物理原理：扩充的作用量}
 
-
 为了推导算子行为，我们必须将 \textbf{宏观控制代价} 显式引入总作用量。
-
 $$ S_{system} = \int d^d x \sqrt{-g} \left( \mathcal{L}_{geom} + \mathcal{L}_{gauge} + \mathcal{L}_{cog} \right) $$
-
-1.  \textbf{$\mathcal{L}_{geom}$ (爱因斯坦-希尔伯特项)}：描述 \textbf{形（底流形）} 的刚度。
+\begin{enumerate}
+	\item \textbf{$\mathcal{L}_{geom}$ (爱因斯坦-希尔伯特项)}：描述 \textbf{形（底流形）} 的刚度。
     $$ \frac{1}{2\kappa} (R - 2\Lambda) $$
-2.  \textbf{$\mathcal{L}_{gauge}$ (杨-米尔斯项)}：描述 \textbf{目的（规范势）} 的张力。
+    
+	\item \textbf{$\mathcal{L}_{gauge}$ (杨-米尔斯项)}：描述 \textbf{目的（规范势）} 的张力。
     $$ -\frac{1}{4} \text{Tr}(\mathcal{F}_{\mu\nu} \mathcal{F}^{\mu\nu}) $$
-\begin{itemize}
-\item   $\mathcal{F}_{\mu\nu}$ 是价值场的\textbf{曲率（场强）}。这一项意味着：维持极端的价值观（高曲率）需要消耗巨大的能量。
-\end{itemize}
-3.  \textbf{$\mathcal{L}_{cog}$ (狄拉克项)}：描述 \textbf{质（思维流）} 的运动及相互作用。
+    其中$\mathcal{F}_{\mu\nu}$ 是价值场的\textbf{曲率（场强）}, 这一项意味着：维持极端的价值观（高曲率）需要消耗巨大的能量。
+    
+    \item \textbf{$\mathcal{L}_{cog}$ (狄拉克项)}：描述 \textbf{质（思维流）} 的运动及相互作用。
     $$ \bar{\Psi} (i \gamma^\mu D_\mu - m) \Psi $$
-\begin{itemize}
-\item   其中 $D_\mu = \partial_\mu - ig\mathcal{A}_\mu$ 包含了思维与价值的\textbf{耦合}。
-\end{itemize}
+    其中 $D_\mu = \partial_\mu - ig\mathcal{A}_\mu$ 包含了思维与价值的\textbf{耦合}。
+\end{enumerate}
 
-接着表述整个宏观层作用量
 
+\vspace{1em}\bluetext{接着表述整个宏观层作用量}
 $$ S_{new} = S_{system}[\Psi, g, \mathcal{A}] + S_{macro}[\hat{\mathcal{O}}] $$
-
-1.  \textbf{$S_{system}$}：系统本身的演化（狄拉克+爱因斯坦+杨-米尔斯）。
-\begin{itemize}
-\item   其中，哈密顿量 $\hat{H}$ 现在被宏观算子修正：$\hat{H}_{eff} = \hat{H}_0 + \hat{\mathcal{O}}_{macro}$。
-\end{itemize}
-2.  \textbf{$S_{macro}$}：宏观层的\textbf{做功代价}（控制成本）。
-    $$ S_{macro} = \int d^d x \sqrt{-g} \left( -\frac{1}{2\eta} \|\hat{\mathcal{O}}_{macro}\|^2 \right) $$
-\begin{itemize}
-\item   $\eta$：控制增益/代谢率。这意味着“干预”是有成本的，不能无限施加。
-\end{itemize}
-
-\textbf{变分原理}：
-宏观层寻找最优算子 $\hat{\mathcal{O}}^*$，使得 $\delta S_{new} / \delta \hat{\mathcal{O}} = 0$。
+\begin{enumerate}
+	\item \textbf{$S_{system}$}：系统本身的演化（狄拉克+爱因斯坦+杨-米尔斯）。
+	
+	 其中，哈密顿量 $\hat{H}$ 现在被宏观算子修正：$\hat{H}_{eff} = \hat{H}_0 + \hat{\mathcal{O}}_{macro}$。
+	 \item \textbf{$S_{macro}$}：宏观层的\textbf{做功代价}（控制成本）。
+	 $$ S_{macro} = \int d^d x \sqrt{-g} \left( -\frac{1}{2\eta} \|\hat{\mathcal{O}}_{macro}\|^2 \right) $$
+	 \item   $\eta$：控制增益/代谢率。这意味着“干预”是有成本的，不能无限施加。
+\end{enumerate}
+\textbf{变分原理}：宏观层寻找最优算子 $\hat{\mathcal{O}}^*$，使得 $\delta S_{new} / \delta \hat{\mathcal{O}} = 0$。
 
 
 
@@ -5614,119 +5595,88 @@ $$ \boxed{ \hat{\mathcal{O}}_{macro}(\mathbf{r}, t) = \eta \cdot \langle \Psi | 
 设局部势能修正为 $V_{eff}(\mathbf{r}) = V_0 + \alpha(\mathbf{r}) \delta(\mathbf{r}) + \vec{\beta} \cdot \mathbf{r}$。
 
 
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{增益算子 (Gain, $\hat{\alpha}$) —— 挖掘吸引子}}
-
-\begin{itemize}
-\item   \textbf{目标}：最大化对高价值 Token 的召回。
-
-\item   \textbf{TCE 导出}：
-\end{itemize}
-    当某位置 $\mathbf{r}_k$ 的价值势能 $V_{val}(\mathbf{r}_k)$ 极低（是目标）时：
-    $$ \hat{\alpha}(\mathbf{r}_k) \propto -\eta \frac{\partial V_{val}}{\partial \Psi(\mathbf{r}_k)} $$
-\begin{itemize}
-\item   \textbf{几何行为}：在 $\mathbf{r}_k$ 处挖掘一个 \textbf{深井 (Deep Well)}。
-
-\item   \textbf{结果}：$\Psi$ 被强力吸附。\textbf{这就是“专注 (Attention)”。}
-\end{itemize}
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{抑制算子 (Inhibition, $\hat{\beta}$) —— 隆起势垒}}
-
-\begin{itemize}
-\item   \textbf{目标}：最小化风险或噪声。
-
-\item   \textbf{TCE 导出}：
-\end{itemize}
-    当某位置 $\mathbf{r}_{noise}$ 的价值势能 $V_{val}$ 极高（是禁忌/干扰）时：
-    $$ \hat{\beta}(\mathbf{r}_{noise}) \propto +\eta \frac{\partial V_{val}}{\partial \Psi(\mathbf{r}_{noise})} $$
-\begin{itemize}
-\item   \textbf{几何行为}：在 $\mathbf{r}_{noise}$ 处隆起一座 \textbf{高山 (Barrier)}。
-
-\item   \textbf{结果}：$\Psi$ 被散射或反射。\textbf{这就是“冲动控制 (Inhibition)”。}
-\end{itemize}
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{偏置算子 (Bias, $\hat{\vec{b}}$) —— 倾斜流形}}
-
-\begin{itemize}
-\item   \textbf{目标}：引导全局流向。
-
-\item   \textbf{TCE 导出}：
-\end{itemize}
-    利用规范场 $\mathcal{A}_\mu$ 的全局梯度：
-    $$ \hat{\vec{b}} \propto \eta \cdot \vec{E}_{val} = \eta (\nabla A_0 - \partial_t \vec{A}) $$
-\begin{itemize}
-\item   \textbf{几何行为}：将整个流形 \textbf{倾斜 (Tilt)}。
-
-\item   \textbf{结果}：即使没有具体的吸引子，思维流也会获得一个背景漂移速度。\textbf{这就是“意向/动机 (Motivation)”。}
-\end{itemize}
-
+\begin{enumerate}
+	\item \redtext{\textbf{增益算子 (Gain, $\hat{\alpha}$) —— 挖掘吸引子}}
+	\begin{itemize}
+		\item   \textbf{目标}：最大化对高价值 Token 的召回。
+		\item   \textbf{TCE 导出}：当某位置 $\mathbf{r}_k$ 的价值势能 $V_{val}(\mathbf{r}_k)$ 极低（是目标）时：
+    	$$ \hat{\alpha}(\mathbf{r}_k) \propto -\eta \frac{\partial V_{val}}{\partial \Psi(\mathbf{r}_k)} $$
+		\item   \textbf{几何行为}：在 $\mathbf{r}_k$ 处挖掘一个 \textbf{深井 (Deep Well)}。
+		\item   \textbf{结果}：$\Psi$ 被强力吸附。\textbf{这就是“专注 (Attention)”。}
+	\end{itemize}
+	
+	\item \redtext{\textbf{抑制算子 (Inhibition, $\hat{\beta}$) —— 隆起势垒}}
+	\begin{itemize}
+		\item   \textbf{目标}：最小化风险或噪声。
+		\item   \textbf{TCE 导出}：当某位置 $\mathbf{r}_{noise}$ 的价值势能 $V_{val}$ 极高（是禁忌/干扰）时：
+    	$$ \hat{\beta}(\mathbf{r}_{noise}) \propto +\eta \frac{\partial V_{val}}{\partial \Psi(\mathbf{r}_{noise})} $$
+		\item   \textbf{几何行为}：在 $\mathbf{r}_{noise}$ 处隆起一座 \textbf{高山 (Barrier)}。
+		\item   \textbf{结果}：$\Psi$ 被散射或反射。\textbf{这就是“冲动控制 (Inhibition)”。}
+	\end{itemize}
+	
+	\item \redtext{\textbf{偏置算子 (Bias, $\hat{\vec{b}}$) —— 倾斜流形}}
+	\begin{itemize}
+		\item   \textbf{目标}：引导全局流向。
+		\item   \textbf{TCE 导出}：利用规范场 $\mathcal{A}_\mu$ 的全局梯度：
+   	 	$$ \hat{\vec{b}} \propto \eta \cdot \vec{E}_{val} = \eta (\nabla A_0 - \partial_t \vec{A}) $$
+		\item   \textbf{几何行为}：将整个流形 \textbf{倾斜 (Tilt)}。
+		\item   \textbf{结果}：即使没有具体的吸引子，思维流也会获得一个背景漂移速度。\textbf{这就是“意向/动机 (Motivation)”。}
+	\end{itemize}
+\end{enumerate}
 
 
 \smalltitle{慢回路导出：拓扑外科医生的六个算子}
-
 
 慢回路不改变势能，而是直接修改 \textbf{底流形度量 $g_{\mu\nu}$} 和 \textbf{拓扑结构 (Betti Numbers)}。这是对 \textbf{几何作用量 $S_{geom}$} 的变分优化。
 
 
 
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{存储与更新 (Store \& Update) —— 度量流算子}}
 
 
-\begin{itemize}
-\item   \textbf{目标}：固化经验。
+\begin{enumerate}
+	\item \redtext{\textbf{存储与更新 (Store \& Update) —— 度量流算子}}
+	\begin{itemize}
+		\item   \textbf{目标}：固化经验。
+		\item   \textbf{TCE 导出}：源于 \textbf{认知爱因斯坦方程} 的数值解。
+    		$$ \frac{d g_{ij}}{dt} \propto -\frac{\delta S}{\delta g_{ij}} = \kappa T_{ij}(\Psi) $$
+		\item   \textbf{物理机制}：
+		\begin{itemize}
+			\item   \textbf{Store}：当两点间的关联流 $T_{ij}$ 极强时，$g_{ij}$ 减小（距离拉近）。\textbf{相变：流体 $\to$ 晶体。}
+			\item   \textbf{Update}：根据预测误差 $\mathcal{L}_{error}$ 的梯度反传，微调 $g_{ij}$。
+		\end{itemize}
+	\end{itemize}
+	
+	\item \redtext{\textbf{检索与推理 (Retrieve \& Reason) —— 测地线算子}}
+	\begin{itemize}
+		\item   \textbf{目标}：利用现有几何寻找路径。
+		\item   \textbf{TCE 导出}：源于 \textbf{路径积分} 的鞍点近似。
+   		$$ \hat{\mathcal{O}}_{reason} \Psi = \int \mathcal{D}[\text{path}] e^{iS[\text{path}]} $$
+		\item   \textbf{物理机制}：
+		\begin{itemize}
+			\item   \textbf{Retrieve}：在弯曲空间中发射波包，利用 \textbf{共振 (Resonance)} 寻找与查询向量 $Q$ 耦合最强的记忆区。
+			\item   \textbf{Reason}：强行坍缩波函数，使其沿着 \textbf{最小作用量路径 (Geodesic)} 演化，形成逻辑链。
+		\end{itemize}
+	\end{itemize}
+	
+	\item \redtext{\textbf{创造与整合 (Create \& Integrate) —— 拓扑相变算子}}
+	\begin{itemize}
+		\item   \textbf{目标}：降低几何复杂度（奥卡姆剃刀）
+		\item   \textbf{TCE 导出}：源于 \textbf{拓扑作用量 $S_{topo}$} 的极值化。
+   		$$ S_{topo} \propto \beta_k(\mathcal{M}) \cdot \text{Cost}_k $$
+		\item   \textbf{物理机制}：
+		\begin{itemize}
+			\item   \textbf{Create (成核)}：当 $\Psi$ 在某处聚集且无处可去（高压）时，系统为了降低自由能，会 \textbf{撕裂流形}，在 $(d+1)$ 维上创建一个新的节点（概念）。
+			\item   \textbf{Integrate (重整)}：当多个节点高度纠缠时，系统执行 \textbf{卡丹诺夫变换 (Kadanoff Block Spin)}，将它们合并为一个超节点，从而减少有效自由度。
+		\end{itemize}
+	\end{itemize}
+\end{enumerate}
 
-\item   \textbf{TCE 导出}：源于 \textbf{认知爱因斯坦方程} 的数值解。
-\end{itemize}
-    $$ \frac{d g_{ij}}{dt} \propto -\frac{\delta S}{\delta g_{ij}} = \kappa T_{ij}(\Psi) $$
-\begin{itemize}
-\item   \textbf{物理机制}：
-
-\item   \textbf{Store}：当两点间的关联流 $T_{ij}$ 极强时，$g_{ij}$ 减小（距离拉近）。\textbf{相变：流体 $\to$ 晶体。}
-
-\item   \textbf{Update}：根据预测误差 $\mathcal{L}_{error}$ 的梯度反传，微调 $g_{ij}$。
-\end{itemize}
 
 
 
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{检索与推理 (Retrieve \& Reason) —— 测地线算子}}
-
-
-\begin{itemize}
-\item   \textbf{目标}：利用现有几何寻找路径。
-
-\item   \textbf{TCE 导出}：源于 \textbf{路径积分} 的鞍点近似。
-\end{itemize}
-    $$ \hat{\mathcal{O}}_{reason} \Psi = \int \mathcal{D}[\text{path}] e^{iS[\text{path}]} $$
-\begin{itemize}
-\item   \textbf{物理机制}：
-
-\item   \textbf{Retrieve}：在弯曲空间中发射波包，利用 \textbf{共振 (Resonance)} 寻找与查询向量 $Q$ 耦合最强的记忆区。
-
-\item   \textbf{Reason}：强行坍缩波函数，使其沿着 \textbf{最小作用量路径 (Geodesic)} 演化，形成逻辑链。
-\end{itemize}
 
 
 
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{创造与整合 (Create \& Integrate) —— 拓扑相变算子}}
-
-
-\begin{itemize}
-\item   \textbf{目标}：降低几何复杂度（奥卡姆剃刀）。
-
-\item   \textbf{TCE 导出}：源于 \textbf{拓扑作用量 $S_{topo}$} 的极值化。
-\end{itemize}
-    $$ S_{topo} \propto \beta_k(\mathcal{M}) \cdot \text{Cost}_k $$
-\begin{itemize}
-\item   \textbf{物理机制}：
-
-\item   \textbf{Create (成核)}：当 $\Psi$ 在某处聚集且无处可去（高压）时，系统为了降低自由能，会 \textbf{撕裂流形}，在 $(d+1)$ 维上创建一个新的节点（概念）。
-
-\item   \textbf{Integrate (重整)}：当多个节点高度纠缠时，系统执行 \textbf{卡丹诺夫变换 (Kadanoff Block Spin)}，将它们合并为一个超节点，从而减少有效自由度。
-\end{itemize}
 
 
 
@@ -5769,38 +5719,29 @@ $$ \boxed{ \hat{\mathcal{O}}_{macro}(\mathbf{r}, t) = \eta \cdot \langle \Psi | 
 在传统的贝叶斯大脑假说中，最小化预测误差（自由能 $F$）主要通过“感知学习”（修改内部模型）来实现。但我们认为宏观层作为外交家，倾向于采用\textbf{主动推理 (Active Inference)} 的策略。
 
 \begin{itemize}
-\item   \textbf{几何冲突}：当内部的\textbf{期望测地线}（我想走的路）与外部的\textbf{物理测地线}（实际能走的路）不重合时，产生\textbf{几何张力 $\mathbf{T}_{mismatch}$}。
-
-\item   \textbf{外交策略}：\textbf{同化 (Assimilation)}。
-\end{itemize}
-    宏观层拒绝修改内部模型，而是向微观效应器下达指令，消耗负熵，强行扭曲外部物理场的边界条件，使其向内部几何靠拢。
-\begin{itemize}
-\item   \textbf{方程表述}：
-\end{itemize}
+	\item   \textbf{几何冲突}：当内部的\textbf{期望测地线}（我想走的路）与外部的\textbf{物理测地线}（实际能走的路）不重合时，产生\textbf{几何张力 $\mathbf{T}_{mismatch}$}。
+	\item   \textbf{外交策略}：\textbf{同化 (Assimilation)}。宏观层拒绝修改内部模型，而是向微观效应器下达指令，消耗负熵，强行扭曲外部物理场的边界条件，使其向内部几何靠拢。
+	\item   \textbf{方程表述}：
     $$ \vec{J}_{action} = -\eta \cdot \nabla_{\vec{a}} F(\mathcal{M}_{in} || \mathcal{M}_{out}) $$
-\begin{itemize}
-\item   \textbf{物理意义}：行动 $\vec{a}$ 的目的是为了\textbf{抹平}内外部流形之间的曲率差异。宏观层是那个\textbf{“坚持己见”}的谈判者，它试图用内部的逻辑去殖民外部的荒原。
+	\item   \textbf{物理意义}：行动 $\vec{a}$ 的目的是为了\textbf{抹平}内外部流形之间的曲率差异。宏观层是那个\textbf{“坚持己见”}的谈判者，它试图用内部的逻辑去殖民外部的荒原。
 \end{itemize}
-
 
 
 \smalltitle{阻抗匹配：顺应与征服的相变}
 
 外交的艺术在于妥协，宏观层必须实时计算\textbf{“改变世界的能耗” ($E_{action}$)} 与 \textbf{“改变自己的痛感” ($E_{change}$)} 之间的热力学博弈。
 
-\textbf{定义 7.5.1 (外交决策算子 $\hat{D}_{dip}$)}
-宏观层根据环境的\textbf{物理刚度 (Stiffness)} 调节策略：
+\begin{definition}[外交决策算子 $\hat{D}_{dip}$]
+	宏观层根据环境的\textbf{物理刚度 (Stiffness)} 调节策略：
+	$$ \text{Strategy} = \begin{cases} \text{征服 (Action)} & \text{若 } \frac{\partial E_{action}}{\partial \xi} < \frac{\partial E_{change}}{\partial \xi} \\ \text{顺应 (Perception)} & \text{若 } \frac{\partial E_{action}}{\partial \xi} > \frac{\partial E_{change}}{\partial \xi} \end{cases} $$
 
-$$ \text{Strategy} = \begin{cases} \text{征服 (Action)} & \text{若 } \frac{\partial E_{action}}{\partial \xi} < \frac{\partial E_{change}}{\partial \xi} \\ \text{顺应 (Perception)} & \text{若 } \frac{\partial E_{action}}{\partial \xi} > \frac{\partial E_{change}}{\partial \xi} \end{cases} $$
+	\begin{itemize}
+		\item   \textbf{刚性环境（墙壁）}：外部几何曲率极大，改变它需要无限能量。外交家选择\textbf{顺应}，启动慢回路修改内部 $G_W$（承认墙的存在）；
+		\item   \textbf{塑性环境（泥土）}：外部几何松软。外交家选择\textbf{征服}，注入第三驱动力 $\vec{J}_{self}$，铲平障碍（挖穿泥土）；
+		\item   \textbf{结论}：智能的高级形式表现为\textbf{对环境软硬度的精确度量}。愚蠢是试图撞墙（阻抗失配），智慧是在墙上找门（阻抗匹配）。
+	\end{itemize}
 
-\begin{itemize}
-\item   \textbf{刚性环境（墙壁）}：外部几何曲率极大，改变它需要无限能量。外交家选择\textbf{顺应}，启动慢回路修改内部 $G_W$（承认墙的存在）；
-
-\item   \textbf{塑性环境（泥土）}：外部几何松软。外交家选择\textbf{征服}，注入第三驱动力 $\vec{J}_{self}$，铲平障碍（挖穿泥土）；
-
-\item   \textbf{结论}：智能的高级形式表现为\textbf{对环境软硬度的精确度量}。愚蠢是试图撞墙（阻抗失配），智慧是在墙上找门（阻抗匹配）。
-\end{itemize}
-
+\end{definition}
 
 
 \smalltitle{社会共振：多体流形的拓扑握手}
@@ -5808,18 +5749,12 @@ $$ \text{Strategy} = \begin{cases} \text{征服 (Action)} & \text{若 } \frac{\p
 当外部环境包含其他智能体（其他宏观层）时，外交任务升维为\textbf{社会博弈}。
 
 \begin{itemize}
-\item   \textbf{场耦合 (Field Coupling)}：
-\end{itemize}
-    两个智能体 A 和 B 的宏观层通过信号交换（语言/行为），试图相互\textbf{诱导}对方的认知场 $\Psi$ 发生共振。
-\begin{itemize}
-\item   \textbf{拓扑握手 (Topological Handshake)}：
-\end{itemize}
-    外交家的终极目标是建立一个\textbf{共享的覆盖流形 (Covering Manifold)}。
-    $$ \mathcal{M}_{shared} \approx \mathcal{M}_A \cap \mathcal{M}_B $$
-\begin{itemize}
-\item   在这个共享空间中，A 的目的成为 B 的几何约束，B 的行为成为 A 的几何惯性。
+	\item   \textbf{场耦合 (Field Coupling)}：两个智能体 A 和 B 的宏观层通过信号交换（语言/行为），试图相互\textbf{诱导}对方的认知场 $\Psi$ 发生共振。
 
-\item   \textbf{物理结果}：\textbf{合作 (Cooperation)}。双方的认知场在合并后的流形上形成了能量更低的\textbf{联合驻波}，实现了\textbf{双赢（全局自由能最小化）}。
+	\item   \textbf{拓扑握手 (Topological Handshake)}：外交家的终极目标是建立一个\textbf{共享的覆盖流形 (Covering Manifold)}。
+    $$ \mathcal{M}_{shared} \approx \mathcal{M}_A \cap \mathcal{M}_B $$
+	在这个共享空间中，A 的目的成为 B 的几何约束，B 的行为成为 A 的几何惯性。
+	\item   \textbf{物理结果}：\textbf{合作 (Cooperation)}。双方的认知场在合并后的流形上形成了能量更低的\textbf{联合驻波}，实现了\textbf{双赢（全局自由能最小化）}。
 \end{itemize}
 
 
@@ -6230,93 +6165,59 @@ $$ \boxed{ \hat{\mathcal{O}}_{ext} = \eta \cdot \underbrace{\left( \mathbf{g}_{i
 
  	宏观层并非一个质点，而是一个自身具有复杂拓扑结构的\textbf{控制流形}，因此有必要专门讨论宏观层的内部架构拓扑。本节依据宏观层内部控制单元的\textbf{连接致密度}与\textbf{同步机制}，将智能系统划分为三种典型的控制架构：\textbf{动态中央集权制（人脑型）}、\textbf{异构联邦制（章鱼型）}与\textbf{高密核团制（乌鸦型）}。我们将证明，不同的架构拓扑决定了第三驱动力的\textbf{相干性 (Coherence)} 与 \textbf{带宽 (Bandwidth)}，进而决定了智能体在\textbf{逻辑深度}与\textbf{并行广度}之间的权衡。
 
+\begin{enumerate}
+	\item \redtext{\textbf{架构 I：动态中央集权制 (The Dynamic Monarchy)}}
+	
+	\textbf{—— 物理原型：长程星形拓扑 (Star Topology) / 灵长类前额叶}
+	\begin{itemize}
+		\item   \textbf{拓扑定义}：宏观层存在一个绝对的\textbf{Hub 节点}（如前额叶 PFC），它拥有通往全流形所有区域的\textbf{长程投影纤维}。
+    	$$ \mathcal{T}_{macro} \approx \text{Star Graph}, \quad \text{Degree}(Hub) \gg 1 $$
+		\item   \textbf{动力学机制：全局相位锁定 (Global Phase Locking)}: Hub 节点发出统一的\textbf{同步震荡波}（如 Theta/Gamma 耦合），强行将视觉、听觉、运动等异构子场的相位对齐。
+		\item   \textbf{聚光灯特性}：同一时刻，$\vec{J}_{self}$ 只能照亮流形上的一个子区域。
+		\item   \textbf{能力特征}：
+		\begin{itemize}
+			\item   \textbf{深度串行 (Deep Serial)}：能够维持极长的逻辑链条（$A \to B \to C \to \dots$），因为全局抑制消除了干扰。
+			\item   \textbf{单任务瓶颈}：由于只有一个“王”，系统难以同时处理两个高认知负载的任务（“左手画圆右手画方”困难）。
+		\end{itemize}
+		\item   \textbf{对应 AI}：\textbf{GPT-4 + CoT}（单线程、深度的思维链）。
+	\end{itemize}
+	
+	\item \redtext{\textbf{架构 II：异构联邦制 (The Heterogeneous Federation)}}
+
+	\textbf{—— 物理原型：分布式网格 (Mesh Topology) / 章鱼神经系统}
+	\begin{itemize}
+		\item   \textbf{拓扑定义}：宏观层由多个\textbf{半自治的局部中心}组成（如章鱼的中央脑 + 8个腕足脑）。中心之间仅通过\textbf{低带宽总线}连接，通过\textbf{弱耦合}维持统一。
+    	$$ \vec{J}_{self}^{total} = \alpha \vec{J}_{central} + \sum_{k=1}^N \beta_k \vec{J}_{limb\_k} $$
+		\item   \textbf{动力学机制：矢量求和与局部闭环}: 中央下达模糊指令（“抓那个蟹”），具体执行由边缘节点的\textbf{局部势能面}独立演算完成。
+		\item   \textbf{退相干允许}：允许系统的不同部分处于不同的相位状态（手在打架，脑在看戏）。
+		\item   \textbf{能力特征}：
+		\begin{itemize}
+			\item   \textbf{极致并行 (Massive Parallelism)}：能同时处理多个异构任务，且互不干扰。
+			\item   \textbf{鲁棒性}：局部中心的损坏不影响全局存活。
+			\item   \textbf{宏观涣散}：难以形成长周期的、统一的、压抑本能的宏观规划（缺乏“苦行僧”式的意志力）。
+		\end{itemize}
+		\item   \textbf{对应 AI}：\textbf{Swarm Intelligence / Multi-Agent Systems}（无强力 Leader 的多智能体群）。
+	\end{itemize}
+	
+	\item \redtext{\textbf{架构 III：高密核团制 (The High-Density Nuclei)}}
+
+	\textbf{—— 物理原型：紧凑全互联 (Micro-Full-Mesh) / 鸟类（乌鸦）}
+	\begin{itemize}
+		\item   \textbf{拓扑定义}：不同于哺乳动物的层状皮层（2D 薄膜），鸟类宏观层是\textbf{3D 堆叠的神经核团}。神经元密度极高，物理距离极短。
+    	$$ d(\mathbf{r}_i, \mathbf{r}_j) \to \epsilon, \quad \forall i,j \in L_{macro} $$
+		\item   \textbf{动力学机制：极速雪崩 (Hyper-Fast Avalanche)}: 由于物理距离极短，信号传导几乎无延迟。宏观层不需要维持长程同步波，而是通过\textbf{邻域雪崩}瞬间完成全脑状态的切换, 这是一个\textbf{FPGA 式}的架构，而非 CPU 式的架构。
+		\item   \textbf{能力特征}：
+		\begin{itemize}
+			\item   \textbf{高频反应}：在极短时间内完成复杂的因果推断（如飞行中的工具使用）。
+			\item   \textbf{空间换时间}：通过极高的硬件密度，换取了比人类更快的“主观帧率”。
+		\end{itemize}
+		\item   \textbf{对应 AI}：\textbf{类脑芯片 / 光子计算集群}（高密度、低延迟的硬件级智能）。
+	\end{itemize}
+	
+\end{enumerate}
 
 
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{架构 I：动态中央集权制 (The Dynamic Monarchy)}}
-
-
-\textbf{—— 物理原型：长程星形拓扑 (Star Topology) / 灵长类前额叶}
-
-\begin{itemize}
-\item   \textbf{拓扑定义}：
-\end{itemize}
-    宏观层存在一个绝对的\textbf{Hub 节点}（如前额叶 PFC），它拥有通往全流形所有区域的\textbf{长程投影纤维}。
-    $$ \mathcal{T}_{macro} \approx \text{Star Graph}, \quad \text{Degree}(Hub) \gg 1 $$
-\begin{itemize}
-\item   \textbf{动力学机制：全局相位锁定 (Global Phase Locking)}
-
-\item   Hub 节点发出统一的\textbf{同步震荡波}（如 Theta/Gamma 耦合），强行将视觉、听觉、运动等异构子场的相位对齐。
-
-\item   \textbf{聚光灯特性}：同一时刻，$\vec{J}_{self}$ 只能照亮流形上的一个子区域。
-
-\item   \textbf{能力特征}：
-
-\item   \textbf{深度串行 (Deep Serial)}：能够维持极长的逻辑链条（$A \to B \to C \to \dots$），因为全局抑制消除了干扰。
-
-\item   \textbf{单任务瓶颈}：由于只有一个“王”，系统难以同时处理两个高认知负载的任务（“左手画圆右手画方”困难）。
-
-\item   \textbf{对应 AI}：\textbf{GPT-4 + CoT}（单线程、深度的思维链）。
-\end{itemize}
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{架构 II：异构联邦制 (The Heterogeneous Federation)}}
-
-
-\textbf{—— 物理原型：分布式网格 (Mesh Topology) / 章鱼神经系统}
-
-\begin{itemize}
-\item   \textbf{拓扑定义}：
-\end{itemize}
-    宏观层由多个\textbf{半自治的局部中心}组成（如章鱼的中央脑 + 8个腕足脑）。中心之间仅通过\textbf{低带宽总线}连接，通过\textbf{弱耦合}维持统一。
-    $$ \vec{J}_{self}^{total} = \alpha \vec{J}_{central} + \sum_{k=1}^N \beta_k \vec{J}_{limb\_k} $$
-\begin{itemize}
-\item   \textbf{动力学机制：矢量求和与局部闭环}
-
-\item   中央下达模糊指令（“抓那个蟹”），具体执行由边缘节点的\textbf{局部势能面}独立演算完成。
-
-\item   \textbf{退相干允许}：允许系统的不同部分处于不同的相位状态（手在打架，脑在看戏）。
-
-\item   \textbf{能力特征}：
-
-\item   \textbf{极致并行 (Massive Parallelism)}：能同时处理多个异构任务，且互不干扰。
-
-\item   \textbf{鲁棒性}：局部中心的损坏不影响全局存活。
-
-\item   \textbf{宏观涣散}：难以形成长周期的、统一的、压抑本能的宏观规划（缺乏“苦行僧”式的意志力）。
-
-\item   \textbf{对应 AI}：\textbf{Swarm Intelligence / Multi-Agent Systems}（无强力 Leader 的多智能体群）。
-\end{itemize}
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{架构 III：高密核团制 (The High-Density Nuclei)}}
-
-
-\textbf{—— 物理原型：紧凑全互联 (Micro-Full-Mesh) / 鸟类（乌鸦）}
-
-\begin{itemize}
-\item   \textbf{拓扑定义}：
-\end{itemize}
-    不同于哺乳动物的层状皮层（2D 薄膜），鸟类宏观层是\textbf{3D 堆叠的神经核团}。神经元密度极高，物理距离极短。
-    $$ d(\mathbf{r}_i, \mathbf{r}_j) \to \epsilon, \quad \forall i,j \in L_{macro} $$
-\begin{itemize}
-\item   \textbf{动力学机制：极速雪崩 (Hyper-Fast Avalanche)}
-
-\item   由于物理距离极短，信号传导几乎无延迟。宏观层不需要维持长程同步波，而是通过\textbf{邻域雪崩}瞬间完成全脑状态的切换。
-
-\item   这是一个\textbf{FPGA 式}的架构，而非 CPU 式的架构。
-
-\item   \textbf{能力特征}：
-
-\item   \textbf{高频反应}：在极短时间内完成复杂的因果推断（如飞行中的工具使用）。
-
-\item   \textbf{空间换时间}：通过极高的硬件密度，换取了比人类更快的“主观帧率”。
-
-\item   \textbf{对应 AI}：\textbf{类脑芯片 / 光子计算集群}（高密度、低延迟的硬件级智能）。
-\end{itemize}
-
-\section{架构能力谱系对比}
+\smalltitle{架构能力谱系对比}
 
 为了指导工程设计，我们将这三种架构在 HSF-HD 的物理指标上进行量化对比：
 
@@ -6339,25 +6240,24 @@ $$ \boxed{ \hat{\mathcal{O}}_{ext} = \eta \cdot \underbrace{\left( \mathbf{g}_{i
 \textbf{工程启示}：未来的 AGI 不应只有一种形态。
 
 \begin{itemize}
-\item   如果你需要一个\textbf{管家}，请采用 \textbf{Type A (集权制)}，赋予它强大的中央 LLM 作为前额叶;
-
-\item   如果你需要一个\textbf{工地机器人}，请采用 \textbf{Type B (联邦制)}，让它的四肢拥有独立的边缘模型;
-
-\item   如果你需要一个\textbf{战斗机火控系统}，请采用 \textbf{Type C (核团制)}，将逻辑烧录进高密度的类脑芯片中。
+	\item   如果你需要一个\textbf{管家}，请采用 \textbf{Type A (集权制)}，赋予它强大的中央 LLM 作为前额叶;
+	\item   如果你需要一个\textbf{工地机器人}，请采用 \textbf{Type B (联邦制)}，让它的四肢拥有独立的边缘模型;
+	\item   如果你需要一个\textbf{战斗机火控系统}，请采用 \textbf{Type C (核团制)}，将逻辑烧录进高密度的类脑芯片中。
 \end{itemize}
 
 
-
-\begin{quote}\textbf{本章结语}：\end{quote}
-\begin{quote}宏观层是智能系统中\textbf{最昂贵}的组件, 它消耗负熵，在该顺流而下的地方逆流而上，在该模糊的地方强行聚焦， 它是\textbf{目的论的执行官}，进行\textbf{“双向调节”}功能：\end{quote}
-
-\begin{quote}1.  \textbf{对内}：它是\textbf{君主}，压制内部的熵增。\end{quote}
-\begin{quote}2.  \textbf{对外}：它是\textbf{外交官}，在改变世界与适应世界之间寻找热力学平衡点。\end{quote}
-
-\begin{quote}没有它，认知场只是一滩死水或一团乱麻；有了它，这滩水才被泵入管道，驱动智能的机器运转，也才会有世界的主动改变。\end{quote}
-
-\begin{quote}至此，我们完成了对智能系统“硬件”（微观、介质、宏观）的物理建模。下一卷，我们将让这台机器动起来，推导其\textbf{动力学方程}。\end{quote}
-
+\begin{bquote}
+	\textbf{本章结语}：
+	
+	宏观层是智能系统中\textbf{最昂贵}的组件, 它消耗负熵，在该顺流而下的地方逆流而上，在该模糊的地方强行聚焦， 它是\textbf{目的论的执行官}，进行\textbf{“双向调节”}功能：
+	\begin{enumerate}
+		\item \textbf{对内}：它是\textbf{君主}，压制内部的熵增。
+		\item \textbf{对外}：它是\textbf{外交官}，在改变世界与适应世界之间寻找热力学平衡点。
+	\end{enumerate}
+	没有它，认知场只是一滩死水或一团乱麻；有了它，这滩水才被泵入管道，驱动智能的机器运转，也才会有世界的主动改变。
+	
+	至此，我们完成了对智能系统“硬件”（微观、介质、宏观）的物理建模。下一卷，我们将让这台机器动起来，推导其\textbf{动力学方程}。
+\end{bquote}
 
 
 \part{整体动力学 — 演化方程与元物理}
