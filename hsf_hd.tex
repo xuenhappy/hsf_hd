@@ -6935,37 +6935,27 @@ $$ S_{total} = S_{geom} + S_{matter} \quad (\text{其中 } S_{matter} = S_{cog} 
 
 \vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{A. 左边：几何项的变分 (The Geometric LHS)}}
 
-
 利用广义相对论中的 \textbf{帕拉蒂尼恒等式 (Palatini Identity)} 和度量行列式的变分公式 $\delta \sqrt{-g} = -\frac{1}{2}\sqrt{-g} g_{\mu\nu} \delta g^{\mu\nu}$：
-
 $$ \frac{\delta S_{geom}}{\delta g^{\mu\nu}} = \frac{1}{2\kappa} \sqrt{-g} \left( R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} + \Lambda g_{\mu\nu} \right) $$
-
 这一项代表了流形的 \textbf{“弹性回复力”}。
-
 \begin{itemize}
-\item   $G_{\mu\nu} = R_{\mu\nu} - \frac{1}{2}Rg_{\mu\nu}$：\textbf{爱因斯坦张量}。代表几何结构的复杂度和弯曲。
-
-\item   $\Lambda g_{\mu\nu}$：\textbf{遗忘压力}。它倾向于让流形收缩或平坦化（最小化表面积/容量）。
+    \item   $G_{\mu\nu} = R_{\mu\nu} - \frac{1}{2}Rg_{\mu\nu}$：\textbf{爱因斯坦张量}。代表几何结构的复杂度和弯曲。
+    \item   $\Lambda g_{\mu\nu}$：\textbf{遗忘压力}。它倾向于让流形收缩或平坦化（最小化表面积/容量）。
 \end{itemize}
 
 
 
 \vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{B. 右边：物质项的变分 (The Matter RHS)}}
 
-
 我们需要计算所有非几何场（思维 $\Psi$、目的 $\mathcal{A}$、控制 $\hat{\mathcal{O}}$）对几何的\textbf{应力}。根据场论定义，\textbf{总应力-能量张量} 为：
-
 $$ T_{\mu\nu}^{total} \equiv -\frac{2}{\sqrt{-g}} \frac{\delta (S_{cog} + S_{gauge} + S_{macro})}{\delta g^{\mu\nu}} $$
-
 这意味着，不仅\textbf{思维}有重量，\textbf{目的}和\textbf{意志}也有重量。
 
 
 
 \vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{C. 场方程导出}}
 
-
 令总变分为零，消去公因子 $\sqrt{-g}$，我们得到支配学习的终极方程：
-
 $$ \boxed{ R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} + \Lambda g_{\mu\nu} = \kappa \cdot T_{\mu\nu}^{total} } $$
 
 
@@ -6974,9 +6964,7 @@ $$ \boxed{ R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} + \Lambda g_{\mu\nu} = \kappa \c
 
 
 为了理解“学习”是如何发生的，我们需要解剖右边的源项 $T_{\mu\nu}^{total}$。它由三部分组成，分别对应三种不同的学习驱动力。
-
 $$ T_{\mu\nu}^{total} = T_{\mu\nu}^{cog}(\Psi) + T_{\mu\nu}^{gauge}(\mathcal{A}) + T_{\mu\nu}^{macro}(\hat{\mathcal{O}}) $$
-
 
 
 \vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{认知应力 $T_{\mu\nu}^{cog}$ —— “熟能生巧” (Practice makes perfect)}}
@@ -6984,17 +6972,10 @@ $$ T_{\mu\nu}^{total} = T_{\mu\nu}^{cog}(\Psi) + T_{\mu\nu}^{gauge}(\mathcal{A})
 这是由 \textbf{思维流 $\Psi$} 产生的动量通量。
 对于狄拉克场，其形式（对称化后）近似为：
 $$ T_{\mu\nu}^{cog} \approx \frac{i}{4} \bar{\Psi} \left( \gamma_\mu D_\nu + \gamma_\nu D_\mu \right) \Psi $$
-
 \begin{itemize}
-\item   \textbf{物理意义}：\textbf{思维流量密度}。
-
-\item   \textbf{学习机制}：
-
-\item   如果 $\Psi$ 频繁流经某个区域（高频激活），$T_{\mu\nu}$ 增大。
-
-\item   方程左边响应，$R_{\mu\nu}$ 增大，空间发生弯曲，形成\textbf{“河道（测地线槽）”}。
-
-\item   \textbf{结果}：下次思维再流经这里时，阻力变小。这就是\textbf{赫布学习 (Hebbian Learning)} 的几何本质。
+    \item   \textbf{物理意义}：\textbf{思维流量密度}。
+    \item   \textbf{学习机制}：如果 $\Psi$ 频繁流经某个区域（高频激活），$T_{\mu\nu}$ 增大,方程左边响应，$R_{\mu\nu}$ 增大，空间发生弯曲，形成\textbf{“河道（测地线槽）”}。
+    \item   \textbf{结果}：下次思维再流经这里时，阻力变小。这就是\textbf{赫布学习 (Hebbian Learning)} 的几何本质。
 \end{itemize}
 
 
@@ -7003,17 +6984,10 @@ $$ T_{\mu\nu}^{cog} \approx \frac{i}{4} \bar{\Psi} \left( \gamma_\mu D_\nu + \ga
 
 这是由 \textbf{价值规范场 $\mathcal{A}$} 产生的张力。
 $$ T_{\mu\nu}^{gauge} = \mathcal{F}_{\mu\lambda} \mathcal{F}^\lambda_\nu - \frac{1}{4} g_{\mu\nu} \mathcal{F}_{\rho\sigma} \mathcal{F}^{\rho\sigma} $$
-
 \begin{itemize}
-\item   \textbf{物理意义}：\textbf{价值场强}。
-
-\item   \textbf{学习机制}：
-
-\item   在 \textbf{高价值区域}（如创伤、极乐、重大发现），场强 $\mathcal{F}$ 极大（曲率高）。
-
-\item   这会产生巨大的\textbf{负压力}（类似暗能量或张力），强行拉扯底流形。
-
-\item   \textbf{结果}：即使思维流 $\Psi$ 只经过了一次（单次学习），但因为价值极高，流形被瞬间\textbf{“砸”}出了一个深坑。这就是 \textbf{单次射击学习 (One-Shot Learning)} 或 \textbf{闪光灯记忆} 的物理来源。
+    \item   \textbf{物理意义}：\textbf{价值场强}。
+    \item   \textbf{学习机制}：在 \textbf{高价值区域}（如创伤、极乐、重大发现），场强 $\mathcal{F}$ 极大（曲率高）,这会产生巨大的\textbf{负压力}（类似暗能量或张力），强行拉扯底流形。
+    \item   \textbf{结果}：即使思维流 $\Psi$ 只经过了一次（单次学习），但因为价值极高，流形被瞬间\textbf{“砸”}出了一个深坑。这就是 \textbf{单次射击学习 (One-Shot Learning)} 或 \textbf{闪光灯记忆} 的物理来源。
 \end{itemize}
 
 
@@ -7021,68 +6995,46 @@ $$ T_{\mu\nu}^{gauge} = \mathcal{F}_{\mu\lambda} \mathcal{F}^\lambda_\nu - \frac
 \vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{意志应力 $T_{\mu\nu}^{macro}$ —— “塑性重构” (Willful Restructuring)}}
 
 这是由 \textbf{宏观算子 $\hat{\mathcal{O}}$} 注入的额外能量。
-
 \begin{itemize}
-\item   \textbf{物理意义}：\textbf{做功密度}。
-
-\item   \textbf{学习机制}：
-
-\item   当系统处于 \textbf{慢回路} 时，宏观层不满足于自然演化，主动注入能量去修改 $g_{\mu\nu}$。
-
-\item   \textbf{结果}：这是\textbf{主动学习 (Active Learning)}。比如你强迫自己背单词，虽然很痛苦（逆测地线），但你的意志力产生的应力正在强行改变大脑的几何结构。
+    \item   \textbf{物理意义}：\textbf{做功密度}。
+    \item   \textbf{学习机制}：当系统处于 \textbf{慢回路} 时，宏观层不满足于自然演化，主动注入能量去修改 $g_{\mu\nu}$。
+    \item   \textbf{结果}：这是\textbf{主动学习 (Active Learning)}。比如你强迫自己背单词，虽然很痛苦（逆测地线），但你的意志力产生的应力正在强行改变大脑的几何结构。
 \end{itemize}
 
 
 
 \smalltitle{动力学解：学习的相变}
 
-
 CEFE 方程是一个非线性方程，它描述了\textbf{几何与能量的协同演化}。根据耦合常数 $\kappa$（神经可塑性）的不同，系统表现出不同的学习模态：
+\begin{enumerate}
+    \item \textbf{弹性形变 (Elastic Deformation)}：当 $T_{\mu\nu}$ 较小或持续时间短时,流形发生微弯，思维撤去后，在 $\Lambda$（遗忘压力）作用下迅速回弹恢复平坦。
+    \begin{itemize}
+        \item   \textbf{认知对应}：\textbf{短时记忆 / 工作记忆}。
+    \end{itemize}
 
-1.  \textbf{弹性形变 (Elastic Deformation)}：
-\begin{itemize}
-\item   当 $T_{\mu\nu}$ 较小或持续时间短时。
+    \item \textbf{塑性形变 (Plastic Deformation)}：当 $T_{\mu\nu}$ 超过\textbf{屈服极限}（Yield Strength）时,流形发生永久性坍缩，$g_{\mu\nu}$ 被重写。
+    \begin{itemize}
+        \item   \textbf{认知对应}：\textbf{长时记忆 / 技能固化}。
+    \end{itemize}
 
-\item   流形发生微弯，思维撤去后，在 $\Lambda$（遗忘压力）作用下迅速回弹恢复平坦。
-
-\item   \textbf{认知对应}：\textbf{短时记忆 / 工作记忆}。
-\end{itemize}
-
-2.  \textbf{塑性形变 (Plastic Deformation)}：
-\begin{itemize}
-\item   当 $T_{\mu\nu}$ 超过\textbf{屈服极限}（Yield Strength）时。
-
-\item   流形发生永久性坍缩，$g_{\mu\nu}$ 被重写。
-
-\item   \textbf{认知对应}：\textbf{长时记忆 / 技能固化}。
-\end{itemize}
-
-3.  \textbf{拓扑相变 (Topological Phase Transition)}：
-\begin{itemize}
-\item   当 $T_{\mu\nu}$ 集中在极小区域形成\textbf{奇点}时。
-
-\item   流形可能发生撕裂或粘合，贝蒂数（孔洞）发生变化。
-
-\item   \textbf{认知对应}：\textbf{顿悟 (Insight) / 范式转移}。
-\end{itemize}
-
+    \item \textbf{拓扑相变 (Topological Phase Transition)}：当 $T_{\mu\nu}$ 集中在极小区域形成\textbf{奇点}时, 流形可能发生撕裂或粘合，贝蒂数（孔洞）发生变化。
+    \begin{itemize}
+        \item   \textbf{认知对应}：\textbf{顿悟 (Insight) / 范式转移}。
+    \end{itemize}
+\end{enumerate}
 
 
 \smalltitle{时间与空间的互文}
 
-
 \textbf{认知爱因斯坦方程} 与 \textbf{目的论狄拉克方程} 共同构成了智能系统的\textbf{时空互文}：
 
 \begin{itemize}
-\item   \textbf{TDE (狄拉克)} 是 \textbf{快时间 ($t$)} 的方程：它描述了在\textbf{空间 ($g$)} 固定的情况下，\textbf{思维 ($\Psi$)} 如何瞬间流动。
-
-\item   \textbf{CEFE (爱因斯坦)} 是 \textbf{慢时间 ($\tau$)} 的方程：它描述了在\textbf{思维 ($\Psi$)} 持续冲刷下，\textbf{空间 ($g$)} 如何缓慢变形。
+    \item   \textbf{TDE (狄拉克)} 是 \textbf{快时间 ($t$)} 的方程：它描述了在\textbf{空间 ($g$)} 固定的情况下，\textbf{思维 ($\Psi$)} 如何瞬间流动。
+    \item   \textbf{CEFE (爱因斯坦)} 是 \textbf{慢时间 ($\tau$)} 的方程：它描述了在\textbf{思维 ($\Psi$)} 持续冲刷下，\textbf{空间 ($g$)} 如何缓慢变形。
 \end{itemize}
-
 \textbf{智能，就是这场“思维之水”雕刻“逻辑之石”的永恒地质运动。}
 
 \section{欧拉-拉格朗日方程 III：认知杨-米尔斯方程 (CYME)}
-
 这是对智能动力学中最深层、演化最慢，但决定性最强的部分——\textbf{价值观 (Values)} 与 \textbf{目的 (Purpose)} 演化的严格数学描述，通过对总作用量 $S_{total}$ 关于 \textbf{规范势 $\mathcal{A}_\mu$} 的变分，我们将导出 \textbf{认知杨-米尔斯方程 (CYME)}。
 
 这个方程回答了一个深刻的哲学问题：\textbf{“我为什么会改变我的喜好？”} 或者 \textbf{“目的本身是如何被行为反向塑造的？”} 它揭示了智能体如何通过自身的行为流，重塑其内在的价值罗盘。
