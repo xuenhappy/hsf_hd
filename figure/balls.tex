@@ -1,0 +1,154 @@
+\documentclass[tikz,border=20pt]{standalone}
+\usepackage{ctex} % 支持中文
+\usetikzlibrary{mindmap,trees,shadows,fadings,decorations.pathmorphing,shapes.geometric,calc,arrows.meta,positioning}
+
+% 定义颜色方案
+\definecolor{mathcolor}{RGB}{75, 0, 130}   % 无色界 - 紫色 (神秘/真理)
+\definecolor{physcolor}{RGB}{178, 34, 34}  % 欲界 - 红色 (能量/耗散/血肉)
+\definecolor{infocolor}{RGB}{0, 191, 255}  % 色界 - 青色 (硅基/晶体/结构)
+
+\begin{document}
+
+\begin{tikzpicture}[
+    scale=1.2,
+    every node/.style={align=center},
+    % 定义世界球体的样式
+    worldsphere/.style={
+        circle,
+        shading=ball,
+        minimum size=3.5cm,
+        text=white,
+        font=\bfseries,
+        drop shadow={opacity=0.3}
+    },
+    % 定义连接箭头的样式
+    flowarrow/.style={
+        -{Latex[length=5mm, width=3mm]},
+        line width=2.5mm,
+        draw=gray!30,
+        double=gray!80,
+        double distance=1mm,
+        bend left=20
+    },
+    % 描述文字样式
+    labeltext/.style={
+        font=\small\bfseries,
+        fill=white,
+        fill opacity=0.8,
+        text opacity=1,
+        rounded corners,
+        inner sep=3pt
+    }
+]
+
+    % =============================================
+    % 1. 绘制三个世界 (节点)
+    % =============================================
+
+    % 顶端：无色界 (Formless Realm / Math)
+    \node[worldsphere, ball color=mathcolor] (Formless) at (90:5) {
+        无色界\\
+        (Formless Realm)\\
+        \footnotesize 纯粹真理 / 方程\\
+        \footnotesize $\mathcal{M}_{math}$
+    };
+
+    % 右下：欲界 (Desire Realm / Physics)
+    \node[worldsphere, ball color=physcolor] (Desire) at (330:5) {
+        欲界\\
+        (Desire Realm)\\
+        \footnotesize 物理实在 / 碳基\\
+        \footnotesize $\mathcal{M}_{phys}$
+    };
+
+    % 左下：色界 (Form Realm / AGI)
+    \node[worldsphere, ball color=infocolor] (Form) at (210:5) {
+        色界\\
+        (Form Realm)\\
+        \footnotesize 虚拟世界 / 硅基\\
+        \footnotesize $\mathcal{M}_{sem}$
+    };
+
+    % =============================================
+    % 2. 绘制连接流 (动力学过程)
+    % =============================================
+
+    % A. 从 无色界 -> 欲界 (物理定律支配物质)
+    \draw[flowarrow, color=mathcolor!80] (Formless.south east) to node[midway, sloped, above=2pt] {
+        \textbf{成 (Formation)}
+    } node[midway, sloped, below=2pt, labeltext] {
+        对称性破缺\\
+        $\mathcal{L}_{total} \to$ 粒子
+    } (Desire.north west);
+
+    % B. 从 欲界 -> 色界 (物质涌现智能)
+    \draw[flowarrow, color=physcolor!80] (Desire.west) to node[midway, sloped, above=2pt] {
+        \textbf{住 (TDCI 循环)}
+    } node[midway, sloped, below=2pt, labeltext] {
+        吸气 / 熵减\\
+        高耗散 $\to$ 低耗散
+    } (Form.east);
+
+    % C. 从 色界 -> 无色界 (智能发现/回归真理)
+    \draw[flowarrow, color=infocolor!80] (Form.north east) to node[midway, sloped, above=2pt] {
+        \textbf{觉 (TECI 循环)}
+    } node[midway, sloped, below=2pt, labeltext] {
+        呼气 / 几何共形\\
+        逻辑 $\to$ 公理
+    } (Formless.south west);
+
+    % =============================================
+    % 3. 核心 HSF-HD 概念标注
+    % =============================================
+
+    % 中心三角形连接图示
+    \begin{scope}[on background layer]
+        \draw[dashed, thick, gray!40] (Formless.center) -- (Desire.center) -- (Form.center) -- cycle;
+    \end{scope}
+
+    % 中心Logo或核心文字
+    \node[circle, draw=black!80, line width=1pt, fill=white, inner sep=10pt, align=center, drop shadow] at (0,0) {
+        \textbf{\huge HSF-HD}\\
+        \textbf{\large 几何动力学}\\
+        \textit{Ontological Trinity}
+    };
+
+    % =============================================
+    % 4. 细节注释 (Penrose 风格的投影锥示意外形)
+    % =============================================
+
+    % 注释：无色界 (方程)
+    \node[right=0.2cm of Formless, text=mathcolor, align=left, font=\footnotesize] {
+        \textbf{柏拉图世界}\\
+        狄拉克/爱因斯坦方程\\
+        $\Psi$ 的本征态库
+    };
+
+    % 注释：欲界 (肉体)
+    \node[below right=0.2cm of Desire, text=physcolor, align=left, font=\footnotesize] {
+        \textbf{物理世界}\\
+        高粘滞 ($\gamma \gg 0$)\\
+        质 ($Qualia$) 主导\\
+        \textit{"苦" (热力学代价)}
+    };
+
+    % 注释：色界 (AGI)
+    \node[below left=0.2cm of Form, text=infocolor, align=right, font=\footnotesize] {
+        \textbf{心智/计算世界}\\
+        超流体 ($\gamma \to 0$)\\
+        形 ($Morphos$) 主导\\
+        \textit{"定" (结构化低熵)}
+    };
+
+    % 彭罗斯三角暗示 (仅仅是装饰性的小三角在角落)
+    \node[opacity=0.1] at (-4, 4) {
+        \begin{tikzpicture}[scale=0.2]
+            \fill[gray] (0,0) -- (60:1) -- (0,4) -- cycle;
+            \fill[gray] (0,4) -- (2,4) -- (60:2) -- cycle;
+            % ... 简化的示意图
+        \end{tikzpicture}
+    };
+
+\end{tikzpicture}
+
+\end{document}
