@@ -16293,7 +16293,7 @@ MSOS 的核心组件——\textbf{热力学调度器 (Thermodynamic Scheduler)}�
 \begin{definition}[兰道尔计算预算 (Landauer Computational Budget)]
     MSOS 废除传统的 FLOPs（每秒浮点运算次数）计费方式，转而采用 \textbf{热力学行动量 (Thermodynamic Action, $\mathcal{A}_{th}$)} 作为基本计费单位。
     系统总能量预算 $E_{total}$ 被分配给不同的认知进程，任何进程 $P_i$ 的执行代价定义为：
-    $$ \mathcal{Cost}(P_i) = \int_{t_{start}}^{t_{end}} \left( \underbrace{k_B T \ln 2 \cdot \frac{dH_{shannon}}{dt}}_{\text{信息擦除代价 (兰道尔热)}} + \underbrace{\eta \|\nabla g_{\mu\nu}\|^2}_{\text{几何重构代价 (塑性功)}} \right) dt $$
+    $$ \mathcal{C}(P_i) = \int_{t_{start}}^{t_{end}} \left( \underbrace{k_B T \ln 2 \cdot \frac{dH_{shannon}}{dt}}_{\text{信息擦除代价 (兰道尔热)}} + \underbrace{\eta \|\nabla g_{\mu\nu}\|^2}_{\text{几何重构代价 (塑性功)}} \right) dt $$
 \end{definition}
 
 \begin{itemize}
