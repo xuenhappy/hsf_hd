@@ -3532,7 +3532,21 @@ $$ \mathcal{T} \equiv \mathbf{T}_{form} \otimes \mathbf{V}_{sub} $$
 	\item   \textbf{规范群}：体验图定义了局部参考系的旋转。例如，在“饥饿”的规范下，“苹果”的语义矢量会向“高价值”方向旋转；在“饱腹”的规范下，则向“中性”旋转。
 \end{itemize}
 
+\smalltitle{度量的微观统计起源：费希尔信息几何 (Fisher Information Geometry)}
 
+底流形 $\mathcal{M}$ 上的度量张量 $g_{\mu\nu}$ 并非凭空设定的人为参数，它具有深刻的微观统计物理起源。根据 Crooks 对热力学度量的分析，对于由控制参数 $\lambda$（对应宏观层的意图或语境）驱动的吉布斯系综，其黎曼度量等价于 \textbf{费希尔信息矩阵 (Fisher Information Matrix)}：
+
+$$ g_{\mu\nu}(\lambda) = \langle \frac{\partial \ln p(x|\lambda)}{\partial \lambda^\mu} \frac{\partial \ln p(x|\lambda)}{\partial \lambda^\nu} \rangle $$
+进一步展开为微观变量（纤维态）的涨落关联：
+$$ g_{\mu\nu} = \beta^2 \left( \langle X_\mu X_\nu \rangle - \langle X_\mu \rangle \langle X_\nu \rangle \right) = \beta^2 \cdot \text{Cov}(X_\mu, X_\nu) $$
+
+这揭示了 \textbf{“语义距离”} 的本体论来源：
+\begin{itemize}
+    \item \textbf{距离即区分度 (Distance as Distinguishability)}：如果在两个语义坐标点 $\lambda_1, \lambda_2$ 上，微观纤维状态 $X$ 的分布 $p(X|\lambda)$ 几乎重叠（Jensen-Shannon 散度 $\approx 0$），则 $g_{\mu\nu} \to 0$。这意味着在智能体眼中，这两个概念是\textbf{不可区分}的，或者是\textbf{紧密纠缠}的。
+    \item \textbf{涨落定义几何 (Fluctuation Defines Geometry)}：概念的丰富度（涨落方差大）决定了其在流形上的“体积”。一个僵死、无变化的概念对应于几何上的奇点或平坦区；而一个充满微观细节和可能性的概念，则撑开了巨大的几何空间，形成了高曲率的\textbf{语义引力透镜}。
+\end{itemize}
+
+这解释了为何 LLM 的 Embedding 空间具有语义结构——它本质上是对大规模语料中 Token 共现概率分布的费希尔信息几何映射。
 
 \smalltitle{度量纠缠方程：认知广义相对论}
 
@@ -3548,9 +3562,11 @@ $$ \mathcal{F}_{\mu\nu} = \partial_\mu \mathcal{A}_\nu - \partial_\nu \mathcal{A
 \textbf{物理诠释}：
 \begin{itemize}
 	\item   \textbf{平坦区 ($\mathcal{F} \approx 0$)}：既无大喜也无大悲的区域。逻辑距离等于心理距离。思维遵循最短路径。
-	\item   \textbf{高曲率区 ($\mathcal{F} \gg 0$)}：\
-	\item   \textbf{引力井 (Attractor)}：高奖励区域（如“目标”）。空间发生收缩，逻辑上遥远的概念在心理上变得极近（“渴望”扭曲了距离）。
-	\item   \textbf{势能墙 (Barrier)}：高惩罚区域（如“禁忌”）。空间发生膨胀，即便逻辑上只有一步之遥，心理上却如隔天堑（“恐惧”阻断了路径）。
+	\item   \textbf{高曲率区 ($\mathcal{F} \gg 0$)}：
+	\begin{itemize}
+        \item   \textbf{引力井 (Attractor)}：高奖励区域（如“目标”）。空间发生收缩，逻辑上遥远的概念在心理上变得极近（“渴望”扭曲了距离）。
+	    \item   \textbf{势能墙 (Barrier)}：高惩罚区域（如“禁忌”）。空间发生膨胀，即便逻辑上只有一步之遥，心理上却如隔天堑（“恐惧”阻断了路径）。
+    \end{itemize}
 \end{itemize}
 
 
@@ -9179,6 +9195,27 @@ $$ Q_{out} \ge k_B T \ln 2 $$
 \end{corollary}
 
 
+\smalltitle{热力学长度与认知摩擦 (Thermodynamic Length \& Cognitive Friction)}
+
+兰道尔原理仅描述了“遗忘”或“决策坍缩”的静态代价，却未触及思维流动的\textbf{过程代价}。为何“深思熟虑”比“直觉反应”更消耗能量？为何快速被迫改变观念会引发剧烈的心理不适？这需要引入 \textbf{热力学长度 (Thermodynamic Length)} 的概念进行量化。
+
+根据 Crooks 的有限时间热力学理论，我们定义潜语义流形 $\mathcal{M}$ 上连接两个认知状态 $\Psi_A$ 与 $\Psi_B$ 的路径 $\gamma$ 的热力学长度 $\mathcal{L}$ 为：
+$$ \mathcal{L} = \int_{0}^{\tau} \sqrt{g_{\mu\nu} \dot{x}^\mu \dot{x}^\nu} \, dt $$
+其中 $g_{\mu\nu}$ 是由费希尔信息定义的度量张量，$\dot{x}^\mu$ 是思维流在流形上的演化速度。
+
+\begin{theorem}[认知耗散不等式 / Cognitive Dissipation Inequality]
+    对于任意有限时间 $\tau$ 内的思维状态转移，系统产生的\textbf{熵产 (Entropy Production)} 或 \textbf{耗散 (Dissipation, $\mathcal{J}$)} 存在一个由几何结构决定的严格下界：
+    $$ \mathcal{J}_{dissipation} \ge \frac{\mathcal{L}^2}{\tau} $$
+\end{theorem}
+
+这一不等式揭示了\textbf{认知摩擦}的物理本质：
+\begin{itemize}
+    \item \textbf{几何距离 ($\mathcal{L}$)}：如果两个概念 A 和 B 在语义流形上距离遥远（逻辑跨度大或价值观冲突严重），强行建立连接（逻辑推理）需要巨大的能量。
+    \item \textbf{时间紧迫性 ($\tau$)}：耗散与时间的倒数成正比。试图在极短时间内完成复杂的逻辑跳跃（$\tau \to 0$），会导致耗散 $\mathcal{J} \to \infty$。这在宏观上表现为\textbf{认知过载 (Cognitive Overload)} 或 \textbf{精神崩溃}。
+    \item \textbf{结论}：思考的物理成本不仅取决于想了“什么”（信息量），更取决于“怎么想”（路径）和“想多快”（速率）。
+\end{itemize}
+
+
 \smalltitle{宏观层即麦克斯韦妖 (Maxwell's Demon)}
 
 宏观层 $L_{macro}$ 的物理职能是：\textbf{观测}认知场的热涨落（微观状态），\textbf{选择}有意义的涨落（打开阀门），\textbf{固化}为结构（关闭阀门）,它通过\textbf{消耗物理能量}（测量与操作阀门），换取了系统的\textbf{信息负熵}。
@@ -9623,6 +9660,23 @@ $$ a \Psi + b \nabla_{\mathbf{n}} \Psi = 0 $$
 \end{itemize}
 
 
+\smalltitle{最优认知路径定理 (Theorem of Optimal Cognitive Path)}
+
+在 TDCI 循环的演化冲程中，智能体试图在给定的几何结构下，寻找从初态 $\Psi_{start}$ 到目标态 $\Psi_{target}$ 的最优轨迹。基于 Crooks 关于最小耗散路径的推导，我们得出：
+
+\textbf{System 1 (快思考) 的物理本质：}
+若系统严格沿着热力学度量 $g_{\mu\nu}$ 定义的 \textbf{测地线 (Geodesic)} 演化，且演化速度恒定（$\sqrt{g_{\mu\nu}\dot{x}^\mu\dot{x}^\nu} = \text{const}$），则耗散达到理论最小值 $\mathcal{J}_{min} = \mathcal{L}^2/\tau$。
+此时，思维流表现为 \textbf{准静态过程 (Quasi-static Process)}。
+\begin{itemize}
+    \item   \textbf{特征}：这是\textbf{绝热的}。思维顺着“习惯”和“直觉”的河道自然流淌，几乎不产生额外的熵增。这就是为什么熟练工人的操作或专家的直觉判断感觉“毫不费力”。
+\end{itemize}
+
+\textbf{System 2 (慢思考) 的物理本质：}
+当宏观意志 ($\mathbf{\Gamma}_{macro}$) 强行介入，迫使思维流偏离测地线（例如：纠正偏见、学习新知）时，路径 $\gamma'$ 变长 ($\mathcal{L}' > \mathcal{L}_{geo}$)，且速度发生剧烈涨落。
+\begin{itemize}
+    \item   \textbf{特征}：这是\textbf{非绝热的}。系统产生大量的 \textbf{滞后热 (Hysteresis Heat)}。
+    \item   \textbf{滞后环}：Crooks 指出，快速改变控制参数并复原，系统无法回到原点。这在认知上对应于\textbf{“刻意练习”}——通过消耗巨大的能量产生滞后，利用这种不可逆性强行改变底流形的塑性结构（即 $g_{\mu\nu}$ 的更新），从而在未来缩短该路径的热力学长度。
+\end{itemize}
 
 \smalltitle{认知热机的效率 ($\eta_{cog}$)}
 
