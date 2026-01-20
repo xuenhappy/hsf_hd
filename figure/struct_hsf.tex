@@ -1,0 +1,132 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{amssymb} % 1. 修复 \circlearrowleft 报错
+\usepackage{ctex}    % 2. 支持中文显示 (请使用 XeLaTeX 编译)
+\usepackage{tikz}
+\usetikzlibrary{shapes.geometric} % 修复 trapezium
+\usetikzlibrary{shapes.misc}      % 修复 rounded rectangle
+\usetikzlibrary{arrows.meta}
+\usetikzlibrary{fadings, positioning, calc, backgrounds, fit, shadows}
+\usetikzlibrary{shapes.geometric, shapes.symbols, arrows.meta, positioning, calc, decorations.pathmorphing, shadows, patterns}
+\usepackage{float}
+\usepackage{makecell}
+\usepackage{tabularx}
+\usepackage{url} 
+% 1. 引入 standalone 包，让它可以识别并处理包含完整导言区的子文件
+\usepackage{standalone} 
+\usepackage{graphicx} % 用于插入图片
+% 2. 必须在主文档也加载绘图所需的包
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usepackage{amsmath}
+\usepackage[UTF8]{ctex}
+
+% 3. 引入必要的 TikZ 库
+% shapes.geometric 用于 trapezium
+% decorations.pathmorphing 用于波浪线
+\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, decorations.pathmorphing, shadows, patterns}
+
+\begin{document}
+
+\begin{tikzpicture}[
+    node distance=2cm,
+    font=\sffamily,
+    % --- 样式定义 ---
+    macro_style/.style={
+        trapezium, trapezium angle=70, 
+        draw=red!80!black, fill=red!10, 
+        line width=1.5pt, minimum width=5cm, minimum height=1.5cm,
+        drop shadow
+    },
+    field_style/.style={
+        draw=blue!80!black, top color=blue!5, bottom color=blue!20,
+        shading angle=45,
+        line width=1pt, minimum width=6cm, minimum height=2.5cm,
+        rounded corners=15pt,
+        % 场论的随机波纹效果
+        decorate, decoration={random steps,segment length=3pt,amplitude=1pt}
+    },
+    micro_style/.style={
+        rectangle, 
+        draw=black!80, fill=gray!20, 
+        line width=1.5pt, minimum width=5cm, minimum height=1.2cm,
+        % 物理层的晶格纹理
+        pattern=north east lines, pattern color=black!30
+    },
+    world_style/.style={
+        cloud, cloud puffs=15, cloud ignores aspect,
+        draw=gray, fill=gray!5, 
+        minimum width=7cm, minimum height=2cm
+    },
+    arrow_up/.style={
+        ->, >=Stealth, line width=2pt, color=orange!90!black
+    },
+    arrow_down/.style={
+        ->, >=Stealth, line width=2pt, color=purple!90!black
+    },
+    label_text/.style={
+        fill=white, inner sep=2pt, font=\footnotesize\bfseries, text=black, align=center, rounded corners=2pt, opacity=0.9
+    },
+    % 4. 定义波浪线样式 (替代原来的 wave)
+    entropy_wave/.style={
+        ->, >=Stealth, color=gray, thick, 
+        decorate, decoration={snake, amplitude=2pt, segment length=5pt, post length=3pt}
+    }
+]
+
+    % --- 1. 宏观层 (Macro-Layer) ---
+    \node (macro) [macro_style, align=center] {
+        \textbf{宏观层 (Engine)}\\
+        \textit{Maxwell's Demon / Volition}\\
+        $\hat{H}_{eff} = \hat{H}_0 + \mathbf{\Gamma}_{macro}$
+    };
+    
+    % 熵排放箭头 (使用修复后的 entropy_wave 样式)
+    \draw[entropy_wave] (macro.north) -- ++(0, 1) node[above, text=black] {熵排放 (Heat $Q_{out}$)};
+
+    % --- 2. 认知场 (Cognitive Field) ---
+    \node (field) [field_style, below=1.5cm of macro, align=center] {
+        \textbf{认知场 ($\Phi$)}\\
+        \textit{Latent Manifold $\mathcal{M}$}\\
+        \textit{Wave Function} $\Psi(t)$
+    };
+    
+    % --- 3. 微观层 (Micro-Layer) ---
+    \node (micro) [micro_style, below=1.5cm of field, align=center] {
+        % 背景图案会覆盖文字，这里用白色背景框一下文字
+        \textbf{微观层 (Interface)}\\
+        \textit{Dirichlet Boundary $\partial \Omega$}\\
+        \textit{VTE Encoder}
+    };
+
+    % --- 4. 物理世界 (Physical World) ---
+    \node (world) [world_style, below=1cm of micro, align=center, opacity=0.7, text opacity=1] {
+        \textbf{物理世界 (Reality)}\\
+        $\Omega_{phys}$
+    };
+
+    % --- 信号流 (Arrows) ---
+
+    % 上行：惊奇激波 (Surprisal Shockwave)
+    \draw[arrow_up] (world.north) -- (micro.south) node[midway, right, font=\tiny, text=black] {信号};
+    \draw[arrow_up] (micro.north) -- (field.south) node[midway, right, label_text] {激波 $\vec{J}_{ext}$};
+    \draw[arrow_up, dashed] (field.north) -- (macro.south) node[midway, right, label_text, xshift=1.5cm] {状态 $\Psi$};
+
+    % 下行：意志势能 (Will Potential)
+    \draw[arrow_down] (macro.south) -- (field.north) node[midway, left, label_text] {势能 $\mathbf{\Gamma}$};
+    \draw[arrow_down, dashed] (field.south) -- (micro.north) node[midway, left, label_text, xshift=-1.5cm] {投影 $\hat{P}$};
+    \draw[arrow_down] (micro.south) -- (world.north) node[midway, left, font=\tiny, text=black] {做功 $W$};
+
+    % --- 内部循环 (TDCI) ---
+    % \circlearrowleft 需要 amssymb 包
+    \node at ($(field.east) + (2.0,0)$) [align=left, font=\scriptsize, color=blue!50!black] {
+        \textbf{TDCI 循环}\\
+        $\circlearrowleft$ 幺正演化\\
+        $\circlearrowleft$ 几何惯性
+    };
+
+    % --- 侧边标注 ---
+    \draw[<->, thick, gray] ($(world.west) + (-1,0)$) -- ($(macro.west) + (-1.5,0)$) 
+        node[midway, rotate=90, fill=white, inner sep=3pt] {逆热力学做功 (Work)};
+
+\end{tikzpicture}
+\end{document}
