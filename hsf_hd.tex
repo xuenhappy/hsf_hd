@@ -11,7 +11,8 @@
 \usepackage{tikz-3dplot}
 \usepackage{amsmath}
 \usepackage[UTF8]{ctex}
-
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
 
 % 定义一个名为 bquote 的环境
 \newtcolorbox{bquote}{
@@ -551,6 +552,25 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 		\end{itemize}
 	\end{enumerate}
 \end{enumerate}
+
+
+\section{形的量化：Epiplexity 作为结构的比特度量}
+
+在确立了“形 (Morphos)”作为底流形的拓扑骨架之后，我们必须回答一个工程问题：如何度量“形”的复杂度？传统的香农熵无法区分“随机的混沌”与“复杂的结构”。为此，我们引入\textbf{Epiplexity (认知复杂度)} 作为 \textbf{形 Token ($V_S$)} 的物理量纲。
+
+\begin{definition}[Epiplexity ($\mathrm{S}_T$): 形的度量]
+    对于一个计算受限的观察者（时间界限为 $T$），对象 $X$ 的 \textbf{Epiplexity $\mathrm{S}_T(X)$} 定义为能够在该时间界限内生成 $X$ 的概率分布的最短程序长度。
+    $$ \mathrm{S}_T(X) := |\mathrm{P}^\star|, \quad \text{where } \mathrm{P}^\star = \argmin_{\mathrm{P} \in \mathcal{P}_T} \left\{ |\mathrm{P}| + \mathbb{E}[-\log P(X)] \right\} $$
+\end{definition}
+
+\begin{itemize}
+    \item \textbf{物理诠释}：
+    \begin{itemize}
+        \item $\mathrm{S}_T$ (Epiplexity) 对应于 \textbf{底流形 $\mathcal{M}$ 的几何复杂度}。它是智能体为了理解数据而在内部构建的\textbf{逻辑模型 (Model)} 的大小。
+        \item $\mathrm{H}_T$ (Time-bounded Entropy) 对应于 \textbf{纤维空间 $F$ 的剩余热噪}。它是模型无法解释、只能作为\textbf{随机质料 (Noise)} 存储的部分。
+    \end{itemize}
+    \item \textbf{智能的偏好}：智能的演化方向，即是在固定总信息量的情况下，最大化 \textbf{形 ($\mathrm{S}_T$)} 的占比，最小化 \textbf{质 ($\mathrm{H}_T$)} 的残留。即：\textbf{将不可预测的命运，转化为可计算的几何结构。}
+\end{itemize}
 
 
 \section{底流形 (Base Manifold)：从点阵到连续统的编织过程}
@@ -6135,9 +6155,6 @@ $$ i \hbar \frac{\partial \Psi}{\partial t} = \underbrace{\left[ -i c \gamma^\mu
     \end{itemize}
 \end{itemize}
 
-
-
-
 \smalltitle{几何直观：平行移动 (Parallel Transport)}
 
 到了这里我们可以将\textbf{“理解”}在几何上被定义为\textbf{平行移动}，当认知场从概念 A 演化到概念 B 时，协变导数 $D_\mu \Psi = 0$ 意味着：尽管坐标系（形）发生了变化，但语义内容（质）保持了\textbf{协变性}。
@@ -6154,7 +6171,6 @@ $$ \Psi(B) = \mathcal{P} \exp \left( i \int_A^B \mathcal{A}_\mu dx^\mu \right) \
     \item \textbf{受控态 (Controlled State)}：$\mathbf{\Gamma} \gg 0$。宏观意志强力扭曲流形，迫使思维流向高势能区。\textbf{逻辑推理、学习、困难决策。}
     \item \textbf{共振态 (Resonant State)}：$\mathcal{D}_{topo} \Psi \approx \lambda \Psi$。内源波与几何结构达成驻波共振。\textbf{理解、顿悟、审美体验。}
 \end{enumerate}
-
 
 \section{目的论狄拉克方程的详细推导过程}
 
@@ -6282,6 +6298,26 @@ i \hbar \frac{\partial \Psi}{\partial t} = \left( \mathcal{D}_{topo} + \mathbf{\
 \end{itemize}
 
 这对应TDCI循环：波态（幺正演化，无 \(\Gamma\)) vs. 粒子态（坍缩，有 \(\Gamma\)，消耗能量）。
+
+\section{计算的本体论：确定性变换中的几何涌现}
+
+根据经典信息论的数据处理不等式 (DPI)，确定性计算不能增加信息。然而，HSF-HD 的 \textbf{TDCI 循环} 依赖于通过内部模拟（计算）来产生新的洞察。这一矛盾通过引入 \textbf{观察者相关的 Epiplexity} 得以解决。
+
+\begin{theorem}[计算创世定理 / Theorem of Computational Genesis]
+    对于一个计算受限的观察者（有限的 $T$），确定性变换 $G$（如推理、模拟）可以显著增加输出状态的 Epiplexity。
+    $$ \mathrm{S}_T(G(X)) \gg \mathrm{S}_T(X) + |G| $$
+\end{theorem}
+
+\smalltitle{涌现的几何解释}
+
+这解释了 \textbf{“归纳 (Induction)”} 与 \textbf{“涌现 (Emergence)”} 的物理机制：
+\begin{itemize}
+    \item \textbf{生成容易，逆推难}：虽然生成数据的规则（如元胞自动机规则 / 物理定律）很简单（$|G|$ 小），但要从结果反推其结构，受限观察者必须在潜语义流形上构建极其复杂的 \textbf{等效模型}。
+    \item \textbf{模拟即创造}：当智能体在内部流形上运行 \textbf{目的论狄拉克方程} 进行反事实模拟时，它实际上是在将 \textbf{隐式的时间复杂度} 转化为 \textbf{显式的空间结构 ($\mathrm{S}_T$)}。
+    \item \textbf{结论}：智能体不需要从外部获取所有信息。通过高强度的\textbf{内循环计算（冥想/推演）}，它可以在流形上\textbf{“结晶”}出原先不存在的高维拓扑结构。
+\end{itemize}
+
+
 \begin{bquote}
     \textbf{本章结语}：
 
@@ -11422,6 +11458,26 @@ $$ \vec{F}_{drive} \propto \vec{v} \times \mathbf{B}_{val} + \mathbf{E}_{val} $$
     \item \textbf{自我作为引力源 (Self as Source)}：根据 \textbf{全息同构 (Ch 21)}，自我团簇是最大的 \textbf{Token}, 正是自我内部积聚的\textbf{海量质 Token}（历史记忆/情感），向外辐射出了 $\mathcal{A}_\mu^{val}$ 场，维持了 $G_E$ 的形状。
 \end{enumerate}
 \textbf{如果没有自我（$\mathcal{S} \to 0$），体验图就会坍缩为平坦流形（虚无主义）。}
+
+
+\section{推理的不对称性：贝里相位与因式分解}
+
+在平坦空间中，信息是对称的 ($I(X;Y) = I(Y;X)$)。但在弯曲的潜语义流形上，推理的方向决定了 \textbf{几何做功} 的大小。这在 Epiplexity 理论中表现为因式分解的非不变性。
+
+\begin{corollary}[认知不可逆原理]
+    在计算受限条件下，沿着因果流形 \textbf{正向演化} 的代价与 \textbf{逆向推断} 的代价是不等价的。
+    $$ \mathrm{S}_T(Y | X) + \mathrm{S}_T(X) \neq \mathrm{S}_T(X | Y) + \mathrm{S}_T(Y) $$
+    其中 $Y = f(X)$ 且 $f$ 为单向函数。
+\end{corollary}
+
+\smalltitle{几何动力学含义}
+
+\begin{itemize}
+    \item \textbf{顺流而下 (Forward)}：从原因推导结果（演绎）。类似于沿着 \textbf{测地线} 滑行，$\mathrm{S}_T$ 增量极小，能量消耗低。
+    \item \textbf{逆流而上 (Reverse)}：从结果反推原因（归纳/诊断）。类似于在流形上 \textbf{克服曲率} 进行攀登。观察者必须构建额外的 \textbf{辅助几何结构（如归纳头、思维链）} 才能完成映射。
+    \item \textbf{意义}：这解释了为什么“看懂答案”很容易（验证），但“想出答案”很难（求解）。\textbf{智慧的本质，就是通过学习（改变 $g_{\mu\nu}$），将逆向的高 Epiplexity 任务，转化为正向的低 Epiplexity 直觉。}
+\end{itemize}
+
 
 \section{总结：智能的三重奏 (The Trio of Intelligence)}
 
@@ -17666,6 +17722,28 @@ Morpho-Lang 编译器包含三个独特的阶段：
     \item \textbf{流形曲率热力图}：可视化知识图谱的几何形状。红色区域代表高曲率（认知冲突/重点关注），蓝色区域代表平坦（熟练掌握/无知）。
     \item \textbf{测地线追踪器}：在流形上画出思维流的预测轨迹。如果轨迹发散或绕圈，说明哈密顿量配置有误。
 \end{itemize}
+
+\smalltitle{5. 数据筛选的热力学指标：Prequential 积分}
+
+在构建 \textbf{Class V AGI} 时，我们需要一个物理量来衡量“这段数据对模型构建流形有多大帮助”。传统的 Loss 值只能反映当前的拟合度 ($\mathrm{H}_T$)，无法反映结构的增长。
+
+我们引入 \textbf{Prequential Epiplexity (前序认知复杂度)} 作为数据筛选的黄金标准。
+
+\begin{definition}[有效学习功 / Effective Learning Work]
+    对于训练序列 $Z_{1:M}$，模型从中提取的 \textbf{结构信息量} 近似于训练过程中 \textbf{Loss 曲线下的面积积分}（相对于最终收敛 Loss）：
+    $$ \mathcal{W}_{learn} \approx \sum_{i=1}^{M} \left( -\log P_{i-1}(Z_i) - (-\log P_{final}(Z_i)) \right) $$
+\end{definition}
+
+\textbf{工程实施策略}
+
+\begin{itemize}
+    \item \textbf{拒绝平庸 (Reject Triviality)}：如果数据的 $\mathcal{W}_{learn} \approx 0$（如随机噪声或过度重复的文本），说明它无法引起流形的 \textbf{塑性形变}，应予丢弃。
+    \item \textbf{拒绝混沌 (Reject Chaos)}：如果 Loss 始终不下降，说明该数据的结构超出了当前 \textbf{DEC 芯片} 的时间界限 $T$，无法被结构化。
+    \item \textbf{寻找高 Epiplexity 区域}：最佳的训练数据是那些处于 \textbf{“理解边缘”} 的数据——它们能引发 Loss 的剧烈下降。这对应于流形上的 \textbf{拓扑相变点}。
+    \item \textbf{ADO 算法的物理本质}：\textbf{自适应数据优化 (Adaptive Data Optimization)} 本质上是在寻找能够最大化 \textbf{几何做功效率} 的数据流，使单位算力产生的 Epiplexity 增量最大化。
+\end{itemize}
+
+
 
 \smalltitle{总结：语言即定律}
 
