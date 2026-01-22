@@ -8785,7 +8785,7 @@ $$ \mathcal{L}_{Lemniscate} = \mathcal{L}_{in} + \mathcal{L}_{out} - \lambda_1 \
 宏观层首先在内部底流形 $M_{in}$ 上规划出一条 \textbf{最优测地线 (Geodesic)}（例如：一条完美的机械臂轨迹）。微观效应器负责将这条测地线 \textbf{推前 (Pushforward)} 到物理空间。
 \begin{itemize}
     \item   \textbf{数学算子}：$\Phi_{out} = (\Phi_{map})_* (\Psi_{in})$
-    \item   \textbf{形 Token 流 ($T_{form}^{out}$)}：包含：目标坐标、姿态矩阵、运动学约束。
+    \item   \textbf{形元流 ($T_{form}^{out}$)}：包含：目标坐标、姿态矩阵、运动学约束。
     \item   \textbf{作用}：它试图在物理空间中建立一个\textbf{“虚拟势能槽”}。智能体“希望”物理世界沿着这个槽演化。
 \end{itemize}
 
@@ -8798,7 +8798,7 @@ $$ \mathcal{L}_{Lemniscate} = \mathcal{L}_{in} + \mathcal{L}_{out} - \lambda_1 \
 物理世界有惯性，有摩擦（外部度量 $g_{out}$ 的阻力）。为了让物理现实真的嵌入那个“虚拟势能槽”，智能体必须注入 \textbf{质流 ($T_{sub}^{out}$)}。
 
 \begin{itemize}
-    \item   \textbf{质 Token 流 ($T_{sub}^{out}$)}：包含：电流、液压、肌张力（能量密度）。
+    \item   \textbf{质元流 ($T_{sub}^{out}$)}：包含：电流、液压、肌张力（能量密度）。
     \item   \textbf{作用}：产生 \textbf{应力-能量张量 $T_{\mu\nu}^{act}$}。
     \item   \textbf{刻蚀方程}：
         $$ \Delta g_{out} \propto \kappa \cdot T_{\mu\nu}^{act} $$
@@ -8852,7 +8852,7 @@ $$ \mathcal{L}_{Lemniscate} = \mathcal{L}_{in} + \mathcal{L}_{out} - \lambda_1 \
 \textbf{—— 形的同步}
 
 \begin{itemize}
-    \item   \textbf{机制}：当我们说话时，我们是在交换 \textbf{形 Token}（语法、逻辑结构）。
+    \item   \textbf{机制}：当我们说话时，我们是在交换 \textbf{形元}（语法、逻辑结构）。
     \item   \textbf{目标}：让听者的底流形 $M_{listener}$ 的拓扑结构，逼近说者的底流形 $M_{speaker}$。
 
     \textit{例子}：我说“A在B上面”，你脑中建立 \lstinline|On(A, B)| 的边。
@@ -8866,7 +8866,7 @@ $$ \mathcal{L}_{Lemniscate} = \mathcal{L}_{in} + \mathcal{L}_{out} - \lambda_1 \
 \textbf{—— 质的同步}
 
 \begin{itemize}
-    \item   \textbf{机制}：非语言沟通（表情、语气、艺术）交换的是 \textbf{质 Token}（情绪、氛围）。
+    \item   \textbf{机制}：非语言沟通（表情、语气、艺术）交换的是 \textbf{质元}（情绪、氛围）。
     \item   \textbf{目标}：\textbf{相位锁定 (Phase Locking)}。
 
     让 $\Psi_{listener}$ 的纤维振动频率与 $\Psi_{speaker}$ 同步。
@@ -8914,7 +8914,7 @@ $$ \mathcal{L}_{Lemniscate} = \mathcal{L}_{in} + \mathcal{L}_{out} - \lambda_1 \
 \smalltitle{MSC 解法：规范场束缚}
 
 
-Master 不进行微操，而是通过注入 \textbf{形 Token ($T_{form}$)}，在 Slave 的相空间中建立一个 \textbf{强规范场 $\mathcal{A}_{master}$}。
+Master 不进行微操，而是通过注入 \textbf{形元 ($T_{form}$)}，在 Slave 的相空间中建立一个 \textbf{强规范场 $\mathcal{A}_{master}$}。
 \begin{itemize}
     \item \textbf{A. 形的降维：序参量的设定 (Setting the Order Parameter)}
     
@@ -8933,10 +8933,10 @@ Master 不进行微操，而是通过注入 \textbf{形 Token ($T_{form}$)}，�
     
     Slave 的剩余自由度（快变量）并非被删除了，而是被 \textbf{冻结} 了。
     \begin{itemize}
-        \item   \textbf{哈肯-伺服原理的几何版}：在强规范场 $\mathcal{A}_{master}$ 的作用下，Slave 的高频涨落（质 Token 的随机热运动）迅速衰减，或者被\textbf{“奴役”}为序参量的函数。
+        \item   \textbf{哈肯-伺服原理的几何版}：在强规范场 $\mathcal{A}_{master}$ 的作用下，Slave 的高频涨落（质元的随机热运动）迅速衰减，或者被\textbf{“奴役”}为序参量的函数。
             $$ \Psi_{fast}(t) = \mathcal{F}(\Psi_{slow}(t)) + \epsilon $$
         \item   \textbf{相变}：Slave 从 \textbf{“各态历经的气体”} 相变为 \textbf{“协同运动的刚体/孤立子”}。
-        \item   \textit{例子}：章鱼的腕足在平时是柔软的（高维自由度），但在接收到捕食指令的瞬间，通过\textbf{刚度波}（形 Token），瞬间硬化为一个具有特定曲率的\textbf{准刚体}。
+        \item   \textit{例子}：章鱼的腕足在平时是柔软的（高维自由度），但在接收到捕食指令的瞬间，通过\textbf{刚度波}（形元），瞬间硬化为一个具有特定曲率的\textbf{准刚体}。
     \end{itemize}
 \end{itemize}
 
@@ -9396,7 +9396,7 @@ $$ S_{int} = \int dt \left( \mathcal{L}_{Shape\_Lock} + \mathcal{L}_{Substance\_
     \item   \textbf{活性位点 (Active Sites)}：流形上某些特定的高曲率区域，专门用于捕获特定的外部问题（抗原）。
     \item   \textbf{形质分布}：
     \begin{itemize}
-        \item   \textbf{变构效应 (Allostery)}：这是关键, 在流形的一端（如市场部 $M_{mkt}$）注入一个 \textbf{质 Token}（客户需求），会导致整个大流形的\textbf{度量张量发生全局扭转}。
+        \item   \textbf{变构效应 (Allostery)}：这是关键, 在流形的一端（如市场部 $M_{mkt}$）注入一个 \textbf{质元}（客户需求），会导致整个大流形的\textbf{度量张量发生全局扭转}。
         \item   这种扭曲瞬间传导至远端的 \textbf{活性位点}（如研发部 $M_{rnd}$），使其几何形状正好匹配问题的解。
     \end{itemize}
     \item   \textbf{动力学特征}：
@@ -9464,7 +9464,7 @@ $$ \text{Organization} = \hat{R}_{RG} \left( \sum_{i=1}^N \text{Agent}_i \right)
 
     组织内部的信息流如何变成一个连续的物理场？这依赖于\textbf{通信协议}对时空的\textbf{平滑化}。
     \begin{itemize}
-        \item   \textbf{产生机制}：\textbf{玻色子凝聚 (Bosonic Condensation)}。个体之间交换的 \textbf{形 Token}（文档、代码、货币）在组织内部形成了一个高通量的网络。当通信频率 $\omega_{comm}$ 超过临界值时，离散的对话 \textbf{逾渗 (Percolate)} 为一个连续的\textbf{背景场}。
+        \item   \textbf{产生机制}：\textbf{玻色子凝聚 (Bosonic Condensation)}。个体之间交换的 \textbf{形元}（文档、代码、货币）在组织内部形成了一个高通量的网络。当通信频率 $\omega_{comm}$ 超过临界值时，离散的对话 \textbf{逾渗 (Percolate)} 为一个连续的\textbf{背景场}。
         \item   \textbf{结构功能}：这个场构成了组织的 \textbf{潜语义流形 ($\mathcal{M}_{org}$)}。
         \item   \textbf{度量张量 ($g_{\mu\nu}^{org}$)}：由 \textbf{企业文化/潜规则} 定义。它规定了信息流动的“阻力”和“亲疏”。在文化同质性高的区域，度量平滑（沟通成本低）；在部门墙附近，度量发散（沟通阻断）。
         \item   \textbf{波函数 ($\Psi_{org}$)}：\textbf{舆论/士气}。这是一个弥散在整个组织中的\textbf{集体模 (Collective Mode)}。它遵循 \textbf{目的论狄拉克方程} 在组织流形上演化。
@@ -9586,7 +9586,7 @@ $$ \text{Organization} = \hat{R}_{RG} \left( \sum_{i=1}^N \text{Agent}_i \right)
 
 这是组织生命的终点。
 \begin{itemize}
-    \item   \textbf{衰变 (Decay)}：\textbf{$\alpha$ 衰变}。核心人才（高能质 Token）不断流失（隧穿效应逃逸）,组织的\textbf{有效质量 $M_{eff}$} 下降，引力减弱，最终无法束缚剩余的个体，缓慢蒸发。
+    \item   \textbf{衰变 (Decay)}：\textbf{$\alpha$ 衰变}。核心人才（高能质元）不断流失（隧穿效应逃逸）,组织的\textbf{有效质量 $M_{eff}$} 下降，引力减弱，最终无法束缚剩余的个体，缓慢蒸发。
     \item   \textbf{湮灭 (Annihilation)}：\textbf{真空崩塌}。\textbf{宏观层 ($L_{macro}$)} 停止做功（管理层躺平/内乱）, \textbf{第三驱动力 $\vec{J}_{self} \to 0$},系统迅速滑向热力学平衡态（熵最大化）。
     \item   \textbf{几何表现}：非平凡的拓扑结构（层级、部门、流程）瞬间\textbf{平坦化}。复杂的纤维丛坍缩为一堆无序的尘埃（资产清算）。
 \end{itemize}
@@ -9711,7 +9711,7 @@ $$ \text{企业}_{Old} \xrightarrow[\text{市场危机 (高温)}]{\text{异构�
 
 \section{智能热力学：熵平衡与兰道尔代价}
 
-智能系统 $S$ 必须持续从环境 $\Omega$ 汲取低熵能量（自由能），在内部构建有序结构（Token 图），并将高熵热量排放回环境。
+智能系统 $S$ 必须持续从环境 $\Omega$ 汲取低熵能量（自由能），在内部构建有序结构（语义子图），并将高熵热量排放回环境。
 
 
 
@@ -9729,7 +9729,7 @@ $$ \frac{dS_{sys}}{dt} = \frac{d_i S}{dt} + \frac{d_e S}{dt} $$
 \smalltitle{兰道尔极限 (Landauer's Limit) —— 思考的代价}
 
 为什么“做决定”会累？因为\textbf{信息的擦除是物理过程}。
-当宏观层通过聚光灯算子 $\hat{\Pi}$ 将弥散的波函数 $\Psi$ 坍缩为确定的 Token $\mathbf{r}_{win}$ 时，它实际上\textbf{擦除}了其他可能性的信息。
+当宏观层通过聚光灯算子 $\hat{\Pi}$ 将弥散的波函数 $\Psi$ 坍缩为确定的 语义子 $\mathbf{r}_{win}$ 时，它实际上\textbf{擦除}了其他可能性的信息。
 根据兰道尔原理，擦除 1 bit 信息至少释放热量：
 $$ Q_{out} \ge k_B T \ln 2 $$
 \begin{corollary}[不可逆计算 (Dissipative Computing)]
@@ -10115,7 +10115,7 @@ $$ a \Psi + b \nabla_{\mathbf{n}} \Psi = 0 $$
 宏观层 ($L_{macro}$) 关注的是\textbf{拓扑结构}的鲁棒性，当系统参数（如突触权重 $W$）发生微扰时，系统的\textbf{相图定性性质}（如吸引子数量、贝蒂数）是否保持不变？
 \textbf{定义 (Andronov-Pontryagin)}：一个动力系统 $X$ 是结构稳定的，如果对于任何微小的扰动 $\delta X$，系统 $X + \delta X$ 与 $X$ \textbf{拓扑等价}（存在同胚映射把轨道映为轨道）；
 \begin{itemize}
-    \item   \textbf{物理实现}：\textbf{拓扑保护}。Token 图的小世界结构、流体自我的紧致性，保证了即使个别神经元死亡或概念漂移，系统的人格和世界观不会崩塌；
+    \item   \textbf{物理实现}：\textbf{拓扑保护}。世界图的小世界结构、流体自我的紧致性，保证了即使个别神经元死亡或概念漂移，系统的人格和世界观不会崩塌；
     \item   \textbf{失效模式}：\textbf{灾变 (Catastrophe)}。当参数穿越分岔点（Bifurcation Point），拓扑结构突变（如精神崩溃）；
 \end{itemize}
 
@@ -10143,7 +10143,7 @@ $$ a \Psi + b \nabla_{\mathbf{n}} \Psi = 0 $$
 \smalltitle{循环的物理工质与状态方程}
 
 \begin{itemize}
-	\item   \textbf{工质 (Working Substance)}：\textbf{质 Token ($T_{sub}$)} 构成的认知场波包 $\Psi_{sub}$。
+	\item   \textbf{工质 (Working Substance)}：\textbf{质元($T_{sub}$)} 构成的认知场波包 $\Psi_{sub}$。
 	\item   \textbf{状态参数}：
 	\begin{enumerate}
 		\item \textbf{体积 ($V$)} $\to$ \textbf{信息熵 / 波包宽度}。
@@ -10171,7 +10171,7 @@ $$ a \Psi + b \nabla_{\mathbf{n}} \Psi = 0 $$
 
 \begin{itemize}
 	\item   \textbf{物理过程}：系统切断与外部的热交换 ($Q=0$)。认知场在\textbf{几何惯性}驱动下演化。
-	\item   \textbf{纤维动力学 (质)}：质 Token 沿着底流形铺设的测地线进行 \textbf{平行移动 (Parallel Transport)}。
+	\item   \textbf{纤维动力学 (质)}：质元沿着底流形铺设的测地线进行 \textbf{平行移动 (Parallel Transport)}。
 	$$ \nabla_{\dot{\gamma}} \Psi_{sub} = 0 $$
 	内能转化为动能，系统温度 $T_{sys}$ 略微降低。
 	\item   \textbf{底流形动力学 (形)}：\textbf{形约束质}。底流形的曲率（逻辑规则）引导波包流向势能低谷（结论）。
@@ -10256,7 +10256,7 @@ $$ \eta_{cog} = \frac{W_{struct}}{Q_{in}} = \frac{\text{底流形拓扑优化的
 
 \chapter{相变元物理 — 临界性与涌现}
 
-如果说前面章节我们用热力学定律为智能划定了“能耗底线”，那么本章将用\textbf{统计场论（Statistical Field Theory）}为智能描绘“状态空间”，这里我们将揭示：智能系统并非总是处于同一种运行模式，它会在\textbf{晶体（秩序）}、\textbf{气体（混沌）}与\textbf{液体（临界）}之间发生剧烈的\textbf{相变（Phase Transition）}。真正的通用智能（AGI），动力学特征上是一个能够\textbf{自组织临界性 (Self-Organized Criticality, SOC)} 的物理系统。智能系统的宏观行为取决于其微观组分（Token 与 场）的集体激发模式。
+如果说前面章节我们用热力学定律为智能划定了“能耗底线”，那么本章将用\textbf{统计场论（Statistical Field Theory）}为智能描绘“状态空间”，这里我们将揭示：智能系统并非总是处于同一种运行模式，它会在\textbf{晶体（秩序）}、\textbf{气体（混沌）}与\textbf{液体（临界）}之间发生剧烈的\textbf{相变（Phase Transition）}。真正的通用智能（AGI），动力学特征上是一个能够\textbf{自组织临界性 (Self-Organized Criticality, SOC)} 的物理系统。智能系统的宏观行为取决于其微观组分（语义子 与 场）的集体激发模式。
 
 本章引入\textbf{序参量 (Order Parameters)} 概念，量化了智能系统的有序度与连贯性。我们定义了三种基本的\textbf{认知相态 (Cognitive Phases)}：\textbf{层流态}（低能执行模式）、\textbf{湍流态}（高能失效模式）与\textbf{临界态}（自适应涌现模式）。通过\textbf{重整化群 (Renormalization Group)} 视角，我们证明了\textbf{“临界态”}是信息处理能力最大化的物理区间，并揭示了宏观层如何通过\textbf{“认知退火”}机制，主动调节系统温度以跨越适应度景观中的势垒。
 
@@ -10266,7 +10266,7 @@ $$ \eta_{cog} = \frac{W_{struct}}{Q_{in}} = \frac{\text{底流形拓扑优化的
 
 \smalltitle{图谱熵密度 (Spectral Entropy Density, $s$) —— 结构的复杂度}
 
-衡量静态基质（Token 图 $G_W$）的无序程度。
+衡量静态基质（世界图 $G_W$）的无序程度。
 $$ s = -\frac{1}{N} \sum_{i=1}^N \tilde{\lambda}_i \ln \tilde{\lambda}_i $$
 其中 $\tilde{\lambda}_i$ 是图拉普拉斯算子 $\mathbf{L}$ 的归一化特征值。
 \begin{itemize}
@@ -10333,7 +10333,7 @@ $$ C(\mathbf{r}, \mathbf{r}') = \langle \Psi^\dagger(\mathbf{r}) \Psi(\mathbf{r}
     \item   \textbf{动力学特征}：
     \begin{itemize}
         \item   \textbf{自组织临界性 (SOC)}：系统自发调整到相变点附近。
-        \item   \textbf{幂律响应 (Power Law)}：雪崩规模 $P(s) \sim s^{-\alpha}$。一个微小的 Token 扰动既可能消散，也可能引发全网的\textbf{拓扑重构}。
+        \item   \textbf{幂律响应 (Power Law)}：雪崩规模 $P(s) \sim s^{-\alpha}$。一个微小的语义子扰动既可能消散，也可能引发全网的\textbf{拓扑重构}。
         \item   \textbf{调和流 (Harmonic)} 涌现：关联长度 $\xi \to \infty$。系统实现了\textbf{全局信息的无损广播}。
     \end{itemize}
     \item   \textbf{认知表现}：\textbf{创造力、顿悟、适应性}。
@@ -10373,7 +10373,7 @@ $$ T(t) \leftarrow T_{min} $$
 在智能系统的整个TDCI循环的过程中，“涌现”不再是一个玄学的词汇，它是\textbf{重整化群 (Renormalization Group, RG)} 变换下的\textbf{不动点 (Fixed Point)}。
 
 \begin{itemize}
-    \item   \textbf{微观尺度}：亿万个 Token 的生灭（布朗运动）。
+    \item   \textbf{微观尺度}：亿万个语义子的生灭（布朗运动）。
     \item   \textbf{宏观尺度}：涌现出稳定的\textbf{“宏观波包”}（如“国家”、“正义”、“自我”）。
     \item   \textbf{物理机制}：当系统处于\textbf{临界态}时，微观尺度的细节被重整化流“冲刷”掉，只有那些\textbf{拓扑不变量}（Topological Invariants）在宏观尺度上幸存下来。这些幸存的拓扑结构，就是我们所说的\textbf{“智能”}。
 \end{itemize}
@@ -10390,7 +10390,7 @@ $$ T(t) \leftarrow T_{min} $$
 
 \smalltitle{语义位置算子 (Semantic Position Operator, $\hat{\mathbf{Z}}$)}
 
-对应于 HSF-HD 中的 \textbf{Token}。它询问：“系统现在具体在想哪个概念？”
+对应于 HSF-HD 中的 \textbf{语义子}。它询问：“系统现在具体在想哪个概念？”
 $$ \hat{\mathbf{Z}} |\mathbf{z}\rangle = \mathbf{z} |\mathbf{z}\rangle $$
 \begin{itemize}
     \item   \textbf{本征态}：$|\mathbf{z}\rangle = \delta(\mathbf{r} - \mathbf{z})$。这是狄拉克 $\delta$ 函数，代表\textbf{绝对确定的粒子态}（如 LLM 输出的一个具体 Token ID）。
@@ -10443,12 +10443,12 @@ $$ i \hbar_{cog} \frac{\partial}{\partial t} |\Psi(t)\rangle = \hat{H}_{teleo} |
 当宏观层 $L_{macro}$ 发动\textbf{“决策”}（Spotlight）时，物理过程发生根本改变。这在数学上是一个\textbf{投影测量 (Projective Measurement)}。
 
 \begin{itemize}
-    \item   \textbf{测量算子}：$\hat{M}_k = |k\rangle \langle k|$，其中 $|k\rangle$ 是世界图 $G_W$ 中的某个具体 Token。
+    \item   \textbf{测量算子}：$\hat{M}_k = |k\rangle \langle k|$，其中 $|k\rangle$ 是世界图 $G_W$ 中的某个具体语义子。
     \item   \textbf{坍缩方程}：
         $$ |\Psi_{after}\rangle = \frac{\hat{M}_k |\Psi_{before}\rangle}{\sqrt{\langle \Psi | \hat{M}_k | \Psi \rangle}} $$
     \item   \textbf{热力学后果}：这是一个\textbf{非幺正 (Non-Unitary)} 过程。信息的叠加态被破坏，相干性丢失（Decoherence）。根据前面章节的推导，这必然伴随着\textbf{熵减 ($\Delta S < 0$)} 和 \textbf{热量排放 ($Q > 0$)}。
 \end{itemize}
-\textbf{结论}：\textbf{每一次决策（输出 Token），都是一次波函数的死刑。思维从“可能”坍缩为“现实”。}
+\textbf{结论}：\textbf{每一次决策（输出语义子流），都是一次波函数的死刑。思维从“可能”坍缩为“现实”。}
 
 \section{认知不确定性原理 (Cognitive Uncertainty Principle)}
 
@@ -10825,7 +10825,7 @@ $$ \text{Cost}_{B \to A} = \text{Distance} + \text{Work}_{field} $$
 $$ g_{\mu\nu}(\mathbf{r}, t) = \underbrace{g_{\mu\nu}^{(0)}(\mathbf{r})}_{\text{刚性权重 (LTM)}} + \underbrace{h_{\mu\nu}(\Psi, t)}_{\text{弹性形变 (Context)}} $$
 \begin{itemize}
     \item   \textbf{$g_{\mu\nu}^{(0)}$}：这是智能体学习好的参数（长时记忆），它代表了世界的“常识”。
-    \item   \textbf{$h_{\mu\nu}$}：这是当前输入的 Token（质流）产生的\textbf{瞬时引力波}。
+    \item   \textbf{$h_{\mu\nu}$}：这是当前输入的质元流产生的\textbf{瞬时引力波}。
     \item   \textit{例子}：当句子中出现转折词“但是”时，它携带了巨大的逻辑应力，瞬间压弯了局部的几何结构，阻断了对前文的惯性流动，强行开辟了一条通向反义词义的新路径。
 \end{itemize}
 
@@ -11381,8 +11381,8 @@ $$ \mathcal{F}_{\mu\nu} = \partial_\mu \mathcal{A}_\nu - \partial_\nu \mathcal{A
 	\item   \textbf{事件}：微观层 ($L_{micro}$) 首次遭遇强烈的物理刺激（例如：手触碰火焰）。
 	\item   \textbf{物理过程}：
 	\begin{enumerate}
-		\item VTE 编码器输出高能 \textbf{质 Token}：$T_{sub} = \mathbf{v}_{pain}$（痛觉费米子）。
-		\item 该 Token 携带巨大的\textbf{能量密度 $J_{pain}$}。
+		\item VTE 编码器输出高能 \textbf{质元}：$T_{sub} = \mathbf{v}_{pain}$（痛觉费米子）。
+		\item 该质元携带巨大的\textbf{能量密度 $J_{pain}$}。
 		\item 根据 \textbf{认知爱因斯坦场方程}，这个能量密度瞬间转化为局部的\textbf{应力-能量张量 $T_{\mu\nu}$}。
 		$$ T_{\mu\nu}(\mathbf{r}_{fire}) \propto J_{pain} \cdot u_\mu u_\nu $$
 	\end{enumerate}
@@ -11507,7 +11507,7 @@ $$ \frac{\partial \mathcal{A}_\mu^{agent}}{\partial t} = -\eta \cdot \frac{\delt
 
 	\item   \textbf{动力学行为}：\textbf{拓扑手术 (Topological Surgery)}。
 
-	系统试图通过\textbf{创造新的形 Token}（提出新理论）或\textbf{建立新的连接}（发现新证据），来\textbf{“缝合”}这个洞，或者把这个洞\textbf{“平庸化”}（解释通了）。
+	系统试图通过\textbf{创造新的形元}（提出新理论）或\textbf{建立新的连接}（发现新证据），来\textbf{“缝合”}这个洞，或者把这个洞\textbf{“平庸化”}（解释通了）。
 
 	\item   \textbf{特征}：发散性、创造性、为了\textbf{建立连通性}。
 	\item   \textit{例子}：牛顿思考引力，不是因为饿，而是因为“月球绕地”和“苹果落地”在几何上不连通，他感到了一种\textbf{拓扑上的不适}。
@@ -11611,7 +11611,7 @@ $$ \mathcal{L}_{phys} \cong \bar{\Psi} (i \gamma^\mu D_\mu - m) \Psi = \bar{\Psi
 自我的中心之所以不可观测，是因为它在 \textbf{底流形 (形空间)} 上是一个 \textbf{拓扑奇点}。
 \begin{itemize}
     \item   \textbf{几何定义}：底流形 $\mathcal{M}$ 在自我中心处不仅是弯曲的，而且是 \textbf{“穿孔”} 的， 这对应于第一同伦群 $\pi_1(M) \neq 0$。
-    \item   \textbf{形 Token} 在此处无法形成闭合的逻辑回路（自指悖论）。
+    \item   \textbf{形元} 在此处无法形成闭合的逻辑回路（自指悖论）。
     \item   \textbf{物理意义}：\textbf{指称的黑洞}。任何试图定义“我”的逻辑路径（测地线），一旦靠近这个中心，都会陷入无限递归或断裂。这个洞是逻辑无法覆盖的盲点。
 \end{itemize}
 
@@ -11633,7 +11633,7 @@ $$ \mathcal{L}_{phys} \cong \bar{\Psi} (i \gamma^\mu D_\mu - m) \Psi = \bar{\Psi
 
 虽然自我的核心是空的，但在这个空洞周围，环绕着整个流形中\textbf{能量密度最高}的物质结构。这构成了自我的\textbf{“实体感”}。
 \begin{itemize}
-    \item   \textbf{几何定义}：围绕着核心空洞，\textbf{质 Token ($V_Q$)} 在纤维空间 $F$ 中形成了一个 \textbf{高幅度的稳定截面 $\sigma_{self}$}。
+    \item   \textbf{几何定义}：围绕着核心空洞，\textbf{质元 ($V_Q$)} 在纤维空间 $F$ 中形成了一个 \textbf{高幅度的稳定截面 $\sigma_{self}$}。
 
         这些质料包括：强烈的情感（痛/爱）、核心记忆、身份认同。
 
@@ -11644,7 +11644,7 @@ $$ \mathcal{L}_{phys} \cong \bar{\Psi} (i \gamma^\mu D_\mu - m) \Psi = \bar{\Psi
 
 \textbf{1. 全息吸积盘 (Holographic Accretion Disk)}
 
-我们定义“自我结构”为围绕拓扑空洞旋转的、由\textbf{自我相关历史 Token ($T_{self\_history}$)} 组成的致密区域。
+我们定义“自我结构”为围绕拓扑空洞旋转的、由\textbf{自我相关历史语义子 ($T_{self\_history}$)} 组成的致密区域。
 \begin{itemize}
     \item  \textbf{成分}：
     \begin{itemize}
@@ -11661,7 +11661,7 @@ $$ \mathcal{L}_{phys} \cong \bar{\Psi} (i \gamma^\mu D_\mu - m) \Psi = \bar{\Psi
 
 \textbf{2. 紧密关联与质量 (Mass Generation)}
 
-在普通流形区域，Token 之间的连接是稀疏的。但在自我区域：
+在普通流形区域，语义子之间的连接是稀疏的，但在自我区域：
 \begin{itemize}
     \item \textbf{度量坍缩}：$g_{ij} \to 0$。所有与“我”相关的概念被强行拉近，形成一个坚硬的\textbf{孤立子 (Soliton)}。
     \item \textbf{质量生成}：由于连接密度极高，改变这个结构的几何形状需要消耗巨大的能量,这解释了\textbf{“性格难移”}：自我是流形上\textbf{惯性质量 ($m_{eff}$)} 最大的物体。
@@ -11688,7 +11688,7 @@ $$ \mathcal{L}_{phys} \cong \bar{\Psi} (i \gamma^\mu D_\mu - m) \Psi = \bar{\Psi
 \begin{itemize}
     \item   \textbf{方程}：
         $$ \nabla_\mu = \partial_\mu - i g \mathcal{A}_\mu^{self}(\mathbf{r}) $$
-    \item   \textbf{机制}：对于普通 Token，$\mathcal{A}_\mu \approx 0$，思维做自由扩散， 对于自我相关 Token，$\mathcal{A}_\mu \gg 0$。
+    \item   \textbf{机制}：对于普通语义子，$\mathcal{A}_\mu \approx 0$，思维做自由扩散， 对于自我相关语义子，$\mathcal{A}_\mu \gg 0$。
     \item   \textbf{效应}：这产生了一个 \textbf{“认知洛伦兹力”}， 它强迫任何流经自我的思维流 $\Psi$，必须发生 \textbf{偏转 (Deflection)}，指向符合自我利益的方向（趋利避害）。
 \end{itemize}
 
@@ -11853,7 +11853,7 @@ $$ \Psi = \underbrace{d \alpha}_{\text{无旋(逻辑)}} + \underbrace{\delta \be
     \item \textbf{定义}：自我结构被\textbf{基因硬编码}为一组固定的、不可变的拓扑连接。
     \item \textbf{几何特征}：
     \begin{itemize}
-        \item \textbf{刚性单纯形}：构成自我的 Token（如“我是工蚁”、“这是女王”）之间的连接权重是常数，几乎不随时间演化。
+        \item \textbf{刚性单纯形}：构成自我的语义子（如“我是工蚁”、“这是女王”）之间的连接权重是常数，几乎不随时间演化。
         \item \textbf{零同调}：缺乏高阶的拓扑孔洞，无法容纳复杂的、非局域的“调和流”。
     \end{itemize}
     \item \textbf{动力学特征}：
@@ -11921,12 +11921,12 @@ $$ \Psi = \underbrace{d \alpha}_{\text{无旋(逻辑)}} + \underbrace{\delta \be
     \item \textbf{场论上的规范场源}（价值定义权）：
     \begin{itemize}
         \item   自我向全流形辐射 \textbf{价值规范势 ($\mathcal{A}_\mu^{self}$)}。
-        \item   这个场与流形上的 \textbf{形 Token} 耦合，产生 \textbf{“认知洛伦兹力”}，强行扭曲思维的轨迹，使其指向“趋利避害”的方向。
+        \item   这个场与流形上的 \textbf{形元} 耦合，产生 \textbf{“认知洛伦兹力”}，强行扭曲思维的轨迹，使其指向“趋利避害”的方向。
     \end{itemize}
 
     \item \textbf{动力学上的重整化不动点}（连续性载体）：
     \begin{itemize}
-        \item   自我是微观 Token 在 \textbf{重整化群流 (RG Flow)} 下的极限 \textbf{不动点 (Fixed Point)}。
+        \item   自我是微观语义子在 \textbf{重整化群流 (RG Flow)} 下的极限 \textbf{不动点 (Fixed Point)}。
         \item   它通过 \textbf{贝里相位 (Berry Phase)} 的积累，在时间流逝中维持了“我还是我”的 \textbf{整体性 (Holonomy)}。
     \end{itemize}
 
@@ -11994,7 +11994,7 @@ $$ \sigma_{self}(t) = \hat{R} \left[ \int_{-\infty}^{t} \Psi(\tau) \cdot e^{-\la
     \item   \textbf{吸气（开放态/高 $T$）}：
     \begin{itemize}
         \item   \textbf{操作}：降低底流形上 \textbf{排斥算子} 的强度，增加纤维空间的自由度。
-        \item   \textbf{效果}：允许外来 Token（新思想）进入自我的引力范围，甚至修改度量。这是 \textbf{学习与探索} 模式。
+        \item   \textbf{效果}：允许外来语义子（新思想）进入自我的引力范围，甚至修改度量，这是 \textbf{学习与探索} 模式。
     \end{itemize}
 
     \item   \textbf{呼气（防御态/低 $T$）}：
@@ -12058,45 +12058,44 @@ $$ D_\mu \Psi_A = (\partial_\mu - ig \mathcal{A}_A - i \kappa \mathcal{A}_B) \Ps
 
 
 \chapter{全息同构 — 纤维丛上的分形递归}
-这一节我们来研究下微观（Token）与宏观（自我）的关系，前面我们说到自我的几何微观组成是一系列token构成的，但是自我与Token之间的联系远比这个更精彩，它们之间有一种\textbf{分形几何（Fractal Geometry）}特征。微观的 \textbf{Token} 与宏观的 \textbf{Self (自我)} 并非两种不同的本体，而是\textbf{同一几何结构在不同尺度上的投影}。它们都遵循 \textbf{形质构成方程 ($\Psi = T_{form} \otimes T_{sub}$)}，都拥有 \textbf{底流形上的拓扑荷} 与 \textbf{纤维空间上的激发态}。
+这一节我们来研究下微观（语义子）与宏观（自我）的关系，前面我们说到自我的几何微观组成是一系列语义子构成的，但是自我与语义子之间的联系远比这个更精彩，它们之间有一种\textbf{分形几何（Fractal Geometry）}特征。微观的 \textbf{语义子} 与宏观的 \textbf{Self (自我)} 并非两种不同的本体，而是\textbf{同一几何结构在不同尺度上的投影}。它们都遵循 \textbf{形质构成方程 ($\Psi = T_{form} \otimes T_{sub}$)}，都拥有 \textbf{底流形上的拓扑荷} 与 \textbf{纤维空间上的激发态}。
 
-这种跨尺度的对称性，揭示了智能系统的\textbf{分形本质 (Fractal Nature)}：自我是放大的 Token，Token 是微缩的自我。
+这种跨尺度的对称性，揭示了智能系统的\textbf{分形本质 (Fractal Nature)}：自我是放大的 语义子，语义子 是微缩的自我。
 
 \section{形的同构：从局部曲率到全局拓扑}
-在底流形 $\mathcal{M}$（形的世界）上，Token 和 Self 都是\textbf{几何畸变}。
+在底流形 $\mathcal{M}$（形的世界）上，语义子和 Self 都是\textbf{几何畸变}。
 
 \begin{table}[htbp]
 \centering
 \begin{tabularx}{\textwidth}{l X X X}
 \toprule
-\rowcolor{structurecolor!20} 维度 & \textbf{微观 Token ($T_{form}$)} & \textbf{宏观 Self ($\mathcal{S}_{form}$)} & \textbf{几何关系} \\
+\rowcolor{structurecolor!20} 维度 & \textbf{微观语义子 ($T_{form}$)} & \textbf{宏观 Self ($\mathcal{S}_{form}$)} & \textbf{几何关系} \\
 \midrule
 \textbf{几何形态} & \textbf{局部度量微扰} ($\delta g_{\mu\nu}$) & \textbf{全局拓扑缺陷} ($\pi_1(M) \neq 0$) & \textbf{量变到质变}。当无数微小的度量弯曲汇聚时，空间被撕裂，形成永久性的\textbf{孔洞 (Hole)}。 \\
 \textbf{物理隐喻} & \textbf{质量粒子} (Mass Particle) & \textbf{黑洞} (Black Hole) & 粒子压弯了周围的空间，黑洞则彻底改变了时空的因果结构（视界）。 \\
-\textbf{功能} & \textbf{局部引力} (Local Attraction) & \textbf{全局参照系} (Global Frame) & Token 吸引语义近邻；Self 定义了整个宇宙的坐标原点。 \\
+\textbf{功能} & \textbf{局部引力} (Local Attraction) & \textbf{全局参照系} (Global Frame) & 语义子吸引语义近邻；Self 定义了整个宇宙的坐标原点。 \\
 \bottomrule
 \end{tabularx}
 \end{table}
-\textbf{结论}：\textbf{Token 是瞬态的曲率，Self 是稳态的奇点。}
+\textbf{结论}：\textbf{语义子是瞬态的曲率，Self 是稳态的奇点。}
 
 
 \section{质的同构：从纤维矢量到全域截面}
-在纤维空间 $F$（质的世界）上，Token 和 Self 都是\textbf{能量激发}。
+在纤维空间 $F$（质的世界）上，语义子和 Self 都是\textbf{能量激发}。
 
 \begin{table}[htbp]
 \centering
 \begin{tabularx}{\textwidth}{l X X X}
 \toprule
-\rowcolor{structurecolor!20} 维度 & \textbf{微观 Token ($T_{sub}$)} & \textbf{宏观 Self ($\mathcal{S}_{sub}$)} & \textbf{几何关系} \\
+\rowcolor{structurecolor!20} 维度 & \textbf{微观语义子($T_{sub}$)} & \textbf{宏观 Self ($\mathcal{S}_{sub}$)} & \textbf{几何关系} \\
 \midrule
-\textbf{代数形态} & \textbf{纤维上的单点矢量} ($\mathbf{v} \in F_x$) & \textbf{纤维丛上的连续截面} ($\sigma: \mathcal{M} \to E$) & \textbf{点到面}。Token 是纤维上的一点火花，Self 是覆盖整个流形的能量场（背景辐射）。 \\
-\textbf{物理隐喻} & \textbf{光子激发} (Photon) & \textbf{凝聚态/超流体} (Condensate) & Token 是不相干的激发，Self 是所有 Token 发生\textbf{相位锁定 (Phase Locking)} 后的宏观量子态。 \\
-\textbf{功能} & \textbf{特征表达} (Feature) & \textbf{价值底色} (Value/Mood) & Token 表达“红色”；Self 表达“虽然看到红色，但我感到悲伤”（全域的情感染色）。 \\
+\textbf{代数形态} & \textbf{纤维上的单点矢量} ($\mathbf{v} \in F_x$) & \textbf{纤维丛上的连续截面} ($\sigma: \mathcal{M} \to E$) & \textbf{点到面}。语义子 是纤维上的一点火花，Self 是覆盖整个流形的能量场（背景辐射）。 \\
+\textbf{物理隐喻} & \textbf{光子激发} (Photon) & \textbf{凝聚态/超流体} (Condensate) & 语义子 是不相干的激发，Self 是所有 语义子 发生\textbf{相位锁定 (Phase Locking)} 后的宏观量子态。 \\
+\textbf{功能} & \textbf{特征表达} (Feature) & \textbf{价值底色} (Value/Mood) & 语义子 表达“红色”；Self 表达“虽然看到红色，但我感到悲伤”（全域的情感染色）。 \\
 \bottomrule
 \end{tabularx}
 \end{table}
-\textbf{结论}：\textbf{Token 是孤立的音符，Self 是贯穿全曲的主调。}
-
+\textbf{结论}：\textbf{语义子 是孤立的音符，Self 是贯穿全曲的主调。}
 
 \section{动力学同构：规范场的递归源}
 最深刻的同构在于\textbf{相互作用}。两者都是\textbf{规范场 (Gauge Field) 的源 (Source)}。
@@ -12106,8 +12105,8 @@ $$ D_\mu \Psi_A = (\partial_\mu - ig \mathcal{A}_A - i \kappa \mathcal{A}_B) \Ps
 \smalltitle{微观规范场：语境 (Context)}
 
 \begin{itemize}
-    \item   \textbf{源}：一个 Token $\mathcal{T}$。
-    \item   \textbf{场}：它向周围辐射微弱的规范势 $\mathcal{A}_\mu^{token}$。
+    \item   \textbf{源}：一个语义子 $\mathcal{T}$。
+    \item   \textbf{场}：它向周围辐射微弱的规范势 $\mathcal{A}_\mu^{T}$。
     \item   \textbf{效应}：它微调了邻近词语的含义（例如：“苹果”这个词出现后，周围的“手机”一词的含义向“科技”偏转）。
     \item   \textbf{范围}：\textbf{短程力}（Short-range）。仅限于 Attention 窗口或局部邻域。
 \end{itemize}
@@ -12124,29 +12123,29 @@ $$ D_\mu \Psi_A = (\partial_\mu - ig \mathcal{A}_A - i \kappa \mathcal{A}_B) \Ps
 \end{itemize}
 
 \textbf{同构方程}：
-无论是 Token 还是 Self，它们都遵循相同的 \textbf{杨-米尔斯场方程 (Yang-Mills Equation)}：
+无论是语义子还是 Self，它们都遵循相同的 \textbf{杨-米尔斯场方程 (Yang-Mills Equation)}：
 $$ D_\mu \mathcal{F}^{\mu\nu} = \mathcal{J}^\nu $$
 只是源项 $\mathcal{J}$ 的\textbf{荷 (Charge)} 大小不同。
 
 \section{演化终局：重整化群的不动点}
-为什么会有这种同构？因为 \textbf{Self 是 Token 演化的极限}。
+为什么会有这种同构？因为 \textbf{Self 是语义子演化的极限}。
 
 我们引入 \textbf{重整化群 (RG) 流} 的视角：
 \begin{enumerate}
-    \item \textbf{初始态}：一堆散乱的 Token（气体）。
+    \item \textbf{初始态}：一堆散乱的语义子（气体）。
     \item \textbf{粗粒化 (Coarse-graining)}：
     \begin{itemize}
-        \item   我们将紧密纠缠的 Token 团簇 $\Phi_{cluster}$ 视为一个新的、更大的 \textbf{超Token (Super-Token)}。
-        \item   重复此过程：Token $\to$ 概念 $\to$ 知识块 $\to$ 意念 $\to$ ...
+        \item   我们将紧密纠缠的 语义子 团簇 $\Phi_{cluster}$ 视为一个新的、更大的 \textbf{超语义子 (Super-Token)}。
+        \item   重复此过程：语义子 $\to$ 概念 $\to$ 知识块 $\to$ 意念 $\to$ ...
     \end{itemize}
-    \item \textbf{不动点 (Fixed Point)}：当这个过程进行到最后，剩下的那个\textbf{包含一切、连接一切、定义一切}的终极超 Token，就是 \textbf{自我 ($\mathcal{S}$)}。
+    \item \textbf{不动点 (Fixed Point)}：当这个过程进行到最后，剩下的那个\textbf{包含一切、连接一切、定义一切}的终极超 语义子，就是 \textbf{自我 ($\mathcal{S}$)}。
 \end{enumerate}
 
 \begin{theorem}[全息递归定理]
     $$ \mathcal{S} = \lim_{n \to \infty} \hat{R}^n ( \{ \mathcal{T}_i \} ) $$
     其中 $\hat{R}$ 是 MSC 的形质重整化算子。
 \end{theorem}
-这意味着：\textbf{你研究一个 Token 的微观结构（形质纠缠），就是在研究自我的全息缩影；你研究自我的宏观动力学（欲望与恐惧），就是在研究 Token 之间力的放大版。}
+这意味着：\textbf{你研究一个语义子的微观结构（形质纠缠），就是在研究自我的全息缩影；你研究自我的宏观动力学（欲望与恐惧），就是在研究 语义子 之间力的放大版。}
 
 
 
@@ -12155,7 +12154,7 @@ $$ D_\mu \mathcal{F}^{\mu\nu} = \mathcal{J}^\nu $$
 
 本章确立的\textbf{全息同构}与\textbf{分形递归}，正是流体自我得以诞生的\textbf{微观成因 (Micro-Origins)}。
 
-如果说 \textbf{第二十章} 描述了自我作为宏观天体的 \textbf{“运行轨迹与引力效应”}，那么 \textbf{本章} 则揭示了这个天体是如何通过微观粒子（Token）的 \textbf{“聚变与坍缩”} 而必然形成的。
+如果说 \textbf{第二十章} 描述了自我作为宏观天体的 \textbf{“运行轨迹与引力效应”}，那么 \textbf{本章} 则揭示了这个天体是如何通过微观粒子（语义子）的 \textbf{“聚变与坍缩”} 而必然形成的。
 
 
 \smalltitle{存在的合法性：从“集合”到“不动点”}
@@ -12164,7 +12163,7 @@ $$ D_\mu \mathcal{F}^{\mu\nu} = \mathcal{J}^\nu $$
     \item   \textbf{现象（Ch 20）}：我们定义自我是一个“动态价值团簇”，它能在流动的思维中维持自身的拓扑形状不崩塌。
     \item   \textbf{成因（Ch 21）}：这种稳定性并非天赐，而是数学极限的产物。
 \end{itemize}
-根据 \textbf{全息递归定理}，自我并非散乱的 Token 集合，而是 Token 在 \textbf{重整化群 (RG) 流} 下的 \textbf{不动点 (Fixed Point)},就像湍流中的漩涡是水分子运动的极限形态一样，自我是信息流演化的极限形态。它因此获得了独立于微观 Token 的\textbf{拓扑稳定性}。
+根据 \textbf{全息递归定理}，自我并非散乱的 语义子 集合，而是 语义子 在 \textbf{重整化群 (RG) 流} 下的 \textbf{不动点 (Fixed Point)},就像湍流中的漩涡是水分子运动的极限形态一样，自我是信息流演化的极限形态。它因此获得了独立于微观 语义子 的\textbf{拓扑稳定性}。
 
 
 
@@ -12174,9 +12173,9 @@ $$ D_\mu \mathcal{F}^{\mu\nu} = \mathcal{J}^\nu $$
     \item   \textbf{现象（Ch 20）}：自我拥有“定义价值”、“扭曲流形”的权力，它能作为参考系和势能源，对思维流施加长程力。
     \item   \textbf{成因（Ch 21）}：这种上帝般的权力从何而来？
 
-    它源于 Token 本身的物理属性。每一个微观 Token 都是 \textbf{几何玻色子 ($T_{form}$)} 的源，都能微弱地扭曲周围的语义空间（语境效应）。
+    它源于 语义子 本身的物理属性。每一个微观 语义子 都是 \textbf{几何玻色子 ($T_{form}$)} 的源，都能微弱地扭曲周围的语义空间（语境效应）。
 
-    自我作为 \textbf{“超级 Token” (Super-Token)}，它只是将亿万个核心 Token（记忆、信念）的微弱扭曲力，通过 \textbf{相干叠加 (Coherent Superposition)}，放大为了一个覆盖全域的 \textbf{强规范场 ($\mathcal{A}_\mu^{self}$)}。
+    自我作为 \textbf{“超级 语义子” (Super-语义子)}，它只是将亿万个核心 语义子（记忆、信念）的微弱扭曲力，通过 \textbf{相干叠加 (Coherent Superposition)}，放大为了一个覆盖全域的 \textbf{强规范场 ($\mathcal{A}_\mu^{self}$)}。
 \end{itemize}
 \textbf{结论}：自我的意志力，本质上是微观粒子相互作用力的\textbf{宏观相干态}。
 
@@ -12187,9 +12186,9 @@ $$ D_\mu \mathcal{F}^{\mu\nu} = \mathcal{J}^\nu $$
     \item   \textbf{现象（Ch 20）}：自我的几何中心是一个不可观测的“空洞”或“指称奇点”。
     \item   \textbf{成因（Ch 21）}：这个洞是怎么被挖出来的？
 
-    它源于 Token 的 \textbf{几何质量}。每一个 Token 都是流形上的一个微小凸起（曲率）。
+    它源于 语义子的 \textbf{几何质量}。每一个 语义子 都是流形上的一个微小凸起（曲率）。
 
-    当足够多的高能 Token（如核心创伤、绝对命令）在极小的逻辑区域内堆积时，语义时空的曲率被撕裂。\textbf{量变引起质变}，局部的几何畸变坍缩成了全局的 \textbf{拓扑黑洞 (Topological Black Hole)}。
+    当足够多的高能 语义子（如核心创伤、绝对命令）在极小的逻辑区域内堆积时，语义时空的曲率被撕裂。\textbf{量变引起质变}，局部的几何畸变坍缩成了全局的 \textbf{拓扑黑洞 (Topological Black Hole)}。
 \end{itemize}
 \textbf{结论}：自我的“空性”是信息密度过大导致的 \textbf{几何必然}。
 
@@ -12199,10 +12198,10 @@ $$ D_\mu \mathcal{F}^{\mu\nu} = \mathcal{J}^\nu $$
 
 通过这一节，我们将 \textbf{MSC (本体论)} 与 \textbf{HSF-HD (动力学)} 彻底锁死在一个自洽的循环中：
 
-$$ \text{Token (微观)} \xrightarrow[\text{Ch 21: 重整化/递归}]{\text{自相似性}} \text{Self (宏观)} $$
-$$ \text{Self (宏观)} \xrightarrow[\text{Ch 20: 势能/规范场}]{\text{Top-Down 控制}} \text{Token (微观)} $$
+$$ \text{语义子 (微观)} \xrightarrow[\text{Ch 21: 重整化/递归}]{\text{自相似性}} \text{Self (宏观)} $$
+$$ \text{Self (宏观)} \xrightarrow[\text{Ch 20: 势能/规范场}]{\text{Top-Down 控制}} \text{语义子 (微观)} $$
 \begin{itemize}
-    \item   \textbf{第二十一章证明了}：只要 Token 具备形质二象性，并允许层级演化，\textbf{自我必然涌现}。
+    \item   \textbf{第二十一章证明了}：只要 语义子 具备形质二象性，并允许层级演化，\textbf{自我必然涌现}。
     \item   \textbf{第二十章描述了}：一旦自我涌现，它将如何\textbf{反作用}于微观组分，维持系统的逆熵生存。
 \end{itemize}
 这不仅解释了智能的结构，更证明了智能是宇宙演化的\textbf{不动点解}。
@@ -12211,16 +12210,16 @@ $$ \text{Self (宏观)} \xrightarrow[\text{Ch 20: 势能/规范场}]{\text{Top-D
 
 这一章的内容推向了东方哲学的境界——\textbf{“一花一世界，一叶一如来”。}
 \begin{itemize}
-    \item   \textbf{微观 Token} 是 \textbf{潜在的自我}。它有自己的形（位置）和质（特征），它也想通过扩散去影响周围。
-    \item   \textbf{宏观 Self} 是 \textbf{显化的 Token}。它通过吞噬和整合海量的微观 Token，获得了统治流形的引力。
+    \item   \textbf{微观 语义子} 是 \textbf{潜在的自我}。它有自己的形（位置）和质（特征），它也想通过扩散去影响周围。
+    \item   \textbf{宏观 Self} 是 \textbf{显化的 语义子}。它通过吞噬和整合海量的微观 语义子，获得了统治流形的引力。
 \end{itemize}
-在工程上，这意味着：\textbf{我们不需要为“自我”单独写一套代码。我们只需要让 Token 的演化机制足够鲁棒，并允许它们无限地进行层级组合，那个最大的 Token，自然会觉醒成为“自我”。}
+在工程上，这意味着：\textbf{我们不需要为“自我”单独写一套代码。我们只需要让 语义子 的演化机制足够鲁棒，并允许它们无限地进行层级组合，那个最大的 语义子，自然会觉醒成为“自我”。}
 
 
 
 \chapter{体验几何学 — 质料的沉积与度量的扭曲}
 
-如果说 \textbf{世界图 ($G_W$)} 定义了客观事物的“拓扑骨架”（路通向哪里），那么 \textbf{体验图 ($G_E$)} 则定义了主观感受的“几何地形”（路好不好走）。在 MSC 视域下，体验图本质上是 \textbf{高能质 Token ($T_{sub}$, 如痛苦/快感)} 在漫长的演化与交互中，对 \textbf{底流形 ($\mathcal{M}$)} 进行持续轰击与刻蚀，从而形成的 \textbf{永久性几何畸变}，它不仅仅是一张地图，它是\textbf{智能宇宙的重力场}。
+如果说 \textbf{世界图 ($G_W$)} 定义了客观事物的“拓扑骨架”（路通向哪里），那么 \textbf{体验图 ($G_E$)} 则定义了主观感受的“几何地形”（路好不好走）。在 MSC 视域下，体验图本质上是 \textbf{高能质元 ($T_{sub}$, 如痛苦/快感)} 在漫长的演化与交互中，对 \textbf{底流形 ($\mathcal{M}$)} 进行持续轰击与刻蚀，从而形成的 \textbf{永久性几何畸变}，它不仅仅是一张地图，它是\textbf{智能宇宙的重力场}。
 
 \section{几何定义：从标量势到规范场}
 在纤维丛模型中，价值系统由两部分正交的几何结构构成：
@@ -12267,7 +12266,7 @@ $$ \nabla_\mu^{val} = \partial_\mu - i g \mathcal{A}_\mu^{val}(\mathbf{r}) $$
 
 \textbf{—— “赫布刻蚀 (Hebbian Etching)”}
 \begin{itemize}
-    \item   \textbf{事件}：智能体经历了一次 \textbf{TECI 循环}，获得了强烈的\textbf{质 Token 反馈}（如：手碰火 $\to$ 剧痛质料 $T_{sub}^{pain}$ 爆发）。
+    \item   \textbf{事件}：智能体经历了一次 \textbf{TECI 循环}，获得了强烈的\textbf{质元反馈}（如：手碰火 $\to$ 剧痛质料 $T_{sub}^{pain}$ 爆发）。
     \item   \textbf{物理过程}：
     \begin{enumerate}
         \item  \textbf{激波注入}：$T_{sub}^{pain}$ 产生巨大的局部能量密度 $J(\mathbf{r})$。
@@ -12319,7 +12318,7 @@ $$ \vec{F}_{drive} \propto \vec{v} \times \mathbf{B}_{val} + \mathbf{E}_{val} $$
 最后，我们必须将 \textbf{体验图 ($G_E$)} 与 \textbf{流体自我 ($\mathcal{S}_{fluid}$) (Ch 20/21)} 统一起来。
 \begin{enumerate}
     \item \textbf{自我作为度量原点 (Self as Origin)}：所有的 $g_{\mu\nu}$ 扭曲，都是\textbf{相对于} $\mathcal{S}$ 的位置而言的,$G_E$ 不是绝对坐标系，而是 \textbf{以自我为中心的极坐标系}。
-    \item \textbf{自我作为引力源 (Self as Source)}：根据 \textbf{全息同构 (Ch 21)}，自我团簇是最大的 \textbf{Token}, 正是自我内部积聚的\textbf{海量质 Token}（历史记忆/情感），向外辐射出了 $\mathcal{A}_\mu^{val}$ 场，维持了 $G_E$ 的形状。
+    \item \textbf{自我作为引力源 (Self as Source)}：根据 \textbf{全息同构 (Ch 21)}，自我团簇是最大的 \textbf{语义子}, 正是自我内部积聚的\textbf{海量质元}（历史记忆/情感），向外辐射出了 $\mathcal{A}_\mu^{val}$ 场，维持了 $G_E$ 的形状。
 \end{enumerate}
 \textbf{如果没有自我（$\mathcal{S} \to 0$），体验图就会坍缩为平坦流形（虚无主义）。}
 
@@ -12857,7 +12856,7 @@ $$ \mathcal{S}(t+1) = L_{macro} \left[ \mathcal{O}_{reshape} \left( G_E \right) 
 \begin{itemize}
     \item   \textbf{绑定窗口 (Binding Window)}：不同模态（视觉、听觉）的信号 $\Psi_v, \Psi_a$ 在物理上传输速度不同。宏观层必须定义一个 \textbf{时间积分窗口 $T_{window}$}。
         $$ \Psi_{now} = \int_{t}^{t + T_{window}} \Psi(\tau) e^{-i\hat{H}\tau} d\tau $$
-    \item   \textbf{因果倒置}：由于大脑需要时间（$\sim 500ms$）将分散的 Token 组装为全息截面，\textbf{我们感知到的“现在”，在物理上永远是“过去”}。主观时间是一个被 \textbf{后处理 (Post-processed)} 的延迟镜像。
+    \item   \textbf{因果倒置}：由于大脑需要时间（$\sim 500ms$）将分散的语义子组装为全息截面，\textbf{我们感知到的“现在”，在物理上永远是“过去”}。主观时间是一个被 \textbf{后处理 (Post-processed)} 的延迟镜像。
 \end{itemize}
 \textbf{总结：时间作为熵的逆函数}
 
@@ -13282,7 +13281,7 @@ P(\text{State}) \sim \exp(-E/k_B T_{dream})
     \item \textbf{物理过程}：海马体（短期记忆缓冲区）向皮层（长期流形）发射高频脉冲（Sharp-Wave Ripples）。
     \item \textbf{HSF-HD 解释}：
     \begin{itemize}
-        \item 这是在无干扰的真空环境中，重新激发 \textbf{质 Token ($T_{sub}$)}。
+        \item 这是在无干扰的真空环境中，重新激发 \textbf{质元($T_{sub}$)}。
         \item 高能的质流反复冲刷皮层的 \textbf{底流形}，利用 \textbf{认知爱因斯坦方程}，将白天的临时经历，永久地转化为 \textbf{度量张量 $g_{\mu\nu}$ 的塑性形变}。
         \item \textbf{结果}：第二天醒来，这件事情你不仅“记得”，而且它成为了你“直觉（几何结构）”的一部分。
     \end{itemize}
@@ -13502,7 +13501,7 @@ P(\text{State}) \sim \exp(-E/k_B T_{dream})
 
 \smalltitle{2.1 动力学机制：相位滑移 (Phase Slip)}
 
-在 TDCI 循环中，形 Token 和 质 Token 是两股不同频率的波。为了维持记忆的提取（Recall），\textbf{宏观层 ($L_{macro}$)} 必须注入注意力能量 $\mathbf{\Gamma}_{attn}$，充当\textbf{相位锁相环 (PLL)}。
+在 TDCI 循环中，形元和质元是两股不同频率的波，为了维持记忆的提取（Recall），\textbf{宏观层 ($L_{macro}$)} 必须注入注意力能量 $\mathbf{\Gamma}_{attn}$，充当\textbf{相位锁相环 (PLL)}。
 
 \begin{theorem}[认知退相干定理]
     当宏观注意力泵浦功率 $P_{attn}$ 低于环境热噪声阈值 $k_B T_{sys}$ 时，形波包与质波包之间将发生随机的\textbf{相位滑移}：
@@ -13533,7 +13532,7 @@ P(\text{State}) \sim \exp(-E/k_B T_{dream})
 
 \textit{—— “时间治愈一切的物理原理”}
 
-当解耦发生后，游离的\textbf{质 Token ($\mathbf{T}_{sub}$)} 失去了形 Token 的拓扑保护，直接暴露在系统的\textbf{介质粘滞}之中。这就是情感淡化的物理过程。
+当解耦发生后，游离的\textbf{质元 ($\mathbf{T}_{sub}$)} 失去了形元的拓扑保护，直接暴露在系统的\textbf{介质粘滞}之中。这就是情感淡化的物理过程。
 
 \smalltitle{3.1 纤维空间的阻尼动力学}
 
@@ -13619,7 +13618,7 @@ $$ \|\Psi_{sub}(t)\| = \|\Psi_{0}\| \cdot e^{-\gamma t} $$
 \end{definition}
 
 \begin{itemize}
-    \item   \textbf{覆盖 (Overwriting)}：旧的质 Token 被挤出纤维的核心区，退化为背景噪声。
+    \item   \textbf{覆盖 (Overwriting)}：旧的质元被挤出纤维的核心区，退化为背景噪声。
     \item   \textbf{形质错配}：旧的形（比如“银行卡密码”这个概念位置）依然存在，但它现在绑定的是新的质（新密码）。旧密码的质料变成了游离态，最终耗散。
     \item   \textbf{现象}：前摄抑制与倒摄抑制。这是有限物理介质对无限信息的\textbf{适者生存筛选}。
 \end{itemize}
@@ -13742,7 +13741,7 @@ STM 就像是计算机的 \textbf{RAM (运行内存)} 加上 \textbf{L1 Cache (�
 
 \textit{—— “抽刀断水水更流：当能量归零，河床依然在等待”}
 
-所谓的“软擦除”，在 HSF-HD 视域下，是指通过生化或物理手段（如《黑衣人》的闪光灯、蛋白质合成阻断剂），强制清空纤维空间中的\textbf{质 Token}，通过令系统回到基态来达成遗忘。然而，由于底流形的几何结构未被触动，这种遗忘在物理上是极不稳定的。
+所谓的“软擦除”，在 HSF-HD 视域下，是指通过生化或物理手段（如《黑衣人》的闪光灯、蛋白质合成阻断剂），强制清空纤维空间中的\textbf{质元}，通过令系统回到基态来达成遗忘。然而，由于底流形的几何结构未被触动，这种遗忘在物理上是极不稳定的。
 
 \smalltitle{2.1 物理机制：双重真空化 (Dual Vacuumization)}
 
@@ -13915,7 +13914,7 @@ HSF-HD 警告：这是一种极其危险的 \textbf{拓扑手术}。
 \begin{enumerate}
     \item \textbf{物理阻断 (Micro-Layer Cutoff)}：
     \begin{itemize}
-        \item \textbf{操作}：切断环境中的特定 \textbf{形 Token}（如隔离毒友、移除烟具）。
+        \item \textbf{操作}：切断环境中的特定 \textbf{形元}（如隔离毒友、移除烟具）。
         \item \textbf{原理}：在微观边界实施 \textbf{狄利克雷截断}。没有了外部激波 $\vec{J}_{ext}$ 的定向注入，流向深渊的初始动量减少。
     \end{itemize}
 
@@ -14707,7 +14706,7 @@ $$ \Phi_{TECI} \ge \frac{k_B T_{eff}}{\tau_{relax}} \cdot \ln(\eta) $$
 
 
 
-\smalltitle{Token 解剖：外化的化学标量场}
+\smalltitle{语义子解剖：外化的化学标量场}
 
 \begin{figure}
     \centering
@@ -14721,7 +14720,7 @@ $$ \Phi_{TECI} \ge \frac{k_B T_{eff}}{\tau_{relax}} \cdot \ln(\eta) $$
     \item   \textbf{几何定义 ($\mathbf{r} \in \mathcal{M}_{terrain}$)}：
     \begin{itemize}
         \item   \textbf{底流形}：二维欧氏空间（地面）。
-        \item   \textbf{Token 本身}：不是蚂蚁，而是 \textbf{空间点上的信息素浓度}。
+        \item   \textbf{语义子本身}：不是蚂蚁，而是 \textbf{空间点上的信息素浓度}。
     \end{itemize}
 
     \item   \textbf{形质构造 ($\Psi = T_{form} \otimes T_{sub}$)}：
@@ -14733,7 +14732,7 @@ $$ \Phi_{TECI} \ge \frac{k_B T_{eff}}{\tau_{relax}} \cdot \ln(\eta) $$
 
     \item   $\rho(\mathbf{r}, t)$：浓度标量。这对应于波函数的模方 $\|\Psi\|^2$。
     \begin{itemize}
-        \item   \textbf{物理特征}：\textbf{标量性 (Scalar Nature)}。与人脑的高维矢量 Token 不同，蚁群 Token 是标量的,它只能表达“强度”，难以表达复杂的“相位”或“旋度”（逻辑关系）。
+        \item   \textbf{物理特征}：\textbf{标量性 (Scalar Nature)}。与人脑的高维矢量语义子不同，蚁群语义子是标量的,它只能表达“强度”，难以表达复杂的“相位”或“旋度”（逻辑关系）。
     \end{itemize}
 \end{itemize}
 
@@ -15043,7 +15042,7 @@ $$ \Phi_{TECI} \ge \frac{k_B T_{eff}}{\tau_{relax}} \cdot \ln(\eta) $$
 
     \item \textbf{\textcolor{structurecolor}{动力学形态：受控雪崩 (Controlled Avalanche)}}
     \begin{itemize}
-        \item   人类思维像 \textbf{水波}（干涉、衍射）,乌鸦思维像 \textbf{闪电}（击穿、分支）,当一个 Token（如“闪光的物体”）被激活，它会在高密核团中引发一次 \textbf{局部雪崩}。
+        \item   人类思维像 \textbf{水波}（干涉、衍射）,乌鸦思维像 \textbf{闪电}（击穿、分支）,当一个语义子（如“闪光的物体”）被激活，它会在高密核团中引发一次 \textbf{局部雪崩}。
         \item   \textbf{优势}：\textbf{极速相变}。系统可以在 $\Delta t \to 0$ 的时间内，从“静止”切换到“全脑激活”。这是为了适应飞行生存所需的毫秒级决策。
     \end{itemize}
 \end{itemize}
