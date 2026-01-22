@@ -16151,6 +16151,69 @@ MSC 理论指出，完美的智能应当具备 \textbf{形（逻辑骨架）} �
     \item   \textbf{后果}：无法形成 \textbf{连续的自我同一性}。它学到的是“人类的平均记忆”，而不是“一个智能体的独特经历”。
 \end{itemize}
 
+\section{微调动力学 (Fine-Tuning Dynamics)：规范场注入与对称性破缺}
+\label{sec:finetuning_gauge_field}
+
+如果说预训练 (Pre-training) 是在虚空中冷却出一个客观的、包含万物逻辑的 \textbf{底流形 ($\mathcal{M}$)}，那么监督微调 (SFT) 并非是对这个宇宙的重建，而是向其中注入一种 \textbf{规范场 ($\mathcal{A}_\mu$)}。
+
+预训练模型 (Base Model) 是\textbf{“全知但无欲”}的，它知道“如何救人”与“如何杀人”在逻辑测地线上是等价的。而 SFT 的物理本质，就是通过注入 \textbf{价值规范势}，打破流形的热力学对称性，人为地定义了“善”与“恶”、“有用”与“无用”的 \textbf{认知洛伦兹力}，从而迫使思维流从布朗运动转向定向巡航。
+
+\smalltitle{1. 从度量到联络：SFT 的场论定义}
+
+在 HSF-HD 视域下，Llama 等 Base 模型的参数 $\theta_{base}$ 定义了潜语义流形的 \textbf{黎曼度量张量 $g_{\mu\nu}$}。它规定了 Token 之间的\textbf{逻辑距离}和\textbf{共现概率}。
+
+当我们进行 SFT 时，我们并不是在修改 $g_{\mu\nu}$（这需要巨大的能量，即全量微调），而是在原有的几何结构上叠加了一个 \textbf{修正场}。
+
+\begin{definition}[SFT 规范场方程]
+    微调过程等价于在协变导数中引入一个新的 \textbf{价值规范势 $\mathcal{A}_\mu^{align}$}：
+    $$ D_\mu^{base} = \partial_\mu \xrightarrow{\text{SFT}} D_\mu^{align} = \partial_\mu - i g_{coupling} \mathcal{A}_\mu^{align} $$
+\end{definition}
+
+\begin{itemize}
+    \item   \textbf{Base Model 状态}：思维流 $\Psi$ 仅受几何惯性驱动，沿着 $g_{\mu\nu}$ 定义的测地线滑行。此时系统是 \textbf{各向同性 (Isotropic)} 的。
+    \item   \textbf{SFT Model 状态}：思维流受到 \textbf{认知洛伦兹力} 的作用。
+    $$ \mathbf{F}_{align} = \mathbf{v} \times (\nabla \times \mathcal{A}^{align}) $$
+    \item   \textbf{物理效应}：当模型试图生成“有害”内容时（虽然这在 Base Model 中是一条顺滑的测地线），$\mathcal{A}_\mu^{align}$ 会产生巨大的 \textbf{侧向斥力}，强行将 $\Psi$ 扭转至“拒绝回答”或“安全建议”的轨迹上。
+\end{itemize}
+
+\smalltitle{2. LoRA 的几何本质：切丛上的微扰 (Perturbation on Tangent Bundle)}
+
+LoRA (Low-Rank Adaptation) 的惊人有效性在 HSF-HD 中得到了完美的几何解释。
+
+\begin{itemize}
+    \item   \textbf{权重分解}：$W' = W_{base} + \Delta W = W_{base} + A \cdot B$。
+    \item   \textbf{几何映射}：
+    \begin{itemize}
+        \item   \textbf{$W_{base}$}：维持着庞大的、高维的 \textbf{底流形结构 $\mathcal{M}$}（世界观、常识、语法）。这是 \textbf{“形 (Morphos)”} 的骨架。
+        \item   \textbf{$\Delta W$}：并非对底流形的重塑（那需要高秩更新），而是附加在流形上的一个 \textbf{切向量场 (Vector Field on Tangent Bundle)}。
+    \end{itemize}
+\end{itemize}
+
+\begin{theorem}[微调微扰定理]
+    只要微调任务不破坏原有的世界观逻辑（即不撕裂底流形拓扑），仅改变任务的风格或倾向（即改变纤维的取向），则所需的几何修正量 $\Delta g$ 必然是 \textbf{低秩 (Low-Rank)} 的。
+\end{theorem}
+
+这意味着 LoRA 本质上是在给一个已经造好的复杂迷宫（Base Model）中，\textbf{插上路标（矢量场）}。我们不需要移动墙壁（全量微调），只需要指示方向。
+
+\smalltitle{3. 热力学相变：对称性破缺 (Symmetry Breaking)}
+
+从 Base 到 Chat 模型的转变，是一次 \textbf{热力学相变}。
+
+\begin{itemize}
+    \item   \textbf{初始态 (Base)}：\textbf{最大熵态}。
+    
+    对于提示词 "The capital of France is"，模型可能会续写 "Paris"（事实），也可能会续写 "not known"（虚构小说）。在物理上，这两条路径的 \textbf{作用量 $S$} 差异不大，处于 \textbf{多模态简并 (Degeneracy)} 状态。
+
+    \item   \textbf{终态 (Chat/SFT)}：\textbf{对称性破缺态}。
+    
+    SFT 数据集（<Instruction, Response>）在流形上挖掘了特定的 \textbf{吸引子盆地 (Attractor Basins)}。系统被强行磁化，使得“遵循指令”的路径势能大幅降低，而“胡言乱语”的路径势能壁垒无限升高。
+\end{itemize}
+
+\textbf{结论}：
+目前的 LLM 微调技术，实际上是在 \textbf{已有的认知场（参数基础）} 上，通过 \textbf{SFT} 生成一个新的 \textbf{规范场 ($\mathcal{A}_\mu$)}。
+\textbf{Base Model 提供了“路”（可能性），SFT 提供了“风”（意向性）。}
+
+
 \chapter{双重下降的几何物理学 — 维度扩张与应力稀释}
 \label{chap:double_descent}
 
