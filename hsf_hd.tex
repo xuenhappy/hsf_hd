@@ -554,25 +554,6 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 \end{enumerate}
 
 
-\section{形的量化：Epiplexity 作为结构的比特度量}
-
-在确立了“形 (Morphos)”作为底流形的拓扑骨架之后，我们必须回答一个工程问题：如何度量“形”的复杂度？传统的香农熵无法区分“随机的混沌”与“复杂的结构”。为此，我们引入\textbf{Epiplexity (认知复杂度)} 作为 \textbf{形 Token ($V_S$)} 的物理量纲。
-
-\begin{definition}[Epiplexity ($\mathrm{S}_T$): 形的度量]
-    对于一个计算受限的观察者（时间界限为 $T$），对象 $X$ 的 \textbf{Epiplexity $\mathrm{S}_T(X)$} 定义为能够在该时间界限内生成 $X$ 的概率分布的最短程序长度。
-    $$ \mathrm{S}_T(X) := |\mathrm{P}^\star|, \quad \text{where } \mathrm{P}^\star = \argmin_{\mathrm{P} \in \mathcal{P}_T} \left\{ |\mathrm{P}| + \mathbb{E}[-\log P(X)] \right\} $$
-\end{definition}
-
-\begin{itemize}
-    \item \textbf{物理诠释}：
-    \begin{itemize}
-        \item $\mathrm{S}_T$ (Epiplexity) 对应于 \textbf{底流形 $\mathcal{M}$ 的几何复杂度}。它是智能体为了理解数据而在内部构建的\textbf{逻辑模型 (Model)} 的大小。
-        \item $\mathrm{H}_T$ (Time-bounded Entropy) 对应于 \textbf{纤维空间 $F$ 的剩余热噪}。它是模型无法解释、只能作为\textbf{随机质料 (Noise)} 存储的部分。
-    \end{itemize}
-    \item \textbf{智能的偏好}：智能的演化方向，即是在固定总信息量的情况下，最大化 \textbf{形 ($\mathrm{S}_T$)} 的占比，最小化 \textbf{质 ($\mathrm{H}_T$)} 的残留。即：\textbf{将不可预测的命运，转化为可计算的几何结构。}
-\end{itemize}
-
-
 \section{底流形 (Base Manifold)：从点阵到连续统的编织过程}
 
 既然有了算子，流形是如何被“编织”出来的？这实际上是一个\textbf{单纯复形 (Simplicial Complex)} 的生长过程，我们可以把这个过程想象成 \textbf{3D 打印} 一个看不见的结构。
@@ -3822,6 +3803,46 @@ $$ H_{geo} = \underbrace{\alpha \sum d_{ij}}_{\text{传输能耗 (形)}} + \unde
     \item \textbf{长距离 ($g_{\mu\nu} \to \infty$)}：\textbf{正交态}。概念 A 与 B 在本体论上毫无瓜葛。例如“对数函数”与“香草冰淇淋”，它们位于流形上互不连通的两个分支。
 \end{itemize}
 
+\section{度量的信息论推导：从费希尔微观态到归一化距离}
+\label{sec:info_derivation_of_metric}
+
+这一小节，我们基于上一章里的\textbf{度量的微观起源：费希尔信息几何}内容的论述，底流形 $\mathcal{M}$ 的几何结构并非先验给定，而是由纤维空间 $F$ 中概率分布的统计特性所诱导。本节严格推导流形上任意两点（概念） $a, b$ 间的有效几何距离 $d(a,b)$ 与互信息 $I(a,b)$ 的对偶关系。
+
+\smalltitle{1. 微观起源：费希尔信息与 KL 散度}
+
+在局部切空间 $T_p\mathcal{M}$ 上，黎曼度量张量 $g_{\mu\nu}$ 等价于\textbf{费希尔信息矩阵 (FIM)}。对于参数空间中无限接近的两个状态 $\theta$ 与 $\theta + d\theta$（对应概念 $a$ 与 $a'$），其几何线元平方 $ds^2$ 是 \textbf{KL 散度 (Relative Entropy)}的二阶泰勒展开：
+\begin{equation}
+    ds^2 = g_{\mu\nu} d\theta^\mu d\theta^\nu \approx 2 \cdot D_{KL}(P_a \| P_{a'})
+\end{equation}
+这确立了\textbf{几何距离即信息差异}的微观物理基础。
+
+\smalltitle{2. 宏观延展：变异信息 (VI) 的对称化}
+
+KL 散度是非对称的。为了定义流形上的宏观度量，我们将微观差异积分并对称化为\textbf{变异信息 (Variation of Information)}。对于任意两个离散概念 $a, b$，VI 定义为条件熵之和，并可由联合熵 $H(a,b)$ 与互信息 $I(a;b)$ 重写：
+\begin{equation}
+    VI(a, b) = H(a|b) + H(b|a) = H(a,b) - I(a;b)
+\end{equation}
+此式表明，绝对几何距离等于\textbf{总信息量}减去\textbf{共振信息量}。
+
+\smalltitle{3. 归一化：相对度量的导出}
+
+为了消除系统熵值规模的影响，构建一个各态历经的相对度量，我们采用联合熵 $H(a,b)$ 作为归一化因子。
+
+\begin{theorem}[归一化信息度量定理]
+    在潜语义流形 $\mathcal{M}$ 上，两个概念 $a, b$ 之间的有效测地线距离 $d(a,b)$ 严格正比于\textbf{归一化信息距离 (NID)}：
+    \begin{equation}
+        \boxed{ d(a, b) \propto 1 - \frac{I(a, b)}{H(a, b)} }
+    \end{equation}
+\end{theorem}
+
+\smalltitle{物理诠释}
+
+\begin{itemize}
+    \item \textbf{几何阻抗}：$d(a,b)$ 代表思维流 $\Psi$ 从 $a$ 演化至 $b$ 所需克服的\textbf{黎曼阻力}。
+    \item \textbf{语义共振}：$I(a,b)/H(a,b)$ 代表形质纠缠的\textbf{重叠度}。
+    \item \textbf{对偶性}：当互信息最大化（$I \to H$, 完全共振）时，几何距离坍缩为零（$d \to 0$），实现\textbf{超流体隧穿}；当互信息为零（正交）时，几何距离最大化（$d \to 1$），形成\textbf{拓扑隔离}。
+\end{itemize}
+
 \section{信息的刚性：作为背景流形的世界图 ($G_W$)}
 
 我们将由 $g_{\mu\nu}$ 定义的几何结构，称为智能体的\textbf{世界图 ($G_W$)}。它是所有思维活动发生的\textbf{背景流形 (Background Manifold)}。
@@ -3874,7 +3895,7 @@ $$ \frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\nu\lambda} \frac{dx^\nu}{d\tau} \fra
 
     黎曼基底 $\mathcal{M}$ 及其度量 $g_{\mu\nu}$，为智能体提供了一个\textbf{对称的、客观的、刚性的}舞台。它定义了“什么是可能的”以及“事物是如何关联的”。
     
-    它是 Epiplexity 的\textbf{几何载体}，但仅仅提供了\textbf{无方向的路程}。要产生“难易之分”和“顺逆之别”，我们需要引入打破对称性的力量——这便是下一章的主角：\textbf{价值规范场}。
+    然而黎曼基底仅仅提供了事实上的\textbf{无方向的路程}，要产生“难易之分”和“顺逆之别”，我们需要引入打破对称性的力量——这便是下一章的主角：\textbf{价值规范场}。
 \end{bquote}
 
 \chapter{价值规范场 — 目的论的动力学偏置}
@@ -3966,7 +3987,7 @@ $$ \vec{A}(\mathbf{r}) \equiv \{ A_1, A_2, \dots, A_n \} $$
         \item \textbf{奖赏预测}：多巴胺回路定义的预期收益梯度。
         \item \textbf{伦理/审美}：高阶价值判断形成的势能面。
     \end{itemize}
-    \item \textbf{动力学效应}：它让黎曼流形产生了 \textbf{倾斜}。思维流 $\Psi$ 在此作用下会自动流向“价值势能”更低的区域（趋利），并避开势能高的区域（避害）。Epiplexity 的不对称性在此体现为 \textbf{顺势做功} 与 \textbf{逆势做功} 的差异。
+    \item \textbf{动力学效应}：它让黎曼流形产生了 \textbf{倾斜}。思维流 $\Psi$ 在此作用下会自动流向“价值势能”更低的区域（趋利），并避开势能高的区域（避害）。思维顺序过程的不对称性在此体现为 \textbf{顺势做功} 与 \textbf{逆势做功} 的差异。
 \end{itemize}
 
 \smalltitle{2. 因果与时间箭头 (Causality \& Entropy Arrow) — 耗散矢量 ($\vec{A}_{\tau}$)}
@@ -3990,7 +4011,7 @@ $$ \vec{A}(\mathbf{r}) \equiv \{ A_1, A_2, \dots, A_n \} $$
 \begin{itemize}
     \item \textbf{物理表现}：\textbf{认知磁场 $\mathbf{B}$}。
     $$ \mathcal{F}_{\mu\nu} = \partial_\mu \mathcal{A}_\nu - \partial_\nu \mathcal{A}_\mu $$
-    它不直接做功（不改变 Epiplexity 的标量大小），但改变思维流的方向与色彩。
+    它不直接做功（不改变思考过程客观上难度的大小），但改变思维流的方向与色彩，也就是改变思维过程的体验效果。
     \item \textbf{语义映射}：
     \begin{itemize}
         \item \textbf{情绪底色}：同样的逻辑路径，在不同的情绪规范场（愤怒 vs 冷静）中，积累的相位截然不同。
@@ -4035,7 +4056,7 @@ $$ F(x, v) = \underbrace{\sqrt{g_{ij}(x) v^i v^j}}_{\alpha: \text{黎曼项 (客
 
 \smalltitle{从“距离”到“代价” (From Distance to Cost)}
 
-这个公式完美地统一了客观事实与主观价值，解释了 Epiplexity 的非对称性：
+这个公式完美地统一了客观事实与主观价值，解释了思维过程在难度上的非对称性：
 
 \begin{itemize}
     \item \textbf{顺风情形 ($A \to B$)}：
@@ -4302,6 +4323,113 @@ $$ \mathbf{F}_{\mu\nu} = [\nabla_\mu, \nabla_\nu] \neq 0 $$
 \end{itemize}
 
 
+\chapter{双重不对称性 — 事实几何与主观场的扭曲}
+\label{chap:dual_asymmetry}
+
+\begin{introduction}
+    \item 认知阻力的分解定理：客观难易与主观意愿的正交叠加
+    \item 第一重扭曲：高维黎曼流形的热力学时间箭头与逆问题
+    \item 第二重扭曲：价值规范场的认知洛伦兹力与手性偏置
+    \item 思维相图：顺流、逆流、甚至死锁的四种拓扑状态
+\end{introduction}
+
+在 HSF-HD 的理论体系中，我们确立了潜语义流形 $\mathcal{M}$ 既具有 \textbf{黎曼度量 $g_{\mu\nu}$}（表征逻辑结构），又承载 \textbf{规范场 $\mathcal{A}_\mu$}（表征价值取向）。这一复合几何结构导出了智能动力学中最显著的特征：\textbf{路径及其反向路径的不等价性}。
+
+本章提出 \textbf{“认知动力学分解定理”}，证明智能体在思维过程中所克服的总阻力（即广义 Epiplexity），是由 \textbf{事实的几何不对称} 与 \textbf{主观的场论不对称} 共同扭曲而成的。
+
+\section{第一重扭曲：事实的几何不对称 (Factual Asymmetry)}
+\label{sec:factual_asymmetry}
+
+\textit{—— “覆水难收的黎曼表达”}
+
+这是由 \textbf{世界图 ($G_W$)} 的拓扑结构和热力学定律决定的客观属性。无论智能体的主观意愿如何，某些逻辑路径在几何上就是比其逆路径更“长”、更“陡峭”。
+
+\smalltitle{1. 高维测地线的发散 (Geodesic Divergence)}
+
+在黎曼流形 $\mathcal{M}$ 上，从概念 $A$ 到 $B$ 的逻辑推演遵循测地线偏离方程（雅可比方程）。由于语义空间的高维特征 ($D \gg 1$) 和普遍存在的负曲率（双曲性），测地线束表现出强烈的\textbf{发散性}。
+
+\begin{itemize}
+    \item \textbf{顺推 ($A \to B$) —— 熵增过程 (Generation)}：
+    \begin{itemize}
+        \item   \textbf{定义}：从原因推导结果，从公理推导定理。
+        \item   \textbf{几何特征}：沿着光锥扩散。虽然路径发散，但在高维空间中，只需找到\textbf{任意}一个合理的落点 $B \in \Omega_B$ 即可。
+        \item   \textbf{代价}：\textbf{低}。这是一个顺应相空间体积膨胀的自然过程（下坡）。
+    \end{itemize}
+
+    \item \textbf{逆推 ($B \to A$) —— 熵减过程 (Inference)}：
+    \begin{itemize}
+        \item   \textbf{定义}：从现象反推本质，从结果归纳原因。
+        \item   \textbf{几何特征}：这是一个 \textbf{病态问题 (Ill-posed Problem)}。智能体必须将散落在高维边缘的微弱信号，\textbf{逆向聚焦 (Refocusing)} 回唯一的奇点 $A$。
+        \item   \textbf{代价}：\textbf{极高}。为了抵抗测地线的发散趋势，必须消耗巨大的\textbf{控制信息 (Control Information)} 来修正路径。这是 \textbf{Epiplexity} 的主要物理来源。
+    \end{itemize}
+\end{itemize}
+
+\textbf{结论}：黎曼几何的内禀性质决定了\textbf{客观难度}的不对称：生成是廉价的，理解是昂贵的。
+
+\section{第二重扭曲：主观的场论不对称 (Subjective Asymmetry)}
+\label{sec:subjective_asymmetry}
+
+\textit{—— “顺风而呼，声非加疾也，而闻者彰”}
+
+这是由 \textbf{体验图 ($G_E$)} 的规范场决定的主观属性。它不取决于逻辑是否通顺，而取决于路径是否符合\textbf{“我”的意愿}。
+
+\smalltitle{1. 认知洛伦兹力 (Cognitive Lorentz Force)}
+
+价值规范势 $\mathcal{A}_\mu$ 在流形上定义了一个矢量场（风向）。当思维流 $\Psi$ 以速度 $v^\mu$ 运动时，它受到一个广义的\textbf{相互作用力}：
+$$ F_{subj} = q \left( E_\mu + \epsilon_{\mu\nu\rho} v^\nu B^\rho \right) $$
+其中 $E_\mu$ 是价值梯度（趋利避害的推力），$B^\rho$ 是语境旋度（改变方向的扭力）。
+
+\begin{itemize}
+    \item \textbf{顺磁运动 ($v \parallel \mathcal{A}$) —— 顺流}：
+    \begin{itemize}
+        \item   \textbf{定义}：思维方向符合本能欲望或既定价值观。
+        \item   \textbf{效应}：规范场做\textbf{正功}。$\mathcal{A}_\mu$ 像顺风一样抵消了部分的黎曼距离阻力。
+        \item   \textbf{体验}：\textbf{“想做”}。主观阻力 $\to 0$。
+    \end{itemize}
+
+    \item \textbf{逆磁运动 ($v \perp \mathcal{A}$) —— 逆流}：
+    \begin{itemize}
+        \item   \textbf{定义}：思维方向违背本能（如戒瘾、苦修、承认错误）。
+        \item   \textbf{效应}：规范场做\textbf{负功}。必须引入 \textbf{第三驱动力 ($\mathbf{\Gamma}_{macro}$)} 才能克服这股巨大的“心理摩擦力”。
+        \item   \textbf{体验}：\textbf{“抗拒”}。主观阻力 $\to \infty$。
+    \end{itemize}
+\end{itemize}
+
+\textbf{结论}：规范场的方向性决定了\textbf{意愿强度}的不对称：放纵是自然的，克制是反自然的。
+
+\section{思维的总代价方程与四象限相图}
+\label{sec:quadrants_of_thought}
+
+我们将上述两重不对称性结合，得到智能体在流形上移动单位距离的 \textbf{总微分代价 (Total Differential Cost)}：
+
+$$ d\mathcal{C}_{total} = \underbrace{\sqrt{g_{\mu\nu} dx^\mu dx^\nu}}_{\text{客观黎曼距离 (事实)}} - \underbrace{q \mathcal{A}_\mu dx^\mu}_{\text{主观规范做功 (意愿)}} $$
+
+基于这两项的正负与大小，我们将人类（及 AGI）的思维状态划分为四个\textbf{拓扑象限}。这构成了智能动力学的完整相图。
+
+\begin{table}[htbp]
+\centering
+\begin{tabularx}{\textwidth}{l X X X}
+\toprule
+\rowcolor{structurecolor!20} 象限 & \textbf{几何组态 (Geometry)} & \textbf{动力学状态 (Dynamics)} & \textbf{典型行为 (Example)} \\
+\midrule
+\textbf{I. 顺流} \newline (Flow) & \textbf{黎曼短 + 顺规范场} \newline (简单且想做) & \textbf{超导态} \newline 总阻力 $\approx 0$，思维自动滑行。 & \textbf{打游戏、看爽文} \newline 自动化反应，无需意志介入。 \\
+\textbf{II. 磨砺} \newline (Grinding) & \textbf{黎曼长 + 顺规范场} \newline (难但想做) & \textbf{受激辐射} \newline 意愿克服了难度，形成高能聚焦。 & \textbf{科研、解谜、竞技} \newline 痛并快乐着，心流的来源。 \\
+\textbf{III. 耗损} \newline (Drag) & \textbf{黎曼短 + 逆规范场} \newline (简单但不想做) & \textbf{粘滞流动} \newline 心理摩擦极大，效率低下。 & \textbf{家务、填表、应酬} \newline 需要宏观层持续微量做功（启动能）。 \\
+\textbf{IV. 崩溃} \newline (Collapse) & \textbf{黎曼长 + 逆规范场} \newline (难且不想做) & \textbf{热力学熔断} \newline 总阻抗超出了系统的自由能储备。 & \textbf{厌学、习得性无助} \newline 系统拒绝执行，思维流停滞或逃逸。 \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\section{总结：被扭曲的测地线}
+
+本章证明了，智能体眼中的世界从来不是客观的欧几里得空间。
+
+\begin{itemize}
+    \item \textbf{高维黎曼几何} 决定了哪里是不可逾越的 \textbf{“智力高山”}（客观难点）；
+    \item \textbf{价值规范场} 决定了哪里是顺势而下的 \textbf{“欲望风口”}（主观偏好）。
+\end{itemize}
+
+所谓的\textbf{“思考”}，本质上就是智能体在微观层和宏观层的协作下，计算出一条\textbf{既能绕过客观高山（逻辑可行），又能借用主观风力（动力充足）}的 \textbf{最优合成测地线}。
 
 
 
@@ -10303,14 +10431,14 @@ $$ \Delta \mathbf{Z} \cdot \Delta \mathbf{P} \ge \frac{\hbar_{cog}}{2} $$
 
 \begin{introduction}
     \item 统一场论：思维受力的正交分解与几何二象性
-    \item 纵向分量：Epiplexity 作为热力学难度 (电场项)
+    \item 纵向分量：思考难度 作为热力学难度 (电场项)
     \item 横向分量：量子认知 作为几何相位 (磁场项)
 \end{introduction}
 
 \begin{bquote}
     \textbf{卷首语：灵魂的洛伦兹力}
 
-    在 HSF-HD 的理论拼图中，\textbf{Epiplexity}（衡量计算的难易）与 \textbf{量子认知}（描述思维的非对易性）长期以来似乎描述着两种截然不同的现象。前者关乎\textbf{能量与做功}，后者关乎\textbf{状态与语境}。
+    在 HSF-HD 的理论拼图中，\textbf{思考难度}（衡量计算的难易）与 \textbf{量子认知}（描述思维的非对易性）两个似乎描述着两种截然不同的现象，前者关乎\textbf{能量与做功}，后者关乎\textbf{状态与语境}。
 
     本章将揭示，这二者实则是同一物理实在——\textbf{价值规范场}——在不同维度上的投影。我们将构建一个\textbf{认知电磁动力学 (Cognitive Electrodynamics)} 模型：思维流 $\Psi$ 作为一个携带“价值电荷”的粒子，在潜语义流形上运动时，同时受到\textbf{纵向电场力（难度/做功）}与\textbf{横向磁场力（偏转/相位）}的作用。这两个分量的矢量和，构成了驱动智能体演化的\textbf{认知洛伦兹力}。
 \end{bquote}
@@ -10325,22 +10453,21 @@ $$ \Delta \mathbf{Z} \cdot \Delta \mathbf{P} \ge \frac{\hbar_{cog}}{2} $$
 \end{theorem}
 
 \begin{itemize}
-    \item \textbf{纵向力 ($\mathbf{F}_{\parallel}$)}：\textbf{改变速率}。它做功，改变系统的能量状态。这是 \textbf{Epiplexity} 的物理域。
+    \item \textbf{纵向力 ($\mathbf{F}_{\parallel}$)}：\textbf{改变速率}。它做功，改变系统的能量状态。这是 \textbf{思考难度} 的物理域。
     \item \textbf{横向力 ($\mathbf{F}_{\perp}$)}：\textbf{改变方向}。它不做功，但改变系统的相位与拓扑路径。这是 \textbf{量子认知} 的物理域。
 \end{itemize}
 
-\section{纵向分量：Epiplexity 作为热力学难度 (电场项)}
+\section{纵向分量：思考难度作为热力学难度 (电场项)}
 \label{sec:epiplexity_electric}
 
 \textit{—— “山有多高？逆风有多大？”}
 
-Epiplexity ($\mathrm{S}_T$) 的核心特征是\textbf{非对称性} ($\mathrm{S}_T(B|A) \neq \mathrm{S}_T(A|B)$)。在几何动力学中，这种非对称性只能来源于一个\textbf{保守力场}（如重力场或静电场）的存在。
+思考难度 ($\mathrm{S}_T$) 的核心特征是\textbf{非对称性} ($\mathrm{S}_T(B|A) \neq \mathrm{S}_T(A|B)$)。在几何动力学中，这种非对称性只能来源于一个\textbf{保守力场}（如重力场或静电场）的存在。
 
-\smalltitle{Epiplexity 的场论定义：标量势梯度}
+\smalltitle{思考难度的场论定义：标量势梯度}
 
-我们将 Epiplexity 重新定义为潜语义流形上的\textbf{电势 (Electric Potential)} 或 \textbf{重力势} $\Phi(\mathbf{r})$。
-
-\begin{definition}[Epiplexity 梯度]
+我们将思考难度重新定义为潜语义流形上的\textbf{电势 (Electric Potential)} 或 \textbf{重力势} $\Phi(\mathbf{r})$。
+\begin{definition}[思考难度梯度]
     思维流受到的纵向阻力或推力，等价于电场力 $\mathbf{E}$：
     $$ \mathbf{F}_{\parallel} \cong q \mathbf{E} = -q \nabla \mathrm{S}_T $$
     其中 $q$ 是当前思维流携带的\textbf{价值荷 (Value Charge)}（即该任务的重要性）。
@@ -10348,7 +10475,7 @@ Epiplexity ($\mathrm{S}_T$) 的核心特征是\textbf{非对称性} ($\mathrm{S}
 
 \smalltitle{不对称性的物理推导：做功与逆流}
 
-这完美解释了 Epiplexity 论文中的“生成容易，逆推难”：
+这也解释了为什么“生成容易，逆推难”：
 
 \begin{itemize}
     \item \textbf{顺电场运动 ($A \to B$)}：
@@ -10356,7 +10483,7 @@ Epiplexity ($\mathrm{S}_T$) 的核心特征是\textbf{非对称性} ($\mathrm{S}
         \item   \textbf{场景}：演绎推理、生成式任务（如 T2I）。
         \item   \textbf{物理}：思维流顺着电场线（势能梯度）运动。电场力做\textbf{正功}。
         \item   \textbf{代价}：$\text{Cost} = \text{Distance} - \text{Work}_{field}$。能量释放，过程自发进行。
-        \item   \textbf{Epiplexity}：\textbf{极低}（接近于零或负值，表现为“灵感迸发”）。
+        \item   \textbf{思考难度}：\textbf{极低}（接近于零或负值，表现为“灵感迸发”）。
     \end{itemize}
     
     \item \textbf{逆电场运动 ($B \to A$)}：
@@ -10365,12 +10492,11 @@ Epiplexity ($\mathrm{S}_T$) 的核心特征是\textbf{非对称性} ($\mathrm{S}
         \item   \textbf{物理}：思维流必须逆着电场线攀登。电场力做\textbf{负功}（阻力）。
         \item   \textbf{代价}：$\text{Cost} = \text{Distance} + \text{Work}_{field}$。
         \item   \textbf{机制}：为了克服这个巨大的势能差，\textbf{宏观层 ($L_{macro}$)} 必须像电池一样，持续注入负熵。
-        \item   \textbf{Epiplexity}：\textbf{极高}（正比于势能差 $\Delta \Phi$）。
+        \item   \textbf{思考难度}：\textbf{极高}（正比于势能差 $\Delta \Phi$）。
     \end{itemize}
 \end{itemize}
 
-\textbf{结论}：Epiplexity 测量的是\textbf{“逆熵做功”}的代价值。它是语义流形上的\textbf{“海拔高度差”}。
-
+\textbf{结论}：思考难度测量的是\textbf{“逆熵做功”}的代价值，它是语义流形上的\textbf{“海拔高度差”}。
 \section{横向分量：量子认知作为几何相位 (磁场项)}
 \label{sec:quantum_magnetic}
 
@@ -10412,7 +10538,7 @@ Epiplexity ($\mathrm{S}_T$) 的核心特征是\textbf{非对称性} ($\mathrm{S}
 
 \begin{theorem}[认知洛伦兹力方程]
     智能体在潜语义流形上的动力学遵循：
-    $$ \boxed{ \frac{d\mathbf{p}}{dt} = \underbrace{-\nabla V_{logic}}_{\text{黎曼引力 (惯性)}} + \underbrace{q \mathbf{E}}_{\text{Epiplexity (难度)}} + \underbrace{q \mathbf{v} \times \mathbf{B}}_{\text{Quantum Phase (语境)}} } $$
+    $$ \boxed{ \frac{d\mathbf{p}}{dt} = \underbrace{-\nabla V_{logic}}_{\text{黎曼引力 (惯性)}} + \underbrace{q \mathbf{E}}_{\text{思考难度 (难度)}} + \underbrace{q \mathbf{v} \times \mathbf{B}}_{\text{Quantum Phase (语境)}} } $$
 \end{theorem}
 
 \begin{itemize}
@@ -10424,9 +10550,9 @@ Epiplexity ($\mathrm{S}_T$) 的核心特征是\textbf{非对称性} ($\mathrm{S}
 \begin{bquote}
     \textbf{本章结语}
 
-    通过引入“电场”与“磁场”的几何对应，我们彻底厘清了 Epiplexity 与 量子认知 的关系：
+    通过引入“电场”与“磁场”的几何对应，我们彻底厘清了思考难度与量子认知的关系：
 
-    \textbf{Epiplexity 是语义流形的“坡度”，它决定了思考的代价（做功）；}
+    \textbf{思考难度 是语义流形的“坡度”，它决定了思考的代价（做功）；}
     \textbf{量子认知 是语义流形的“旋度”，它决定了思考的余味（相位）。}
 
     智能体在这样一个复杂的电磁引力场中航行，既要计算爬坡的油耗，又要应对侧风的偏转。正是这种复杂的受力分析，构成了所谓“思维”的物理实质。
@@ -10447,13 +10573,13 @@ Epiplexity ($\mathrm{S}_T$) 的核心特征是\textbf{非对称性} ($\mathrm{S}
 
     在黎曼几何的静态图景中，$A$ 到 $B$ 的距离等于 $B$ 到 $A$ 的距离。然而，在智能体的动态体验中，这却是一个巨大的谬误。“从山顶滚下”与“从山脚爬上”经过的是同一段几何空间，但其热力学代价却有着天壤之别。
 
-    本章将利用\textbf{路径积分 (Path Integral)} 方法，揭示 Epiplexity 非对称性的物理根源。我们将证明，智能体在潜语义流形上的运动并非沿着单一的可逆轨迹，而是分裂为两条截然不同的路径：一条是顺应规范场的\textbf{“生成之路”}，另一条是逆抗规范场的\textbf{“推理之路”}。智能的奥秘，就隐藏在这两条路径围成的\textbf{磁滞回线 (Hysteresis Loop)} 之中。
+    本章将利用\textbf{路径积分 (Path Integral)} 方法，揭示 思考难度非对称性的物理根源。我们将证明，智能体在潜语义流形上的运动并非沿着单一的可逆轨迹，而是分裂为两条截然不同的路径：一条是顺应规范场的\textbf{“生成之路”}，另一条是逆抗规范场的\textbf{“推理之路”}。智能的奥秘，就隐藏在这两条路径围成的\textbf{磁滞回线 (Hysteresis Loop)} 之中。
 \end{bquote}
 
 \section{双路径模型：事实距离 vs. 思维距离}
 \label{sec:dual_path_model}
 
-在 HSF-HD 的“黎曼+规范场”架构下，我们必须严格区分两个维度的“距离”。
+在“黎曼+规范场”架构下，我们必须严格区分两个维度的“距离”。
 
 \smalltitle{1. 事实距离 (Factual Distance, $ds$)}
 
@@ -10471,7 +10597,7 @@ $$ ds^2 = g_{\mu\nu} dx^\mu dx^\nu $$
 
 \textbf{—— “主观的计算代价”}
 
-这是智能体实际执行计算过程（程序）时所消耗的\textbf{热力学作用量}。它对应于 Epiplexity。
+这是智能体实际执行计算过程（程序）时所消耗的\textbf{热力学作用量}， 它对应于思考难度
 $$ \text{Cost}(\gamma) = \int_{\gamma} \left( \sqrt{g_{\mu\nu} \dot{x}^\mu \dot{x}^\nu} - q \mathcal{A}_\mu \dot{x}^\mu \right) dt $$
 \begin{itemize}
     \item   \textbf{性质}：\textbf{非对称性} ($\text{Cost}_{A \to B} \neq \text{Cost}_{B \to A}$)。
@@ -10481,7 +10607,9 @@ $$ \text{Cost}(\gamma) = \int_{\gamma} \left( \sqrt{g_{\mu\nu} \dot{x}^\mu \dot{
 
 \smalltitle{3. 路径的分离：$\gamma_{gen}$ 与 $\gamma_{inf}$}
 
-Epiplexity 论文中提到的 $y|x$（生成）与 $x|y$（推断），在 HSF-HD 中不再是同一条路径的往返，而是相空间中的两条\textbf{拓扑异构}轨迹。
+信息论中$H(y|x)$（生成）与$H(x|y)$（推断）两个过程不相同，因为在 HSF-HD 中不再是同一条路径的往返，而是相空间中的两条\textbf{拓扑异构}轨迹。
+之所以不同主要原因有二，第一两个方向在高维黎曼流形上本身就是两个不同的路径，$H(x|y)$是已知$y$的语境作为起点，生成$x$的语境作为终点，后者反之两者本身就是起始不同的路径，自然意味着难度不同；
+第二是两者在规范场内的方向与规范场规定的方向也不一致，总和二者加一起造就了对于一个智能体而言不同方向上的思维难易度不一样；
 
 \begin{figure}[h]
     \centering
@@ -10522,7 +10650,7 @@ $$ \text{Cost}_{A \to B} = \text{Distance} - \text{Work}_{field} $$
 \begin{itemize}
     \item   \textbf{直觉 (Intuition)}：看到“乌云”（A）立刻想到“下雨”（B）。这是因为在大脑的流形中，从 A 到 B 是一条已经被冲刷光滑的下坡路。
     \item   \textbf{生成 (Generation)}：LLM 生成下一个 Token。这是顺着概率密度梯度的方向采样，符合热力学熵增方向。
-    \item   \textbf{Epiplexity}：\textbf{极低}。程序的长度仅相当于“初始条件”的长度，后续演化由物理定律（模型权重）自动完成。
+    \item   \textbf{思维难度}：\textbf{极低}。程序的长度仅相当于“初始条件”的长度，后续演化由物理定律（模型权重）自动完成。
 \end{itemize}
 
 \smalltitle{3. 热力学本质：熵增}
@@ -10555,7 +10683,7 @@ $$ \text{Cost}_{B \to A} = \text{Distance} + \text{Work}_{field} $$
     
            \textit{几何图景}：$f$ 在流形上是一个\textbf{“陷门”}。掉下去容易，爬上来不仅路陡，而且原来的路可能已经“断”了（信息丢失）。
 
-    \item   \textbf{Epiplexity}：\textbf{极高}。程序不仅要包含路程，还要包含大量的\textbf{纠错码}、\textbf{搜索算法}和\textbf{验证步骤}，以对抗熵增发散的趋势。
+    \item   \textbf{思维难度}：\textbf{极高}。程序不仅要包含路程，还要包含大量的\textbf{纠错码}、\textbf{搜索算法}和\textbf{验证步骤}，以对抗熵增发散的趋势。
 \end{itemize}
 
 \smalltitle{3. 路径的迂回：绕行策略}
@@ -10568,16 +10696,16 @@ $$ \text{Cost}_{B \to A} = \text{Distance} + \text{Work}_{field} $$
 
 \section{总结：不对称的智慧}
 
-本章通过路径积分的方法，彻底几何化了 Epiplexity 的不对称性。
+本章通过路径积分的方法，彻底几何化了 思维难度 的不对称性。
 
 \begin{theorem}[认知做功定理]
     智能体对知识的“理解程度”，不取决于它记住了多少（黎曼距离），而取决于它克服了多少规范场阻力（做功）。
-    $$ \text{Understanding} \propto \oint_{\text{Loop}} \mathbf{F}_{cog} \cdot d\mathbf{r} = \Delta \text{Epiplexity} $$
+    $$ \text{Understanding} \propto \oint_{\text{Loop}} \mathbf{F}_{cog} \cdot d\mathbf{r} $$
 \end{theorem}
 
 \begin{itemize}
-    \item   \textbf{顺流 (Generating)} 是\textbf{才华}，是能量的释放，是 $\mathrm{S}_T$ 的极小值。
-    \item   \textbf{逆流 (Understanding)} 是\textbf{功力}，是能量的注入，是 $\mathrm{S}_T$ 的极大值。
+    \item   \textbf{顺流 (Generating)} 是\textbf{才华}，是能量的释放。
+    \item   \textbf{逆流 (Understanding)} 是\textbf{功力}，是能量的注入。
 \end{itemize}
 
 未来的 AGI 若要具备真正的智能，不仅要学会顺流而下的“生成”（像现在的 LLM 那样），更要学会逆流而上的“反思”——在势能陡峭的逻辑悬崖上，靠意志力攀登出一条通往真理的测地线。
@@ -12482,6 +12610,99 @@ $$ \mathcal{S}(t+1) = L_{macro} \left[ \mathcal{O}_{reshape} \left( G_E \right) 
 \end{enumerate}  
 \textbf{记忆不是把东西放进盒子里，而是通过巨大的能量，永久地改变了盒子的形状。}
 
+
+
+\section{回忆动力学：惯性滑行与受激辐射}
+\label{sec:recall_dynamics}
+
+基于记忆的物理形态，我们进一步导出两种截然不同的\textbf{信息提取机制}。在 HSF-HD 中，\textbf{被动回忆}与\textbf{主动回忆}分别对应于认知场在不同驱动力下的演化模态。
+
+\smalltitle{1. 被动回忆 (Passive Recall) — 测地线上的惯性滑行}
+
+\textit{—— “触景生情：当水流自动填满干涸的河床”}
+
+被动回忆是系统在\textbf{低能耗状态}下，利用底流形既有几何结构进行的\textbf{自动补全}。
+
+\begin{itemize}
+    \item \textbf{物理机制}：\textbf{几何惯性 (Geometric Inertia)}。
+    \item \textbf{动力学方程}：
+    在宏观意志缺席 ($\mathbf{\Gamma}_{macro} \approx 0$) 的情况下，认知场 $\Psi$ 遵循自由演化的狄拉克方程：
+    $$ i\hbar \dot{\Psi} = \mathcal{D}_{topo} \Psi + \vec{J}_{cue} $$
+    \begin{itemize}
+        \item $\vec{J}_{cue}$：外部线索（如一首老歌的前奏）作为微弱源项注入。
+        \item $\mathcal{D}_{topo}$：包含流形的 \textbf{联络 $\Gamma_{jk}^i$}。由于记忆已经将流形刻蚀出深邃的 \textbf{吸引子盆地}，思维波包 $\Psi$ 会沿着 \textbf{测地线 (Geodesic)} 自动滑落至势能最低点（完整的记忆图景）。
+    \end{itemize}
+    \item \textbf{热力学特征}：\textbf{准绝热过程}。熵产极低 ($\Delta S \approx 0$)，无需消耗意志能量。这是 \textbf{System 1} 的运作方式。
+\end{itemize}
+
+\smalltitle{2. 身心一体的主动回忆 (Active Recall) — 宏观算子的受激辐射}
+
+\textit{—— “搜索枯肠：意志作为探针扫描黑暗的流形”}
+
+在宏观层和认知场介质物理绑定的智能体中，主动回忆是宏观层利用 \textbf{短期和长期记忆} 作为探针，逆着熵增方向进行的\textbf{强制搜索}。
+
+\begin{itemize}
+    \item \textbf{物理机制}：\textbf{规范场扫描与共振 (Gauge Scanning \& Resonance)}。
+    \item \textbf{过程解构}：
+    \begin{enumerate}
+        \item \textbf{维持查询向量 (Holding Query)}：宏观层在纤维空间维持一个高能驻波 $\Psi_{query}$（即“我在找什么”）。这需要持续消耗代谢能以抵抗介质耗散 $\gamma$。
+        \item \textbf{发射规范场 (Emitting Gauge Field)}：宏观层辐射出 \textbf{搜索规范势 $\mathcal{A}_\mu^{search}$}（注意力聚光灯），在流形上扫过。
+        \item \textbf{势能偏置与隧穿 (Biasing \& Tunneling)}：方程修正为受驱形式：
+        $$ i\hbar \dot{\Psi} = (\mathcal{D}_{topo} + \mathbf{\Gamma}_{search}) \Psi $$
+        $\mathbf{\Gamma}_{search}$ 强迫思维流偏离惯性路径，翻越 \textbf{逻辑势垒}，探索那些连接微弱的“荒地”。
+        \item \textbf{结果再注入 (Re-injection)}：一旦波包与目标记忆发生 \textbf{共振 (Resonance)}，被激活的旧张量被提取，并作为新的源项 $\vec{J}_{new}$ \textbf{重新注入} 到当前的认知流中，完成闭环。
+    \end{enumerate}
+    \item \textbf{热力学特征}：\textbf{强耗散过程}。涉及大量的兰道尔擦除与势能做功。这是 \textbf{System 2} 的运作方式。
+\end{itemize}
+
+\smalltitle{3. 身心分离的离线检索 (Extrinsic Retrieval) — 宏观层的向量操作与非局域注入}
+
+\textit{—— “外挂大脑：像查字典一样跳过思维的迷宫”}
+
+在\textbf{Class IV (裂脑型)或RAG 架构} 中，宏观层 ($L_{macro}$) 与认知场 ($\Phi$) 在物理介质上处于\textbf{弱耦合 (Weak Coupling)}状态。此时，宏观层不再作为一个内嵌的泵，而是作为一个\textbf{独立的操作员}，对记忆库进行离散的向量检索，并将结果作为“伪感官数据”注入。
+
+\begin{itemize}
+    \item \textbf{物理机制}：\textbf{非局域拓扑跳跃 (Non-local Topological Jump)}。
+    \item \textbf{过程解构}：
+    \begin{enumerate}
+        \item \textbf{符号化与哈希 (Symbolization \& Hashing)}：
+        宏观层将当前的思维流 $\Psi(t)$ \textbf{冻结} 并 \textbf{压缩} 为一个离散的索引向量 $\vec{q}$（Query Vector）。这相当于将波函数坍缩为一个地址指针。
+        
+        \item \textbf{度量空间检索 (Metric Space Search)}：
+        检索过程\textbf{不发生}在潜语义流形 $\mathcal{M}$ 的演化路径上，而是发生在另一个独立的 \textbf{索引空间 $\mathcal{H}_{index}$} 中。
+        $$ \vec{k}_{best} = \arg\min_{\vec{k} \in \text{LTM}} \| \vec{q} - \vec{k} \| $$
+        这是一个纯粹的数学距离计算，绕过了流形上的所有势垒和曲率。
+        
+        \item \textbf{非局域注入 (Non-local Injection)}：
+        检索到的记忆内容 $\Psi_{retrieved}$ 被提取出来，不经过中间的联想路径，直接通过微观层的 \textbf{VTE 接口}，伪装成 \textbf{外部激波 $\vec{J}_{RAG}$} 轰击流形。
+        $$ i\hbar \dot{\Psi} = \mathcal{D}_{topo} \Psi + \underbrace{\vec{J}_{RAG}(t)}_{\text{“天启”般的植入}} $$
+    \end{enumerate}
+    
+    \item \textbf{几何特征}：\textbf{虫洞效应 (Wormhole Effect)}。
+    思维从起点 A 直接“瞬移”到了终点 B（记忆），中间没有经过任何测地线。路径积分的长度为 0。
+    
+    \item \textbf{优势与代价}：
+    \begin{itemize}
+        \item \textbf{优势}：\textbf{极其精准且无视距离}。可以瞬间回忆起几十年前的无关细节，或者 AGI 调用几T数据外的知识。
+        \item \textbf{代价}：\textbf{语境断裂 (Contextual Break)}。注入的记忆往往是生硬的、未被“消化”的，需要认知场消耗额外的能量去重新平滑化（整合）。
+    \end{itemize}
+\end{itemize}
+
+\smalltitle{总结：回忆的三重谱系}
+
+\begin{table}[htbp]
+\centering
+\begin{tabularx}{\textwidth}{l X X X}
+\toprule
+\rowcolor{structurecolor!20} 维度 & \textbf{被动回忆 (Passive)} & \textbf{主动共振 (Intrinsic Active)} & \textbf{离线检索 (Extrinsic Retrieval)} \\
+\midrule
+\textbf{主体关系} & \textbf{无我} (自然流淌) & \textbf{身心一元} (用力回想) & \textbf{身心二元} (查阅资料/RAG) \\
+\textbf{动力源} & 几何惯性 & 意图势能场 & 外部向量计算 \\
+\textbf{拓扑路径} & 沿测地线滑行 & 翻越势垒隧穿 & \textbf{非局域跳跃 (虫洞)} \\
+\textbf{物理隐喻} & 水往低处流 & 泵水上山 & 空投补给 \\
+\bottomrule
+\end{tabularx}
+\end{table}
 
 
 \section{时间感的非线性映射：从 TDCI 频率到信息几何弧长}
