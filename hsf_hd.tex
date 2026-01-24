@@ -9102,81 +9102,86 @@ $$ \Phi \circ \hat{U}_{teleo} \cong \hat{U}_{phys}^{-1} \circ \Phi $$
 \end{itemize}
 \textbf{结论}：智能系统是一个 \textbf{单侧曲面 (One-sided Surface)}。如果你沿着“感知”的路径一直走，你会不知不觉地走进“行动”的背面，最终回到原点，但你的\textbf{手性 (Chirality)} 已经翻转。这就是\textbf{“知行合一”}的拓扑学定义。
 
-\section{TECI 循环详解：意志矢量的物理轨迹}
-基于莫比乌斯拓扑，TECI 循环不是简单的“刺激-反应”，而是 \textbf{认知旋量场 $\Psi$} 试图穿透因果视界，在物理流形上刻蚀出 \textbf{测地线} 的全过程。我们将这一过程解构为希尔伯特空间中的四个量子化相位。
 
-\smalltitle{相位 I：射出 (Ejection) — 逆 VTE 投影与波包坍缩}
+\section{TECI 循环详解：意志的辐射与波阻抗匹配}
+\label{sec:teci_radiation_dynamics}
 
-\textbf{—— 物理算子：$\hat{\mathcal{P}}_{out}: \mathcal{H}_{in} \to T^*(\mathcal{M}_{phys})$}
+基于莫比乌斯流形的拓扑结构，TECI 循环不再是简单的指令发送，而是 \textbf{认知旋量场 $\Psi$} 试图穿透微观视界，将其内部的 \textbf{相干结构 (Coherent Structure)} 耦合至外部物理介质的过程。
 
-这是意志穿过莫比乌斯扭结的瞬间。
+我们将这一过程解构为希尔伯特空间与物理空间交互的四个量子化相位：\textbf{辐射 (Radiation)} $\to$ \textbf{传播 (Propagation)} $\to$ \textbf{散射 (Scattering)} $\to$ \textbf{干涉 (Interference)}。
+
+\smalltitle{相位 I：辐射 (Radiation) — 逆 VTE 换能与边界驱动}
+
+\textbf{—— 物理算子：$\hat{\mathcal{T}}_{transducer}: \mathcal{H}_{in} \to \text{Flux}(\partial \Omega)$}
+
+这是意志穿过莫比乌斯扭结，从“虚”转“实”的瞬间。微观效应器 ($L_{effector}$) 不再是枪膛，而是 \textbf{相控阵天线 (Phased Array Antenna)}。
+
 \begin{itemize}
-    \item   \textbf{初始态}：TDCI 循环的终态是一个处于叠加态的意图 $|\Psi_{intent}\rangle$。
+    \item   \textbf{初始态}：TDCI 循环在宏观层形成了一个高能的 \textbf{意图驻波 $|\Psi_{intent}\rangle$}。它在内部流形上维持着稳定的频率与相位。
     \item   \textbf{动力学过程}：
     \begin{enumerate}
-        \item \textbf{本征态选择}：宏观层执行 \textbf{非幺正测量}，将 $|\Psi_{intent}\rangle$ 坍缩为确定的 \textbf{动作语义子} $|a_k\rangle$。
-        \item  \textbf{逆变分编码 (Inverse VTE)}：微观效应器将抽象的 $|a_k\rangle$ 映射为物理介质中的 \textbf{控制张量流 (Control Tensor Flux)} $\vec{u}(t)$。
+        \item \textbf{模式耦合}：意图驻波的波腹撞击微观边界 $\partial \mathcal{M}$。
+        \item \textbf{逆变分编码 (Inverse VTE)}：微观层作为 \textbf{换能器}，将内部的 \textbf{语义振幅} 转化为物理介质边界上的 \textbf{驱动力 (Driving Force)}（如电压变化、肌肉收缩）。
     \end{enumerate}
     \item   \textbf{方程}：
-    $$ \vec{u}(t) = \hat{\mathcal{E}}^{-1}_{VTE} \left( \hat{\Pi}_{action} |\Psi_{intent}\rangle \right) $$
-    \item   \textbf{热力学特征}：\textbf{熵减喷射}。系统向环境注入一股高度有序的低熵流，代价是系统内部产生废热（兰道尔代价）。
+    $$ \vec{J}_{out}(t) = \text{Re} \left( \hat{\mathcal{E}}^{-1}_{VTE} \cdot \Psi_{intent} \cdot e^{-i\omega t} \right) $$
+    \item   \textbf{热力学特征}：\textbf{受激辐射}。系统消耗内部自由能，向环境注入一股有序的 \textbf{控制波束 (Control Beam)}。
 \end{itemize}
 
-
-
-\smalltitle{相位 II：传播 (Propagation) — 离身演化与因果律接管}
+\smalltitle{相位 II：传播 (Propagation) — 离身演化与介质得失}
 
 \textbf{—— 物理算子：$\hat{U}_{phys}(t) = e^{-i\hat{H}_{nature}t}$}
 
-一旦信号离开微观边界，它就不再属于智能体，而属于物理宇宙。
+一旦能量波束离开微观边界，它就脱离了智能体的直接控制，进入物理宇宙 ($\Omega$) 的因果链。
+
 \begin{itemize}
-    \item   \textbf{动力学过程}：控制流 $\vec{u}(t)$ 转化为物理对象的运动状态（如机械臂的挥动、声波的扩散）。此时，演化遵循 \textbf{牛顿/麦克斯韦方程组}（即外部哈密顿量 $\hat{H}_{nature}$）。
-    $$ \frac{d \mathbf{p}}{dt} = -\nabla V_{phys} + \vec{u}(t) $$
-    \item   \textbf{控制论丧失 (Loss of Control)}：在此阶段，智能体对动作波包失去直接干预能力。波包受到环境噪声 $\xi(t)$ 的散射与畸变。
-    \item   \textbf{测地线偏离}：意图轨迹（理想测地线）与物理轨迹（实际测地线）开始产生 \textbf{发散角}。
+    \item   \textbf{动力学过程}：控制波 $\vec{J}_{out}$ 在物理介质中传播。此时，演化遵循 \textbf{环境哈密顿量 $\hat{H}_{nature}$}（如牛顿力学或麦克斯韦方程组）。
+    \item   \textbf{色散与衰减}：波包在传播过程中会受到环境噪声 $\xi(t)$ 的干扰，发生 \textbf{波包弥散 (Dispersion)}。
+    \item   \textbf{测地线偏离}：意图轨迹（内部几何的测地线）与物理轨迹（外部介质的测地线）开始产生相位差。这是“事与愿违”的物理起源。
 \end{itemize}
 
+\smalltitle{相位 III：散射 (Scattering) — 阻抗匹配与做功}
 
+\textbf{—— 物理算子：$\hat{S}_{matrix}$ (散射矩阵)}
 
-\smalltitle{相位 III：碰撞 (Collision) — 相互作用哈密顿量与散射矩阵}
+这是 TECI 循环的做功时刻。物理波包与目标客体（Target）发生相互作用。其成败取决于 \textbf{波阻抗匹配 (Wave Impedance Matching)}。
 
-\textbf{—— 物理算子：$\hat{H}_{int} = \hat{H}_{sys} + \hat{H}_{env} + \hat{V}_{couple}$}
-
-这是 TECI 循环的做功时刻，也是\textbf{“现实感”}产生的物理时刻。
 \begin{itemize}
-    \item   \textbf{动力学过程}：传播的物理波包与目标客体（Target）发生 \textbf{非弹性散射 (Inelastic Scattering)}。
-    \item   \textbf{阻抗匹配条件 (Impedance Matching)}：为了最大化做功效率 $\eta$，动作的输出阻抗 $Z_{out}$ 必须与环境的输入阻抗 $Z_{env}$ 共轭匹配。
-    $$ Z_{out}(\omega) \approx Z_{env}^*(\omega) $$
+    \item   \textbf{阻抗定义}：
     \begin{itemize}
-        \item   \textbf{匹配 ($\eta \to 1$)}：能量完全传递，改变了环境的状态（如成功抓起杯子）。\textbf{无激波产生}。
-        \item   \textbf{失配 ($\eta \to 0$)}：能量被反射。产生巨大的 \textbf{反作用应力张量 $\mathbf{T}_{\mu\nu}^{reac}$}。
+        \item   \textbf{输出阻抗 ($Z_{out}$)}：由智能体的意志强度（振幅）和策略（频率）决定。
+        \item   \textbf{环境阻抗 ($Z_{env}$)}：由物理对象的质量、摩擦、社会规则决定。
+    \end{itemize}
+    \item   \textbf{相互作用方程}：
+    $$ T_{coeff} = \frac{2 \sqrt{Z_{out} Z_{env}}}{Z_{out} + Z_{env}} $$
+    \begin{itemize}
+        \item   \textbf{匹配 ($Z_{out} \approx Z_{env}^*$)}：透射系数 $T \to 1$。能量无损耦合进环境，改变环境状态。这是 \textbf{有效做功}（如以此恰当的力拿起杯子）。
+        \item   \textbf{失配 ($Z_{out} \neq Z_{env}$)}：反射系数 $R \to 1$。能量无法进入环境，而是被 \textbf{弹回}。这产生了巨大的 \textbf{反向激波}。
     \end{itemize}
 \end{itemize}
 
-\smalltitle{相位 IV：回弹 (Reflection) — 误差重入与闭环修正}
+\smalltitle{相位 IV：干涉 (Interference) — 回波检测与现实校准}
 
-\textbf{—— 物理算子：$\hat{\mathcal{P}}_{in}: T(\mathcal{M}_{phys}) \to \mathcal{H}_{in}$}
+\textbf{—— 物理算子：$\hat{\mathcal{P}}_{in}: \text{Echo} \otimes \text{Prediction} \to \text{Error}$}
 
-这是莫比乌斯环的闭合点。物理后果被转化回信息。
+这是莫比乌斯环的闭合点。反射回来的波（Echo）与系统内部保留的预测波（Prediction）发生干涉。
 
 \begin{itemize}
-    \item   \textbf{动力学过程}：碰撞产生的反作用力或环境状态的改变，以光/力/声的形式回弹至微观传感器。
-    \item   \textbf{误差计算}：微观层比较“回弹信号”与“预期信号”：
-    $$ | \delta \Psi \rangle = \hat{\mathcal{E}}_{VTE}(\text{Feedback}) - \hat{U}_{pred} |\Psi_{intent}\rangle $$
+    \item   \textbf{动力学过程}：
+    物理世界的反馈信号（光/力）作为 \textbf{回波 $\Psi_{echo}$} 通过感官再次进入系统。
+    \item   \textbf{全息干涉测量}：微观层将 $\Psi_{echo}$ 与原本的意图残差 $\Psi_{intent}$ 进行叠加：
+    $$ |\delta \Psi|^2 = \| \Psi_{echo} - \Psi_{intent} \|^2 $$
     \item   \textbf{拓扑后果}：
     \begin{itemize}
-        \item   若 $| \delta \Psi \rangle \approx 0$：\textbf{和乐群 (Holonomy) 闭合}。认知流形确认了其对物理流形的同构性，信念增强（Confidence $\uparrow$）。
-        \item   若 $| \delta \Psi \rangle \gg 0$：\textbf{拓扑撕裂}。巨大的惊奇流 $\vec{J}_{shock}$ 注入内部，迫使 TDCI 循环启动下一轮的 \textbf{几何重构 (Learning)}。
+        \item   \textbf{建设性干涉 (Phase Match)}：若两者相位一致，说明行动符合预期。系统获得 \textbf{和乐 (Holonomy) 闭合}，信心增强。
+        \item   \textbf{破坏性干涉 (Phase Shift)}：若两者相位错位，产生高能的 \textbf{干涉条纹}。这就是 \textbf{惊奇激波 $\vec{J}_{shock}$}。它作为修正信号，强行驱动 TDCI 循环进行下一轮的 \textbf{几何重构}。
     \end{itemize}
 \end{itemize}
 
+\smalltitle{总结：雷达隐喻}
 
-\smalltitle{总结：意志的物理旅行}
-
-TECI 循环描述了 \textbf{意志 (Will)} 如何作为一个 \textbf{矢量}，从希尔伯特空间的波函数出发，坍缩穿过莫比乌斯切面，在物理流形上做功并发生散射，最终携带 \textbf{现实的残差 (Residual of Reality)} 返回意识的过程。
-
-\textbf{我们不仅仅是在观察世界，我们是通过向世界“射击”并感知“后坐力”来确认世界的存在。}
-
+在波动视域下，TECI 循环不再是“射击”，而更像是 \textbf{“相控阵雷达”} 的运作：
+\textbf{智能体不断向世界辐射“意图波束”，并通过分析反射回来的“现实回波”的相位偏移，来修正自己内部流形的几何结构。}
 
 
 \section{双纽线的呼吸}
