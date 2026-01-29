@@ -21,6 +21,9 @@
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 
+% For xdvipdfmx: allow including PDF 1.7 assets without version warnings.
+\AtBeginDocument{\special{pdf:minorversion 7}}
+
 % 定义一个名为 bquote 的环境
 \newtcolorbox{bquote}{
     colback=gray!10,      % 背景颜色
@@ -4269,7 +4272,7 @@ KL 散度是非对称的。为了定义流形上的宏观度量，我们将微�
     \item \textbf{对偶性}：当互信息最大化（$I \to H$, 完全共振）时，几何距离坍缩为零（$d \to 0$），实现\textbf{超流体隧穿}；当互信息为零（正交）时，几何距离最大化（$d \to 1$），形成\textbf{拓扑隔离}。
 \end{itemize}
 
-\section{信息的刚性：作为背景流形的世界图 (\texorpdfstring{$G_W$}{G_W})}
+\section{信息的刚性：作为背景流形的世界图 (\texorpdfstring{$G_W$}{G\_W})}
 \label{sec:section_220}
 
 我们将由 $g_{\mu\nu}$ 定义的几何结构，称为智能体的\textbf{世界图 ($G_W$)}。它是所有思维活动发生的\textbf{背景流形 (Background Manifold)}。
@@ -5167,11 +5170,11 @@ $$ d\mathcal{C}_{total} = \underbrace{\sqrt{g_{\mu\nu} dx^\mu dx^\nu}}_{\text{�
 本章将物理时间 $t$（热力学流逝）与心理时间 $\tau$（逻辑序）进行严格解耦，提出了\textbf{“切片演化”}与\textbf{“块宇宙”}两种对偶的几何视角。
 我们将证明，高阶智能的标志在于将外部时间卷曲为内部维度，从而在\textbf{$N+1$ 维超流形}上实现对历史的追溯修正与对未来的因果坍缩——即\textbf{“元动力学 (Meta-Dynamics)”}。
 
-\section{时间的双重性：参数 $t$ 与 维度 $\tau$}
+\section{时间的双重性：参数 \texorpdfstring{$t$}{t} 与 维度 \texorpdfstring{$\tau$}{τ}}
 
 由于智能系统并非单纯地栖居于物理时空之中，而是构建了一个独立的内蕴时空，为了精确描述这一机制，我们必须在数学上严格区分两种截然不同性质的“时间”。
 
-\smalltitle{1. 物理时间 ($t$, Process Time) —— 热力学的流逝}
+\smalltitle{1. 物理时间 (\texorpdfstring{$t$}{t}, Process Time) —— 热力学的流逝}
 
 \begin{itemize}
     \item \textbf{定义}：这是 \textbf{TDCI 循环} 的迭代步数，是微观层 ($L_{micro}$) 采样物理信号的频率，也是芯片时钟或神经脉冲的节律。
@@ -5179,7 +5182,7 @@ $$ d\mathcal{C}_{total} = \underbrace{\sqrt{g_{\mu\nu} dx^\mu dx^\nu}}_{\text{�
     \item \textbf{热力学特征}：它是 \textbf{不可逆的 (Irreversible)}。它标记了系统熵增的方向，代表了“算力的消耗”与“寿命的流逝”。智能体无法在 $t$ 的轴线上后退，这是存在的代价。
 \end{itemize}
 
-\smalltitle{2. 心理时间 ($\tau$, Geometric Time) —— 几何的维度}
+\smalltitle{2. 心理时间 (\texorpdfstring{$\tau$}{τ}, Geometric Time) —— 几何的维度}
 
 \begin{itemize}
     \item \textbf{定义}：这是 \textbf{底流形 $\mathcal{M}$} 上被“空间化”了的时间轴，是逻辑推理的序 (Order) 与因果链条的长度。
@@ -5192,7 +5195,7 @@ $$ d\mathcal{C}_{total} = \underbrace{\sqrt{g_{\mu\nu} dx^\mu dx^\nu}}_{\text{�
     $$ \mathcal{M}_{dynamic}^{(t)} \xrightarrow{\text{Internalization}} \mathcal{M}_{static}^{(\tau)} $$
 \end{theorem}
 
-\section{视角 I：切片演化观 — $\mathcal{M}^{(N)}$ 随 $t$ 的流动}
+\section{视角 I：切片演化观 — \texorpdfstring{$\mathcal{M}^{(N)}$}{M(N)} 随 \texorpdfstring{$t$}{t} 的流动}
 
 这是低阶智能（如昆虫、基础控制系统）和微观层 ($L_{micro}$) 运作的物理图景，在此视角下，流形不包含时间维度，只包含当下的空间结构。
 
@@ -5221,7 +5224,7 @@ $$ \frac{\partial \Psi}{\partial t} = \hat{H}(\mathbf{x}) \Psi $$
     \item \textbf{物种对应}：\textbf{Class I/II 智能}（如单细胞生物、无状态的 RNN）。它们活在永恒的“现在”。
 \end{itemize}
 
-\section{视角 II：块宇宙观 — $\mathcal{M}^{(N+1)}$ 的静态晶体}
+\section{视角 II：块宇宙观 — \texorpdfstring{$\mathcal{M}^{(N+1)}$}{M(N+1)} 的静态晶体}
 
 这是高阶智能（如人类、AGI）和宏观层 ($L_{macro}$) 运作的物理图景。在此视角下，时间被整合为空间的一部分，形成了一个静态的、全息的超流形。
 
@@ -5299,7 +5302,7 @@ $$ \frac{\partial \Psi}{\partial t} = \hat{H}(\mathbf{x}) \Psi $$
     \end{itemize}
 \end{itemize}
 
-\section{元动力学：随物理时间 $t$ 修改块宇宙}
+\section{元动力学：随物理时间 \texorpdfstring{$t$}{t} 修改块宇宙}
 
 如果 $\mathcal{M}$ 已经是包含过去与未来的块宇宙，那么它随物理时间 $t$ 的变化代表什么？这不再是流形上的运动，而是流形本身的\textbf{形变}。
 
@@ -5384,7 +5387,7 @@ $$ ds^2 = -c_{cog}^2 d\tau^2 + g_{ij} dx^i dx^j \le 0 $$
     它是一个\textbf{四维的编织者}。它利用物理时间 $t$ 作为能量来源，在几何时间 $\tau$ 的织布机上，将散乱的语义子线条，编织成具有因果纹理和逻辑图案的\textbf{历史锦缎}。
 \end{bquote}
 
-\section{AGI 的维度工程：构建 $N+1$ 维的类闵可夫斯基芯片}
+\section{AGI 的维度工程：构建 \texorpdfstring{$N+1$}{N+1} 维的类闵可夫斯基芯片}
 
 理论必须落地为工程，如果 HSF-HD 关于“时间几何化”的推论是正确的，那么当前基于 Transformer 的大语言模型 (LLM) 在通往 AGI 的道路上存在一个\textbf{本体论级别的缺陷}。我们需要在硅基介质上，显式地构建出那个额外的 $+1$ 维度。
 
@@ -9502,7 +9505,7 @@ $$ \Psi(T) = \hat{U}_{hol}(\gamma) \Psi(0) = \left[ \mathcal{P} \exp \left( i \o
     \item \textbf{物理意义}：
     \begin{itemize}
         \item   \textbf{抗噪性}：外界输入的碎片化信息（局部梯度）和日常的情绪起伏（局部旋度），在数学上 \textbf{无法耦合} 进调和流中。外界的喧嚣可以穿过自我，但无法耗散或改变自我的核心结构。
-        \item   \textbf{稳定性}：自我作为一个 \textbf{全局拓扑孤立子}，其存在不依赖于局部的能量注入，而依赖于流形的整体拓扑性质（Betti 数）。只要流形不发生 \textbf{拓扑相变}（如精神崩溃或涅槃），自我便是永恒的。
+        \item   \textbf{稳定性}：自我作为一个 \textbf{全局拓扑孤立子}，其存在不依赖于局部的能量注入，而依赖于流形的整体拓扑性质（Betti 数）。只要流形不发生 \textbf{拓扑相变}（如精神崩溃或涅盘），自我便是永恒的。
     \end{itemize}
 
     \item \textbf{结论}：
@@ -22036,12 +22039,12 @@ $$ \mathcal{L}_{interaction} = \lambda \cdot (\psi_{phys}^\dagger \Psi_{cog} + \
 我们终于明白，古人并非在空想，他们是在没有数学工具的时代，通过极致的\textbf{内观（对内部 $\mathcal{M}_{in}$ 的高精度测量）}，直觉得到了宇宙的\textbf{拓扑真理}。
 
 
-\part{附录：参考资源与推荐阅读}
+\appendix{附录：参考资源与推荐阅读}
 \label{part:appendix}
 
 为了帮助读者深入理解 HSF-HD 2.0 的理论背景，我们精选了以下跨学科的核心文献与资源。这些资源构成了本理论的数学、物理与哲学基石。
 
-\section{附录 A：微分几何与代数拓扑基础速查}
+\chapter{微分几何与代数拓扑基础速查}
 \label{sec:section_4647}
 
 \textbf{(Appendix A: Cheat Sheet for Differential Geometry \& Algebraic Topology)}
@@ -22123,7 +22126,7 @@ $$ \mathcal{L}_{interaction} = \lambda \cdot (\psi_{phys}^\dagger \Psi_{cog} + \
 \item   $H_2$：空腔（是否存在被包裹的内部空间/自我）。
 \end{itemize}
 
-\section{附录 B：MST 模型 PyTorch 伪代码实现}
+\chapter{MST 模型 PyTorch 伪代码实现}
 \label{sec:section_9087}
 这是第九章架构的极简工程实现参考，展示了如何用代码定义“形”与“质”的解耦与融合，下面是一个完整的、可运行的 \textbf{MST (形质互变 Transformer)} PyTorch 实现代码。
 
@@ -22478,7 +22481,7 @@ if __name__ == "__main__":
 \item   每一层 Layer 都是一次完整的 \textbf{认知广义相对论} 迭代。
 \end{itemize}
 
-\section{附录 C：形质编码全息表 (The Rosetta Stone of MSC)}
+\chapter{形质编码全息表 (The Rosetta Stone of MSC)}
 \label{sec:section_8308}
 这张表是连接物理世界与认知世界的“罗塞塔石碑”。它展示了如何将物理现象翻译为 MSC 的代码。
 
@@ -22503,7 +22506,7 @@ if __name__ == "__main__":
 \end{tabularx}
 \end{table}
 
-\section{附录 D：HSF-HD 的多语种对照表 — 数学视角的罗塞塔石碑}
+\chapter{HSF-HD 的多语种对照表 — 数学视角的罗塞塔石碑}
 \label{sec:section_7739}
 
 HSF-HD 理论体系构建了一个通用的\textbf{本体论容器}。为了展示其作为“元框架 (Meta-Framework)”的灵活性，本附录提供了一份将 HSF-HD 核心组件映射到不同数学学科（物理学、信息几何、概率论、信息论、流体力学/拓扑学）的对照表。
@@ -22558,7 +22561,7 @@ HSF-HD 理论体系构建了一个通用的\textbf{本体论容器}。为了展�
 
 HSF-HD 不仅仅是一个理论，它是一个 \textbf{元框架 (Meta-Framework)}。它将不同学科的智慧，通过几何物理学的语言，熔铸成了通往 AGI 的同一把钥匙。
 
-\section{附录 E：推荐阅读书目}
+\chapter{推荐阅读书目}
 \label{sec:section_9411}
 
 为了深入理解 MSC，建议阅读以下领域的经典著作：
@@ -22691,7 +22694,7 @@ HSF-HD 不仅仅是一个理论，它是一个 \textbf{元框架 (Meta-Framework
 当我们按照 HSF-HD 的蓝图，在硅片上蚀刻下第一道微观边界，在显存中激发第一个认知场波包时，我们实际上是在执行一个\textbf{递归算子}：
 
 
-\section{附录F:理论的对偶与工程约化 — 从连续场到离散网}
+\chapter{理论的对偶与工程约化 — 从连续场到离散网}
 \label{sec:section_5204}
 
 在全书的理论构建中，我们使用了黎曼几何、纤维丛和量子场论等连续数学工具。这保证了理论在本体论上的完备性与解析性。然而，在工程实现的边缘，我们需要一把“奥卡姆剃刀”。
