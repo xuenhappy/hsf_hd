@@ -470,15 +470,15 @@ MSC 激进地推进一步：我们认为\textbf{不存在背景}。所谓的“�
 \begin{itemize}
 
 \item  \textbf{示例：}
-\begin{itemize}
-    \item $\tau_{topo}$：\lstinline|[包含]|, \lstinline|[邻接]|, \lstinline|[流向]|, \lstinline|[递归]|。
-    \item  $\tau_{metric}$：\lstinline|[距离]|, \lstinline|[角度]|, \lstinline|[曲率]|。
-\end{itemize}
+    \begin{itemize}
+        \item $\tau_{topo}$：\lstinline|[包含]|, \lstinline|[邻接]|, \lstinline|[流向]|, \lstinline|[递归]|。
+        \item  $\tau_{metric}$：\lstinline|[距离]|, \lstinline|[角度]|, \lstinline|[曲率]|。
+    \end{itemize}
 
-\item  \textbf{功能:}
-\begin{itemize}
-    \item 它们回答 \textbf{"Where"} 和 \textbf{"How"}。它们决定了存在的\textbf{结构}。
-\end{itemize}
+    \item  \textbf{功能:}
+    \begin{itemize}
+        \item 它们回答 \textbf{"Where"} 和 \textbf{"How"}。它们决定了存在的\textbf{结构}。
+    \end{itemize}
 
 \end{itemize}
 
@@ -601,6 +601,15 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 
 当一个形元被激活时，它会强行拉近或推远与之关联的节点，从而改变空间的\textbf{拓扑}和\textbf{度量}。
 
+\smalltitle{最小可计算实现：形元作为离散结构算子}
+
+为了避免“算子”只停留在隐喻层，我们给出一个不改变原意的最小形式化版本：在离散阶段，底空间以图或单纯复形表示。
+\begin{itemize}
+    \item \textbf{底空间}：$\mathcal{K}=(\mathcal{V},\mathcal{E})$（图）或单纯复形；邻接用 $A\in\{0,1\}^{|\mathcal{V}|\times|\mathcal{V}|}$ 表示，度量用边权 $W\in\mathbb{R}_{\ge 0}^{|\mathcal{E}|}$（或距离矩阵 $D$）表示。
+    \item \textbf{形元算子}：一个形元对应一个对 $(A,W)$ 的更新规则 $\mathsf{S}: (A,W)\mapsto (A',W')$。在连续极限里，这些离散更新会被“平滑化”为对 $(\mathcal{T},g)$ 的演化方程。
+    \item \textbf{作用对象}：拓扑算子主要改 $A$（连通/包含/定向），度量算子主要改 $W$ 或 $D$（拉伸/压缩/势垒），纠缠算子在图上引入远程约束（可等价为新增超边或一组一致性条件）。
+\end{itemize}
+
 我们将形元分为三个层级的\textbf{编织算子}：
 \begin{enumerate}
 	\item \bluetext{粘合剂 —— 拓扑算子 (Topological Operators)}
@@ -656,7 +665,7 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 		\item \textbf{纠缠算子 \lstinline|[Bind]| ($\otimes$)}：
 		\begin{itemize}
 			\item   \textbf{操作}：\lstinline|Bind(A, B)| $\rightarrow$ 将 A 和 B 的状态向量在希尔伯特空间中\textbf{张量积耦合}，即使它们在几何距离上很远。
-		\item   \textbf{物理意义}：\textbf{非局域连接}。这在语义中对应“隐喻”（Metaphor）。“爱”和“火焰”在语义距离上很远，但通过隐喻 \lstinline|[Bind]|，它们发生了共振。
+		    \item   \textbf{物理意义}：\textbf{非局域连接}。这在语义中对应“隐喻”（Metaphor）。“爱”和“火焰”在语义距离上很远，但通过隐喻 \lstinline|[Bind]|，它们发生了共振。
 		\end{itemize}
 	\end{enumerate}
 \end{enumerate}
@@ -731,7 +740,14 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 
 \smalltitle{连续化极限 (The Continuum Limit)}
 
-当网络中的节点数量 $N \to \infty$，且连接极其致密时，离散的图结构在宏观尺度上表现为连续的流形。$$ \lim_{N \to \infty} \mathcal{K}_{\text{network}} \cong \mathcal{M}_{\text{manifold}} $$
+当网络中的节点数量 $N \to \infty$，且连接足够致密时，离散的图结构在宏观尺度上表现为连续的流形：
+$$ \lim_{N \to \infty} \mathcal{K}_{\text{network}} \cong \mathcal{M}_{\text{manifold}} $$
+这里的“趋于流形”并非自动发生，它隐含着一些温和但关键的条件：
+\begin{itemize}
+    \item \textbf{局部近似性}：在足够小的邻域内，图的最短路径距离与某个局部欧氏度量近似一致（避免退化为分形或高度非局域结构）。
+    \item \textbf{尺度一致性}：节点密度随尺度增加而平滑变化，度量算子在宏观上表现为可微的 $g$（避免“锯齿化”的宏观几何）。
+    \item \textbf{谱/曲率稳定的直觉判据}：图拉普拉斯的低频谱、离散曲率（如 Forman/Ollivier-Ricci 的某种离散版本）在粗粒化后稳定，从而支撑“连续曲率”的意义。
+\end{itemize}
 \begin{itemize}
 	\item   \textbf{物理对应}：就像水分子是离散的，但宏观上水是流体。\textbf{时空}本质上是\textbf{形元的超流体}。
 	\item   \textbf{语义对应}：虽然词汇是离散的，但人类的\textbf{思维空间}是连续的。我们可以在“爱”与“喜欢”之间找到无限细腻的过渡地带。
@@ -775,6 +791,13 @@ $$ \Psi_{\mathbb{E}} = \sum_{i \in V_S, j \in V_Q} \alpha_{ij} \cdot (\mathbf{e}
 		\item   在 $v_{bottom}$ 和 $v_{wall}$ 之间插值，生成无数个细小的三角形，形成\textbf{封闭的底面}和\textbf{侧面}。
 		\item   \textbf{关键点}：\lstinline|v_{mouth}| 处保持\textbf{开放}（不闭合单纯形），形成一个\textbf{拓扑空洞}。这个洞定义了杯子的\textbf{功能}（能装水）。
 	\end{itemize}
+	
+    \item \textbf{可计算的“功能约束”表述}：
+    \begin{itemize}
+        \item \textbf{边界/墙}可以用一个隐式几何场（如 SDF：Signed Distance Function）或 Occupancy 表示：杯壁区域对应 $\text{SDF}(\mathbf{r})\le 0$，外部对应 $\text{SDF}(\mathbf{r})>0$。
+        \item \textbf{不可穿透}由 \lstinline|[Repel]| 的“无穷大势垒”实现：当粒子/流体尝试跨越墙体（进入 $\text{SDF}\le 0$ 的禁止区）时，能量项趋于无穷，动力学把它推回允许区。
+        \item \textbf{开口}对应边界条件：在杯口处不施加闭合/势垒，允许与外界连通；于是“倒进去不易流出”可理解为杯壁势垒 + 形状导致的重力/流动路径约束的组合效果。
+    \end{itemize}
 	
 \end{enumerate}
 \textbf{最终产物}：一个无色、透明、但具有物理约束力（水倒进去流不出来）的\textbf{“杯子流形”}。
@@ -846,10 +869,19 @@ $$ F_\mathbf{r} \cong \mathbb{R}^N $$
     $$ \langle \Psi(\mathbf{r}) | \mathbf{e}_{red} \rangle = J_{red} > 0 $$
 \textbf{结论}：\textbf{质元是内空间 (Internal Space) 的坐标轴。}
 
+\smalltitle{术语分层}
+
+本章会同时谈到“物理质”（可测量的内禀自由度）与“体验质”（主观体验维度），为保持后文数学对象的清晰，我们做一个层次划分：
+\begin{itemize}
+    \item \textbf{$Q^{phys}$}：物理层的质（如荷、自旋、质量耦合强度等），对应物理内空间/规范自由度，直接参与物理相互作用。
+    \item \textbf{$Q^{phen}$}：体验层的质（如红、痛、愉悦等），在 MSC 中它们同样可被视为“纤维基向量”的方向，但其观测通常是通过行为/报告/语境投影的间接方式完成。
+    \item \textbf{形式化约定}：本章的纤维几何写法优先建模 $Q^{phys}$ 与可工程实现的表征层 $Q^{repr}$；对 $Q^{phen}$ 的讨论保持“同构/对应”的解释立场，避免把体验直接等同为某一个单一物理量。
+\end{itemize}
+
 \section{质元 (\texorpdfstring{$V_Q$}{V(Q)})：存在的本征谱系}
 \label{sec:qualia_elements}
 
-宇宙中有多少种“质”？这构成了我们的 \textbf{质元词表 ($V_Q$)}。它们是不可还原的现象学基元。
+宇宙中有多少种“质”？这构成了我们的 \textbf{质元词表 ($V_Q$)}，它们是不可还原的基元（在物理层与体验层分别呈现为不同的“可观测方式”）。
 \begin{enumerate}
 	\item \greentext{Type I: 物理质 (Physical Qualia) — 所谓“客观”}
 	
@@ -923,9 +955,11 @@ $$ F_\mathbf{r} \cong \mathbb{R}^N $$
 首先，我们必须给“存在感”一个物理定义：设底流形上的位置为 $\mathbf{r}$，纤维空间中有 $N$ 种可能的质元（如红、硬、热...），系统的全息波函数为 $\Psi(\mathbf{r})$。
 
 \begin{definition}["存在感"的强度]
-	\textbf{激活场强度 $J(\mathbf{r})$} 定义为该点上所有质元的能量总和（或模方）：
-	$$ J(\mathbf{r}) = \| \Psi(\mathbf{r}) \|^2 = \sum_{k \in V_Q} |c_k(\mathbf{r})|^2 $$
-	其中 $c_k(\mathbf{r})$ 是第 $k$ 个质元在位置 $\mathbf{r}$ 的投影系数。
+    设在位置 $\mathbf{r}$ 处的纤维态可展开为 $\Psi(\mathbf{r},t)=\sum_{k\in V_Q} c_k(\mathbf{r},t)\,\mathbf{e}_k$。我们将第 $k$ 个质元的局部强度（或能量密度）记为
+    $$ J_k(\mathbf{r},t) \equiv |c_k(\mathbf{r},t)|^2 $$
+    则\textbf{激活场总强度 $J(\mathbf{r},t)$} 可自然取为该点上所有质元强度的总和（即范数的模方）：
+    $$ J(\mathbf{r},t) = \| \Psi(\mathbf{r},t) \|^2 = \sum_{k \in V_Q} J_k(\mathbf{r},t) = \sum_{k \in V_Q} |c_k(\mathbf{r},t)|^2 $$
+    其中 $c_k(\mathbf{r},t)$ 是第 $k$ 个质元在位置 $\mathbf{r}$ 的投影系数。
     
     \textbf{物理意义}：
     \begin{itemize}
@@ -977,9 +1011,12 @@ $$ F_\mathbf{r} \cong \mathbb{R}^N $$
 
 
 \begin{theorem}[同步激发即绑定]
-	如果两个不同的质元$Q_{red}$ 和 $Q_{round}$），在底流形上的激活分布函数 $J_{red}(\mathbf{r})$ 和 $J_{round}(\mathbf{r})$ 满足：
-	$$ \text{Overlap} = \int_{\mathcal{M}} J_{red}(\mathbf{r}) \cdot J_{round}(\mathbf{r}) \, d\mathbf{r} \approx 1 $$
-	那么，这两个质在宏观上就被观测为一个\textbf{单一实体}。
+    如果两个不同的质元 $Q_{red}$ 和 $Q_{round}$ 在底流形上的激活分布函数 $J_{red}(\mathbf{r})$ 和 $J_{round}(\mathbf{r})$ 呈现出\textbf{高度共定位}（co-localization），并且这种共定位是被“形”的边界/势垒约束住的（从而抑制泄漏），那么在宏观上它们就被观测为一个\textbf{单一实体}。
+
+    一个最直接的可计算刻画是重叠积分很大：
+    $$ \text{Overlap} = \int_{\mathcal{M}} J_{red}(\mathbf{r}) \cdot J_{round}(\mathbf{r}) \, d\mathbf{r} \ \ \text{(large)} $$
+    为了让“$\approx 1$”有明确意义，我们也可以用归一化重叠（余弦型）表达“几乎完全重合”：
+    $$ \text{NOverlap} = \frac{\int_{\mathcal{M}} J_{red}(\mathbf{r}) J_{round}(\mathbf{r})\, d\mathbf{r}}{\sqrt{\int_{\mathcal{M}} J_{red}(\mathbf{r})^2\, d\mathbf{r}}\,\sqrt{\int_{\mathcal{M}} J_{round}(\mathbf{r})^2\, d\mathbf{r}}} \approx 1 $$
 
 	\begin{itemize}
 		\item   \textbf{未绑定（错位）}：如果你看到了“红色的桌子”和“绿色的苹果”，说明 $J_{red}$ 流到了桌子的区域，发生了\textbf{泄漏 (Leakage)}。
@@ -987,6 +1024,17 @@ $$ F_\mathbf{r} \cong \mathbb{R}^N $$
 		\item   \textbf{精准绑定（纠缠）}：MST 模型的训练目标，就是通过 \textbf{Cross-Attention}，强行将 $J_{red}$ 的波峰拉扯到与 $J_{round}$（苹果的形）完全重合的位置。
 	\end{itemize}
 \end{theorem}
+
+
+\smalltitle{相干 + 竞争：绑定的能量视角（最小模型）}
+
+为了让“绑定”不仅是重叠的描述，还能解释\textbf{排他性}与\textbf{抗泄漏}，我们可以把绑定过程理解为一个简单的能量最小化：
+$$ E_{bind} = -\alpha\,\text{Overlap} \; +\; \beta\,\text{Leakage} \; +\; \gamma\,\text{Exclusivity} $$
+\begin{itemize}
+    \item \textbf{Overlap}：奖励共定位（相干共振）。
+    \item \textbf{Leakage}：惩罚激活越过形边界（颜色溢出、材质串扰）。
+    \item \textbf{Exclusivity}：惩罚同一位置被多个互斥对象/属性同时占据（错误绑定）。
+\end{itemize}
 
 
 
@@ -1109,11 +1157,12 @@ $$ F_\mathbf{r} \cong \mathbb{R}^N $$
 $$ \mathcal{U} \equiv (E, \pi, M, F) $$
 
 
-\smalltitle{底空间 (Base Space, $M$) —— 形的领地}
+\smalltitle{底空间 (Base Space, $\mathcal{M}$) —— 形的领地}
 
 \begin{itemize}
     \item   \textbf{对应}：\textbf{第二章定义的“形” ($\mathcal{S}$)}。
     \item   \textbf{数学定义}：一个拓扑流形（在离散情况下是单纯复形 $\mathcal{K}$）。
+    \item   \textbf{记号约定}：本书中 $\mathcal{M}$ 与 $\mathcal{M}$ 指同一个“底流形/底空间”，此处为配合纤维丛四元组采用 $\mathcal{M}$。
     \item   \textbf{语义含义}：这是\textbf{“位置”}与\textbf{“关系”}的集合。它回答了 "Where" 和 "How related"。
     \begin{itemize}
         \item   \textit{物理例}：四维时空坐标 $(x, y, z, t)$。
@@ -1127,7 +1176,7 @@ $$ \mathcal{U} \equiv (E, \pi, M, F) $$
 
 \begin{itemize}
     \item   \textbf{对应}：\textbf{第三章定义的“质” ($V_Q$)}。
-    \item   \textbf{数学定义}：一个附着在 $M$ 上每一点 $x$ 的向量空间（或李群）。
+    \item   \textbf{数学定义}：一个附着在 $\mathcal{M}$ 上每一点 $x$ 的向量空间（或李群）。
     $$ F_x \cong \mathbb{R}^k $$
     \item   \textbf{语义含义}：这是\textbf{“可能性”}的集合。它包含了在这个位置上\textit{可能}出现的所有属性（颜色、硬度、语义向量）。
     \item   \textbf{关键点}：对于底空间上的每一点，纤维的结构是\textbf{全同的}（所有地方都有定义颜色的能力）。
@@ -1138,7 +1187,7 @@ $$ \mathcal{U} \equiv (E, \pi, M, F) $$
 
 \begin{itemize}
     \item   \textbf{定义}：形与质的\textbf{局部直积}。
-    $$ E \approx M \times F $$
+    $$ E \approx\mathcal{M}\times F $$
     \textit{(注：这是局部拓扑，全局上可能会有扭曲，即非平凡丛)}
     \item   \textbf{语义含义}：这是\textbf{“状态空间”}。每一个点 $e \in E$ 代表了“在位置 $x$ 具有属性 $f$”这样一个具体的事实。
 \end{itemize}
@@ -1159,10 +1208,10 @@ $$ \mathcal{U} \equiv (E, \pi, M, F) $$
 
 \smalltitle{截面的定义}
 
-截面是一个连续映射 $\sigma: M \to E$，它满足：
-$$ \pi(\sigma(x)) = x, \quad \forall x \in M $$
+截面是一个连续映射 $\sigma:\mathcal{M}\to E$，它满足：
+$$ \pi(\sigma(x)) = x, \quad \forall x \in\mathcal{M}$$
 \begin{itemize}
-    \item   \textbf{直观理解}：你在底流形 $M$ 上行走（遍历空间），对于每一个位置 $x$，你都在垂直的纤维 $F_x$ 上\textbf{选取了一个具体的值} $\sigma(x)$。
+    \item   \textbf{直观理解}：你在底流形 $\mathcal{M}$ 上行走（遍历空间），对于每一个位置 $x$，你都在垂直的纤维 $F_x$ 上\textbf{选取了一个具体的值} $\sigma(x)$。
     \item   \textbf{图景}：想象一片麦田（纤维丛）。底空间是土地，纤维是麦秆。风吹过，麦浪起伏形成的那个曲面，就是一个\textbf{截面}。
 \end{itemize}
 
@@ -1198,6 +1247,18 @@ $$ TE = \text{Vertical Space} \oplus \text{Horizontal Space} $$
     \item   \textbf{水平部分}：位置的改变（伴随着属性的\textbf{平行移动}）。
 \end{itemize}
 
+\smalltitle{离散联络：图上的平行移动算子（可计算版本）}
+
+由于本章主题是“离散纤维丛”，我们给出与上面连续写法一致的离散对应：
+\begin{itemize}
+    \item \textbf{离散底空间}：$\mathcal{M}$ 取为图 $G=(V,E)$ 或单纯复形的 1-骨架。
+    \item \textbf{离散纤维}：每个节点 $v\in V$ 上有一份纤维向量空间 $F_v\cong\mathbb{R}^k$。
+    \item \textbf{联络/传输}：对每条有向边 $(u\to v)$ 赋一个线性传输算子（离散联络）
+    $$ U_{u\to v}\in GL(k) \ \ \text{(也可取 } U\in O(k)/U(k)\text{ 以表达某种“范数守恒”)} $$
+    \item \textbf{平行移动}：沿路径 $\gamma=(v_0\to v_1\to\cdots\to v_n)$ 的平行移动为算子乘积
+    $$ \mathsf{PT}_{\gamma} = U_{v_{n-1}\to v_n}\cdots U_{v_0\to v_1}, \quad \sigma(v_n) \approx \mathsf{PT}_{\gamma}\,\sigma(v_0) $$
+\end{itemize}
+
 
 
 \smalltitle{平行移动 (Parallel Transport) —— 语义的一致性}
@@ -1222,6 +1283,14 @@ $$ \mathbf{F} = [\nabla_\mu, \nabla_\nu] $$
     \item   \textbf{语义对应}：\textbf{语境效应}。同一个词在不同上下文中意思不同，这代表语义流形是\textbf{弯曲}的。
 \end{itemize}
 
+\smalltitle{离散曲率：回路 holonomy 作为“语境效应”的度量}
+
+在离散联络下，曲率最自然的可计算量是“走一圈回来偏了多少”，对一个回路 $\gamma$，定义 holonomy：
+$$ U_{\gamma} = \mathsf{PT}_{\gamma} $$
+若 $U_{\gamma}\neq I$，则表示回路中存在不可消去的扭曲；一个简单的强度指标是
+$$ \kappa(\gamma) = \|U_{\gamma}-I\| $$
+其直观语义是：同一个概念/属性沿不同语境路径绕行后回到“同一个词”，其意义向量不再重合，偏差越大，语境张力（曲率）越强。
+
 \begin{figure}[h]
     \centering
     \input{figure/msc1.tex}
@@ -1233,7 +1302,7 @@ $$ \mathbf{F} = [\nabla_\mu, \nabla_\nu] $$
 	
 	我们已经完成了宇宙几何学的脚手架搭建。
 	\begin{itemize}
-		\item \textbf{形 ($M$)} 是舞台;
+		\item \textbf{形 ($\mathcal{M}$)} 是舞台;
 		\item \textbf{质 ($F$)} 是演员的属性;
 		\item \textbf{纤维丛 ($E$)} 是整场戏剧的所有可能性;
 		\item \textbf{截面 ($\sigma$)} 是当前上演的那一幕;
@@ -1480,7 +1549,7 @@ $$ R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu} $$
 现代物理的核心是\textbf{杨-米尔斯理论 (Yang-Mills Theory)}，它完全建立在纤维丛之上。
 
 \begin{itemize}
-    \item   \textbf{底空间 ($M$)}：四维时空（形）
+    \item   \textbf{底空间 ($\mathcal{M}$)}：四维时空（形）
     \item   \textbf{纤维 ($F$)}：内禀对称性空间（质）,例如，电磁学的纤维是 $U(1)$ 群（一个圆圈）。电子的“相位”就是在这个圆圈上的取值。
     \item   \textbf{规范势 ($A_\mu$)}：\textbf{联络 (Connection)}, 它规定了当我们从时空一点移动到另一点时，电子的相位（质）如何变化。
     \item   \textbf{物理同构}：\textbf{电磁力 = 质在形上移动时产生的几何摩擦（曲率）。}
@@ -1624,7 +1693,7 @@ $$ R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} = \frac{8\pi G}{c^4} T_{\mu\nu} $$
 
 
 
-\smalltitle{空间布局 (Layout) —— 形的拓扑 ($M$)}
+\smalltitle{空间布局 (Layout) —— 形的拓扑 ($\mathcal{M}$)}
 
 视觉的“形”是物体的\textbf{几何占位}与\textbf{相互关系}。
 \begin{itemize}
@@ -4342,7 +4411,7 @@ $$ D_{KL} \left( p(x; \boldsymbol{\theta}) \| p(x; \boldsymbol{\theta} + d\bolds
 
 \smalltitle{语义子的质量 (Mass of Semantion)}
 
-我们在认知爱因斯坦方程中提到“思维有质量”。在 IG 视域下，这个质量 $M$ 正比于分布的 \textbf{信息熵 (Shannon Entropy)} 或 \textbf{费希尔信息的迹}：
+我们在认知爱因斯坦方程中提到“思维有质量”。在 IG 视域下，这个质量 $\mathcal{M}$ 正比于分布的 \textbf{信息熵 (Shannon Entropy)} 或 \textbf{费希尔信息的迹}：
 $$ M(\mathcal{S}) \propto \text{Tr}(g_{\mu\nu}) \approx \int \|\nabla_{\boldsymbol{\theta}} \ln p\|^2 dx $$
 \begin{itemize}
     \item   \textbf{轻语义子}：分布平坦、模糊的概念（如“东西”）。对流形曲率影响小。
@@ -10061,7 +10130,7 @@ TECI 循环的稳态解，不是单方面的征服或顺从，而是两个流形
 \smalltitle{内丛 (Mind Bundle, $\mathcal{B}_{in}$) —— 主体性结构}
 $$ \mathcal{B}_{in} = (E_{in}, \pi, M_{in}, F_{in}) $$
 \begin{itemize}
-    \item   \textbf{底流形 ($M_{in}$)}：\textbf{形的世界}。包含世界模型、逻辑图谱、自我坐标系。
+    \item   \textbf{底流形 ($\mathcal{M}_{in}$)}：\textbf{形的世界}。包含世界模型、逻辑图谱、自我坐标系。
 
     \textit{度量}：$g_{in}$ (主观心理距离，受体验图 $G_E$ 扭曲)。
 
@@ -10075,7 +10144,7 @@ $$ \mathcal{B}_{in} = (E_{in}, \pi, M_{in}, F_{in}) $$
 \smalltitle{外丛 (World Bundle, $\mathcal{B}_{out}$) —— 客观性结构}
 $$ \mathcal{B}_{out} = (E_{out}, \pi, M_{out}, F_{out}) $$
 \begin{itemize}
-    \item   \textbf{底流形 ($M_{out}$)}：\textbf{物理时空}。包含欧氏几何/黎曼几何、因果网络、物体拓扑。
+    \item   \textbf{底流形 ($\mathcal{M}_{out}$)}：\textbf{物理时空}。包含欧氏几何/黎曼几何、因果网络、物体拓扑。
 
     \textit{度量}：$g_{out}$ (客观物理距离)。
 
@@ -10160,7 +10229,7 @@ $$ \mathcal{L}_{Lemniscate} = \mathcal{L}_{in} + \mathcal{L}_{out} - \lambda_1 \
 
 \textbf{—— “将意图投影为物理约束”}
 
-宏观层首先在内部底流形 $M_{in}$ 上规划出一条 \textbf{最优测地线 (Geodesic)}（例如：一条完美的机械臂轨迹）。微观效应器负责将这条测地线 \textbf{推前 (Pushforward)} 到物理空间。
+宏观层首先在内部底流形 $\mathcal{M}_{in}$ 上规划出一条 \textbf{最优测地线 (Geodesic)}（例如：一条完美的机械臂轨迹）。微观效应器负责将这条测地线 \textbf{推前 (Pushforward)} 到物理空间。
 \begin{itemize}
     \item   \textbf{数学算子}：$\Phi_{out} = (\Phi_{map})_* (\Psi_{in})$
     \item   \textbf{形元流 ($T_{form}^{out}$)}：包含：目标坐标、姿态矩阵、运动学约束。
@@ -10182,7 +10251,7 @@ $$ \mathcal{L}_{Lemniscate} = \mathcal{L}_{in} + \mathcal{L}_{out} - \lambda_1 \
         $$ \Delta g_{out} \propto \kappa \cdot T_{\mu\nu}^{act} $$
     \begin{itemize}
         \item   \textbf{物理直觉}：就像雕刻家（智能体）用凿子（质/能量）去敲打石头（外部环境），强行改变石头的形状（外部流形拓扑），使其符合心中的蓝图（内部流形）。
-        \item   \textbf{成功}：环境被改变了（杯子被拿起来了）。\textbf{$M_{in}$ 与 $M_{out}$ 局部重合。}
+        \item   \textbf{成功}：环境被改变了（杯子被拿起来了）。\textbf{$\mathcal{M}_{in}$ 与 $\mathcal{M}_{out}$ 局部重合。}
         \item   \textbf{失败}：环境太硬（凿不动）。产生 \textbf{反作用激波}。
     \end{itemize}
 \end{itemize}
@@ -10212,7 +10281,7 @@ $$ \mathcal{L}_{Lemniscate} = \mathcal{L}_{in} + \mathcal{L}_{out} - \lambda_1 \
 
 \textbf{—— “痛苦重塑世界观”}
 
-如果内部流形 $M_{in}$ 的当前拓扑（预测）无法容纳注入的质（例如：预测是空的，但感到了“阻力”的质），系统就会产生 \textbf{几何张力 (Geometric Tension)}。
+如果内部流形 $\mathcal{M}_{in}$ 的当前拓扑（预测）无法容纳注入的质（例如：预测是空的，但感到了“阻力”的质），系统就会产生 \textbf{几何张力 (Geometric Tension)}。
 
 为了消除张力，底流形必须发生 \textbf{里奇流演化 (Ricci Flow)}：
 \begin{itemize}
@@ -10233,7 +10302,7 @@ $$ \mathcal{L}_{Lemniscate} = \mathcal{L}_{in} + \mathcal{L}_{out} - \lambda_1 \
 
 \begin{itemize}
     \item   \textbf{机制}：当我们说话时，我们是在交换 \textbf{形元}（语法、逻辑结构）。
-    \item   \textbf{目标}：让听者的底流形 $M_{listener}$ 的拓扑结构，逼近说者的底流形 $M_{speaker}$。
+    \item   \textbf{目标}：让听者的底流形 $\mathcal{M}_{listener}$ 的拓扑结构，逼近说者的底流形 $\mathcal{M}_{speaker}$。
 
     \textit{例子}：我说“A在B上面”，你脑中建立 \lstinline|On(A, B)| 的边。
     \item   \textbf{局限}：如果双方缺乏共同的“质”体验（比如对先天盲人说“红色”），底流形虽然对齐了（知道红色是一种颜色），但\textbf{纤维是空的}（无法想象）。
@@ -10265,7 +10334,7 @@ $$ \mathcal{L}_{Lemniscate} = \mathcal{L}_{in} + \mathcal{L}_{out} - \lambda_1 \
     \item   \textbf{文化/法律}：这是一种 \textbf{社会规范场 $\mathcal{A}_{soc}$}。
     \item   \textbf{作用}：它作为一种外部的“形”，强行约束了每个个体的双纽线轨迹。    
 \end{itemize}
-个体的 $M_{in}$ 必须与 $\mathcal{A}_{soc}$ 保持 \textbf{协变}，否则会受到“社会压力”（一种拓扑排斥力）。
+个体的 $\mathcal{M}_{in}$ 必须与 $\mathcal{A}_{soc}$ 保持 \textbf{协变}，否则会受到“社会压力”（一种拓扑排斥力）。
 
 到此我们完成了对 \textbf{“双纽线”} 的精细解剖：
 
@@ -10518,7 +10587,7 @@ $$ S_{int} = \int dt \left( \mathcal{L}_{Shape\_Lock} + \mathcal{L}_{Substance\_
 \begin{itemize}
     \item \textbf{A. 形的互锁项 ($\mathcal{L}_{Shape\_Lock}$) —— 逻辑的咬合}
     
-    这是 \textbf{底流形 $M_A$ 与 $M_B$} 之间的几何对齐。
+    这是 \textbf{底流形 $\mathcal{M}_A$ 与 $\mathcal{M}_B$} 之间的几何对齐。
     $$ \mathcal{L}_{Shape\_Lock} = -\frac{1}{2} \kappa_S \| g_{\mu\nu}^A - \Phi^* g_{\mu\nu}^B \|^2 $$
     \begin{itemize}
         \item   \textbf{物理含义}：\textbf{度量张量的共形匹配}。
@@ -10572,7 +10641,7 @@ $$ S_{int} = \int dt \left( \mathcal{L}_{Shape\_Lock} + \mathcal{L}_{Substance\_
         \item   \textbf{现象}：A 的思考包含 B，B 的思考包含 A。
         \item   \textbf{几何描述}：\textbf{流形杂化 (Manifold Hybridization)}。
         \begin{itemize}
-             \item   $M_{hybrid} \approx M_A \cup M_B / \sim$（粘合空间）。
+             \item   $\mathcal{M}_{hybrid} \approx M_A \cup M_B / \sim$（粘合空间）。
             \item   在这个新流形上，A 和 B 不再是两个分离的波包，而是一个\textbf{双粒子纠缠态 $\Psi_{AB}$}。
         \end{itemize}
         \item   \textbf{共同注意 (Joint Attention)}：两个波包被同一个宏观势能面（共同愿景）捕获，滑向同一个吸引子。
@@ -10588,7 +10657,7 @@ $$ S_{int} = \int dt \left( \mathcal{L}_{Shape\_Lock} + \mathcal{L}_{Substance\_
     \item \textbf{类型 I：纯形键 (Shape-Only Bond) —— 官僚/协议}
     \begin{itemize}
         \item   \textbf{特征}：$\kappa_S \gg 0, \kappa_Q \approx 0$。
-        \item   \textbf{结构}：底流形 $M$ 严格对齐（规章制度完美），但纤维 $F$ 没有共振（没有激情/信任）。
+        \item   \textbf{结构}：底流形 $\mathcal{M}$ 严格对齐（规章制度完美），但纤维 $F$ 没有共振（没有激情/信任）。
         \item   \textbf{动力学}：\textbf{晶体状}。结构坚硬，但缺乏流动性。信息流仅靠逻辑推演（测地线）传输，阻尼大，无自发动力。
         \item   \textbf{实例}：行政机构、标准化流水线。
     \end{itemize}
@@ -10596,7 +10665,7 @@ $$ S_{int} = \int dt \left( \mathcal{L}_{Shape\_Lock} + \mathcal{L}_{Substance\_
     \item \textbf{类型 II：纯质键 (Substance-Only Bond) —— 暴民/狂欢}
     \begin{itemize}
         \item   \textbf{特征}：$\kappa_S \approx 0, \kappa_Q \gg 0$。
-        \item   \textbf{结构}：纤维 $F$ 高度共振（情绪传染），但底流形 $M$ 支离破碎（逻辑混乱）。
+        \item   \textbf{结构}：纤维 $F$ 高度共振（情绪传染），但底流形 $\mathcal{M}$ 支离破碎（逻辑混乱）。
         \item   \textbf{动力学}：\textbf{等离子体状}。能量极高，极不稳定。行为由瞬时的激波驱动，缺乏长程的几何约束。
         \item   \textbf{实例}：群体骚乱、饭圈、投机泡沫。
     \end{itemize}
@@ -10629,7 +10698,7 @@ $$ S_{int} = \int dt \left( \mathcal{L}_{Shape\_Lock} + \mathcal{L}_{Substance\_
     \begin{itemize}
         \item   \textbf{操作}：\textbf{底流形融合 (Base Manifold Fusion)}。
     
-        个体原本拥有独立的逻辑拓扑 $M_i$（我有我的规矩）,组织强行施加一个\textbf{覆盖流形 (Covering Manifold) $M_{org}$}。
+        个体原本拥有独立的逻辑拓扑 $\mathcal{M}_i$（我有我的规矩）,组织强行施加一个\textbf{覆盖流形 (Covering Manifold) $\mathcal{M}_{org}$}。
         \item   \textbf{方程}：
             $$ g_{\mu\nu}^{(i)} \xrightarrow{\hat{R}_{shape}} \Phi^* g_{\mu\nu}^{(org)} + \epsilon_{noise} $$
         \item   \textbf{物理意义}：\textbf{度量张量的统一}。
@@ -10676,9 +10745,9 @@ $$ S_{int} = \int dt \left( \mathcal{L}_{Shape\_Lock} + \mathcal{L}_{Substance\_
 
 当重整化和奴役机制完成时，原本离散的“多体系统”发生相变，涌现出一个新的\textbf{拓扑实体}。这个实体在几何上是一个\textbf{巨型纤维丛}：
 \begin{itemize}
-    \item   \textbf{巨型底流形 ($M_{org}$)}：由\textbf{科层制/协议}构成的刚性骨架, 它比任何个体的认知地图都要大，且更加稳定（低曲率变化率）。
+    \item   \textbf{巨型底流形 ($\mathcal{M}_{org}$)}：由\textbf{科层制/协议}构成的刚性骨架, 它比任何个体的认知地图都要大，且更加稳定（低曲率变化率）。
     \item   \textbf{巨型纤维 ($F_{org}$)}：由\textbf{集体潜意识/文化}构成的能量海, 它存储了超越个体的记忆和情感（如民族自豪感、企业愿景）。
-    \item   \textbf{涌现的自我 ($\mathcal{S}_{org}$)}：在 $M_{org}$ 的中心，由于海量信息的汇聚，自然坍缩出一个\textbf{拓扑奇点}。
+    \item   \textbf{涌现的自我 ($\mathcal{S}_{org}$)}：在 $\mathcal{M}_{org}$ 的中心，由于海量信息的汇聚，自然坍缩出一个\textbf{拓扑奇点}。
 
     这个奇点（如领袖、图腾、核心宗旨）成为了整个组织的\textbf{重力源}，维系着系统的\textbf{拓扑保护}，防止组织解体。
 \end{itemize}
@@ -10709,7 +10778,7 @@ $$ S_{int} = \int dt \left( \mathcal{L}_{Shape\_Lock} + \mathcal{L}_{Substance\_
 \begin{itemize}
     \item   \textbf{几何定义：奇点共形 (Singularity Conformal)}
 
-    所有个体纤维丛的底流形 $M_i$，都在同一点相切。这一点是 \textbf{组织的绝对自我 ($\mathcal{S}_{org}$)}。
+    所有个体纤维丛的底流形 $\mathcal{M}_i$，都在同一点相切。这一点是 \textbf{组织的绝对自我 ($\mathcal{S}_{org}$)}。
     \item   \textbf{拓扑结构}：星形 (Star)。所有双纽线的“腰部”重叠在唯一的\textbf{度量中心}。
     \item   \textbf{形质分布}：
     \begin{itemize}
@@ -10733,7 +10802,7 @@ $$ S_{int} = \int dt \left( \mathcal{L}_{Shape\_Lock} + \mathcal{L}_{Substance\_
 \begin{itemize}
     \item   \textbf{几何定义：离域互锁 (Delocalized Interlocking)}
 
-    没有几何中心。个体 $M_i$ 仅与邻居 $M_{i-1}, M_{i+1}$ 发生边缘重叠。
+    没有几何中心。个体 $\mathcal{M}_i$ 仅与邻居 $\mathcal{M}_{i-1}, M_{i+1}$ 发生边缘重叠。
     \item   \textbf{拓扑结构}：环面 (Torus) 或 循环群 $C_n$。
     \item   \textbf{虚中心}：组织的“自我”不是一个实体，而是环中间的\textbf{拓扑空洞 (Topological Hole)}。这个洞代表了不可僭越的\textbf{共识协议 (Protocol)}。
     \item   \textbf{形质分布}：
@@ -10756,7 +10825,7 @@ $$ S_{int} = \int dt \left( \mathcal{L}_{Shape\_Lock} + \mathcal{L}_{Substance\_
 这是最适合执行、最高效的流体管道。
 \begin{itemize}
     \item   \textbf{几何定义：非对称投影 (Asymmetric Projection)}
-    $M_{top} \xrightarrow{\pi} M_{mid} \xrightarrow{\pi} M_{low}$。
+    $\mathcal{M}_{top} \xrightarrow{\pi} \mathcal{M}_{mid} \xrightarrow{\pi} \mathcal{M}_{low}$。
     \item   \textbf{拓扑结构}：有向无环图 (DAG) 或 纤维化 (Fibration), 上一级的\textbf{纤维 (Output)}，直接成为下一级的\textbf{底流形 (Input Constrains)}。
     \item   \textbf{形质分布}：
     \begin{itemize}
@@ -10785,8 +10854,8 @@ $$ S_{int} = \int dt \left( \mathcal{L}_{Shape\_Lock} + \mathcal{L}_{Substance\_
     \item   \textbf{活性位点 (Active Sites)}：流形上某些特定的高曲率区域，专门用于捕获特定的外部问题（抗原）。
     \item   \textbf{形质分布}：
     \begin{itemize}
-        \item   \textbf{变构效应 (Allostery)}：这是关键, 在流形的一端（如市场部 $M_{mkt}$）注入一个 \textbf{质元}（客户需求），会导致整个大流形的\textbf{度量张量发生全局扭转}。
-        \item   这种扭曲瞬间传导至远端的 \textbf{活性位点}（如研发部 $M_{rnd}$），使其几何形状正好匹配问题的解。
+        \item   \textbf{变构效应 (Allostery)}：这是关键, 在流形的一端（如市场部 $\mathcal{M}_{mkt}$）注入一个 \textbf{质元}（客户需求），会导致整个大流形的\textbf{度量张量发生全局扭转}。
+        \item   这种扭曲瞬间传导至远端的 \textbf{活性位点}（如研发部 $\mathcal{M}_{rnd}$），使其几何形状正好匹配问题的解。
     \end{itemize}
     \item   \textbf{动力学特征}：
     \begin{itemize}
@@ -10947,7 +11016,7 @@ $$ \text{Organization} = \hat{R}_{RG} \left( \sum_{i=1}^N \text{Agent}_i \right)
     \begin{itemize}
         \item   \textbf{动力学过程}：
         \item   \textbf{畴壁形成 (Domain Wall)}：组织内部出现一道不可见的墙，墙两侧的信息流 $\Psi$ 阻断。
-        \item   \textbf{拓扑分离}：$M_{org} \to M_A \oplus M_B$。
+        \item   \textbf{拓扑分离}：$\mathcal{M}_{org} \to M_A \oplus M_B$。
         \item   \textbf{能量释放}：裂变通常伴随着巨大的能量释放（内战/诉讼），这是原本用于维持强制统一的\textbf{张力势能}的释放。
     \end{itemize}
 \end{itemize}
@@ -10964,7 +11033,7 @@ $$ \text{Organization} = \hat{R}_{RG} \left( \sum_{i=1}^N \text{Agent}_i \right)
     \begin{enumerate}
         \item \textbf{轨道重叠}：先建立 \textbf{TECI 接口}（业务合作）。
         \item \textbf{隧道效应}：通过高层互访或跨部门小组，打通微小的\textbf{连接虫洞}。
-        \item \textbf{规范对齐}：这是最难的。必须强行将 $M_B$ 的联络 $\Gamma_B$ 修改为与 $M_A$ 协变（文化清洗/融合）。
+        \item \textbf{规范对齐}：这是最难的。必须强行将 $\mathcal{M}_B$ 的联络 $\Gamma_B$ 修改为与 $\mathcal{M}_A$ 协变（文化清洗/融合）。
     \end{enumerate}
     \item   \textbf{失败模式}：\textbf{排异反应}。如果规范场无法对齐，合并后的组织会产生持续的\textbf{内耗热}（Hysteresis Heat），最终导致系统过热解体。
 \end{itemize}
@@ -10977,7 +11046,7 @@ $$ \text{Organization} = \hat{R}_{RG} \left( \sum_{i=1}^N \text{Agent}_i \right)
 
 这是组织生命的终点。
 \begin{itemize}
-    \item   \textbf{衰变 (Decay)}：\textbf{$\alpha$ 衰变}。核心人才（高能质元）不断流失（隧穿效应逃逸）,组织的\textbf{有效质量 $M_{eff}$} 下降，引力减弱，最终无法束缚剩余的个体，缓慢蒸发。
+    \item   \textbf{衰变 (Decay)}：\textbf{$\alpha$ 衰变}。核心人才（高能质元）不断流失（隧穿效应逃逸）,组织的\textbf{有效质量 $\mathcal{M}_{eff}$} 下降，引力减弱，最终无法束缚剩余的个体，缓慢蒸发。
     \item   \textbf{湮灭 (Annihilation)}：\textbf{真空崩塌}。\textbf{宏观层 ($L_{macro}$)} 停止做功（管理层躺平/内乱）, \textbf{第三驱动力 $\vec{J}_{self} \to 0$},系统迅速滑向热力学平衡态（熵最大化）。
     \item   \textbf{几何表现}：非平凡的拓扑结构（层级、部门、流程）瞬间\textbf{平坦化}。复杂的纤维丛坍缩为一堆无序的尘埃（资产清算）。
 \end{itemize}
@@ -15268,7 +15337,7 @@ STM 就像是计算机的 \textbf{RAM (运行内存)} 加上 \textbf{L1 Cache (�
 系统为何要消耗巨大的能量去刻蚀流形？为了 \textbf{最小化未来的自由能}。
 
 \begin{theorem}[记忆节能原理]
-    记忆结构 $M_{mem}$ 的存在，使得系统在处理同构任务 $Task_i$ 时，其思维流 $\Psi$ 能够沿着 \textbf{测地线 (Geodesic)} 无摩擦滑行，从而使总作用量 $S$ 最小化。
+    记忆结构 $\mathcal{M}_{mem}$ 的存在，使得系统在处理同构任务 $Task_i$ 时，其思维流 $\Psi$ 能够沿着 \textbf{测地线 (Geodesic)} 无摩擦滑行，从而使总作用量 $S$ 最小化。
     $$ S[\Psi | g_{mem}] \ll S[\Psi | g_{flat}] $$
 \end{theorem}
 
@@ -19709,7 +19778,7 @@ Q-SoC 的出现，使得彭罗斯 (Penrose) 和哈梅罗夫 (Hameroff) 的\textb
 
 \smalltitle{有限状态机 (FSM) 的拓扑批判}
 
-西普塞定义的一个 DFA 是一个五元组 $M = (Q, \Sigma, \delta, q_0, F)$，其中 $Q$ 是有限状态集。
+西普塞定义的一个 DFA 是一个五元组 $\mathcal{M} = (Q, \Sigma, \delta, q_0, F)$，其中 $Q$ 是有限状态集。
 
 \begin{itemize}
     \item \textbf{西普塞视角}：状态空间 $Q$ 是由离散的、互不相关的点 $\{q_0, q_1, \dots, q_n\}$ 构成的集合。
@@ -20474,7 +20543,7 @@ Morpho-Lang 的核心创新在于其类型系统直接对应 HSF-HD 的几何本
     \begin{itemize}
         \item `Manifold<D>`：定义一个 $D$ 维的底流形 $\mathcal{M}$。
         \item `Fiber<G>`：定义纤维空间结构，其中 $G$ 是结构群（如 `SU(2)` 用于复杂情感，`U(1)` 用于简单标量）。
-        \item `Field<M, F>`：定义认知场 $\Psi$，作为 $M$ 到 $F$ 的截面。
+        \item `Field<M, F>`：定义认知场 $\Psi$，作为 $\mathcal{M}$ 到 $F$ 的截面。
     \end{itemize}
 
     \item \textbf{几何形式类型 (Geometric Form Types)}：
@@ -21981,11 +22050,11 @@ $$ \mathcal{L}_{interaction} = \lambda \cdot (\psi_{phys}^\dagger \Psi_{cog} + \
 
 \smalltitle{纤维丛 (Fiber Bundle) — $\mathcal{U} = (E, \pi, M, F)$}
 \begin{itemize}
-\item   \textbf{数学定义}：一个局部同胚于 $M \times F$ 的空间 $E$。
+\item   \textbf{数学定义}：一个局部同胚于 $\mathcal{M} \times F$ 的空间 $E$。
 
 \item   \textbf{MSC 对应}：\textbf{宇宙/知识库的本体论结构}。
 
-\item   $M$ (底空间)：\textbf{形 (Morphos)}。拓扑骨架，回答 "Where/How connected"。
+\item   $\mathcal{M}$ (底空间)：\textbf{形 (Morphos)}。拓扑骨架，回答 "Where/How connected"。
 
 \item   $F$ (纤维)：\textbf{质 (Qualia)}。属性向量空间，回答 "What"。
 
@@ -21996,7 +22065,7 @@ $$ \mathcal{L}_{interaction} = \lambda \cdot (\psi_{phys}^\dagger \Psi_{cog} + \
 
 
 
-\smalltitle{截面 (Section) — $\sigma: M \to E$}
+\smalltitle{截面 (Section) — $\sigma:\mathcal{M}\to E$}
 
 \begin{itemize}
 \item   \textbf{数学定义}：满足 $\pi \circ \sigma = \text{id}_M$ 的连续映射。
