@@ -18537,7 +18537,50 @@ $$ \mathcal{S}_{neural} = \underbrace{\text{Cell Assembly}_{Cortex}}_{\text{质 
 \subsection{全脑尺度的 TDCI 循环：从光子到动作}
 \label{subsec:brain_tdci_cycle}
 
-将上述所有组件串联，我们可以描绘出人脑处理单一认知任务（如“看到红灯踩刹车”）时的完整 \textbf{热力学循环}。这是一个从物理世界吸取负熵，并在精神世界做功，最后回归物理世界的闭环。
+\smalltitle{连续性与分化：神经流形的动力学协同 (Continuity \& Differentiation)}
+
+尽管在解剖学上，从微观感官皮层 ($L_{micro}$) 到宏观前额叶 ($L_{macro}$) 的皮层组织呈现为连续的、均质的神经网络，但在 HSF-HD 的 \textbf{拓扑场论} 视域下，它们构成了 \textbf{纤维丛结构} 中性质迥异的动力学区域。这种“解剖上的连续”与“拓扑上的分层”通过以下机制实现协同：
+
+\begin{enumerate}
+    \item \textbf{物理连续性：重整化群流与白质耦合}
+    
+    三者通过 \textbf{白质纤维束 (White Matter Tracts)} 紧密耦合，形成了一个跨尺度的 \textbf{重整化群流 (Renormalization Group Flow)}。信息在流动中逐级被粗粒化：
+    \begin{itemize}
+        \item   \textbf{上行 (Feedforward)}：微观层的激波 $\vec{J}_{ext}$ 沿轴突向上传递，从处理“像素”（点）到“概念”（面），最终在宏观层坍缩为“规则”（体）。
+        \item   \textbf{下行 (Feedback)}：宏观层的规范场 $\mathcal{A}_\mu$ 沿反向通路投射，意志作为偏置电压，改变了流形主体的联想路径，并指导微观层的眼球运动。
+    \end{itemize}
+
+    \item \textbf{功能分化：支配方程的物理本质差异}
+    
+    尽管材质相同，但不同区域的神经柱遵循截然不同的 \textbf{偏微分方程 (PDE)}，定义了它们在智能动力学中的角色：
+
+    \begin{itemize}
+        \item   \textbf{微观层 ($L_{micro}$ / V1, M1) —— 边界与强迫振动}
+        \begin{itemize}
+            \item   \textbf{方程}：$\ddot{x} + \gamma \dot{x} + kx = F_{external}(t)$
+            \item   \textbf{特征}：\textbf{被动性}。作为流形的狄利克雷边界，其活动严格锁相于外部物理刺激。它是高频、瞬态的激波发生器。
+        \end{itemize}
+
+        \item   \textbf{流形主体 ($\mathcal{M}$ / 颞顶联合区) —— 介质与惯性波动}
+        \begin{itemize}
+            \item   \textbf{方程}：$\frac{\partial \Psi}{\partial t} = D \nabla^2 \Psi + \dots$ (波动/扩散方程)
+            \item   \textbf{特征}：\textbf{惯性}。思维波在此进行模式补全和联想滑行。它是承载知识权重 ($g_{\mu\nu}$) 的“路”与“车”。
+        \end{itemize}
+
+        \item   \textbf{宏观层 ($L_{macro}$ / PFC) —— 奇点与变分控制}
+        \begin{itemize}
+            \item   \textbf{方程}：$\delta S = 0 \implies \text{Inject } \mathbf{\Gamma}_{will}$ (控制方程)
+            \item   \textbf{特征}：\textbf{主动性}。它处于层级顶端，能够维持长达数秒的稳态放电（工作记忆）。它是消耗负熵、逆转几何惯性的\textbf{算子}。
+        \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\textbf{结论：}
+人脑的统一性建立在 \textbf{“物理连接的连续性”} 之上，而智能的复杂性建立在 \textbf{“动力学方程的分化”} 之上。微观层是\textbf{受现实奴役的边界}，流形是\textbf{承载知识的介质}，宏观层是\textbf{施加意志的奇点}。
+
+
+
+最后我们将上述所有组件串联，我们可以描绘出人脑处理单一认知任务（如“看到红灯踩刹车”）时的完整 \textbf{热力学循环}。这是一个从物理世界吸取负熵，并在精神世界做功，最后回归物理世界的闭环。
 
 \smalltitle{相位 I：激发 (Sensation / Excitation) —— [粒子 $\to$ 波]}
 
