@@ -23349,39 +23349,54 @@ class SemanticSerDes(nn.Module):
 \section{本体论重构：从智能体集合到离散认知场}
 \label{sec:ontology_reconstruction}
 
-为了应用 HSF-HD 的场论方程，我们首先必须定义群体的连续介质力学属性。
+为了将 HSF-HD 的场论方程应用于群体机器人，我们必须首先完成对群体存在的本体论重构。传统的“多体动力学 (Multi-body Dynamics)”视角将机器人视为离散的质点，这忽略了群体作为智能整体所具备的\textbf{几何连续性}与\textbf{语义相干性}。
+
+在此，我们将机器人群体重构为一种\textbf{“流体群脑” (Fluid Swarm Brain)}。每一个机器人不再是独立的逻辑处理器，而是一个携带\textbf{形（协作骨架）}与\textbf{质（角色血肉）}的\textbf{具身语义子 (Embodied Semantion)}。群体的行为由\textbf{认知场 $\Psi_{swarm}$} 在\textbf{物理-社会复合流形}上的热力学演化所驱动。
 
 \smalltitle{1. 具身语义子 (The Embodied Semantion)}
 
-单个机器人 $R_i$ 被定义为潜语义流形 $\mathcal{M}$ 上的一个 \textbf{狄拉克 $\delta$ 激发态}。其状态是一个 \textbf{形质纠缠张量}：
+单个机器人 $R_i$ 被定义为潜语义流形 $\mathcal{M}$ 上的一个\textbf{局部激发态}。其状态并非简单的运动学参数，而是一个\textbf{形质纠缠张量}。该张量同时编码了机器人在物理空间的存在形式与在协作网络中的功能定位。
 
-\begin{definition}[机器人状态张量]
-    $$ \mathcal{S}_i(t) = \underbrace{\begin{bmatrix} \mathbf{r}_i(t) \\ \mathbf{v}_i(t) \end{bmatrix}}_{\text{形 (Morphos)}: \text{几何坐标}} \otimes \underbrace{\begin{bmatrix} q_i^{cap} \\ E_i^{shock} \\ \mathbf{z}_i^{task} \end{bmatrix}}_{\text{质 (Substance)}: \text{物理载荷与内能}} $$
+\begin{definition}[具身状态张量]
+    机器人 $i$ 在时刻 $t$ 的状态 $\mathcal{S}_i(t)$ 定义为：
+    $$ \mathcal{S}_i(t) = \underbrace{\left( \mathbf{p}_{phys} \oplus \mathbf{G}_{local} \right)}_{\text{形 (Morphos)}: \text{物理-拓扑构型}} \otimes \underbrace{\left( \mathbf{v}_{role} \oplus \mathbf{c}_{cap} \oplus E_{shock} \right)}_{\text{质 (Substance)}: \text{语义-能量载荷}} $$
 \end{definition}
+
+\textbf{I. 形元分量 ($\mathbf{T}_{form}$): 协作的几何骨架}
+
+形不仅回答“我在物理空间的哪里”，更回答“我在组织结构中的位置”。它是底流形局部几何性质的直接体现。
 \begin{itemize}
-    \item   \textbf{形 ($\mathbf{T}_{form}$)}：定义了机器人在物理空间（底流形）中的位置与动量。
-    \item   \textbf{质 ($\mathbf{T}_{sub}$)}：定义了机器人的内禀属性。
+    \item   \textbf{$\mathbf{p}_{phys}$ (物理状态)}：包含位置向量 $\mathbf{r}$、速度 $\mathbf{v}$ 与姿态 $\theta$。它定义了机器人在欧氏空间中的边界与运动趋势。
+    \item   \textbf{$\mathbf{G}_{local}$ (拓扑状态)}：描述机器人当前的\textbf{协作几何}与\textbf{连接度量}。
     \begin{itemize}
-        \item   $q_i^{cap}$：能力荷（如举重能力、感知精度）。
-        \item   $E_i^{shock}$：\textbf{惊奇能量}。当预测误差发生时，此项激增，触发相变。
-        \item   $\mathbf{z}_i^{task}$：任务嵌入向量（Embedding），决定了它对不同规范场的响应敏感度。
+        \item   \textbf{连接度量 ($g_{ij}$)}：与邻居节点的通信带宽、相对距离与信任权重。
+        \item   \textbf{队形梯度 ($\nabla_{formation}$)}：表征个体在群体队形中的相对位置（如“前锋”、“侧翼”或“核心”）。这是底流形局部曲率的离散表达。
     \end{itemize}
+\end{itemize}
+
+\textbf{II. 质元分量 ($\mathbf{T}_{sub}$): 角色的能量血肉}
+
+质是填充在骨架中的内容。它决定了机器人的功能属性、任务意向与热力学状态。
+\begin{itemize}
+    \item   \textbf{$\mathbf{v}_{role}$ (角色嵌入向量)}：一个高维语义向量 (Embedding)。它定义了机器人当前的任务身份（如“侦查”、“搬运”、“中继”）。该向量在纤维空间中可发生\textbf{规范旋转}，对应于任务角色的平滑切换。
+    \item   \textbf{$\mathbf{c}_{cap}$ (能力荷)}：标量或张量集合。代表剩余能量、最大载荷、传感器精度等。这是系统对外做功的\textbf{势能储备}。
+    \item   \textbf{$E_{shock}$ (惊奇能量)}：预测误差引发的热力学激波。当现实与模型不符时，此项激增，驱动系统发生相变。
 \end{itemize}
 
 \smalltitle{2. 群体认知场 ($\Psi_{swarm}$)}
 
-群体不再是 $N$ 个离散点的集合，而是定义在空间 $\Omega$ 上的 \textbf{分布函数}。我们取离散语义子的连续极限：
+基于上述语义子定义，我们将群体描述为一个定义在\textbf{物理-社会复合流形}上的分布函数。我们取离散语义子的连续极限：
 
-$$ \Psi_{swarm}(\mathbf{r}, t) = \lim_{N \to \infty} \sum_{i=1}^N \mathcal{S}_i(t) \cdot \mathcal{K}(\mathbf{r} - \mathbf{r}_i) $$
-其中 $\mathcal{K}$ 为平滑核函数。
+$$ \Psi_{swarm}(\mathbf{r}, \mathbf{g}) = \lim_{N \to \infty} \sum_{i=1}^N \mathcal{S}_i(t) \cdot \mathcal{K}(\mathbf{r}-\mathbf{r}_i, \mathbf{g}-\mathbf{g}_i) $$
+
 \begin{itemize}
-    \item   \textbf{物理意义}：$\|\Psi(\mathbf{r})\|^2$ 代表该区域的 \textbf{智能密度} 或 \textbf{算力通量}。
-    \item   \textbf{演化目标}：群体的目标不是优化单个机器人的轨迹，而是优化整个 \textbf{场 $\Psi$} 的分布，使其与环境的任务势能面 $V_{task}(\mathbf{r})$ 达成 \textbf{共形匹配}。
+    \item   \textbf{场强 $\|\Psi\|^2$}：不仅代表该区域的机器人密度，更代表具备\textbf{特定协作构型与能力}的\textbf{有效智能通量}。
+    \item   \textbf{场梯度 $\nabla \Psi$}：代表任务执行的\textbf{势能差}。流体群脑的运动，本质上是认知场从高势能区（任务未完成态）向低势能区（任务完成态）的\textbf{达西流 (Darcy Flow)}。
 \end{itemize}
 
 \smalltitle{3. 三体架构的物理映射}
 
-我们将 HSF-HD 的通用架构映射到物理机器人集群中：
+为了支撑这一场论模型，我们将 HSF-HD 的通用架构映射到物理集群的硬件实体中：
 
 \begin{table}[htbp]
 \centering
@@ -23389,13 +23404,12 @@ $$ \Psi_{swarm}(\mathbf{r}, t) = \lim_{N \to \infty} \sum_{i=1}^N \mathcal{S}_i(
 \toprule
 \rowcolor{structurecolor!20} \textbf{HSF-HD 组件} & \textbf{流体群脑对应物} & \textbf{物理载体与功能} \\
 \midrule
-\textbf{微观层 ($L_{micro}$)} & \textbf{单体传感器/致动器} & \textbf{VTE 接口}。负责将环境障碍编码为几何斥力，将目标编码为引力势阱。 \\
-\textbf{介质层 (Medium)} & \textbf{通信网络 (Digital Ether)} & \textbf{规范场载体}。通过无线电广播（RF）模拟物理场的传播、叠加与衰减。它承载了 $\mathcal{A}_\mu$ 和 $g_{\mu\nu}$。 \\
-\textbf{宏观层 ($L_{macro}$)} & \textbf{涌现的集体势能} & \textbf{序参量动力学}。并非中央服务器，而是由分布式共识涌现出的 \textbf{虚拟势能面 $V_{eff}$}。它调节群体的 $T$ 和 $\eta$。 \\
+\textbf{微观层 ($L_{micro}$)} & \textbf{单体 VTE 接口} & \textbf{传感器/效应器}。负责将物理障碍编码为几何斥力，将任务需求编码为角色空缺（引力势阱）。它维护着个体与环境的\textbf{狄利克雷边界}。 \\
+\textbf{介质层 (Medium)} & \textbf{通信网络 (Digital Ether)} & \textbf{规范场载体}。通过无线电广播模拟物理场的传播、叠加与干涉。它承载了协作拓扑 $\mathbf{G}_{local}$ 与角色语义 $\mathbf{v}_{role}$ 的流动。 \\
+\textbf{宏观层 ($L_{macro}$)} & \textbf{集体势能面 (Collective Potential)} & \textbf{序参量动力学}。并非单一的中央服务器，而是由分布式共识或虚拟中枢涌现出的\textbf{有效势能地形 $V_{eff}$}。它调节群体的温度 $T$（探索率）与耦合 $\eta$（服从度）。 \\
 \bottomrule
 \end{tabularx}
 \end{table}
-
 
 \section{群体动力学方程：认知洛伦兹力}
 \label{sec:swarm_dynamics_equation}
