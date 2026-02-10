@@ -23381,7 +23381,7 @@ class SemanticSerDes(nn.Module):
 \begin{itemize}
     \item   \textbf{$\mathbf{v}_{role}$ (角色嵌入向量)}：一个高维语义向量 (Embedding)。它定义了机器人当前的任务身份（如“侦查”、“搬运”、“中继”）。该向量在纤维空间中可发生\textbf{规范旋转}，对应于任务角色的平滑切换。
     \item   \textbf{$\mathbf{c}_{cap}$ (能力荷)}：标量或张量集合。代表剩余能量、最大载荷、传感器精度等。这是系统对外做功的\textbf{势能储备}。
-    \item   \textbf{$E_{shock}$ (惊奇能量)}：预测误差引发的热力学激波。当现实与模型不符时，此项激增，驱动系统发生相变。
+    \item   \textbf{$E_{shock}$ (任务惊奇能量)}：预测误差引发的热力学激波。当现实与任务模型不符时，此项激增，驱动系统发生相变（可以通过高层设置也可以机器人底层发现）。
 \end{itemize}
 
 \smalltitle{2. 群体认知场 ($\Psi_{swarm}$)}
@@ -23816,6 +23816,96 @@ HSF-HD 架构的最核心优势在于其 \textbf{故障导向的安全性}。传
 
 \textbf{结论}：增加虚拟大脑，是在流体群脑中引入了一个 \textbf{可分离的序参量}。它的存在让群体“聪明”，它的消失让群体“野性回归”，但绝不会让群体“死亡”。
 
+\section{双网协同 — 场域介质与符号总线的正交分工}
+\label{sec:dual_network_synergy}
+
+在构建流体群脑的工程实践中，我们并非要用 HSF-HD 的“场通信”完全取代现有的 TCP/IP 等通用信息通信技术 (ICT)。相反，为了实现 Class V 级别的智能，系统必须构建一个 \textbf{双模态网络架构 (Dual-Modal Network Architecture)}。
+
+我们将这两套网络定义为 \textbf{内禀场介质 (Intrinsic Field Medium)} 与 \textbf{外置符号总线 (Extrinsic Symbol Bus)}。它们在频域、语义深度与拓扑结构上呈正交关系，分别承担了 \textbf{“生存与运动”} 和 \textbf{“认知与策略”} 的职能。
+
+\smalltitle{1. 功能分工：快慢流形的分离映射}
+
+基于 HSF-HD 的 \textbf{绝热近似原理}，我们将群体的控制任务在时间尺度上撕裂为两部分，分别映射到不同的网络基质上。
+
+\begin{table}[htbp]
+\centering
+\begin{tabularx}{\textwidth}{l|X|X}
+\toprule
+\rowcolor{structurecolor!20} \textbf{维度} & \textbf{HSF-HD 场网络 (Digital Ether)} & \textbf{通用 ICT 网络 (5G/Satellite/Mesh)} \\
+\midrule
+\textbf{物理本质} & \textbf{模拟连续介质} (Analog Continuum) & \textbf{离散数字管道} (Discrete Pipe) \\
+\textbf{传输对象} & \textbf{势能、力、相位} ($\nabla V, \vec{F}, \theta$) & \textbf{数据、指令、权重} (Data, Code) \\
+\textbf{拓扑结构} & \textbf{空间索引} (基于距离的局部广播) & \textbf{地址索引} (基于 ID 的路由) \\
+\textbf{核心职能} & \textbf{实时协调 (Coordination)} \newline 避障、编队、相变控制、激波扩散。这是群体的 \textbf{“小脑与脊髓”}。 & \textbf{全局规划 (Strategy)} \newline 任务下发、知识更新、环境建图、远程遥控。这是群体的 \textbf{“大脑皮层”}。 \\
+\textbf{时间尺度} & $\tau_{micro} \sim 10^{-3}s$ (高频快变量) & $\tau_{macro} \sim 10^{0}s$ (低频慢变量) \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\smalltitle{2. 协作机制 I：下行调制 (Downlink Modulation)}
+
+\textbf{—— “云端定义物理定律”}
+
+通用 ICT 网络（如云端大脑或指挥中心）不直接控制机器人的车轮，而是通过修改 HSF-HD 网络的 \textbf{全局参数} 来实施控制。这在物理上等价于 \textbf{修改哈密顿量 $\hat{H}$}。
+
+\begin{itemize}
+    \item   \textbf{规范场注入 (Gauge Injection)}：
+    通过 5G/Wi-Fi，云端向群体广播 \textbf{任务势能图 $V_{global}(\mathbf{r})$}。
+    $$ \mathcal{A}_\mu^{local} \leftarrow \mathcal{A}_\mu^{local} + \hat{P}_{roject}(\text{CloudData}) $$
+    \textit{效应}：这相当于在数字以太中“改变了重力方向”。群体感知到新的梯度，自动向新目标流动，而无需云端计算具体路径。
+    
+    \item   \textbf{相变参数设定 (Phase Setting)}：
+    云端下发 \textbf{温度系数 $T$} 和 \textbf{耦合增益 $\eta$}。
+    \textit{效应}：云端指令 `Mode: SEARCH` 被翻译为 $T \uparrow, \eta \downarrow$（升温/气化）；指令 `Mode: LIFT` 被翻译为 $T \downarrow, \eta \uparrow$（降温/结晶）。
+\end{itemize}
+
+\smalltitle{3. 协作机制 II：上行层析 (Uplink Tomography)}
+
+\textbf{—— “场态的离散化采样”}
+
+HSF-HD 网络中的激波和流场是连续的、高维的。通用 ICT 网络带宽有限，无法传输全场数据。因此，必须通过 \textbf{稀疏层析 (Sparse Tomography)} 进行上行汇报。
+
+\begin{itemize}
+    \item   \textbf{激波采样 (Shock Sampling)}：
+    当 HSF-HD 网络中产生高能激波 $\vec{J}_{shock}$（如发现重大威胁）时，触发 ICT 网络的 \textbf{中断请求}。该位置的机器人化身为 \textbf{网关节点 (Gateway Node)}，将局部的场状态量化为离散符号（如“发现火源 @(x,y)”），回传云端。
+    
+    \item   \textbf{序参量压缩 (Order Parameter Compression)}：
+    群体不上传每个机器人的位置，而是实时计算并上传 \textbf{统计序参量}（如群体质心、平均动量、相干长度 $\xi$）。云端通过这些参数监控群体的“健康度”和“相态”。
+\end{itemize}
+
+\smalltitle{4. 架构设计：双栈网络接口 (Dual-Stack NIC)}
+
+为了实现上述协作，机器人硬件必须搭载\textbf{双栈网络控制器}。
+
+\begin{lstlisting}[language=Python, caption={双栈协作伪代码}]
+class DualStackController:
+    def loop(self):
+        # --- 通用 ICT 栈 (慢循环) ---
+        if self.ict_radio.has_message():
+            msg = self.ict_radio.read()
+            if msg.type == "GAUGE_UPDATE":
+                # 云端修改物理定律：设定新的目标势能场
+                self.hsf_kernel.set_global_potential(msg.payload)
+            elif msg.type == "PHASE_SET":
+                # 云端修改热力学参数：相变
+                self.hsf_kernel.set_thermodynamics(msg.T, msg.eta)
+
+        # --- HSF-HD 场栈 (快循环) ---
+        # 实时计算认知洛伦兹力，驱动电机
+        # 此过程完全在本地和邻域间完成，无需 ICT 介入
+        local_force = self.hsf_kernel.compute_field_dynamics()
+        self.motor.apply(local_force)
+
+        # --- 跨层中断 (Cross-Layer Interrupt) ---
+        # 如果场网络中检测到异常高能激波
+        if self.hsf_kernel.shock_energy > CRITICAL_LIMIT:
+            # 立即通过 ICT 栈向云端报警
+            report = self.vte.quantize(self.hsf_kernel.local_field)
+            self.ict_radio.send_priority(report)
+\end{lstlisting}
+
+\textbf{结论}：
+HSF-HD 网络是机器人的 \textbf{“本体感觉”} 与 \textbf{“反射弧”}，保证生存与敏捷；通用 ICT 网络是机器人的 \textbf{“语言中枢”} 与 \textbf{“知识库”}，提供战略与智慧。两者通过 \textbf{参数调制（下行）} 与 \textbf{特征采样（上行）} 实现完美的正交分工。
 
 \smalltitle{结语}
 
