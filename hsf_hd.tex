@@ -20555,7 +20555,8 @@ VLA 的输出不应是离散的动作 Token（如 `Move\_X\_0.1`），而应是�
 \section{HSF-HD 架构设计 II：微观层（小脑） — 动力学与接触}
 \label{sec:micro_layer_cerebellum}
 
-为了承接 VLA 下发的规范场，我们需要构建一个强大的 \textbf{“数字小脑”}。这一层对应于 \textbf{微观层 ($L_{micro}$)}，它运行在高频的物理时间尺度上，处理 \textbf{快变量}。
+为了承接 VLA 下发的规范场，我们需要构建一个强大的 \textbf{“数字小脑”}。这一层对应于 \textbf{微观层 ($L_{micro}$)}，它运行在高频的物理时间尺度上，处理 \textbf{快变量}，
+小脑其整体设计可以参照图\ref{fig:micro_ode_arch_final}。
 
 \smalltitle{1. 角色定义：物理定律的执法者}
 
