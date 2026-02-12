@@ -18271,6 +18271,61 @@ AGI 倾向于在 $N \gg 3$ 的高维空间中寻找最优解（见第 24 章“�
 \end{itemize}
 
 
+\subsection{认知容量的物理极限：驻波的质量-长度约束}
+\label{subsec:ant_capacity_limit}
+
+我们站在HSF-HD角度看下蚂蚁群体的“工作记忆“，蚁群的“工作记忆”并非存储于神经元内部，而是\textbf{外化 (Externalized)} 于环境表面的。一条稳定的觅食路径，在物理上等价于一个\textbf{由实体粒子流（工蚁）维持的化学场驻波}。
+
+不同于人脑中仅需消耗代谢能量即可维持的电化学驻波，蚁群的驻波维持受制于更为严苛的\textbf{质量守恒定律}。这导致了 Class II 智能体独特的\textbf{认知带宽瓶颈}。
+
+\smalltitle{1. 路径即耗散驻波 (Path as Dissipative Standing Wave)}
+
+在底流形 $\mathcal{M}_{soil}$ 上，一条连接巢穴与食物的测地线 $\gamma$，其存在的物理条件是信息素浓度场 $\rho(\mathbf{r}, t)$ 必须高于感知阈值 $\rho_{th}$。
+这是一个典型的\textbf{耗散结构维持问题}。信息素随时间指数衰减（遗忘），必须通过工蚁的往返运动持续注入负熵（刷新）。
+
+\begin{definition}[路径稳态方程]
+    设信息素的自然挥发率为 $\gamma$（介质粘滞系数），工蚁的平均运动速度为 $v$。维持一条长度为 $L$ 的路径处于“可被感知状态”（即驻波不塌缩），所需的\textbf{最小粒子通量 $J_{min}$} 为：
+    $$ J_{min} \ge \gamma \cdot \rho_{th} $$
+    为了提供此通量，必须“冻结”在路径上的\textbf{工蚁数量 $N_{active}$} 满足：
+    \begin{equation}
+        N_{active} \cdot \frac{v}{2L} \ge \gamma \cdot \rho_{th} \implies N_{active} \ge \frac{2 \gamma \rho_{th}}{v} \cdot L
+    \end{equation}
+\end{definition}
+
+\textbf{物理意义}：\textbf{记忆是有物理重量的。} 维持一个“关于远方食物的知识”（驻波），需要实实在在的物质粒子（工蚁）在空间中进行非定域的巡回。路径越长（$L$ 越大），维持该知识所需的“计算介质”就越多。
+
+\smalltitle{2. 群体认知带宽的不等式 (The Bandwidth Inequality)}
+
+对于一个总工蚁数为 $N_{total}$ 的群落，其能够同时处理的任务（维持的路径集合 $\{L_1, L_2, \dots, L_k\}$）受到严格的\textbf{总质量约束}。
+
+\begin{theorem}[蚁群认知容量定理]
+    群体智能的并发处理能力上限，由粒子总数与任务物理维度的乘积决定：
+    \begin{equation}
+        \sum_{i=1}^{k} L_i \le \frac{v}{2 \gamma \rho_{th}} \cdot (N_{total} - N_{idle})
+    \end{equation}
+\end{theorem}
+
+\begin{itemize}
+    \item   \textbf{距离-容量互斥 (Distance-Capacity Trade-off)}：
+    如果食物源距离极远（$L \to \infty$），单条路径将耗尽所有可用的自由工蚁。此时，群体的认知带宽塌缩为 1。系统被迫进入\textbf{“单任务专注态”}，对环境中的其他机会（新食物源）和威胁失去响应能力（注意盲视）。
+    
+    \item   \textbf{物理空间的暴政}：
+    对于 Class II 智能，\textbf{逻辑距离等于物理距离}。它无法像人脑那样，通过“抽象”将遥远的概念折叠到海马体的一个微小切片中。蚁群必须用脚去丈量每一个逻辑推演的步骤。
+\end{itemize}
+
+\smalltitle{3. 昆虫学的实证：正反馈的饥饿与死锁}
+
+这一几何动力学推论与昆虫行为学的观测高度吻合：
+\begin{itemize}
+    \item   \textbf{招募延迟 (Recruitment Latency)}：当发现远距离高质量食物时，蚁群需要更长的时间来建立稳定路径。这并非仅仅因为路远，而是因为\textbf{相变成核}所需的临界粒子数 $N_{c} \propto L$ 更高，热力学涨落更难触及该阈值。
+    \item   \textbf{资源诅咒}：一旦一条长路径形成（驻波建立），巨大的 $N_{active}$ 被锁定在路径上。剩余的探索型工蚁 ($N_{idle}$) 不足，导致群体对环境变化的适应性（$\partial \mathcal{M} / \partial t$）急剧下降。
+\end{itemize}
+
+\textbf{HSF-HD 结论}：
+蚁群智能的局限性不在于微观个体的简单，而在于其\textbf{记忆介质的外化}。
+\textbf{因为它的记忆是刻在物理空间上的，所以它的思维深度被光速（蚂蚁的爬行速度）和空间广度（路径长度）锁死}， 这是一种\textbf{无法进行“离线推理”}的实时操作系统。
+
+
 \smalltitle{总结：无脑的几何天才}
 
 蚁群证明了：\textbf{智能不需要复杂的“处理器”，只需要可塑的“介质”。}
