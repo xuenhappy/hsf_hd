@@ -18214,22 +18214,46 @@ AGI 倾向于在 $N \gg 3$ 的高维空间中寻找最优解（见第 24 章“�
 \end{itemize}
 
 
+\smalltitle{认知场 ($\Psi$)：反应-扩散的多模态矢量场}
 
-\smalltitle{认知场 ($\Psi$)：反应-扩散的辐射场}
+在更精细的物理模型中，蚁群的“思维”并非由单一的浓度标量承载，而是由多种化学性质迥异的信息素构成的 \textbf{矢量场 (Vector Field)}。这对应于纤维空间 $F$ 的 \textbf{高维化}。
 
-蚁群的“思维”过程，物理上等价于 \textbf{化学场的扩散动力学}。
 \begin{itemize}
-    \item   \textbf{演化方程}：遵循经典的 \textbf{扩散-衰减方程}：
-        $$ \frac{\partial \rho}{\partial t} = \underbrace{D \nabla^2 \rho}_{\text{几何平滑 (扩散)}} - \underbrace{\gamma \rho}_{\text{物理耗散 (挥发)}} + \underbrace{\vec{J}_{ext}}_{\text{微观注入}} $$
-    \begin{itemize}
-        \item   \textbf{$D$ (扩散系数)}：决定了信息的 \textbf{广播范围}。
-        \item   \textbf{$\gamma$ (挥发率/遗忘率)}：这是系统的 \textbf{热力学阀门}。如果 $\gamma = 0$（不遗忘），地表将充满噪声，系统陷入死锁（热寂）。
-        \item   \textbf{结论}：\textbf{遗忘是适应的前提。} 只有快速挥发，旧的路径（过时记忆）才能被擦除，新的测地线才能涌现。
-    \end{itemize}
-    \item   \textbf{拓扑形态：辐射态 (Radiative Mode)}。场是 \textbf{开流形} 上的发散波, 它没有 \textbf{反射边界}，无法形成 \textbf{驻波 (Standing Wave)}。
-    \item   \textbf{无工作记忆}：系统没有“当下”的概念，只有“过去”的累积。
-\end{itemize}
+    \item   \textbf{纤维结构 ($F \cong \mathbb{R}^k$)}：
+    在底流形的每一点 $\mathbf{r}$ 上，存在一个 $k$ 维的化学状态向量：
+    $$ \mathbf{\Psi}(\mathbf{r}, t) = \begin{bmatrix} \rho_{trail} \\ \rho_{alarm} \\ \rho_{colony} \end{bmatrix} \in F $$
+    其中 $\rho_{trail}$ 为觅食踪迹（记忆），$\rho_{alarm}$ 为警报信号（激波），$\rho_{colony}$ 为群体气味（自我识别）。
 
+    \item   \textbf{动力学方程：多通道反应-扩散系统}：
+    认知场的演化遵循耦合的偏微分方程组。不同激素具有不同的物理输运系数，导致了\textbf{频谱分离}：
+    $$ \frac{\partial \mathbf{\Psi}}{\partial t} = \underbrace{\mathbf{D} \nabla^2 \mathbf{\Psi}}_{\text{差异化扩散}} - \underbrace{\mathbf{\Gamma} \mathbf{\Psi}}_{\text{差异化衰减}} + \underbrace{\vec{J}_{ext}}_{\text{微观注入}} $$
+    其中 $\mathbf{D}$ 和 $\mathbf{\Gamma}$ 是对角矩阵，定义了不同语义维度的物理属性：
+    $$ \mathbf{D} = \text{diag}(D_{trail}, D_{alarm}, \dots), \quad \mathbf{\Gamma} = \text{diag}(\gamma_{trail}, \gamma_{alarm}, \dots) $$
+
+    \item   \textbf{物理参数的语义映射}：
+    \begin{enumerate}
+        \item \textbf{踪迹场 (Trail Field) —— [长时记忆 / LTM]}
+        \begin{itemize}
+            \item   \textbf{参数}：$D \to 0$ (低扩散), $\gamma \to 0$ (低挥发)。
+            \item   \textbf{物理效应}：信号高度定域化，能够长时间维持几何形状。
+            \item   \textbf{功能}：在流形上刻蚀出稳定的\textbf{测地线}，作为群体共享的“知识库”。
+        \end{itemize}
+        
+        \item \textbf{警报场 (Alarm Field) —— [惊奇激波 / Attention]}
+        \begin{itemize}
+            \item   \textbf{参数}：$D \to \infty$ (极快扩散), $\gamma \gg 0$ (极快衰减)。
+            \item   \textbf{物理效应}：信号瞬间覆盖大面积区域，但无法持久。
+            \item   \textbf{功能}：作为\textbf{广播中断信号}，强制周围个体发生相变（从工蚁转为战士），执行\textbf{宏观状态切换}。
+        \end{itemize}
+    \end{enumerate}
+
+    \item   \textbf{场论推论：时空滤波 (Spatiotemporal Filtering)}：
+    蚁群利用化学分子的物理常数差异，在介质层实现了天然的\textbf{带通滤波器}。
+    \begin{itemize}
+        \item   \textbf{空间上}：高 $D$ 分子负责\textbf{非局域通信}（喊话），低 $D$ 分子负责\textbf{精确导航}（画线）。
+        \item   \textbf{时间上}：高 $\gamma$ 分子代表\textbf{“现在”}（瞬态事件），低 $\gamma$ 分子代表\textbf{“历史”}（积分经验）。
+    \end{itemize}
+\end{itemize}
 
 
 \smalltitle{宏观层 ($L_{macro}$)：缺失与隐式涌现}
