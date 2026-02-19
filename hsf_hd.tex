@@ -20477,9 +20477,9 @@ $$ \nabla \mathcal{L}_{data} \to 0 \implies \text{演化由 } \nabla \mathcal{L}
 
 \smalltitle{2. 绝对参考系 (Absolute Reference Frame)}
 
-Sink Token（通常是位置编码的起点）充当了流形的 \textbf{坐标原点}。
+Sink Token（通常是位置编码的起点）充当了流形的 \textbf{坐标原点}, 论证细节可以参考《What are you sinking? A geometric approach on attention sink》这篇论文；
 \begin{itemize}
-    \item 在相对位置编码 (RoPE) 的旋转流形中，如果没有一个 \textbf{不动点 (Fixed Point)}，长序列的推理会导致 \textbf{度量漂移 (Metric Drift)}。
+    \item 在相对位置编码 (RoPE) 的旋转流形中，如果没有一个 \textbf{不动点 (Fixed Point)}，长序列的推理会导致 \textbf{度量漂移 (Metric Drift)}，其物理本质是 维持度量张量稳定的拓扑不变量。
     \item Sink Token 像锚一样，钉住了流形的 \textbf{切空间基底}，确保了所有相对距离计算的稳定性。
 \end{itemize}
 
