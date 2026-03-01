@@ -23589,12 +23589,12 @@ Q-SoC 的出现，使得彭罗斯 (Penrose) 和哈梅罗夫 (Hameroff) 的\textb
 为了修复这一缺陷，我们将自动机模型\textbf{升维}到几何空间，提出 \textbf{CMA 模型}。
 
 \begin{definition}[连续流形自动机]
-    一个 CMA 定义为四元组 $\mathcal{M}_{CMA} = (\mathcal{M}, \Psi, \hat{U}, V_{in})$：
+    一个 CMA 定义为四元组 $\mathcal{M}_{CMA} = (\mathcal{M}, \Psi, \hat{H}, V_{in})$：
     \begin{itemize}
         \item \textbf{状态空间 ($\mathcal{M}$)}：不再是离散集 $Q$，而是一个 $n$ 维黎曼流形（潜语义流形）。
         \item \textbf{状态 ($\Psi$)}：不再是单点 $q$，而是定义在流形上的\textbf{波函数}或\textbf{概率密度分布}。
         \item \textbf{输入 ($V_{in}$)}：输入符号 $\sigma \in \Sigma$ 不再触发查表跳转，而是作为\textbf{势能场 (Potential Field)} 叠加在流形上，改变流形的曲率。
-        \item \textbf{转移函数 ($\hat{U}$)}：状态的演化遵循\textbf{连续动力学方程}（如目的论狄拉克方程），而非离散映射 $\delta: Q \times \Sigma \to Q$。
+        \item \textbf{转移函数 ($\hat{H}$)}：状态的演化遵循\textbf{连续动力学方程}（如目的论狄拉克方程），而非离散映射 $\delta: Q \times \Sigma \to Q$。
     \end{itemize}
 \end{definition}
 
