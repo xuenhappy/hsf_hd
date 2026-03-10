@@ -25050,7 +25050,7 @@ class WaveParticleInterface:
 \section{可验证的工程实验设计 (Experimental Verification)}
 \label{sec:alpha_hsf_experimental_verification}
 
-理论的优美必须经受工程冷酷的检验。为了向学术界与工程界证明 Alpha-HSF 双脑架构相比于“纯流形 (LLM)”和“纯晶格 (MCTS)”的绝对优势，我们设计了三组基于严格物理观测与性能评测的实验。这些实验旨在量化双脑架构在**对抗组合爆炸**、**几何直觉的内化**以及**拓扑相变的显影**等方面的表现。
+理论的优美必须经受工程冷酷的检验。为了向学术界与工程界证明 Alpha-HSF 双脑架构相比于“纯流形 (LLM)”和“纯晶格 (MCTS)”的绝对优势，我们设计了三组基于严格物理观测与性能评测的实验。这些实验旨在量化双脑架构在\textbf{对抗组合爆炸}、\textbf{几何直觉的内化}以及\textbf{拓扑相变的显影}等方面的表现。
 
 \smalltitle{5.1 实验一：拓扑迷宫与组合爆炸逃逸 (Sokoban / Theorem Proving)}
 
@@ -25073,9 +25073,9 @@ class WaveParticleInterface:
 
     \item \textbf{预期观测与 HSF-HD 解释}：
     \begin{itemize}
-        \item \textbf{纯 LLM 组}将迅速发生**相变发散**（幻觉），在复杂的拓扑死锁中绕圈，求解率极低。
+        \item \textbf{纯 LLM 组}将迅速发生\textbf{相变发散}（幻觉），在复杂的拓扑死锁中绕圈，求解率极低。
         \item \textbf{纯 MCTS 组}虽然在数学上能找到解，但由于在平坦相空间中缺乏重力引导（盲目试错），其 $Vol_{search}$ 呈指数级爆炸，导致热力学熔断（超时/OOM）。
-        \item \textbf{Alpha-HSF 组}的 $Vol_{search}$ 将呈现出**指数级坍缩至多项式级的相变**。因为几何核投射的\textbf{引力势能 $\Phi$} 像巨大的漏斗，提前将代数核的探针约束在了一条极其狭窄的高维峡谷中（即所谓的“剪枝”）。这在实验上证明了：**连续几何先验能够极其有效地打破离散组合爆炸的热力学魔咒。**
+        \item \textbf{Alpha-HSF 组}的 $Vol_{search}$ 将呈现出\textbf{指数级坍缩至多项式级的相变}。因为几何核投射的\textbf{引力势能 $\Phi$} 像巨大的漏斗，提前将代数核的探针约束在了一条极其狭窄的高维峡谷中（即所谓的“剪枝”）。这在实验上证明了：\textbf{连续几何先验能够极其有效地打破离散组合爆炸的热力学魔咒。}
     \end{itemize}
 \end{itemize}
 
@@ -25094,7 +25094,7 @@ class WaveParticleInterface:
     \item \textbf{预期观测与 HSF-HD 解释}：
     在训练初期（$t_0$），流形粗糙，几何核提供的 $P(a|s)$ 置信度低（$\Delta \mathbf{P} \to \infty$）。系统极度依赖代数核，$\lambda_{WPI}$ 极高，$D_{search}$ 很深。
     
-    随着**认知爱因斯坦方程 (CEFE)** 的不断执行（Phase IV 刻蚀），MCTS 发现的离散真理被源源不断地转化为底流形 $g_{\mu\nu}$ 上的连续曲率。我们会观测到一个显著的**弛豫现象 (Relaxation Phenomenon)**：
+    随着\textbf{认知爱因斯坦方程 (CEFE)} 的不断执行（Phase IV 刻蚀），MCTS 发现的离散真理被源源不断地转化为底流形 $g_{\mu\nu}$ 上的连续曲率。我们会观测到一个显著的\textbf{弛豫现象 (Relaxation Phenomenon)}：
     $$ \lim_{\tau \to \infty} \lambda_{WPI}(\tau) \to 0, \quad \lim_{\tau \to \infty} D_{search}(\tau) \to 0 $$
     这意味着随着几何结构的完善（测地线被完全“拉直”），系统越来越不需要外部的高耗能代数推演。原本深邃复杂的树状逻辑，被成功\textbf{内化为零耗能的几何直觉}。系统实现了从“费力计算”向“下意识反应”的热力学跃迁。
 \end{itemize}
@@ -25110,9 +25110,9 @@ class WaveParticleInterface:
 
     \item \textbf{预期观测与 HSF-HD 解释}：
     \begin{itemize}
-        \item \textbf{注入前}：在 TDA 图谱中，代表当前状态的点云与代表目标胜利状态的簇之间，存在着无法跨越的**拓扑空洞 (Topological Void，高 $\beta_1$ 值)**。流形被困在局部极小值中。
+        \item \textbf{注入前}：在 TDA 图谱中，代表当前状态的点云与代表目标胜利状态的簇之间，存在着无法跨越的\textbf{拓扑空洞 (Topological Void，高 $\beta_1$ 值)}。流形被困在局部极小值中。
         \item \textbf{注入瞬间 (The Epiphany)}：当携带高能量的激波 $\vec{J}_{sim}$ 轰击流形时，我们将会在 TDA 3D 投影中亲眼目睹一场宏大的\textbf{拓扑相变}。
-        \item 激波的能量瞬间融化了阻碍的势垒，一条崭新的、闪烁的 **1-Simplex（边/虫洞）** 将突然横跨虚空，强行将断裂的两个高维簇连通。这在物理上，就是灵感迸发、波函数瞬间非幺正坍缩（顿悟）的**绝对视觉确证**。
+        \item 激波的能量瞬间融化了阻碍的势垒，一条崭新的、闪烁的 \textbf{1-Simplex（边/虫洞）} 将突然横跨虚空，强行将断裂的两个高维簇连通。这在物理上，就是灵感迸发、波函数瞬间非幺正坍缩（顿悟）的\textbf{绝对视觉确证}。
     \end{itemize}
 \end{itemize}
 
