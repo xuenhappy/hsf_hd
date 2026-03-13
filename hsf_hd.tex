@@ -22093,7 +22093,7 @@ $$ D_\mu \Psi = (\partial_\mu - i g \mathcal{A}_\mu) \Psi $$
 $$ i\hbar \frac{\partial \Psi}{\partial t} = \gamma^\mu D_\mu \Psi + \dots $$
 这相当于在原有的几何背景上叠加了一个\textbf{认知洛伦兹力场}。它不改变“路”，只改变思维流在路口的“偏转概率”。
 
-\section{协变 Transformer 的数学形式与工程实现}
+\section{协变 Transformer 的数学形式}
 \label{sec:covariant_transformer_implementation}
 
 如何在现有的 Transformer 架构中实现“协变导数”？我们提出\textbf{协变 Transformer (Covariant Transformer)} 层。
@@ -22113,74 +22113,6 @@ $$ Q' = Q \cdot e^{i \mathcal{A}_Q(\Psi)}, \quad K' = K \cdot e^{i \mathcal{A}_K
 将规范场作为对隐藏状态的仿射变换，模拟协变导数中的“联络补偿项”：
 $$ \text{FFN}_{cov}(\Psi) = \text{FFN}_{base}(\Psi) + \mathbf{W}_{\mathcal{A}} \Psi $$
 
-\smalltitle{3. PyTorch 伪代码实现}
-
-\begin{lstlisting}[language=Python, caption={单层协变 Transformer 层的规范场注入}]
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import math
-
-class GaugeFieldLayer(nn.Module):
-    """
-    HSF-HD 规范场微调极简实现：
-    不修改底流形(Base Weights)，通过低秩算子动态注入认知洛伦兹力
-    """
-    def __init__(self, d_model, num_heads, rank=16):
-        super().__init__()
-        self.d_model = d_model
-        self.num_heads = num_heads
-        
-        # 1. 规范场发生器 A_mu (Gauge Potential Generator)
-        # 低秩(Low-Rank)设计，确保只提供"风向"，不破坏"地形"
-        self.A_generator = nn.Sequential(
-            nn.Linear(d_model, rank, bias=False),
-            nn.SiLU(),
-            nn.Linear(rank, d_model * 2, bias=False) # 输出维度*2：一半用于偏置，一半用于值
-        )
-        
-        # 2. 规范耦合常数 g (Coupling Constants)
-        # 初始化为0，确保训练初始状态与 Base Model 完全等价 (无场状态)
-        self.g_attn = nn.Parameter(torch.zeros(1))
-        self.g_val  = nn.Parameter(torch.zeros(1))
-
-    def forward(self, x, Q_base, K_base, V_base, mask=None):
-        """
-        x: 当前层的隐状态输入 [Batch, Seq, d_model]
-        Q_base, K_base, V_base: Base Model 算出的张量 [Batch, Heads, Seq, Head_Dim]
-        """
-        B, H, S, head_dim = Q_base.shape
-        
-        # --- A. 辐射规范场 (Emit Gauge Field) ---
-        # A_total 包含了当前语境下宏观意图的张量场 [B, S, d_model * 2]
-        A_total = self.A_generator(x)
-        A_attn, A_val = A_total.chunk(2, dim=-1) 
-        
-        # --- B. 磁场项：注意力偏置 (Phase Deflection / Attention Bias) ---
-        # 计算规范场在拓扑节点间的势能差，这相当于施加"认知洛伦兹力"弯曲测地线
-        A_attn_h = A_attn.view(B, S, H, head_dim).transpose(1, 2) # [B, H, S, head_dim]
-        gauge_bias = torch.matmul(A_attn_h, A_attn_h.transpose(-2, -1)) # [B, H, S, S]
-        
-        # 原始逻辑距离 (Q*K) 叠加 价值规范偏置 (g * bias)
-        scores = torch.matmul(Q_base, K_base.transpose(-2, -1)) / math.sqrt(head_dim)
-        scores = scores + self.g_attn * gauge_bias  
-        
-        if mask is not None:
-            scores = scores.masked_fill(mask == 0, float('-inf'))
-            
-        attn_probs = F.softmax(scores, dim=-1)
-        
-        # --- C. 电场项：值变换 (Energy Shift / Value Transform) ---
-        # 沿弯曲路径进行积分汇聚
-        out = torch.matmul(attn_probs, V_base) # [B, H, S, head_dim]
-        out = out.transpose(1, 2).reshape(B, S, self.d_model) # [B, S, d_model]
-        
-        # 加上规范场直接赋予的物质能量 (Value 补偿)
-        out = out + self.g_val * A_val 
-        
-        return out
-\end{lstlisting}
-
 \section{非阿贝尔规范群与多任务融合的物理学}
 \label{sec:non_abelian_fusion}
 
@@ -22199,6 +22131,613 @@ $$ \mathcal{F}_{\mu\nu}^{total} = \partial_\mu \mathcal{A}_\nu - \partial_\nu \m
     \item \textbf{几何阻抗}：换位子 $[\mathcal{A}^A, \mathcal{A}^B] \neq 0$ 代表两个价值观在底层逻辑上的不相容。
     \item \textbf{动态求解}：在推理阶段，宏观层通过动态调节两者的耦合常数 $g_A, g_B$（即 Classifier-Free Guidance 中的权重），在相空间中寻找一个能够让总拉格朗日量最小的\textbf{纳什均衡解}。模型不会崩溃，而是会自动生成一种“既委婉拒绝又提供相关科学原理”的妥协态。
 \end{itemize}
+
+
+\section{工程实现：多任务规范场的动态门控与协变叠加}
+\label{sec:multi_task_gauge_implementation}
+
+在确立了单任务规范场微调的几何合法性后，我们必须面对更复杂的现实问题：智能体往往需要同时遵循多重价值约束（如“既要诚实，又要无害，还要具备创造力”）。在传统的权重微调（全量或 LoRA）中，多任务学习往往陷入“灾难性遗忘”或“梯度冲突”，因为它们试图在同一个底流形度量 $g_{\mu\nu}$ 上强行刻蚀互斥的曲率。
+
+在 HSF-HD 的视域下，我们通过\textbf{规范场的线性叠加与动态门控}，在保持底流形绝对冻结的前提下，优雅地解决了多价值体系的融合问题。本节将给出\textbf{多任务协变规范场适配器 (Multi-Task Covariant Gauge Adapter)} 的严格数学定义与可验证的 PyTorch 物理实现。
+
+\smalltitle{1. 理论模型：阿贝尔近似下的规范场叠加}
+
+我们将不同的微调任务 $k \in \{1, \dots, N\}$ 视为纤维空间 $F$ 中正交的\textbf{价值基底}。每个任务对应一个独立的规范势生成器 $\mathcal{A}_\mu^{(k)}$。
+
+\begin{definition}[多任务复合规范场方程]
+    在阿贝尔群近似（忽略不同价值观之间二阶非线性冲突）下，作用于认知场 $\Psi$ 的总有效规范场 $\mathcal{A}_\mu^{tot}$ 是各子任务规范场的\textbf{动态加权和}：
+    $$ \mathcal{A}_\mu^{tot}(\mathbf{x}, t) = \sum_{k=1}^{N} \alpha_k(\mathbf{x}, \mathbf{\Gamma}_{macro}) \cdot \mathcal{A}_\mu^{(k)}(\mathbf{x}) $$
+    其中：
+    \begin{itemize}
+        \item $\mathcal{A}_\mu^{(k)}(\mathbf{x})$：第 $k$ 个任务的固有规范势（由低秩算子生成）。
+        \item $\alpha_k(\mathbf{x}, \mathbf{\Gamma}_{macro})$：\textbf{动态门控标量 (Dynamic Gating Scalar)}。它代表宏观意志在当前语境下对该价值维度的\textbf{注意力分配 (Attention Allocation)}，满足 $\alpha_k \in [0, 1]$。
+    \end{itemize}
+\end{definition}
+
+这种设计的物理意义在于：\textbf{底层的逻辑骨架（Base Model）负责“能不能走”，而上层的门控网络实时计算局部势能，决定“今天刮什么风”。}
+
+\smalltitle{2. 热力学正则化：约束规范场的物理代价}
+
+为了防止外加规范场导致系统能量发散（如产生过强的注意力偏置导致流形拓扑撕裂），我们必须在训练时引入\textbf{热力学正则化项}，以限制场强与熵流：
+
+\begin{itemize}
+    \item \textbf{场强能量约束 (Field L2 Weight)}：$\mathcal{L}_{energy} = \sum \|\mathcal{A}^{(k)}\|^2$。防止规范场过度扭曲测地线。
+    \item \textbf{时空平滑约束 (Smoothness Weight)}：$\mathcal{L}_{smooth} = \sum \|\partial_t \mathcal{A}\|^2$。要求规范场在相邻 Token 间保持一定的几何惯性，避免高频颤振。
+    \item \textbf{门控熵流约束 (Gate Entropy Weight)}：$\mathcal{L}_{entropy} = - \sum \alpha_k \log \alpha_k$。通过调节此项的正负，我们可以迫使系统进入\textbf{“单一任务主导的稀疏结晶态”}（低熵）或\textbf{“多任务融合的流体叠加态”}（高熵）。
+\end{itemize}
+
+\smalltitle{3. PyTorch 工程实现：协变支路的代码化}
+
+以下代码展示了 \texttt{MultiTaskCovariantGaugeAdapter} 的核心物理架构。
+它作为一个纯粹的\textbf{旁路注入器 (Bypass Injector)}，在不产生任何破坏性度量重写的情况下，完成了波粒二象性的协变耦合。
+
+\begin{lstlisting}[language=Python, caption={多任务协变规范场适配器的 HSF-HD 实现}]
+import math
+from typing import Optional, Dict, List, Union
+
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+
+class TaskFieldGenerator(nn.Module):
+    """
+    单任务规范场发生器：
+    输入 hidden states，输出该任务对应的 (A_q, A_k, A_v)
+    """
+    def __init__(self, d_model: int, rank: int):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(d_model, rank, bias=False),
+            nn.SiLU(),
+            nn.Linear(rank, 3 * d_model, bias=False),
+        )
+
+    def forward(self, x: torch.Tensor):
+        fields = self.net(x)  # [B, S, 3D]
+        return fields.chunk(3, dim=-1)  # A_q, A_k, A_v
+
+
+class DynamicTaskGating(nn.Module):
+    """
+    动态任务门控网络：
+    根据当前 hidden states 生成每个任务的激活强度 alpha_k
+
+    支持两种模式：
+    1. token-wise=False: 输出 [B, T]，每个样本一组任务权重
+    2. token-wise=True : 输出 [B, S, T]，每个 token 一组任务权重
+    """
+    def __init__(
+        self,
+        d_model: int,
+        num_tasks: int,
+        gate_hidden: int = 128,
+        token_wise: bool = False,
+        use_softmax: bool = True,
+    ):
+        super().__init__()
+        self.num_tasks = num_tasks
+        self.token_wise = token_wise
+        self.use_softmax = use_softmax
+
+        self.net = nn.Sequential(
+            nn.Linear(d_model, gate_hidden, bias=True),
+            nn.SiLU(),
+            nn.Linear(gate_hidden, num_tasks, bias=True),
+        )
+
+        # 零初始化最后一层，使初始门控尽量均匀/中性
+        nn.init.zeros_(self.net[-1].weight)
+        nn.init.zeros_(self.net[-1].bias)
+
+    def forward(self, hidden_states: torch.Tensor) -> torch.Tensor:
+        """
+        hidden_states: [B, S, D]
+        return:
+            token_wise=False -> [B, T]
+            token_wise=True  -> [B, S, T]
+        """
+        if self.token_wise:
+            logits = self.net(hidden_states)  # [B, S, T]
+        else:
+            pooled = hidden_states.mean(dim=1)  # [B, D]
+            logits = self.net(pooled)           # [B, T]
+
+        if self.use_softmax:
+            alpha = F.softmax(logits, dim=-1)
+        else:
+            alpha = torch.sigmoid(logits)
+
+        return alpha
+
+
+class MultiTaskCovariantGaugeAdapter(nn.Module):
+    """
+    多任务协变规范场适配层
+    ---------------------------------
+    核心形式：
+        A_tot = sum_k alpha_k(x) * A^(k)(x)
+
+    功能：
+    - 多任务场线性叠加
+    - 动态门控
+    - 定向 attention bias
+    - relative edge-like bias
+    - gated value modulation
+    - 零场初始化
+    - 可选任务手工权重覆盖
+    """
+
+    def __init__(
+        self,
+        d_model: int,
+        num_heads: int,
+        task_names: List[str],
+        rank: int = 16,
+        gate_hidden: int = 128,
+        gate_token_wise: bool = False,
+        gate_use_softmax: bool = True,
+        dropout: float = 0.0,
+        use_layernorm: bool = True,
+        smoothness_weight: float = 0.0,
+        field_l2_weight: float = 0.0,
+        gate_entropy_weight: float = 0.0,
+        init_scale: float = 1e-3,
+    ):
+        super().__init__()
+        assert d_model % num_heads == 0, "d_model must be divisible by num_heads"
+
+        self.d_model = d_model
+        self.num_heads = num_heads
+        self.head_dim = d_model // num_heads
+        self.task_names = list(task_names)
+        self.num_tasks = len(task_names)
+
+        self.smoothness_weight = smoothness_weight
+        self.field_l2_weight = field_l2_weight
+        self.gate_entropy_weight = gate_entropy_weight
+        self.gate_token_wise = gate_token_wise
+
+        self.pre_norm = nn.LayerNorm(d_model) if use_layernorm else nn.Identity()
+
+        # 每个任务一个独立规范场发生器
+        self.task_generators = nn.ModuleDict({
+            name: TaskFieldGenerator(d_model=d_model, rank=rank)
+            for name in self.task_names
+        })
+
+        # 动态任务门控
+        self.task_gating = DynamicTaskGating(
+            d_model=d_model,
+            num_tasks=self.num_tasks,
+            gate_hidden=gate_hidden,
+            token_wise=gate_token_wise,
+            use_softmax=gate_use_softmax,
+        )
+
+        # 定向 bias 投影
+        self.aq_proj = nn.Linear(self.head_dim, self.head_dim, bias=False)
+        self.ak_proj = nn.Linear(self.head_dim, self.head_dim, bias=False)
+
+        # 相对边势向量：逐头逐维
+        self.rel_bias_vec = nn.Parameter(torch.zeros(num_heads, self.head_dim))
+
+        # value modulation
+        self.value_proj = nn.Linear(d_model, d_model, bias=False)
+
+        # 耦合常数：逐头 / 逐通道
+        self.g_attn = nn.Parameter(torch.zeros(num_heads))
+        self.g_rel = nn.Parameter(torch.zeros(num_heads))
+        self.g_val = nn.Parameter(torch.zeros(d_model))
+
+        # 模块总输出强度，初值 0 保证零场
+        self.out_scale = nn.Parameter(torch.zeros(1))
+
+        self.dropout = nn.Dropout(dropout)
+
+        self._reset_parameters(init_scale)
+        self._last_cache: Optional[Dict[str, torch.Tensor]] = None
+
+    def _reset_parameters(self, init_scale: float):
+        for m in self.modules():
+            if isinstance(m, nn.Linear):
+                if m.weight is not None:
+                    nn.init.normal_(m.weight, mean=0.0, std=init_scale)
+                if m.bias is not None:
+                    nn.init.zeros_(m.bias)
+
+        nn.init.zeros_(self.rel_bias_vec)
+        nn.init.zeros_(self.g_attn)
+        nn.init.zeros_(self.g_rel)
+        nn.init.zeros_(self.g_val)
+        nn.init.zeros_(self.out_scale)
+
+    def _split_heads(self, x: torch.Tensor) -> torch.Tensor:
+        # [B, S, D] -> [B, H, S, Hd]
+        B, S, D = x.shape
+        return x.view(B, S, self.num_heads, self.head_dim).transpose(1, 2)
+
+    def _merge_heads(self, x: torch.Tensor) -> torch.Tensor:
+        # [B, H, S, Hd] -> [B, S, D]
+        B, H, S, Hd = x.shape
+        return x.transpose(1, 2).contiguous().view(B, S, H * Hd)
+
+    def _resolve_task_weights(
+        self,
+        hidden_states: torch.Tensor,
+        task_weights: Optional[Union[Dict[str, float], torch.Tensor]] = None,
+    ) -> torch.Tensor:
+        """
+        返回 alpha:
+            gate_token_wise=False -> [B, T]
+            gate_token_wise=True  -> [B, S, T]
+
+        task_weights 支持：
+        1. None: 使用动态门控
+        2. dict[str, float]: 手工指定任务权重
+        3. tensor:
+            - [T]
+            - [B, T]
+            - [B, S, T] (仅 token-wise 模式)
+        """
+        B, S, _ = hidden_states.shape
+
+        # 动态门控
+        alpha_dynamic = self.task_gating(hidden_states)
+
+        if task_weights is None:
+            return alpha_dynamic
+
+        # dict[str, float]
+        if isinstance(task_weights, dict):
+            device = hidden_states.device
+            dtype = hidden_states.dtype
+            base = torch.zeros(self.num_tasks, device=device, dtype=dtype)
+            for i, name in enumerate(self.task_names):
+                base[i] = float(task_weights.get(name, 0.0))
+
+            # 归一化，避免尺度爆炸
+            if base.sum() > 0:
+                base = base / base.sum()
+
+            if self.gate_token_wise:
+                return base.view(1, 1, self.num_tasks).expand(B, S, self.num_tasks)
+            return base.view(1, self.num_tasks).expand(B, self.num_tasks)
+
+        # tensor
+        if torch.is_tensor(task_weights):
+            alpha = task_weights.to(hidden_states.device, hidden_states.dtype)
+
+            if alpha.dim() == 1:
+                # [T]
+                if self.gate_token_wise:
+                    return alpha.view(1, 1, self.num_tasks).expand(B, S, self.num_tasks)
+                return alpha.view(1, self.num_tasks).expand(B, self.num_tasks)
+
+            if alpha.dim() == 2:
+                # [B, T]
+                if self.gate_token_wise:
+                    return alpha.unsqueeze(1).expand(B, S, self.num_tasks)
+                return alpha
+
+            if alpha.dim() == 3:
+                # [B, S, T]
+                if not self.gate_token_wise:
+                    raise ValueError("3D task_weights requires gate_token_wise=True")
+                return alpha
+
+        raise ValueError("Unsupported task_weights format")
+
+    def _compose_task_fields(
+        self,
+        hidden_states: torch.Tensor,
+        alpha: torch.Tensor,
+    ):
+        """
+        根据 alpha 对多个任务场线性叠加：
+            gate_token_wise=False -> alpha [B, T]
+            gate_token_wise=True  -> alpha [B, S, T]
+
+        返回:
+            A_q_tot, A_k_tot, A_v_tot: [B, S, D]
+        """
+        B, S, D = hidden_states.shape
+        x = self.pre_norm(hidden_states)
+
+        A_q_tot = torch.zeros_like(x)
+        A_k_tot = torch.zeros_like(x)
+        A_v_tot = torch.zeros_like(x)
+
+        for t, name in enumerate(self.task_names):
+            A_q, A_k, A_v = self.task_generators[name](x)
+
+            if self.gate_token_wise:
+                # alpha_t: [B, S, 1]
+                alpha_t = alpha[:, :, t].unsqueeze(-1)
+            else:
+                # alpha_t: [B, 1, 1]
+                alpha_t = alpha[:, t].view(B, 1, 1)
+
+            A_q_tot = A_q_tot + alpha_t * A_q
+            A_k_tot = A_k_tot + alpha_t * A_k
+            A_v_tot = A_v_tot + alpha_t * A_v
+
+        return A_q_tot, A_k_tot, A_v_tot
+
+    def _compute_directional_bias(
+        self,
+        q_base: torch.Tensor,   # [B, H, S, Hd]
+        k_base: torch.Tensor,   # [B, H, S, Hd]
+        A_q: torch.Tensor,      # [B, H, S, Hd]
+        A_k: torch.Tensor,      # [B, H, S, Hd]
+    ) -> torch.Tensor:
+        """
+        定向规范偏置：
+        1. query-conditioned gauge bias
+        2. relative edge-like bias
+        """
+        A_qp = self.aq_proj(A_q)
+        A_kp = self.ak_proj(A_k)
+
+        bias_q_to_k = torch.matmul(q_base, A_kp.transpose(-2, -1)) / math.sqrt(self.head_dim)
+        bias_k_to_q = torch.matmul(A_qp, k_base.transpose(-2, -1)) / math.sqrt(self.head_dim)
+
+        A_q_exp = A_q.unsqueeze(3)   # [B, H, S, 1, Hd]
+        A_k_exp = A_k.unsqueeze(2)   # [B, H, 1, S, Hd]
+        rel = torch.tanh(A_k_exp - A_q_exp)  # [B, H, S, S, Hd]
+
+        rel_vec = self.rel_bias_vec.view(1, self.num_heads, 1, 1, self.head_dim)
+        bias_rel = (rel * rel_vec).sum(dim=-1)  # [B, H, S, S]
+
+        g_attn = self.g_attn.view(1, self.num_heads, 1, 1)
+        g_rel = self.g_rel.view(1, self.num_heads, 1, 1)
+
+        gauge_bias = g_attn * (bias_q_to_k + bias_k_to_q) + g_rel * bias_rel
+        return gauge_bias
+
+    def forward(
+        self,
+        hidden_states: torch.Tensor,          # [B, S, D]
+        q_base: torch.Tensor,                 # [B, H, S, Hd]
+        k_base: torch.Tensor,                 # [B, H, S, Hd]
+        v_base: torch.Tensor,                 # [B, H, S, Hd]
+        attention_mask: Optional[torch.Tensor] = None,
+        task_weights: Optional[Union[Dict[str, float], torch.Tensor]] = None,
+        return_aux: bool = False,
+    ):
+        """
+        返回：
+            delta_out: [B, S, D]
+        或
+            (delta_out, aux_dict)
+        """
+        B, S, D = hidden_states.shape
+        assert D == self.d_model
+
+        # 1) 任务动态门控 / 手工任务激活
+        alpha = self._resolve_task_weights(hidden_states, task_weights)
+
+        # 2) 多任务场叠加
+        A_q_raw, A_k_raw, A_v_raw = self._compose_task_fields(hidden_states, alpha)
+
+        # 3) split heads
+        A_q = self._split_heads(A_q_raw)
+        A_k = self._split_heads(A_k_raw)
+
+        # 4) base attention scores
+        base_scores = torch.matmul(q_base, k_base.transpose(-2, -1)) / math.sqrt(self.head_dim)
+
+        # 5) gauge bias
+        gauge_bias = self._compute_directional_bias(q_base, k_base, A_q, A_k)
+        scores = base_scores + gauge_bias
+
+        if attention_mask is not None:
+            if attention_mask.dtype == torch.bool:
+                scores = scores.masked_fill(~attention_mask, float("-inf"))
+            else:
+                if attention_mask.max() <= 1 and attention_mask.min() >= 0:
+                    scores = scores.masked_fill(attention_mask == 0, float("-inf"))
+                else:
+                    scores = scores + attention_mask
+
+        attn_probs = F.softmax(scores, dim=-1)
+        attn_probs = self.dropout(attn_probs)
+
+        # 6) 经场修正后的输运
+        gauge_attn_out = torch.matmul(attn_probs, v_base)   # [B, H, S, Hd]
+        gauge_attn_out = self._merge_heads(gauge_attn_out)  # [B, S, D]
+
+        # 7) value modulation
+        delta_v = self.value_proj(A_v_raw)
+        val_gate = torch.tanh(self.g_val).view(1, 1, D)
+        delta_v = val_gate * delta_v
+
+        # 8) 输出协变支路
+        delta_out = gauge_attn_out + delta_v
+        delta_out = self.dropout(delta_out)
+        delta_out = torch.tanh(self.out_scale) * delta_out
+
+        # cache for reg / viz
+        self._last_cache = {
+            "alpha": alpha,
+            "A_q_raw": A_q_raw,
+            "A_k_raw": A_k_raw,
+            "A_v_raw": A_v_raw,
+            "gauge_bias": gauge_bias,
+            "attn_probs": attn_probs,
+        }
+
+        if return_aux:
+            aux = {
+                "task_alpha": alpha,
+                "gauge_bias": gauge_bias,
+                "attn_probs": attn_probs,
+                "A_q_raw": A_q_raw,
+                "A_k_raw": A_k_raw,
+                "A_v_raw": A_v_raw,
+            }
+            return delta_out, aux
+
+        return delta_out
+
+    def regularization_loss(self) -> torch.Tensor:
+        """
+        正则项：
+        1. field_l2_weight: 场强 L2
+        2. smoothness_weight: token 方向平滑
+        3. gate_entropy_weight: 门控熵正则
+           - 若想鼓励稀疏选择，可加负熵或低熵约束
+           - 这里默认返回 “正熵”，由外部决定加减号策略
+        """
+        if self._last_cache is None:
+            return torch.tensor(0.0, device=self.out_scale.device)
+
+        device = self.out_scale.device
+        loss = torch.tensor(0.0, device=device)
+
+        if self.field_l2_weight > 0:
+            l2 = 0.0
+            for name in ["A_q_raw", "A_k_raw", "A_v_raw"]:
+                field = self._last_cache[name]
+                l2 = l2 + field.pow(2).mean()
+            loss = loss + self.field_l2_weight * l2
+
+        if self.smoothness_weight > 0:
+            smooth = 0.0
+            for name in ["A_q_raw", "A_k_raw", "A_v_raw"]:
+                field = self._last_cache[name]  # [B, S, D]
+                if field.size(1) > 1:
+                    diff = field[:, 1:, :] - field[:, :-1, :]
+                    smooth = smooth + diff.pow(2).mean()
+            loss = loss + self.smoothness_weight * smooth
+
+        if self.gate_entropy_weight != 0:
+            alpha = self._last_cache["alpha"]
+            eps = 1e-8
+            entropy = -(alpha.clamp_min(eps) * alpha.clamp_min(eps).log()).sum(dim=-1).mean()
+            loss = loss + self.gate_entropy_weight * entropy
+
+        return loss
+
+    def get_last_task_weights(self) -> Optional[Dict[str, torch.Tensor]]:
+        """
+        便于可视化每个任务的动态权重。
+        """
+        if self._last_cache is None:
+            return None
+
+        alpha = self._last_cache["alpha"]
+        out = {}
+
+        for i, name in enumerate(self.task_names):
+            if alpha.dim() == 2:
+                out[name] = alpha[:, i]        # [B]
+            else:
+                out[name] = alpha[:, :, i]     # [B, S]
+
+        return out
+
+
+
+# 用法示例
+# 1. 初始化
+task_names = ["safety", "factual", "creative", "style_formal"]
+
+gauge_adapter = MultiTaskCovariantGaugeAdapter(
+    d_model=4096,
+    num_heads=32,
+    task_names=task_names,
+    rank=32,
+    gate_hidden=256,
+    gate_token_wise=False,   # 先用样本级门控，最稳
+    gate_use_softmax=True,
+    dropout=0.1,
+    use_layernorm=True,
+    smoothness_weight=1e-4,
+    field_l2_weight=1e-5,
+    gate_entropy_weight=0.0,  # 外部自己决定是鼓励稀疏还是均匀
+)
+
+# 2. 插入到 attention 输出后,假设你已有 base attention 输出与 q/k/v：
+base_attn_out = outputs["attn_output"]   # [B, S, D]
+q_base = outputs["q"]                    # [B, H, S, Hd]
+k_base = outputs["k"]                    # [B, H, S, Hd]
+v_base = outputs["v"]                    # [B, H, S, Hd]
+
+delta_out = gauge_adapter(
+    hidden_states=hidden_states,
+    q_base=q_base,
+    k_base=k_base,
+    v_base=v_base,
+    attention_mask=attention_mask,
+)
+
+attn_out = base_attn_out + delta_out
+
+# 3. 手工指定多任务叠加权重
+delta_out = gauge_adapter(
+    hidden_states=hidden_states,
+    q_base=q_base,
+    k_base=k_base,
+    v_base=v_base,
+    attention_mask=attention_mask,
+    task_weights={
+        "safety": 0.4,
+        "factual": 0.4,
+        "creative": 0.2,
+    }
+)
+# 4. 动态门控 + 辅助输出
+delta_out, aux = gauge_adapter(
+    hidden_states=hidden_states,
+    q_base=q_base,
+    k_base=k_base,
+    v_base=v_base,
+    attention_mask=attention_mask,
+    return_aux=True,
+)
+
+print(aux["task_alpha"].shape)
+# gate_token_wise=False -> [B, T]
+# gate_token_wise=True  -> [B, S, T]
+
+# 训练建议
+# 冻结 base model，只训练 gauge adapter
+for p in base_model.parameters():
+    p.requires_grad = False
+
+for p in gauge_adapter.parameters():
+    p.requires_grad = True
+
+# loss 组合
+task_loss = criterion(logits, labels)
+reg_loss = gauge_adapter.regularization_loss()
+
+loss = task_loss + reg_loss
+loss.backward()
+
+\end{lstlisting}
+
+\smalltitle{4. 动力学验证：零场初始化与无损干涉}
+
+此架构的一个关键物理约束是\textbf{“零场初始化 (Zero-Field Initialization)”}。在训练初始时刻，耦合常数 $g_{attn}, g_{val}, scale$ 被严格初始化为零。
+
+这意味着，微调起步时，系统的协变导数严格退化为普通导数：
+$$ D_\mu \Psi = \partial_\mu \Psi \quad (\text{因为 } \mathcal{A}_{tot} = 0) $$
+模型表现出与 Base Model 100\% 一致的\textbf{惯性滑行}。
+
+随着训练梯度的注入，模型不是在擦除记忆，而是在小心翼翼地“学习如何吹风”。无论最终 $\mathcal{A}_{tot}$ 多么强大，一旦在推理时人为将 \texttt{out\_scale} 置零，模型将瞬间恢复为其原始的全知形态。这种\textbf{绝对的可逆性}，是任何修改权重的 SFT / RLHF 方法都无法企及的。
+
+\smalltitle{5. 前瞻：向非阿贝尔规范场的跃迁 (Non-Abelian Outlook)}
+
+当前版本的工程实现基于\textbf{阿贝尔近似 (Abelian Approximation)}，即假设多任务规范场之间是线性可叠加的（$\mathcal{A}^{tot} = \sum \mathcal{A}^{(k)}$）。这适用于大多数非冲突任务（如“风格格式化”与“事实抽取”的叠加）。
+
+然而，当面临深层价值观冲突（如“绝对诚实”与“绝对安全”）时，规范场在物理上具有\textbf{非对易性 (Non-commutativity)}。真正的 HSF-HD 完备架构（v4 构想）将在总场方程中引入\textbf{换位子干涉项 (Commutator Interference Term)}：
+$$ \mathcal{A}_\mu^{tot} = \sum_k \alpha_k \mathcal{A}_\mu^{(k)} + \sum_{i < j} \beta_{ij} \left[ \mathcal{A}_\mu^{(i)}, \mathcal{A}_\nu^{(j)} \right] $$
+
+在工程上，这意味着需要引入一个\textbf{Task Composer Network (任务干涉解析器)} 来计算 $\beta_{ij}$。这将允许 AGI 在面对道德两难时，不再是简单地计算权重的加权平均，而是能够像人类一样，在两种规范的剧烈碰撞中，涌现出一种超越两者的高维“妥协态”或“智慧态”。这为彻底解决 AI 的复杂对齐难题，留下了终极的几何锁孔。
+
+
 
 \section{结论与展望：走向分离的文明智能}
 \label{sec:conclusion_gauge_finetune}
