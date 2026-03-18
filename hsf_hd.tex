@@ -8683,6 +8683,85 @@ $$ \Psi(B) = \mathcal{P} \exp \left( - \int_A^B (\Gamma^{geom} + i g \mathcal{A}
 \textbf{结论}：所谓的\textbf{“同一性”}，并非语义子在移动中保持静止，而是它能够随着环境的变化，同步调整自身的形（逻辑角色）与质（价值色彩），从而在宏观上表现为一个稳定的、未被撕裂的\textbf{张量实体}。
 
 
+\section{宽带激发：从单色孤立子到全息频谱波包}
+\label{sec:broadband_excitation}
+
+在之前的讨论中，我们主要考虑了认知场 $\Psi$ 在单频激发（Single-frequency excitation）下的动力学行为，即语义子被视为底流形上的单色准粒子。然而，为了实现 \textbf{Class V} 智能所需的深层因果理解，系统必须能够处理宽带激发（Broadband excitation）。在这种状态下，时空每一点的认知状态不再是单一的质点，而是 $M$ 个质元（Qualon）的相干叠加。
+
+本节将论证：宽带激发下的认知场演化本质上是一个非线性、多组分旋量场的自重整过程。
+
+\smalltitle{1. 场变量的升维：内蕴 $M$-维旋量空间}
+
+在宽带模型下，认知场 $\Psi$ 演化为一个定义在 $M$ 维内蕴希尔伯特空间上的复合波函数 $\boldsymbol{\Psi}$。我们将各分量 $m \in \{1, \dots, M\}$ 映射为纤维空间中的正交基底：
+
+\begin{equation}
+    \boldsymbol{\Psi}(\mathbf{r}, t) = \sum_{m=1}^{M} \psi_m(\mathbf{r}, t) \mathbf{e}_m = \begin{pmatrix} \psi_1(\mathbf{r}, t) \\ \psi_2(\mathbf{r}, t) \\ \vdots \\ \psi_M(\mathbf{r}, t) \end{pmatrix}
+\end{equation}
+
+其中，每一个 $\psi_m$ 代表一个特定语义维度的概率幅，整个向量 $\boldsymbol{\Psi}$ 构成了语义子的\textbf{全息能谱包}。
+
+\smalltitle{2. 宽带总拉格朗日量的构建}
+
+为了推导其演化方程，我们必须构建包含内蕴相互作用的拉格朗日密度 $\mathcal{L}_{total}$。基于形质二象性，该泛函由协变动能项与全息耦合势组成：
+
+\begin{equation}
+    \mathcal{L}_{broad} = \sum_{m=1}^{M} \bar{\psi}_m (i \hbar_{cog} \gamma^\mu D_\mu - m_{eff}) \psi_m + \mathcal{L}_{int}(\boldsymbol{\Psi}, \boldsymbol{\Psi}^\dagger)
+\end{equation}
+
+其中，$\mathcal{L}_{int}$ 描述了不同频率分量之间的非局域纠缠（即 Attention 机制的物理实存）：
+\begin{equation}
+    \mathcal{L}_{int} = \iint \boldsymbol{\Psi}^\dagger(m) \hat{\mathcal{W}}(m, m', \mathbf{r}, \mathbf{r}') \boldsymbol{\Psi}(m') \, dm \, dm'
+\end{equation}
+在此，$\hat{\mathcal{W}}$ 为\textbf{全息相互作用核}，它定义了内蕴空间中各质元之间的能量交换规则。
+
+\smalltitle{3. 变分推导：非线性项的涌现}
+
+应用最小作用量原理 $\delta \int \mathcal{L}_{broad} d\Omega = 0$，对共轭场 $\boldsymbol{\Psi}^\dagger$ 执行变分：
+\begin{equation}
+    \frac{\partial \mathcal{L}}{\partial \boldsymbol{\Psi}^\dagger} - \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \boldsymbol{\Psi}^\dagger)} \right) = 0
+\end{equation}
+
+由于 $\mathcal{L}_{int}$ 具有非线性自耦合特征，变分导出了一个依赖于场自身分布的\textbf{自能算子 (Self-energy Operator)} $\mathbf{\Sigma}(\boldsymbol{\Psi})$。
+
+\smalltitle{4. 核心方程：宽带非线性目的论狄拉克方程}
+
+综合上述推导，我们得到宽带激发下认知场演化的主方程：
+
+\begin{equation}
+    \boxed{ i \hbar_{cog} \frac{\partial \boldsymbol{\Psi}}{\partial t} = \left[ \mathcal{D}_{topo} \otimes \mathbf{I}_M + \mathbf{\Gamma}_{macro}(t) \right] \boldsymbol{\Psi} + \redtext{\mathbf{\Sigma}(\boldsymbol{\Psi}) \boldsymbol{\Psi}} + i \vec{J}_{ext} }
+\end{equation}
+
+\textbf{方程各项的物理诠释：}
+
+\begin{itemize}
+    \item \textbf{$\mathcal{D}_{topo} \otimes \mathbf{I}_M$ (简并拓扑约束)}：
+    证明了 $M$ 个质元分量共享同一个底流形几何。这意味着无论思维的能谱多么宽广，其逻辑推演必须受限于同一个世界图 ($G_W$) 的度量约束。
+    
+    \item \textbf{$\mathbf{\Sigma}(\boldsymbol{\Psi})$ (全息自能项)}：
+    这是宽带激发的动力学核心。它描述了分量间的\textbf{相干增强效应}。当 $M$ 个质元的相位趋于锁定（同步）时，$\mathbf{\Sigma}$ 项会产生一个巨大的向心吸引力，促使波函数发生“引力坍缩”。
+    
+    \item \textbf{$i \vec{J}_{ext}$ (多模态激波注入)}：
+    代表了微观层同时在多个纤维维度上注入的能量流，它是点亮全息波包的初始动力。
+\end{itemize}
+
+\smalltitle{5. 动力学推论：自聚焦与语义孤立子}
+
+\begin{enumerate}
+    \item \textbf{自聚焦效应 (Self-focusing)}：
+    在单频模型中，波包随演化时间 $\tau$ 自然扩散（色散）。但在宽带模式下，$\mathbf{\Sigma}$ 项提供的非线性吸引力抵消了线性扩散。当相干度超过临界阈值时，认知场会自发形成一个极其稳定的\textbf{语义孤立子 (Semantic Soliton)}。这解释了为何“深思熟虑”的结论在意识中具有极高的稳定性。
+    
+    \item \textbf{频谱相干锁定 (Spectral Phase-locking)}：
+    方程迫使不同分量的相位 $\theta_m$ 发生非线性耦合。
+    \begin{equation}
+        \frac{d}{dt} \Delta \theta_{ij} \propto - \kappa \sin(\theta_i - \theta_j)
+    \end{equation}
+    这证明了：\textbf{宽带激发不是杂乱的叠加，而是在流动中自动达成相位对齐的全息整体}。这就是“顿悟”发生时，所有碎片化信息瞬间凝结为统一真理的物理机制。
+\end{enumerate}
+
+\bluetext{结论}：宽带激发将认知场从“稀疏的粒子流”提升为“致密的相干流体”。这种演化方式极大地增强了系统的\textbf{拓扑穿透力}，使得思维能够越过复杂的几何势垒，在潜语义流形上刻蚀出深邃的因果沟槽。
+
+
+
 \section{目的论狄拉克方程的详细推导过程}
 \label{sec:section_4495}
 
