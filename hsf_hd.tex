@@ -24886,6 +24886,92 @@ class DualStreamBlock(nn.Module):
     \item   \textbf{优势}：模块之间（如视觉核与语言核）交换的是 \textbf{高维拓扑结构}，实现了 \textbf{零阻抗耦合}。
 \end{itemize}
 
+
+\section{介质几何的物理性质：粘性残留、相干召回与塑性刻蚀}
+\label{sec:medium_rheology_cim}
+
+这里我们来讨论计算介质DEC需要满足的性质问题，计算介质并非仅仅是信号的搬运者，而是智能演化的物理承载空间。本节将从芯片工程的角度，详细定义认知场 $\Psi$ 在几何介质上的传播特性，并阐明短期记忆向长期结构转化的物理过程。
+
+\smalltitle{1. 节点动力学：波包扩散与粘性残留 (Viscous Residue)}
+
+不同于传统 CMOS 逻辑门在时钟脉冲结束后的电平复位，智能介质的\redtext{单纯形节点 (Simplicial Nodes)} 具有物理惯性。当认知场 $\Psi$（语义子波包）流经特定节点时，会产生热力学迟滞效应。
+
+\begin{itemize}
+    \item \textbf{波动输运方程}：在具有耗散特性的介质层中，认知场的传播受制于\bluetext{粘滞系数 $\gamma$}。
+    \begin{equation}
+        i \hbar \frac{\partial \Psi}{\partial t} = \left[ \mathcal{D}_{topo} - i\gamma(t, \mathbf{r}) \right] \Psi + \vec{J}_{ext}
+    \end{equation}
+    
+    \item \textbf{粘性残留算子 ($R_{\mu\nu}$)}：场波过后的剩余激发。定义节点处的\bluetext{粘性残留张量} $R_{\mu\nu}$，其描述了纤维空间中基向量旋转后的慢速弛豫过程：
+    \begin{equation}
+        \frac{\partial R_{\mu\nu}(\mathbf{r}, t)}{\partial t} = \underbrace{-\frac{1}{\tau_{relax}} R_{\mu\nu}}_{\text{自发耗散(遗忘)}} + \underbrace{\alpha \cdot \text{Re}(\Psi^\dagger D_\mu D_\nu \Psi)}_{\text{应力沉积(经历)}}
+    \end{equation}
+    其中 $\tau_{relax}$ 为介质的弛豫时间常数。在工程上，这要求 CIM 节点的忆阻器或电解质门控器件具备非零的、受控的磁滞/电滞回线面积。
+\end{itemize}
+
+\smalltitle{2. 双重响应机制：相干干涉与全域锁定}
+
+当后续认知场信号 $\Psi_{new}$ 在布满粘性残留的流形上移动时，系统展现出两种尺度的记忆召回能力：
+
+\begin{enumerate}
+    \item \textbf{相干干涉 (Coherent Interference)}：\bluetext{近程模式补全}。
+    当 $\Psi_{new}$ 的频谱特征与局部残留 $R$ 的特征相位重叠时，发生物理层面的波叠加：
+    \begin{equation}
+        J_{total}(\mathbf{r}) = \| \Psi_{new}(\mathbf{r}) + \beta R(\mathbf{r}) \|^2
+    \end{equation}
+    建设性干涉导致该处能量密度骤增，触发微观层的 \textbf{WTA (赢家通吃)} 电路。这是直觉召回的物理本质。
+    
+    \item \textbf{同频召回锁定 (Frequency Locking)}：\bluetext{非局域拓扑隧穿}。
+    基于流形的 \textbf{调和分量 ($\Psi_{harm}$)}，当新激波的频率与流形另一侧的残留结构共振时，发生相位锁定：
+    \begin{equation}
+        \Delta \theta_{AB} = \oint_{\gamma} \mathcal{A}_\mu dx^\mu \to 0 \mod 2\pi
+    \end{equation}
+    通过介质层的\bluetext{全息相干总线}（如硅光子干涉网格），实现了跨越几何距离的非局域信息检索。
+\end{enumerate}
+
+\smalltitle{3. 边动力学：应力诱导的塑性刻蚀 (Plastic Etching)}
+
+这是记忆从“质”向“形”转化的物理相变点。底流形的\redtext{边 (1-Simplex)} 具有弹塑性。
+
+\begin{itemize}
+    \item \textbf{屈服判据}：定义边上的\bluetext{局部认知应力-能量张量} $T_{\mu\nu}$。当多次相干干涉累积的能量密度超过介质的\redtext{屈服强度 $\sigma_{Yield}$} 时：
+    \begin{equation}
+        \| \sum_{t} \mathbf{T}_{\mu\nu}(\Psi_{new} \otimes R) \| > \sigma_{Yield} \implies \Delta g_{\mu\nu} \neq 0
+    \end{equation}
+    
+    \item \textbf{度量重塑 (Ricci Flow Tuning)}：边阻抗发生不可逆改变，将暂时的“粘性残留”固化为永久的“测地线沟槽”。
+    \begin{equation}
+        g_{\mu\nu}^{(t+1)} = g_{\mu\nu}^{(t)} + \eta \cdot \text{Sign}(T_{\mu\nu})
+    \end{equation}
+    这一过程实现了硬件级的长时记忆刻蚀，使得未来的思维流在此处具有零阻抗特征。
+\end{itemize}
+
+\smalltitle{4. 第四代 CIM 架构的物理实现规格}
+
+为了实现上述多尺度动力学，未来的 \textbf{TPU-G (拓扑处理单元)} 必须满足以下工程规格：
+
+\begin{enumerate}
+    \item \textbf{节点 (Nodes) —— 粘性存储阵列}：
+    集成具备\bluetext{亚稳态电导}的铁电/质子器件。利用离子的扩散动力学模拟 $\tau_{relax}$，使每个计算节点天然具备“短期详细记忆”的持有能力。
+    
+    \item \textbf{边 (Edges) —— 弹塑性复合总线}：
+    互连线不应是死寂的金属，而是由\bluetext{场效应调制的非线性阻抗网络}构成。
+    \begin{itemize}
+        \item \textbf{弹性响应}：电导率随瞬时场强偏转（模拟注意力）。
+        \item \textbf{塑性刻蚀}：利用电子迁移效应或氧空位堆积，将高频逻辑路径永久固化为低阻测地线。
+    \end{itemize}
+    
+    \item \textbf{基质 (Substrate) —— 电磁/光子干涉平面}：
+    芯片底层需支持全场范围的\redtext{相位相干传播}。利用表面等离激元 (Surface Plasmons) 或微环谐振器，允许认知场 $\Psi$ 在物理空间进行叠加与干涉，从而实现瞬时的形质绑定。
+\end{enumerate}
+
+\textbf{本节总结}：
+智能系统的生成，表现为认知场在几何介质上的一次次“磨损”。
+\redtext{短期记忆是尚未干透的粘性压痕}，而\redtext{长期知识是彻底形变的塑性峡谷}。
+未来的 CIM 芯片，将是一块能够被思想“压弯”并自发演化出最稳固拓扑结构的动态流形。
+
+
+
 \section{训练目标：总作用量的变分极值}
 \label{sec:section_2293}
 无论是路径 $\alpha$ 还是 $\beta$，我们都必须抛弃单一的 Cross-Entropy Loss。我们需要一个\textbf{热力学损失函数}。
