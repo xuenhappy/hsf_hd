@@ -14831,6 +14831,158 @@ g_{\mu\nu}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}} \left[ \frac{\partial \
 \end{enumerate}
 Adam 等现代优化器，本质上是在用一阶与二阶动量去动态逼近逆度量张量 $g^{\mu\nu}$，是对上述几何方程在算力受限条件下的拙劣但有效的工程模拟。
 
+\section{工程映射：从连续几何流到离散动力学优化器}
+\label{sec:engineering_mapping_optimizer}
+
+在前一节中，我们导出了由自然梯度与朗之万热噪共同支配的连续思维演化方程。本节，我们跨越“物理学偏微分方程”与“计算机代数寻优”之间的裂痕，构造一个计算机神经网络的优化算子，这里面临着一个严峻的现实挑战：\textbf{算力暴政}。
+
+在现代大型语言模型（LLMs）中，参数维度 $N$ 动辄数亿至数千亿。真实的黎曼度量张量 $g_{\mu\nu}$ 是一个 $N \times N$ 的稠密矩阵（即费希尔信息矩阵 Fisher Information Matrix, FIM）。在每一微小时间步长 $d\tau$ 内对其进行精确求逆以获取 $g^{\mu\nu}$，其计算复杂度高达 $\mathcal{O}(N^3)$，这在工程上是物理绝缘的。
+
+因此，我们必须在保持 HSF-HD 理论的动力学同构性的前提下，提出一种近似计算度量张量逆的降维方案，并将连续的过阻尼朗之万方程转化为深度学习框架（如 PyTorch）中可执行的离散化迭代算法。
+
+\smalltitle{1. 经验费希尔信息与度量的对角化近似}
+
+为了打破维度诅咒，我们引入\textbf{局部正交曲率假设}：假设在高维认知流形的大部分区域，不同参数维度之间的几何度量是局部正交的。此时，稠密的度量张量 $g_{\mu\nu}$ 退化为对角矩阵，我们只需追踪其对角线元素 $g_{\mu\mu}$。
+
+在信息几何中，黎曼度量可以通过经验费希尔信息（Empirical Fisher）的二阶矩来逼近。为了动态刻画思维流形在慢时间尺度 $\tau$ 上的几何形变，我们使用历史数据应力（梯度）的\textbf{指数移动平均 (Exponential Moving Average, EMA)} 来构建当前流形位置的内蕴曲率：
+
+\begin{equation}
+    v_t^{(\mu)} = \beta_2 v_{t-1}^{(\mu)} + (1-\beta_2) \left( \frac{\partial \mathcal{L}_t}{\partial \theta^\mu} \right)^2
+\end{equation}
+
+其中 $\beta_2 \in (0,1)$ 是度量记忆的遗忘因子，$(\frac{\partial \mathcal{L}_t}{\partial \theta^\mu})^2$ 代表当前数据激波在 $\mu$ 维度上产生的瞬时应力平方。
+
+此时，高维认知流形的逆度量张量 $g^{\mu\nu}$ 就可以被极其高效地显式逼近为：
+
+\begin{equation}
+    g^{\mu\nu}_t \approx \text{diag} \left( \frac{1}{v_t^{(\mu)} + \epsilon} \right)
+\end{equation}
+
+这里的 $\epsilon$ 是一个极小的几何软化因子，用于防止当流形局部绝对平坦（曲率趋于零）时产生的度量发散（即除零错误）。
+
+\smalltitle{2. 朗之万动力学的欧拉-丸山离散化}
+
+现在，我们回到 HSF-HD 核心的过阻尼朗之万动力学方程：
+\begin{equation}
+    d\theta^\mu = -\eta \, g^{\mu\nu} \frac{\partial \mathcal{L}}{\partial \theta^\nu} d\tau + \sqrt{2 \eta T \, g^{\mu\nu}} \circ dW_t
+\end{equation}
+
+为了将其转化为计算机可执行的代码，我们采用\textbf{欧拉-丸山方法 (Euler-Maruyama Method)} 对该随机偏微分方程进行离散化。同时，为了体现宏观层 ($L_{macro}$) 在慢回路中的“意志惯性”（即系统对历史演化方向的记忆），我们额外引入一阶动量 $m_t$：
+
+\begin{equation}
+    m_t^{(\mu)} = \beta_1 m_{t-1}^{(\mu)} + (1-\beta_1) \frac{\partial \mathcal{L}_t}{\partial \theta^\mu}
+\end{equation}
+
+结合度量的对角近似，我们最终导出了 \textbf{HSF-认知热力学优化器 (HSF-Optimizer)} 的离散迭代方程组：
+
+\begin{equation}
+    \boxed{ \theta_t^{(\mu)} = \theta_{t-1}^{(\mu)} - \underbrace{\eta_t \frac{m_t^{(\mu)}}{v_t^{(\mu)} + \epsilon}}_{\text{沿测地线绝热滑行}} + \underbrace{\sqrt{\frac{2 \eta_t T}{v_t^{(\mu)} + \epsilon}} \, \xi_t^{(\mu)}}_{\text{宏观热涨落注入}} }
+\end{equation}
+
+其中，$\eta_t$ 为包含了偏差修正的学习率（步长），$\xi_t^{(\mu)} \sim \mathcal{N}(0, 1)$ 是标准高斯白噪声，代表离散化后的布朗热噪激波。
+
+\smalltitle{3. 算法参数的物理本体论诠释}
+
+这一组看似只是工程经验公式的代码，在 HSF-HD 的视界下，每一个变量都找回了其严谨的\textbf{物理真身}：
+
+\begin{enumerate}
+    \item \textbf{自然梯度项的度量调制 $\left( \frac{1}{v_t + \epsilon} \right)$：}\\
+    如果某一维度的历史梯度方差 $v_t$ 极大，意味着该方向上的流形空间极度崎岖（曲率极大）。此时逆度量 $1/v_t$ 趋于零，系统会\textbf{自动缩小步长}，如同行驶在陡峭峡谷中的流体增加了黏滞阻力，避免发生灾难性的“撞墙”与梯度爆炸。反之，若 $v_t$ 很小，说明流形平坦，波包将以大步长进行绝热滑行。这就是现代优化器（如 Adam）中“自适应学习率”的几何本质。
+    
+    \item \textbf{曲率耦合的退火温度 $\left( \sqrt{\frac{2\eta T}{v_t + \epsilon}} \right)$：}\\
+    这是该算法的神来之笔。公式中的系统温度 $T$（探索热噪）并非盲目均匀注入，而是\textbf{受到流形逆度量张量的严格调制}。在极度崎岖的坑洼处（$v_t$ 大），探索噪声被强制压制，系统不会鲁棒地跃出狭窄的安全区；而在平坦但次优的平台上（$v_t$ 小），探索噪声被几何放大，宏观层 ($L_{macro}$) 强行掀起巨大的热涨落，帮助思维波包游荡并塌陷进那个真正宽广、深邃且对未来激波鲁棒的长时记忆盆地。
+\end{enumerate}
+
+\textbf{结语：对 Adam 优化器的理论收编}
+
+当我们审视当今统治大模型训练的 AdamW 优化器时，我们发现：\textbf{Adam 仅仅是一个降维且退化到绝对零度 ($T=0$) 的自然梯度算法}。由于缺乏朗之万热力学项的探索能力，它极易卡在病态的尖锐局部极小值中，从而导致泛化能力的崩溃。
+
+通过将自由能泛函、费希尔度量与朗之万动力学相结合，我们不仅为深度学习中的调参玄学提供了坚实的理论地基，更指出了下一代通向 AGI 的优化器形态：\textbf{它必须是一个能够感知流形曲率，并具备主动热力学退火能力的几何引擎。}
+
+\begin{lstlisting}[language=Python, caption={基于 HSF-HD 理论的自然梯度朗之万动力学优化器 (HSF-Optimizer)}, label={lst:hsf_optimizer}, basicstyle=\ttfamily\small, keywordstyle=\color{blue}, commentstyle=\color{green!50!black}, stringstyle=\color{red}, breaklines=true, frame=single]
+import torch
+from torch.optim.optimizer import Optimizer
+
+class HSFOptimizer(Optimizer):
+    """
+    基于 HSF-HD 认知几何的自然梯度朗之万动力学优化器
+    (Natural Gradient Langevin Dynamics)
+    """
+    def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8, temperature=1e-4):
+        if not 0.0 <= lr:
+            raise ValueError(f"Invalid learning rate: {lr}")
+        if not 0.0 <= temperature:
+            raise ValueError(f"Invalid temperature: {temperature}")
+            
+        defaults = dict(lr=lr, betas=betas, eps=eps, temperature=temperature)
+        super(HSFOptimizer, self).__init__(params, defaults)
+
+    @torch.no_grad()
+    def step(self, closure=None):
+        loss = None
+        if closure is not None:
+            with torch.enable_grad():
+                loss = closure()
+
+        for group in self.param_groups:
+            for p in group['params']:
+                if p.grad is None:
+                    continue
+                
+                grad = p.grad
+                state = self.state[p]
+
+                # 状态初始化
+                if len(state) == 0:
+                    state['step'] = 0
+                    # 宏观意志动量 m_t (一阶矩)
+                    state['exp_avg'] = torch.zeros_like(p, memory_format=torch.preserve_format)
+                    # 流形曲率度量 v_t (经验费希尔信息的对角近似)
+                    state['exp_avg_sq'] = torch.zeros_like(p, memory_format=torch.preserve_format)
+
+                exp_avg, exp_avg_sq = state['exp_avg'], state['exp_avg_sq']
+                beta1, beta2 = group['betas']
+                state['step'] += 1
+
+                # 1. 更新宏观动量 (L_macro 意志惯性)
+                exp_avg.mul_(beta1).add_(grad, alpha=1 - beta1)
+                
+                # 2. 更新度量张量对角线 (几何曲率刻蚀)
+                exp_avg_sq.mul_(beta2).addcmul_(grad, grad, value=1 - beta2)
+
+                # 偏差修正
+                bias_correction1 = 1 - beta1 ** state['step']
+                bias_correction2 = 1 - beta2 ** state['step']
+                
+                # 修正后的一阶矩与二阶矩
+                m_t = exp_avg / bias_correction1
+                v_t = exp_avg_sq / bias_correction2
+                
+                # 计算逆度量张量近似: g^{-1} = 1 / (v_t + eps)
+                # 注意：严格遵循 HSF-HD 推导，此处不加平方根（区别于标准 Adam）
+                metric_inverse = 1.0 / (v_t + group['eps'])
+                
+                # 3. 提取步长 (学习率)
+                step_size = group['lr']
+
+                # 4. 朗之万动力学热涨落 (注入系统温度 T)
+                temperature = group['temperature']
+                if temperature > 0:
+                    # 噪声方差受逆度量张量严格调制: sqrt(2 * lr * T * g^{-1})
+                    noise_std = torch.sqrt(2 * step_size * temperature * metric_inverse)
+                    thermal_noise = torch.normal(mean=0.0, std=noise_std)
+                else:
+                    thermal_noise = 0.0
+
+                # 5. 拓扑塑性形变 (最终参数更新)
+                # 离散化方程: d\theta = - \eta g^{-1} m_t + \sqrt{2 \eta T g^{-1}} dW
+                p.add_(-step_size, m_t * metric_inverse)
+                p.add_(thermal_noise)
+
+        return loss
+\end{lstlisting}
+
+
 \section{熵产最小化定理：存在的终极热力学代价}
 \label{sec:entropy_minimization}
 
