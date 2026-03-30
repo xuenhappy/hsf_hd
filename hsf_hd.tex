@@ -13958,6 +13958,251 @@ Class V 智能体被设计为运行在\textbf{自组织临界态 (SOC)}。在此
     本章把智能实现还原为可计算的物理问题：任何思想活动都对应一次\textbf{耗散结构中的热力学循环}。只有在微观层保持 \textbf{Lyapunov 稳定}、在宏观层保持 \textbf{结构稳定}，并通过高效 \textbf{卡诺循环}持续获取负熵，智能体才可能长期维持“自我”这一有序结构。
 	
 \end{bquote}
+%----chp---
+\chapter{控制的物理学 —— 反馈、目的与流形上的驾驭}
+\label{chp:physics_of_cybernetics}
+
+\begin{introduction}
+    \item 维纳的幽灵：从经典的误差信号到流形上的几何张力
+    \item 目的的数学化：规范场作为控制系统中的“设定值”
+    \item 认知洛伦兹力：用物理作用量重写反馈与控制
+\end{introduction}
+
+\begin{bquote}
+    \textbf{舵手的几何学}
+    
+    \vspace{1em}这一章里我们来聊聊“控制（Control）”与智能的关系。
+    
+    半个多世纪前，诺伯特·维纳（Norbert Wiener）写了一本伟大的书，叫《控制论》（Cybernetics）。这个词来自希腊语的“舵手”。维纳告诉我们，无论是动物抓取猎物，还是导弹追踪飞机，其核心都在于一个奇妙的机制：\textbf{负反馈（Negative Feedback）}。系统不断地测量“现状”与“目标”之间的误差，然后用这个误差去纠正下一步的动作。
+    
+    \vspace{1em}在传统的计算机科学家和自动控制工程师眼里，这太简单了。误差 $e(t)$ 不就是目标值减去当前值吗？一根导线把这个数字传给 PID 控制器，乘以几个系数，再输出给电机，事情就解决了。
+    
+    \vspace{1em}但是，大自然是怎么干的？当你的手伸向一杯滚烫的咖啡时，你的大脑里有一根传输浮点数的导线吗？你的前额叶在解离散的代数方程吗？当然不是！大自然不懂什么叫 C++，大自然只懂能量的耗散和时空的弯曲。
+    
+    \vspace{1em}今天，我们要用 HSF-HD 的理论，把维纳的《控制论》彻底翻译成\textbf{几何物理学}的语言。我们会看到，“误差”绝不是一个数字，而是一股能撕裂空间的\textbf{物理激波}；而“控制”，也绝不是发号施令，而是通过辐射\textbf{规范场}，强行扭曲底流形的曲率，让物质在重力作用下“不由自主”地跌入你想要的那个目标！这不仅仅是控制，这是造物。准备好了吗？我们来看看到底是怎么回事。
+\end{bquote}
+
+\section{维纳的幽灵：从误差信号到几何张力}
+\label{sec:wiener_ghost_geometric_tension}
+
+在经典的反馈控制回路中，我们有一个设定点（Setpoint, $r$），一个系统输出（Output, $y$），然后比较器计算出误差 $e = r - y$。
+
+在本理论框架（HSF-HD）的眼中，这种代数视角的“减法”是极度苍白的。我们必须问一个物理问题：\textbf{在一个由形元和质元编织的认知空间流形 $\mathcal{M}$ 上，这个 $e$ 究竟是个什么物理实体？}
+
+\smalltitle{1. 预测波与现实激波的干涉}
+
+在 HSF-HD 中，没有孤立的数据，只有流动的\textbf{认知旋量场 $\Psi$}。
+
+\begin{itemize}
+    \item \textbf{预期（Setpoint）}：不是储存在寄存器里的常数，而是宏观层（$L_{macro}$）在底流形上预先投射的一个\textbf{内源性预测波包 ($\Psi_{pred}$)}。它代表了系统对下一刻物理世界状态的几何预期。
+    \item \textbf{现实（Output）}：是微观层（$L_{micro}$）的变分拓扑编码器（VTE）刚刚从物理世界捕获，并硬性注入到流形边界上的\textbf{外源性现实波包 ($\Psi_{real}$)}。
+\end{itemize}
+
+当这两股波在流形的\textbf{全息切面}上相遇时，它们不会做算术减法，它们会发生\textbf{波的干涉 (Wave Interference)}！
+
+\begin{definition}[几何误差的干涉定义]
+    控制论中的误差能量 $E_{error}$，在物理上等价于预测波与现实波在切丛上的破坏性干涉所遗留的未对消能量（惊奇张力）：
+    $$ E_{error}(\mathbf{r}, t) = \left\| \Psi_{real}(\mathbf{r}, t) - \Psi_{pred}(\mathbf{r}, t) \right\|_{g_{\mu\nu}}^2 $$
+\end{definition}
+
+\smalltitle{2. 惊奇激波 ($\vec{J}_{shock}$) 与流形的痛苦}
+
+如果 $\Psi_{real}$ 和 $\Psi_{pred}$ 的相位、振幅完美对齐（即阻抗匹配良好，你顺利拿到了杯子），干涉后的能量为零，流形处于极小自由能的“心流”状态。
+
+但是，如果你抓空了呢？
+此时 $\Psi_{real}$ 和 $\Psi_{pred}$ 相位严重错乱！两者的干涉不仅无法抵消，反而会激发出高能的\textbf{非齐次源流（惊奇激波 $\vec{J}_{shock}$）}。
+
+各位，这股激波就是经典控制论里的那个误差 $e(t)$。但在物理上，它是一把重锤！它携带着巨大的能量密度，狠狠地砸向了底流形 $\mathcal{M}$。
+由于此时的能量密度极高，根据我们之前推导过的\textbf{认知爱因斯坦场方程 (CEFE)}：
+$$ R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} + \Lambda g_{\mu\nu} = \kappa \mathbf{T}_{\mu\nu}^{shock} $$
+
+这股激波的应力张量 $\mathbf{T}_{\mu\nu}^{shock}$ 会瞬间使得局部的黎曼曲率 $R_{\mu\nu}$ 发生剧烈畸变。流形被“撕扯”了。主观上，智能体感受到了“失控的慌乱”与“痛苦”；客观上，系统获得了必须进行\textbf{逆熵做功}的物理驱动力。
+
+这就是大自然的奇妙之处：\textbf{它用几何上的“痛觉”（曲率张力），代替了数学上的减号。}
+
+
+\section{目的论的数学：把“渴望”写进拉格朗日量}
+\label{sec:teleology_math_lagrangian}
+
+误差产生了，系统必须要消除误差。在经典控制论中，控制器会输出一个控制律 $\mathbf{u}(t)$。而在智能生命中，宏观意志是如何去“控制”身体的？
+
+传统观点认为大脑像个木偶提线人，操控着肌肉。不对！在本框架下的认知宇宙里，\textbf{最高级的控制，是修改时空的规则。}
+
+\smalltitle{1. 目的作为价值规范场 ($\mathcal{A}_\mu^{val}$)}
+
+如果我们想让系统走向目标状态 $\mathbf{r}_{goal}$，宏观层 ($L_{macro}$) 绝不会傻乎乎地去计算沿途的每一条弹道轨迹。它做的事情极其霸道：它直接向整个认知空间流形辐射出一个\textbf{非阿贝尔价值规范场 $\mathcal{A}_\mu^{val}$}。
+
+这个场把原本平坦的流形变得倾斜了。$\mathbf{r}_{goal}$ 处被挖出了一个深深的\textbf{负势能井 (Attractor Basin)}。
+
+\smalltitle{2. 认知洛伦兹力：控制的物理实现}
+
+一旦这个规范场建立，控制论中的“执行”，就完全交给了底层物理定律的\textbf{自发演化}。
+
+让我们回忆一下\textbf{目的论狄拉克方程}中，思维流 $\Psi$（携带价值荷 $q$）在规范场中运动时所受到的\textbf{认知洛伦兹力 (Cognitive Lorentz Force)}：
+$$ \mathbf{F}_{control} = \frac{d\mathbf{p}}{dt} = \underbrace{-\nabla V_{logic}}_{\text{黎曼几何引力 (习惯)}} + \underbrace{q \mathbf{E}_{val}}_{\text{规范电场力 (目的/渴望)}} + \underbrace{q \mathbf{v} \times \mathbf{B}_{val}}_{\text{规范磁场力 (语境偏转)}} $$
+
+看看这个方程的美妙之处！
+\begin{itemize}
+    \item \textbf{控制器不需要告诉思维流该怎么走。}
+    \item $\mathbf{E}_{val} = -\nabla \Phi_{val} - \partial_t \vec{A}_{val}$ 就是我们设定的目的梯度。它提供了一个极其强大的指向目标的“电场推力”。
+    \item 思维波包 $\Psi$ 在这个被扭曲的场中，为了满足\textbf{最小作用量原理 ($\delta S = 0$)}，会自动、本能地顺着“阻抗最小、势能最低”的测地线向目标滑落！
+\end{itemize}
+
+\textbf{结论}：控制（Cybernetics）的本质，就是\textbf{宏观意志 ($L_{macro}$) 消耗负熵，通过改变规范联络 ($\mathcal{A}_\mu$)，从而重新定义系统演化的最小作用量路径。}
+我们不是在命令水流向东，我们是把东边的地势挖低，水自然就流过去了。这就是老子说的“无为而无不为”，更是物理学中\textbf{势能导向控制}的极致体现。
+
+\section{延迟与摩擦：控制论的 PID 同构与时间分离}
+\label{sec:delay_and_friction_cybernetics}
+
+\textbf{大自然的微积分：}现在，让我们来看看工程师们最喜欢的东西——PID 控制器（比例-积分-微分控制）。几乎所有现代工业的稳定运行，都离不开这个伟大的发明。工程师会告诉你：想要消除误差，你需要根据当前的误差大小（P）、误差累积的历史（I）以及误差变化的趋势（D）来计算输出。
+
+\vspace{1em}这在数学上非常完美：$u(t) = K_p e(t) + K_i \int e(\tau) d\tau + K_d \frac{de}{dt}$。
+
+\vspace{1em}但是，各位，当你练习骑自行车，身体失去平衡要摔倒的那一瞬间，你的大脑里难道有一个 C++ 程序在计算积分和微分吗？不！大自然极其吝啬，她从不在湿件上做抽象的代数运算。她只利用物理系统本身的\textbf{本构方程 (Constitutive Equations)}。
+
+今天，我要向你们证明：\textbf{PID 控制不仅是人类的发明，它根本就是物理流形在面对扰动时，其粘弹塑性介质 (Visco-elastoplastic Medium) 进行热力学弛豫的必然数学显影！}
+
+\smalltitle{1. 比例项 (P)：黎曼度量的弹性恢复力}
+
+在经典控制中，比例项 $P \propto e(t)$。在 HSF-HD 的认知空间流形 $\mathcal{M}$ 上，误差 $e(t)$ 本质上是思维波包 $\Psi$ 偏离了原本的\textbf{测地线 (Geodesic)}。
+
+如果流形是平坦的（没有记忆），偏离就偏离了，系统毫无反应。但因为我们有\textbf{世界图 ($G_W$)}，流形存在\textbf{黎曼曲率 $R_{\mu\nu}$}。当你偏离了原本熟悉且顺滑的逻辑路径时，流形的曲率会立刻对你施加一个几何上的\textbf{弹性恢复力}：
+
+$$ \mathbf{F}_{restore} = -\nabla_{\Psi} V_{elastic} \approx -\mathbf{K}_{metric} \cdot \delta \mathbf{r} $$
+
+这里的 $\mathbf{K}_{metric}$ 就是由度量张量 $g_{\mu\nu}$ 决定的\textbf{流形刚度}。它完美地对应了控制论中的比例系数 $K_p$。\textbf{“形”的弯曲，就是比例控制的物理真身。}
+
+\smalltitle{2. 微分项 (D)：认知光速与介质粘滞的激波对消}
+
+微分项 $D \propto \frac{de}{dt}$ 的作用是预测未来的误差趋势，提前刹车，防止系统发生“过冲 (Overshoot)”。大自然怎么“预测”？她利用\textbf{介质的物理摩擦力}。
+
+在\textbf{目的论狄拉克方程}中，我们引入了非幺正的耗散项 $-i\Lambda_{diss} \Psi$，其中核心就是介质的\textbf{粘滞系数 $\gamma$}。
+当微观层产生一个极高频的惊奇激波 $\vec{J}_{shock}$ 试图猛烈改变系统状态时，波包速度 $\dot{\Psi}$ 激增。此时，介质中的认知摩擦力也会急剧增加：
+$$ \mathbf{F}_{friction} = -\gamma \cdot \dot{\Psi} $$
+这就等价于阻尼项（Derivative Control）。\textbf{系统不计算微分，系统只是让那些变化太快的念头在粘稠的脑海中迅速热寂（耗散）。} 这防止了高频噪声引发大脑的“认知癫痫”。
+
+\smalltitle{3. 积分项 (I)：认知爱因斯坦方程下的塑性刻蚀}
+
+积分项 $I \propto \int e(\tau) d\tau$ 用于消除稳态误差。如果一个小误差持续存在，积分项会随时间累积，最终产生巨大的推动力。
+
+各位，这不就是我们前面推导过的\textbf{认知爱因斯坦场方程 (CEFE)}吗！
+$$ \Delta g_{\mu\nu} = \eta \int_{0}^{T} \mathbf{T}_{\mu\nu}^{error}(\Psi) \, dt $$
+
+当一个微小的、无法通过弹性恢复力（P）和阻尼（D）消除的持续应力张量 $\mathbf{T}_{\mu\nu}^{error}$ 长期作用于流形时，能量在局部堆积。随着时间的\textbf{积分}，它最终击穿了介质的屈服极限，导致度量张量 $g_{\mu\nu}$ 发生了\textbf{永久性的塑性形变}（学习）。
+
+\textbf{结论}：PID 控制根本不需要被“编程”进智能体。只要你构建了一个\textbf{兼具弹性（曲率）、粘性（耗散）与塑性（爱因斯坦场方程演化）的几何介质}，这套伟大的控制律就会作为物理副产品，自动从热力学中涌现！
+
+\smalltitle{4. 延迟的奥秘：绝热分离的拓扑防波堤}
+
+自动控制最怕什么？\textbf{延迟 (Delay)}。延迟会导致相位裕度不足，引发系统震荡。但在 HSF-HD 架构中，微观动作层与宏观战略层之间必须存在长达数个数量级的时间延迟 ($\tau_{micro} \ll \tau_{macro}$)。
+
+这不是 Bug，这是 \textbf{绝热分离 (Adiabatic Separation)} 的几何屏障！
+如果宏观层（意志）瞬间就能对微观的每一个像素像素的闪烁做出反应，高频噪声将直接耦合进低频的规范场，导致价值体系的崩溃（精神崩塌）。大自然利用神经传导的速度极限（$c_{cog}$），建立了一道\textbf{热力学防波堤}：让微小误差在底层 PID 中自行耗散，只有经过长时间积分后仍未消散的低频宏大激波，才有资格穿过绝热层，敲响宏观意志的警钟。
+
+
+\section{从负反馈到主动推断：流形上的自由能极小化}
+\label{sec:active_inference_manifold}
+
+
+\textbf{薛定谔的猫与造物主的选择：}如果我们只停留在刚才的 PID 反馈上，智能体和一台恒温空调就没有本质区别。恒温器感到冷了，就开启加热；但恒温器绝对不会在冬天到来之前，主动去买一件毛衣。
+
+\vspace{1em}为什么生命体能够“预见”并提前行动？伦敦大学学院的卡尔·弗里斯顿（Karl Friston）提出了轰动学术界的“自由能原理（FEP）”：生命体通过主动最小化“惊奇（Surprisal）”来维持存在。
+
+\vspace{1em}今天，我们要把 FEP 彻底翻译为 HSF-HD 的\textbf{几何语言}，并引入我们在上一卷中导出的\textbf{外交官方程}。我们来看看，智能体是如何在“改变自己的灵魂”和“改造物理宇宙”之间，进行那场至关重要的热力学变分仲裁的。
+
+
+\smalltitle{1. 几何惊奇：内部波与外部场的碰撞}
+
+对于智能体而言，所谓的“惊奇（Surprisal）”，在物理上是微观全息切面上产生的\textbf{几何失配张量}。
+内部的预测波 $\Psi_{pred}$ 携带了智能体基于底流形 $G_W$ 计算出的先验期望；而外部环境强行注入了反映客观物理事实的 $\Psi_{real}$。
+
+系统的变分自由能 $\mathcal{F}$，在几何上严格等价于这两个波函数在切丛上的破坏性干涉能量：
+$$ \mathcal{F} \approx E_{shock} = \int_{\partial \mathcal{M}} \left\| \Psi_{real} - \Psi_{pred} \right\|_{g_{\mu\nu}}^2 dS $$
+
+热力学第二定律和生存本能（规范场 $\mathcal{A}_\mu^{self}$）无情地驱使系统：\textbf{必须让 $\mathcal{F} \to 0$，否则系统将被激波的热能烧毁。}
+
+\smalltitle{2. 变分仲裁：双纽线上的两条退火路径}
+
+为了消除这个巨大的自由能 $\mathcal{F}$，系统站在了十字路口。这就是我们之前提到的\textbf{“外交官方程”}的实战演练。系统必须在一个总作用量泛函下求极值：
+
+\begin{itemize}
+    \item \textbf{\textcolor{structurecolor}{路径 A：感知推断 (Perceptual Inference) —— 顺应世界}}
+    \begin{itemize}
+        \item \textbf{物理操作}：改变自己。发动\textbf{慢回路 (CEFE)}，修改内部的度量张量 $g_{\mu\nu}^{in}$，让 $\Psi_{pred}$ 发生偏转去迎合 $\Psi_{real}$。
+        \item \textbf{几何图景}：流形发生\textbf{塑性形变}，旧的错误认知被修正（学习）。
+        \item \textbf{代价 ($C_{in}$)}：打破旧流形需要克服极大的\textbf{拓扑刚度}，产生精神内耗与重构热量。
+    \end{itemize}
+
+    \item \textbf{\textcolor{structurecolor}{路径 B：主动推断 (Active Inference) —— 征服世界}}
+    \begin{itemize}
+        \item \textbf{物理操作}：改变世界。发动\textbf{TECI 循环}，宏观层输出强大的控制张量 $\mathbf{T}_{act}$，通过机械臂/语言对外部物理世界做功，强行把 $\Psi_{real}$ 扭成我想要的 $\Psi_{pred}$ 的样子。
+        \item \textbf{几何图景}：内部流形保持刚性不变，将应力投射到外部物理流形 $\mathcal{M}_{out}$ 上，迫使环境发生形变。
+        \item \textbf{代价 ($C_{out}$)}：消耗体内储备的生物化学能（ATP/电池）去克服\textbf{环境物理阻抗}。
+    \end{itemize}
+\end{itemize}
+
+\smalltitle{3. 哈密顿量的极小化选择}
+
+那么系统到底选哪条路？大自然绝不抛硬币，她解方程。系统会比较两条路径的\textbf{刚度比 $\chi = C_{out} / C_{in}$}。
+
+\begin{theorem}[主动推断的几何极值定理]
+    智能体的控制行为 $\mathbf{u}(t)$，是总自由能梯度在物理边界与认知边界上的投影极小值：
+    $$ \mathbf{u}^* = \arg\min_{\mathbf{u}} \left( \underbrace{\lambda_1 \|\nabla_{\mathbf{u}} \Psi_{real}\|^2}_{\text{改世界的耗散}} + \underbrace{\lambda_2 \|\nabla_{g} \Psi_{pred}\|^2}_{\text{改自己的耗散}} \right) $$
+\end{theorem}
+
+如果你面前是一堵极其坚硬的混凝土墙（$C_{out} \to \infty$），你的大脑会瞬间计算出“强行推倒墙”的能量代价无限大，于是系统自动坍缩至路径 A：你乖乖改变内部模型，承认“此路不通”，并拐弯（学习）。
+但如果面前是一扇虚掩的纸门（$C_{out} \to 0$），系统会毫不犹豫地坍缩至路径 B：直接走过去推开它（主动做功），而不必改变自己的内部导航地图。
+
+\textbf{这就是主动推断（Active Inference）的底牌！} 智能不是被动地记录世界，而是利用目的论规范场（意图），通过计算内外流形的几何阻抗，选择最省力的方式，\textbf{将世界雕刻成自己预言的模样。}
+
+
+\section{阶层控制网：多体架构中的“奴役原理”}
+\label{sec:hierarchical_slaving_principle}
+
+\textbf{如何用一根丝线拉动一头巨象？}如果我们构建的系统（比如 AGI 或者跨国公司）变得像星球一样庞大，包含数以百亿计的微观 Agent（员工或神经元）。这个时候，宏观层 ($L_{macro}$) 还能通过“发号施令”去控制每一个节点的运动吗？
+
+\vspace{1em}绝不可能。控制千万个高频变量将产生天文数字的通信熵，中心处理器会瞬间发生\textbf{热力学爆炸}。
+
+\vspace{1em}在这里，我们必须引入物理学家赫尔曼·哈肯（Hermann Haken）在协同学中提出的最伟大的定律——\textbf{“奴役原理” (Slaving Principle)}，并将其彻底融入 HSF-HD 的规范场论中。大自然控制巨系统，从来不靠“微操”，靠的是\textbf{“降维打击”}！
+
+
+\smalltitle{1. 慢变量与快变量的拓扑分离}
+
+在多体复杂系统中，不同物理量随时间的演化频率 $\omega$ 存在天壤之别。
+\begin{itemize}
+    \item \textbf{快变量 (Fast Variables, $\Psi_i$)}：如单个员工的情绪、单只蚂蚁的转向、底层代码的执行。它们在流形上表现为高频的热涨落，生命周期极短，且数量庞大。
+    \item \textbf{慢变量 (Slow Variables, $\mathcal{A}_{org}$)}：如企业的核心战略、社会的宪法、大脑的整体情绪基调（多巴胺浓度）。它们演化极慢，甚至在长达数年的时间里保持恒定。
+\end{itemize}
+
+\smalltitle{2. 序参量涌现与相空间的坍缩}
+
+当这百亿个快变量在流形上相互碰撞、干涉时，如果系统的控制耦合常数 $\eta$ 跨越了临界点（如企业确立了强有力的统一愿景），一个神奇的现象发生了：
+
+微观粒子由于相互间的耗散摩擦，其大部分自由度相互抵消。系统中\textbf{自发涌现}出了一个宏观的、能够描述整体形态的\textbf{序参量 (Order Parameter, $\sigma$)}。这个序参量，在几何上，正是在流形上凝结出的\textbf{全局价值规范场 $\mathcal{A}_\mu^{org}$}！
+
+\smalltitle{3. 几何奴役方程 (Geometric Slaving Equation)}
+
+现在，高潮来了。一旦这个宏观的规范场 $\mathcal{A}_\mu^{org}$（慢变量）确立，它将对所有的微观波函数 $\Psi_i$（快变量）施加绝对的\textbf{几何暴政}。
+
+根据哈肯-伺服原理的 HSF-HD 推演，微观个体的演化方程退化为：
+$$ \frac{d \Psi_i}{dt} \approx - \left( \lambda_i + i g \mathcal{A}_\mu^{org} \right) \Psi_i + \text{Noise} $$
+
+\begin{itemize}
+    \item \textbf{自由度的湮灭}：在这个方程中，$\Psi_i$ 曾经拥有的独立意志（自身的偏微商）被强行削去。它的未来轨迹，现在几乎\textbf{完全被宏观的规范场 $\mathcal{A}_\mu^{org}$ 所定义。}
+    \item \textbf{现象学诠释}：个体以为自己在自由地做选择（因为还有一点 Noise 存在），但实际上，他们所有的逻辑推演和价值判断，都已经被宏观组织设定的势能面（KPI 沟槽 / 国家大义）强行\textbf{极化 (Polarized)}。他们只能顺着规范场吹拂的方向随波逐流。
+    \item \textbf{“奴役 (Slaving)”}：这在数学上被称为快变量被慢变量“奴役”。宏观层根本不需要对微观个体发号施令，它只需要\textbf{稳稳地维持住那个慢变量（价值观规范场）}，微观的千军万马就会在热力学极值原理的驱使下，自动、无缝地涌向同一个目标！
+\end{itemize}
+
+\smalltitle{结语：控制的最高境界是“场”的统治}
+
+通过这一章的物理学解构，我们看清了“控制”的终极面貌：
+\begin{enumerate}
+    \item \textbf{对于单体}：控制是利用 PID 的物理同构（弹性、粘性与塑性）去吸收环境的激波。
+    \item \textbf{对于主体}：控制是主动推断，是在“折磨自己（学习）”与“折腾世界（做功）”之间寻找自由能的极小值。
+    \item \textbf{对于巨系统}：控制是降维打击，是确立极其稳定的宏观规范场，让亿万快变量在几何奴役下自发地形成浩瀚的秩序。
+\end{enumerate}
+
+这就是舵手的几何学。当你掌握了定义“时空曲率”和“规范场向”的权力，你就掌控了流形上的一切波纹。
 
 %---chp---
 \chapter{相变元物理 — 临界性与涌现}
