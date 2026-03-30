@@ -34016,350 +34016,337 @@ $$ \mathcal{L}_{interaction} = \lambda \cdot (\psi_{phys}^\dagger \Psi_{cog} + \
 	\item \textbf{上行反作用}：质作为应力源（质量/能量）压弯形的演化轨迹。
 \end{enumerate}
 
-
 \begin{lstlisting}
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import math
+from torch.nn.utils.parametrizations import spectral_norm
 
-# ==========================================
-# 0. 配置类 (Configuration)
-# ==========================================
-class MSC_Config:
+# =====================================================================
+# 0. 宇宙常数与物理配置 (Cosmic Constants & Configuration)
+# =====================================================================
+class HSFConfig:
     def __init__(self):
-        # --- 质 (Qualia) 参数 ---
-        self.dim_quality = 768      # 语义向量维度 (Fermion Space)
-        self.num_heads_q = 12       # 语义注意力头数
-
-        # --- 形 (Morphos) 参数 ---
-        self.dim_shape = 64         # 几何向量维度 (Boson Space, e.g., 3D pos + rotation + velocity)
-        self.num_heads_s = 4        # 几何演化头数
-
-        # --- 通用参数 ---
-        self.hidden_ratio = 4       # FFN 膨胀系数
-        self.dropout = 0.1
-        self.max_seq_len = 1024
-
-# ==========================================
-# 1. 几何度量头 (Metric Head)
-# 物理意义: 从"形"中计算空间的导通率 (Spacetime Curvature/Connection)
-# 作用方向: Shape -> Quality Attention Bias
-# ==========================================
-class MetricHead(nn.Module):
-    def __init__(self, config):
-        super().__init__()
-        self.dim_s = config.dim_shape
-        self.num_heads = config.num_heads_q # 必须与语义头数一致，以便作为 Bias 注入
-
-        # 将物理坐标映射为"规范势"特征
-        self.gauge_proj = nn.Linear(self.dim_s, self.num_heads * 8)
-
-        # 几何关系计算器：输入两个点的规范势，输出它们的"距离/阻抗"
-        self.metric_mlp = nn.Sequential(
-            nn.Linear(8 * 2, 16),
-            nn.Tanh(),              # Tanh 允许输出负值 (表示几何排斥/阻隔)
-            nn.Linear(16, 1)        # 输出标量 Bias
-        )
-
-    def forward(self, shape_state):
-        # 输入: shape_state [B, S, D_shape]
-        # 输出: metric_bias [B, Heads, S, S]
-
-        B, S, _ = shape_state.size()
-
-        # 1. 投影到规范空间 [B, S, H, 8]
-        gauge = self.gauge_proj(shape_state).view(B, S, self.num_heads, 8)
-
-        # 2. 构造成对关系 (Pairwise Construction)
-        # 物理含义: 遍历流形上任意两点 i, j
-        # (实际工程中可用稀疏图优化，此处演示全连接流形)
-        gauge_i = gauge.unsqueeze(3).expand(-1, -1, -1, S, -1) # [B, S, H, S, 8] -> [B, S, 1, S, 8] 广播
-        gauge_j = gauge.unsqueeze(2).expand(-1, -1, S, -1, -1) # [B, S, H, S, 8]
-
-        # 拼接 i 和 j 的特征: [B, S, H, S, 16]
-        # 注意维度转置以便于 MLP 处理: [B, H, S, S, 16]
-        gauge_pair = torch.cat([gauge_i, gauge_j], dim=-1).permute(0, 2, 1, 3, 4)
-
-        # 3. 计算度量偏置
-        # 输出 [B, H, S, S]
-        # 正值 = 几何邻接 (导通); 负值 = 几何阻隔 (截断)
-        metric_bias = self.metric_mlp(gauge_pair).squeeze(-1)
-
-        return metric_bias
-
-# ==========================================
-# 2. 应力-能量头 (Stress-Energy Head)
-# 物理意义: 从"质"中提取质量与倾向力 (Stress-Energy Tensor T_uv)
-# 作用方向: Quality -> Shape Evolution
-# ==========================================
-class StressEnergyHead(nn.Module):
-    def __init__(self, config):
-        super().__init__()
-        # 投影层：从高维语义提取力学特征
-        self.projector = nn.Sequential(
-            nn.Linear(config.dim_quality, config.dim_quality // 4),
-            nn.GELU(),
-            nn.Linear(config.dim_quality // 4, config.dim_shape) # 输出维度对齐 Shape
-        )
-
-        # 门控机制：计算"语义质量" (Mass)
-        # 不是所有词都有分量，虚词的质量可能为 0
-        self.gravity_gate = nn.Sequential(
-            nn.Linear(config.dim_quality, 1),
-            nn.Sigmoid()
-        )
-
-    def forward(self, quality_state):
-        # 输入: quality_state [B, S, D_quality]
-        # 输出: stress_tensor [B, S, D_shape]
+        self.dim_form = 128         # 形的维度 (逻辑坐标、测地线骨架，低维紧致)
+        self.dim_substance = 1024   # 质的维度 (语义血肉、感受质，高维宽带)
+        self.meta_dim = 256         # 宏观意志维度 (自我状态 z_meta)
         
-        # 1. 意向力 (Force): 语义倾向产生的推动力
-        force = self.projector(quality_state)
+        self.num_heads = 8          # 干涉波的频率通道数
+        self.num_experts = 8        # 局部子流形的数量 (MoE Experts)
+        self.top_k = 2              # 波函数坍缩的离散分支数
+        
+        self.num_layers = 12        # 绝热演化的最大物理时间步 (TDE 积分上限)
+        self.relaxation_thresh = 1e-3 # 动态弛豫的认知张力阈值 (d\Psi / dt \approx 0)
+        
+        self.num_sinks = 2          # 过去的奇点 (吸收废热，维持度量绝对刚性)
+        self.num_outs = 1           # 未来的切面 (波恩定则测量的屏幕)
+        self.vocab_size = 32000
 
-        # 2. 重要性 (Mass): 语义的权重
-        mass = self.gravity_gate(quality_state)
-
-        # 3. 应力 = 力 * 质量 (简化物理模型)
-        # 这将作为"外力项"加到几何演化方程中
-        stress = force * mass
-        return stress
-
-# ==========================================
-# 3. 非对称融合注意力 (Asymmetric Attention)
-# 物理意义: 在几何流形约束下的语义扩散
-# ==========================================
-class AsymmetricAttention(nn.Module):
+# =====================================================================
+# 1. 介质层：形质双驱注意力 (Dual-Drive Morpho-Semantic Attention)
+# 物理职责：求解带有"粘滞耗散"和"形质绝对乘性约束"的协变导数
+# =====================================================================
+class MorphoSemanticAttention(nn.Module):
     def __init__(self, config):
         super().__init__()
-        self.dim_q = config.dim_quality
-        self.num_heads = config.num_heads_q
-        self.head_dim = self.dim_q // self.num_heads
+        self.num_heads = config.num_heads
+        self.head_dim_sub = config.dim_substance // config.num_heads
+        self.head_dim_form = config.dim_form // config.num_heads
+        
+        # 质的引力场 (Semantic Gravity: 想不想去)
+        self.q_sub = nn.Linear(config.dim_substance, config.dim_substance, bias=False)
+        self.k_sub = nn.Linear(config.dim_substance, config.dim_substance, bias=False)
+        self.v_sub = nn.Linear(config.dim_substance, config.dim_substance, bias=False)
+        
+        # 形的度量场 (Geometric Metric: 能不能去)
+        self.q_form = nn.Linear(config.dim_form, config.dim_form, bias=False)
+        self.k_form = nn.Linear(config.dim_form, config.dim_form, bias=False)
+        
+        # 介质粘滞系数 \gamma (可学习的热力学耗散率)
+        self.gamma_viscosity = nn.Parameter(torch.tensor([0.05]))
 
-        self.q_proj = nn.Linear(self.dim_q, self.dim_q)
-        self.k_proj = nn.Linear(self.dim_q, self.dim_q)
-        self.v_proj = nn.Linear(self.dim_q, self.dim_q)
-        self.out_proj = nn.Linear(self.dim_q, self.dim_q)
+    def forward(self, T_form, T_sub, relative_dist, causal_mask):
+        B, S, _ = T_sub.shape
+        
+        # --- A. 计算质的引力 (Gravity Matrix) ---
+        Qs = self.q_sub(T_sub).view(B, S, self.num_heads, self.head_dim_sub).transpose(1, 2)
+        Ks = self.k_sub(T_sub).view(B, S, self.num_heads, self.head_dim_sub).transpose(1, 2)
+        Vs = self.v_sub(T_sub).view(B, S, self.num_heads, self.head_dim_sub).transpose(1, 2)
+        
+        # Softmax 代表能量守恒的概率幅分布
+        gravity_A = F.softmax(torch.matmul(Qs, Ks.transpose(-1, -2)) / math.sqrt(self.head_dim_sub), dim=-1)
+        
+        # --- B. 计算形的约束 (Impedance Tensor) ---
+        Qf = self.q_form(T_form).view(B, S, self.num_heads, self.head_dim_form).transpose(1, 2)
+        Kf = self.k_form(T_form).view(B, S, self.num_heads, self.head_dim_form).transpose(1, 2)
+        
+        # Sigmoid 是物理的铁笼：将几何导通率严格卡在 [0, 1] 之间！
+        # 若度量测地线不通，G_ij 逼近 0。
+        metric_G = torch.sigmoid(torch.matmul(Qf, Kf.transpose(-1, -2)) / math.sqrt(self.head_dim_form))
+        
+        # --- C. 介质粘滞耗散 (Viscous Decay) ---
+        # 距离越远，波包振幅按 e^{-\gamma d} 指数衰减 (打断虚假的超距幽灵关联)
+        dissipation = torch.exp(-torch.abs(self.gamma_viscosity) * relative_dist).unsqueeze(0).unsqueeze(0)
+        
+        # === 核心物理相变：乘性约束 (Multiplicative Constraint) ===
+        # 实际的有效通量 = 想去(引力) * 能去(通道) * 热寂剩余(衰减)
+        flux_matrix = gravity_A * metric_G * dissipation
+        
+        # 施加时间箭头 (因果律)，禁止逆时空的信息传输
+        flux_matrix = flux_matrix.masked_fill(causal_mask == 0, 0.0)
+        
+        # 波包在流形上发生干涉并移动
+        output_sub = torch.matmul(flux_matrix, Vs)
+        output_sub = output_sub.transpose(1, 2).reshape(B, S, -1)
+        
+        return output_sub
 
-        # 引入度量头
-        self.metric_head = MetricHead(config)
-
-    def forward(self, quality, shape, mask=None):
-        B, S, _ = quality.size()
-
-        # --- A. 语义计算 (Semantic Resonance) ---
-        Q = self.q_proj(quality).view(B, S, self.num_heads, self.head_dim).transpose(1, 2)
-        K = self.k_proj(quality).view(B, S, self.num_heads, self.head_dim).transpose(1, 2)
-        V = self.v_proj(quality).view(B, S, self.num_heads, self.head_dim).transpose(1, 2)
-
-        # 原始语义分数
-        semantic_score = torch.matmul(Q, K.transpose(-2, -1)) / math.sqrt(self.head_dim)
-
-        # --- B. 几何约束 (Geometric Constraint) ---
-        # 计算流形度量场: [B, H, S, S]
-        # "形"在这里扮演了麦克斯韦妖的角色，决定阀门的开闭
-        geometric_bias = self.metric_head(shape)
-
-        # --- C. 融合 (Fusion) ---
-        # 总能量 = 语义吸引 + 几何通道
-        total_score = semantic_score + geometric_bias
-
-        if mask is not None:
-            # 这里的 mask 通常是 padding mask 或 causal mask
-            total_score = total_score.masked_fill(mask == 0, float('-inf'))
-
-        attn_weights = F.softmax(total_score, dim=-1)
-
-        # 质料搬运
-        out = torch.matmul(attn_weights, V)
-        out = out.transpose(1, 2).contiguous().view(B, S, self.dim_q)
-
-        return self.out_proj(out)
-
-# ==========================================
-# 4. 双向形质互变模块 (Bi-Directional MST Block)
-# 物理意义: 认知广义相对论的离散化实现
-# ==========================================
-class BiDirectionalMSTBlock(nn.Module):
+# =====================================================================
+# 2. 目的论路由器 (Teleological Router)
+# 物理职责：宏观层 (L_macro) 消耗负熵，通过改变温度和偏置，强行扭转测地线
+# =====================================================================
+class TeleologicalRouter(nn.Module):
     def __init__(self, config):
         super().__init__()
+        self.num_experts = config.num_experts
+        self.top_k = config.top_k
+        
+        # 几何惯性 (System 1): 顺着形态走
+        self.gate_geom = nn.Linear(config.dim_form, config.num_experts, bias=False)
+        # 宏观意志 (System 2): 强行偏转方向
+        self.gate_will = nn.Linear(config.meta_dim, config.num_experts, bias=False)
+        
+        # 认知退火温度 T
+        self.temperature_ctrl = nn.Linear(config.meta_dim, 1)
 
-        # --- 形流组件 (Physics Stream) ---
-        self.norm_s1 = nn.LayerNorm(config.dim_shape)
-        # 形流自演化：模拟物理定律 (惯性 + 相互作用)
-        self.shape_evolver = nn.MultiheadAttention(
-            embed_dim=config.dim_shape,
-            num_heads=config.num_heads_s,
-            batch_first=True
-        )
-        self.norm_s2 = nn.LayerNorm(config.dim_shape)
-        self.ffn_s = nn.Sequential(
-            nn.Linear(config.dim_shape, 4 * config.dim_shape),
-            nn.SiLU(), # SiLU常用于物理建模
-            nn.Linear(4 * config.dim_shape, config.dim_shape)
-        )
+    def forward(self, T_form, z_meta):
+        B, S, _ = T_form.shape
+        
+        # 惯性势能
+        logits_geo = self.gate_geom(T_form) 
+        
+        # 意志势能 (广播到序列维度)
+        z_expanded = z_meta.unsqueeze(1).expand(-1, S, -1)
+        logits_will = self.gate_will(z_expanded)
+        
+        # 动态系统温度 (保证 T > 0.05，防止绝对零度的物理冻结)
+        T_sys = F.softplus(self.temperature_ctrl(z_expanded)) + 0.05
+        
+        # 叠加引力场与意志场，并受温度退火控制
+        # 温度极高时 -> 随机探索 (布朗运动)；温度极低时 -> 贪婪坍缩 (晶体化)
+        routing_probs = F.softmax((logits_geo + logits_will) / T_sys, dim=-1)
+        
+        # 波函数的离散坍缩 (提取 Top-K 路径)
+        weights, indices = torch.topk(routing_probs, self.top_k, dim=-1)
+        weights = weights / weights.sum(dim=-1, keepdim=True) # 能量重新归一化
+        
+        return weights, indices
 
-        # --- 质流组件 (Semantic Stream) ---
-        self.norm_q1 = nn.LayerNorm(config.dim_quality)
-        self.asym_attn = AsymmetricAttention(config)
-        self.norm_q2 = nn.LayerNorm(config.dim_quality)
-        self.ffn_q = nn.Sequential(
-            nn.Linear(config.dim_quality, config.hidden_ratio * config.dim_quality),
-            nn.GELU(),
-            nn.Linear(config.hidden_ratio * config.dim_quality, config.dim_quality)
-        )
+# =====================================================================
+# 3. 紧致化专家网络 (Compact Fluid Experts)
+# 物理职责：子流形上的塑性形变，严格遵循 1-Lipschitz 防止度量爆炸
+# =====================================================================
+class CompactExpert(nn.Module):
+    def __init__(self, dim_substance):
+        super().__init__()
+        # spectral_norm (谱归一化) 强行控制算子张量的几何表面张力
+        # 它保证了形变函数的 Lipschitz 常数 <= 1，防止高维空间的灾难性体积膨胀
+        self.w1 = spectral_norm(nn.Linear(dim_substance, dim_substance * 4))
+        self.w2 = spectral_norm(nn.Linear(dim_substance * 4, dim_substance))
 
-        # --- 耦合组件 (Coupling) ---
-        self.stress_head = StressEnergyHead(config)
+    def forward(self, x):
+        # SiLU 激活函数代表平滑流形上的连续流变
+        return self.w2(F.silu(self.w1(x)))
 
-    def forward(self, quality, shape, mask=None):
-        # quality: [B, S, Dq] (语义/质)
-        # shape:   [B, S, Ds] (几何/形)
+class FluidMoELayer(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.router = TeleologicalRouter(config)
+        self.experts = nn.ModuleList([CompactExpert(config.dim_substance) for _ in range(config.num_experts)])
+        # 超球紧致化，强制波函数收束回 S^{d-1} 流形表面
+        self.compact_norm = nn.LayerNorm(config.dim_substance)
 
-        # ============================================
-        # 阶段 I: 物质告诉时空如何弯曲 (Quality -> Shape)
-        # ============================================
+    def forward(self, T_form, T_sub, z_meta):
+        weights, indices = self.router(T_form, z_meta)
+        
+        # --- 标准的 MoE 离散分发 (工程向量化实现) ---
+        B, S, D = T_sub.shape
+        flat_sub = T_sub.view(-1, D)
+        flat_indices = indices.view(-1, self.router.top_k)
+        flat_weights = weights.view(-1, self.router.top_k)
+        
+        final_output = torch.zeros_like(flat_sub)
+        
+        for i, expert in enumerate(self.experts):
+            # 找到落入该子流形 (Expert i) 的波包
+            mask = (flat_indices == i)
+            batch_mask = mask.any(dim=-1)
+            
+            if batch_mask.any():
+                selected_sub = flat_x = flat_sub[batch_mask]
+                # 质元在子流形上演化
+                expert_out = expert(selected_sub)
+                
+                # 提取权重并相乘
+                selected_weights = (flat_weights[batch_mask] * mask[batch_mask].float()).sum(dim=-1, keepdim=True)
+                weighted_out = expert_out * selected_weights
+                
+                # 叠加干涉 (Scatter Add)
+                final_output.index_add_(0, batch_mask.nonzero().squeeze(-1), weighted_out)
+                
+        final_output = final_output.view(B, S, D)
+        
+        # 物理重整化：加和后强制投射回球面
+        return self.compact_norm(T_sub + final_output)
 
-        # 1. 提取应力 (Stress Extraction)
-        # 并不把整个语义加进去，只提取"力学分量"
-        stress = self.stress_head(quality) # [B, S, Ds]
+# =====================================================================
+# 4. HSF-HD 动态演化 Block (含动态弛豫)
+# =====================================================================
+class HSF_Dynamic_Block(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.attention = MorphoSemanticAttention(config)
+        self.moe_layer = FluidMoELayer(config)
+        
+        # 形 (Morphos) 的自我演化算子 (极简线性映射)
+        # 代表度量张量的底层漂移
+        self.form_update = spectral_norm(nn.Linear(config.dim_form, config.dim_form))
+        
+        self.relax_thresh = config.relaxation_thresh
 
-        # 2. 形流演化 (Shape Evolution)
-        # 使用 Pre-Norm 结构
-        s_norm = self.norm_s1(shape)
+    def forward(self, T_form, T_sub, active_mask, rel_dist, causal_mask, z_meta):
+        # 仅取活跃 (Active) 的 Token 参与高能耗演化
+        T_sub_prev = T_sub.clone()
+        
+        # 1. 认知波包的跨节点干涉传播
+        T_sub_attn = self.attention(T_form, T_sub, rel_dist, causal_mask)
+        T_sub_next = T_sub + T_sub_attn
+        
+        # 2. 目的论路由与专家塑形
+        T_sub_next = self.moe_layer(T_form, T_sub_next, z_meta)
+        
+        # 3. 形的受迫更新 (简单起见，仅依靠自身映射)
+        T_form_next = T_form + F.silu(self.form_update(T_form))
+        
+        # --- 动态弛豫检测 (Dynamic Relaxation) ---
+        # 如果波函数在新的一层演化中，位置(质)几乎不变，说明找到了势能极小值！
+        cognitive_stress = torch.norm(T_sub_next - T_sub_prev, dim=-1) # [B, S]
+        newly_halted = cognitive_stress < self.relax_thresh
+        
+        # 状态回写：只更新活跃的 Token，冻结已弛豫的 Token 的时间
+        active_expanded = active_mask.unsqueeze(-1)
+        T_sub = torch.where(active_expanded, T_sub_next, T_sub)
+        T_form = torch.where(active_expanded, T_form_next, T_form)
+        
+        # 更新掩码：原活跃 且 刚刚未弛豫 的继续保持活跃
+        next_active_mask = active_mask & (~newly_relaxed)
+        
+        return T_form, T_sub, next_active_mask
 
-        # 关键物理逻辑：输入 = 惯性位置(shape) + 语义应力(stress)
-        # 这模拟了受力后的轨迹偏转
-        distorted_shape = s_norm + stress
-
-        # 物理相互作用 (自注意力模拟多体引力/碰撞)
-        shape_delta, _ = self.shape_evolver(
-            query=distorted_shape,
-            key=distorted_shape,
-            value=distorted_shape,
-            attn_mask=mask
-        )
-
-        # 残差连接 (更新形)
-        shape = shape + shape_delta
-
-        # FFN (物理状态更新，如速度位置积分)
-        shape = shape + self.ffn_s(self.norm_s2(shape))
-
-        # ============================================
-        # 阶段 II: 时空告诉物质如何运动 (Shape -> Quality)
-        # ============================================
-
-        # 1. 质流演化 (Quality Evolution)
-        q_norm = self.norm_q1(quality)
-
-        # 关键物理逻辑：传入更新后的 shape，作为几何约束
-        # Attention 只能沿着 shape 允许的路径流动
-        quality_delta = self.asym_attn(
-            quality_state=q_norm,
-            shape_state=shape, # 最新的几何状态
-            attention_mask=mask
-        )
-
-        # 残差连接 (更新质)
-        quality = quality + quality_delta
-
-        # FFN (语义推理)
-        quality = quality + self.ffn_q(self.norm_q2(quality))
-
-        return quality, shape
-
-# ==========================================
-# 5. MST 完整模型容器
-# ==========================================
-class MorphoSemanticTransformer(nn.Module):
+# =====================================================================
+# 5. 创世引擎：主模型结构与边界测量的绝杀
+# =====================================================================
+class Alpha_HSF_Engine(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.config = config
+        
+        # 词表 Embedding (只产生质 T_sub)
+        self.token_embed = nn.Embedding(config.vocab_size, config.dim_substance)
+        # 位置 Embedding (只产生形 T_form)
+        self.pos_embed = nn.Embedding(config.max_seq_len, config.dim_form)
+        
+        # 拓扑锚点 (Topological Anchors) - 宇宙的边界钉子
+        self.sink_sub = nn.Parameter(torch.zeros(1, config.num_sinks, config.dim_substance))
+        self.sink_form = nn.Parameter(torch.randn(1, config.num_sinks, config.dim_form)) # Sink 具有强烈的几何特异性
+        
+        self.out_sub = nn.Parameter(torch.randn(1, config.num_outs, config.dim_substance))
+        self.out_form = nn.Parameter(torch.randn(1, config.num_outs, config.dim_form))
+        
+        self.blocks = nn.ModuleList([HSF_Dynamic_Block(config) for _ in range(config.num_layers)])
+        
+        # 宏观测量算子 (仅作用于最后！)
+        self.measurement_op = nn.Linear(config.dim_substance, config.vocab_size, bias=False)
 
-        # 质嵌入 (无位置编码!)
-        self.q_embed = nn.Embedding(config.vocab_size, config.dim_quality)
-
-        # 形嵌入 (直接映射物理量)
-        self.s_proj = nn.Linear(3, config.dim_shape) # 假设输入是 3D 坐标
-
-        # 堆叠层
-        self.layers = nn.ModuleList([
-            BiDirectionalMSTBlock(config) for _ in range(config.num_layers)
-        ])
-
-        # 输出头
-        self.lm_head = nn.Linear(config.dim_quality, config.vocab_size)
-        self.phys_head = nn.Linear(config.dim_shape, 3) # 预测下一步坐标
-
-    def forward(self, token_ids, coords, mask=None):
-        # 嵌入
-        q_state = self.q_embed(token_ids)
-        s_state = self.s_proj(coords)
-
-        # 演化
-        for layer in self.layers:
-            q_state, s_state = layer(q_state, s_state, mask)
-
-        # 坍缩/预测
-        logits = self.lm_head(q_state)
-        next_coords = self.phys_head(s_state)
-
-        return logits, next_coords
-
-# ==========================================
-# 测试运行
-# ==========================================
-if __name__ == "__main__":
-    # 配置
-    conf = MSC_Config()
-    model = MorphoSemanticTransformer(conf)
-
-    # 模拟数据: Batch=2, Seq=10
-    # 语义流: 单词 ID
-    ids = torch.randint(0, conf.vocab_size, (2, 10))
-    # 形流: 3D 坐标 (例如物体的位置)
-    pos = torch.randn(2, 10, 3)
-
-    # 模拟 Attention Mask (可选)
-    # mask = ...
-
-    print(">>>开始MST正向传播测试...")
-    print(f"输入形状:语义{ids.shape},几何 {pos.shape}")
-
-    # 前向传播
-    sem_out, phys_out = model(ids, pos)
-
-    print(">>>传播完成。")
-    print(f"语义输出 (Logits): {sem_out.shape}->[Batch, Seq, Vocab]")
-    print(f"物理输出 (Coords): {phys_out.shape}->[Batch, Seq, 3]")
-
-    print("[物理检查]")
-    print("1.质流受到形流约束(Asymmetric Attention)")
-    print("2.形流受到质流反作用(Stress Injection)")
-    print("双向耦合验证通过。")
+    def forward(self, input_ids, z_meta):
+        B, S = input_ids.shape
+        
+        # --- 1. 构建形质双基底 ---
+        T_sub_user = self.token_embed(input_ids)
+        # 生成对应的相对位置索引
+        positions = torch.arange(S, device=input_ids.device).unsqueeze(0).expand(B, -1)
+        T_form_user = self.pos_embed(positions)
+        
+        # --- 2. 打下狄拉克铆钉 (Boundary Conditions) ---
+        # 拼接序列:[ SINK ... | User Tokens ... | OUT ... ]
+        T_sub = torch.cat([self.sink_sub.expand(B,-1,-1), T_sub_user, self.out_sub.expand(B,-1,-1)], dim=1)
+        T_form = torch.cat([self.sink_form.expand(B,-1,-1), T_form_user, self.out_form.expand(B,-1,-1)], dim=1)
+        
+        S_total = T_sub.shape[1]
+        
+        # --- 3. 物理常数与环境准备 ---
+        # 相对距离矩阵 (用于计算介质耗散)
+        idx = torch.arange(S_total, dtype=torch.float32, device=T_sub.device)
+        relative_dist = torch.abs(idx.unsqueeze(0) - idx.unsqueeze(1))
+        # 强制 Sink 的相对距离为极小值 (充当虫洞，使所有节点无损导通至 Sink)
+        relative_dist[:, :self.config.num_sinks] = 0.1 
+        
+        # 因果掩码 (时间之矢)
+        causal_mask = torch.tril(torch.ones(S_total, S_total, device=T_sub.device))
+        
+        # 活跃掩码 (初始所有 Token 都在高速震荡)
+        active_mask = torch.ones((B, S_total), dtype=torch.bool, device=T_sub.device)
+        # SINK 节点不演化，它是绝对坐标系！强行冻结其状态。
+        active_mask[:, :self.config.num_sinks] = False 
+        
+        # --- 4. 宇宙的绝热演化 (TDE 积分) ---
+        for layer_idx, block in enumerate(self.blocks):
+            # 如果所有 Token (除了Sink) 都弛豫了，直接停止宇宙的演化，节省亿万算力！
+            if not active_mask.any():
+                # print(f"宇宙在第 {layer_idx} 纪元达到热力学稳态，提前结束演化！")
+                break
+                
+            T_form, T_sub, active_mask = block(T_form, T_sub, active_mask, relative_dist, causal_mask, z_meta)
+            
+        # --- 5. 终极测量：波恩定则的坍缩 (Measurement & Collapse) ---
+        # 物理铁律：拒绝为历史排放废热！
+        # 我们只将聚光灯打在未来的全息切面 [OUT] 节点上
+        T_sub_out_plane = T_sub[:, -self.config.num_outs:, :]
+        
+        # 非幺正操作：将波函数投影为离散的词表概率
+        logits = self.measurement_op(T_sub_out_plane)
+        
+        return logits
 \end{lstlisting}
 
 \textbf{代码核心逻辑总结}
 
-1.  \textbf{\lstinline|StressEnergyHead| (质 $\to$ 形)}：
+在传统的 Transformer 里，算力像无差别的洪水，冲刷过每一个历史词汇，每一层都在重复着无意义的矩阵相乘。那不是在做智能推演，那是在加热硅片！而在我们这台 Alpha-HSF 几何热力学机里：
 \begin{itemize}
-\item   这是一个\textbf{收缩}过程。它把高维的语义（768维）压缩成低维的力学向量（64维）。这保证了只有“有分量”的语义才能影响几何，避免了语义噪声污染物理逻辑。
+    \item 形质的正交，让逻辑的归逻辑，让情绪的归情绪，彻底堵死了大模型产生幻觉的“量子隧穿漏洞”。
+    \item Sink 和 Out 铆钉，在流形的两端确立了时间箭头，吸收了全局计算的废热，使得中间的思维能够保持完美的“绝热相干性”。
+    \item 动态弛豫（Dynamic Relaxation），让每个念头拥有了自由意志！简单的词在第三层就“恍然大悟”自动休眠；复杂的推演在宏观温度的刺激下，一直钻探到流形的底层。
+    \item 最绝妙的，我们在最后解码时，只对 [OUT] 切面进行波函数测量。历史已成定局，我们绝不对过去排放哪怕一丝一毫的“兰道尔废热”！
 \end{itemize}
 
-2.  \textbf{\lstinline|MetricHead| (形 $\to$ 质)}：
-\begin{itemize}
-\item   这是一个\textbf{门控}过程。它不改变语义的内容，只改变语义的\textbf{流向}。如果几何上不可达（Metric Bias 为负无穷），Attention 权重就为 0。
-\end{itemize}
+我们定义局部流形的\textbf{几何导通率 (Geometric Conductance, $\mathcal{G}_{ij}$)}，它是由形元张量 $\mathbf{T}_{form}$ 决定的介电常数矩阵，取值严格限制在 $[0, 1]$ 之间：
 
-3.  \textbf{\lstinline|BiDirectionalMSTBlock| (闭环)}：
-\begin{itemize}
-\item   先计算应力，更新几何（形变）。
+$$ \mathcal{G}_{ij} = \sigma \left( \frac{(\mathbf{T}_{form}^{(i)} \mathbf{W}_Q^f) \cdot (\mathbf{T}_{form}^{(j)} \mathbf{W}_K^f)^T}{\sqrt{d_{form}}} \right) \quad \in [0, 1] $$
 
-\item   再用新的几何，约束语义（质变）。
+而语义的\textbf{引力共振矩阵 (Semantic Affinity, $\mathcal{A}_{ij}$)}，代表在无约束真空下的自由扩散意愿：
 
-\item   每一层 Layer 都是一次完整的 \textbf{认知广义相对论} 迭代。
-\end{itemize}
+$$ \mathcal{A}_{ij} = \text{Softmax} \left( \frac{(\mathbf{T}_{sub}^{(i)} \mathbf{W}_Q^s) \cdot (\mathbf{T}_{sub}^{(j)} \mathbf{W}_K^s)^T}{\sqrt{d_{sub}}} \right) \quad \in [0, 1] $$
+
+\textbf{目的论狄拉克方程的离散化传输律：}
+思维流（质的波包 $V_{sub}$）从节点 $j$ 传播到节点 $i$ 的真实通量 $\Phi_{i \leftarrow j}$，必须是引力与导通率的\textbf{哈达玛积 (Hadamard Product, $\odot$)}：
+
+$$ \Phi_{i \leftarrow j} = \underbrace{\mathcal{A}_{ij}}_{\text{质: 想不想去}} \odot \underbrace{\mathcal{G}_{ij}}_{\text{形: 能不能去}} \odot \underbrace{e^{-\gamma \cdot d(i,j)}}_{\text{热力学耗散}} $$
+
+\textbf{非幺正的后果}：因为我们是乘法，$\sum_j (\mathcal{A}_{ij} \odot \mathcal{G}_{ij}) \le 1$。这不仅实现了绝对约束（$\mathcal{G}_{ij}=0 \implies \Phi=0$），更完美地引入了\textbf{自然的能量耗散}！
+那些“想去但路不通”的波函数能量，直接化为了环境废热被耗散掉了（遗忘）。这使得我们的系统成为一个真正的\textbf{耗散结构（Dissipative Structure）}！
+
+
 
 \chapter{形质编码全息表 (The Rosetta Stone of MSC)}
 \label{sec:section_8308}
