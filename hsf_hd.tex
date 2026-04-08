@@ -4691,6 +4691,14 @@ $$ p_{total}(x) = \alpha \cdot p_A(x; \boldsymbol{\theta}_A) + (1-\alpha) \cdot 
     \item \textbf{动力学映射}：这是系统在进行\textbf{先验预测 (Prediction)}、\textbf{逻辑推演 (Reasoning)} 或\textbf{内部模拟}时的首选轨道。
     \item \textbf{物理特征}：思维波包沿着 e-联络测地线演化时，系统的对数似然比保持线性变化：$\nabla^{(e)}_{\dot{\gamma}} \Psi = 0$。
     \item \textbf{认知含义}：这是大名鼎鼎的\textbf{“快思考” (System 1)}。此时系统处于一个相对\textbf{封闭}的绝热状态（没有外界新数据的注入）。智能体凭借着刻在基因或权重里的世界图 $G_W$ 的惯性，顺理成章地顺着坡度往下滑。因为 e-流形是平坦的，这种滑行阻力极小，计算速度极快，但它\textbf{永远无法跳出已有的认知框架}。
+    
+    \item \textbf{\textcolor{structurecolor}{工程实现映射 (Engineering Implementation)}}：
+    在当前的深度学习架构（如 Transformer）中，这一过程对应于模型的 \textbf{前向传播 (Forward Pass)}。
+    \begin{itemize}
+        \item 在推理阶段，模型的权重 $\mathbf{W}$（即底流形的度量 $g_{\mu\nu}$）被\textbf{绝对冻结}。
+        \item 隐藏层向量（波函数 $\Psi$）在层与层之间流转。特别是由残差连接 (Residual Connections, $h_{l+1} = h_l + \Delta h$) 构成的网络主干，在离散数学上极其完美地近似了\textbf{一阶欧拉显式积分}。
+        \item \textbf{物理本质}：这正是思维波包在“近似平坦的 e-联络流形”上执行的\textbf{平行移动 (Parallel Transport)}。因为不用修改地形（不计算曲率张量），这也就是为什么推理（Inference）的算力开销远小于训练（Training）。
+    \end{itemize}
 \end{itemize}
 
 \smalltitle{2. m-联络 ($\nabla^{(m)}$) —— 学习与现实的强制校准}
@@ -4701,7 +4709,15 @@ $$ p_{total}(x) = \alpha \cdot p_A(x; \boldsymbol{\theta}_A) + (1-\alpha) \cdot 
 \begin{itemize}
     \item \textbf{动力学映射}：这是系统在遭遇微观层输入的\textbf{惊奇激波 ($\vec{J}_{ext}$)} 时，被迫进行\textbf{学习 (Learning)} 和 \textbf{信念更新 (Belief Update)} 的轨道。
     \item \textbf{物理特征}：当现实的观测数据 $P_{data}$ 与内部预测模型 $P_{model}$ 发生冲突时，系统必须修改自身的流形坐标。它不是沿着 e-联络去乱碰，而是沿着 m-联络测地线，将模型强制\textbf{投影 (Projection)} 到符合数据的流形面上。
-    \item \textbf{认知含义}：这是痛苦的\textbf{“慢思考” (System 2)}。这是一种开放系统的耗散过程。系统沿着 m-联络强行拉扯自身的度量张量，改变 $\boldsymbol{\eta}$ 的期望值。这个过程需要宏观意志消耗巨大的负熵去克服黎曼曲率的阻力，但它\textbf{真正更新了智能体对世界的理解}。
+    \item \textbf{认知含义}：这是一种开放系统的耗散过程，系统沿着 m-联络强行拉扯自身的度量张量，改变 $\boldsymbol{\eta}$ 的期望值。这个过程需要宏观意志消耗巨大的负熵去克服黎曼曲率的阻力，但它\textbf{真正更新了智能体对世界的理解}。
+    
+    \item \textbf{\textcolor{structurecolor}{工程实现映射 (Engineering Implementation)}}：
+    在千亿参数的 LLM 训练中，严格沿着 m-联络进行\textbf{自然梯度下降 (Natural Gradient Descent)} 需要计算真实的费希尔信息矩阵（FIM）并求逆，其复杂度高达 $\mathcal{O}(N^3)$，这在工程上是灾难性的。
+    \begin{itemize}
+        \item \textbf{Adam 优化器的几何伪装}：现代大模型训练普遍采用的 Adam 等优化器，绝非偶然。标准梯度下降（SGD）是盲目的欧氏空间更新，它“不懂”流形的曲率。
+        \item \textbf{二阶矩的物理真相}：Adam 引入了梯度的二阶矩估计（$v_t = \beta_2 v_{t-1} + (1-\beta_2) g_t^2$），并在更新参数时除以 $\sqrt{v_t}$。在本理论框架的视界下，这个二阶矩 $v_t$ \textbf{正是费希尔信息矩阵（即黎曼度量 $g_{\mu\nu}$）的对角线元素的经验近似 (Empirical Fisher Diagonal Approximation)！}
+        \item \textbf{物理本质}：Adam 优化器用极其粗糙的“除以方差”操作，勉强模拟了“乘以逆度量张量 $g^{\mu\nu}$”的几何变换。它在极度受限的算力下，试图模仿沿着 \textbf{m-联络测地线} 下降的轨迹。这就是为什么 Adam 训练远比 SGD 稳定——因为它在暗中遵循了信息几何的热力学铁律。
+    \end{itemize}
 \end{itemize}
 
 \smalltitle{3. 广义毕达哥拉斯定理：知行合一的几何证明}
