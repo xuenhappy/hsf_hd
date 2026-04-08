@@ -4644,10 +4644,11 @@ $$ D_{KL} \left( p(x; \boldsymbol{\theta}) \| p(x; \boldsymbol{\theta} + d\bolds
 
 如果语义子是一团波包，那么有些波包极其致密（比如“我此时此刻手中的这支笔”），有些波包极其弥散（比如“某种说不清的哀愁”）。在物理学中，区分它们的量叫做\textbf{“惯性质量”}。
 
-在信息几何中，这个“质量” $m(\mathcal{S})$ 获得了极其精确的数学定义：它正比于该概率分布的\textbf{信息熵 (Shannon Entropy, $H$)}，或者流形局部费希尔信息的\textbf{迹 (Trace)}。
+在信息几何中，这个“质量” $m(\mathcal{S})$ 获得了极其精确的数学定义：它正比于该概率分布的\textbf{信息熵 (Shannon Entropy, $H$)}; 同时考虑到语义子的“有效质量” $m(\mathcal{S})$ 必须是一个\textbf{几何不变量（Geometric Invariant）},
+真实的质量应当定义为该概率波包在整个流形上的微分熵（Shannon Differential Entropy），它在重新参数化下通过雅可比行列式（Jacobian Determinant）保持物理意义：
 
 \begin{equation}
-    m(\mathcal{S}) \propto \text{Tr}(g_{\mu\nu}(\boldsymbol{\theta})) = \mathbb{E} \left[ \|\nabla_{\boldsymbol{\theta}} \ln p\|^2 \right]
+   m(\mathcal{S}) \propto \int p(x|\boldsymbol{\theta}) \ln p(x|\boldsymbol{\theta}) \sqrt{\det g} \, d^n x 
 \end{equation}
 
 \begin{itemize}
