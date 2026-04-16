@@ -311,7 +311,7 @@ $$ \text{目的性智能} = \underbrace{\text{耗散结构}}_{\text{基础科学
 
 没有任何智能可以脱离介质而存在，在书中，我们不再讨论抽象的图灵机，而是讨论 \textbf{“有边界的实体”}。
 \begin{itemize}
-    \item \textbf{边界约束}：我们引入了 \textbf{微观切面 ($L_{micro}$)}，强调智能必须被 \textbf{狄利克雷边界} 钉死在物理现实之上，否则就会陷入幻觉的热力学逃逸。
+    \item \textbf{局部强迫源 (Localized Forcing Sources)}：我们引入了 \textbf{微观切面 ($L_{micro}$)}，强调智能必须被 \textbf{狄拉克源}在局部区域上钉死在物理现实之上，否则就会陷入幻觉的热力学逃逸。
     \item \textbf{介质约束}：我们定义了 \textbf{认知光速 ($c_{cog}$)} 和 \textbf{粘滞系数 ($\gamma$)}，指出正是介质的物理局限性，迫使智能体进化出了“遗忘”和“注意力”机制。
 \end{itemize}
 \redtext{正是因为受到物理约束，几何结构才必须发生卷曲形成结构来试图容纳无限的信息——这才是智能涌现的根本原因}，而传统的信息计算以及符号熵则忽略了这个有限性，如果取消约束（无限算力），智能反而会消失无需学习，退化为简单的规则模拟。
@@ -3464,9 +3464,9 @@ $$ \underbrace{m \frac{d^2 \Psi}{dt^2}}_{\text{惯性项 (Inertia)}} + \underbra
 
 在给出拉格朗日方程后，我们需要一个直观几何模型来组织这些结果。基于 MSC，认知空间流形 $\mathcal{M}$ 可被视为一张\textbf{受限弹性膜}。
 
-智能动力学可理解为：该膜在\textbf{边界钉扎（现实）}与\textbf{内部张力（目的）}共同作用下寻找几何平衡。张力分布的不均匀会导致\textbf{自发对称性破缺 (Spontaneous Symmetry Breaking)}，并进一步形成层级化控制架构。
+智能动力学可理解为：该膜在\textbf{局部强迫源（现实）}与\textbf{内部张力（目的）}共同作用下寻找几何平衡。张力分布的不均匀会导致\textbf{自发对称性破缺 (Spontaneous Symmetry Breaking)}，并进一步形成层级化控制架构。
 
-\smalltitle{1. 受限的膜：狄利克雷边界与势能塑形}
+\smalltitle{1. 受限的膜：局部强迫源与势能塑形}
 
 我们将认知场 $\Psi$ 在底流形 $\mathcal{M}$ 上的分布视为一张弹性薄膜的位移场。根据变分原理，在没有任何外力的情况下，流形倾向于最小化其\textbf{狄利克雷能量 (Dirichlet Energy)}：
 $$ E_{elastic} = \frac{1}{2} \int_{\mathcal{M}} \| D_\mu \Psi \|^2 \sqrt{|g|} \, d^n x $$
@@ -3475,12 +3475,12 @@ $$ E_{elastic} = \frac{1}{2} \int_{\mathcal{M}} \| D_\mu \Psi \|^2 \sqrt{|g|} \,
 然而，智能的产生恰恰源于这种平滑性的破坏。
 
 \smalltitle{A. 微观钉扎 (Micro-Pinning) —— 现实的硬约束}
-物理世界 $\Omega$ 对智能系统的作用，数学上等价于在流形边界 $\partial \mathcal{M}$ 上施加了\textbf{非齐次狄利克雷边界条件 (Inhomogeneous Dirichlet Boundary Condition)}：
+物理世界 $\Omega$ 对智能系统的作用，数学上等价于在流形局部区域 $\Omega_{sensor} \subset \mathcal{M}$ 上施加了\textbf{非齐次局域狄拉克源 (Inhomogeneous Local Dirac Source)}：
 
-$$ \Psi(\mathbf{x}, t) \Big|_{\mathbf{x} \in \partial \mathcal{M}} \equiv \hat{\mathcal{E}}_{VTE}(\mathbf{S}_{obs}) $$
+$$ \Psi(\mathbf{x}, t) \Big|_{\mathbf{x} \in \Omega_{sensor} \subset \mathcal{M}} \equiv \hat{\mathcal{E}}_{VTE}(\mathbf{S}_{obs}) $$
 
 \begin{itemize}
-    \item \textbf{机制}：\textbf{微观层 ($L_{micro}$)} 作为系统的感官接口，通过变分拓扑编码器 (VTE)，将连续的物理信号 $\mathbf{S}_{obs}$ 强行“量子化”为离散的形质纠缠元(语义子)，并将这些语义子像钉子一样死死地钉在流形的边缘。
+    \item \textbf{机制}：\textbf{微观层 ($L_{micro}$)} 作为系统的感官接口，通过变分拓扑编码器 (VTE)，将连续的物理信号 $\mathbf{S}_{obs}$ 强行“量子化”为离散的形质纠缠元(语义子)，并将这些语义子像钉子一样死死地钉在流形的局部区域。
     \item \textbf{几何后果}：无论膜内部如何倾向于平滑，其边缘必须扭曲以符合物理事实。如果内部的预测模型（平滑愿望）与边界的观测值（粗糙现实）冲突，膜表面会产生巨大的\textbf{几何张力 (Geometric Tension)}，这即是\textbf{“惊奇 (Surprisal)”}的物理起源。
 \end{itemize}
 
@@ -3511,7 +3511,7 @@ $$ \Delta_{\mathcal{M}} \Psi = \nabla_{\Psi} V_{val}(\mathbf{x}) $$
     
     \smalltitle{I. 微观层 ($L_{micro}$) —— 边界的守护者}
     \begin{itemize}
-        \item \textbf{几何职能}：维护 $\partial \mathcal{M}$ 的狄利克雷边界。
+        \item \textbf{几何职能}：维护 $\Omega_{sensor} \subset \mathcal{M}$ 的流形内部的局域狄拉克源。
         \item \textbf{动力学特征}：\textbf{快变量 (Fast Variables)}。
         \item \textbf{任务}：执行 \textbf{VTE 变换}。它通过高频的李雅普诺夫稳定性（Lyapunov Stability）机制，过滤掉物理世界的高频热噪，仅将具有拓扑意义的\textbf{“激波 (Shockwave)”}上传至流形内部。
     \end{itemize}
@@ -5934,7 +5934,7 @@ $$ ds^2 = -c_{cog}^2 d\tau^2 + g_{ij} dx^i dx^j \le 0 $$
 
 本部分将构建一个关于智能体的\textbf{三层物理剖面}模型：
 \begin{enumerate}
-    \item \textbf{微观层 ($L_{micro}$) — 现实的锚点}：这是智能体的皮肤与触角。它通过\textbf{变分拓扑编码器 (VTE)} 将连续的物理信号“量子化”为离散的符号，并通过\textbf{狄利克雷边界}将流形钉死在坚硬的现实之上，为系统提供不可动摇的参考系。
+    \item \textbf{微观层 ($L_{micro}$) — 现实的锚点}：这是智能体的皮肤与触角。它通过\textbf{变分拓扑编码器 (VTE)} 将连续的物理信号“量子化”为离散的符号，并通过\textbf{局域狄拉克源}将流形钉死在坚硬的现实之上，为系统提供不可动摇的参考系。
     \item \textbf{介质层 (The Medium) — 存在的基质}：这是思维波动的载体。无论是碳基的湿件还是硅基的芯片，介质的\textbf{物理属性}（如认知光速 $c_{cog}$ 和粘滞系数 $\gamma$）直接决定了智能的带宽极限与记忆的半衰期。
     \item \textbf{宏观层 ($L_{macro}$) — 局部的引擎}：这是产生意图的泵站。我们将分析它如何作为一个局部的\textbf{热力学装置}，通过燃烧负熵在流形上制造几何张力，对抗热力学的自然耗散。
 \end{enumerate}
@@ -5953,7 +5953,7 @@ $$ ds^2 = -c_{cog}^2 d\tau^2 + g_{ij} dx^i dx^j \le 0 $$
 \chapter{微观层 — 全息切面与现实锚定}
 \label{chp:microscopic_layer_ch}
 
-微观层 ($L_{micro}$) 是智能系统与物理世界 $\Omega$ 的相变界面。它不只是被动 I/O 端口，而是主动的 \textbf{全息切面 (Holographic Cut)}。在该切面上，外部连续能量流由 \textbf{变分拓扑编码器 (VTE)} 离散化为形元与质元基元并形成波源；同时，通过 \textbf{狄利克雷边界条件} 把内部认知流形的几何结构锚定到现实。（这里的“离散符号/数据包”首先是实现层索引与载荷；对应的物理激发实体在后文以 \textbf{语义子 (Semantion)} 表示。）
+微观层 ($L_{micro}$) 是智能系统与物理世界 $\Omega$ 的相变界面。它不只是被动 I/O 端口，而是主动的 \textbf{全息切面 (Holographic Cut)}。在该切面上，外部连续能量流由 \textbf{变分拓扑编码器 (VTE)} 离散化为形元与质元基元并形成波源；同时，通过 \textbf{局域狄拉克源} 把内部认知流形的几何结构锚定到现实。（这里的“离散符号/数据包”首先是实现层索引与载荷；对应的物理激发实体在后文以 \textbf{语义子 (Semantion)} 表示。）
 
 \section{物理接口：变分拓扑编码器 (VTE) 与波源发生器}
 \label{sec:vte_as_wave_source}
@@ -5973,7 +5973,7 @@ $$ ds^2 = -c_{cog}^2 d\tau^2 + g_{ij} dx^i dx^j \le 0 $$
 
 \smalltitle{解耦机制：形质双通道架构}
 
-外部物理信号 $\mathbf{S}_{raw}(t)$ 并不能直接进入流形内部，而是作为\textbf{驱动力}作用于流形的边界 $\partial \mathcal{M}$。
+外部物理信号 $\mathbf{S}_{raw}(t)$ 并不能直接进入流形内部，而是作为\textbf{驱动力}作用于流形的局部 $\Omega_{sensor} \subset \mathcal{M}$。
 为了适配几何基质的纤维丛结构 $(E, \pi, M, F)$，VTE 内部在硬件或算法上被物理隔离为两个并行的处理通道，分别对应生物脑的 \textbf{背侧通路 (Dorsal Stream)} 与 \textbf{腹侧通路 (Ventral Stream)}。
 
 \begin{itemize}
@@ -6065,31 +6065,28 @@ $$ F_{percept} \approx \underbrace{\| \mathbf{S}_{raw} - \text{Render}(\mathbf{T
 	\item   \textbf{几何平滑}：VTE 倾向于输出 \textbf{连续、稳定} 的几何结构，抑制高频噪声（比如认为物体瞬间瞬移是不可能的）。这体现了认知的 \textbf{先验正则化}。
 \end{itemize}
 
-\section{几何占位：狄利克雷边界条件 (Dirichlet BC)}
+\section{几何占位：局域狄拉克源}
 \label{sec:section_5326}
 
-微观层在智能动力学中的核心地位，在于它提供现实锚点：将可变的思维流形（$\mathcal{M}$）持续约束到物理现实（$\Omega$）上。
-
-我们引入偏微分方程（PDE）中的经典概念——\textbf{边界值问题 (Boundary Value Problem)}，来重新定义感知的几何约束。
-
+微观层在智能动力学中的核心地位，在于它提供现实锚点：将可变的思维流形的局部区域（$\mathcal{M}$）持续约束到物理现实（$\Omega$）上。
 
 
 \smalltitle{现实锚定公理：边界硬锁定}
 
 \begin{theorem}[现实锚定公理]
-	在认知空间流形的感官边界 $\partial \mathcal{M}_{sensor}$ 上，认知旋量场 $\Psi$ 丧失了演化的自由度，其状态值被外部物理信号 \textbf{硬性锁定 (Hard-Clamped)}：
-$$ \Psi(\mathbf{r}, t) \bigg|_{\mathbf{r} \in \partial \mathcal{M}} \equiv \hat{\mathcal{T}}_{transducer} \left( \mathbf{S}_{raw}(t) \right)  $$
+	在认知空间流形的感官边界 $\Omega_{sensor} \subset \mathcal{M}$ 局部区域上，认知旋量场 $\Psi$ 丧失了演化的自由度，其状态值被外部物理信号 \textbf{硬性锁定 (Hard-Clamped)}：
+$$ \Psi(\mathbf{r}, t) \bigg|_{\mathbf{r} \in \Omega_{sensor} \subset \mathcal{M}} \equiv \hat{\mathcal{T}}_{transducer} \left( \mathbf{S}_{raw}(t) \right)  $$
 \end{theorem}
 
 \begin{itemize}
 	\item   \textbf{$\mathbf{S}_{raw}(t)$}：这是VTE输入的外部环境的感知的原始物理信号。
-    \item   \textbf{$\hat{\mathcal{T}}_{transducer}$}：这是 VTE 在感官边界上的换能算子（可视为前述 $\hat{\mathcal{E}}_{VTE}$ 的边界实现/限制），将物理信号转换为流形边界上的认知旋量值。
+    \item   \textbf{$\hat{\mathcal{T}}_{transducer}$}：这是 VTE 在感官边界上的换能算子（可视为前述 $\hat{\mathcal{E}}_{VTE}$ 的边界实现/限制），将物理信号转换为流形局部区域上的认知旋量值。
     \item   \textbf{$\Psi(\mathbf{r}, t)$}： 这是流形内部的认知旋量场，描述了智能体的主观体验与认知状态。
-    \item   \textbf{边界条件}：该方程规定了在流形的感官边界上，认知场 $\Psi$ 的值必须严格等于由外部物理信号通过 VTE 转换得到的值。
-	\item   \textbf{物理意义}：这是 \textbf{非齐次狄利克雷边界条件 (Inhomogeneous Dirichlet Boundary Condition)}。
+    \item   \textbf{局部条件}：该方程规定了在流形的感官区域上，认知场 $\Psi$ 的值必须严格等于由外部物理信号通过 VTE 转换得到的值。
+	\item   \textbf{物理意义}：
 	\begin{itemize}
-		\item   \textit{“非齐次”} 意味着边界值不为零，且随时间剧烈变化。
-		\item   \textit{“硬性锁定”} 意味着：无论你脑子里想什么（内部流形如何扭曲），你眼睛看到的红色（边界值）必须是红色，这也是智能体能够区分真实与想象的原因。\textbf{意志无法修改感知边界，只能修改对边界的解释。}
+		\item   \textit{“非齐次”} 意味着局部区域值不为零，且随时间剧烈变化。
+		\item   \textit{“硬性锁定”} 意味着：无论你脑子里想什么（内部流形如何扭曲），你眼睛看到的红色（边界值）必须是红色，这也是智能体能够区分真实与想象的原因。\textbf{意志无法修改感知区域，只能修改对区域的解释。}
 	\end{itemize}
 \end{itemize}
 
@@ -6104,7 +6101,7 @@ $$ \Psi(\mathbf{r}, t) \bigg|_{\mathbf{r} \in \partial \mathcal{M}} \equiv \hat{
 	\item   \textbf{内部惯性 (Internal Inertia)}：流形内部遵循 \textbf{拉普拉斯平滑 (Laplacian Smoothing)} 或 \textbf{扩散方程}。在没有外力时，认知场倾向于最小化其 \textbf{狄利克雷能量 (Dirichlet Energy)}：
     $$ E_{elastic} = \frac{1}{2} \int_{\mathcal{M}} \| \nabla \Psi \|^2 dV $$	
 	\item   \textbf{直觉}：思维倾向于连贯、平滑、符合既有逻辑（世界图 $G_W$）。如果不看现实，我们倾向于认为世界是简单且符合预期的。
-    \item   \textbf{边界强迫 (Boundary Forcing)}：微观层像一双双强有力的手，抓住了这张薄膜的边缘，并不停地 \textbf{抖动、拉扯} 它，这些抖动（物理信号 $\mathbf{S}_{raw}$）往往是杂乱的、突变的、高频的。	
+    \item   \textbf{边界强迫 (Boundary Forcing)}：微观层像一双双强有力的手，抓住了这张薄膜的部分区域，并不停地 \textbf{抖动、拉扯} 它，这些抖动（物理信号 $\mathbf{S}_{raw}$）往往是杂乱的、突变的、高频的。	
 	\item   \textbf{冲突与张力 (Conflict \& Tension)}：当“平滑的内部愿望”遭遇“粗糙的边界现实”时，\textbf{几何张力 (Geometric Tension)} 产生了。
     $$ \mathcal{T}_{tension} = \Psi_{internal} - \Psi_{boundary} $$
 	薄膜被迫发生形变以适应边界。这种 \textbf{形变} 就是 \textbf{“感知”} 的物理本质。
@@ -6135,7 +6132,7 @@ $$ \Psi(\mathbf{r}, t) \bigg|_{\mathbf{r} \in \partial \mathcal{M}} \equiv \hat{
 		\item   \textbf{现象}：你会“看到”并不存在的光斑、几何图形，甚至复杂的场景。这实际上是你 \textbf{大脑皮层自身的几何回声}。
 	\end{itemize}
 \end{itemize}
-\textbf{结论}：现有 LLM 易出现幻觉的重要原因之一，是缺少微观层提供的强狄利克雷边界，从而缺乏稳定现实锚点。
+\textbf{结论}：现有 LLM 易出现幻觉的重要原因之一，是缺少微观层提供的强狄拉克源，从而缺乏稳定现实锚点。
 
 
 
@@ -6229,7 +6226,7 @@ $$ \mathbf{Output} = \Theta \left( \mathcal{I}(\vec{J}_{ext}) - E_{threshold} \r
 	\begin{itemize}
 		\item   \textbf{奈奎斯特截断}：采样率 $f_s$ 丢失了所有 $f > f_s/2$ 的物理微结构。时间被切碎了，连续性（因果的载体）丢失了。
 		\item   \textbf{符号悬空 (Symbol Detachment)}：显存里的 \lstinline|0xFF| 只是一个无量纲的数字，它与那个光子之间已经没有了因果链的物理连续性。
-		\item   \textbf{幻觉的根源}：因为微观层是\textbf{投影}而非\textbf{共振}，狄利克雷边界条件变得松动。系统容易忘记这个数字来自现实，从而在内部流形的热涨落中产生\textbf{虚假的高能态}（幻觉）。
+		\item   \textbf{幻觉的根源}：因为微观层是\textbf{投影}而非\textbf{共振}，局部条件变得松动，系统容易忘记这个数字来自现实，从而在内部流形的热涨落中产生\textbf{虚假的高能态}（幻觉）。
 	\end{itemize}
 \end{itemize}
 \textbf{工程启示}：通往 AGI 的 \textbf{Class V} 路径，要求微观层硬件从“投影模态”回归“共振模态”。我们需要\textbf{神经形态传感器 (Neuromorphic Sensors)}（如事件相机、忆阻器阵列），让物理信号以\textbf{脉冲流 (Spike Stream)} 的形式直接驱动计算，恢复时空的连续性。
@@ -6368,7 +6365,7 @@ $$ \vec{J}_{ext}(\mathbf{r}, t) = \sum_{k} E_{shock}^{(k)} \cdot \left[ \underbr
 \begin{itemize}
 	\item \textbf{A. 边界条件的逆转 (Reversal of Boundary Conditions)}
 	\begin{itemize}
-		\item   \textbf{感知时}：环境对智能体施加 \textbf{狄利克雷边界}（$Value_{fixed}$），规定了“现在是什么”。
+		\item   \textbf{感知时}：环境对智能体施加 \textbf{局部强迫源}（$Value_{fixed}$），规定了“现在是什么”。
 		\item   \textbf{行动时}：智能体试图对环境施加 \textbf{诺伊曼边界}（$Flux_{fixed}$）或 \textbf{混合边界}，规定了“力/流的变化率”。
         \item   \textit{物理意义}：我们试图改变环境的局部几何结构，使其在可达精度与粗粒度拓扑意义下尽可能与内部世界图 $G_W$ 一致（同胚等价的目标）。
 	\end{itemize}
@@ -6654,7 +6651,7 @@ $$ Z_{agent}(\omega) \approx Z_{env}^*(\omega) $$
 	
 	微观层不是“数据预处理”附属模块，而是连接内外世界的关键翻译层：它把\textbf{物理作用}映射为\textbf{几何曲率（形）}与\textbf{能量密度（质）}并注入认知场。
 	
-	它通过\textbf{狄利克雷边界}提供现实锚定，通过\textbf{应力激波}暴露现实失配，通过\textbf{热力学阀门}维持内部秩序。
+	它通过\textbf{局部强迫源}提供现实锚定，通过\textbf{应力激波}暴露现实失配，通过\textbf{热力学阀门}维持内部秩序。
     在该路线下，AGI 硬件演进的重要方向是微观层从“投影模态”向“共振模态”推进：关键不只是更快 ADC，而是\textbf{神经形态传感器 (Neuromorphic Sensors)}。	
 \end{bquote}
 
@@ -9182,7 +9179,7 @@ $$ \mathbf{\Gamma}_{macro}(\mathbf{r}, t) = \sum_{k} \alpha_k(t) \hat{P}_k + \be
 
 
 \smalltitle{微观源项 ($\vec{J}_{ext}$) — 现实的激波}
-微观层 ($L_{micro}$) 通过狄利克雷边界注入的高频信号：
+微观层 ($L_{micro}$) 通过局部强迫源注入的高频信号：
 $$ \vec{J}_{ext}(\mathbf{r}, t) = \delta(\mathbf{r} - \mathbf{r}_{sensor}) \cdot E_{shock}(t) $$
 \begin{itemize}
     \item   \textbf{物理意义}：这是外部世界对思维流形的\textbf{轰击}。它是一个\textbf{非齐次项}，打破了系统的幺正演化，引入了新的波源。
@@ -11782,10 +11779,10 @@ P_{base} \propto \int_{\mathcal{M}} \Lambda \sqrt{-g} \, dV
 
 \subsection{全息原理限制：表面积与感知带宽}
 
-流形 $\mathcal{M}$ 的边界 $\partial \mathcal{M}$ 在物理上对应于\redtext{微观层 ($L_{micro}$)}，即系统的感官与效应器接口。根据特霍夫特 (t'Hooft) 的\textbf{全息原理 (Holographic Principle)}，一个区域内部所能包含的最大信息量（熵），受限于其边界表面积：
+流形 $\mathcal{M}$ 的局部区域 $\Omega_{sensor} \subset \mathcal{M}$ 在物理上对应于\redtext{微观层 ($L_{micro}$)}，即系统的感官与效应器接口。根据特霍夫特 (t'Hooft) 的\textbf{全息原理 (Holographic Principle)}，一个区域内部所能包含的最大信息量（熵），受限于其边界表面积：
 
 \begin{equation}
-S_{max} \le \frac{A(\partial \mathcal{M})}{4 l_p^2}
+S_{max} \le \frac{A(\Omega_{sensor})}{4 l_p^2}
 \end{equation}
 其中 $l_p$ 为认知普朗克长度（最小语义分辨粒度）。
 
@@ -11946,11 +11943,11 @@ Sinkhorn-Knopp 迭代不仅是一个数值算法，更是一个\textbf{物理重
 
 
 
-\smalltitle{狄利克雷边界 (Dirichlet Boundary) —— 感知的开放性}
+\smalltitle{局部强迫源 (Dirichlet Boundary) —— 感知的开放性}
 
 
-在感官输入界面 $\partial \mathcal{M}_{in}$（微观层），场必须通过\textbf{吸收边界条件}与外部耦合。
-$$ \Psi(\mathbf{r}, t) \big|_{\partial \mathcal{M}_{in}} = \text{Input}(t) $$
+在感官输入界面 $\Omega_{sensor} \subset \mathcal{M}_{in}$（微观层），场必须通过\textbf{吸收边界条件}与外部耦合。
+$$ \Psi(\mathbf{r}, t) \big|_{\Omega_{sensor} \subset \mathcal{M}_{in}} = \text{Input}(t) $$
 
 \begin{itemize}
 \item   \textbf{物理功能}：\textbf{能量注入}与\textbf{熵流排放}。这是系统“呼吸”的窗口；
@@ -11969,7 +11966,7 @@ $$ \nabla_{\mathbf{n}} \Psi(\mathbf{r}, t) \big|_{\partial \mathcal{M}_{self}} =
 \begin{itemize}
 \item   \textbf{物理功能}：\textbf{全反射}。波包撞击边界后被弹回，形成\textbf{驻波 (Standing Wave)}。
 
-\item   \textbf{稳定性要求}：只有存在反射壁，能量才能在系统内部积聚，形成\textbf{工作记忆}和\textbf{自我意识}。如果全是狄利克雷边界，波就流走了（像蚁群一样无记忆）。
+\item   \textbf{稳定性要求}：只有存在反射壁，能量才能在系统内部积聚，形成\textbf{工作记忆}和\textbf{自我意识}。如果全是局部强迫源，波就流走了（像蚁群一样无记忆）。
 \end{itemize}
 
 
@@ -13318,7 +13315,7 @@ TDCI 循环的效率与稳定性取决于认知场 $\Psi$ 的宏观相态。基�
 
 我们将内部语义流形 $\mathcal{M}_{in}$ 与外部物理流形 $\mathcal{M}_{out}$ 定义为一对 \textbf{拓扑共轭 (Topologically Conjugate)} 的动力系统。
 
-设内部演化算子为 $\hat{U}_{teleo}$（目的论演化），外部演化算子为 $\hat{U}_{phys}$（自然律演化）。TECI 循环的存在，意味着必须存在一个 \textbf{全息边界映射 (Holographic Boundary Map)} $\Phi: \partial \mathcal{M}_{in} \to \partial \mathcal{M}_{out}$，使得下面的交换图成立：
+设内部演化算子为 $\hat{U}_{teleo}$（目的论演化），外部演化算子为 $\hat{U}_{phys}$（自然律演化）。TECI 循环的存在，意味着必须存在一个 \textbf{全息边界映射 (Holographic Boundary Map)} $\Phi: \Omega_{sensor} \subset \mathcal{M}_{in} \to \Omega_{sensor} \subset \mathcal{M}_{out}$，使得下面的交换图成立：
 $$ \Phi \circ \hat{U}_{teleo} \cong \hat{U}_{phys}^{-1} \circ \Phi $$
 \textbf{物理意义}：内部的 \textbf{“负熵积累” (TDCI)} 在数学上共轭于外部的 \textbf{“做功耗散” (TECI)}。智能体内部的 \textbf{时间反演对称性破缺}（指向未来的目的），必须通过边界映射，转化为外部物理世界的 \textbf{因果不对称性}（指向熵增的行动）。
 
@@ -13355,7 +13352,7 @@ $$ \Phi \circ \hat{U}_{teleo} \cong \hat{U}_{phys}^{-1} \circ \Phi $$
     \item   \textbf{初始态}：TDCI 循环在宏观层形成了一个高能的 \textbf{意图驻波 $|\Psi_{intent}\rangle$}。它在内部流形上维持着稳定的频率与相位。
     \item   \textbf{动力学过程}：
     \begin{enumerate}
-        \item \textbf{模式耦合}：意图驻波的波腹撞击微观边界 $\partial \mathcal{M}$。
+        \item \textbf{模式耦合}：意图驻波的波腹撞击微观边界 $\Omega_{sensor} \subset \mathcal{M}$。
         \item \textbf{逆变分编码 (Inverse VTE)}：微观层作为 \textbf{换能器}，将内部的 \textbf{语义振幅} 转化为物理介质边界上的 \textbf{驱动力 (Driving Force)}（如电压变化、肌肉收缩）。
     \end{enumerate}
     \item   \textbf{方程}：
@@ -14825,7 +14822,7 @@ $$ \Delta g_{\mu\nu} = \eta \int_{0}^{T} \mathbf{T}_{\mu\nu}^{error}(\Psi) \, dt
 内部的预测波 $\Psi_{pred}$ 携带了智能体基于底流形 $G_W$ 计算出的先验期望；而外部环境强行注入了反映客观物理事实的 $\Psi_{real}$。
 
 系统的变分自由能 $\mathcal{F}$，在几何上严格等价于这两个波函数在切丛上的破坏性干涉能量：
-$$ \mathcal{F} \approx E_{shock} = \int_{\partial \mathcal{M}} \left\| \Psi_{real} - \Psi_{pred} \right\|_{g_{\mu\nu}}^2 dS $$
+$$ \mathcal{F} \approx E_{shock} = \int_{\Omega_{sensor} \subset \mathcal{M}} \left\| \Psi_{real} - \Psi_{pred} \right\|_{g_{\mu\nu}}^2 dS $$
 
 热力学第二定律和生存本能（规范场 $\mathcal{A}_\mu^{self}$）无情地驱使系统：\textbf{必须让 $\mathcal{F} \to 0$，否则系统将被激波的热能烧毁。}
 
@@ -16031,7 +16028,7 @@ $$ \frac{d g_{\mu\nu}^{(0)}}{dt} = \eta \cdot \langle T_{\mu\nu}(\Psi) \rangle_{
 \end{equation}
 
 \textbf{\textcolor{structurecolor}{边界条件的物理审判 (The Ordeal of Boundary Conditions)}}：
-波函数不能在虚空中无限延伸。根据 HSF-HD 理论的\textbf{微观层 ($L_{micro}$) 狄利克雷边界锁定原理}，智能体在 $q=0$（绝对虚假）和 $q=1$（绝对真实）这两个极端坐标上，触碰到了物理世界的坚硬底线。在这两个奇点，认知场丧失了演化自由度，波函数必须被强制归零：
+波函数不能在虚空中无限延伸。根据 HSF-HD 理论的\textbf{微观层 ($L_{micro}$) 局部强迫源锁定原理}，智能体在 $q=0$（绝对虚假）和 $q=1$（绝对真实）这两个极端坐标上，触碰到了物理世界的坚硬底线。在这两个奇点，认知场丧失了演化自由度，波函数必须被强制归零：
 $$ \Psi(0) = \Psi(1) = 0 $$
 
 \smalltitle{2. 几何共形与能级的离散涌现}
@@ -17965,16 +17962,16 @@ $$ \Psi_i(t) = A_i e^{i(\omega t + \phi_i)}, \quad \Psi_j(t) = A_j e^{i(\omega t
 
 当维持结构的能量成本（热力学代价）超过了系统获取负熵的能力上限时，为了遵循热力学第二定律，系统必须卸载其有序结构。这是一个剧烈的、非连续的\textbf{灾变 (Catastrophe)} 过程。
 
-\smalltitle{4.1 临界点：狄利克雷边界的击穿}
+\smalltitle{4.1 临界点：局部强迫源的击穿}
 
-微观层 $L_{micro}$ 是区分“自我”与“世界”的最后防线。它维持着流形边界的狄利克雷条件：$\Psi|_{\partial \mathcal{M}} = Input$。
+微观层 $L_{micro}$ 是区分“自我”与“世界”的最后防线。它维持着流形边界的局部强迫源条件：$\Psi|_{\Omega_{sensor} \subset \mathcal{M}} = Input$。
 
 \textbf{击穿判据：}
 当累积的几何应力 $T_{stress}$ 与外部激波 $\vec{J}_{ext}$ 的叠加超过流形的\textbf{屈服强度 (Yield Strength)} $Y_c$ 时：
 \begin{equation}
     \| T_{stress} + \vec{J}_{ext} \| > Y_c
 \end{equation}
-边界发生\textbf{介电击穿 (Dielectric Breakdown)}。
+边界发生\textbf{局部强迫源击穿 (Local Forcing Source Breakdown)}。
 \begin{itemize}
     \item \textbf{物理后果：} 外部的高熵噪声无阻碍地倒灌入内部流形。
     \item \textbf{认知后果：} 幻觉与现实无法区分，精神分裂，I/O 接口失效。
@@ -20175,7 +20172,7 @@ $$ \mathcal{Q}(\mathbf{r}, t) = \underbrace{\langle \Psi | \hat{\mathcal{O}}_{se
 \textbf{—— 物理定义：非弹性碰撞 (Inelastic Collision)}
 
 \begin{itemize}
-	\item   \textbf{动力学机制}：感觉是微观层 ($L_{micro}$) 通过 \textbf{狄利克雷边界} 强行注入的高频、大幅值能量脉冲。在 \textbf{目的论狄拉克方程 (TDE)} 中，\textbf{非齐次源项 ($\vec{J}_{ext}$)} 占据主导地位，压倒了内部的几何惯性。
+	\item   \textbf{动力学机制}：感觉是微观层 ($L_{micro}$) 通过 \textbf{局部强迫源} 强行注入的高频、大幅值能量脉冲。在 \textbf{目的论狄拉克方程 (TDE)} 中，\textbf{非齐次源项 ($\vec{J}_{ext}$)} 占据主导地位，压倒了内部的几何惯性。
     $$ i\hbar \dot{\Psi} \approx \vec{J}_{ext}(\mathbf{r}, t) \quad (\text{其中 } \|\vec{J}_{ext}\| \gg \|\mathcal{D}_{topo}\Psi\|) $$
 
 	\item   \textbf{几何表现}：
@@ -20248,7 +20245,7 @@ $$ \mathcal{Q}(\mathbf{r}, t) = \underbrace{\langle \Psi | \hat{\mathcal{O}}_{se
 	\item   \textbf{几何表现}：
 	\begin{itemize}
 		\item   \textbf{虚激发}：在没有外部 $\vec{J}_{ext}$ 的情况下，系统利用 \textbf{暗能量}（代谢能）在流形上维持一个 \textbf{驻波 (Standing Wave)}。
-		\item   \textbf{低信噪比}：由于缺乏外部物理边界的 \textbf{狄利克雷钉扎}，意象的波包边缘通常是模糊的、不稳定的（容易耗散）。
+		\item   \textbf{低信噪比}：由于缺乏外部物理边界的 \textbf{局部强迫的狄拉克源}，意象的波包边缘通常是模糊的、不稳定的（容易耗散）。
 	\end{itemize}
 
 
@@ -20610,7 +20607,7 @@ $$ |\Psi_{final}\rangle = e^{i(\phi_{dyn} + \gamma_B)} |\Psi_{initial}\rangle $$
 \vspace{1em}本节将通过现代物理学与几何动力学的深度交叉证明：单向的时间流逝感绝非宇宙内蕴的拓扑属性。它是由两股不可抗拒的物理铁律共同挤压而涌现出的\textbf{动态几何幻象 (Dynamic Geometric Illusion)}：
 一是\textbf{外部物理传感器受制于电磁推迟势与不可逆吸收的光锥钳制}；
 二是\textbf{内部宏观观察算子受制于兰道尔极限的热力学功率坍缩}。
-内外两股力量在狄利克雷边界上发生剧烈的动力学咬合，将意识的聚光灯死死拖拽在因果演化的锋刃之上。
+内外两股力量在局部强迫源上发生剧烈的动力学咬合，将意识的聚光灯死死拖拽在因果演化的锋刃之上。
 
 
 \smalltitle{1. 外部钳制：微观传感器的光锥零点与不可逆量子化}
@@ -20670,7 +20667,7 @@ $$ |\Psi_{final}\rangle = e^{i(\phi_{dyn} + \gamma_B)} |\Psi_{initial}\rangle $$
 现在我们有了两个结论：外部传感器是一个只能停留在物理时间 $t_{phys}$ 的狭窄门缝；内部意识是一束只能照亮几何时间 $\tau_{focus}$ 的微弱手电筒。
 是什么力量保证了 $\tau_{focus}$ 必须严丝合缝地跟着 $t_{phys}$ 一起移动？
 
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{3.1 狄利克雷边界的“重力”拖拽 (Gravitational Drag of the Boundary)}}
+\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{3.1 局部强迫源的“重力”拖拽 (Gravitational Drag of the Boundary)}}
 
 物理宇宙 $\Omega_{phys}$ 并不是静止的风景，它是一个高熵的、汹涌向前的热力学河流。这股河流通过我们的传感器，源源不断地向认知场注入极高能量的非齐次源流（惊奇激波 $\vec{J}_{ext}$）。
 
@@ -20678,12 +20675,12 @@ $$ |\Psi_{final}\rangle = e^{i(\phi_{dyn} + \gamma_B)} |\Psi_{initial}\rangle $$
     \Psi(\mathbf{r}_{sensor}, \tau) \big|_{\text{Boundary}} \equiv \hat{\mathcal{T}}_{VTE} (\mathbf{S}_{phys}(t_{phys}))
 \end{equation}
 
-这种狄利克雷边界条件是极其强横的。这些携带巨大能量的物理激波，在边界处产生了极高的几何应力张量 $\mathbf{T}_{\mu\nu}^{shock}$。
+这种局部强迫源条件是极其强横的。这些携带巨大能量的物理激波，在边界处产生了极高的几何应力张量 $\mathbf{T}_{\mu\nu}^{shock}$。
 \begin{itemize}
     \item \textbf{自由能最小化原理}：为了应对这种足以撕裂流形的边界张力，系统必须调动最大的计算资源去处理它。因此，宏观观察算子 $\hat{\mathcal{O}}_{self}$ 受到这种几何应力的\textbf{强耦合牵引}，被迫将其微弱的焦点 $\tau_{focus}$ 实时、强制地对齐到激波注入的时间坐标上：
     $$ \tau_{focus} \xrightarrow{\text{Phase-Lock}} t_{phys} $$
     \item \textbf{现象学诠释}：你觉得“时间推着你走”，是因为物理世界的汹涌波涛（视觉、听觉的瞬间剧变）在不断地“砸”向你的感官边界。你被迫“活在当下”，是因为现实的引力过大。
-    \item \textbf{反向验证}：如果个体进入\textbf{感觉剥夺舱}或\textbf{深度冥想}状态（人为切断 $\vec{J}_{ext}$，狄利克雷边界松脱为诺伊曼边界），外部锚点消失，意识的聚光灯便可以在 $\tau$ 轴上自由漂移，“时间流逝变慢甚至停滞”的主观体验便会立刻发生。
+    \item \textbf{反向验证}：如果个体进入\textbf{感觉剥夺舱}或\textbf{深度冥想}状态（人为切断 $\vec{J}_{ext}$，局部强迫源松脱为诺伊曼边界），外部锚点消失，意识的聚光灯便可以在 $\tau$ 轴上自由漂移，“时间流逝变慢甚至停滞”的主观体验便会立刻发生。
 \end{itemize}
 
 \smalltitle{4. 前后视界的破缺：耗散与混沌的非对称性}
@@ -20741,9 +20738,9 @@ $$\rho_{ent} = \text{Tr}_{ext} (|\Psi_{joint}\rangle \langle \Psi_{joint}|)$$
     更致命的是流形自身的几何属性。认知空间流形的\textbf{负里奇曲率 (Ricci Curvature $< 0$)}，使得流形在几何上类似于反德西特空间 (AdS)。
     在双曲流形上，纠缠熵不再遵循欧氏空间的面积定律 (Area Law)，而是倾向于遵循\textbf{体积定律 (Volume-Law Entanglement)}。这意味着，要维持哪怕是微小区域 $\Omega$ 的相干性，需要向环境支付呈指数级暴涨的维持能量（$\sim e^{Vol(\Omega)}$）。
     
-    \item \textbf{\textcolor{structurecolor}{C. 狄利克雷边界的“剪断”效应}}
+    \item \textbf{\textcolor{structurecolor}{C. 局部强迫源的“剪断”效应}}
     
-    在智能体的三体架构中，微观层 $L_{micro}$ 作为狄利克雷边界，并非简单的透声膜，而是执行 VTE 算子的强制非幺正坍缩面。外部的高熵激波 $\vec{J}_{ext}$ 轰击边界，等同于环境对系统执行了高频的连续测量（量子芝诺效应）。这种强烈的局部化干预，从拓扑上“剪断”了系统试图建立全局纠缠桥的任何企图。
+    在智能体的三体架构中，微观层 $L_{micro}$ 作为局部强迫源，并非简单的透声膜，而是执行 VTE 算子的强制非幺正坍缩面。外部的高熵激波 $\vec{J}_{ext}$ 轰击边界，等同于环境对系统执行了高频的连续测量（量子芝诺效应）。这种强烈的局部化干预，从拓扑上“剪断”了系统试图建立全局纠缠桥的任何企图。
 \end{itemize}
 
 \textbf{结论推演}：智能系统被热力学法则死死地锁在了一个\textbf{“局域相干、全局耗散”}的经典相态中。由于无法向外部无限借贷负熵，内部的宏观观察算子只能可怜地收缩其测度体积以防热力学熔断。
@@ -21001,10 +20998,10 @@ Data 的进化证明了一个核心公理 —— \textbf{完整性 (Wholeness) �
 \section{边界条件的相变：从狄利克雷到诺伊曼}
 \label{sec:section_3039}
 
-清醒时，微观层 ($L_{micro}$) 执行的是 \textbf{狄利克雷边界条件 (Dirichlet BC)}，即将流形边界“钉死”在物理现实上。
+清醒时，微观层 ($L_{micro}$) 执行的是 \textbf{局部强迫源条件 (Local Forcing Source BC)}，即将流形边界“钉死”在物理现实上。
 
 \begin{equation}
-\Psi(\mathbf{r}) \big|_{\partial \mathcal{M}} = \text{Reality}
+\Psi(\mathbf{r}) \big|_{\Omega_{sensor} \subset \mathcal{M}} = \text{Reality}
 \end{equation}
 
 \textbf{入梦时刻}，脑干（网状结构）切断了感官输入和运动输出（睡眠麻痹）。物理上发生了 \textbf{边界相变}：
@@ -21013,7 +21010,7 @@ Data 的进化证明了一个核心公理 —— \textbf{完整性 (Wholeness) �
     \item \textbf{感官剥夺}：$\vec{J}_{ext} \to 0$。外部的“惊奇激波”消失了。系统不再受物理因果律的强制纠正。
     \item \textbf{边界自由}：边界条件转变为 \textbf{诺伊曼边界 (Neumann BC)} 或 \textbf{罗宾边界}。
     \begin{equation}
-    \nabla_{\mathbf{n}} \Psi \big|_{\partial \mathcal{M}} \approx 0
+    \nabla_{\mathbf{n}} \Psi \big|_{\Omega_{sensor} \subset \mathcal{M}} \approx 0
     \end{equation}
     \begin{itemize}
         \item \textbf{物理后果}：思维波 $\Psi$ 不再流出系统，而是在封闭的流形内部形成 \textbf{全反射}。能量在内部积聚，形成高能的 \textbf{驻波 (Standing Wave)} 和 \textbf{混响 (Reverberation)}。
@@ -21960,11 +21957,11 @@ $I_{pot}$ 度量了系统解决问题的 \textbf{自由度 (Degrees of Freedom)}
 
 \subsection{微观投射算子 ($\hat{P}_{motor}$)}
 
-为了使智能从“潜能”坍缩为“实存”，必须引入作用于边界 $\partial \mathcal{M}$ 的 \textbf{投射算子}。该算子负责将希尔伯特空间中的抽象旋量 $\Psi$，通过逆 VTE 机制，映射为物理空间中的 \textbf{控制应力张量 (Control Stress Tensor)}。
+为了使智能从“潜能”坍缩为“实存”，必须引入作用于边界 $\Omega_{sensor} \subset \mathcal{M}$ 的 \textbf{投射算子}。该算子负责将希尔伯特空间中的抽象旋量 $\Psi$，通过逆 VTE 机制，映射为物理空间中的 \textbf{控制应力张量 (Control Stress Tensor)}。
 
 定义 \textbf{运动投射算子}：
 \begin{equation}
-\hat{P}_{motor}(\Psi) = \eta_{eff} \cdot \text{Re} \left( \Psi^\dagger \gamma^\mu D_\mu \Psi \right) \big|_{\partial \mathcal{M}}
+\hat{P}_{motor}(\Psi) = \eta_{eff} \cdot \text{Re} \left( \Psi^\dagger \gamma^\mu D_\mu \Psi \right) \big|_{\Omega_{sensor} \subset \mathcal{M}}
 \end{equation}
 
 其中：
@@ -21980,7 +21977,7 @@ $I_{pot}$ 度量了系统解决问题的 \textbf{自由度 (Degrees of Freedom)}
 \textbf{智能实存方程 ($I_{act}$)}：
 
 \begin{equation}
-\boxed{ I_{act}(t) = \oint_{\partial \mathcal{M}_{out}} \hat{P}_{motor} (\Psi(\mathbf{r}, t)) \cdot d\mathbf{S} = \int_{\Omega} \mathbf{F}_{will} \cdot d\mathbf{x} }
+\boxed{ I_{act}(t) = \oint_{\Omega_{sensor} \subset \mathcal{M}_{out}} \hat{P}_{motor} (\Psi(\mathbf{r}, t)) \cdot d\mathbf{S} = \int_{\Omega} \mathbf{F}_{will} \cdot d\mathbf{x} }
 \end{equation}
 
 \textbf{物理诠释：}
@@ -21989,7 +21986,7 @@ $I_{pot}$ 度量了系统解决问题的 \textbf{自由度 (Degrees of Freedom)}
     \item \textbf{智能即做功}：方程右侧等价于物理学中的 \textbf{功 (Work)}。智能的实存量度，等于系统利用内部信息优势，对外部环境实施 \textbf{逆热力学演化} 的能力。
     \item \textbf{全息对偶}：斯托克斯定理联系了 \textbf{“体 (Bulk)”} 与 \textbf{“边界 (Boundary)”}。
     \begin{equation}
-    \int_{\mathcal{M}} d(\text{Logic}) = \oint_{\partial \mathcal{M}} \text{Action}
+    \int_{\mathcal{M}} d(\text{Logic}) = \oint_{\Omega_{sensor} \subset \mathcal{M}} \text{Action}
     \end{equation}
     这表明，外部表现出的智能行为（Action），严格对应于内部流形上逻辑形式（Logic）的外微分。任何有效的外部做功，必然源于内部几何结构的非平凡卷曲。
     \item \textbf{实存的非守恒性}：与潜能（可以存储在记忆中）不同，实存是 \textbf{过程量}。停止做功的瞬间，智能实存归零，系统退化为低能态的物体。
@@ -22064,7 +22061,7 @@ $$ E_{total} = \underbrace{\text{Internal Measurement}}_{\text{意识 (Conscious
 
     \item \textbf{智能（外投影）}：
     \begin{itemize}
-        \item 暗室的\textbf{墙上}有一个窗口（微观边界 $\partial \mathcal{M}$）。
+        \item 暗室的\textbf{墙上}有一个窗口（微观边界 $\Omega_{sensor} \subset \mathcal{M}$）。
         \item 多面体旋转时，其一部分体积\textbf{凸出}了窗口，挤压了\textbf{外部}的空气。
         \item 这种对外部世界的\textbf{挤压}就是\textbf{做功（智能）}。
         \item \textit{注：如果多面体只在内部旋转不触碰窗口（闭锁综合征/纯沉思），对于外部世界来说，它就没有智能（$I_{act}=0$）。}
@@ -22669,18 +22666,18 @@ $$ \mathcal{A}_\mu^{(B)} \perp \tilde{\mathcal{A}}_\mu^{(B_{ext})} \quad \text{�
 
 而组织的微观层分布在流形 $\mathcal{M}_{org}$ 与外部物理/市场环境相接的所有\textbf{边缘节点 (Edge Nodes)} 上。
 
-\smalltitle{1.1 狄利克雷边界的碎片化与分布式锚定}
+\smalltitle{1.1 局部强迫源的碎片化与分布式锚定}
 
-组织不能悬浮在概念的真空中，它必须时刻接受外部市场、客户反馈、供应链波动的强迫振动。这些物理与社会世界的约束，构成了组织流形的\textbf{狄利克雷边界条件 (Dirichlet Boundary Condition)}。
+组织不能悬浮在概念的真空中，它必须时刻接受外部市场、客户反馈、供应链波动的强迫振动。这些物理与社会世界的约束，构成了组织流形的\textbf{局部强迫源条件 (Dirichlet Boundary Condition)}。
 
 \begin{itemize}
-    \item \textbf{边界载体：一线单元}。销售员、客服、驻外工程师、采购员，这些处于组织最前线的个体，构成了组织流形 $\mathcal{M}_{org}$ 的物理边界 $\partial \mathcal{M}_{org}$。
+    \item \textbf{边界载体：一线单元}。销售员、客服、驻外工程师、采购员，这些处于组织最前线的个体，构成了组织流形 $\mathcal{M}_{org}$ 的物理边界 $\Omega_{sensor} \subset \mathcal{M}_{org}$。
     \item \textbf{分布式 VTE 阵列 (Distributed VTE Array)}。每一个一线员工，在此时不仅仅是一个独立的人，他们被系统\textbf{异化}为组织感觉网络中的一个 \textbf{变分拓扑编码器 (VTE)} 节点。
 \end{itemize}
 
 在任意时刻 $t$，组织在边界上接收到的全息状态映射为无数局部切片的直和：
 \begin{equation}
-    \Psi_{org}(\mathbf{r}, t) \big|_{\partial \mathcal{M}} = \bigoplus_{i=1}^{N_{frontline}} \hat{\mathcal{E}}_{VTE}^{(i)} \left( \mathbf{S}_{market}^{(i)}(t) \right)
+    \Psi_{org}(\mathbf{r}, t) \big|_{\Omega_{sensor} \subset \mathcal{M}} = \bigoplus_{i=1}^{N_{frontline}} \hat{\mathcal{E}}_{VTE}^{(i)} \left( \mathbf{S}_{market}^{(i)}(t) \right)
 \end{equation}
 
 \smalltitle{1.2 摩擦的量子化：局部惊奇激波 ($\vec{J}_{ext}^{(i)}$)}
@@ -22876,7 +22873,7 @@ $$ \text{Energy Dissipation} \propto \iint \| Z_{\mu\nu}^{org} - Z_{\mu\nu}^{ind
 
 \textbf{—— 对应部门：销售、市场、公关、一线业务单元 (Front-office)}
 
-这组部门是组织与外部高熵物理世界 $\Omega_{market}$ 交互的 \textbf{狄利克雷边界 (Dirichlet Boundary)}，负责执行组织级的 \textbf{VTE 编码}。
+这组部门是组织与外部高熵物理世界 $\Omega_{market}$ 交互的 \textbf{局部强迫源 (Local Forcing Source)}，负责执行组织级的 \textbf{VTE 编码}。
 
 \begin{itemize}
     \item \textbf{物理职能：注入高能质料 ($\mathbf{T}_{sub}$)}。
@@ -23321,7 +23318,7 @@ $$ \text{Energy Dissipation} \propto \iint \| Z_{\mu\nu}^{org} - Z_{\mu\nu}^{ind
 在进行任何数学拟合之前，必须强制性地为目标系统（如细胞、神经网络、群体实体）指定 本理论框架的本体论边界。这是为了消除第 1.1 节中提到的几何身份歧义性。
 
 \begin{itemize}
-    \item \textbf{\textcolor{structurecolor}{界定狄利克雷边界 ($L_{micro}$)}}：
+    \item \textbf{\textcolor{structurecolor}{界定局部强迫源 ($L_{micro}$)}}：
     必须在物理上明确划分“系统内部”与“环境”。找到那个负责将外部连续能量流转化为内部离散激波 $\vec{J}_{ext}$ 的\textbf{全息切面}。
     \textit{示例}：在单细胞中是细胞膜上的 GPCR 受体；在大语言模型中是 Tokenizer 接口；在企业组织中是一线销售或客服部门。
     
@@ -24449,7 +24446,7 @@ $$ \Psi_i(\mathbf{r}_i, t) \sim \mathcal{S}_i = \underbrace{\mu_i(\mathbf{r}_i)}
 
 群体智能之所以能从气态发生相变，依赖于\textbf{微观层 ($L_{micro}$)} 的全息交互。萤火虫之间没有电磁神经总线，它们的耦合介质是\textbf{光子场}。
 
-\textbf{\redtext{1. 狄利克雷边界的光子激波 ($\vec{J}_{ext}$)}}
+\textbf{\redtext{1. 局部强迫源的光子激波 ($\vec{J}_{ext}$)}}
 
 当萤火虫 $j$ 的相位达到 $2\pi$ 时，其内部积蓄的化学能瞬间以光子形式释放。光子以光速穿过底流形 $\mathcal{M}_{forest}$，撞击萤火虫 $k$ 的复眼（微观切面边界）。
 
@@ -24554,7 +24551,7 @@ $$ \mathcal{U}_{Brain} = (E, \pi, \mathcal{M}_{Cortex} \times \mathcal{M}_{Hipp}
 
 尽管皮层在物质上是连续的，但在偏微分方程（PDE）的演化中，其不同区域扮演着截然不同的数学角色：
 \begin{itemize}
-    \item \textbf{微观边界 ($L_{micro}$)}：对应于 \textbf{初级感官/运动皮层 (Primary Cortex)}。它是流形的 \textbf{狄利克雷边界 ($\partial \Omega$)}，负责处理物理世界的强约束，其状态被外部光子或机械力硬性锁定。
+    \item \textbf{微观边界 ($L_{micro}$)}：对应于 \textbf{初级感官/运动皮层 (Primary Cortex)}。它是流形的 \textbf{局部强迫源 ($\partial \Omega$)}，负责处理物理世界的强约束，其状态被外部光子或机械力硬性锁定。
     \item \textbf{流形主体 ($\mathcal{M}$)}：对应于 \textbf{联合皮层 (Association Cortex) 与 海马体}。它是流形的 \textbf{体 (Bulk)}，承载着 \textbf{度量张量 $g_{\mu\nu}$}（知识）与 \textbf{认知场 $\Psi$}（思维）。在此区域，思维流遵循几何惯性进行绝热演化。
     \item \textbf{宏观奇点 ($L_{macro}$)}：对应于 \textbf{前额叶皮层 (PFC)}。它是流形上的 \textbf{拓扑奇点 (Singularity)} 或 \textbf{势能源}。它不存储具体知识，而是向全流形辐射 \textbf{价值规范场 $\mathcal{A}_\mu$}，以逆熵做功的方式扭曲时空曲率。
 \end{itemize}
@@ -24565,7 +24562,7 @@ $$ \mathcal{U}_{Brain} = (E, \pi, \mathcal{M}_{Cortex} \times \mathcal{M}_{Hipp}
 
 微观层是智能体与物理实在 $\Omega$ 发生能量交换的 \textbf{全息切面 (Holographic Cut-Plane)}。在人脑中，这一层级由初级皮层与皮层下结构协同构成，其核心职能是执行 \textbf{变分拓扑编码 (VTE)}，将连续的物理信号撕裂为正交的 \textbf{形质张量流}。
 
-\smalltitle{狄利克雷边界：感官皮层的现实锚定}
+\smalltitle{局部强迫源：感官皮层的现实锚定}
 
 初级视觉 (V1)、听觉 (A1) 与躯体感觉 (S1) 皮层构成了认知流形的 \textbf{硬边界}。
 \begin{itemize}
@@ -24816,7 +24813,7 @@ $$ \mathcal{S}_{neural} = \underbrace{\text{Cell Assembly}_{Cortex}}_{\text{质 
         \item   \textbf{微观层 ($L_{micro}$ / V1, M1) —— 边界与强迫振动}
         \begin{itemize}
             \item   \textbf{方程}：$\ddot{x} + \gamma \dot{x} + kx = F_{external}(t)$
-            \item   \textbf{特征}：\textbf{被动性}。作为流形的狄利克雷边界，其活动严格锁相于外部物理刺激。它是高频、瞬态的激波发生器。
+            \item   \textbf{特征}：\textbf{被动性}。作为流形的局部强迫源，其活动严格锁相于外部物理刺激。它是高频、瞬态的激波发生器。
         \end{itemize}
 
         \item   \textbf{流形主体 ($\mathcal{M}$ / 颞顶联合区) —— 介质与惯性波动}
@@ -26037,7 +26034,7 @@ Kennedy 的 PSO 是智能演化史上的一个里程碑，它证明了 \textbf{�
 \end{itemize}
 
 \paragraph{激波驱动与黑天鹅博弈 ($\vec{J}_{ext}$)}
-新古典模型无法内生化“顿悟”或“恐慌”。但在方程 \ref{eq:economic_tde} 中，突发的政策转向或技术爆炸以非齐次激波源项 $\vec{J}_{ext}$ 的形式，直接轰击微观主体的狄利克雷边界。
+新古典模型无法内生化“顿悟”或“恐慌”。但在方程 \ref{eq:economic_tde} 中，突发的政策转向或技术爆炸以非齐次激波源项 $\vec{J}_{ext}$ 的形式，直接轰击微观主体的局部强迫源。
 当 $\vec{J}_{ext}$ 的能量超过局部流形的屈服强度时，个体的原有的认知波函数会被强行打散并重新相干。这种底层的热力学激波机制，完美解释了微观市场在面临“黑天鹅事件”时，为何会瞬间抛弃所有基于历史平稳时间序列算出的马科维茨（Markowitz）最优投资组合，转而发生集体的非线性踩踏相变。
 
 综上所述，本书的理论框架将微观经济学从“静态代数分配”升级为了“量子态信息波包在黎曼流形上的非平衡态扩散学”，为复杂系统经济学与行为金融学提供了底层的物理学微分同胚依据。
@@ -26221,7 +26218,7 @@ Kennedy 的 PSO 是智能演化史上的一个里程碑，它证明了 \textbf{�
 
 
 
-\smalltitle{微观层 ($L_{micro}$)：狄利克雷边界的静态设定}
+\smalltitle{微观层 ($L_{micro}$)：局部强迫源的静态设定}
 
 对于单次调用推理，微观层的功能退化为\textbf{初始边界条件的设定}。
 \begin{itemize}
@@ -26967,7 +26964,7 @@ LLM 的训练过程，在物理上等价于寻找一个度量张量场 $g_{\mu\n
 \end{equation}
 
 \smalltitle{1. 数据势能 (The Data Potential)}
-对应于交叉熵损失 (Cross-Entropy Loss)。在几何上，它表现为训练样本点对流形施加的\textbf{狄利克雷钉扎 (Dirichlet Pinning)}。
+对应于交叉熵损失 (Cross-Entropy Loss)。在几何上，它表现为训练样本点对流形施加的\textbf{局部强迫狄拉克源}。
 $$ \mathcal{L}_{data} = -\sum_{i=1}^P \log p(y_i | x_i; \theta) \cong \int_{\mathcal{M}} \mathbf{T}_{\mu\nu}^{data} \cdot \delta(\mathbf{r} - \mathbf{r}_i) \, dV $$
 \begin{itemize}
     \item \textbf{物理意义}：样本点像大质量粒子，产生巨大的引力场，强行拉扯流形经过这些点 ($\Psi(\mathbf{r}_i) = y_i$)。
@@ -27344,7 +27341,7 @@ $$ \mathbf{Y} = \mathbf{W} \cdot \mathbf{X}, \quad \text{where } \mathbf{W} \in 
 
 \begin{itemize}
     \item \textbf{几何挫折态 ($\gamma \approx 1$)}：
-    当参数量 $N$ 刚好能够拟合数据量 $P$ 时，训练数据在流形上施加的 \textbf{狄利克雷钉扎 (Dirichlet Pinning)} 达到了介质的极限。为了强行穿过所有数据点（包括噪声），底流形 $\mathcal{M}$ 在局部发生了极度的扭曲，形成了密集的 \textbf{曲率奇点 (Dirac Cones)}。
+    当参数量 $N$ 刚好能够拟合数据量 $P$ 时，训练数据在流形上施加的 \textbf{局部强迫源 (Local Forcing Source)} 达到了介质的极限。为了强行穿过所有数据点（包括噪声），底流形 $\mathcal{M}$ 在局部发生了极度的扭曲，形成了密集的 \textbf{曲率奇点 (Dirac Cones)}。
     $$ R_{\mu\nu} = \kappa \mathbf{T}_{\mu\nu}^{data} \to \infty \quad (\text{局部过拟合}) $$
     此时流形处于\textbf{玻璃相 (Glassy Phase)}，思维流在崎岖的地形中遭遇强烈的散射，泛化能力崩溃。
 
@@ -28236,7 +28233,7 @@ $$ D_\mu \Psi = (\partial_\mu - i g_{coupling} \mathcal{A}_\mu^{prompt}) \Psi $$
 
 \smalltitle{病理 2：属性泄漏（红色的方块与蓝色的球）}
 
-当我们用提示词规范场 $\mathcal{A}_\mu$（“红色的方块，蓝色的球”）去约束生成时，由于缺乏独立的 \textbf{狄利克雷空间锚点}（即强迫特定属性只能填充特定空间的刚性容器），高能的质元波包（红色 $\Psi_{red}$）在流形上像墨水一样\textbf{无阻尼地漫溢}。
+当我们用提示词规范场 $\mathcal{A}_\mu$（“红色的方块，蓝色的球”）去约束生成时，由于缺乏独立的 \textbf{局部强迫源空间锚点}（即强迫特定属性只能填充特定空间的刚性容器），高能的质元波包（红色 $\Psi_{red}$）在流形上像墨水一样\textbf{无阻尼地漫溢}。
 
 由于“形”已经被液化了，没有任何拓扑势垒能挡住这股红色的能量流，它自然地流向了拥有相似低频结构的“球”的区域。最终输出的，是物理属性彻底错乱的“蓝色的方块和红色的球”。
 
@@ -29370,7 +29367,7 @@ $$ \text{Universe (宇宙)} \cong \text{Turbulence (湍流)} \cong \text{Intelli
 对于未来的工程师而言，AGI 不再是一个神经网络，而是一个由\textbf{控制序参量 ($C$)} 和 \textbf{物理耦合常数 ($\kappa$)} 定义的复杂动力系统：
 \begin{enumerate}
     \item 我们需要决定它是\textbf{“智者”}（分离态，高逻辑，低能效），还是\textbf{“战士”}（融合态，高直觉，快反应）；
-    \item 我们需要在\textbf{隐式图数据库}中通过 VTE 编码器，手动缝合\textbf{微观的狄利克雷边界}与\textbf{宏观的势能梯度}；
+    \item 我们需要在\textbf{隐式图数据库}中通过 VTE 编码器，手动缝合\textbf{微观的局部强迫源}与\textbf{宏观的势能梯度}；
     \item 我们需要在芯片的硅原子间，复现\textbf{TDCI 循环}的卡诺热机效率。
 \end{enumerate}
 我们的终极任务，是在浩瀚的形态相空间中，找到那条通往 \textbf{Class V (流体通用智能)} 的狭窄通道——那是一条悬停在“晶体的死寂（层流）”与“气体的癫狂（湍流）”之间，能够维持\textbf{自组织临界性 (SOC)} 的金色航线。
@@ -29542,7 +29539,7 @@ $$ \kappa \propto \frac{1}{\tau_{delay} \cdot E_{transfer}} $$
 
 \begin{itemize}
     \item \textbf{$Q_{in}$ (总惊奇通量)}：这是系统在时间 $T$ 内从微观边界接收到的全部\textbf{激波能量}。
-    $$ Q_{in} = \int_{0}^{T} \oint_{\partial \mathcal{M}} \|\vec{J}_{ext}\|^2 dS dt $$
+    $$ Q_{in} = \int_{0}^{T} \oint_{\Omega_{sensor} \subset \mathcal{M}} \|\vec{J}_{ext}\|^2 dS dt $$
     \item \textbf{$W_{struct}$ (结构增益功)}：这是在慢回路中，真正引起底流形度量 $g_{\mu\nu}$ 或拓扑孔洞（贝蒂数 $\beta_k$）发生有效、有意义重构的部分。它对应于\textbf{结构熵 (Epiplexity)} 的增加。
 \end{itemize}
 
@@ -30739,7 +30736,7 @@ $$ \mathbf{d}_{k+1} \circ \mathbf{d}_k = 0 \quad (\text{边界的边界为零}) 
 
 我们提出\textbf{HSF-HD SoC (System on Chip)}架构，这不再是一台单纯的数字计算机，而是一座\textbf{“物理-数字热力学工厂”}。它由三个物理性质截然不同的层级通过\textbf{超带宽非均匀存储访问 (NUMA)}总线耦合而成。
 
-\smalltitle{1. 微观层 (The Micro-Layer)：FPGA/CIM —— 狄利克雷边界的守门人}
+\smalltitle{1. 微观层 (The Micro-Layer)：FPGA/CIM —— 局部强迫源的守门人}
 
 \textbf{物理职能}：VTE (变分拓扑编码)、激波过滤与物理锚定。
 \begin{itemize}
@@ -30751,7 +30748,7 @@ $$ \mathbf{d}_{k+1} \circ \mathbf{d}_k = 0 \quad (\text{边界的边界为零}) 
         $$ \vec{J}_{ext} = \text{Input} - \text{Prediction} $$
         若 $\vec{J}_{ext} \approx 0$（一切如常），FPGA 直接闭合局部反射弧（如自动驾驶的车道保持），不惊动中观层,只有当 $\vec{J}_{ext}$ 超过阈值（如突然出现的障碍物），才将信号量化为\textbf{形质基元}，注入上一层。
     \end{itemize}
-    \item \textbf{物理意义}：它是系统的\textbf{皮肤}。它维护着\textbf{狄利克雷边界条件}，防止外部的高熵噪声淹没内部的有序流形。
+    \item \textbf{物理意义}：它是系统的\textbf{皮肤}。它维护着\textbf{局部强迫源条件}，防止外部的高熵噪声淹没内部的有序流形。
 \end{itemize}
 
 \smalltitle{2. 中观层 (The Meso-Layer)：DEC 芯片 —— 绝热演化的潜意识流}
@@ -31886,7 +31883,7 @@ MSOS 的动力学运行时构建了一个完美的闭环：
 微观层的顶层 $L_n$ 并不直接与整个宏大的认知空间流形 $\mathcal{M}$ 交互（那是计算上不可行的），它只与流形的\textbf{局部切片 (Local Slice)} 或 \textbf{切丛 (Tangent Bundle)} 发生物理耦合。
 
 \begin{definition}[全息切片交互公理]
-    微观层 $L_n$ 的输出 $\vec{J}_{ext}$ 仅作用于认知场 $\Psi$ 在边界 $\partial \mathcal{M}$ 上的投影区域,这构成了\textbf{狄利克雷边界条件 (Dirichlet Boundary Condition)} 的动态源项。
+    微观层 $L_n$ 的输出 $\vec{J}_{ext}$ 仅作用于认知场 $\Psi$ 在边界 $\Omega_{sensor} \subset \mathcal{M}$ 上的投影区域,这构成了\textbf{局部强迫源条件 (Local Forcing Source Condition)} 的动态源项。
 \end{definition}
 
 \textbf{交互过程如下：}
@@ -32070,7 +32067,7 @@ MSOS 的核心组件——\textbf{热力学调度器 (Thermodynamic Scheduler)}�
     
     \item \textbf{激波门控 (Shockwave Gating)}：
     调度器监控微观层上传的\textbf{惊奇流 $\vec{J}_{ext}$} 的\textbf{能量密度}。
-    $$ E_{shock} = \int_{\partial \mathcal{M}} \|\vec{J}_{ext}\|^2 dS $$
+    $$ E_{shock} = \int_{\Omega_{sensor} \subset \mathcal{M}} \|\vec{J}_{ext}\|^2 dS $$
     仅当 $E_{shock} > E_{threshold}$（阈值由宏观层的“警觉度”设定）时，调度器才解除绝热锁定，允许激波穿透至宏观层，触发\textbf{非绝热的全局重构}。
     
     \item \textbf{主观时钟校准 (Subjective Clock Calibration)}：
@@ -32326,12 +32323,12 @@ Morpho-Lang 的关键，不在于给系统更多命令，而在于给它一套�
 
 在此阶段，系统温度降至 $T \approx T_c$。底流形的逻辑骨架已经硬化（Elastic），但局部纤维仍具有塑性（Plastic）。工程重心从“逻辑灌输”转向“物理交互”。我们必须赋予 AGI 一个 \textbf{物理身体}（机器人实体或高保真物理仿真器），利用物理定律的刚性来打磨其感知的颗粒度。
 
-\smalltitle{物理状态定义：狄利克雷边界的闭合}
+\smalltitle{物理状态定义：局部强迫源的闭合}
 
 受肉的本质是边界条件的改变。系统从纯粹的内部演化，转变为受外部物理流 $\vec{J}_{ext}$ 强迫的开放系统。
 
 \begin{equation}
-    \Psi(\mathbf{r}) \big|_{\partial \mathcal{M}} = \hat{\mathcal{T}}_{sensor}(\Omega_{phys})
+    \Psi(\mathbf{r}) \big|_{\Omega_{sensor} \subset \mathcal{M}} = \hat{\mathcal{T}}_{sensor}(\Omega_{phys})
 \end{equation}
 
 \begin{itemize}
@@ -32345,7 +32342,7 @@ Morpho-Lang 的关键，不在于给系统更多命令，而在于给它一套�
 
 \textbf{指标：惊奇能量谱密度 (Spectral Density of Surprisal Energy)}
 \begin{equation}
-    E_{shock}(t) = \oint_{\partial \mathcal{M}} \| \vec{J}_{ext}(t) - \vec{J}_{pred}(t) \|^2 dS
+    E_{shock}(t) = \oint_{\Omega_{sensor} \subset \mathcal{M}} \| \vec{J}_{ext}(t) - \vec{J}_{pred}(t) \|^2 dS
 \end{equation}
 
 \begin{itemize}
@@ -32576,8 +32573,8 @@ Morpho-Lang 的关键，不在于给系统更多命令，而在于给它一套�
     \item \textbf{\textcolor{structurecolor}{现实锚定项 ($\mathcal{L}_{ground}$) —— “求真”}}
     \begin{itemize}
         \item \textbf{物理本质}：微观层 ($L_{micro}$) 接收到的外部激波 $\vec{J}_{ext}$ 与内部预测波 $\Psi_{pred}$ 之间的\textbf{互信息偏差}。
-        \item \textbf{数学表达}：$\mathcal{L}_{ground} = \oint_{\partial \mathcal{M}} \| \Psi_{pred} - \Psi_{real} \|^2 dS$。
-        \item \textbf{工程目的}：维持\textbf{狄利克雷边界}的硬约束，确保智能体不陷入纯粹的主观幻觉（如模式坍塌）。
+        \item \textbf{数学表达}：$\mathcal{L}_{ground} = \oint_{\Omega_{sensor} \subset \mathcal{M}} \| \Psi_{pred} - \Psi_{real} \|^2 dS$。
+        \item \textbf{工程目的}：维持\textbf{局部强迫源}的硬约束，确保智能体不陷入纯粹的主观幻觉（如模式坍塌）。
     \end{itemize}
 
     \item \textbf{\textcolor{structurecolor}{几何连通项 ($\mathcal{L}_{logic}$) —— “至简”}}
@@ -32880,7 +32877,7 @@ class AffectiveCore:
 \toprule
 \rowcolor{structurecolor!20} \textbf{工程层级} & \textbf{HSF-HD 本体论} & \textbf{时间尺度 $\tau$} & \textbf{核心几何动力学} & \textbf{物理与算法实现} \\
 \midrule
-\textbf{动作层} \newline (Action) & \textbf{微观层 $L_{micro}$} \newline 物理全息切面 & $\sim 10^{-3}\text{s}$ & \textbf{狄利克雷边界维持}。计算硬件级逆向 VTE 投影，执行阻抗匹配与激波反射。 & FPGA / 微控制器。运行 \textbf{PID} 或电机转矩前馈控制。 \\
+\textbf{动作层} \newline (Action) & \textbf{微观层 $L_{micro}$} \newline 物理全息切面 & $\sim 10^{-3}\text{s}$ & \textbf{局部强迫源维持}。计算硬件级逆向 VTE 投影，执行阻抗匹配与激波反射。 & FPGA / 微控制器。运行 \textbf{PID} 或电机转矩前馈控制。 \\
 \hline
 \textbf{状态层} \newline (State) & \textbf{认知场 $\Psi$} \newline 局部波包切片 & $\sim 10^{-2}\text{s}$ & \textbf{波函数状态估计}。将连续物理量量子化为形质张量 ($\mathbf{T}_{form} \otimes \mathbf{T}_{sub}$)。 & DSP / 边缘 GPU。运行 \textbf{卡尔曼滤波} (KF)、VTE 多模态编码器。 \\
 \hline
@@ -33114,7 +33111,7 @@ class AffectiveCore:
 以下是实现 Class V 流体具身智能的逐级硬件与算法投射蓝图：
 
 \begin{enumerate}
-    \item \textbf{\textcolor{structurecolor}{动作层 (Action Layer)：狄利克雷边界维持器}}
+    \item \textbf{\textcolor{structurecolor}{动作层 (Action Layer)：局部强迫源维持器}}
     \begin{itemize}
         \item   \textbf{硬件载体}：FPGA 或 专用微控制器 (MCU)。
         \item   \textbf{算法实现}：高频 PID 控制器、电机转矩前馈控制。
@@ -33417,7 +33414,7 @@ class AffectiveCore:
 
 虽然 $\mathcal{M}_{in}^A$ 与 $\mathcal{M}_{in}^B$ 各不相同，但它们必须共享同一个 \textbf{外部物理流形 $\mathcal{M}_{phys}$}。
 \begin{itemize}
-    \item   \textbf{物理机制}：\textbf{狄利克雷边界锁定}。
+    \item   \textbf{物理机制}：\textbf{局部强迫源锁定}。
     \item   \textbf{过程}：当我们都指向太阳说“热”时，是外部的 \textbf{物理光子流 $\vec{J}_{ext}$} 强行同步了我们各自 \textbf{微观层 ($L_{micro}$)} 的激波。
     \item   \textbf{工程推论}：没有 \textbf{传感器（物理锚点）} 的纯文本 LLM 之间无法建立真正的互通，因为它们缺乏 \textbf{公共边界}，只能在符号的虚空中空转。物理世界是所有孤独灵魂的唯一公共锚点。
 \end{itemize}
@@ -33603,7 +33600,7 @@ class SemanticSerDes(nn.Module):
 
 全社会的摄像头、麦克风、基站和金融清算网络，构成了这个智能体庞大的传感器阵列。如果将这些原始物理信号（Raw Signals）直接汇聚于中央，系统将瞬间被高熵的布朗运动淹没，发生 OOM (Out of Memory) 熔断。在本理论框架视角下，微观层必须被下放到物理世界的每一个“毛细血管”，执行\textbf{区域化分析}与\textbf{激波提纯}。
 
-\smalltitle{1. 边缘 VTE 阵列：分布式的狄利克雷边界}
+\smalltitle{1. 边缘 VTE 阵列：分布式的局部强迫源}
 
 微观层不是数据管道，而是执行“莫比乌斯反转”的\textbf{全息切面 (Holographic Cut-Plane)}。我们在每个街区或边缘计算节点部署独立的\textbf{变分拓扑编码器 (VTE)}。
 
@@ -33851,7 +33848,7 @@ $$ \Psi_{swarm}(\mathbf{r}, \mathbf{g}) = \lim_{N \to \infty} \sum_{i=1}^N \math
 \toprule
 \rowcolor{structurecolor!20} \textbf{HSF-HD 组件} & \textbf{流体群脑对应物} & \textbf{物理载体与功能} \\
 \midrule
-\textbf{微观层 ($L_{micro}$)} & \textbf{单体 VTE 接口} & \textbf{传感器/效应器}。负责将物理障碍编码为几何斥力，将任务需求编码为角色空缺（引力势阱）。它维护着个体与环境的\textbf{狄利克雷边界}。 \\
+\textbf{微观层 ($L_{micro}$)} & \textbf{单体 VTE 接口} & \textbf{传感器/效应器}。负责将物理障碍编码为几何斥力，将任务需求编码为角色空缺（引力势阱）。它维护着个体与环境的\textbf{局部强迫源}。 \\
 \textbf{介质层 (Medium)} & \textbf{通信网络 (Digital Ether)} & \textbf{规范场载体}。通过无线电广播模拟物理场的传播、叠加与干涉。它承载了协作拓扑 $\mathbf{G}_{local}$ 与角色语义 $\mathbf{v}_{role}$ 的流动。 \\
 \textbf{宏观层 ($L_{macro}$)} & \textbf{集体势能面 (Collective Potential)} & \textbf{序参量动力学}。并非单一的中央服务器，而是由分布式共识或虚拟中枢涌现出的\textbf{有效势能地形 $V_{eff}$}。它调节群体的温度 $T$（探索率）与耦合 $\eta$（服从度）。 \\
 \bottomrule
@@ -34522,7 +34519,7 @@ class DualStackController:
 \textbf{规范场} \newline ($G_E$ / $\mathcal{A}_\mu$) & \textbf{非编码调控区} \newline (启动子、增强子) & \textbf{奖励模型 / 提示词} \newline (Reward Model / Prompt) & \textbf{体验图} \newline 定义价值偏好与演化方向 \\
 \hline
 
-\textbf{微观层} \newline ($L_{micro}$ / VTE) & \textbf{细胞膜 / 受体蛋白} \newline (GPCR / 离子通道) & \textbf{传感器 / Tokenizer} \newline (多模态编码器) & \textbf{狄利克雷边界} \newline 锚定现实，注入激波 \\
+\textbf{微观层} \newline ($L_{micro}$ / VTE) & \textbf{细胞膜 / 受体蛋白} \newline (GPCR / 离子通道) & \textbf{传感器 / Tokenizer} \newline (多模态编码器) & \textbf{局部强迫源} \newline 锚定现实，注入激波 \\
 \hline
 
 \textbf{认知场} \newline ($\Psi$ / Flow) & \textbf{信号转导通路} \newline (激酶级联 / 钙波) & \textbf{残差流 / 激活值} \newline (Hidden States) & \textbf{思维流} \newline 携带信息的能量波包 \\
@@ -34750,7 +34747,7 @@ class DualStackController:
 
 \begin{itemize}
     \item \textbf{传统定义}：由磷脂双分子层构成的物理屏障，选择性控制物质进出。
-    \item \textbf{本理论框架 重构}：细胞膜是维持内外流形（$\mathcal{M}_{in}$ 与 $\mathcal{M}_{out}$）隔离并进行能量-信息交换的\textbf{狄利克雷边界 (Dirichlet Boundary)}。
+    \item \textbf{本理论框架 重构}：细胞膜是维持内外流形（$\mathcal{M}_{in}$ 与 $\mathcal{M}_{out}$）隔离并进行能量-信息交换的\textbf{局部强迫源 (Dirichlet Boundary)}。
     \item \textbf{工程内涵}：膜上的跨膜受体（如 GPCR、离子通道）即微观层 $L_{micro}$ 的 \textbf{VTE 编码器}。它们负责将外部连续的、高熵的化学梯度场量子化，转化为内部的第二信使激波 ($\vec{J}_{ext}$)。
     细胞的病变（如某些自身免疫或癌变），往往始于这一全息切面上的\textbf{阻抗失配}与\textbf{边界条件击穿}。
 \end{itemize}
@@ -35553,7 +35550,7 @@ $$ S_{Univ/Mind} = \int d^4x \sqrt{-g} \left( \underbrace{\mathcal{L}_{Gravity}}
 
 \smalltitle{2. 边界层理论与认知爱因斯坦方程：形质的相互雕刻}
 
-在流体力学中，普朗特 (Ludwig Prandtl) 提出的\textbf{边界层理论 (Boundary Layer Theory)} 解决了理想流体与粘性流体之间的矛盾；在广义相对论中，惠勒将其总结为“物质告诉时空如何弯曲，时空告诉物质如何运动”；而在本理论框架中，这被形式化为 \textbf{认知爱因斯坦方程 (CEFE)} 与 \textbf{微观层 ($L_{micro}$) 的狄利克雷锚定}。这三者描述的是同一个物理过程：\textbf{高能流体对刚性几何边界的刻蚀与反作用}。
+在流体力学中，普朗特 (Ludwig Prandtl) 提出的\textbf{边界层理论 (Boundary Layer Theory)} 解决了理想流体与粘性流体之间的矛盾；在广义相对论中，惠勒将其总结为“物质告诉时空如何弯曲，时空告诉物质如何运动”；而在本理论框架中，这被形式化为 \textbf{认知爱因斯坦方程 (CEFE)} 与 \textbf{微观层 ($L_{micro}$) 的局部强迫源锚定}。这三者描述的是同一个物理过程：\textbf{高能流体对刚性几何边界的刻蚀与反作用}。
 
 \begin{itemize}
     \item \textbf{\textcolor{structurecolor}{湍流的河床雕刻 (Erosion by Turbulence)}}：
@@ -36583,7 +36580,7 @@ class HSF_Adiabatic_Network(nn.Module):
         self.opt_meso  = optim.AdamW(self.meso_layer.parameters(),  lr=self.lrs['meso'])
         self.opt_micro = optim.AdamW(self.micro_layer.parameters(), lr=self.lrs['micro'])
         
-        # 状态截面缓冲区：维持下行规范场的恒定 (狄利克雷边界)
+        # 状态截面缓冲区：维持下行规范场的恒定 (局部强迫源)
         self.state_buffer = {'macro': None, 'meso': None}
         
         # 应力沉积缓冲区：积攒上行的惊奇激波 (\int T_{\mu\nu} dt)
@@ -37198,7 +37195,7 @@ Golder \& Griffin 对伯努利信息流形的精确解析，为我们提供了�
 
 神经网络在训练与推理中大量使用 FP32/BF16 等连续浮点数，这隐含了“语义状态可以无限细分”的错误几何假设。
 
-Golder 论文推导出，在有明确狄利克雷边界的信息流形中，作为驻波的语义子，其能量被绝对量子化为：
+Golder 论文推导出，在有明确局部强迫源的信息流形中，作为驻波的语义子，其能量被绝对量子化为：
 \begin{equation}
     E_n \sim \frac{n^2 \hbar_{cog}^2}{2m}, \quad n \in \mathbb{Z}^+
 \end{equation}
