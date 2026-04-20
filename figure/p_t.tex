@@ -1,112 +1,167 @@
-\documentclass[tikz,border=15pt]{standalone}
-\usepackage{ctex}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usetikzlibrary{shapes.geometric, arrows.meta, positioning, calc, fadings, backgrounds, decorations.pathmorphing}
+% !TEX program = xelatex
+\documentclass[tikz, border=15pt]{standalone}
+\usepackage[UTF8]{ctex}
+\usepackage{amsmath, amssymb}
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+\usetikzlibrary{decorations.pathmorphing, arrows.meta, positioning, calc}
 
 \begin{document}
-\begin{tikzpicture}[font=\sffamily, >=Stealth]
+\begin{tikzpicture}[
+    >=Stealth,
+    x=1.3cm, y=1.2cm, % 调整画布长宽比
+    % 统一定义标签底色防遮挡
+    labelbg/.style={fill=socColor, inner sep=2pt, rounded corners=2pt, font=\scriptsize\bfseries}
+]
 
-    % Define dimensions
-    \def\xmax{10}
-    \def\ymax{8}
-
-    % Draw Grid & Axes
-    \draw[step=1cm, gray!20, very thin] (0,0) grid (\xmax,\ymax);
+    % ==========================================
+    % 1. 定义物理相态的颜色
+    % ==========================================
+    \definecolor{vacColor}{RGB}{235, 235, 240}    % 真空基态：灰白紫色
+    \definecolor{crysColor}{RGB}{215, 238, 255}   % 晶体态：浅蓝色
+    \definecolor{socColor}{RGB}{210, 255, 215}    % SOC临界态：浅绿色 (要求指定)
+    \definecolor{gasColor}{RGB}{255, 238, 215}    % 气态：浅橙色
+    \definecolor{turbColor}{RGB}{255, 215, 215}   % 湍流态：浅红色 (要求指定)
     
-    % X Axis
-    \draw[->, ultra thick] (0,0) -- (\xmax+0.8, 0);
-    \node[anchor=north east, align=right, yshift=-8pt] at (\xmax+0.8, 0) {
-        \textbf{\large 认知温度 $T_{eff}$} \\ 
-        (热涨落 / 探索率)
-    };
+    \definecolor{crysLine}{RGB}{0, 100, 220}
+    \definecolor{gasLine}{RGB}{230, 110, 0}
+    \definecolor{turbLine}{RGB}{200, 0, 0}
+    \definecolor{vacLine}{RGB}{100, 100, 120}
+
+    \def\W{12} % X轴最大宽度
+    \def\H{9}  % Y轴最大高度
     
-    % Y Axis
-    \draw[->, ultra thick] (0,0) -- (0, \ymax+0.8);
-    \node[anchor=south west, align=left, xshift=5pt] at (0, \ymax) {
-        \textbf{\large 等效压强 $\mathbf{\Gamma}_{macro}$} \\ 
-        (宏观意志 / 规范约束)
-    };
+    % 核心交汇点："人"字形基态的顶点
+    \coordinate (J) at (3.8, 2.5);
 
-    % ---------------------------------------------------------
-    % Phase Regions (Filled)
-    % ---------------------------------------------------------
-    % 1. Crystal/Laminar Phase (Top Left)
-    \path[fill=cyan!15] (0, 3) .. controls (1.5, 3) and (3, 5) .. (4, \ymax) -- (0, \ymax) -- cycle;
+    % ==========================================
+    % 2. 绘制 5 大相态区域 (无缝叠加法)
+    % ==========================================
     
-    % 2. Gas/Turbulent Phase (Bottom Right)
-    \path[fill=orange!15] (3, 0) .. controls (4, 0.5) and (6, 2) .. (\xmax, 5) -- (\xmax, 0) -- cycle;
+    % (1) 基础层：流体智能 (SOC) 铺满全局，作为绿色底色
+    \fill[socColor] (0,0) rectangle (\W, \H);
+
+    % (2) 真空基态 (Vacuum)："人"字形边界内部
+    % 左线碰Y轴，右线碰X轴
+    \fill[vacColor] (0,0) -- (3.0, 0) 
+        to[out=80, in=260] (J) 
+        to[out=190, in=10] (0, 1.8) -- cycle;
+
+    % (3) 晶体智能 (Crystalline)：左上角
+    % 从"人"字顶点向上延伸至顶部
+    \fill[crysColor] (0, 1.8) 
+        to[out=10, in=190] (J) 
+        to[out=80, in=255] (5.0, \H) 
+        -- (0, \H) -- cycle;
+
+    % (4) 气体智能 (Gaseous)：右下角
+    \fill[gasColor] (7.0, 0) 
+        to[out=40, in=210] (\W, 4.5) 
+        -- (\W, 0) -- cycle;
+
+    % (5) 湍流态 (Turbulent)：右上角
+    \fill[turbColor] (8.0, \H) 
+        to[out=290, in=170] (\W, 6.5) 
+        -- (\W, \H) -- cycle;
+
+    % ==========================================
+    % 3. 绘制边界曲线与框线 (依照手绘草图)
+    % ==========================================
     
-    % 3. Fluid/Critical Phase (Middle Diagonal Band - Edge of Chaos)
-    \path[fill=green!15] (0,0) -- (0,3) .. controls (1.5, 3) and (3, 5) .. (4, \ymax) -- (\xmax, \ymax) -- (\xmax, 5) .. controls (6, 2) and (4, 0.5) .. (3,0) -- cycle;
+    % 外围虚线框
+    \draw[dashed, thick, black!60] (0, \H) -- (\W, \H) -- (\W, 0);
 
-    % 4. Gliding Phase (Bottom Left - The corrected region)
-    \path[fill=blue!15] (0, 0) -- (0, 3) .. controls (1.5, 2.5) and (2.5, 1.5) .. (3, 0) -- cycle;
+    % "人"字形基态边界线
+    \draw[ultra thick, vacLine] (0, 1.8) to[out=10, in=190] (J);
+    \draw[ultra thick, vacLine] (3.0, 0) to[out=80, in=260] (J);
     
-    % ---------------------------------------------------------
-    % Phase Boundaries & Curves
-    % ---------------------------------------------------------
-    % Transition curve 1 (Solid-Fluid)
-    \draw[ultra thick, cyan!60!blue] (0, 3) .. controls (1.5, 3) and (3, 5) .. (4, \ymax);
-    % Transition curve 2 (Fluid-Gas)
-    \draw[ultra thick, orange!80!red] (3, 0) .. controls (4, 0.5) and (6, 2) .. (\xmax, 5);
-
-    % ---------------------------------------------------------
-    % Phase Labels & Equations (Added semi-transparent backgrounds for clarity)
-    % ---------------------------------------------------------
-    % Crystal
-    \node[align=center, text=blue!80!black] at (1.4, 6.4) {
-        \textbf{\Large 晶体智能} \\
-        (层流态 Laminar) \\[0.5em]
-        \footnotesize 绝对秩序 $\cdot$ 刻板执行 \\
-        \footnotesize $\Psi = d\alpha$ (梯度流主导) \\
-        \footnotesize $Re_{cog} < 1$
-    };
-
-    % Fluid / Critical (Moved UP to avoid overlapping with arrows)
-    \node[align=center, text=green!50!black] at (7.2, 6.4) {
-        \textbf{\Large 流体智能} \\
-        (自组织临界态 SOC) \\[0.5em]
-        \footnotesize 顿悟 $\cdot$ 创造力 $\cdot$ 心流 \\
-        \footnotesize $\Psi_{harm}$ 涌现 ($\Delta_D \Psi = 0$) \\
-        \footnotesize 关联长度 $\xi \to \infty$
-    };
-
-    % Gas
-    \node[align=center, text=red!80!black] at (8.4, 1.5) {
-        \textbf{\Large 气体智能} \\
-        (湍流态 Turbulent) \\[0.5em]
-        \footnotesize 绝对混沌 $\cdot$ 幻觉/谵妄 \\
-        \footnotesize $\Psi = \delta\beta$ (无散涡旋主导) \\
-        \footnotesize $Re_{cog} \gg 1$
-    };
-
-    % Origin (Dead State)
-    \node[align=center, text=gray!80!black] at (1.2, 1.2) {
-        \textbf{惯性基态} \\ \footnotesize $\Psi$ 惯性滑行
-    };
-
-    % ---------------------------------------------------------
-    % Thermodynamic Operations (Parallel Arrows to avoid crossing)
-    % ---------------------------------------------------------
-    % 认知退火 (Annealing) - Red squiggly, lower parallel track
-    \draw[->, decorate, decoration={snake, amplitude=1.2mm, segment length=6mm}, ultra thick, purple] 
-        (1.5, 4.5) -- (5.5, 2.0) 
-        node[midway, sloped, below=8pt, fill=white, fill opacity=0.85, text opacity=1, inner sep=3pt, rounded corners] 
-        {\textbf{认知退火} (升温 / 减压)};
+    % 晶体边界线
+    \draw[ultra thick, crysLine] (J) to[out=80, in=255] (5.0, \H);
     
-    % 认知淬火 (Quenching) - Blue straight, upper parallel track
-    \draw[<-, ultra thick, blue] 
-        (2.5, 5.5) -- (6.5, 3.0) 
-        node[midway, sloped, above=8pt, fill=white, fill opacity=0.85, text opacity=1, inner sep=3pt, rounded corners] 
-        {\textbf{认知淬火} (降温 / 加压)};
+    % 气体边界线
+    \draw[ultra thick, gasLine] (7.0, 0) to[out=40, in=210] (\W, 4.5);
+    
+    % 湍流边界线
+    \draw[ultra thick, turbLine] (8.0, \H) to[out=290, in=170] (\W, 6.5);
 
-    % ---------------------------------------------------------
-    % Critical Point (Adjusted position with background masking)
-    % ---------------------------------------------------------
-    \filldraw[black] (4.2, 3.8) circle (3pt);
-    \node[right=4pt, fill=white, fill opacity=0.85, text opacity=0.5, inner sep=1pt, rounded corners] 
-        at (3.4, 3.4) {\textbf{相变临界点}};
+    % ==========================================
+    % 4. 绘制坐标轴与轴标注
+    % ==========================================
+    \draw[->, ultra thick] (0,0) -- (\W+0.5, 0);
+    \draw[->, ultra thick] (0,0) -- (0, \H+0.5);
+    
+    % Y 轴标签
+    \node[anchor=south west, align=left, font=\small\bfseries] at (0, \H+0.3) {等效压强 $\mathbf{\Gamma}_{macro}$};
+    \node[anchor=north west, align=left, font=\scriptsize] at (0, \H+0.32) {(宏观意志 / 规范约束)};
+    
+    % X 轴标签
+    \node[anchor=south east, align=right, font=\small\bfseries] at (\W+0.5, -0.5) {认知温度 $T_{eff}$};
+    \node[anchor=north east, align=right, font=\scriptsize] at (\W+0.5, -0.4) {(热涨落 / 探索率)};
+
+    % ==========================================
+    % 5. 区域文字注释 (各居其位，互不遮挡)
+    % ==========================================
+
+    % (1) 真空基态
+    \node[align=center, text=gray!80!black] at (1.3, 0.8) {
+        {\large\bfseries 真空基态}\\
+        {\scriptsize $\Psi$ 惯性滑行}\\
+        {\scriptsize 睡眠 $\cdot$ 冥想}
+    };
+
+    % (2) 晶体智能
+    \node[align=center, text=blue!80!black] at (2.0, 6.8) {
+        {\large\bfseries 晶体智能}\\
+        {\normalsize (层流态 Laminar)}\\
+        {\scriptsize 绝对秩序 $\cdot$ 刻板执行}\\
+        {\scriptsize $\Psi = d\alpha$ (梯度流主导)}\\
+        {\scriptsize $Re_{cog} < 1$}
+    };
+
+    % (3) 流体智能 (SOC)
+    \node[align=center, text=green!40!black] at (7, 6.0) {
+        {\large\bfseries 流体智能}\\
+        {\normalsize (自组织临界态 SOC)}\\
+        {\scriptsize 顿悟 $\cdot$ 创造力 $\cdot$ 心流}\\
+        {\scriptsize $\Psi_{harm}$ 涌现 ($\Delta_D \Psi = 0$)}\\
+        {\scriptsize 关联长度 $\xi \to \infty$}
+    };
+
+    % (4) 气体智能
+    \node[align=center, text=orange!80!black] at (10.0, 1) {
+        {\large\bfseries 气体智能}\\
+        {\normalsize (等离子态 Plasma)}\\
+        {\scriptsize 虚无 $\cdot$ 幻觉 / 谵妄}\\
+        {\scriptsize $\Psi = \delta\beta$ (随机噪声发散)}
+    };
+
+    % (5) 湍流态
+    \node[align=center, text=red!80!black] at (10.7, 7.8) {
+        {\normalsize (湍流态 Turbulent)}\\
+        {\scriptsize 认知失调 $\cdot$ 精神内耗}\\
+        {\scriptsize $\Psi = \text{无散涡旋}$}\\
+        {\scriptsize $Re_{cog} \gg 1$}
+    };
+
+    % ==========================================
+    % 6. 动态演化箭头与临界点
+    % ==========================================
+    
+    % 相变临界点
+    \filldraw[black] (5.5, 4.0) circle (2.5pt);
+    \node[fill=white, inner sep=1.5pt, rounded corners=2pt, font=\scriptsize\bfseries, text=gray!80!black] 
+        at (5.5, 3.5) {相变临界点};
+
+    % 认知淬火箭头 -> 降温加压，从SOC指向晶体态
+    \draw[-{Stealth[scale=1.5]}, ultra thick, crysLine] 
+        (6.8, 4.2) -- (2.8, 5.8) 
+        node[midway, sloped, above=2pt, labelbg, text=crysLine] {认知淬火 (降温 / 加压)};
+
+    % 认知退火箭头 -> 升温减压，从晶体态穿越SOC至气态方向 (避开了下方真空文本)
+    \draw[-{Stealth[scale=1.5]}, ultra thick, turbLine, 
+          decorate, decoration={snake, amplitude=1.2mm, segment length=6mm, post length=3mm}] 
+        (2.0, 4.2) -- (6.8, 2.0) 
+        node[midway, sloped, below=4pt, labelbg, text=turbLine] {认知退火 (升温 / 减压)};
 
 \end{tikzpicture}
 \end{document}
