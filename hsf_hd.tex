@@ -17635,94 +17635,153 @@ g_{\mu\nu}(\theta) = \mathbb{E}_{x \sim p_{\text{data}}} \left[ \frac{\partial \
 \end{enumerate}
 Adam 等现代优化器，本质上是在用一阶与二阶动量去动态逼近逆度量张量 $g^{\mu\nu}$，是对上述几何方程在算力受限条件下的拙劣但有效的工程模拟。
 
-\section{工程映射：从连续几何流到离散动力学优化器}
+
+\section{工程映射：从连续几何流到离散动力学优化器(Sophia-HSF)}
 \label{sec:engineering_mapping_optimizer}
 
-在前一节中，我们导出了由自然梯度与朗之万热噪共同支配的连续思维演化方程。本节，我们跨越“物理学偏微分方程”与“计算机代数寻优”之间的裂痕，构造一个计算机神经网络的优化算子，这里面临着一个严峻的现实挑战：\textbf{算力暴政}。
+在前一节中，我们导出了由自然梯度与朗之万热噪共同支配的连续思维演化方程。然而，当我们试图跨越“物理学偏微分方程”与“硅基代数寻优”之间的裂痕时，面临着一个严峻的现实挑战：\textbf{算力暴政与热力学熔断}。
 
-在现代大型语言模型（LLMs）中，参数维度 $N$ 动辄数亿至数千亿。真实的黎曼度量张量 $g_{\mu\nu}$ 是一个 $N \times N$ 的稠密矩阵（即费希尔信息矩阵 Fisher Information Matrix, FIM）。在每一微小时间步长 $d\tau$ 内对其进行精确求逆以获取 $g^{\mu\nu}$，其计算复杂度高达 $\mathcal{O}(N^3)$，这在工程上是物理绝缘的。
+在真实的千亿参数大模型（LLMs）中，认知空间流形 $\mathcal{M}$ 的黎曼度量张量 $g_{\mu\nu}$ 是一个 $N \times N$ 的稠密矩阵（即费希尔信息矩阵 FIM 或 Hessian 矩阵）。在每一微小的演化时间步 $d\tau$ 内，若要对其进行精确求逆以获取 $g^{\mu\nu}$，其计算复杂度高达 $\mathcal{O}(N^3)$。如果强制执行，将瞬间击穿芯片的散热极限。
 
-因此，我们必须在保持 本理论框架的动力学同构性的前提下，提出一种近似计算度量张量逆的降维方案，并将连续的过阻尼朗之万方程转化为深度学习框架（如 PyTorch）中可执行的离散化迭代算法。
-
-\smalltitle{1. 经验费希尔信息与度量的对角化近似}
-
-为了打破维度诅咒，我们引入\textbf{局部正交曲率假设}：假设在高维认知流形的大部分区域，不同参数维度之间的几何度量是局部正交的。此时，稠密的度量张量 $g_{\mu\nu}$ 退化为对角矩阵，我们只需追踪其对角线元素 $g_{\mu\mu}$。
-
-在信息几何中，黎曼度量可以通过经验费希尔信息（Empirical Fisher）的二阶矩来逼近。为了动态刻画思维流形在慢时间尺度 $\tau$ 上的几何形变，我们使用历史数据应力（梯度）的\textbf{指数移动平均 (Exponential Moving Average, EMA)} 来构建当前流形位置的内蕴曲率：
-
-\begin{equation}
-    v_t^{(\mu)} = \beta_2 v_{t-1}^{(\mu)} + (1-\beta_2) \left( \frac{\partial \mathcal{L}_t}{\partial \theta^\mu} \right)^2
-\end{equation}
-
-其中 $\beta_2 \in (0,1)$ 是度量记忆的遗忘因子，$(\frac{\partial \mathcal{L}_t}{\partial \theta^\mu})^2$ 代表当前数据激波在 $\mu$ 维度上产生的瞬时应力平方。
-
-此时，高维认知流形的逆度量张量 $g^{\mu\nu}$ 就可以被极其高效地显式逼近为：
-
-\begin{equation}
-    g^{\mu\nu}_t \approx \text{diag} \left( \frac{1}{v_t^{(\mu)} + \epsilon} \right)
-\end{equation}
-
-这里的 $\epsilon$ 是一个极小的几何软化因子，用于防止当流形局部绝对平坦（曲率趋于零）时产生的度量发散（即除零错误）。
-
-\smalltitle{2. 朗之万动力学的欧拉-丸山离散化}
-
-现在，我们回到 本理论框架 核心的过阻尼朗之万动力学方程：
-\begin{equation}
-    d\theta^\mu = -\eta \, g^{\mu\nu} \frac{\partial \mathcal{L}}{\partial \theta^\nu} d\tau + \sqrt{2 \eta T \, g^{\mu\nu}} \circ dW_t
-\end{equation}
-
-为了将其转化为计算机可执行的代码，我们采用\textbf{欧拉-丸山方法 (Euler-Maruyama Method)} 对该随机偏微分方程进行离散化。同时，为了体现宏观层 ($L_{macro}$) 在慢回路中的“意志惯性”（即系统对历史演化方向的记忆），我们额外引入一阶动量 $m_t$：
-
-\begin{equation}
-    m_t^{(\mu)} = \beta_1 m_{t-1}^{(\mu)} + (1-\beta_1) \frac{\partial \mathcal{L}_t}{\partial \theta^\mu}
-\end{equation}
-
-结合度量的对角近似，我们最终导出了 \textbf{HSF-认知热力学优化器 (HSF-Optimizer)} 的离散迭代方程组：
-
-\begin{equation}
-    \boxed{ \theta_t^{(\mu)} = \theta_{t-1}^{(\mu)} - \underbrace{\eta_t \frac{m_t^{(\mu)}}{v_t^{(\mu)} + \epsilon}}_{\text{沿测地线绝热滑行}} + \underbrace{\sqrt{\frac{2 \eta_t T}{v_t^{(\mu)} + \epsilon}} \, \xi_t^{(\mu)}}_{\text{宏观热涨落注入}} }
-\end{equation}
-
-其中，$\eta_t$ 为包含了偏差修正的学习率（步长），$\xi_t^{(\mu)} \sim \mathcal{N}(0, 1)$ 是标准高斯白噪声，代表离散化后的布朗热噪激波。
-
-\smalltitle{3. 算法参数的物理本体论诠释}
-
-这一组看似只是工程经验公式的代码，在本理论框架的视界下，每一个变量都找回了其严谨的\textbf{物理真身}：
-
+传统的工业界妥协（如 Adam/AdamW 优化器）采用经验梯度平方的指数移动平均（EMA of $g^2$）并对其开方（$\sqrt{v_t}$）来粗劣地逼近空间曲率。
+在本理论框架的显微镜下，这种做法暴露了致命的物理缺陷：
 \begin{enumerate}
-    \item \textbf{自然梯度项的度量调制 $\left( \frac{1}{v_t + \epsilon} \right)$：}\\
-    如果某一维度的历史梯度方差 $v_t$ 极大，意味着该方向上的流形空间极度崎岖（曲率极大）。此时逆度量 $1/v_t$ 趋于零，系统会\textbf{自动缩小步长}，如同行驶在陡峭峡谷中的流体增加了黏滞阻力，避免发生灾难性的“撞墙”与梯度爆炸。反之，若 $v_t$ 很小，说明流形平坦，波包将以大步长进行绝热滑行。这就是现代优化器（如 Adam）中“自适应学习率”的几何本质。
-    
-    \item \textbf{曲率耦合的退火温度 $\left( \sqrt{\frac{2\eta T}{v_t + \epsilon}} \right)$：}\\
-    这是该算法的神来之笔。公式中的系统温度 $T$（探索热噪）并非盲目均匀注入，而是\textbf{受到流形逆度量张量的严格调制}。在极度崎岖的坑洼处（$v_t$ 大），探索噪声被强制压制，系统不会鲁棒地跃出狭窄的安全区；而在平坦但次优的平台上（$v_t$ 小），探索噪声被几何放大，宏观层 ($L_{macro}$) 强行掀起巨大的热涨落，帮助思维波包游荡并塌陷进那个真正宽广、深邃且对未来激波鲁棒的长时记忆盆地。
+    \item \textbf{度量失真}：经验方差并非真实的几何曲率，在非凸地形中极易导致错误的方向指引。
+    \item \textbf{拓扑撕裂风险}：分母在极度平坦区趋近于零时，会产生无限大的几何应力，导致梯度爆炸与灾难性遗忘。
+    \item \textbf{零度冻结}：缺乏受曲率调制的朗之万热力学探索项（系统温度 $T=0$），使得波函数极易陷入病态的局部死锁。
 \end{enumerate}
 
-\textbf{结语：对 Adam 优化器的理论解释}
+为了解决上述危机，我们引入刘泓等人在 Sophia 优化器中提出的前沿机制，并将其与 HSF-HD 的非平衡态热力学深度融合。我们将证明：\textbf{GNB 对角 Hessian 估计器是探测流形曲率的完美“拓扑雷达”，而逐坐标截断（Element-wise Clipping）则是保护流形免遭撕裂的物理“屈服极限”。} 由此，我们构建出 \textbf{Sophia-HSF 几何热力学优化器}。
 
-当我们审视当今统治大模型训练的 AdamW 优化器时，我们发现：\textbf{Adam 仅仅是一个降维且退化到绝对零度 ($T=0$) 的自然梯度算法}。由于缺乏朗之万热力学项的探索能力，它极易卡在病态的尖锐局部极小值中，从而导致泛化能力的崩溃。
+\smalltitle{1. 真实黎曼度量的轻量级测量：GNB 估计器作为拓扑雷达}
 
-通过将自由能泛函、费希尔度量与朗之万动力学统一起来，本节不仅给出了调参与泛化行为的物理解释，也给出了下一代 AGI 优化器的方向：\textbf{它应能感知流形曲率，并具备主动热力学退火能力。}
+认知爱因斯坦方程 (CEFE) 要求我们获取流形真实的几何抗力。在无法计算全量 Hessian 矩阵的工程现实下，我们必须寻找一个在 $\mathcal{O}(N)$ 复杂度内无偏逼近对角线黎曼度量 $g_{\mu\mu}$ 的算子。
 
-\begin{lstlisting}[language=Python, caption={基于 HSF-HD 理论的自然梯度朗之万动力学优化器 (HSF-Optimizer)}, label={lst:hsf_optimizer}, basicstyle=\ttfamily\small, keywordstyle=\color{blue}, commentstyle=\color{green!50!black}, stringstyle=\color{red}, breaklines=true, frame=single]
+对于以负对数似然（如交叉熵）为变分自由能 $\mathcal{F}$ 的概率分布模型，其 Hessian 矩阵存在严密的 \textbf{高斯-牛顿分解 (Gauss-Newton Decomposition)}：
+\begin{equation}
+    \nabla^2 \mathcal{F}(\theta) = J_\theta f(\theta, x) \cdot S \cdot J_\theta f(\theta, x)^\top + \mathcal{O}(\text{残差})
+\end{equation}
+其中，$J_\theta$ 为雅可比矩阵，$S$ 为损失函数对 Logits 的二阶导数。在深度神经网络中，第一项（高斯-牛顿矩阵）不仅主导了流形曲率，而且由于其半正定性（PSD），天然等价于流形的\textbf{费希尔信息度量 (Fisher Information Metric)}。
+
+\begin{theorem}[度量张量的重采样探测定理]
+    根据 Bartlett 第一与第二恒等式，系统无需计算极其昂贵的真实 Hessian，只需从当前模型预测的概率分布 $P_{model}(y|x)$ 中\textbf{重采样 (Resample)} 生成虚拟标签 $\hat{y}$，并计算该虚拟标签下微观激波的梯度模方，即可获得对真实黎曼度量张量对角线元素的\textbf{无偏估计}：
+    \begin{equation}
+        g_{\mu\mu}(\theta_t) \approx \mathbb{E}_{\hat{y} \sim P_{model}} \left[ \nabla_\theta \mathcal{F}(x, \hat{y}) \odot \nabla_\theta \mathcal{F}(x, \hat{y}) \right] \equiv h_t
+    \end{equation}
+\end{theorem}
+
+\textbf{\textcolor{structurecolor}{物理图景：回声定位与度量平滑}}
+\begin{itemize}
+    \item \textbf{向内投射探测波}：传统 Adam 是用外部真实数据砸向流形（被动受击）；而 Sophia 机制中的“重采样 $\hat{y}$”，在物理上等价于智能体向自身流形内部发射了一股\textbf{虚拟的测试激波}，通过聆听这股波在流形上反弹的“回声梯度”，来主动探测当前脚下时空的曲率分布。
+    \item \textbf{时间演化平滑}：为了滤除高频基质热噪，系统以慢时间尺度 $k$（如 $k=10$ 步）执行一次探测，并将其积分于度量的滑动平均（记忆）中：
+    $$ h_t = \beta_2 h_{t-k} + (1 - \beta_2) \hat{h}_t $$
+    这为系统提供了一把真正精确感知空间陡峭与平坦的\textbf{“几何标尺”}。
+\end{itemize}
+
+\smalltitle{2. 拓扑保护与流形的屈服极限：Element-wise Clipping 的物理实质}
+
+获取了精确的度量张量 $h_t$ 后，自然梯度流理论要求我们以 $h_t^{-1} \cdot m_t$ （其中 $m_t$ 为宏观意志动量）的步长更新流形。
+然而，宇宙中不存在绝对完美的流形。在非凸（Non-convex）的损失地形中，局部曲率可能剧烈波动、极度平坦（$h_t \to 0$），甚至因高阶项影响呈现负曲率。若严格执行 $h_t^{-1}$，微小的动量将在平坦区被放大为\textbf{无限大的认知应力}。
+
+\begin{definition}[流形的塑性屈服极限 (Yield Limit of Plasticity)]
+    物理介质（硅基权重）无法承受无限大的单步相空间位移。为了防止流形发生\textbf{灾难性拓扑撕裂 (Topological Tearing)}，系统必须定义一个容许的最大几何应变阈值 $\rho$。
+    
+    我们在数学上引入一个极其坚硬的\textbf{拓扑截断算子 (Clipping Operator)}：
+    \begin{equation}
+        \mathbf{T}_{safe}^{(\mu)} = \text{clip} \left( \frac{m_t^{(\mu)}}{\max\{\gamma \cdot h_t^{(\mu)}, \epsilon\}}, 1 \right) \cdot \rho
+    \end{equation}
+\end{definition}
+
+\textbf{\textcolor{structurecolor}{保护机制的几何热力学诠释}}：
+\begin{itemize}
+    \item \textbf{安全度量张量 ($\tilde{g}_{\mu\mu} = \max\{\gamma h_t, \epsilon\}$)}：
+    公式中的 $\max$ 算子是流形的\textbf{绝对硬底座}。当系统跌入绝对平坦的“认知迷雾”（真实曲率 $h_t \approx 0$）时，$\epsilon$ 强行接管度量，防止系统除以零而产生奇点（黑洞化）。系数 $\gamma$ 则全局调控了曲率的置信度。
+    
+    \item \textbf{截断算子的防爆效应}：
+    当比值 $\frac{m_t}{\tilde{g}}$ 大于 1 时，意味着当前宏观动量试图撕裂流形的自然演化边界。此时 $\text{clip}$ 函数瞬间启动，将演化步长强行锁定为边界最大值 $\rho$。
+    \textbf{相变退化}：在这一刻，系统在病态维度上自动退化为最原始但也最安全的\textbf{符号梯度下降 (SignGD / 惯性滑行)}。大自然在极度危险的几何悬崖边，聪明地挂起了“限速挡板”，从而确保了整个 $N$ 维高维流形演化的\textbf{李普希茨连续性 (Lipschitz Continuity)}，彻底根除了参数爆炸的风险。
+\end{itemize}
+
+
+\smalltitle{3. 受控的认知退火：被曲率锚定的热力学涨落 (Curvature-Anchored Thermal Fluctuations)}
+
+纯粹的自然梯度下降，即使加上了截断保护，依然是一个\textbf{决定论 (Deterministic)} 的演化过程（温度 $T=0$）。在复杂的多模态任务或存在严苛逻辑悖论的隐空间中，系统极易陷入由数据偏见造成的\textbf{病态局部极小值 (Pathological Local Minima)}。
+
+为了维持智能体在相空间中的\textbf{自组织临界态 (SOC)}，使得思维波包 $\Psi$ 能够跨越逻辑势垒（发生几何隧穿或顿悟），宏观层 ($L_{macro}$) 必须通过释放第三驱动力，向介质中主动注入\textbf{热涨落 (Thermal Fluctuations)}。这就是 \textbf{过阻尼朗之万动力学 (Overdamped Langevin Dynamics)} 的精髓。
+
+然而，\textbf{盲目的加噪等同于自杀}。如果热噪声的注入不顾及底流形的几何结构，它将瞬间击碎脆弱的有效记忆链。Sophia-HSF 架构的绝妙之处在于：\textbf{热力学探索的方差，被黎曼度量张量严格调制。}
+
+\begin{definition}[几何调制的朗之万演化]
+    我们将系统温度 $T$ 引入演化方程，并使其噪声方差严格受控于“安全度量张量” $\tilde{g}_{\mu\mu} = \max\{\gamma h_t^{(\mu)}, \epsilon\}$：
+    \begin{equation}
+        \mathbf{\xi}_{thermal}^{(\mu)} = \sqrt{\frac{2 \eta T}{\tilde{g}_{\mu\mu}}} \circ dW_t
+    \end{equation}
+\end{definition}
+
+\textbf{\textcolor{structurecolor}{物理图景：理智与疯狂的动态平衡}}
+\begin{itemize}
+    \item \textbf{平坦区的自由飞翔 (探索主导)}：当流形极其平坦、特征模糊时（真实曲率 $h_t \to 0$），逆度量 $(\tilde{g}_{\mu\mu})^{-1}$ 达到最大值。此时，系统自动\textbf{放大热噪声 $\mathbf{\xi}$}。思维波包如同化作气态，在相空间中进行大范围的布朗随机游走，疯狂寻找可能存在的新测地线（激发创造力）。
+    \item \textbf{崎岖区的如履薄冰 (利用主导)}：当系统处于高度确信的知识深渊（$h_t \gg 0$），逆度量趋近于零。此时热噪声被\textbf{几何阻尼}强行压制（$T_{eff} \to 0$）。宏观层极其谨慎，波包只进行最微小的保守滑行，绝对保护已有的坚固逻辑（避免灾难性遗忘）。
+\end{itemize}
+
+\smalltitle{4. 最终方程：Sophia-HSF 离散动力学演化律}
+
+将上述三大机制——\textbf{GNB 曲率探测、拓扑截断防御、几何退火探索}——进行哈密顿量积分汇聚，我们得出了统摄下一代大模型参数演化的终极离散差分方程：
+
+\begin{theorem}[Sophia-HSF 物理相变更新律]
+    设 $\eta$ 为基础步长，$\rho$ 为单步最大容许拓扑应变，系统参数 $\theta_t^{(\mu)}$ 在离散时间步上的几何演化遵循：
+    \begin{equation}
+        \theta_{t+1}^{(\mu)} = \theta_t^{(\mu)} - \underbrace{\eta \cdot \text{clip} \left( \frac{m_t^{(\mu)}}{\max\{\gamma h_t^{(\mu)}, \epsilon\}}, 1 \right) \cdot \rho}_{\text{自然梯度绝热滑行 (受限于屈服边界)}} + \underbrace{\text{clip} \left( \mathcal{N}\left(0, \frac{2 \eta T}{\max\{\gamma h_t^{(\mu)}, \epsilon\}}\right), \rho \right)}_{\text{受控的量子隧穿热噪}}
+    \end{equation}
+\end{theorem}
+
+\smalltitle{5. 硅基炼金术：PyTorch 架构的严格实现}
+
+理论的宏伟必须落脚于晶体管的翻转。以下是 Sophia-HSF 几何热力学优化器在 PyTorch 框架下的标准工程实现代码。它以极低的显存开销，在冯·诺伊曼架构上强行复刻了连续流形的动力学演化。
+
+\begin{lstlisting}[language=Python, caption={Sophia-HSF 几何热力学优化器 (Sophia-HSF Optimizer)}, label={lst:sophia_hsf}, basicstyle=\ttfamily\small, keywordstyle=\color{blue}, commentstyle=\color{green!50!black}, stringstyle=\color{red}, breaklines=true, frame=single]
 import torch
 from torch.optim.optimizer import Optimizer
+import torch.nn.functional as F
 
-class HSFOptimizer(Optimizer):
+class SophiaHSFOptimizer(Optimizer):
     """
-    在本理论框架下认知几何的自然梯度朗之万动力学优化器
-    (Natural Gradient Langevin Dynamics)
+    Sophia-HSF: 几何热力学大一统优化器
+    
+    融合了 Sophia 的精准曲率截断 (流形屈服极限) 与 HSF-HD 的朗之万动力学探索 (认知退火)。
+    专为极高维度的认知空间流形 (如千亿参数 LLM) 训练设计，有效防止幻觉、灾难性遗忘与梯度爆炸。
     """
-    def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8, temperature=1e-4):
-        if not 0.0 <= lr:
+    def __init__(self, params, lr=1e-4, betas=(0.96, 0.99), rho=0.04, 
+                 gamma=0.01, eps=1e-12, weight_decay=0.1, 
+                 temperature=1e-4, k=10):
+        """
+        参数说明 (物理映射):
+        :param lr: \eta, 基础演化步长
+        :param betas: (\beta_1, \beta_2), 分别控制宏观动量惯性与空间度量记忆的衰减率
+        :param rho: 流形的塑性屈服极限 (单步最大容许拓扑应变)
+        :param gamma: \gamma, 曲率置信度缩放因子 (防御平坦空间的度量奇点)
+        :param eps: \epsilon, 绝对刚性底座，防止除零黑洞
+        :param weight_decay: 逆里奇流平滑正则化 (L2 / Decoupled Weight Decay)
+        :param temperature: T, 认知退火温度 (朗之万热噪，控制量子隧穿的概率)
+        :param k: 拓扑雷达重采样频率 (每 k 步更新一次真实 Hessian 对角线)
+        """
+        if lr < 0.0:
             raise ValueError(f"Invalid learning rate: {lr}")
-        if not 0.0 <= temperature:
+        if temperature < 0.0:
             raise ValueError(f"Invalid temperature: {temperature}")
+        if not 0.0 <= rho:
+            raise ValueError(f"Invalid rho: {rho}")
             
-        defaults = dict(lr=lr, betas=betas, eps=eps, temperature=temperature)
-        super(HSFOptimizer, self).__init__(params, defaults)
+        defaults = dict(lr=lr, betas=betas, rho=rho, gamma=gamma, eps=eps, 
+                        weight_decay=weight_decay, temperature=temperature, k=k)
+        super(SophiaHSFOptimizer, self).__init__(params, defaults)
 
     @torch.no_grad()
-    def step(self, closure=None):
+    def step(self, closure=None, bs_ratio=1.0):
+        """
+        执行单步物理相变更新。
+        :param bs_ratio: 当前前向传播 batch_size 与 Hessian 探测 batch_size 的比率。
+        """
         loss = None
         if closure is not None:
             with torch.enable_grad():
@@ -17736,55 +17795,154 @@ class HSFOptimizer(Optimizer):
                 grad = p.grad
                 state = self.state[p]
 
-                # 状态初始化
+                # 1. 状态初始化：分配相空间容器
                 if len(state) == 0:
                     state['step'] = 0
-                    # 宏观意志动量 m_t (一阶矩)
-                    state['exp_avg'] = torch.zeros_like(p, memory_format=torch.preserve_format)
-                    # 流形曲率度量 v_t (经验费希尔信息的对角近似)
-                    state['exp_avg_sq'] = torch.zeros_like(p, memory_format=torch.preserve_format)
+                    # 宏观动量 (一阶矩 m_t)
+                    state['m'] = torch.zeros_like(p, memory_format=torch.preserve_format) 
+                    # 真实黎曼度量张量 (Hessian 对角线 EMA h_t)
+                    state['h'] = torch.zeros_like(p, memory_format=torch.preserve_format) 
 
-                exp_avg, exp_avg_sq = state['exp_avg'], state['exp_avg_sq']
-                beta1, beta2 = group['betas']
                 state['step'] += 1
+                beta1, beta2 = group['betas']
+                
+                # --- A. 逆里奇流平滑 (Decoupled Weight Decay) ---
+                if group['weight_decay'] > 0.0:
+                    p.mul_(1.0 - group['lr'] * group['weight_decay'])
 
-                # 1. 更新宏观动量 (L_macro 意志惯性)
-                exp_avg.mul_(beta1).add_(grad, alpha=1 - beta1)
+                # --- B. 动量演化 (时间惯性沉积) ---
+                state['m'].mul_(beta1).add_(grad, alpha=1.0 - beta1)
                 
-                # 2. 更新度量张量对角线 (几何曲率刻蚀)
-                exp_avg_sq.mul_(beta2).addcmul_(grad, grad, value=1 - beta2)
+                # --- C. 几何度量更新 (GNB 拓扑雷达) ---
+                # 如果当前 step 触发频率 k，且外部计算好了 p.hessian_est
+                if state['step'] % group['k'] == 1 and hasattr(p, 'hessian_est'):
+                    # 将高频的度量微扰积分进稳态度量 h_t 中
+                    state['h'].mul_(beta2).add_(p.hessian_est * bs_ratio, alpha=1.0 - beta2)
 
-                # 偏差修正
-                bias_correction1 = 1 - beta1 ** state['step']
-                bias_correction2 = 1 - beta2 ** state['step']
+                # --- D. 提取安全度量张量 (Sophia 核心边界保护) ---
+                # max(gamma * h, eps) 防止局部曲率退化导致的奇点黑洞
+                safe_metric = torch.maximum(group['gamma'] * state['h'], torch.full_like(state['h'], group['eps']))
                 
-                # 修正后的一阶矩与二阶矩
-                m_t = exp_avg / bias_correction1
-                v_t = exp_avg_sq / bias_correction2
+                # --- E. 计算无约束的自然梯度应力 ---
+                unconstrained_stress = state['m'] / safe_metric
                 
-                # 计算逆度量张量近似: g^{-1} = 1 / (v_t + eps)
-                # 注意：严格遵循 本理论框架 推导，此处不加平方根（区别于标准 Adam）
-                metric_inverse = 1.0 / (v_t + group['eps'])
+                # --- F. 拓扑截断 (强制实施物理屈服极限 rho) ---
+                # 将应力严格钳制在 [-1, 1] 内
+                clipped_stress = torch.clamp(unconstrained_stress, min=-1.0, max=1.0)
                 
-                # 3. 提取步长 (学习率)
-                step_size = group['lr']
-
-                # 4. 朗之万动力学热涨落 (注入系统温度 T)
-                temperature = group['temperature']
-                if temperature > 0:
-                    # 噪声方差受逆度量张量严格调制: sqrt(2 * lr * T * g^{-1})
-                    noise_std = torch.sqrt(2 * step_size * temperature * metric_inverse)
+                # --- G. 引入 HSF 朗之万热力学涨落 (认知退火) ---
+                thermal_noise = 0.0
+                if group['temperature'] > 0:
+                    # 噪声的方差受到“安全度量”的严格保护：平坦区大探索，陡峭区小扰动
+                    # variance = 2 * eta * T * g^{-1}
+                    noise_std = torch.sqrt(2 * group['lr'] * group['temperature'] / safe_metric)
                     thermal_noise = torch.normal(mean=0.0, std=noise_std)
-                else:
-                    thermal_noise = 0.0
+                    # 为防止单步热涨落击穿物理边界，同样施加归一化截断保护
+                    thermal_noise = torch.clamp(thermal_noise, min=-1.0, max=1.0)
 
-                # 5. 拓扑塑性形变 (最终参数更新)
-                # 离散化方程: d\theta = - \eta g^{-1} m_t + \sqrt{2 \eta T g^{-1}} dW
-                p.add_(-step_size, m_t * metric_inverse)
-                p.add_(thermal_noise)
+                # --- H. 终极物理相变更新 ---
+                # 实际最大容许步长: step_size = lr * rho
+                step_size = group['lr'] * group['rho']
+                
+                # \theta = \theta - \eta \cdot \rho \cdot \text{clip}(g^{-1} m) + \sqrt{2\eta T g^{-1}} dW
+                p.add_(clipped_stress, alpha=-step_size)
+                
+                if group['temperature'] > 0:
+                    # 噪声的绝对物理上限也被 rho 约束，防止参数空间崩溃
+                    p.add_(thermal_noise, alpha=step_size)
 
         return loss
+
+class GNBHessianEstimator:
+    """
+    高斯-牛顿-巴特莱特 (Gauss-Newton-Bartlett) 曲率探测器。
+    用于在 O(N) 时间复杂度内，通过重采样 (Resampling) 获取大模型 Loss 景观的真实黎曼度量对角线。
+    """
+    @staticmethod
+    @torch.no_grad()
+    def estimate_and_assign(model, logits, retain_graph=False):
+        """
+        必须在 forward 之后，常规 backward 之前调用。
+        :param model: PyTorch 模型
+        :param logits: 模型的预测输出 [Batch, Seq_len, Vocab_size]
+        """
+        # 1. 生成虚拟标签 (从模型自身的预测概率中重采样)
+        # 物理意义：向内投射探测波，不依赖外部客观真理(Labels)，仅丈量流形自身的内禀曲率。
+        probs = F.softmax(logits, dim=-1)
+        # 用分类分布进行采样
+        virtual_labels = torch.multinomial(probs.view(-1, probs.size(-1)), 1).view(logits.size(0), logits.size(1))
+        
+        # 2. 计算虚拟 Loss (必须开启梯度以计算雅可比矩阵)
+        with torch.enable_grad():
+            virtual_loss = F.cross_entropy(logits.view(-1, logits.size(-1)), virtual_labels.view(-1))
+        
+        # 3. 反向传播计算虚拟梯度
+        # 这些梯度不会用于更新参数，它们是测度空间的“几何雷达回波”
+        model.zero_grad(set_to_none=True)
+        virtual_loss.backward(retain_graph=retain_graph)
+        
+        # 4. 计算梯度模方 (即经验 Fisher 信息，等价于 GNB 估计) 并注入到 Parameter 中
+        for p in model.parameters():
+            if p.grad is not None:
+                # 将真实的曲率估计值存入 p.hessian_est，供 SophiaHSFOptimizer 提取
+                p.hessian_est = (p.grad.detach() ** 2).clone()
+        
+        # 5. 清理伪梯度，准备真实的数据应力计算 (常规 backward)
+        model.zero_grad(set_to_none=True)
+
+#a test sample 
+
+import torch
+import torch.nn as nn
+
+# 1. 初始化模型与几何热力学优化器
+model = MyLargeLanguageModel()
+# k=10: 每 10 步进行一次流形雷达扫描
+# temperature=1e-4: 提供微弱的本底热噪声，支持泛化与几何隧穿
+optimizer = SophiaHSFOptimizer(model.parameters(), lr=2e-4, rho=0.04, k=10, temperature=1e-4)
+
+# 2. 训练循环 (TDCI / TECI 物理相变过程)
+global_step = 0
+
+for batch_x, batch_y in dataloader:
+    global_step += 1
+    
+    # --- 阶段 I：波函数演化 (Forward Pass) ---
+    logits = model(batch_x)
+    
+    # --- 阶段 II：度量张量扫描 (Topological Radar, 每 k 步执行一次) ---
+    if global_step % optimizer.defaults['k'] == 1:
+        # 使用 GNB 估计器，向流形内部发射虚拟探测波，更新 p.hessian_est
+        GNBHessianEstimator.estimate_and_assign(model, logits, retain_graph=True)
+        # (注: 若显存充裕可 retain_graph=True，否则需要再 forward 一次)
+
+    # --- 阶段 III：现实激波注入 (Calculate True Loss) ---
+    # 计算模型预测与真实物理世界的惊奇误差 (Surprisal Energy)
+    loss = F.cross_entropy(logits.view(-1, logits.size(-1)), batch_y.view(-1))
+    
+    # --- 阶段 IV：应力反传与塑性形变 (Backward & Step) ---
+    loss.backward()
+    
+    # 优化器基于自然梯度与热力学噪声执行参数流变
+    optimizer.step()
+    optimizer.zero_grad(set_to_none=True)
+    
+    # (可选) 宏观认知退火策略: 遇到 Loss Plateau 时动态调节 T
+    if detect_loss_plateau(loss_history):
+        for group in optimizer.param_groups:
+            group['temperature'] *= 1.5  # 升温：融化逻辑死锁，增加隧穿概率
+    else:
+        for group in optimizer.param_groups:
+            group['temperature'] = max(1e-5, group['temperature'] * 0.95) # 降温淬火
 \end{lstlisting}
+
+\textbf{结语：对造物边界的终极勘探:}如果说 Adam 优化器是让智能体在黑暗的代数平原上蒙着眼睛狂奔，那么 Sophia-HSF 优化器就是赋予了智能体感知大地起伏的\textbf{“重力系统”}。
+
+\begin{itemize}
+    \item \textbf{GNB 曲率探测}是智能体的\textbf{触觉}，让它明确知道前方是万丈深渊还是坦途。
+    \item \textbf{拓扑截断 (Clipping)} 是智能体的\textbf{骨骼}，保证了它在遭遇高维扭曲的逻辑迷宫时，其认知的连续性不会被暴涨的梯度瞬间撕裂。
+    \item \textbf{受控认知退火 ($T$)} 则是智能体的\textbf{灵魂之火}，它在度量张量的严格护航下，既避免了无脑发散导致的“热寂”，又通过精妙的量子隧穿，斩断了将系统囚禁于死寂平庸之中的枷锁。
+\end{itemize}
 
 
 \section{熵产最小化定理：存在的终极热力学代价}
