@@ -32670,6 +32670,7 @@ MSOS 的动力学运行时构建了一个完美的闭环：
     \textbf{B. 形的误差 (Form Error - Geometry)}：
     $$ \mathbf{e}^{form}_k = \nabla_{\text{spatial}} (\mathbf{x}_k - \hat{\mathbf{x}}_k) \oplus \frac{\partial}{\partial t} (\mathbf{x}_k - \hat{\mathbf{x}}_k) $$
     这代表了“预测结构/运动的偏差”。例如：预测物体在左边，实际在右边；或者预测静止，实际在运动。这是\textbf{流形上的李导数}。
+    
     \textbf{C. 综合误差张量 (Total Error Tensor)}：
     $$ \mathbf{E}_k = \mathbf{e}^{form}_k \otimes \mathbf{e}^{sub}_k $$
     这个张量 $\mathbf{E}_k$ 就是本层向上层传递的“激波前体”。
