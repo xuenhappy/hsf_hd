@@ -36971,7 +36971,7 @@ class MorphoSemanticAttention(nn.Module):
         # 介质粘滞系数 \gamma (可学习的热力学耗散率)
         self.gamma_viscosity = nn.Parameter(torch.tensor([0.05]))
 
-    def forward(self, T_form, T_sub, relative_dist, causal_mask):
+    def forward(self, T_form, T_sub, causal_mask):
         B, S, _ = T_sub.shape
         
         # --- A. 计算质的引力 (Gravity Matrix) ---
@@ -36992,8 +36992,13 @@ class MorphoSemanticAttention(nn.Module):
         
         # --- C. 介质粘滞耗散 (Viscous Decay) ---
         # 距离越远，波包振幅按 e^{-\gamma d} 指数衰减 (打断虚假的超距幽灵关联)
-        dissipation = torch.exp(-torch.abs(self.gamma_viscosity) * relative_dist).unsqueeze(0).unsqueeze(0)
-        
+        # 基于导通率的物理映射 ds = -log(G_ij + eps)
+        # 导通率越高(越接近1)，逻辑距离越接近0；导通率越低(接近0)，逻辑距离趋向无穷大
+        eps = 1e-6
+        geodesic_dist = -torch.log(metric_G + eps)
+        # 能量随黎曼距离 ds 呈指数衰减，而非随物理 ID 距离衰减！
+        dissipation = torch.exp(-torch.abs(self.gamma_viscosity) * geodesic_dist)
+     
         # === 核心物理相变：乘性约束 (Multiplicative Constraint) ===
         # 实际的有效通量 = 想去(引力) * 能去(通道) * 热寂剩余(衰减)
         flux_matrix = gravity_A * metric_G * dissipation
@@ -37120,12 +37125,12 @@ class HSF_Dynamic_Block(nn.Module):
         
         self.relax_thresh = config.relaxation_thresh
 
-    def forward(self, T_form, T_sub, active_mask, rel_dist, causal_mask, z_meta):
+    def forward(self, T_form, T_sub, active_mask, causal_mask, z_meta):
         # 仅取活跃 (Active) 的 Token 参与高能耗演化
         T_sub_prev = T_sub.clone()
         
         # 1. 认知波包的跨节点干涉传播
-        T_sub_attn = self.attention(T_form, T_sub, rel_dist, causal_mask)
+        T_sub_attn = self.attention(T_form, T_sub, causal_mask)
         T_sub_next = T_sub + T_sub_attn
         
         # 2. 目的论路由与专家塑形
@@ -37190,13 +37195,6 @@ class Alpha_HSF_Engine(nn.Module):
         
         S_total = T_sub.shape[1]
         
-        # --- 3. 物理常数与环境准备 ---
-        # 相对距离矩阵 (用于计算介质耗散)
-        idx = torch.arange(S_total, dtype=torch.float32, device=T_sub.device)
-        relative_dist = torch.abs(idx.unsqueeze(0) - idx.unsqueeze(1))
-        # 强制 Sink 的相对距离为极小值 (充当虫洞，使所有节点无损导通至 Sink)
-        relative_dist[:, :self.config.num_sinks] = 0.1 
-        
         # 因果掩码 (时间之矢)
         causal_mask = torch.tril(torch.ones(S_total, S_total, device=T_sub.device))
         
@@ -37212,7 +37210,7 @@ class Alpha_HSF_Engine(nn.Module):
                 # print(f"宇宙在第 {layer_idx} 纪元达到热力学稳态，提前结束演化！")
                 break
                 
-            T_form, T_sub, active_mask = block(T_form, T_sub, active_mask, relative_dist, causal_mask, z_meta)
+            T_form, T_sub, active_mask = block(T_form, T_sub, active_mask, causal_mask, z_meta)
             
         # --- 5. 终极测量：波恩定则的坍缩 (Measurement & Collapse) ---
         # 物理铁律：拒绝为历史排放废热！
@@ -37478,8 +37476,10 @@ class HolographicCoherentAttention(nn.Module):
         # 相位动力学常数
         self.phase_k = nn.Parameter(torch.tensor([0.1])) # Kuramoto 耦合强度
         self.omega   = nn.Parameter(torch.randn(config.num_heads)) # 本征频率
+        # 介质粘滞系数 (热力学耗散率)，过大将导致过快遗忘，过小则记忆过于顽固
+        self.gamma_viscosity = nn.Parameter(torch.tensor([0.05]))
 
-    def forward(self, T_form, T_sub, phase_theta, decay_matrix, A_val_bias=None):
+    def forward(self, T_form, T_sub, phase_theta, A_val_bias=None):
         B, S, _ = T_form.shape
         H = self.num_heads
         
@@ -37509,8 +37509,11 @@ class HolographicCoherentAttention(nn.Module):
         I_ij = torch.cos(delta_theta) # 干涉因子：同相为 1，反相为 -1
         
         # --- 4. 耗 (D_ij): 介质热力学衰减 ---
-        # decay_matrix 预先计算了 exp(-\gamma * d(i,j))
-        D_ij = decay_matrix.unsqueeze(1).expand_as(G_ij)
+        # 基于导通率的物理映射 ds = -log(G_ij + eps)，导通率越高(越接近1)，逻辑距离越接近0；导通率越低(接近0)，逻辑距离趋向无穷大
+        eps = 1e-6
+        geodesic_dist = -torch.log(G_ij + eps)
+        # 能量随黎曼距离 ds 呈指数衰减，而非随物理 ID 距离衰减！
+        D_ij = torch.exp(-torch.abs(self.gamma_viscosity) * geodesic_dist)
         
         # === 核心相变：四维总通量计算 ===
         # 任何一维趋近于 0（路不通/不想去/相位错乱/耗散殆尽），通量即归零
@@ -37550,18 +37553,13 @@ class Alpha_HSF_V3_Engine(nn.Module):
         # 赋予每个语义子初始的内部自由度，等待流形演化使其发生自组织同步
         phase_theta = torch.randn(B, S, self.config.num_heads, device=input_ids.device) * math.pi
         
-        # 构建热力学耗散矩阵 (D_ij)
-        idx = torch.arange(S, dtype=torch.float32, device=input_ids.device)
-        dist_matrix = torch.abs(idx.unsqueeze(0) - idx.unsqueeze(1))
-        decay_matrix = torch.exp(-self.gamma * dist_matrix).unsqueeze(0).expand(B, -1, -1)
-        
         # 提取宏观价值偏置 (目的场)
         A_val_bias = self.compute_gauge_field(z_meta)
         
         # 认知场的层级演化 (时间积分)
         for block in self.blocks:
             # 波函数在 形、质、相、耗 的约束下演化
-            T_form, T_sub, phase_theta = block(T_form, T_sub, phase_theta, decay_matrix, A_val_bias, z_meta)
+            T_form, T_sub, phase_theta = block(T_form, T_sub, phase_theta, A_val_bias, z_meta)
             
         # 波恩定则坍缩测量
         return self.measurement(T_sub)
