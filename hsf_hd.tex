@@ -36928,6 +36928,33 @@ import torch.nn.functional as F
 import math
 from torch.nn.utils.parametrizations import spectral_norm
 
+# ---------------------------------------------------------
+# 工具函数：生成 RoPE 的旋转频率 (模拟时空的内禀自旋频率)
+# ---------------------------------------------------------
+def precompute_freqs_cis(dim: int, end: int, theta: float = 10000.0):
+    """预计算复数形式的旋转频率 (宇宙的背景度量基准)"""
+    freqs = 1.0 / (theta ** (torch.arange(0, dim, 2)[: (dim // 2)].float() / dim))
+    t = torch.arange(end, device=freqs.device)
+    freqs = torch.outer(t, freqs).float()
+    freqs_cis = torch.polar(torch.ones_like(freqs), freqs)  # 转化为复数 exp(i * theta)
+    return freqs_cis
+
+def apply_rotary_emb(xq: torch.Tensor, xk: torch.Tensor, freqs_cis: torch.Tensor):
+    """
+    执行平行移动 (Parallel Transport): 
+    利用自旋联络 (RoPE) 补偿空间切向量的偏转
+    """
+    # 将实数张量转换为复数空间 [B, S, H, D/2]
+    xq_ = torch.view_as_complex(xq.float().reshape(*xq.shape[:-1], -1, 2))
+    xk_ = torch.view_as_complex(xk.float().reshape(*xk.shape[:-1], -1, 2))
+    
+    freqs_cis = freqs_cis.view(1, xq_.shape[1], 1, xq_.shape[-1])
+    
+    # 复数相乘：绝对保范数的几何相位旋转！
+    xq_out = torch.view_as_real(xq_ * freqs_cis).flatten(3)
+    xk_out = torch.view_as_real(xk_ * freqs_cis).flatten(3)
+    return xq_out.type_as(xq), xk_out.type_as(xk)
+
 # =====================================================================
 # 0. 宇宙常数与物理配置 (Cosmic Constants & Configuration)
 # =====================================================================
@@ -36970,8 +36997,10 @@ class MorphoSemanticAttention(nn.Module):
         
         # 介质粘滞系数 \gamma (可学习的热力学耗散率)
         self.gamma_viscosity = nn.Parameter(torch.tensor([0.05]))
+        # 基础拓扑阻抗 (可学习的流形表面张力)
+        self.topo_bias = nn.Parameter(torch.zeros(1))
 
-    def forward(self, T_form, T_sub, causal_mask):
+    def forward(self, T_form, T_sub, freqs_cis, causal_mask):
         B, S, _ = T_sub.shape
         
         # --- A. 计算质的引力 (Gravity Matrix) ---
@@ -36983,12 +37012,17 @@ class MorphoSemanticAttention(nn.Module):
         gravity_A = F.softmax(torch.matmul(Qs, Ks.transpose(-1, -2)) / math.sqrt(self.head_dim_sub), dim=-1)
         
         # --- B. 计算形的约束 (Impedance Tensor) ---
-        Qf = self.q_form(T_form).view(B, S, self.num_heads, self.head_dim_form).transpose(1, 2)
-        Kf = self.k_form(T_form).view(B, S, self.num_heads, self.head_dim_form).transpose(1, 2)
+        Qf = self.q_form(T_form).view(B, S, self.num_heads, self.head_dim_form)
+        Kf = self.k_form(T_form).view(B, S, self.num_heads, self.head_dim_form)
         
-        # Sigmoid 是物理的铁笼：将几何导通率严格卡在 [0, 1] 之间！
-        # 若度量测地线不通，G_ij 逼近 0。
-        metric_G = torch.sigmoid(torch.matmul(Qf, Kf.transpose(-1, -2)) / math.sqrt(self.head_dim_form))
+        # 【神圣的几何操作】：对“形(Morphos)”施加自旋联络旋转！
+        # 这一步让模型知道词与词之间的"物理距离与相对结构"
+        Qf, Kf = apply_rotary_emb(Qf, Kf, freqs_cis)
+        Qf = Qf.transpose(1, 2)
+        Kf = Kf.transpose(1, 2)
+        # 计算流形的度量导通率 G_ij
+        # 相对距离的旋转已经内化在点积中，配合 sigmoid 形成物理闸门
+        metric_G = torch.sigmoid(torch.matmul(Qf, Kf.transpose(-2, -1)) / math.sqrt(self.head_dim_form) + self.topo_bias)
         
         # --- C. 介质粘滞耗散 (Viscous Decay) ---
         # 距离越远，波包振幅按 e^{-\gamma d} 指数衰减 (打断虚假的超距幽灵关联)
@@ -37125,12 +37159,12 @@ class HSF_Dynamic_Block(nn.Module):
         
         self.relax_thresh = config.relaxation_thresh
 
-    def forward(self, T_form, T_sub, active_mask, causal_mask, z_meta):
+    def forward(self, T_form, T_sub, freqs_cis, active_mask, causal_mask, z_meta):
         # 仅取活跃 (Active) 的 Token 参与高能耗演化
         T_sub_prev = T_sub.clone()
         
         # 1. 认知波包的跨节点干涉传播
-        T_sub_attn = self.attention(T_form, T_sub, causal_mask)
+        T_sub_attn = self.attention(T_form, T_sub, freqs_cis, causal_mask)
         T_sub_next = T_sub + T_sub_attn
         
         # 2. 目的论路由与专家塑形
@@ -37150,7 +37184,7 @@ class HSF_Dynamic_Block(nn.Module):
         T_form = torch.where(active_expanded, T_form_next, T_form)
         
         # 更新掩码：原活跃 且 刚刚未弛豫 的继续保持活跃
-        next_active_mask = active_mask & (~newly_relaxed)
+        next_active_mask = active_mask & (~newly_halted)
         
         return T_form, T_sub, next_active_mask
 
@@ -37161,11 +37195,13 @@ class Alpha_HSF_Engine(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.config = config
+    
+        # 纯净的词表：只定义先天的“质”和“形”
+        self.token_sub_embed = nn.Embedding(config.vocab_size, config.dim_substance)
+        self.token_form_embed = nn.Embedding(config.vocab_size, config.dim_form)
         
-        # 词表 Embedding (只产生质 T_sub)
-        self.token_embed = nn.Embedding(config.vocab_size, config.dim_substance)
-        # 位置 Embedding (只产生形 T_form)
-        self.pos_embed = nn.Embedding(config.max_seq_len, config.dim_form)
+        # 预计算宇宙背景空间的自旋频率
+        self.freqs_cis = precompute_freqs_cis(config.dim_form // config.num_heads, config.max_seq_len * 2)
         
         # 拓扑锚点 (Topological Anchors) - 宇宙的边界钉子
         self.sink_sub = nn.Parameter(torch.zeros(1, config.num_sinks, config.dim_substance))
@@ -37183,11 +37219,11 @@ class Alpha_HSF_Engine(nn.Module):
         B, S = input_ids.shape
         
         # --- 1. 构建形质双基底 ---
-        T_sub_user = self.token_embed(input_ids)
-        # 生成对应的相对位置索引
-        positions = torch.arange(S, device=input_ids.device).unsqueeze(0).expand(B, -1)
-        T_form_user = self.pos_embed(positions)
-        
+        T_sub_user = self.token_sub_embed(input_ids)
+        T_form_user = self.token_form_embed(input_ids)
+        # 截取当前所需的自旋联络矩阵
+        freqs_cis = self.freqs_cis[:S].to(input_ids.device)
+     
         # --- 2. 打下狄拉克铆钉 (Boundary Conditions) ---
         # 拼接序列:[ SINK ... | User Tokens ... | OUT ... ]
         T_sub = torch.cat([self.sink_sub.expand(B,-1,-1), T_sub_user, self.out_sub.expand(B,-1,-1)], dim=1)
@@ -37210,7 +37246,7 @@ class Alpha_HSF_Engine(nn.Module):
                 # print(f"宇宙在第 {layer_idx} 纪元达到热力学稳态，提前结束演化！")
                 break
                 
-            T_form, T_sub, active_mask = block(T_form, T_sub, active_mask, causal_mask, z_meta)
+            T_form, T_sub, active_mask = block(T_form, T_sub, freqs_cis, active_mask, causal_mask, z_meta)
             
         # --- 5. 终极测量：波恩定则的坍缩 (Measurement & Collapse) ---
         # 物理铁律：拒绝为历史排放废热！
@@ -37235,7 +37271,7 @@ class Alpha_HSF_Engine(nn.Module):
 
 我们定义局部流形的\textbf{几何导通率 (Geometric Conductance, $\mathcal{G}_{ij}$)}，它是由形元张量 $\mathbf{T}_{form}$ 决定的介电常数矩阵，取值严格限制在 $[0, 1]$ 之间：
 
-$$ \mathcal{G}_{ij} = \sigma \left( \frac{(\mathbf{T}_{form}^{(i)} \mathbf{W}_Q^f) \cdot (\mathbf{T}_{form}^{(j)} \mathbf{W}_K^f)^T}{\sqrt{d_{form}}} \right) \quad \in [0, 1] $$
+$$ \mathcal{G}_{ij} = \sigma \left( \frac{(\mathbf{T}_{form}^{(i)} \mathbf{W}_Q^f) \cdot (\mathbf{T}_{form}^{(j)} \mathbf{W}_K^f)^T}{\sqrt{d_{form}}} + \mathbf{B}_{topo} \right) \quad \in [0, 1] $$
 
 而语义的\textbf{引力共振矩阵 (Semantic Affinity, $\mathcal{A}_{ij}$)}，代表在无约束真空下的自由扩散意愿：
 
@@ -37438,7 +37474,18 @@ class FluidMoELayer_Resonant(nn.Module):
     \theta_i^{(t+1)} = \theta_i^{(t)} + \omega_i + K \sum_j \left| \mathbf{\Phi}_{i \leftarrow j} \right| \cdot \sin(\theta_j - \theta_i - \mathcal{A}^{val}_{ij})
 \end{equation}
 
-\smalltitle{2. 物理意义与病理学防范}
+\smalltitle{2. 本征相位（Intrinsic Phase）与 冯·米塞斯分布}
+
+HSF-HD第一性原理的设定是：\textbf{每一个“词（Token）}，作为大自然或预训练语料长期演化出的“拓扑孤立子”，在出厂时就自带了一个“本征相位（Intrinsic Phase，$\Theta_{base}$）”。
+\begin{itemize}
+    \item \textbf{语义群落的相位同调}：属于同一范畴的词（比如“水果”类：苹果、香蕉、梨），由于它们在历史上频繁共现，它们在流形上的本征相位 $\Theta_{base}$ 应该是极其接近的（比如都在 $\pi/4$ 附近）。
+    \item \textbf{微观激波的热涨落：}但是，当这个词在具体的时刻被输入（被 VTE 编码器捕获）时，它受到当前微观环境温度 $T$ 的扰动。因此，它的绝对真实相位应该是一个以 $\Theta_{base}$ 为中心，受热噪调制的\textbf{冯·米塞斯分布 (von Mises Distribution)}（即圆周上的高斯分布）。
+\end{itemize}
+
+\textbf{物理初始化方程：}
+$$ \theta_i(t=0) = \underbrace{\Theta_{base}(\text{Token\_ID})}_{\text{先验本征相位 (固化记忆)}} + \underbrace{\sqrt{2 k_B T_{sys}} \cdot \xi_i}_{\text{微观接触热噪 (布朗运动)}} $$
+
+\smalltitle{3. 物理意义与病理学防范}
 \begin{itemize}
     \item \textbf{绝对的防幻觉屏障}：即使“质”极其诱人（$A_{ij} \to 1$），只要逻辑上不通（$G_{ij} \to 0$）或语境节律相悖（$I_{ij} \le 0$），通量 $\mathbf{\Phi}$ 都会瞬间归零。非法的量子隧穿被底层数学彻底封杀。
     \item \textbf{驻波的涌现}：通过相位的 Kuramoto 演化，长文本中相关的语义子会自动对齐相位，形成\textbf{宏观调和流 ($\Psi_{harm}$)}，无视 $D_{ij}$ 的空间衰减，解决长文本“中间迷失”的拓扑灾难。
@@ -37479,16 +37526,20 @@ class HolographicCoherentAttention(nn.Module):
         # 介质粘滞系数 (热力学耗散率)，过大将导致过快遗忘，过小则记忆过于顽固
         self.gamma_viscosity = nn.Parameter(torch.tensor([0.05]))
 
-    def forward(self, T_form, T_sub, phase_theta, A_val_bias=None):
+    def forward(self, T_form, T_sub, freqs_cis, phase_theta, A_val_bias=None):
         B, S, _ = T_form.shape
         H = self.num_heads
         
-        # 拆分 Heads
-        Qf = self.Wq_form(T_form).view(B, S, H, self.d_f).transpose(1, 2)
-        Kf = self.Wk_form(T_form).view(B, S, H, self.d_f).transpose(1, 2)
+        Qf = self.Wq_form(T_form).view(B, S, H, self.d_f)
+        Kf = self.Wk_form(T_form).view(B, S, H, self.d_f)
+        Qf, Kf = apply_rotary_emb(Qf, Kf, freqs_cis)# 这一步让模型知道词与词之间的"物理距离与相对结构"
+        Qf = Qf.transpose(1, 2)
+        Kf = Kf.transpose(1, 2)
+
         Qs = self.Wq_sub(T_sub).view(B, S, H, self.d_s).transpose(1, 2)
         Ks = self.Wk_sub(T_sub).view(B, S, H, self.d_s).transpose(1, 2)
         Vs = self.Wv_sub(T_sub).view(B, S, H, self.d_s).transpose(1, 2)
+
         
         # --- 1. 形 (G_ij): 拓扑导通率 ---
         # 使用 Sigmoid 充当物理铁笼，度量断裂处绝对阻断
@@ -37534,8 +37585,23 @@ class Alpha_HSF_V3_Engine(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.config = config
-        self.token_embed = nn.Embedding(config.vocab_size, config.dim_substance)
-        self.pos_embed = nn.Embedding(config.max_seq_len, config.dim_form)
+        # 1. 质元词表 (Qualon Substance)
+        self.token_sub_embed = nn.Embedding(config.vocab_size, config.dim_substance)
+        # 2. 形元词表 (Morphon Topology)
+        self.token_form_embed = nn.Embedding(config.vocab_size, config.dim_form)
+        
+        # =========================================================
+        # 3. 本征相位词表 (Intrinsic Phase Embedding)
+        # 物理意义：赋予每个概念出厂自带的“本征振荡节律”。
+        # 不同的 head 代表不同频段的语义特征（如颜色频段、动作频段）。
+        # =========================================================
+        self.token_phase_embed = nn.Embedding(config.vocab_size, config.num_heads)
+        
+        # 预计算 RoPE (时空背景度量)
+        self.freqs_cis = precompute_freqs_cis(config.dim_form // config.num_heads, config.max_seq_len * 2)
+        
+        # 系统初始接触温度 (控制 VTE 注入时的热涨落程度)
+        self.T_init = 0.05 
         
         self.blocks = nn.ModuleList([
             HSF_Dynamic_Block_Enhanced(config) for _ in range(config.num_layers)
@@ -37545,13 +37611,26 @@ class Alpha_HSF_V3_Engine(nn.Module):
     def forward(self, input_ids, z_meta):
         B, S = input_ids.shape
         
-        # 初始化 形 与 质
-        T_sub = self.token_embed(input_ids)
-        T_form = self.pos_embed(torch.arange(S, device=input_ids.device).unsqueeze(0).expand(B, -1))
+        # 提取形与质的基底
+        T_sub = self.token_sub_embed(input_ids)
+        T_form = self.token_form_embed(input_ids)
+        # 截取当前所需的自旋联络矩阵
+        freqs_cis = self.freqs_cis[:S].to(input_ids.device)
         
-        # 核心创新：初始化随机相位态 (气态热涨落)
-        # 赋予每个语义子初始的内部自由度，等待流形演化使其发生自组织同步
-        phase_theta = torch.randn(B, S, self.config.num_heads, device=input_ids.device) * math.pi
+        # =========================================================
+        # 语义子的全息相位初始化 (Holographic Phase Init)
+        # =========================================================
+        # 1. 提取先验本征相位 (通过 tanh 映射并放大至 [-pi, pi] 之间)
+        # 这意味着 "King" 和 "Queen" 在被取出时，它们的 theta_base 已经非常接近
+        base_phase = torch.tanh(self.token_phase_embed(input_ids)) * math.pi
+        
+        # 2. 注入微观层热力学涨落 (Thermal Noise)
+        # 物理意义：每次听到同一个词，当前的语境和微扰都不一样。
+        # 不加入这层极小的噪音，系统会陷入绝对晶体的死锁，失去泛化性。
+        thermal_noise = torch.randn_like(base_phase) * self.T_init
+        
+        # 3. 最终的初始认知相位
+        phase_theta = base_phase + thermal_noise
         
         # 提取宏观价值偏置 (目的场)
         A_val_bias = self.compute_gauge_field(z_meta)
@@ -37559,7 +37638,7 @@ class Alpha_HSF_V3_Engine(nn.Module):
         # 认知场的层级演化 (时间积分)
         for block in self.blocks:
             # 波函数在 形、质、相、耗 的约束下演化
-            T_form, T_sub, phase_theta = block(T_form, T_sub, phase_theta, A_val_bias, z_meta)
+            T_form, T_sub, phase_theta = block(T_form, T_sub, freqs_cis, phase_theta, A_val_bias, z_meta)
             
         # 波恩定则坍缩测量
         return self.measurement(T_sub)
