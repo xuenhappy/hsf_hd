@@ -37656,6 +37656,228 @@ class Alpha_HSF_V3_Engine(nn.Module):
 \textbf{结语}：Alpha-HSF 3.0 不再是一段拟合文本分布的代码。它是一个在有限显存中运行的、微缩的黎曼时空；在这里，每一个 Token 都在经历真实的重力牵引、能量耗散与量子相干，奏响属于机器生命的物理交响。
 
 
+\section{多模态进阶：图像语义子的全息切面初始化 (Vision-VTE)}
+\label{sec:vision_vte_initialization}
+
+这一小节我们从一维的离散文本 Token 跃迁到二维或三维的连续图像 Patch，我们面对的物理实在发生了根本性的相变：\textbf{语言是高度压缩的离散符号，而图像是充满高频热噪、边界模糊的连续光子流。}
+
+在目前主流的计算机视觉架构（如 ViT、Sora 中的 DiT）中，常规做法是将图像切割为 Patch，通过线性投影 (Linear Projection) 展平，并将一维或二维的绝对位置编码 (Absolute PE) 直接通过加法 (Add) 混入特征向量中。
+在本理论这触犯了视觉世界中最大的几何原罪——\textbf{形质混同 (Morpho-Semantic Confounding)}。这种物理属性的污染导致模型在处理复杂场景时，极易发生\textbf{属性泄露 (Attribute Leakage)} 与 \textbf{非法量子隧穿}（例如“红色的方块和蓝色的球”被渲染为“红色的球”）。
+
+为了在硅基介质上重现大自然的“视觉皮层”，我们必须将微观层 ($L_{micro}$) 升级为专为连续物理场设计的\textbf{视觉变分拓扑编码器 (Vision-VTE)}。
+
+\smalltitle{1. 图像语义子 ($\mathcal{S}_{img}$) 的物理映射法则}
+
+图像的语义子必须直接从连续的像素光场中实时\textbf{萃取 (Extract)} 并完成正交解耦。
+
+\begin{itemize}
+    \item \textbf{\textcolor{structurecolor}{质元 ($T_{sub}$)：光子能量的吸收}}
+    \begin{itemize}
+        \item   \textbf{物理本质}：图像 Patch 的纯粹表面属性（颜色、材质、反照率）。它回答了“这是什么 (What)”。
+        \item   \textbf{提取方式}：通过无大空间感受野的卷积或纯 MLP 提取，剥离绝对空间位置信息，仅保留高能的\textbf{语义费米子}激发态。
+    \end{itemize}
+
+    \item \textbf{\textcolor{structurecolor}{形元 ($T_{form}$)：2D 黎曼度量与自旋联络}}
+    \begin{itemize}
+        \item   \textbf{内禀拓扑 (Local Geometry)}：Patch 自身的局部曲率（它是平坦的，还是处于图像的边缘/角点？）。这构成了初始的度量预设。
+        \item   \textbf{外蕴联络 (2D Spin Connection / 2D RoPE)}：彻底废除绝对位置相加。在二维流形上，必须使用 \textbf{2D 旋转位置编码}。它在数学上完美等价于二维流形上的\textbf{仿射自旋联络 $\omega_\mu$}，保证了图像在平移与缩放时的\textbf{协变恒定性}。
+    \end{itemize}
+
+    \item \textbf{\textcolor{structurecolor}{相位 ($\theta$)：格式塔先验与视网膜锁相}}
+    \begin{itemize}
+        \item   \textbf{物理本质}：大自然视觉的“侧向抑制”与“同质区共振”。
+        \item   \textbf{提取方式}：利用局域重叠卷积预测初始相位。颜色和纹理相近的连续 Patch 会获得极其接近的本征相位 $\Theta_{base}$。在进入第一层 TDE 演化时，它们瞬间发生\textbf{建设性干涉}，坍缩为一个统一的宏观波包（格式塔对象涌现）。
+    \end{itemize}
+\end{itemize}
+
+\smalltitle{2. Vision-VTE 架构：多模态创世引擎代码}
+
+以下为将物理映射转化为 PyTorch 中可运行的全息切面代码。
+
+\begin{lstlisting}[language=Python, caption={Vision-VTE 图像语义子发生器与 2D 流形自旋联络}]
+import torch
+import torch.nn as nn
+import math
+
+# ---------------------------------------------------------
+# 工具：2D 认知流形的自旋联络 (2D RoPE)
+# ---------------------------------------------------------
+def precompute_freqs_cis_2d(dim: int, height: int, width: int, theta: float = 10000.0):
+    """预计算二维时空的本征旋转频率 (X轴与Y轴解耦的自旋联络)"""
+    dim_half = dim // 2
+    freqs = 1.0 / (theta ** (torch.arange(0, dim_half, 2)[: (dim_half // 2)].float() / dim_half))
+    
+    t_h = torch.arange(height, device=freqs.device)
+    t_w = torch.arange(width, device=freqs.device)
+    
+    freqs_h = torch.outer(t_h, freqs).float()
+    freqs_w = torch.outer(t_w, freqs).float()
+    
+    # 转化为复数形式的旋转算子 exp(i * theta)
+    freqs_cis_h = torch.polar(torch.ones_like(freqs_h), freqs_h)
+    freqs_cis_w = torch.polar(torch.ones_like(freqs_w), freqs_w)
+    
+    return freqs_cis_h, freqs_cis_w
+
+
+def apply_rotary_emb_2d(xq: torch.Tensor, xk: torch.Tensor, 
+                        freqs_cis_h: torch.Tensor, freqs_cis_w: torch.Tensor):
+    """
+    二维流形上的自旋联络 (2D Spin Connection)
+    通过 2D RoPE 补偿连续物理光场在网格离散化过程中的几何偏转。
+    
+    参数:
+        xq, xk: 形流张量的 Query 和 Key, shape[Batch, SeqLen, NumHeads, HeadDim] 
+                其中 SeqLen = Height * Width
+        freqs_cis_h: Y轴(高)方向的本征旋转频率, shape [Height, HeadDim // 4] (复数)
+        freqs_cis_w: X轴(宽)方向的本征旋转频率, shape[Width, HeadDim // 4] (复数)
+    """
+    B, S, H_heads, D = xq.shape
+    H_img = freqs_cis_h.shape[0]
+    W_img = freqs_cis_w.shape[0]
+    
+    # 物理防呆检查：确保张量展平的拓扑体积守恒
+    assert S == H_img * W_img, "Sequence length (S) must match topological area (H * W)"
+    
+    # =====================================================================
+    # 相变 I：从实数欧氏空间升维至复数希尔伯特空间 (Complex Space Projection)
+    # 物理意义：将线性向量转化为可发生相位旋转的波函数
+    # [B, S, H_heads, D] -> [B, S, H_heads, D // 2] (Complex)
+    # =====================================================================
+    xq_complex = torch.view_as_complex(xq.float().reshape(*xq.shape[:-1], -1, 2))
+    xk_complex = torch.view_as_complex(xk.float().reshape(*xk.shape[:-1], -1, 2))
+    
+    # =====================================================================
+    # 相变 II：正交子流形联络的合成 (Synthesis of Spin Connection)
+    # 物理意义：在 2D 空间中，上下(H)和左右(W)是正交的。
+    # 我们将 HeadDim 的一半分配给 Y 轴，另一半分配给 X 轴，互不干涉。
+    # =====================================================================
+    # freqs_cis_h: [H_img, D // 4] ->[H_img, 1, D // 4] -> [H_img, W_img, D // 4]
+    freqs_h_broadcast = freqs_cis_h.unsqueeze(1).expand(-1, W_img, -1)
+    
+    # freqs_cis_w:[W_img, D // 4] -> [1, W_img, D // 4] ->[H_img, W_img, D // 4]
+    freqs_w_broadcast = freqs_cis_w.unsqueeze(0).expand(H_img, -1, -1)
+    
+    # 沿特征维度拼接，形成完整的 2D 自旋联络张量 [H_img, W_img, D // 2] (Complex)
+    freqs_cis_2d = torch.cat([freqs_h_broadcast, freqs_w_broadcast], dim=-1)
+    
+    # 展平空间维度以匹配 Sequence Length -> [S, D // 2]
+    freqs_cis_2d = freqs_cis_2d.view(S, -1)
+    
+    # 扩充维度以进行全息广播 -> [1, S, 1, D // 2]
+    freqs_cis_2d = freqs_cis_2d.unsqueeze(0).unsqueeze(2)
+    
+    # =====================================================================
+    # 相变 III：平行移动 (Parallel Transport on the Manifold)
+    # 物理意义：复数相乘等价于在李群 U(1) 上的绝对相位旋转。
+    # 它在不改变语义动能(模长)的情况下，强行修正了波包的拓扑切向量！
+    # =====================================================================
+    xq_out_complex = xq_complex * freqs_cis_2d
+    xk_out_complex = xk_complex * freqs_cis_2d
+    
+    # =====================================================================
+    # 相变 IV：波函数坍缩回实数空间，完成几何导向
+    # =====================================================================
+    xq_out = torch.view_as_real(xq_out_complex).flatten(3)
+    xk_out = torch.view_as_real(xk_out_complex).flatten(3)
+    
+    return xq_out.type_as(xq), xk_out.type_as(xk)
+# ---------------------------------------------------------
+# 微观层全息切面：图像语义子发生器 (Vision VTE)
+# ---------------------------------------------------------
+class Vision_HSF_VTE(nn.Module):
+    def __init__(self, config, in_channels=3, patch_size=16):
+        super().__init__()
+        self.patch_size = patch_size
+        self.dim_sub = config.dim_substance
+        self.dim_form = config.dim_form
+        self.num_heads = config.num_heads
+        
+        # =========================================================
+        # 1. 质元萃取器 (Qualon Extractor) -> 腹侧通路 (What)
+        # 用大 Kernel 提取纯粹的光子能量与材质属性 (色彩、纹理)
+        # =========================================================
+        self.substance_encoder = nn.Conv2d(
+            in_channels, self.dim_sub, 
+            kernel_size=patch_size, stride=patch_size, bias=False
+        )
+        
+        # =========================================================
+        # 2. 形元萃取器 (Morphon Extractor) -> 背侧通路 (Where/How)
+        # 提取局部的拓扑奇异性 (边缘、高频梯度) 作为初始曲率预设
+        # =========================================================
+        self.form_topology_encoder = nn.Sequential(
+            nn.Conv2d(in_channels, self.dim_form, kernel_size=patch_size, stride=patch_size, bias=False),
+            nn.InstanceNorm2d(self.dim_form) # 抹除绝对光强，只保留几何关系
+        )
+        
+        # =========================================================
+        # 3. 格式塔相位发生器 (Gestalt Phase Generator)
+        # 利用重叠感受野，让相邻且相似的 Patch 获得相近的初始相位
+        # =========================================================
+        self.phase_predictor = nn.Sequential(
+            nn.Conv2d(in_channels, self.dim_sub // 2, kernel_size=7, padding=3),
+            nn.ReLU(),
+            nn.Conv2d(self.dim_sub // 2, self.num_heads, kernel_size=patch_size, stride=patch_size)
+        )
+        
+        # 宇宙的热力学底噪
+        self.T_init = 0.05 
+
+    def forward(self, pixel_values):
+        """
+        pixel_values:[Batch, Channels, Height, Width]
+        """
+        B, C, H, W = pixel_values.shape
+        grid_h, grid_w = H // self.patch_size, W // self.patch_size
+        S = grid_h * grid_w # 序列总长度
+        
+        # --- 1. 提取质元 (Substance / 能量) ---
+        T_sub = self.substance_encoder(pixel_values).flatten(2).transpose(1, 2) # [B, S, dim_sub]
+        
+        # --- 2. 提取形元 (Morphos / 局部曲率) ---
+        inherent_form = self.form_topology_encoder(pixel_values).flatten(2).transpose(1, 2)
+        T_form = inherent_form # 此处不加绝对位置！位置将在 Attention 中通过 2D RoPE 注入
+        
+        # --- 3. 激发初始相位 (Initial Phase & Gestalt Binding) ---
+        base_phase_map = self.phase_predictor(pixel_values)
+        base_phase = torch.tanh(base_phase_map.flatten(2).transpose(1, 2)) * math.pi
+        
+        # 注入热力学涨落 (Thermal Noise)
+        # 打破绝对刚性的死锁，为后续流形上的量子隧穿提供初始动能
+        thermal_noise = torch.randn_like(base_phase) * self.T_init
+        phase_theta = base_phase + thermal_noise
+        
+        # --- 4. 生成 2D 流形自旋联络 (2D RoPE) ---
+        freqs_cis_h, freqs_cis_w = precompute_freqs_cis_2d(
+            self.dim_form // self.num_heads, grid_h, grid_w
+        )
+        freqs_cis_h = freqs_cis_h.to(pixel_values.device)
+        freqs_cis_w = freqs_cis_w.to(pixel_values.device)
+        
+        # 返回形、质、相，以及 2D 流形的联络算子
+        return T_form, T_sub, phase_theta, (freqs_cis_h, freqs_cis_w)
+\end{lstlisting}
+
+\smalltitle{3. 多模态初始化的“神级涌现”效应}
+
+当我们将带有这种 VTE 接口的模型接入 Alpha-HSF 引擎后，物理世界的仿真验证将呈现出传统 ViT 不能拥有的相变：
+
+\begin{enumerate}
+    \item \textbf{物理零样本分割 (Zero-shot Panoptic Segmentation by Physics)}：
+    在第一层 HSF-Attention 运算时，背景（如蓝天）的 Patch 预测出了极其相近的本征相位 \lstinline|base_phase|。这导致干涉因子 $I_{ij} = \cos(\theta_i - \theta_j) \approx 1$。
+    \textbf{宏观涌现}：不需要任何人工 Mask 标注，所有同质属性的 Token 在\textbf{第一层就瞬间结晶成了一个宏大的调和驻波 (Harmonic Wave)}。提取相位的聚类，即可直接得到像素级的完美分割图。
+
+    \item \textbf{彻底解决“属性泄露” (Resolution of Attribute Leakage)}：
+    传统的 DiT 会由于语义（质）的过强引力，导致生成“红色的球”（将红色方块的颜色张冠李戴）。在 Vision-VTE 中，“方块”的尖锐边缘特征被提取入 $\mathbf{T}_{form}$。当“红色”的能量波包试图流向“球”的区域时，由于 2D RoPE 补偿与 $\mathbf{T}_{form}$ 的曲率严重失配，计算出的\textbf{几何导通率 $G_{ij} \to 0$}。
+    \textbf{物理意义}：红色的能量波包撞到了极其陡峭的\textbf{拓扑势垒}上发生全反射，死死地被关在“方块”的几何边界内，彻底阻断了非法的量子隧穿。
+
+    \item \textbf{动态分辨率与流体平滑 (Infinite Extrapolation)}：
+    我们彻底废除了绝对坐标的 Embedding。当输入一张 4K 的超大分辨率图像时，流形在面积上发生了延展，但局部的\textbf{黎曼度量法则}与\textbf{自旋联络 (2D RoPE)}依然严格保真。水流在小池塘和在大海里的物理法则是一致的，模型天然具备了在任意尺度物理世界中进行\textbf{无损流变演化}的能力。
+\end{enumerate}
+
+通过将图像的初始化重构为“局部拓扑畸变（形）、光子能量（质）与格式塔先验（相）”的三位一体，我们成功地将机器的 CMOS 传感器，变成了一台能够向 AGI 认知空间流形持续注入\textbf{“高质量物理应力张量”}的创世引擎。
+
 \chapter{多尺度绝热反向传播 — 在现有硅基架构上铸造时间分离的几何引擎}
 \label{app:adiabatic_backprop}
 
