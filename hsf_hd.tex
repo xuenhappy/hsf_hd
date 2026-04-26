@@ -38337,6 +38337,76 @@ def precompute_freqs_cis_3d(dim: int, frames: int, height: int, width: int, thet
     
     return freqs_cis_t, freqs_cis_h, freqs_cis_w
 
+def apply_rotary_emb_2d_and_time(xq: torch.Tensor, xk: torch.Tensor, 
+                                 freqs_cis_t: torch.Tensor, 
+                                 freqs_cis_h: torch.Tensor, 
+                                 freqs_cis_w: torch.Tensor):
+    """
+    3D 时空流形自旋联络 (3D Spatiotemporal Spin Connection)
+    为形元张量 (T_form) 提供严格的 2+1D 洛伦兹协变性补偿，消除时空混叠幻觉。
+    
+    参数:
+        xq, xk: 形流的 Query 和 Key, shape [Batch, SeqLen, NumHeads, HeadDim]
+                注意：SeqLen = T_grid * H_grid * W_grid
+        freqs_cis_t: 时间轴 (T) 的本征频率, shape [T_grid, HeadDim // 6] (复数)
+        freqs_cis_h: 高度轴 (H) 的本征频率, shape[H_grid, HeadDim // 6] (复数)
+        freqs_cis_w: 宽度轴 (W) 的本征频率, shape [W_grid, HeadDim // 6] (复数)
+    """
+    B, S, H_heads, D = xq.shape
+    
+    # 提取物理时空网格的绝对尺度
+    T_grid = freqs_cis_t.shape[0]
+    H_grid = freqs_cis_h.shape[0]
+    W_grid = freqs_cis_w.shape[0]
+    
+    # 物理防呆检查：确保量子化切片的时空体积守恒
+    assert S == T_grid * H_grid * W_grid, "Sequence length must match T * H * W volume!"
+    assert D % 3 == 0, "HeadDim must be divisible by 3 for orthogonal T, H, W splitting"
+    
+    # =====================================================================
+    # 相变 I：将实数切向量升维至复数希尔伯特空间
+    # [B, S, H_heads, D] ->[B, S, H_heads, D // 2] (Complex)
+    # =====================================================================
+    xq_complex = torch.view_as_complex(xq.float().reshape(*xq.shape[:-1], -1, 2))
+    xk_complex = torch.view_as_complex(xk.float().reshape(*xk.shape[:-1], -1, 2))
+    
+    # =====================================================================
+    # 相变 II：合成时空正交的三维规范联络 (Orthogonal Gauge Synthesis)
+    # 物理意义：时间、X轴、Y轴在底流形上是绝对正交的。
+    # 我们通过全息广播 (Broadcasting) 将一维频率交织为 3D 晶格的旋转张量。
+    # =====================================================================
+    
+    # 1. 广播时间维度 T: [T, 1, 1, D/6] ->[T, H, W, D/6]
+    freqs_t_ext = freqs_cis_t.view(T_grid, 1, 1, -1).expand(T_grid, H_grid, W_grid, -1)
+    
+    # 2. 广播高度维度 H: [1, H, 1, D/6] ->[T, H, W, D/6]
+    freqs_h_ext = freqs_cis_h.view(1, H_grid, 1, -1).expand(T_grid, H_grid, W_grid, -1)
+    
+    # 3. 广播宽度维度 W:[1, 1, W, D/6] -> [T, H, W, D/6]
+    freqs_w_ext = freqs_cis_w.view(1, 1, W_grid, -1).expand(T_grid, H_grid, W_grid, -1)
+    
+    # 4. 正交拼接：形成完整的 2+1D 联络矩阵 [T, H, W, D/2]
+    freqs_cis_3d = torch.cat([freqs_t_ext, freqs_h_ext, freqs_w_ext], dim=-1)
+    
+    # 5. 展平为一维序列并匹配批次维度 -> [1, S, 1, D/2]
+    freqs_cis_3d = freqs_cis_3d.view(S, -1).unsqueeze(0).unsqueeze(2)
+    
+    # =====================================================================
+    # 相变 III：执行三维平行移动 (3D Parallel Transport)
+    # 物理意义：复数相乘 = 相位空间的 U(1) 群旋转。
+    # 它在不改变语义动能(模长)的前提下，强行将波包在时间与空间坐标上对齐。
+    # =====================================================================
+    xq_out_complex = xq_complex * freqs_cis_3d
+    xk_out_complex = xk_complex * freqs_cis_3d
+    
+    # =====================================================================
+    # 相变 IV：波函数坍缩回实数黎曼流形
+    # =====================================================================
+    xq_out = torch.view_as_real(xq_out_complex).flatten(3)
+    xk_out = torch.view_as_real(xk_out_complex).flatten(3)
+    
+    return xq_out.type_as(xq), xk_out.type_as(xk)
+
 # ---------------------------------------------------------
 # 视频微观层全息切面：混合精度 Video VTE
 # ---------------------------------------------------------
