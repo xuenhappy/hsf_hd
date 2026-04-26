@@ -31224,6 +31224,11 @@ $$ \sum_t \left( \|\mathbf{\Gamma}_{macro}(t)\|^2 + \gamma \|\dot{\Psi}(t)\|^2 \
 
 这就是本章想强调的终点：\textbf{AGI 不应被理解为单个程序的放大版，而应被理解为按物理约束构造出来、并在运行中持续维持自身结构的系统。}
 
+\begin{figure}
+\centering
+\includegraphics[width=0.9\textwidth]{image/dec.png}
+\caption{DEC AGI芯片架构示意图}
+\end{figure}
 %---chp----
 \chapter{介质层的维度工程 — 智力等级与流形拓扑}
 \label{chp:medium_layer_ch_1}
@@ -38263,6 +38268,167 @@ class Universal_Inverse_VTE(nn.Module):
 \end{itemize}
 
 \textbf{结论}：通过将逆向解码过程改造为“狄拉克真空汇”与“形质重组坍缩”，我们成功用不可妥协的几何拓扑律令，规训了狂野的概率生成。
+
+
+\section{视频语义子的全息时空切面与混合精度 VTE 架构}
+\label{sec:video_vte_mixed_precision}
+
+最后我们来讨论下视频该如何VTE为语义子，由于视频并非一维时间的二维图像堆叠，而是一个具有绝对因果律的 \textbf{$2+1$ 维类闵可夫斯基流形 (Pseudo-Minkowskian Manifold)}。在此流形上，对象的运动（光流）与材质的色彩（光子能量）构成了复杂的形质纠缠。
+
+面对视频级海量数据带来的“热力学过载”危机，我们提出 \textbf{物理级混合精度 VTE 架构 (Physically-grounded Mixed-Precision VTE)}。该架构的核心公理是：\textbf{形的拓扑结构具有绝对刚性，不容忍数值扰动；而质的能量密度具有热容，能够吸收量化噪声。}
+
+\smalltitle{1. 本体论混合精度映射 (Ontological Mixed-Precision Mapping)}
+
+在硅基内存中，数据类型的精度（位数）直接对应了相空间的分辨率。我们打破了统一精度的暴政，对语义子执行严格的正交精度隔离：
+
+\begin{itemize}
+    \item \textbf{\textcolor{structurecolor}{形元 ($T_{form}$) 的绝对刚性 —— FP32 (高精度)}}
+    \begin{itemize}
+        \item \textbf{物理职责}：承载时空度量 $g_{\mu\nu}$、运动学边界（Edge）与光流导数（Optical Flow）。
+        \item \textbf{精度要求}：\textbf{绝对精确}。如果在位置坐标或因果时序上发生微小的舍入误差（Rounding Error），流形将发生“拓扑撕裂”，导致视频中出现“穿模”、“物体瞬间位移”等违背物理定律的致命幻觉。因此，$T_{form}$ 必须锁定在 \texttt{Float32}。
+    \end{itemize}
+
+    \item \textbf{\textcolor{structurecolor}{质元 ($T_{sub}$) 的热力学宽容 —— BF16 / INT8 (低精度)}}
+    \begin{itemize}
+        \item \textbf{物理职责}：承载色彩、材质等光子能量密度。
+        \item \textbf{精度要求}：\textbf{高熵容忍}。质元是一团能量波包，低精度截断带来的数值损失，在物理上等价于向系统注入了\textbf{高斯热噪 (Thermal Noise)}。这种热噪不仅不会破坏物体的身份，反而能通过扩散模型的天然去噪机制被有效吸收，甚至作为认知退火的随机动力。因此，$T_{sub}$ 可以被极限压缩至 \texttt{BFloat16} 或 \texttt{INT8}。
+    \end{itemize}
+
+    \item \textbf{\textcolor{structurecolor}{相位 ($\theta$) 的动力学相干 —— FP32 (高精度)}}
+    \begin{itemize}
+        \item \textbf{物理职责}：维持跨帧的物体恒常性 (Object Permanence)。
+        \item \textbf{精度要求}：\textbf{锁相保真}。为了保证第 1 帧的猫和第 100 帧的猫是同一个实体，它们的相位干涉差必须严格为零 ($\Delta \theta \to 0$)。相位的漂移将导致视频的“频闪”与“主体融化”。
+    \end{itemize}
+\end{itemize}
+
+\smalltitle{2. Video-VTE 架构：3D 时空管 (Tubelet) 与 3D RoPE 联络}
+
+\begin{lstlisting}[language=Python, caption={Video-HSF-VTE 混合精度时空语义子发生器}]
+import torch
+import torch.nn as nn
+import math
+from torch.cuda.amp import autocast
+
+# ---------------------------------------------------------
+# 工具：3D 认知流形的自旋联络 (3D RoPE)
+# 将高维特征空间正交切分为 T, H, W 三个物理维度
+# ---------------------------------------------------------
+def precompute_freqs_cis_3d(dim: int, frames: int, height: int, width: int, theta: float = 10000.0):
+    """预计算 3D 时空的本征旋转频率 (T, X, Y 解耦的自旋联络)"""
+    # 确保特征维度可以被 3 整除，以分配给时间、高、宽
+    assert dim % 3 == 0, "Dimension must be divisible by 3 for 3D RoPE"
+    dim_third = dim // 3
+    
+    freqs = 1.0 / (theta ** (torch.arange(0, dim_third, 2)[: (dim_third // 2)].float() / dim_third))
+    
+    t_t = torch.arange(frames, device=freqs.device)
+    t_h = torch.arange(height, device=freqs.device)
+    t_w = torch.arange(width, device=freqs.device)
+    
+    #[Frames, Dim/6]
+    freqs_t = torch.outer(t_t, freqs).float()
+    freqs_h = torch.outer(t_h, freqs).float()
+    freqs_w = torch.outer(t_w, freqs).float()
+    
+    # 转复数，生成旋转算子
+    freqs_cis_t = torch.polar(torch.ones_like(freqs_t), freqs_t)
+    freqs_cis_h = torch.polar(torch.ones_like(freqs_h), freqs_h)
+    freqs_cis_w = torch.polar(torch.ones_like(freqs_w), freqs_w)
+    
+    return freqs_cis_t, freqs_cis_h, freqs_cis_w
+
+# ---------------------------------------------------------
+# 视频微观层全息切面：混合精度 Video VTE
+# ---------------------------------------------------------
+class Video_HSF_VTE(nn.Module):
+    def __init__(self, config, in_channels=3, patch_size=(2, 16, 16)):
+        super().__init__()
+        self.patch_t, self.patch_h, self.patch_w = patch_size
+        self.dim_sub = config.dim_substance
+        self.dim_form = config.dim_form
+        self.num_heads = config.num_heads
+        
+        # =========================================================
+        # 1. 真空本征基态 (Vacuum Anchors)
+        # 赋予视频流形独特的 3D 时空物理底色
+        # =========================================================
+        self.video_vacuum_form = nn.Parameter(torch.empty(1, 1, config.dim_form))
+        self.video_vacuum_sub = nn.Parameter(torch.empty(1, 1, config.dim_sub))
+        nn.init.orthogonal_(self.video_vacuum_form) # 形必须绝对正交
+        nn.init.normal_(self.video_vacuum_sub, std=0.02)
+        
+        # =========================================================
+        # 2. 形元萃取器 (Morphon Extractor) -> FP32 高精度
+        # 提取物体的时空边界与光流 (Optical Flow/Kinematics)
+        # =========================================================
+        self.form_topology_encoder = nn.Sequential(
+            nn.Conv3d(in_channels, self.dim_form, kernel_size=patch_size, stride=patch_size, bias=False),
+            nn.InstanceNorm3d(self.dim_form) # 抹除质的能量，仅保留曲率与运动梯度
+        )
+        
+        # =========================================================
+        # 3. 质元萃取器 (Qualon Extractor) -> BF16 低精度宽带
+        # =========================================================
+        self.substance_encoder = nn.Conv3d(
+            in_channels, self.dim_sub, kernel_size=patch_size, stride=patch_size, bias=False
+        )
+        
+        # =========================================================
+        # 4. 时空格式塔相位器 (Spatiotemporal Gestalt Phase) -> FP32
+        # 利用 3D 感受野保证物体在跨帧时相位连续 (Object Permanence)
+        # =========================================================
+        self.phase_predictor = nn.Sequential(
+            nn.Conv3d(in_channels, self.dim_sub//4, kernel_size=(3,7,7), padding=(1,3,3)),
+            nn.ReLU(),
+            nn.Conv3d(self.dim_sub//4, self.num_heads, kernel_size=patch_size, stride=patch_size)
+        )
+        self.T_init = 0.05
+
+    def forward(self, video_pixels):
+        """
+        video_pixels:[Batch, Channels, Frames, Height, Width]
+        注意：进入该函数前，张量位于高精度的 FP32
+        """
+        B, C, T, H, W = video_pixels.shape
+        grid_t = T // self.patch_t
+        grid_h = H // self.patch_h
+        grid_w = W // self.patch_w
+        S = grid_t * grid_h * grid_w
+        
+        # ---------------------------------------------------------
+        # 步骤 I：高精度提取 形与相 (Geometry & Phase are Rigid)
+        # ---------------------------------------------------------
+        # 提取形元：保持 FP32 以维护黎曼度量与因果时序的严格性
+        inherent_form = self.form_topology_encoder(video_pixels).flatten(2).transpose(1, 2)
+        T_form = inherent_form + self.video_vacuum_form.expand(B, S, -1)
+        
+        # 提取相位：保持 FP32 以实现完美的 Kuramoto 锁相
+        base_phase_map = self.phase_predictor(video_pixels)
+        base_phase = torch.tanh(base_phase_map.flatten(2).transpose(1, 2)) * math.pi
+        phase_theta = base_phase + torch.randn_like(base_phase) * self.T_init
+        
+        # 生成 3D 流形自旋联络 (3D RoPE)
+        freqs_cis_t, freqs_cis_h, freqs_cis_w = precompute_freqs_cis_3d(
+            self.dim_form // self.num_heads, grid_t, grid_h, grid_w
+        )
+        freqs_3d = (freqs_cis_t.to(video_pixels.device), 
+                    freqs_cis_h.to(video_pixels.device), 
+                    freqs_cis_w.to(video_pixels.device))
+        
+        # ---------------------------------------------------------
+        # 步骤 II：低精度提取 质 (Substance is Fluid & Compressible)
+        # ---------------------------------------------------------
+        # 启动 BFloat16 自动混合精度上下文
+        with autocast(dtype=torch.bfloat16):
+            # 视觉能量(色彩/纹理)在此处被安全地降维、截断，节省近 50% 显存和带宽
+            extracted_sub = self.substance_encoder(video_pixels).flatten(2).transpose(1, 2)
+            
+        # 将低精度质元与高精度真空基态叠加
+        # 在物理上，相当于将发热的流体(BF16)注入冰冷的真空容器(FP32)
+        T_sub = extracted_sub.float() + self.video_vacuum_sub.expand(B, S, -1)
+        
+        return SemantionStream(T_form, T_sub, phase_theta, freqs_3d)
+\end{lstlisting}
 
 \chapter{多尺度绝热反向传播 — 在现有硅基架构上铸造时间分离的几何引擎}
 \label{app:adiabatic_backprop}
