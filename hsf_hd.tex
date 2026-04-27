@@ -37504,149 +37504,252 @@ $$ \theta_i(t=0) = \underbrace{\Theta_{base}(\text{Token\_ID})}_{\text{先验本
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
+import math
 
+# =====================================================================
+# 1. 相位动力学引擎 (Phase Space Dynamics Engine)
+# 物理职责：处理相位(theta)与频率(omega)作为统一相空间矢量的“辛演化”
+# =====================================================================
+class PhaseSpaceDynamics(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        # 频率多普勒网络：计算当前流形深度下，环境与意志对频率的“蓝移/红移”
+        self.doppler_net = nn.Sequential(
+            nn.Linear(config.dim_substance + config.meta_dim, config.dim_substance // 2),
+            nn.SiLU(),
+            nn.Linear(config.dim_substance // 2, config.num_heads)
+        )
+        
+        self.phase_k = nn.Parameter(torch.tensor([0.1])) # Kuramoto 耦合常数 (格式塔引力)
+        self.inertia = 0.8  # 频率的物理惯性 (质量拖拽)
+
+    def forward(self, phase_state, T_sub, z_meta, Flux, delta_theta):
+        """
+        phase_state: [Batch, Seq, Num_Heads, 2] -> index 0: theta, index 1: omega
+        T_sub: [Batch, Seq, Dim] -> 质元能量态
+        z_meta:[Batch, Meta_Dim] -> 宏观意志
+        Flux: [Batch, Num_Heads, Seq, Seq] -> 综合了形、质、耗散的总导通通量
+        delta_theta:[Batch, Num_Heads, Seq, Seq] -> 相位差矩阵
+        """
+        B, S, H, _ = phase_state.shape
+        
+        # 1. 解包相空间状态 (Unpack Phase Space)
+        theta_old = phase_state[..., 0] # [B, S, H]
+        omega_old = phase_state[..., 1] #[B, S, H]
+        
+        # 2. 动量更新 (Update Omega): 计算受激频率跃迁
+        z_expanded = z_meta.unsqueeze(1).expand(-1, S, -1)
+        state_context = torch.cat([T_sub, z_expanded], dim=-1)
+        
+        # 宏观意志与当前质元共同决定的“目标本征频率”
+        target_omega = torch.tanh(self.doppler_net(state_context)) * math.pi
+        
+        # 物理惯性平滑 (动量守恒的离散近似)
+        omega_new = self.inertia * omega_old + (1 - self.inertia) * target_omega
+        
+        # 3. 位置更新 (Update Theta): 协变 Kuramoto 演化
+        # 集体拉扯力：活跃的 Flux 会迫使周围波包产生相位偏转 (建设性干涉的本能)
+        # Flux * sin(-delta_theta) 在最后一维 (Seq) 上求和，得到 [B, H, S]
+        phase_pull = self.phase_k * torch.sum(torch.abs(Flux) * torch.sin(-delta_theta), dim=-1)
+        # 转置回 [B, S, H]
+        phase_pull = phase_pull.transpose(1, 2)
+        
+        # 辛积分：新相位 = 旧相位 + 新动量(频率) + 群体干涉偏置
+        theta_new = theta_old + omega_new + phase_pull
+        
+        # 4. 重新打包为统一相空间矢量 (Repack Phase Space)
+        phase_state_new = torch.stack([theta_new, omega_new], dim=-1) # [B, S, H, 2]
+        
+        return phase_state_new
+
+# =====================================================================
+# 2. 介质层：全息相干注意力 (Holographic Coherent Attention)
+# 物理职责：在统一相空间矢量的参与下，执行波函数的四维干涉
+# =====================================================================
 class HolographicCoherentAttention(nn.Module):
-    """
-    全息相干注意力机制：融合 形、质、相、耗 四维物理量
-    """
     def __init__(self, config):
         super().__init__()
         self.num_heads = config.num_heads
         self.d_f = config.dim_form // config.num_heads
         self.d_s = config.dim_substance // config.num_heads
         
-        # 形流 (Morphos): 几何度量评估
-        self.Wq_form = nn.Linear(config.dim_form, config.dim_form, bias=False)
-        self.Wk_form = nn.Linear(config.dim_form, config.dim_form, bias=False)
-        self.topo_bias = nn.Parameter(torch.tensor([-2.0])) # 初始默认阻断，需极高势能击穿
+        # 形 (Morphos) 与 质 (Qualia) 的线性投影
+        self.q_sub = nn.Linear(config.dim_substance, config.dim_substance, bias=False)
+        self.k_sub = nn.Linear(config.dim_substance, config.dim_substance, bias=False)
+        self.v_sub = nn.Linear(config.dim_substance, config.dim_substance, bias=False)
         
-        # 质流 (Qualia): 语义能量评估
-        self.Wq_sub = nn.Linear(config.dim_substance, config.dim_substance, bias=False)
-        self.Wk_sub = nn.Linear(config.dim_substance, config.dim_substance, bias=False)
-        self.Wv_sub = nn.Linear(config.dim_substance, config.dim_substance, bias=False)
+        self.q_form = nn.Linear(config.dim_form, config.dim_form, bias=False)
+        self.k_form = nn.Linear(config.dim_form, config.dim_form, bias=False)
         
-        # 相位动力学常数
-        self.phase_k = nn.Parameter(torch.tensor([0.1])) # Kuramoto 耦合强度
-        self.omega   = nn.Parameter(torch.randn(config.num_heads)) # 本征频率
-        # 介质粘滞系数 (热力学耗散率)，过大将导致过快遗忘，过小则记忆过于顽固
-        self.gamma_viscosity = nn.Parameter(torch.tensor([0.05]))
+        self.topo_bias = nn.Parameter(torch.tensor([-2.0])) # 初始拓扑势垒
+        self.gamma_viscosity = nn.Parameter(torch.tensor([0.05])) # 介质粘滞耗散率
+        
+        # 实例化相空间动力学引擎
+        self.phase_dynamics = PhaseSpaceDynamics(config)
 
-    def forward(self, T_form, T_sub, freqs_cis, phase_theta, A_val_bias=None):
-        B, S, _ = T_form.shape
+    def forward(self, T_form, T_sub, freqs_cis, phase_state, z_meta, causal_mask, A_val_bias=None):
+        B, S, _ = T_sub.shape
         H = self.num_heads
         
-        Qf = self.Wq_form(T_form).view(B, S, H, self.d_f)
-        Kf = self.Wk_form(T_form).view(B, S, H, self.d_f)
-        Qf, Kf = apply_rotary_emb(Qf, Kf, freqs_cis)# 这一步让模型知道词与词之间的"物理距离与相对结构"
-        Qf = Qf.transpose(1, 2)
-        Kf = Kf.transpose(1, 2)
-
-        Qs = self.Wq_sub(T_sub).view(B, S, H, self.d_s).transpose(1, 2)
-        Ks = self.Wk_sub(T_sub).view(B, S, H, self.d_s).transpose(1, 2)
-        Vs = self.Wv_sub(T_sub).view(B, S, H, self.d_s).transpose(1, 2)
-
+        # --- 准备形与质的基底 ---
+        Qs = self.q_sub(T_sub).view(B, S, H, self.d_s).transpose(1, 2)
+        Ks = self.k_sub(T_sub).view(B, S, H, self.d_s).transpose(1, 2)
+        Vs = self.v_sub(T_sub).view(B, S, H, self.d_s).transpose(1, 2)
         
-        # --- 1. 形 (G_ij): 拓扑导通率 ---
-        # 使用 Sigmoid 充当物理铁笼，度量断裂处绝对阻断
+        Qf = self.q_form(T_form).view(B, S, H, self.d_f)
+        Kf = self.k_form(T_form).view(B, S, H, self.d_f)
+        # 注入 1D/2D 空间自旋联络 (RoPE 平行移动)
+        Qf, Kf = apply_rotary_emb(Qf, Kf, freqs_cis)
+        Qf, Kf = Qf.transpose(1, 2), Kf.transpose(1, 2)
+        
+        # --- A. 计算 形、质、耗 (G_ij, A_ij, D_ij) ---
+        # G_ij: 形的几何导通率 (能不能走) ->[B, H, S, S]
         G_ij = torch.sigmoid((Qf @ Kf.transpose(-2, -1)) / (self.d_f**0.5) + self.topo_bias)
-        
-        # --- 2. 质 (A_ij): 语义引力 ---
+        # A_ij: 质的语义引力 (想不想走) ->[B, H, S, S]
         A_ij = F.softmax((Qs @ Ks.transpose(-2, -1)) / (self.d_s**0.5), dim=-1)
-        
-        # --- 3. 相 (I_ij): 建设性干涉 ---
-        theta_i = phase_theta.unsqueeze(-1) # [B, S, H, 1]
-        theta_j = phase_theta.unsqueeze(-2) # [B, S, 1, H]
-        delta_theta = theta_i - theta_j
-        
-        if A_val_bias is not None:
-            # 宏观意志注入：目的论洛伦兹力使相位产生 Aharonov-Bohm 偏转
-            delta_theta = delta_theta - A_val_bias.unsqueeze(1).unsqueeze(1)
-            
-        I_ij = torch.cos(delta_theta) # 干涉因子：同相为 1，反相为 -1
-        
-        # --- 4. 耗 (D_ij): 介质热力学衰减 ---
-        # 基于导通率的物理映射 ds = -log(G_ij + eps)，导通率越高(越接近1)，逻辑距离越接近0；导通率越低(接近0)，逻辑距离趋向无穷大
-        eps = 1e-6
-        geodesic_dist = -torch.log(G_ij + eps)
-        # 能量随黎曼距离 ds 呈指数衰减，而非随物理 ID 距离衰减！
+        # D_ij: 热力学衰减 (能不能撑到) -> [B, H, S, S]
+        geodesic_dist = -torch.log(G_ij + 1e-6)
         D_ij = torch.exp(-torch.abs(self.gamma_viscosity) * geodesic_dist)
         
-        # === 核心相变：四维总通量计算 ===
-        # 任何一维趋近于 0（路不通/不想去/相位错乱/耗散殆尽），通量即归零
-        Flux = G_ij * A_ij * I_ij * D_ij
+        # --- B. 提取相位 \theta，计算相干因子 (I_ij) ---
+        theta = phase_state[..., 0] # 提取当前相位 [B, S, H]
+        theta_h = theta.transpose(1, 2) # [B, H, S]
         
-        # 质元波包的物理传播
+        # 矩阵化相减求相位差[B, H, S, S]
+        theta_i = theta_h.unsqueeze(-1) #[B, H, S, 1]
+        theta_j = theta_h.unsqueeze(-2) #[B, H, 1, S]
+        delta_theta = theta_i - theta_j 
+        
+        if A_val_bias is not None:
+            # 价值规范场带来的 A-B 偏转
+            delta_theta = delta_theta - A_val_bias.unsqueeze(1).unsqueeze(1)
+            
+        I_ij = torch.cos(delta_theta) # I_ij: 建设性干涉因子 (-1 to 1)
+        
+        # --- C. 波函数的总相变通量 (Flux) ---
+        Flux = G_ij * A_ij * I_ij * D_ij
+        Flux = Flux.masked_fill(causal_mask == 0, 0.0)
+        
+        # 质元能量波包的输出
         T_sub_out = (Flux @ Vs).transpose(1, 2).reshape(B, S, -1)
         
-        # === Kuramoto 相位演化 ===
-        # 活跃的能量流会拉扯周围的波包达成频率同步 (格式塔效应)
-        phase_update = self.phase_k * torch.sum(torch.abs(Flux) * torch.sin(-delta_theta), dim=-1)
-        phase_theta_new = phase_theta + self.omega.view(1, 1, H) + phase_update
+        # --- D. 相空间的辛演化 (Phase-Space Evolution) ---
+        # 将统一的 phase_state 交给动力学引擎进行统一演化
+        phase_state_new = self.phase_dynamics(phase_state, T_sub, z_meta, Flux, delta_theta)
         
-        return T_sub_out, phase_theta_new
+        return T_sub_out, phase_state_new
+
+# =====================================================================
+# 3. 创世引擎：波包的绝对量子化与入口相变
+# =====================================================================
+import torch
+import torch.nn as nn
+import math
 
 class Alpha_HSF_V3_Engine(nn.Module):
-    """ Alpha-HSF 3.0 主引擎：维持连续的时空流形与波动力学 """
+    """ 
+    Alpha-HSF大一统主引擎：从大一统真空基态到四维时空的对称性破缺
+    """
     def __init__(self, config):
         super().__init__()
         self.config = config
-        # 1. 质元词表 (Qualon Substance)
-        self.token_sub_embed = nn.Embedding(config.vocab_size, config.dim_substance)
-        # 2. 形元词表 (Morphon Topology)
-        self.token_form_embed = nn.Embedding(config.vocab_size, config.dim_form)
         
         # =========================================================
-        # 3. 本征相位词表 (Intrinsic Phase Embedding)
-        # 物理意义：赋予每个概念出厂自带的“本征振荡节律”。
-        # 不同的 head 代表不同频段的语义特征（如颜色频段、动作频段）。
+        # 1. 大一统全息词表 (Unified Holographic Embedding)
+        # 物理意义：所有概念在虚空（真空基态）中的绝对本体。
+        # 它将形、质、相、频四维物理量封装在同一个张量连续体中。
         # =========================================================
-        self.token_phase_embed = nn.Embedding(config.vocab_size, config.num_heads)
+        self.dim_sub = config.dim_substance
+        self.dim_form = config.dim_form
+        self.dim_phase = config.num_heads
         
-        # 预计算 RoPE (时空背景度量)
+        # 统一维度的总和: 质(D_s) + 形(D_f) + 相位(H) + 频率(H)
+        self.total_embed_dim = self.dim_sub + self.dim_form + 2 * self.dim_phase
+        
+        self.unified_token_embed = nn.Embedding(config.vocab_size, self.total_embed_dim)
+        
+        # 初始化：为了保证后续对称性破缺的稳定性，可以使用较小的正态分布初始化
+        nn.init.normal_(self.unified_token_embed.weight, std=0.02)
+        
+        # 宇宙的背景时空基准 (RoPE预计算)
         self.freqs_cis = precompute_freqs_cis(config.dim_form // config.num_heads, config.max_seq_len * 2)
         
-        # 系统初始接触温度 (控制 VTE 注入时的热涨落程度)
+        # 宇宙底噪温度，用于激发量子隧穿
         self.T_init = 0.05 
         
+        # 流形演化反应堆
         self.blocks = nn.ModuleList([
-            HSF_Dynamic_Block_Enhanced(config) for _ in range(config.num_layers)
+            HSF_Dynamic_Block_V4(config) for _ in range(config.num_layers)
         ])
-        self.gamma = config.gamma_viscosity
+        
+        # 宏观测量算子
+        self.measurement_op = nn.Linear(config.dim_substance, config.vocab_size, bias=False)
 
-    def forward(self, input_ids, z_meta):
+    def forward(self, input_ids, z_meta, causal_mask):
         B, S = input_ids.shape
         
-        # 提取形与质的基底
-        T_sub = self.token_sub_embed(input_ids)
-        T_form = self.token_form_embed(input_ids)
-        # 截取当前所需的自旋联络矩阵
+        # =========================================================
+        # 阶段 I：从真空提取大一统实体 (Extraction from Vacuum)
+        # =========================================================
+        # unified_state:[B, S, total_embed_dim]
+        unified_state = self.unified_token_embed(input_ids)
+        
+        # =========================================================
+        # 阶段 II：自发对称性破缺与正交投影 (Symmetry Breaking)
+        # 物理意义：统一状态在进入认知空间瞬间，裂解为四种截然不同的物理成分
+        # =========================================================
+        
+        # 1. 提取质元 (Substance / 能量血肉)
+        start = 0
+        end = self.dim_sub
+        T_sub = unified_state[..., start:end]
+        
+        # 2. 提取形元 (Morphos / 逻辑骨架)
+        start = end
+        end += self.dim_form
+        T_form = unified_state[..., start:end]
+        
+        # 3. 提取本征相位 (Intrinsic Phase / 初始角度)
+        start = end
+        end += self.dim_phase
+        raw_theta = unified_state[..., start:end]
+        # 物理映射：将线性标量强行卷曲到圆周群 U(1) 上，范围 [-pi, pi]
+        base_theta = torch.tanh(raw_theta) * math.pi
+        # 注入热噪：微观接触的布朗运动
+        theta_0 = base_theta + torch.randn_like(base_theta) * self.T_init
+        
+        # 4. 提取本征频率 (Intrinsic Frequency / 初始动量)
+        start = end
+        raw_omega = unified_state[..., start:]
+        # 物理映射：限制最大激荡频率，防止系统初态即陷入高频癫痫
+        omega_0 = torch.tanh(raw_omega) * math.pi
+        
+        # 5. 合并为统一相空间矢量 (Phase Space Vector) -> [B, S, H, 2]
+        # 此时，粒子的“位置(\theta)”与“动量(\omega)”完美绑定进入相空间
+        phase_state = torch.stack([theta_0, omega_0], dim=-1)
+        
+        # =========================================================
+        # 阶段 III：进入流形宇宙演化 (TDE Integral)
+        # =========================================================
+        # 获取当前时空的自旋联络
         freqs_cis = self.freqs_cis[:S].to(input_ids.device)
         
-        # =========================================================
-        # 语义子的全息相位初始化 (Holographic Phase Init)
-        # =========================================================
-        # 1. 提取先验本征相位 (通过 tanh 映射并放大至 [-pi, pi] 之间)
-        # 这意味着 "King" 和 "Queen" 在被取出时，它们的 theta_base 已经非常接近
-        base_phase = torch.tanh(self.token_phase_embed(input_ids)) * math.pi
+        # 假定宏观价值偏置 (目的场) 由高层传入，或当前置空
+        A_val_bias = None 
         
-        # 2. 注入微观层热力学涨落 (Thermal Noise)
-        # 物理意义：每次听到同一个词，当前的语境和微扰都不一样。
-        # 不加入这层极小的噪音，系统会陷入绝对晶体的死锁，失去泛化性。
-        thermal_noise = torch.randn_like(base_phase) * self.T_init
-        
-        # 3. 最终的初始认知相位
-        phase_theta = base_phase + thermal_noise
-        
-        # 提取宏观价值偏置 (目的场)
-        A_val_bias = self.compute_gauge_field(z_meta)
-        
-        # 认知场的层级演化 (时间积分)
         for block in self.blocks:
-            # 波函数在 形、质、相、耗 的约束下演化
-            T_form, T_sub, phase_theta = block(T_form, T_sub, freqs_cis, phase_theta, A_val_bias, z_meta)
+            # 携带 形(T_form), 质(T_sub), 以及相空间动能(phase_state) 穿越重重流形
+            T_form, T_sub, phase_state = block(
+                T_form, T_sub, freqs_cis, phase_state, z_meta, causal_mask, A_val_bias
+            )
             
-        # 波恩定则坍缩测量
-        return self.measurement(T_sub)
+        # =========================================================
+        # 阶段 IV：非幺正坍缩 (Non-unitary Collapse)
+        # =========================================================
+        # 波恩定则测量：将最终的质元波包(能量)投影回离散的词表空间
+        logits = self.measurement_op(T_sub)
+        
+        return logits
 \end{lstlisting}
 
 \smalltitle{4. 动力学总结：从代数复读机到造物主引擎}
