@@ -17,13 +17,14 @@ class HSFConfig:
         # --- 空间与通道维度 ---
         self.vocab_size = 32000     # 大一统词表大小
         self.dim_form = 128         # 逻辑骨架维度
-        self.dim_sub = 1024         # 语义血肉维度
+        self.dim_substance = 1024         # 语义血肉维度
         self.num_heads = 8          # 干涉频段数
         self.meta_dim = 128         # 宏观意志 (z_meta) 维度
         self.num_experts = 8        # 局部子流形数量
         self.top_k = 2              # 波函数坍缩分支数
         self.num_layers = 12        # 空间演化深度
         self.sink_num = 5              # 绝对坐标系 (SINK) 的 Token 数量
+        self.max_position_embeddings = 5120000 # 最大序列长度 (草稿纸大小)
         
         # --- 物理极值钳制 ---
         self.omega_max = math.pi / 2.0   # 认知光速 (频率上限)
@@ -261,7 +262,7 @@ class EnergyPreservingResidual(nn.Module):
         self.raw_eta = nn.Parameter(torch.tensor([math.log(init_eta / (1 - init_eta))]))
     def forward(self, old, delta):
         eta = torch.sigmoid(self.raw_eta)
-        return math.sqrt(1.0 - eta.item()**2) * old + eta * delta
+        return math.sqrt(1.0 - eta**2) * old + eta * delta
 # =====================================================================
 # 6. 相空间统一演化引擎
 # =====================================================================
@@ -774,6 +775,7 @@ class GlobalMetaODE(nn.Module):
         self.field.update_observation(obs_state)
         t_span = torch.tensor([t_start, t_end], dtype=torch.float32, device=z_prev.device)
         # O(1) 显存连续积分，放弃 fixed step_size，让大自然的曲率自己决定走多快
+        # z_traj = odeint(self.field, z_prev, t_span, method='rk4', options={'step_size':0.1})
         z_traj = odeint(
             self.field, z_prev, t_span, 
             method='dopri5',   # 自适应步长
@@ -964,7 +966,7 @@ class Alpha_HSF_V5_Engine(nn.Module):
             Ts_init = torch.cat([stream_sink.T_sub, stream_txt.T_sub, stream_placeholder.T_sub], dim=1)
             p_init = torch.cat([stream_sink.phase_state, stream_txt.phase_state, stream_placeholder.phase_state], dim=1) 
             # 系统的"自我(z_meta)"在这一刻被给定的宇宙(Prompt)瞬间点亮
-            z_meta = self.meta_init(stream_txt, stream_txt.T_sub, stream_txt.phase_state)
+            z_meta = self.meta_init(stream_txt.T_form, stream_txt.T_sub, stream_txt.phase_state)
 
         S_sink= stream_sink.T_form.size(1)
         S_out = stream_placeholder.T_form.size(1)
