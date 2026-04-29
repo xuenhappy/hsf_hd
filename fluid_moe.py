@@ -983,7 +983,6 @@ class Alpha_HSF_V5_Engine(nn.Module):
         # =========================================================
         trajectory_outputs =[]
         can_stop = False
-        ode_time_delta = 1.0/self.config.num_layers
         for loop_k in range(self.config.max_loops):
             for l, block in enumerate(self.blocks):
                 # 如果所有 Token (除了Sink) 都弛豫了，直接停止宇宙的演化，节省亿万算力！
