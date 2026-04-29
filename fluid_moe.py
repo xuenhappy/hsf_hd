@@ -25,11 +25,18 @@ class HSFConfig:
         self.num_layers = 12        # 空间演化深度
         self.sink_num = 5              # 绝对坐标系 (SINK) 的 Token 数量
         self.max_position_embeddings = 5120000 # 最大序列长度 (草稿纸大小)
+
+        # --- 记忆 ---
+        self.use_memory_bank = False          # 是否启用热力学记忆库
+        self.memory_capacity = 10000     # 记忆库容量 (条目数)
+        self.memory_gamma=0.01           # 质(能量)的耗散系数
+        self.memory_kappa=0.005          # 频(动量)的阻尼系数
         
         # --- 物理极值钳制 ---
         self.omega_max = math.pi / 2.0   # 认知光速 (频率上限)
         self.gamma_visc = 0.05           # 介质热力学衰减率
         self.T_init = 0.05               # 绝对底噪温度
+    
         
         # --- 动力学循环参数 ---
         self.max_loops = 15              # 草稿纸最大扩散次数
@@ -402,6 +409,310 @@ class HolographicCoherentAttention(nn.Module):
         return T_s_new, phase_state_new
 
 
+class CognitiveSurprisalExtractor(nn.Module):
+    """
+    认知惊奇提取器 (Cognitive Surprisal Extractor)
+    物理职责：在推理(Inference)或演化(Evolution)期，实时计算认知场在当前流形局部产生的内生热力学惊奇能量。
+    """
+    def __init__(self, alpha=1.0, beta=1.0, gamma=0.5, delta=1.0):
+        super().__init__()
+        # 物理感受系数 (Sensitivity Coefficients)
+        # 将其设为可学习参数，允许系统在重整化群流中自发调节"痛觉"敏感度
+        self.alpha = nn.Parameter(torch.tensor(alpha)) # 几何应力敏感度 (质元位移)
+        self.beta = nn.Parameter(torch.tensor(beta))   # 相位摩擦敏感度 (Kuramoto 扭转)
+        self.gamma = nn.Parameter(torch.tensor(gamma)) # 路由纠结敏感度 (相空间分岔熵)
+        self.delta = nn.Parameter(torch.tensor(delta)) # 外部强迫源敏感度 (如预测Loss)
+
+    def forward(self, T_sub_prev, T_sub_next, theta_prev, theta_next, router_probs):
+        """
+        输入:
+            T_sub_prev, T_sub_next:[B, S, D] 演化前后的质元能量态
+            theta_prev, theta_next:[B, S, H] 演化前后的本征相位
+            router_probs: [B, S, Num_Experts] 目的论路由器的概率分布
+            ext_loss: [B, S] (可选) 来自外部环境或 Next-Token 预测的真实物理激波
+        输出:
+            surprisal_energy: [B, S] 序列中每个 Token 的总惊奇能量密度
+        """
+        # ==============================================================
+        # 1. 几何应力 (Geometric Stress) 
+        # 物理意义：思维流包 (质元) 在底流形上演化时发生的动量改变。
+        # 改变越大，说明遇到的流形曲率(阻力)越大，做功越多。
+        # ==============================================================
+        stress_energy = torch.norm(T_sub_next - T_sub_prev, dim=-1) # [B, S]
+
+        # ==============================================================
+        # 2. 相位摩擦 (Phase Friction) 
+        # 物理意义：在 Kuramoto 锁相动力学中，由于外界强行拉扯导致的相位跃迁。
+        # 对应于"顿悟"的火花，或者被强迫改变观念时的"认知撕裂感"。
+        # ==============================================================
+        phase_friction = torch.abs(theta_next - theta_prev) # [B, S, H]
+        phase_energy = phase_friction.mean(dim=-1)          # [B, S]
+
+        # ==============================================================
+        # 3. 路由困惑度 (Routing Entropy)
+        # 物理意义：衡量在多岔路口(Expert子流形)的纠结程度。
+        # 熵越大，说明系统在多种等价路径间发生叠加，这是产生高度创造性(或迷茫)的标志。
+        # ==============================================================
+        # 加上 1e-9 防止 log(0) 产生数学奇点黑洞
+        router_entropy = -torch.sum(router_probs * torch.log(router_probs + 1e-9), dim=-1) # [B, S]
+
+        # ==============================================================
+        # 4. 热力学总能量合成 (Thermodynamic Energy Synthesis)
+        # 使用 F.softplus 确保所有感受系数为正，满足热力学能量非负的公理
+        # ==============================================================
+        surprisal_energy = (F.softplus(self.alpha) * stress_energy +
+                            F.softplus(self.beta)  * phase_energy +
+                            F.softplus(self.gamma) * router_entropy)
+
+
+        return surprisal_energy
+
+
+class ThermodynamicMemoryBank(nn.Module):
+    """
+    高性能时空谐振腔 (High-Performance Thermodynamic Memory Bank)
+    物理职责：在固定显存容量下，维护一个环形缓冲区 (Ring Buffer)。
+    利用布尔掩码仅提取发生"惊奇相变"的 Token，实现高密度的相空间张量存储与并行召回。
+    """
+    def __init__(self, config):
+        super().__init__()
+        self.capacity = config.memory_capacity  # N: 存储的语义子(Token)总数量上限
+        self.gamma = config.memory_gamma        # 质(能量)的耗散系数
+        self.kappa = config.memory_kappa        # 频(动量)的阻尼系数
+        self.shock_threshold = config.shock_threshold
+        
+        self.dim_form = config.dim_form
+        self.dim_sub = config.dim_substance
+        self.num_heads = config.num_heads
+
+        # -------------------------------------------------------------
+        # 1. 物理容器预分配 (Pre-allocated Physical Containers)
+        # 使用 register_buffer 确保它们与模型一起分布在正确的 GPU 上，
+        # 且作为模型的持久化状态 (State_Dict) 保存，但不参与梯度更新。
+        # -------------------------------------------------------------
+        # 形 (逻辑坐标/测地线锚点) -> [Capacity, D_f]
+        self.register_buffer('T_form_keys', torch.zeros(self.capacity, self.dim_form))
+        # 质 (语义血肉/能量载荷) -> [Capacity, D_s]
+        self.register_buffer('T_sub_values', torch.zeros(self.capacity, self.dim_sub))
+        # 相空间矢量 (Theta, Omega) ->[Capacity, H, 2]
+        self.register_buffer('phase_states', torch.zeros(self.capacity, self.num_heads, 2))
+        
+        # 热力学元数据
+        self.register_buffer('timestamps', torch.zeros(self.capacity, dtype=torch.int64))
+        self.register_buffer('importances', torch.zeros(self.capacity, dtype=torch.float32))
+
+        # -------------------------------------------------------------
+        # 2. 环形指针与状态元数据
+        # -------------------------------------------------------------
+        self.register_buffer('mem_ptr', torch.tensor(0, dtype=torch.int64))   # 插入指针
+        self.register_buffer('mem_size', torch.tensor(0, dtype=torch.int64))  # 当前有效记忆量
+        self.register_buffer('current_time', torch.tensor(0, dtype=torch.int64)) # 绝对物理时钟
+        
+        self.surprisal_extractor = CognitiveSurprisalExtractor()
+        self.layer_norm = nn.LayerNorm(config.dim_substance)
+        self.kuramoto_k = 0.2 # 记忆对当下的相位拖拽系数
+        
+    def tick(self):
+        """推进全局物理时钟"""
+        self.current_time += 1
+
+    @torch.no_grad() # 记忆的沉积是被动的地质学过程，不保留计算图
+    def add_memory(self, S_prev, S_next, router_probs, active_mask):
+        """
+        动态沉积：筛选超高能量的激波 Token，将其作为孤立子压入环形存储器
+        """
+        _, T_sub_prev, theta_prev = S_prev
+        T_form_next, T_sub_next, phase_state_next = S_next
+        theta_next = phase_state_next[..., 0]
+        
+        # 1. 计算热力学惊奇能量 [B, S]
+        surprisal_energy = self.surprisal_extractor(
+            T_sub_prev=T_sub_prev, T_sub_next=T_sub_next, 
+            theta_prev=theta_prev, theta_next=theta_next, 
+            router_probs=router_probs
+        )
+        
+        # 2. 物理相变过滤 (Topological Filtering)
+        # 仅保留：活跃状态 (排除Padding/Prompt冻结区) 且 惊奇度击穿阈值
+        is_shocking = (surprisal_energy > self.shock_threshold)
+        valid_mask = active_mask & is_shocking  # [B, S] 的布尔矩阵
+        
+        # 如果当前没有任何 Token 产生足够的认知张力，直接返回，不消耗任何显存带宽
+        if not valid_mask.any():
+            self.tick()
+            return
+            
+        # 3. 语义子降维坍缩 (Flatten to Tokens)
+        # 将 [B, S, D] 转换为 [N, D]，N 是本次被选中的高能 Token 总数
+        new_keys = T_form_next[valid_mask]             # [N, D_f]
+        new_vals = T_sub_next[valid_mask]              # [N, D_s]
+        new_phases = phase_state_next[valid_mask]      # [N, H*2]
+        new_imps = surprisal_energy[valid_mask]        # [N]
+        
+        N = new_keys.shape[0]
+        curr_time = self.current_time.item()
+        new_times = torch.full((N,), curr_time, dtype=torch.int64, device=new_keys.device)
+
+        # 4. 环形缓冲区极速写入 (Ring Buffer Update)
+        ptr = self.mem_ptr.item()
+        
+        if N >= self.capacity:
+            # 极端情况：单次涌入激波太多，只保留最新的 capacity 个
+            self.T_form_keys.copy_(new_keys[-self.capacity:])
+            self.T_sub_values.copy_(new_vals[-self.capacity:])
+            self.phase_states.copy_(new_phases[-self.capacity:])
+            self.importances.copy_(new_imps[-self.capacity:])
+            self.timestamps.copy_(new_times[-self.capacity:])
+            self.mem_ptr.fill_(0)
+            self.mem_size.fill_(self.capacity)
+        else:
+            # 正常插入，处理末尾循环(Wrap-around)
+            end_ptr = ptr + N
+            if end_ptr <= self.capacity:
+                self.T_form_keys[ptr:end_ptr] = new_keys
+                self.T_sub_values[ptr:end_ptr] = new_vals
+                self.phase_states[ptr:end_ptr] = new_phases
+                self.importances[ptr:end_ptr] = new_imps
+                self.timestamps[ptr:end_ptr] = new_times
+            else:
+                overflow = end_ptr - self.capacity
+                first_part = N - overflow
+                
+                # 写入尾部
+                self.T_form_keys[ptr:] = new_keys[:first_part]
+                self.T_sub_values[ptr:] = new_vals[:first_part]
+                self.phase_states[ptr:] = new_phases[:first_part]
+                self.importances[ptr:] = new_imps[:first_part]
+                self.timestamps[ptr:] = new_times[:first_part]
+                
+                # 写入头部覆盖
+                self.T_form_keys[:overflow] = new_keys[first_part:]
+                self.T_sub_values[:overflow] = new_vals[first_part:]
+                self.phase_states[:overflow] = new_phases[first_part:]
+                self.importances[:overflow] = new_imps[first_part:]
+                self.timestamps[:overflow] = new_times[first_part:]
+                
+            self.mem_ptr.fill_(end_ptr % self.capacity)
+            self.mem_size.fill_(min(self.capacity, self.mem_size.item() + N))
+
+        self.tick()
+
+    @torch.no_grad() # 记忆的沉积是被动的地质学过程，不保留计算图
+    def resonant_recall(self, T_form_now, phase_state_now, top_k=3):
+        """
+        高性能相干召回
+        T_form_now:[B, S, D_f]
+        phase_state_now: [B, S, H, 2]
+        """
+        size = self.mem_size.item()
+        if size == 0:
+            # 宇宙诞生之初，没有记忆
+            B, S, D_s = T_form_now.shape[0], T_form_now.shape[1], self.dim_sub
+            return torch.zeros((B, S, D_s), device=T_form_now.device), None, 0.0
+
+        # 1. 提取当前有效流形截面 (Active Manifold Section)
+        # 取前 size 个，避免计算 padding zeroes
+        K_form = self.T_form_keys[:size]     # [size, D_f]
+        V_sub = self.T_sub_values[:size]     # [size, D_s]
+        P_state = self.phase_states[:size]   # [size, H, 2]
+        T_stamp = self.timestamps[:size]     # [size]
+        E_shock = self.importances[:size]    # [size]
+
+        # 2. 测地线寻址：全矩阵一次性乘法，极致并行
+        # T_form_now:[B, S, D_f] @ K_form.T:[D_f, size] -> scores:[B, S, size]
+        scores = torch.matmul(T_form_now, K_form.transpose(0, 1)) 
+        
+        actual_top_k = min(top_k, size)
+        topk_scores, topk_indices = torch.topk(scores, int(actual_top_k), dim=-1) # [B, S, TopK]
+        
+        # 几何导通率
+        G_dist = F.softmax(topk_scores / math.sqrt(self.dim_form), dim=-1)
+
+        # 3. 提取 TopK 相关记忆的物理属性
+        delta_t = self.current_time.item() - T_stamp[topk_indices] # [B, S, TopK]
+        delta_t = delta_t.float()
+        
+        # P_state[topk_indices] ->[B, S, TopK, H, 2]
+        topk_phase_states = P_state[topk_indices]
+        theta_old = topk_phase_states[..., 0] # [B, S, TopK, H]
+        omega_old = topk_phase_states[..., 1] #[B, S, TopK, H]
+        
+        # 【物理法则一：频的阻尼衰减】
+        omega_recalled = omega_old * torch.exp(-self.kappa * delta_t.unsqueeze(-1))
+        
+        # 【物理法则二：相的时间积分】
+        phase_shift = (omega_old / (self.kappa + 1e-6)) * (1 - torch.exp(-self.kappa * delta_t.unsqueeze(-1)))
+        theta_recalled = (theta_old + phase_shift) % (2 * math.pi)
+
+        # 4. 干涉计算
+        theta_now = phase_state_now[..., 0].unsqueeze(2) #[B, S, 1, H]
+        I_mem = torch.cos(theta_now - theta_recalled)    # [B, S, TopK, H]
+        
+        # 5. 能量坍缩
+        decay_factor = torch.exp(-self.gamma * delta_t)  #[B, S, TopK]
+        importance_factor = torch.sigmoid(E_shock[topk_indices]) #[B, S, TopK]
+        
+        # 总通量计算：注意 I_mem 有 H 维度，而 G_dist 没有。
+        # 我们需要在 Head 维度上进行精细干涉，因此 Flux 为[B, S, TopK, H]
+        Flux = G_dist.unsqueeze(-1) * I_mem * decay_factor.unsqueeze(-1) * importance_factor.unsqueeze(-1)
+
+        # 6. 提取 V_sub[B, S, TopK, D_s] 并按照 Head 分解，应用不同的干涉权重
+        B, S, K_top = topk_indices.shape
+        D_s = self.dim_sub
+        H = self.num_heads
+        head_dim = D_s // H
+        
+        V_sub_topk = V_sub[topk_indices] #[B, S, TopK, D_s]
+        # 重塑为 [B, S, TopK, H, head_dim] 以精确匹配每个 Head 的干涉通量
+        V_sub_topk_heads = V_sub_topk.view(B, S, K_top, H, head_dim)
+        
+        # 乘性干涉并对 TopK 路径进行求和融合
+        # [B, S, TopK, H, 1] * [B, S, TopK, H, head_dim] -> sum(dim=2) ->[B, S, H, head_dim]
+        recalled_T_sub_heads = torch.sum(Flux.unsqueeze(-1) * V_sub_topk_heads, dim=2)
+        # 还原回原维度
+        recalled_T_sub = recalled_T_sub_heads.reshape(B, S, D_s)
+        
+        # 重组召回的相空间 [B, S, TopK, H, 2]
+        recalled_phase_state = torch.stack([theta_recalled, omega_recalled], dim=-1)
+
+        return recalled_T_sub, recalled_phase_state, Flux
+
+
+
+    def forward(self, T_form, T_sub, phase_state_now):
+        # =========================================================
+        # 无黑盒的纯物理波函数干涉融合 (Wave Superposition)
+        # =========================================================
+        
+        # 从谐振腔中召回历史波包
+        recalled_T_sub, recalled_phase_state, Flux = self.resonant_recall(T_form, phase_state_now)
+        
+        if recalled_phase_state is not None:
+            # 1. 质元能量的物理叠加 (直接相加，因为 Flux 中已经包含了 cos 干涉门控)
+            # 我们彻底去掉了上一版中多余的 nn.Linear 神经网络 Gate！大自然不需要 Linear！
+            T_sub_fused = self.layer_norm(T_sub + recalled_T_sub)
+            
+            # 2. 相空间矢量的强迫扭转 (Kuramoto Pulling)
+            # 回忆的频率 \omega 越高，对你当下的影响就越暴烈
+            theta_now, omega_now = phase_state_now[..., 0], phase_state_now[..., 1]
+            theta_rec = recalled_phase_state[..., 0] # [B, S, TopK, H]
+            omega_rec = recalled_phase_state[..., 1]
+            
+            # 记忆对当下的拉扯：频率差的逼近
+            omega_pull = torch.sum(Flux * (omega_rec - omega_now.unsqueeze(2)), dim=2)
+            omega_fused = omega_now + self.kuramoto_k * omega_pull
+            
+            # 记忆对当下的拉扯：相位的对齐
+            theta_pull = torch.sum(Flux * torch.sin(theta_rec - theta_now.unsqueeze(2)), dim=2)
+            theta_fused = theta_now + self.kuramoto_k * theta_pull
+            
+            phase_state_fused = torch.stack([theta_fused, omega_fused], dim=-1)
+
+        else:
+            T_sub_fused = T_sub
+            phase_state_fused = phase_state_now
+
+        return T_sub_fused, phase_state_fused
 
 
 class TeleologicalGatedRouter(nn.Module):
@@ -607,24 +918,32 @@ class BoundedFluidMoBlock(nn.Module):
         # 早停检测：如果质的变化小于某个阈值，就认为该 Token 已经找到一个满意的势能极小值，进入弛豫状态，不再参与后续的演化
         self.relax_thresh = config.relaxation_thresh
 
-    def forward(self, T_f, T_s, freqs_cis, phase_state, z_meta, cause_mask, active_mask):
+    def forward(self, T_f, T_s, freqs_cis, phase_state, z_meta, cause_mask, active_mask, memory_bank=None):
         T_s_prev = T_s.clone()
         # 1. 认知波包干涉
         T_s_mid, phase_state_next = self.attn(T_f, T_s, freqs_cis, phase_state, z_meta, cause_mask)
-        # 2. 专家演化
+        # 2. 从谐振腔中召回历史波包
+        if memory_bank is not None:
+            T_s_mid, phase_state_next = memory_bank(T_s_mid, phase_state_next)
+
+        # 3. 专家演化
         T_form_next, T_sub_next, H_route = self.moe_fnn(T_f, T_s_mid, z_meta)
 
-        # --- 动态弛豫检测 (Dynamic Relaxation) ---
+        # 4. 物理时钟推进与高能刻蚀
+        if memory_bank is not None:
+            memory_bank.add_memory((T_f,T_s_prev,phase_state),(T_form_next, T_sub_next, phase_state_next),H_route,active_mask)
+
+        # 5. 动态弛豫检测 (Dynamic Relaxation) 
         # 如果波函数在新的一层演化中，位置(质)几乎不变，说明找到了势能极小值！
         cognitive_stress = torch.norm(T_sub_next - T_s_prev, dim=-1) # [B, S]
         newly_halted = cognitive_stress < self.relax_thresh
         
-        # 状态回写：只更新活跃的 Token，冻结已弛豫的 Token 的时间
+        # 6. 状态回写：只更新活跃的 Token，冻结已弛豫的 Token 的时间
         active_expanded = active_mask.unsqueeze(-1)
         T_s = torch.where(active_expanded, T_sub_next, T_s)
         T_f = torch.where(active_expanded, T_form_next, T_f)
         ph = torch.where(active_expanded, phase_state_next, phase_state)
-        # 更新掩码：原活跃 且 刚刚未弛豫 的继续保持活跃
+        # 7. 更新掩码：原活跃 且 刚刚未弛豫 的继续保持活跃
         next_active_mask = active_mask & (~newly_halted)
         
         return T_f, T_s, ph, H_route, next_active_mask
@@ -895,6 +1214,7 @@ class Alpha_HSF_V5_Engine(nn.Module):
         self.vte_sink = Sink_HSF_VTE(config) 
         self.placeholder_vte = Placeholder_HSF_VTE(config)
         # 模型主要组件
+        self.memory_bank = ThermodynamicMemoryBank(config) if config.use_memory_bank else None
         self.blocks = nn.ModuleList([BoundedFluidMoBlock(config) for _ in range(config.num_layers)])
         self.meta_init = MetaInitializer(config)
         self.observer = TrueMacroObserver(config)
@@ -996,7 +1316,7 @@ class Alpha_HSF_V5_Engine(nn.Module):
 
                 Tf_prev, Ts_prev, p_prev = Tf_curr, Ts_curr, p_curr
                 # A. 绝热滑行 (Fluid MoE)
-                Tf_curr, Ts_curr, p_curr, H_route, active_mask = block(Tf_prev, Ts_prev, freqs_cis, p_prev, z_meta, masks['causal_mask'], active_mask)        
+                Tf_curr, Ts_curr, p_curr, H_route, active_mask = block(Tf_prev, Ts_prev, freqs_cis, p_prev, z_meta, masks['causal_mask'], active_mask, memory_bank=self.memory_bank)        
                 # B. 宏观观测 (Observer)
                 obs_state = self.observer(
                     (Tf_prev, Ts_prev, p_prev), (Tf_curr, Ts_curr, p_curr), H_route, active_mask
@@ -1046,16 +1366,9 @@ def compute_fhd_loss(trajectory_outputs, target_ids, target_embeddings, max_loop
         
     return total_loss
 
-# 训练步示例
-def train_step(model, optimizer, input_ids, target_ids, target_embeddings):
-    optimizer.zero_grad()
-    # 包含了完整的 ODE 演化、草稿纸迭代
-    trajectory_outputs = model(input_ids)
-    
-    # 时序退火损失计算
-    loss = compute_fhd_loss(trajectory_outputs, target_ids, target_embeddings, model.config.max_loops)
-    
-    # 伴随算子的 O(1) 反向传播，加持 Sophia-HSF 几何优化器
-    loss.backward()
-    optimizer.step()
-    return loss.item()
+
+
+
+        
+
+       
