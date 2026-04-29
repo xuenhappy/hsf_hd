@@ -642,9 +642,8 @@ class MetaInitializer(nn.Module):
         self.net = nn.Sequential(
             nn.Linear(in_dim, config.meta_dim * 2),
             nn.SiLU(),
-            # 使用 Mean Pooling 把序列折叠为全局单点
-            nn.Linear(config.meta_dim * 2, config.meta_dim),
-            nn.Tanh() # 将初始意志限制在规范球面上
+            # 使用 Pooling 把序列折叠为全局单点
+            nn.Linear(config.meta_dim * 2, config.meta_dim)
         )
 
     def forward(self, T_form, T_sub, phase_state):
@@ -659,9 +658,10 @@ class MetaInitializer(nn.Module):
         # 提取全局池化特征 (Global Max Pooling) -> [B, D_total]
         global_state, _ = full_state.max(dim=1) 
         
-        # 坍缩出初始宏观意志
-        z_meta_0 = self.net(global_state)
+        # 坍缩出初始宏观意志，将初始意志限制在规范球面上
+        z_meta_0 = F.normalize(self.net(global_state), p=2, dim=-1)
         return z_meta_0
+        
 
 # =====================================================================
 # 8. 形质双全的宏观观测器 (True Macro Observer)
@@ -705,17 +705,65 @@ class TrueMacroObserver(nn.Module):
 # 9. 宏观 ODE 控制器 (Global Meta-Cognitive ODE)
 # =====================================================================
 class MacroVectorField(nn.Module):
+    """
+    受限宏观向量场 (Bounded Macro Vector Field)
+    物理职责：在 S^{d-1} 规范超球面上连续演化宏观意志 z_meta，绝对禁止能量发散。
+    """
     def __init__(self, config):
         super().__init__()
+        self.meta_dim = config.meta_dim
+        
+        # 意志推演网络：提取基础的演化趋势 (Raw Desire)
+        # 强制加入谱范数 (Spectral Norm)，保证内部映射为 1-Lipschitz，防止内生爆炸
         self.net = nn.Sequential(
-            nn.Linear(config.meta_dim * 2, 128), nn.SiLU(),
-            nn.Linear(128, config.meta_dim)
+            spectral_norm(nn.Linear(self.meta_dim *2, self.meta_dim, bias=False)), 
+            nn.SiLU(),
+            spectral_norm(nn.Linear(self.meta_dim, self.meta_dim, bias=False))
         )
-        self.obs_state : torch.Tensor  = torch.zeros(1, config.meta_dim) # 占位符，实际在 forward 时动态赋值
+        self.current_macro_state = torch.zeros(1, config.meta_dim)
+        
+        # 数值漂移校正系数 (Lyapunov Restoring Constant)
+        self.kappa_restore = 0.5 
+
+    def update_observation(self, macro_state):
+        self.current_macro_state = macro_state
 
     def forward(self, t, z_meta):
-        state = torch.cat([z_meta, self.obs_state], dim=-1)
-        return self.net(state)
+        """
+        ODE 求解器接口：计算 dz/dt
+        """
+        state = torch.cat([z_meta, self.current_macro_state], dim=-1)
+        
+        # 1. 原始冲动 (Raw Desire)：不受约束的本能演化向量
+        dz_raw = self.net(state)
+        
+        # ==============================================================
+        # 2. 核心物理操作 I：切空间正交投影 (Tangent Space Projection)
+        # 物理意义：剥夺意志无端膨胀的自由度，强制其沿着球面测地线滑行
+        # 数学：dz_dt = dz_raw - proj_z(dz_raw)
+        # ==============================================================
+        # 计算原始向量在径向 (z_meta方向) 上的投影大小: <dz_raw, z_meta>
+        radial_component = torch.sum(dz_raw * z_meta, dim=-1, keepdim=True)
+        
+        # 减去径向分量，剩下的就是严格与 z_meta 正交的切向分量 (Tangent Vector)
+        dz_tangent = dz_raw - radial_component * z_meta
+        
+        # ==============================================================
+        # 3. 核心物理操作 II：李雅普诺夫拓扑回弹 (Topological Restoring Force)
+        # 物理意义：ODE 求解器 (如 rk4/dopri5) 在离散步长下会有微小的截断误差，
+        # 这会导致 z_meta 随时间极缓慢地"渗漏"出球面。必须施加物理回弹力。
+        # ==============================================================
+        # 计算当前状态的实际能量 ||z_meta||^2
+        current_norm_sq = torch.sum(z_meta * z_meta, dim=-1, keepdim=True)
+        
+        # 构造负反馈阻尼：如果能量 > 1，产生向内的拉力；如果 < 1，产生向外的推力
+        drift_correction = -self.kappa_restore * (current_norm_sq - 1.0) * z_meta
+        
+        # 最终的受迫演化速度 = 切向真实演化 + 法向误差纠正
+        dz_dt_final = dz_tangent + drift_correction
+        
+        return dz_dt_final
+
 
 class GlobalMetaODE(nn.Module):
     def __init__(self, config):
