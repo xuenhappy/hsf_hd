@@ -26,7 +26,7 @@ class HSFConfig:
         self.sink_num = 5              # 绝对坐标系 (SINK) 的 Token 数量
         
         # --- 物理极值钳制 ---
-        self.omega_max = math.pi / 4.0   # 认知光速 (频率上限)
+        self.omega_max = math.pi / 2.0   # 认知光速 (频率上限)
         self.gamma_visc = 0.05           # 介质热力学衰减率
         self.T_init = 0.05               # 绝对底噪温度
         
@@ -166,35 +166,16 @@ class Vision_HSF_VTE(nn.Module):
 # =====================================================================
 # 6. 占位符 VTE：草稿纸空间的形质双全占位符
 # =====================================================================
-class Placeholder_HSF_VTE(nn.Module):
+class Sink_HSF_VTE(nn.Module):
     def __init__(self, config):
         super().__init__()
         self.config = config
-        # =================================================================
-        # 物理意义：定义各类占位符的底层拓扑底色
-        # =================================================================
-        # 图像的真空底色
-        self.image_vacuum = nn.Parameter(torch.empty(1, 1, config.dim_form))
-        # 文本的真空底色
-        self.text_vacuum = nn.Parameter(torch.empty(1, 1, config.dim_form + config.dim_sub + config.num_heads * 2))
         # Sink的真空底色
         self.sink_vacuum = nn.Parameter(torch.empty(1, config.sink_num, config.dim_form + config.num_heads * 2))
-        
-        self._init_vacuum_orthogonality()
+        nn.init.normal_(self.sink_vacuum, std=0.02)
         self.quarantine = VTE_Quarantine_Wrapper(config)
 
-    def _init_vacuum_orthogonality(self):
-        """
-        几何正交初始化：确保文本流形与图像流形在初始状态下绝对正交
-        物理意义：消除模态间的初始串扰，赋予系统最高效的对称性破缺
-        """
-        nn.init.orthogonal_(self.text_vacuum)
-        nn.init.orthogonal_(self.image_vacuum)
-        nn.init.normal_(self.sink_vacuum, std=0.02)
-
-   
-
-    def init_sink_placeholders(self, batch_size):
+    def forward(self, batch_size):
         # SINK 占位符：绝对坐标系的锚点，冻结不变
         # 1. 提取大一统实体
         unified_state = self.sink_vacuum.expand(batch_size, self.config.sink_num, -1)
@@ -214,7 +195,25 @@ class Placeholder_HSF_VTE(nn.Module):
         return SemantionStream(T_f, T_s, phase)
 
 
-    def init_output_placeholders(self, batch_size, target_shape, modality="text"):
+class Placeholder_HSF_VTE(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        self.config = config
+        # =================================================================
+        # 物理意义：定义各类占位符的底层拓扑底色
+        # =================================================================
+        # 图像的真空底色
+        self.image_vacuum = nn.Parameter(torch.empty(1, 1, config.dim_form))
+        nn.init.orthogonal_(self.image_vacuum)
+        
+        # 文本的真空底色
+        self.text_vacuum = nn.Parameter(torch.empty(1, 1, config.dim_form + config.dim_sub + config.num_heads * 2))
+        nn.init.orthogonal_(self.text_vacuum)
+
+        self.quarantine = VTE_Quarantine_Wrapper(config)
+
+
+    def forward(self, batch_size, target_shape, modality="text"):
         # 阶段一：创造真空占位符 (Genesis of Placeholders)
         if modality == "text":
             unified_state = self.text_vacuum.expand(batch_size, target_shape, -1)
@@ -254,44 +253,96 @@ class Placeholder_HSF_VTE(nn.Module):
             return SemantionStream(T_f, T_s, phase)
             
 
-        def foward(self,batch_size, target_shape, modality="text"):
-            output_holder=self.init_output_placeholders(batch_size, target_shape, modality)
-            sink_holder=self.init_sink_placeholders(batch_size)
-            return sink_holder, output_holder
-
-
-
 ### 第三部分：流形演化核心 (Attention, MoE, Dynamics)
 
+class EnergyPreservingResidual(nn.Module):
+    def __init__(self, init_eta=0.5):
+        super().__init__()
+        self.raw_eta = nn.Parameter(torch.tensor([math.log(init_eta / (1 - init_eta))]))
+    def forward(self, old, delta):
+        eta = torch.sigmoid(self.raw_eta)
+        return math.sqrt(1.0 - eta.item()**2) * old + eta * delta
 # =====================================================================
 # 6. 相空间统一演化引擎
 # =====================================================================
 class PhaseSpaceDynamics(nn.Module):
+    """
+    严密版相空间动力学引擎 (Strict Phase Space Dynamics Engine)
+    物理职责：在严格遵守 E=hw 的前提下，计算频率(动量)的受迫演化，并执行辛积分。
+    """
     def __init__(self, config):
         super().__init__()
-        self.doppler_net = nn.Sequential(
-            nn.Linear(config.dim_sub + config.meta_dim, config.dim_sub // 2),
-            nn.SiLU(),
-            nn.Linear(config.dim_sub // 2, config.num_heads)
-        )
-        self.phase_k = nn.Parameter(torch.tensor([0.1]))
-        self.inertia = 0.8
         self.omega_max = config.omega_max
+        self.phase_k = nn.Parameter(torch.tensor([0.1])) # Kuramoto 耦合常数
+        self.inertia = 0.8 # 动量惯性
+        
+        # -------------------------------------------------------------
+        # 1. 物理内生频率倾向 (Intrinsic Physical Frequency Tendency)
+        # 频率 \omega 必须由质元(能量 T_sub) 自身孕育
+        # -------------------------------------------------------------
+        self.inertial_omega_net = nn.Sequential(
+            spectral_norm(nn.Linear(config.dim_substance, config.dim_substance // 2, bias=False)),
+            nn.SiLU()
+        )
+        
+        # -------------------------------------------------------------
+        # 2. 意志多普勒门控 (Volitional Doppler Gate)
+        # 宏观意志 z_meta 充当"调频旋钮"，仅能对内生频率进行 [0, 2] 倍的红移或蓝移
+        # -------------------------------------------------------------
+        context_dim = config.dim_substance + config.meta_dim
+        self.will_doppler_gate = nn.Sequential(
+            spectral_norm(nn.Linear(context_dim, config.dim_substance // 2, bias=False)),
+            nn.Sigmoid() 
+        )
+        
+        # -------------------------------------------------------------
+        # 3. 频域投影算子 (Frequency Domain Projector)
+        # -------------------------------------------------------------
+        self.omega_projector = spectral_norm(
+            nn.Linear(config.dim_substance // 2, config.num_heads, bias=False)
+        )
 
     def forward(self, phase_state, T_sub, z_meta, Flux, delta_theta):
-        theta_old, omega_old = phase_state[..., 0], phase_state[..., 1]
+        B, S, _, _ = phase_state.shape
         
-        # 1. 计算频移 (多普勒效应)
-        z_expanded = z_meta.unsqueeze(1).expand(-1, T_sub.size(1), -1)
-        state_context = torch.cat([T_sub, z_expanded], dim=-1)
-        target_omega = torch.tanh(self.doppler_net(state_context)) * self.omega_max
+        theta_old = phase_state[..., 0] # [B, S, H]
+        omega_old = phase_state[..., 1] # [B, S, H]
+        
+        z_expanded = z_meta.unsqueeze(1).expand(-1, S, -1)
+        full_context = torch.cat([T_sub, z_expanded], dim=-1)
+        
+        # ==============================================================
+        # 核心物理相变：受控的频率跃迁 (Controlled Frequency Transition)
+        # ==============================================================
+        # 1. 计算内生物理频率潜力
+        hidden_omega = self.inertial_omega_net(T_sub)
+        
+        # 2. 计算宏观多普勒频移因子 (* 2.0 使得调节范围在 [0, 2])
+        # Gate < 1.0 (红移/抑制)；Gate > 1.0 (蓝移/激发)
+        doppler_shift = self.will_doppler_gate(full_context) * 2.0
+        
+        # 3. 意志与物理的乘性调制
+        modulated_hidden = hidden_omega * doppler_shift
+        
+        # 4. 投影到实际频率并施加认知光速上限钳制 (tanh * omega_max)
+        target_omega = torch.tanh(self.omega_projector(modulated_hidden)) * self.omega_max
+        
+        # ==============================================================
+        # 哈密顿辛演化 (Symplectic Evolution)
+        # ==============================================================
+        # 动量更新：新动量 = 历史惯性 + 目标频移 (离散动量守恒)
         omega_new = self.inertia * omega_old + (1 - self.inertia) * target_omega
         
-        # 2. Kuramoto 相位拉扯
+        # 相位拉扯：Kuramoto 集体干涉力
         phase_pull = self.phase_k * torch.sum(torch.abs(Flux) * torch.sin(-delta_theta), dim=-1).transpose(1, 2)
+        
+        # 位置更新：新相位 = 旧相位 + 新频率 + 干涉力 (模 2*pi 闭环)
         theta_new = (theta_old + omega_new + phase_pull) % (2 * math.pi)
         
-        return torch.stack([theta_new, omega_new], dim=-1)
+        # 重新打包相空间矢量
+        phase_state_new = torch.stack([theta_new, omega_new], dim=-1)
+        
+        return phase_state_new
 
 # =====================================================================
 # 7. 全息相干注意力与 Fluid MoE Layer
@@ -312,6 +363,7 @@ class HolographicCoherentAttention(nn.Module):
         self.topo_bias = nn.Parameter(torch.tensor([-2.0]))
         self.gamma_visc = config.gamma_visc
         self.phase_dynamics = PhaseSpaceDynamics(config)
+        self.res_sub = EnergyPreservingResidual()
 
     def forward(self, T_f, T_s, freqs_cis, phase_state, z_meta, causal_mask):
         B, S, _ = T_s.shape
@@ -344,15 +396,10 @@ class HolographicCoherentAttention(nn.Module):
         T_sub_out = (Flux @ Vs).transpose(1, 2).reshape(B, S, -1)
         
         phase_state_new = self.phase_dynamics(phase_state, T_s, z_meta, Flux, delta_theta)
-        return T_sub_out, phase_state_new
+        T_s_new= self.res_sub(T_s, T_sub_out)
+        return T_s_new, phase_state_new
 
-class EnergyPreservingResidual(nn.Module):
-    def __init__(self, init_eta=0.5):
-        super().__init__()
-        self.raw_eta = nn.Parameter(torch.tensor([math.log(init_eta / (1 - init_eta))]))
-    def forward(self, old, delta):
-        eta = torch.sigmoid(self.raw_eta)
-        return math.sqrt(1.0 - eta.item()**2) * old + eta * delta
+
 
 
 class TeleologicalGatedRouter(nn.Module):
@@ -553,18 +600,15 @@ class BoundedFluidMoBlock(nn.Module):
         super().__init__()
         # attention 层负责形质的全息相干交互，产生局部子流形内的语义引力和几何导通率
         self.attn = HolographicCoherentAttention(config)
-        self.res_sub = EnergyPreservingResidual()
         # moe 层负责在局部子流形内，根据路由器的目的论决策，执行形质的交叉耦合演化
         self.moe_fnn = FluidMoELayer(config)
         # 早停检测：如果质的变化小于某个阈值，就认为该 Token 已经找到一个满意的势能极小值，进入弛豫状态，不再参与后续的演化
         self.relax_thresh = config.relaxation_thresh
 
-    def forward(self, T_f, T_s, freqs_cis, phase_state, z_meta, causal_mask):
+    def forward(self, T_f, T_s, freqs_cis, phase_state, z_meta, masks, active_mask):
         T_s_prev = T_s.clone()
         # 1. 认知波包干涉
-        T_s_attn, phase_state_next = self.attn(T_f, T_s, freqs_cis, phase_state, z_meta, causal_mask)
-        T_s_mid = self.res_sub(T_s, T_s_attn)
-        
+        T_s_mid, phase_state_next = self.attn(T_f, T_s, freqs_cis, phase_state, z_meta, masks)
         # 2. 专家演化
         T_form_next, T_sub_next, H_route = self.moe_fnn(T_f, T_s_mid, z_meta)
 
@@ -574,14 +618,14 @@ class BoundedFluidMoBlock(nn.Module):
         newly_halted = cognitive_stress < self.relax_thresh
         
         # 状态回写：只更新活跃的 Token，冻结已弛豫的 Token 的时间
-        active_expanded = causal_mask.unsqueeze(-1)
+        active_expanded = active_mask.unsqueeze(-1)
         T_s = torch.where(active_expanded, T_sub_next, T_s)
         T_f = torch.where(active_expanded, T_form_next, T_f)
-        
+        ph = torch.where(active_expanded, phase_state_next, phase_state)
         # 更新掩码：原活跃 且 刚刚未弛豫 的继续保持活跃
-        next_active_mask = causal_mask & (~newly_halted)
+        next_active_mask = active_mask & (~newly_halted)
         
-        return T_form_next, T_sub_next, phase_state_next, H_route, next_active_mask
+        return T_f, T_s, ph, H_route, next_active_mask
 
 
 
@@ -600,7 +644,9 @@ class TrueMacroObserver(nn.Module):
             nn.Linear(config.meta_dim*2, config.meta_dim)
         )
 
-    def forward(self, T_f_prev, T_s_prev, p_prev, T_f_next, T_s_next, p_next, H_route):
+    def forward(self, s_prev, s_next, H_route, masks):
+        T_f_prev, T_s_prev, p_prev= s_prev
+        T_f_next, T_s_next, p_next = s_next
         # 1. 极值提取
         kin_energy = torch.norm(T_s_next - T_s_prev, dim=-1)
         max_kin, _ = torch.max(kin_energy, dim=-1)
@@ -756,6 +802,8 @@ class Alpha_HSF_V5_Engine(nn.Module):
         # 输入VTE
         self.vte_txt = Text_HSF_VTE(config)
         self.vte_img = Vision_HSF_VTE(config) # 可选输入
+        self.vte_sink = Sink_HSF_VTE(config) 
+        self.placeholder_vte = Placeholder_HSF_VTE(config)
         # 模型主要组件
         self.blocks = nn.ModuleList([BoundedFluidMoBlock(config) for _ in range(config.num_layers)])
         self.observer = TrueMacroObserver(config)
@@ -767,48 +815,75 @@ class Alpha_HSF_V5_Engine(nn.Module):
         #ROPE 频率预计算
         self.freqs_cis = precompute_freqs_cis_1d(config.dim_form // config.num_heads, config.max_position_embeddings)
 
-    def get_masks(self, B, S_prompt, S_sink, S_out, device):
+    def get_masks(self, B, S_prompt, S_text, S_sink, S_out, text_sizes, image_sizes, device):
         S = S_prompt + S_sink + S_out
-        p_mask = torch.zeros(B, S, 1, dtype=torch.bool, device=device)
-        s_mask = torch.zeros_like(p_mask); o_mask = torch.zeros_like(p_mask)
-        p_mask[:, :S_prompt] = True
-        s_mask[:, S_prompt:S_prompt+S_sink] = True
-        o_mask[:, S_prompt+S_sink:] = True
-        return {'prompt': p_mask, 'sink': s_mask, 'output': o_mask}
 
-    def forward(self, input_ids, image_pixels=None, attention_mask=None, target_shape=1024, modality="text"):
-        B, S_prompt = input_ids.shape
+        p_mask = torch.zeros(B, S, 1, dtype=torch.bool, device=device)
+        # 设置真正的mask
+        pos = torch.arange(S_prompt, device=device).unsqueeze(0) # 构造位置索引矩阵 (1, prompt_len)
+        text_valid = pos < text_sizes.unsqueeze(1)                # 文字有效区域 (B, prompt_len)
+        if image_sizes is not None:
+            img_lens = image_sizes[:, 0] * image_sizes[:, 1]          # (B,)
+            img_valid = (pos >= S_text) & (pos < S_text + img_lens.unsqueeze(1))
+            local_mask = text_valid | img_valid                         # (B, prompt_len)
+            p_mask[:, S_sink:S_sink+S_prompt] = local_mask.unsqueeze(-1)
+        else:
+            p_mask[:, S_sink:S_sink+S_prompt] = text_valid.unsqueeze(-1)
+            
+        s_mask = torch.zeros_like(p_mask); 
+        s_mask[:, :S_sink] = True
+
+        o_mask = torch.zeros_like(p_mask)
+        o_mask[:, S_sink+S_prompt:] = True
+
+        # 计算causal mask的总长度，确保它能覆盖所有输入和输出
+        atten_mask = p_mask | s_mask | o_mask
+
+        i_atten_mask =atten_mask.int()
+        o_causal_mask =  i_atten_mask @ i_atten_mask.transpose(1, 2)
+        o_causal_mask = o_causal_mask.bool()
+
+        return {'prompt': p_mask, 'sink': s_mask, 'output': o_mask, 'atten_mask': atten_mask, 'causal_mask': o_causal_mask}
+
+    def forward(self, input_ids, text_sizes, image_pixels=None, image_sizes=None, max_target_shape=1024, out_modality="text"):
+        # input_ids: [B, S]
+        # text_sizes: [(L_i)], image_sizes: [(H_i, W_i)]
+        # image_pixels: [B, 3, H, W], image_sizes: [(H_i, W_i)]
+
+        B, S_text = input_ids.shape
         device = input_ids.device
-        
+
         # 1. 创世：真空 VTE 提取
         stream_txt = self.vte_txt(input_ids)
-        
-        
-        # 生成 Sink 和 Output 占位符 (利用大一统词表中的特殊Token或真空噪声)
-        placeholder_ids = torch.zeros(B, S_sink + S_out, dtype=torch.long, device=device)
-        stream_ph = self.vte_txt(placeholder_ids, self.freqs_cis)
-        
-        # 拼合初始空间
-        Tf_init = torch.cat([Tf, stream_ph.T_form], dim=1)
-        Ts_init = torch.cat([Ts, stream_ph.T_sub], dim=1)
-        p_init = torch.cat([p, stream_ph.phase_state], dim=1)
-        
-        masks = self.get_masks(B, S_prompt, S_sink, S_out, device)
+        stream_sink = self.vte_sink(B)
+        stream_placeholder = self.placeholder_vte(B, max_target_shape,out_modality)
+        stream_img = self.vte_img(image_pixels) if image_pixels else None
+
+        # 2. 拼合初始空间
+        S_prompt =S_text
+        if stream_img is not None:
+            S_prompt += stream_img.T_form.size(1) # 图像占用的 Token 数也算在 Prompt 内
+            Tf = torch.cat([stream_sink.T_form, stream_txt.T_form, stream_img.T_form, stream_placeholder.T_form], dim=1)
+            Ts = torch.cat([stream_sink.T_sub, stream_txt.T_sub, stream_img.T_sub, stream_placeholder.T_sub], dim=1)
+            p = torch.cat([stream_sink.phase_state, stream_txt.phase_state, stream_img.phase_state, stream_placeholder.phase_state], dim=1)
+        else:
+            Tf = torch.cat([stream_sink.T_form, stream_txt.T_form,  stream_placeholder.T_form], dim=1)
+            Ts = torch.cat([stream_sink.T_sub, stream_txt.T_sub, stream_placeholder.T_sub], dim=1)
+            p = torch.cat([stream_sink.phase_state, stream_txt.phase_state, stream_placeholder.phase_state], dim=1) 
+
+        S_sink= stream_sink.T_form.size(1)
+        S_out = stream_placeholder.T_form.size(1)
+        S = S_prompt + S_sink + S_out 
+    
+        masks = self.get_masks(B, S_prompt, S_text, S_sink, S_out, text_sizes, image_sizes, device)    
         z_meta = torch.zeros(B, self.config.meta_dim, device=device)
-        
-        Tf_curr, Ts_curr, p_curr = Tf_init, Ts_init, p_init
+        Tf_curr, Ts_curr, p_curr = Tf, Ts, p
 
         # 获取当前时空的自旋联络
-        S = S_prompt + S_sink + S_out
         freqs_cis = self.freqs_cis[:S].to(input_ids.device)
-
-        # 因果掩码
-        causal_mask = torch.ones(S, S, device=input_ids.device)
         # 活跃掩码 (初始所有 Token 都在高速震荡)
-        active_mask = torch.ones((B, S), dtype=torch.bool, device=input_ids.device)
-        # SINK 节点不演化，它是绝对坐标系！强行冻结其状态。
-        active_mask[:, :self.config.num_sinks] = False 
-        
+        active_mask = masks['atten_mask'].squeeze(-1).clone()
+
         # =========================================================
         # 2. 流体全息扩散循环 (FHD-Loop)
         # =========================================================
@@ -822,21 +897,17 @@ class Alpha_HSF_V5_Engine(nn.Module):
             for l, block in enumerate(self.blocks):
                 # 如果所有 Token (除了Sink) 都弛豫了，直接停止宇宙的演化，节省亿万算力！
                 if not active_mask.any():
-                    # print(f"宇宙在第 {layer_idx} 纪元达到热力学稳态，提前结束演化！")
+                    print(f"宇宙在第 {loop_k}-{l} 纪元达到热力学稳态，提前结束演化！")
                     can_stop = True
                     break
 
-
                 Tf_prev, Ts_prev, p_prev = Tf_curr, Ts_curr, p_curr
-                
                 # A. 绝热滑行 (Fluid MoE)
-                Tf_curr, Ts_curr, p_curr, H_route, next_active_mask = block(Tf_prev, Ts_prev,freqs_cis, p_prev, z_meta,active_mask)
-                
+                Tf_curr, Ts_curr, p_curr, H_route, active_mask = block(Tf_prev, Ts_prev, freqs_cis, p_prev, z_meta, masks, active_mask)        
                 # B. 宏观观测 (Observer)
                 obs_state = self.observer(
                     (Tf_prev, Ts_prev, p_prev), (Tf_curr, Ts_curr, p_curr), H_route, masks
                 )
-                
                 # C. 意志演化 (ODE Integration)
                 t_s, t_e = loop_k + l/self.config.num_layers, loop_k + (l+1)/self.config.num_layers
                 z_meta = self.ode(z_meta, obs_state, t_s, t_e)
