@@ -631,6 +631,37 @@ class BoundedFluidMoBlock(nn.Module):
 
 ### 第四部分：宏观意志与全局连续控制 (Macro & ODE)
 
+# =========================================================
+# 1. 创世算子：从初始波包坍缩出宏观意图
+# =========================================================
+class MetaInitializer(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        # 接收 形、质、相 的拼接输入，压缩为全局意志 z_meta
+        in_dim = config.dim_form + config.dim_substance + config.num_heads * 2
+        self.net = nn.Sequential(
+            nn.Linear(in_dim, config.meta_dim * 2),
+            nn.SiLU(),
+            # 使用 Mean Pooling 把序列折叠为全局单点
+            nn.Linear(config.meta_dim * 2, config.meta_dim),
+            nn.Tanh() # 将初始意志限制在规范球面上
+        )
+
+    def forward(self, T_form, T_sub, phase_state):
+        """将序列长度的场，压缩为单一的全局意志向量"""
+        B, S, _ = T_sub.shape
+        # 展平 phase_state:[B, S, H, 2] -> [B, S, H*2]
+        flat_phase = phase_state.view(B, S, -1)
+        
+        # 拼接全息状态:[B, S, D_total]
+        full_state = torch.cat([T_form, T_sub, flat_phase], dim=-1)
+        
+        # 提取全局池化特征 (Global Max Pooling) -> [B, D_total]
+        global_state, _ = full_state.max(dim=1) 
+        
+        # 坍缩出初始宏观意志
+        z_meta_0 = self.net(global_state)
+        return z_meta_0
 
 # =====================================================================
 # 8. 形质双全的宏观观测器 (True Macro Observer)
@@ -810,6 +841,7 @@ class Alpha_HSF_V5_Engine(nn.Module):
         self.placeholder_vte = Placeholder_HSF_VTE(config)
         # 模型主要组件
         self.blocks = nn.ModuleList([BoundedFluidMoBlock(config) for _ in range(config.num_layers)])
+        self.meta_init = MetaInitializer(config)
         self.observer = TrueMacroObserver(config)
         self.ode = GlobalMetaODE(config)
         self.draft_mgr = DraftPaperManager()
@@ -873,17 +905,20 @@ class Alpha_HSF_V5_Engine(nn.Module):
             Tf_init = torch.cat([stream_sink.T_form, stream_txt.T_form, stream_img.T_form, stream_placeholder.T_form], dim=1)
             Ts_init = torch.cat([stream_sink.T_sub, stream_txt.T_sub, stream_img.T_sub, stream_placeholder.T_sub], dim=1)
             p_init = torch.cat([stream_sink.phase_state, stream_txt.phase_state, stream_img.phase_state, stream_placeholder.phase_state], dim=1)
+            # 系统的"自我(z_meta)"在这一刻被给定的宇宙(Prompt)瞬间点亮
+            z_meta = self.meta_init(torch.cat([stream_txt.T_form, stream_img.T_form], dim=1),torch.cat([stream_txt.T_sub, stream_img.T_sub], dim=1),torch.cat([stream_txt.phase_state, stream_img.phase_state], dim=1) )
         else:
             Tf_init = torch.cat([stream_sink.T_form, stream_txt.T_form,  stream_placeholder.T_form], dim=1)
             Ts_init = torch.cat([stream_sink.T_sub, stream_txt.T_sub, stream_placeholder.T_sub], dim=1)
             p_init = torch.cat([stream_sink.phase_state, stream_txt.phase_state, stream_placeholder.phase_state], dim=1) 
+            # 系统的"自我(z_meta)"在这一刻被给定的宇宙(Prompt)瞬间点亮
+            z_meta = self.meta_init(stream_txt, stream_txt.T_sub, stream_txt.phase_state)
 
         S_sink= stream_sink.T_form.size(1)
         S_out = stream_placeholder.T_form.size(1)
         S = S_prompt + S_sink + S_out 
     
-        masks = self.get_masks(B, S_prompt, S_text, S_sink, S_out, text_sizes, image_sizes, target_shapes, device)    
-        z_meta = torch.zeros(B, self.config.meta_dim, device=device)
+        masks = self.get_masks(B, S_prompt, S_text, S_sink, S_out, text_sizes, image_sizes, target_shapes, device)
         Tf_curr, Ts_curr, p_curr = Tf_init, Ts_init, p_init
 
         # 获取当前时空的自旋联络
