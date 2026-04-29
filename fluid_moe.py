@@ -605,10 +605,10 @@ class BoundedFluidMoBlock(nn.Module):
         # 早停检测：如果质的变化小于某个阈值，就认为该 Token 已经找到一个满意的势能极小值，进入弛豫状态，不再参与后续的演化
         self.relax_thresh = config.relaxation_thresh
 
-    def forward(self, T_f, T_s, freqs_cis, phase_state, z_meta, masks, active_mask):
+    def forward(self, T_f, T_s, freqs_cis, phase_state, z_meta, cause_mask, active_mask):
         T_s_prev = T_s.clone()
         # 1. 认知波包干涉
-        T_s_mid, phase_state_next = self.attn(T_f, T_s, freqs_cis, phase_state, z_meta, masks)
+        T_s_mid, phase_state_next = self.attn(T_f, T_s, freqs_cis, phase_state, z_meta, cause_mask)
         # 2. 专家演化
         T_form_next, T_sub_next, H_route = self.moe_fnn(T_f, T_s_mid, z_meta)
 
@@ -644,11 +644,13 @@ class TrueMacroObserver(nn.Module):
             nn.Linear(config.meta_dim*2, config.meta_dim)
         )
 
-    def forward(self, s_prev, s_next, H_route, masks):
+    def forward(self, s_prev, s_next, H_route, active_mask):
         T_f_prev, T_s_prev, p_prev= s_prev
         T_f_next, T_s_next, p_next = s_next
         # 1. 极值提取
         kin_energy = torch.norm(T_s_next - T_s_prev, dim=-1)
+        kin_energy = kin_energy.masked_fill(~active_mask, 0.0)
+
         max_kin, _ = torch.max(kin_energy, dim=-1)
         phase_fric = torch.abs(p_next[..., 0] - p_prev[..., 0]).mean(dim=-1)
         max_fric, _ = torch.max(phase_fric, dim=-1)
@@ -718,8 +720,7 @@ class Text_Inverse_VTE(nn.Module):
     # =================================================================
     def forward(self, semantion):
         """波函数坍缩为 1D 文本符号"""
-        T_sub_evolved = semantion.T_sub
-        T_form_evolved = semantion.T_form
+        T_form_evolved,T_sub_evolved = semantion
         
         # 质的坍缩：在语义上最像哪个词？
         logits_sub = self.text_sub_unembed(T_sub_evolved) 
@@ -759,9 +760,10 @@ class Image_Inverse_VTE(nn.Module):
     # =================================================================
     def forward(self, semantion, H: int, W: int):
         """波函数相变为 2D 物理光场 (RGB像素)"""
-        B = semantion.T_sub.size(0)
-        T_sub_2d = semantion.T_sub.transpose(1, 2).view(B, -1, H, W)
-        T_form_2d = semantion.T_form.transpose(1, 2).view(B, -1, H, W)
+        T_form, T_sub= semantion
+        B = T_sub.size(0)
+        T_sub_2d = T_sub.transpose(1, 2).view(B, -1, H, W)
+        T_form_2d = T_form.transpose(1, 2).view(B, -1, H, W)
         
         # 1. 解码质元：渲染出 RGB 色彩和材质能量
         rgb_content = self.image_sub_decoder(T_sub_2d)
@@ -781,7 +783,9 @@ class DraftPaperManager:
     def __init__(self, alpha_form=0.9):
         self.alpha_form = alpha_form
 
-    def recombine(self, Tf_i, Ts_i, p_i, Tf_p, Ts_p, p_p, masks):
+    def recombine(self, s_init,s_now, masks):
+        Tf_i, Ts_i, p_i=s_init
+        Tf_p, Ts_p, p_p=s_now
         # 质、相完全继承 (保持记忆与干涉)
         Ts_n = torch.where(masks['prompt'], Ts_i, Ts_p)
         p_n  = torch.where(masks['prompt'], p_i, p_p)
@@ -815,7 +819,7 @@ class Alpha_HSF_V5_Engine(nn.Module):
         #ROPE 频率预计算
         self.freqs_cis = precompute_freqs_cis_1d(config.dim_form // config.num_heads, config.max_position_embeddings)
 
-    def get_masks(self, B, S_prompt, S_text, S_sink, S_out, text_sizes, image_sizes, device):
+    def get_masks(self, B, S_prompt, S_text, S_sink, S_out, text_sizes, image_sizes,target_shapes, device):
         S = S_prompt + S_sink + S_out
 
         p_mask = torch.zeros(B, S, 1, dtype=torch.bool, device=device)
@@ -834,7 +838,9 @@ class Alpha_HSF_V5_Engine(nn.Module):
         s_mask[:, :S_sink] = True
 
         o_mask = torch.zeros_like(p_mask)
-        o_mask[:, S_sink+S_prompt:] = True
+        pos = torch.arange(S_out, device=device).unsqueeze(0) 
+        o_valid = pos < target_shapes.unsqueeze(1)
+        o_mask[:, S_sink+S_prompt:] = o_valid.unsqueeze(-1)
 
         # 计算causal mask的总长度，确保它能覆盖所有输入和输出
         atten_mask = p_mask | s_mask | o_mask
@@ -845,10 +851,11 @@ class Alpha_HSF_V5_Engine(nn.Module):
 
         return {'prompt': p_mask, 'sink': s_mask, 'output': o_mask, 'atten_mask': atten_mask, 'causal_mask': o_causal_mask}
 
-    def forward(self, input_ids, text_sizes, image_pixels=None, image_sizes=None, max_target_shape=1024, out_modality="text"):
+    def forward(self, input_ids, text_sizes, target_shapes, image_pixels=None, image_sizes=None, out_modality="text"):
         # input_ids: [B, S]
         # text_sizes: [(L_i)], image_sizes: [(H_i, W_i)]
         # image_pixels: [B, 3, H, W], image_sizes: [(H_i, W_i)]
+        # target_shapes: [L_o]
 
         B, S_text = input_ids.shape
         device = input_ids.device
@@ -856,28 +863,28 @@ class Alpha_HSF_V5_Engine(nn.Module):
         # 1. 创世：真空 VTE 提取
         stream_txt = self.vte_txt(input_ids)
         stream_sink = self.vte_sink(B)
-        stream_placeholder = self.placeholder_vte(B, max_target_shape,out_modality)
+        stream_placeholder = self.placeholder_vte(B, target_shapes.max().item(), out_modality)
         stream_img = self.vte_img(image_pixels) if image_pixels else None
 
         # 2. 拼合初始空间
         S_prompt =S_text
         if stream_img is not None:
             S_prompt += stream_img.T_form.size(1) # 图像占用的 Token 数也算在 Prompt 内
-            Tf = torch.cat([stream_sink.T_form, stream_txt.T_form, stream_img.T_form, stream_placeholder.T_form], dim=1)
-            Ts = torch.cat([stream_sink.T_sub, stream_txt.T_sub, stream_img.T_sub, stream_placeholder.T_sub], dim=1)
-            p = torch.cat([stream_sink.phase_state, stream_txt.phase_state, stream_img.phase_state, stream_placeholder.phase_state], dim=1)
+            Tf_init = torch.cat([stream_sink.T_form, stream_txt.T_form, stream_img.T_form, stream_placeholder.T_form], dim=1)
+            Ts_init = torch.cat([stream_sink.T_sub, stream_txt.T_sub, stream_img.T_sub, stream_placeholder.T_sub], dim=1)
+            p_init = torch.cat([stream_sink.phase_state, stream_txt.phase_state, stream_img.phase_state, stream_placeholder.phase_state], dim=1)
         else:
-            Tf = torch.cat([stream_sink.T_form, stream_txt.T_form,  stream_placeholder.T_form], dim=1)
-            Ts = torch.cat([stream_sink.T_sub, stream_txt.T_sub, stream_placeholder.T_sub], dim=1)
-            p = torch.cat([stream_sink.phase_state, stream_txt.phase_state, stream_placeholder.phase_state], dim=1) 
+            Tf_init = torch.cat([stream_sink.T_form, stream_txt.T_form,  stream_placeholder.T_form], dim=1)
+            Ts_init = torch.cat([stream_sink.T_sub, stream_txt.T_sub, stream_placeholder.T_sub], dim=1)
+            p_init = torch.cat([stream_sink.phase_state, stream_txt.phase_state, stream_placeholder.phase_state], dim=1) 
 
         S_sink= stream_sink.T_form.size(1)
         S_out = stream_placeholder.T_form.size(1)
         S = S_prompt + S_sink + S_out 
     
-        masks = self.get_masks(B, S_prompt, S_text, S_sink, S_out, text_sizes, image_sizes, device)    
+        masks = self.get_masks(B, S_prompt, S_text, S_sink, S_out, text_sizes, image_sizes, target_shapes, device)    
         z_meta = torch.zeros(B, self.config.meta_dim, device=device)
-        Tf_curr, Ts_curr, p_curr = Tf, Ts, p
+        Tf_curr, Ts_curr, p_curr = Tf_init, Ts_init, p_init
 
         # 获取当前时空的自旋联络
         freqs_cis = self.freqs_cis[:S].to(input_ids.device)
@@ -890,10 +897,6 @@ class Alpha_HSF_V5_Engine(nn.Module):
         trajectory_outputs =[]
         can_stop = False
         for loop_k in range(self.config.max_loops):
-            if can_stop:
-                break
-            Ts_loop_start = Ts_curr.detach()
-            
             for l, block in enumerate(self.blocks):
                 # 如果所有 Token (除了Sink) 都弛豫了，直接停止宇宙的演化，节省亿万算力！
                 if not active_mask.any():
@@ -903,31 +906,27 @@ class Alpha_HSF_V5_Engine(nn.Module):
 
                 Tf_prev, Ts_prev, p_prev = Tf_curr, Ts_curr, p_curr
                 # A. 绝热滑行 (Fluid MoE)
-                Tf_curr, Ts_curr, p_curr, H_route, active_mask = block(Tf_prev, Ts_prev, freqs_cis, p_prev, z_meta, masks, active_mask)        
+                Tf_curr, Ts_curr, p_curr, H_route, active_mask = block(Tf_prev, Ts_prev, freqs_cis, p_prev, z_meta, masks['causal_mask'], active_mask)        
                 # B. 宏观观测 (Observer)
                 obs_state = self.observer(
-                    (Tf_prev, Ts_prev, p_prev), (Tf_curr, Ts_curr, p_curr), H_route, masks
+                    (Tf_prev, Ts_prev, p_prev), (Tf_curr, Ts_curr, p_curr), H_route, active_mask
                 )
                 # C. 意志演化 (ODE Integration)
                 t_s, t_e = loop_k + l/self.config.num_layers, loop_k + (l+1)/self.config.num_layers
                 z_meta = self.ode(z_meta, obs_state, t_s, t_e)
 
             # 记录本轮结果
-            logits_k = self.unembed(Ts_curr)
+            logits_k = self.text_unembed((Tf_curr, Ts_curr))
             trajectory_outputs.append(logits_k)
-            
-            # 动态早停：热力学弛豫检测
-            kinetic_E = torch.norm(Ts_curr[masks['output'].squeeze(-1)] - Ts_loop_start[masks['output'].squeeze(-1)], dim=-1).mean()
-            if kinetic_E < self.config.early_stop_thresh:
+            if can_stop:
+                # 动态早停：热力学弛豫检测
                 break
-                
             # 草稿纸拓扑重组
             Tf_curr, Ts_curr, p_curr = self.draft_mgr.recombine(
-                Tf_init, Ts_init, p_init, Tf_curr, Ts_curr, p_curr, masks
+                (Tf_init, Ts_init, p_init), (Tf_curr, Ts_curr, p_curr), masks
             )
             # 切断反向传播，实现时间轴上的空间代偿
             Tf_curr, Ts_curr, p_curr = Tf_curr.detach(), Ts_curr.detach(), p_curr.detach()
-            
         return trajectory_outputs
 
 # =====================================================================
