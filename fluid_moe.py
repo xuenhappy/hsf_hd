@@ -185,7 +185,8 @@ class Sink_HSF_VTE(nn.Module):
         f_end = self.config.dim_form
         t_end = f_end + self.config.num_heads
         
-        raw_sub   = torch.zeros(batch_size, self.config.sink_num, self.config.dim_sub, device=unified_state.device) # Sink没有质，只有形和相
+        raw_sub = torch.zeros(batch_size, self.config.sink_num, self.config.dim_sub, device=unified_state.device) # Sink没有质，只有形和相
+        raw_sub += torch.randn_like(raw_sub) * 0.01 # 给质元一个微小的随机扰动，防止完全冻结
         raw_form  = unified_state[..., 0:f_end]
         raw_theta = unified_state[..., f_end:t_end] 
         raw_theta += torch.randn_like(raw_theta) * self.config.T_init
