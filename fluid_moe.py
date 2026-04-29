@@ -771,10 +771,14 @@ class GlobalMetaODE(nn.Module):
         self.field = MacroVectorField(config)
 
     def forward(self, z_prev, obs_state, t_start, t_end):
-        self.field.obs_state = obs_state
+        self.field.update_observation(obs_state)
         t_span = torch.tensor([t_start, t_end], dtype=torch.float32, device=z_prev.device)
-        # O(1) 显存连续积分
-        z_traj = odeint(self.field, z_prev, t_span, method='rk4', options={'step_size':0.1})
+        # O(1) 显存连续积分，放弃 fixed step_size，让大自然的曲率自己决定走多快
+        z_traj = odeint(
+            self.field, z_prev, t_span, 
+            method='dopri5',   # 自适应步长
+            atol=1e-4, rtol=1e-4 # 当地形崎岖(误差大)时，步长自动缩短到 0.001
+        )
         return z_traj[-1]
 
 
@@ -979,6 +983,7 @@ class Alpha_HSF_V5_Engine(nn.Module):
         # =========================================================
         trajectory_outputs =[]
         can_stop = False
+        ode_time_delta = 1.0/self.config.num_layers
         for loop_k in range(self.config.max_loops):
             for l, block in enumerate(self.blocks):
                 # 如果所有 Token (除了Sink) 都弛豫了，直接停止宇宙的演化，节省亿万算力！
@@ -995,7 +1000,8 @@ class Alpha_HSF_V5_Engine(nn.Module):
                     (Tf_prev, Ts_prev, p_prev), (Tf_curr, Ts_curr, p_curr), H_route, active_mask
                 )
                 # C. 意志演化 (ODE Integration)
-                t_s, t_e = loop_k + l/self.config.num_layers, loop_k + (l+1)/self.config.num_layers
+                t_s = float(loop_k * self.config.num_layers + l)
+                t_e = float(t_s + 1.0)
                 z_meta = self.ode(z_meta, obs_state, t_s, t_e)
 
             # 记录本轮结果
