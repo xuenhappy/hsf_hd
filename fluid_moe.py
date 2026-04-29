@@ -32,7 +32,7 @@ class HSFConfig:
         
         # --- 动力学循环参数 ---
         self.max_loops = 15              # 草稿纸最大扩散次数
-        self.early_stop_thresh = 1e-3    # 动能弛豫阈值 (停止思考的判据)
+        self.relaxation_thresh = 1e-3    # 动能弛豫阈值 (停止思考的判据)
         self.alpha_form = 0.9            # 形的弹性回复系数
 
 # =====================================================================
