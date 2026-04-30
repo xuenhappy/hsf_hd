@@ -138,6 +138,9 @@ class HomeostaticResidual(nn.Module):
         
         return x_out
 
+# ---------------------------------------------------------
+# 工具：1D 认知流形的自旋联络 (1D RoPE)
+# ---------------------------------------------------------
 def precompute_freqs_cis_1d(dim: int, end: int, theta: float = 10000.0):
     freqs = 1.0 / (theta ** (torch.arange(0, dim, 2)[: (dim // 2)].float() / dim))
     t = torch.arange(end)
@@ -153,6 +156,189 @@ def apply_rotary_emb(xq, xk, freqs_cis):
     xk_out = torch.view_as_real(xk_ * freqs_cis).flatten(3)
     return xq_out.type_as(xq), xk_out.type_as(xk)
 
+
+# ---------------------------------------------------------
+# 工具：2D 认知流形的自旋联络 (2D RoPE)
+# ---------------------------------------------------------
+def precompute_freqs_cis_2d(dim: int, height: int, width: int, theta: float = 10000.0):
+    """预计算二维时空的本征旋转频率 (X轴与Y轴解耦的自旋联络)"""
+    dim_half = dim // 2
+    freqs = 1.0 / (theta ** (torch.arange(0, dim_half, 2)[: (dim_half // 2)].float() / dim_half))
+    
+    t_h = torch.arange(height, device=freqs.device)
+    t_w = torch.arange(width, device=freqs.device)
+    
+    freqs_h = torch.outer(t_h, freqs).float()
+    freqs_w = torch.outer(t_w, freqs).float()
+    
+    # 转化为复数形式的旋转算子 exp(i * theta)
+    freqs_cis_h = torch.polar(torch.ones_like(freqs_h), freqs_h)
+    freqs_cis_w = torch.polar(torch.ones_like(freqs_w), freqs_w)
+    
+    return freqs_cis_h, freqs_cis_w
+
+
+def apply_rotary_emb_2d(xq: torch.Tensor, xk: torch.Tensor, 
+                        freqs_cis_h: torch.Tensor, freqs_cis_w: torch.Tensor):
+    """
+    二维流形上的自旋联络 (2D Spin Connection)
+    通过 2D RoPE 补偿连续物理光场在网格离散化过程中的几何偏转。
+    
+    参数:
+        xq, xk: 形流张量的 Query 和 Key, shape[Batch, SeqLen, NumHeads, HeadDim] 
+                其中 SeqLen = Height * Width
+        freqs_cis_h: Y轴(高)方向的本征旋转频率, shape [Height, HeadDim // 4] (复数)
+        freqs_cis_w: X轴(宽)方向的本征旋转频率, shape[Width, HeadDim // 4] (复数)
+    """
+    B, S, H_heads, D = xq.shape
+    H_img = freqs_cis_h.shape[0]
+    W_img = freqs_cis_w.shape[0]
+    
+    # 物理防呆检查：确保张量展平的拓扑体积守恒
+    assert S == H_img * W_img, "Sequence length (S) must match topological area (H * W)"
+    
+    # =====================================================================
+    # 相变 I：从实数欧氏空间升维至复数希尔伯特空间 (Complex Space Projection)
+    # 物理意义：将线性向量转化为可发生相位旋转的波函数
+    # [B, S, H_heads, D] -> [B, S, H_heads, D // 2] (Complex)
+    # =====================================================================
+    xq_complex = torch.view_as_complex(xq.float().reshape(*xq.shape[:-1], -1, 2))
+    xk_complex = torch.view_as_complex(xk.float().reshape(*xk.shape[:-1], -1, 2))
+    
+    # =====================================================================
+    # 相变 II：正交子流形联络的合成 (Synthesis of Spin Connection)
+    # 物理意义：在 2D 空间中，上下(H)和左右(W)是正交的。
+    # 我们将 HeadDim 的一半分配给 Y 轴，另一半分配给 X 轴，互不干涉。
+    # =====================================================================
+    # freqs_cis_h: [H_img, D // 4] ->[H_img, 1, D // 4] -> [H_img, W_img, D // 4]
+    freqs_h_broadcast = freqs_cis_h.unsqueeze(1).expand(-1, W_img, -1)
+    
+    # freqs_cis_w:[W_img, D // 4] -> [1, W_img, D // 4] ->[H_img, W_img, D // 4]
+    freqs_w_broadcast = freqs_cis_w.unsqueeze(0).expand(H_img, -1, -1)
+    
+    # 沿特征维度拼接，形成完整的 2D 自旋联络张量 [H_img, W_img, D // 2] (Complex)
+    freqs_cis_2d = torch.cat([freqs_h_broadcast, freqs_w_broadcast], dim=-1)
+    
+    # 展平空间维度以匹配 Sequence Length -> [S, D // 2]
+    freqs_cis_2d = freqs_cis_2d.view(S, -1)
+    
+    # 扩充维度以进行全息广播 -> [1, S, 1, D // 2]
+    freqs_cis_2d = freqs_cis_2d.unsqueeze(0).unsqueeze(2)
+    
+    # =====================================================================
+    # 相变 III：平行移动 (Parallel Transport on the Manifold)
+    # 物理意义：复数相乘等价于在李群 U(1) 上的绝对相位旋转。
+    # 它在不改变语义动能(模长)的情况下，强行修正了波包的拓扑切向量！
+    # =====================================================================
+    xq_out_complex = xq_complex * freqs_cis_2d
+    xk_out_complex = xk_complex * freqs_cis_2d
+    
+    # =====================================================================
+    # 相变 IV：波函数坍缩回实数空间，完成几何导向
+    # =====================================================================
+    xq_out = torch.view_as_real(xq_out_complex).flatten(3)
+    xk_out = torch.view_as_real(xk_out_complex).flatten(3)
+    
+    return xq_out.type_as(xq), xk_out.type_as(xk)
+
+
+# ---------------------------------------------------------
+# 工具：3D 认知流形的自旋联络 (3D RoPE)
+# 将高维特征空间正交切分为 T, H, W 三个物理维度
+# ---------------------------------------------------------
+def precompute_freqs_cis_3d(dim: int, frames: int, height: int, width: int, theta: float = 10000.0):
+    """预计算 3D 时空的本征旋转频率 (T, X, Y 解耦的自旋联络)"""
+    # 确保特征维度可以被 3 整除，以分配给时间、高、宽
+    assert dim % 3 == 0, "Dimension must be divisible by 3 for 3D RoPE"
+    dim_third = dim // 3
+    
+    freqs = 1.0 / (theta ** (torch.arange(0, dim_third, 2)[: (dim_third // 2)].float() / dim_third))
+    
+    t_t = torch.arange(frames, device=freqs.device)
+    t_h = torch.arange(height, device=freqs.device)
+    t_w = torch.arange(width, device=freqs.device)
+    
+    #[Frames, Dim/6]
+    freqs_t = torch.outer(t_t, freqs).float()
+    freqs_h = torch.outer(t_h, freqs).float()
+    freqs_w = torch.outer(t_w, freqs).float()
+    
+    # 转复数，生成旋转算子
+    freqs_cis_t = torch.polar(torch.ones_like(freqs_t), freqs_t)
+    freqs_cis_h = torch.polar(torch.ones_like(freqs_h), freqs_h)
+    freqs_cis_w = torch.polar(torch.ones_like(freqs_w), freqs_w)
+    
+    return freqs_cis_t, freqs_cis_h, freqs_cis_w
+
+def apply_rotary_emb_2d_and_time(xq: torch.Tensor, xk: torch.Tensor, 
+                                 freqs_cis_t: torch.Tensor, 
+                                 freqs_cis_h: torch.Tensor, 
+                                 freqs_cis_w: torch.Tensor):
+    """
+    3D 时空流形自旋联络 (3D Spatiotemporal Spin Connection)
+    为形元张量 (T_form) 提供严格的 2+1D 洛伦兹协变性补偿，消除时空混叠幻觉。
+    
+    参数:
+        xq, xk: 形流的 Query 和 Key, shape [Batch, SeqLen, NumHeads, HeadDim]
+                注意：SeqLen = T_grid * H_grid * W_grid
+        freqs_cis_t: 时间轴 (T) 的本征频率, shape [T_grid, HeadDim // 6] (复数)
+        freqs_cis_h: 高度轴 (H) 的本征频率, shape[H_grid, HeadDim // 6] (复数)
+        freqs_cis_w: 宽度轴 (W) 的本征频率, shape [W_grid, HeadDim // 6] (复数)
+    """
+    B, S, H_heads, D = xq.shape
+    
+    # 提取物理时空网格的绝对尺度
+    T_grid = freqs_cis_t.shape[0]
+    H_grid = freqs_cis_h.shape[0]
+    W_grid = freqs_cis_w.shape[0]
+    
+    # 物理防呆检查：确保量子化切片的时空体积守恒
+    assert S == T_grid * H_grid * W_grid, "Sequence length must match T * H * W volume!"
+    assert D % 3 == 0, "HeadDim must be divisible by 3 for orthogonal T, H, W splitting"
+    
+    # =====================================================================
+    # 相变 I：将实数切向量升维至复数希尔伯特空间
+    # [B, S, H_heads, D] ->[B, S, H_heads, D // 2] (Complex)
+    # =====================================================================
+    xq_complex = torch.view_as_complex(xq.float().reshape(*xq.shape[:-1], -1, 2))
+    xk_complex = torch.view_as_complex(xk.float().reshape(*xk.shape[:-1], -1, 2))
+    
+    # =====================================================================
+    # 相变 II：合成时空正交的三维规范联络 (Orthogonal Gauge Synthesis)
+    # 物理意义：时间、X轴、Y轴在底流形上是绝对正交的。
+    # 我们通过全息广播 (Broadcasting) 将一维频率交织为 3D 晶格的旋转张量。
+    # =====================================================================
+    
+    # 1. 广播时间维度 T: [T, 1, 1, D/6] ->[T, H, W, D/6]
+    freqs_t_ext = freqs_cis_t.view(T_grid, 1, 1, -1).expand(T_grid, H_grid, W_grid, -1)
+    
+    # 2. 广播高度维度 H: [1, H, 1, D/6] ->[T, H, W, D/6]
+    freqs_h_ext = freqs_cis_h.view(1, H_grid, 1, -1).expand(T_grid, H_grid, W_grid, -1)
+    
+    # 3. 广播宽度维度 W:[1, 1, W, D/6] -> [T, H, W, D/6]
+    freqs_w_ext = freqs_cis_w.view(1, 1, W_grid, -1).expand(T_grid, H_grid, W_grid, -1)
+    
+    # 4. 正交拼接：形成完整的 2+1D 联络矩阵 [T, H, W, D/2]
+    freqs_cis_3d = torch.cat([freqs_t_ext, freqs_h_ext, freqs_w_ext], dim=-1)
+    
+    # 5. 展平为一维序列并匹配批次维度 -> [1, S, 1, D/2]
+    freqs_cis_3d = freqs_cis_3d.view(S, -1).unsqueeze(0).unsqueeze(2)
+    
+    # =====================================================================
+    # 相变 III：执行三维平行移动 (3D Parallel Transport)
+    # 物理意义：复数相乘 = 相位空间的 U(1) 群旋转。
+    # 它在不改变语义动能(模长)的前提下，强行将波包在时间与空间坐标上对齐。
+    # =====================================================================
+    xq_out_complex = xq_complex * freqs_cis_3d
+    xk_out_complex = xk_complex * freqs_cis_3d
+    
+    # =====================================================================
+    # 相变 IV：波函数坍缩回实数黎曼流形
+    # =====================================================================
+    xq_out = torch.view_as_real(xq_out_complex).flatten(3)
+    xk_out = torch.view_as_real(xk_out_complex).flatten(3)
+    
+    return xq_out.type_as(xq), xk_out.type_as(xk)
 
 
 ### 第一部分：宇宙常数与物理边界 (Configuration & Quarantine)
