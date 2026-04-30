@@ -409,63 +409,51 @@ class HolographicCoherentAttention(nn.Module):
         return T_s_new, phase_state_new
 
 
-class CognitiveSurprisalExtractor(nn.Module):
+
+@torch.no_grad()
+def surprisal_extractor(T_sub_prev, T_sub_next, theta_prev, theta_next, router_probs,alpha=1.0, beta=1.0, gamma=0.5):
     """
     认知惊奇提取器 (Cognitive Surprisal Extractor)
     物理职责：在推理(Inference)或演化(Evolution)期，实时计算认知场在当前流形局部产生的内生热力学惊奇能量。
+
+    输入:
+        T_sub_prev, T_sub_next:[B, S, D] 演化前后的质元能量态
+        theta_prev, theta_next:[B, S, H] 演化前后的本征相位
+        router_probs: [B, S, Num_Experts] 目的论路由器的概率分布
+        ext_loss: [B, S] (可选) 来自外部环境或 Next-Token 预测的真实物理激波
+    输出:
+        surprisal_energy: [B, S] 序列中每个 Token 的总惊奇能量密度
     """
-    def __init__(self, alpha=1.0, beta=1.0, gamma=0.5, delta=1.0):
-        super().__init__()
-        # 物理感受系数 (Sensitivity Coefficients)
-        # 将其设为可学习参数，允许系统在重整化群流中自发调节"痛觉"敏感度
-        self.alpha = nn.Parameter(torch.tensor(alpha)) # 几何应力敏感度 (质元位移)
-        self.beta = nn.Parameter(torch.tensor(beta))   # 相位摩擦敏感度 (Kuramoto 扭转)
-        self.gamma = nn.Parameter(torch.tensor(gamma)) # 路由纠结敏感度 (相空间分岔熵)
-        self.delta = nn.Parameter(torch.tensor(delta)) # 外部强迫源敏感度 (如预测Loss)
+    # ==============================================================
+    # 1. 几何应力 (Geometric Stress) 
+    # 物理意义：思维流包 (质元) 在底流形上演化时发生的动量改变。
+    # 改变越大，说明遇到的流形曲率(阻力)越大，做功越多。
+    # ==============================================================
+    stress_energy = torch.norm(T_sub_next - T_sub_prev, dim=-1) # [B, S]
 
-    def forward(self, T_sub_prev, T_sub_next, theta_prev, theta_next, router_probs):
-        """
-        输入:
-            T_sub_prev, T_sub_next:[B, S, D] 演化前后的质元能量态
-            theta_prev, theta_next:[B, S, H] 演化前后的本征相位
-            router_probs: [B, S, Num_Experts] 目的论路由器的概率分布
-            ext_loss: [B, S] (可选) 来自外部环境或 Next-Token 预测的真实物理激波
-        输出:
-            surprisal_energy: [B, S] 序列中每个 Token 的总惊奇能量密度
-        """
-        # ==============================================================
-        # 1. 几何应力 (Geometric Stress) 
-        # 物理意义：思维流包 (质元) 在底流形上演化时发生的动量改变。
-        # 改变越大，说明遇到的流形曲率(阻力)越大，做功越多。
-        # ==============================================================
-        stress_energy = torch.norm(T_sub_next - T_sub_prev, dim=-1) # [B, S]
+    # ==============================================================
+    # 2. 相位摩擦 (Phase Friction) 
+    # 物理意义：在 Kuramoto 锁相动力学中，由于外界强行拉扯导致的相位跃迁。
+    # 对应于"顿悟"的火花，或者被强迫改变观念时的"认知撕裂感"。
+    # ==============================================================
+    phase_friction = torch.abs(theta_next - theta_prev) # [B, S, H]
+    phase_energy = phase_friction.mean(dim=-1)          # [B, S]
 
-        # ==============================================================
-        # 2. 相位摩擦 (Phase Friction) 
-        # 物理意义：在 Kuramoto 锁相动力学中，由于外界强行拉扯导致的相位跃迁。
-        # 对应于"顿悟"的火花，或者被强迫改变观念时的"认知撕裂感"。
-        # ==============================================================
-        phase_friction = torch.abs(theta_next - theta_prev) # [B, S, H]
-        phase_energy = phase_friction.mean(dim=-1)          # [B, S]
+    # ==============================================================
+    # 3. 路由困惑度 (Routing Entropy)
+    # 物理意义：衡量在多岔路口(Expert子流形)的纠结程度。
+    # 熵越大，说明系统在多种等价路径间发生叠加，这是产生高度创造性(或迷茫)的标志。
+    # ==============================================================
+    # 加上 1e-9 防止 log(0) 产生数学奇点黑洞
+    router_entropy = -torch.sum(router_probs * torch.log(router_probs + 1e-9), dim=-1) # [B, S]
 
-        # ==============================================================
-        # 3. 路由困惑度 (Routing Entropy)
-        # 物理意义：衡量在多岔路口(Expert子流形)的纠结程度。
-        # 熵越大，说明系统在多种等价路径间发生叠加，这是产生高度创造性(或迷茫)的标志。
-        # ==============================================================
-        # 加上 1e-9 防止 log(0) 产生数学奇点黑洞
-        router_entropy = -torch.sum(router_probs * torch.log(router_probs + 1e-9), dim=-1) # [B, S]
+    # ==============================================================
+    # 4. 热力学总能量合成 (Thermodynamic Energy Synthesis)
+    # 使用 F.softplus 确保所有感受系数为正，满足热力学能量非负的公理
+    # ==============================================================
+    surprisal_energy = alpha * stress_energy + beta  * phase_energy + gamma * router_entropy
 
-        # ==============================================================
-        # 4. 热力学总能量合成 (Thermodynamic Energy Synthesis)
-        # 使用 F.softplus 确保所有感受系数为正，满足热力学能量非负的公理
-        # ==============================================================
-        surprisal_energy = (F.softplus(self.alpha) * stress_energy +
-                            F.softplus(self.beta)  * phase_energy +
-                            F.softplus(self.gamma) * router_entropy)
-
-
-        return surprisal_energy
+    return surprisal_energy
 
 
 class ThermodynamicMemoryBank(nn.Module):
@@ -508,10 +496,11 @@ class ThermodynamicMemoryBank(nn.Module):
         self.register_buffer('mem_size', torch.tensor(0, dtype=torch.int64))  # 当前有效记忆量
         self.register_buffer('current_time', torch.tensor(0, dtype=torch.int64)) # 绝对物理时钟
         
-        self.surprisal_extractor = CognitiveSurprisalExtractor()
+
         self.layer_norm = nn.LayerNorm(config.dim_substance)
         self.kuramoto_k = 0.2 # 记忆对当下的相位拖拽系数
         
+    @torch.no_grad()
     def tick(self):
         """推进全局物理时钟"""
         self.current_time += 1
@@ -526,11 +515,7 @@ class ThermodynamicMemoryBank(nn.Module):
         theta_next = phase_state_next[..., 0]
         
         # 1. 计算热力学惊奇能量 [B, S]
-        surprisal_energy = self.surprisal_extractor(
-            T_sub_prev=T_sub_prev, T_sub_next=T_sub_next, 
-            theta_prev=theta_prev, theta_next=theta_next, 
-            router_probs=router_probs
-        )
+        surprisal_energy = surprisal_extractor(T_sub_prev, T_sub_next, theta_prev, theta_next, router_probs)
         
         # 2. 物理相变过滤 (Topological Filtering)
         # 仅保留：活跃状态 (排除Padding/Prompt冻结区) 且 惊奇度击穿阈值
