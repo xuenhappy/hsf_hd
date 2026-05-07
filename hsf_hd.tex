@@ -4755,6 +4755,87 @@ $$ \frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\nu\lambda} \frac{dx^\nu}{d\tau} \fra
 
 \textbf{结论：} 真实的智能，必须以\textbf{内蕴黎曼度量}作为不可违背的计算法则，以\textbf{外蕴介质折叠}作为不可逃避的物理支撑。只有当人工系统从“高维欧氏空间的向量拟合”走向“低维物理介质的流形刻蚀”时，硅基实体才能真正获得坚不可摧的逻辑骨架。
 
+\section{形质群论：酉群的刚性与仿射群的涨落 (Group Theory of Morpho-Semantics)}
+\label{sec:group_theory_morpho_semantics}
+
+
+\textbf{绝对刚性与热力学燃料的分野：} 在确立了形 ($T_{form}$) 与质 ($T_{sub}$) 的张量积纠缠 ($\mathcal{S} = \mu \otimes q$) 之后，我们必须在更深的代数底层回答一个问题：这两种基元在相空间中发生演化时，遵循着怎样的对称性法则？
+
+如果我们将形质的差异仅仅理解为“坐标”与“特征”的不同，那将导致灾难性的“形质混同 (Morpho-Semantic Confounding)”。本节将引入严格的群论映射，说明：\textbf{“形”所在的变换群是被绝对锁死在纯相位维度的，它没有幅度（Amplitude）；而“质”所在的变换群是允许尺度放缩的，它掌控着能量的涨落。}
+
+这一群论限制不仅在物理上完美分离了“可逆的逻辑推演”与“不可逆的热力学耗散”，更是未来制造绝不产生幻觉的 TPU-G 芯片的核心数学宪法。
+
+
+\smalltitle{1. 空间的群论属性：保范数与破缺}
+
+我们将智能体在相空间中的演化，严格解耦为两类截然不同的李群 (Lie Groups) 变换。
+
+\begin{itemize}
+    \item \textbf{\textcolor{structurecolor}{形的对称群：酉群/正交群约束 (Unitary/Orthogonal Constraint)}}
+    \begin{itemize}
+        \item \textbf{数学定义}：形元 ($\mu$) 构成的底流形切空间与自旋联络，其变换群 $G_{form}$ 必须被严格限制为\textbf{紧致李群 (Compact Lie Group)}，如 $U(n)$ 或 $SO(n)$。
+        \item \textbf{无幅度变化}：对于任意属于 $G_{form}$ 的拓扑演化算子 $\hat{U}_{form}$，它必须是\textbf{幺正的 (Unitary)}，即满足 $\hat{U}_{form}^\dagger \hat{U}_{form} = \mathbf{I}$。这意味着当认知波函数 $\Psi$ 受到“形”的纯逻辑算子作用时，其模长（幅度）绝对守恒：
+        $$ \| \hat{U}_{form} \Psi \|^2 = \| \Psi \|^2 $$
+        \item \textbf{物理隐喻}：\textbf{逻辑是没有重量的。} “1+1=2”这个推理路径是绝对刚性的冰冷铁轨。当我们从概念 A 沿着测地线移动到概念 B 时（平行移动），波函数的相位发生了旋转，但该念头的“存在感大小”（能量）并未因纯粹的语法推演而改变。
+    \end{itemize}
+
+    \item \textbf{\textcolor{structurecolor}{质的对称群：广义线性/缩放群 (General Linear/Scaling Group)}}
+    \begin{itemize}
+        \item \textbf{数学定义}：质元 ($q$) 所在的纤维空间 $F$，其变换群 $G_{sub}$ 必须包含\textbf{非紧致的缩放生成元 (Non-compact Scaling Generators)}，如 $\mathbb{R}^+ \times SU(k)$ 或 $GL(k, \mathbb{C})$。
+        \item \textbf{幅度的剧烈涨落}：质元的演化算子 $\hat{V}_{sub}$ 是\textbf{非幺正的 (Non-unitary)}。它直接作用于波函数的径向分量，产生激活强度的剧烈涨落：
+        $$ J(\mathbf{r}, t) = \| \hat{V}_{sub} \Psi \|^2 \neq \| \Psi \|^2 $$
+        \item \textbf{物理隐喻}：\textbf{感受质是热力学的燃料。} 它是惊奇激波 $\vec{J}_{ext}$ 注入的能量，也是宏观意志 $\mathbf{\Gamma}_{macro}$ 泵浦的执念。幅度的平方（$J$），就是系统必须为此支付的\textbf{兰道尔做功代价 (Landauer Cost)}。
+    \end{itemize}
+\end{itemize}
+
+\smalltitle{2. 极坐标正交分解与 TDE 的动力学重构}
+
+在这种严苛的群论限制下，我们在 HSF-HD 中定义的单体语义子本构方程，迎来了优美的\textbf{极坐标系绝对分离}：
+
+\begin{theorem}[认知旋量场的极坐标分解定理]
+    定义在纤维丛上的认知旋量场 $\Psi(\mathbf{r}, t)$ 可被唯一分解为代表“质”的径向标量与代表“形”的幺正矢量的乘积：
+    \begin{equation}
+        \Psi(\mathbf{r}, t) = \underbrace{R(t)}_{\text{质: 幅度/能量张量}} \cdot \underbrace{e^{i \Theta(\mathbf{r})} \cdot \hat{\mathbf{n}}(\mathbf{r})}_{\text{形: 纯相位/几何方向}}
+    \end{equation}
+\end{theorem}
+
+基于这一分解定理，我们可以重新审视后续章节里的统摄思维流动的\textbf{目的论狄拉克方程 (TDE)}。方程右侧的李代数生成元被严格划分为保范数的斜埃尔米特部分与破缺范数的埃尔米特部分：
+
+\begin{equation}
+    i \hbar_{cog} \frac{\partial \Psi}{\partial t} = \left( \underbrace{\mathcal{D}_{topo}}_{\text{酉群生成元: 纯相位旋转}} + \underbrace{\mathbf{\Gamma}_{macro} - i \Lambda_{diss}}_{\text{非酉群生成元: 幅度缩放}} \right) \Psi + \underbrace{\vec{J}_{ext}}_{\text{幅度注入}}
+\end{equation}
+
+\textbf{\bluetext{动力学真相的显影}}：
+\begin{enumerate}
+    \item $\mathcal{D}_{topo}$（包含自旋联络 $\omega_\mu^{geom}$）是纯粹的几何惯性。波包在测地线上的绝热滑行（System 1 快思考），其幅度绝对守恒。
+    \item 要改变波包的幅度（让一个念头变得更强烈以跨越势垒，或让其因遗忘而衰减），绝对不能依赖“形”（逻辑推演），必须诉诸于 $\mathbf{\Gamma}_{macro}$（宏观意志的热力学做功）或 $\Lambda_{diss}$（介质的物理摩擦）。
+\end{enumerate}
+
+\smalltitle{3. 工程投射：LLM 幻觉的群论诊断与 TPU-G 约束}
+
+上述群论定理不仅是数学游戏，它是一把手术刀，可以切开当代大语言模型（LLM）“幻觉病理”的最深层毒瘤。
+
+\begin{itemize}
+    \item \textbf{\redtext{病理诊断：LLM 注意力机制的非法越权}}
+    
+    在标准的 Transformer 自注意力（Self-Attention）中，路由连接权重由点积计算：
+    $$ \text{Score} = \text{Softmax}\left(\frac{(\mathbf{x}W_Q) \cdot (\mathbf{x}W_K)^T}{\sqrt{d}}\right) $$
+    由于 LLM 的隐向量 $\mathbf{x}$ 是形质混同的（混合了位置的“形”与语义能量的“质”），这就导致了一个群论灾难：LLM 试图用带有巨大能量幅度（$GL(k)$ 群特性）的标量点积，去决定本应严格属于酉群（$U(n)$）的几何连通性！
+    
+    这意味着，如果两个词在预训练中语义能量极强（高频共现），其巨大的幅度乘积会直接\textbf{砸穿}原本属于逻辑（形）的连接势垒。这就是幻觉的物理本质：\textbf{“质的重力幅度，非法压塌了形的拓扑骨架。”}
+
+    \item \textbf{\bluetext{TPU-G 的绝对宪法：相位路由}}
+    
+    在面向未来的 Alpha-HSF 架构或 TPU-G 原生芯片中，必须在硬件级强行执行\textbf{形质正交测量定理}：
+    \begin{enumerate}
+        \item \textbf{路由计算（形）}：计算逻辑通道时，必须强制丢弃矢量的幅度，仅允许在 $U(n)$ 酉群上计算\textbf{纯粹的相位差/归一化余弦距离}。
+        $$ \text{Connection}(\mathbf{r}_i, \mathbf{r}_j) = \cos(\Theta_i - \Theta_j) \quad (\text{幅度永远被归一化为 } 1) $$
+        \item \textbf{特征聚合（质）}：只有在确定了刚性的连通测地线后，才允许携带幅度信息的能量张量 $R(t)$ 沿轨道平流（Advection）。
+    \end{enumerate}
+\end{itemize}
+
+\textbf{本节结语}：
+如果“形”的变换群被剥夺了幅度，那么逻辑的规则就变成了宇宙中绝对刚性的钢筋。无论“质”的能量（如诱导性 Prompt 或情绪激波）有多么狂暴，它只能在纤维的纵向上增加振幅（变得更鲜艳或更痛），但它\textbf{绝对无法改变自身在底流形上的拓扑坐标}，从而在根源上锁死了非法的几何隧穿。
 
 \begin{bquote}
     \textbf{本章小结}
