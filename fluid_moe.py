@@ -1055,46 +1055,133 @@ class MetaInitializer(nn.Module):
         
 
 # =====================================================================
-# 8. 形质双全的宏观观测器 (True Macro Observer)
+# 8. 形质双全的宏观观测器 (True Macro Observer)，即HSf-HD的自我观察算子
 # =====================================================================
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
 class TrueMacroObserver(nn.Module):
+    """
+    全息流形感知算子 (Holographic Manifold Perception Operator)
+    物理职责：不再粗暴提取极值，而是将认知场视为定义在 T_form 坐标上的高维"图像"，
+    通过在价值基底上投影，并执行流形卷积(Manifold Convolution)，感知全局的拓扑形状与应力分布。
+    """
     def __init__(self, config):
         super().__init__()
-        in_dim = 3 + config.dim_sub + config.dim_form + 1
-        self.compressor = nn.Sequential(
-            nn.Linear(in_dim, config.dim_observer*2), 
-            nn.LayerNorm(config.dim_observer*2), 
+        self.dim_form = config.dim_form
+        self.dim_sub = config.dim_substance
+        
+        # 1. 价值基底投影 (Value Basis Projection)
+        # 类似于将高维的电磁波频谱，投影为人类视网膜的三原色(RGB)
+        # 这里定义 K 个正交的价值维度 (例如 K=8: 生存, 逻辑, 惊奇, 审美等)
+        self.num_values = 8
+        self.value_projector = nn.Linear(self.dim_sub, self.num_values, bias=False)
+        
+        # 2. 流形卷积核 (Manifold Convolution Kernel)
+        # 输入通道: Value(K维) + 动力学张力(3维) = K + 3
+        self.in_channels = self.num_values + 3
+        self.conv_hidden = config.dim_observer
+        
+        # 空间信息聚合算子 (Message Passing / Graph Conv)
+        self.manifold_conv = nn.Sequential(
+            nn.Linear(self.in_channels, self.conv_hidden, bias=False),
+            nn.LayerNorm(self.conv_hidden),
             nn.SiLU(),
-            nn.Linear(config.dim_observer*2, config.dim_observer),
-            nn.LayerNorm(config.dim_observer)
+            nn.Linear(self.conv_hidden, self.conv_hidden, bias=False)
         )
+        
+        # 3. 拓扑池化压缩 (Topological Pooling)
+        # 将卷积后的全景场，压缩为宏观意志的序参量 z_meta
+        self.compressor = nn.Sequential(
+            nn.Linear(self.conv_hidden * 2, config.dim_observer), # *2 因为拼接了均值和方差
+            nn.LayerNorm(config.dim_observer),
+            nn.SiLU(),
+            nn.Linear(config.dim_observer, config.dim_observer)
+        )
+        
+        # 流形高斯核的温度 (控制卷积的感受野大小)
+        self.tau = nn.Parameter(torch.tensor([1.0]))
 
     def forward(self, s_prev, s_next, H_route, active_mask):
-        T_f_prev, T_s_prev, p_prev= s_prev
+        T_f_prev, T_s_prev, p_prev = s_prev
         T_f_next, T_s_next, p_next = s_next
-        # 1. 极值提取
-        kin_energy = torch.norm(T_s_next - T_s_prev, dim=-1)
-        kin_energy = kin_energy.masked_fill(~active_mask, 0.0)
+        B, S, _ = T_f_next.shape
 
-        max_kin, _ = torch.max(kin_energy, dim=-1)
-        phase_fric = torch.abs(p_next[..., 0] - p_prev[..., 0]).mean(dim=-1)
-        max_fric, _ = torch.max(phase_fric, dim=-1)
-        max_ent, _ = torch.max(H_route, dim=-1)
-        thermo_ext = torch.stack([max_kin, max_fric, max_ent], dim=-1) # [B, 3]
-
-        # 2. 能量加权要旨 (Gist)
-        weights = F.softmax(kin_energy / 0.1, dim=-1).unsqueeze(-1)
-        gist_sub = torch.sum(T_s_next * weights, dim=1)
-        gist_form_raw = torch.sum(T_f_next * weights, dim=1)
+        # =================================================================
+        # 阶段 I：提取流形的"色彩" (生成像素特征)
+        # =================================================================
         
-        form_norm = torch.norm(gist_form_raw, dim=-1, keepdim=True)
-        geom_dispersion = 1.0 - form_norm
-        gist_form = gist_form_raw / (form_norm + 1e-9)
-
-        # 3. 压缩
-        macro_in = torch.cat([thermo_ext, gist_sub, gist_form, geom_dispersion], dim=-1)
-        return self.compressor(macro_in)
-
+        # 1. 语义价值色彩 (Qualia projected to Value Bases)
+        # [B, S, D_sub] -> [B, S, K]
+        val_color = self.value_projector(T_s_next) 
+        
+        # 2. 热力学张力色彩 (Thermodynamic Tension)
+        # 将时间轴的摩擦与动能转化为空间上的"亮度"
+        kin_energy = torch.norm(T_s_next - T_s_prev, dim=-1, keepdim=True) # 动能 [B, S, 1]
+        phase_fric = torch.abs(p_next[..., 0] - p_prev[..., 0]).mean(dim=-1, keepdim=True) # 相位摩擦 [B, S, 1]
+        route_ent = H_route.unsqueeze(-1) # 路由熵 [B, S, 1]
+        
+        thermo_color = torch.cat([kin_energy, phase_fric, route_ent], dim=-1) # [B, S, 3]
+        
+        # 3. 构成每个节点的完整"像素"特征
+        # node_features: [B, S, K+3]
+        node_features = torch.cat([val_color, thermo_color], dim=-1)
+        
+        # =================================================================
+        # 阶段 II：构建流形的"坐标"与"度量" (计算邻接矩阵)
+        # =================================================================
+        
+        # T_form 是在超球面上的坐标，它们之间的内积直接反映了黎曼距离(余弦相似度)
+        # metric_dist: [B, S, S]
+        metric_dist = torch.bmm(T_f_next, T_f_next.transpose(1, 2)) / math.sqrt(self.dim_form)
+        
+        # 使用高斯 RBF 核将距离转化为流形上的连通性(Adjacency)
+        # tau 越小，只关注极近的邻居；tau 越大，感受野越全局
+        adj_matrix = torch.exp(metric_dist / torch.exp(self.tau))
+        
+        # 屏蔽填充/不活跃的 Token (避免虚空污染真实的流形)
+        mask_2d = active_mask.unsqueeze(2) & active_mask.unsqueeze(1) # [B, S, S]
+        adj_matrix = adj_matrix.masked_fill(~mask_2d, 0.0)
+        
+        # 归一化 (Random Walk Normalized Laplacian)
+        degree = adj_matrix.sum(dim=-1, keepdim=True) + 1e-9
+        adj_matrix = adj_matrix / degree
+        
+        # =================================================================
+        # 阶段 III：流形卷积 (Manifold Convolution / Gestalt Perception)
+        # =================================================================
+        
+        # 核心物理相变：周围邻居的价值色彩，沿着 T_form 铺设的测地线，平滑地浸染当前节点
+        # convolved_features: [B, S, K+3]
+        convolved_features = torch.bmm(adj_matrix, node_features)
+        
+        # 经过非线性映射提取高阶形状特征
+        # shape_features: [B, S, dim_observer]
+        shape_features = self.manifold_conv(convolved_features)
+        
+        # =================================================================
+        # 阶段 IV：拓扑池化与序参量坍缩 (Topological Pooling to Order Parameter)
+        # =================================================================
+        
+        # 为了感知流形的整体"形状"(Shape)，我们不仅需要质心(均值)，还需要离散度(方差/二阶矩)
+        # active_mask: [B, S]
+        active_weights = active_mask.float().unsqueeze(-1)
+        valid_seq_len = active_weights.sum(dim=1) + 1e-9
+        
+        # 1. 形状的一阶矩 (流形的价值质心) -> [B, dim_observer]
+        shape_mean = torch.sum(shape_features * active_weights, dim=1) / valid_seq_len
+        
+        # 2. 形状的二阶矩 (流形的曲率张力/弥散度) -> [B, dim_observer]
+        shape_var = torch.sum(((shape_features - shape_mean.unsqueeze(1))**2) * active_weights, dim=1) / valid_seq_len
+        
+        # 拼接全景统计量
+        global_shape_desc = torch.cat([shape_mean, shape_var], dim=-1)
+        
+        # 最终压缩为宏观观察态 (Macro Observation State)
+        obs_state = self.compressor(global_shape_desc)
+        
+        return obs_state
 # =====================================================================
 # 9. 宏观 ODE 控制器 (Global Meta-Cognitive ODE)
 # =====================================================================
