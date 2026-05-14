@@ -1299,7 +1299,7 @@
     \fi
   }{\relax}
   \setlength{\fboxsep}{0pt}
-  \colorbox{coverlinecolor}{\makebox[\linewidth][c]{\shortstack[c]{\vspace{0.5in}}}}
+  \colorbox{white}{\makebox[\linewidth][c]{\shortstack[c]{\vspace{0.5in}}}}
   \vfill
   \vskip-2ex
   \hspace{2em}
