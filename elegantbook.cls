@@ -1288,14 +1288,14 @@
     \ifcsname @cover\endcsname
       \includegraphics[width=\linewidth]{\@cover}
     \else
-      \includegraphics[width=\linewidth]{example-image}
+      \textcolor{white}{\rule{\linewidth}{12cm}}
     \fi
   }{\relax}
   \ifdefstring{\ELEGANT@device}{pad}{
     \ifcsname @cover\endcsname
       \includegraphics[trim=0 26bp 0 26bp,clip=true, width=\linewidth]{\@cover}
     \else
-      \includegraphics[trim=0 26bp 0 26bp,clip=true, width=\linewidth]{example-image}
+      \textcolor{white}{\rule{\linewidth}{12cm}}
     \fi
   }{\relax}
   \setlength{\fboxsep}{0pt}

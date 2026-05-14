@@ -57,7 +57,6 @@
 \institute{panda lab}
 \date{\today}
 \version{1.0}
-\cover{figure/cover.png}
 \logo{figure/balls.pdf}
 
 % ElegantBook 已经包含了 amsmath, hyperref, graphicx 等包，无需重复加载
@@ -38641,5 +38640,14 @@ Golder 论文推导出，在有明确局部强迫源的信息流形中，作为�
 	
 \end{bquote}
 
+% ========== 插入封底页 ==========
+\newpage                % 确保封底另起一页
+\newgeometry{margin=0cm}            % 临时将页边距设为 0
+\thispagestyle{empty}               % 清除页眉页脚（包括页码）
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio=false]{figure/back.png}
+\end{figure}
+\restoregeometry                    % 恢复原有页边距
 
 \end{document}
