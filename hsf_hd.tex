@@ -79,6 +79,20 @@
 
 \begin{document}
 
+% 临时设置当前页面的边距为0
+\newgeometry{margin=0cm}
+% 取消当前页面的页码
+\thispagestyle{empty}
+% 插入图片，并让它占满整个文本区域
+\begin{figure}[p]
+    \centering
+    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio=false]{figure/cover-book.png}
+\end{figure}
+% 恢复全局的页面设置
+\restoregeometry
+% 新起一页，继续文档的其他内容
+\newpage
+
 \maketitle
 \frontmatter
 \chapter*{序言：几何学的挽歌与创世纪的黎明}
