@@ -33623,6 +33623,213 @@ Q-SoC 的出现，使得彭罗斯 (Penrose) 和哈梅罗夫 (Hameroff) 的\textb
     \item \textbf{维度优势}：在 3 维空间打的结，在 4 维空间可能自动解开。\textbf{高维几何计算可以将某些代数上的 NP 问题，转化为几何上的多项式时间（甚至常数时间）的同伦变换问题。}
 \end{itemize}
 
+\section{流形状态机 (MSM)：面向物理与几何计算的大一统理论}
+\label{sec:manifold_state_machine}
+
+在将经典的有限状态机 (DFA) 升维为连续流形自动机 (CMA) 之后，我们必须在理论计算机科学与非平衡态热力学之间建立一座最终的桥梁。经典图灵计算理论圆满回答了\textbf{“什么是逻辑上可计算的函数”}，但在 HSF-HD 的宇宙观中，真实的智能过程绝不表现为离散符号的瞬时跳变，而是连续状态空间中的动力学演化、能量下降与物理资源耗散。
+
+为此，我们正式提出 \textbf{流形状态机 (Manifold State Machine, MSM)}。MSM 并不否定 Church-Turing 论题，而是在有限精度、时间、能量与可观测输出的物理条件下，将其进行\textbf{几何与热力学的宏大重构}。图灵机回答了逻辑的可计算性，而 MSM 回答了：\textbf{“什么在物理中可演化、可测量、可稳定输出？”}
+
+\smalltitle{1. 本体论确立：MSM 的十元组完备定义}
+
+我们将“计算”从离散符号的搬运，重新定义为：\textbf{在具有度量、场结构、输入控制、测量读出与资源约束的状态流形上，系统状态受输入扰动后发生的可控几何演化过程。}
+
+\begin{definition}[流形状态机 / Manifold State Machine]
+    一个完备的流形状态机在数学物理上由十元组严格定义：
+    $$ \mathrm{MSM} = (\mathcal{M}, g, \mathcal{F}, \mathcal{U}, \mu_0, \Phi_t, \Pi, \Sigma_{in}, \Sigma_{out}, \mathcal{R}) $$
+    
+    MSM 的一次完整计算，在时空相空间中表现为一条极其优美的热力学因果链：
+    $$ w \mapsto u_w(t) \mapsto \Phi_t(\mu_0; u_w) \mapsto \Pi(\Phi_T(\mu_0; u_w)) \mapsto \sigma_{out} $$
+    即：离散输入 $w$ $\to$ 诱导连续控制场 $u_w(t)$ $\to$ 驱动初始态 $\mu_0$ 发生几何演化 $\Phi_t$ $\to$ 终态 $\mu_T$ 遭遇非幺正测量 $\Pi$ $\to$ 坍缩为离散符号输出 $\sigma_{out}$。
+\end{definition}
+
+在这十个元要素中，大自然隐藏了计算的全部几何与物理秘密：
+
+\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{I. 空间与度量：$\mathcal{M}$ (状态流形) 与 $g$ (黎曼度量)}}
+\begin{itemize}
+    \item \textbf{状态流形 $\mathcal{M}$}：系统所有可能状态的连续相空间。为了处理不同的物理资源边界，流形在拓扑上分为三类：
+    \begin{enumerate}
+        \item \textbf{紧致 MSM}：体积 $\mathrm{Vol}(\mathcal{M}) < \infty$，适用于资源绝对受限的具身智能体与局部感知器。
+        \item \textbf{开放 MSM}：流形非紧致，或允许耦合外部可扩展记忆界 $\mathcal{M} \times \mathcal{W}$，以逼近图灵完备。
+        \item \textbf{双核 MSM}：将离散核 $\mathcal{D}$ 与流形核 $\mathcal{M}$ 进行正交纠缠，$\mathcal{C}_{\mathrm{dual}} = (\mathcal{D}, \mathcal{M}, \mathcal{W}, \Pi_{\mathcal{D}\to\mathcal{M}}, \Pi_{\mathcal{M}\to\mathcal{D}})$，这正是 Alpha-HSF 架构的数学原型。
+    \end{enumerate}
+    \item \textbf{黎曼度量 $g$}：定义了空间内禀的\textbf{逻辑距离} $d_g(x,y)$。在认知空间中，计算某道难题的难度，在物理上严格等价于状态在度量张量下的测地线积分：
+    $$ \text{Problem Difficulty} \sim d_g(x_{\mathrm{input}}, A_{\mathrm{answer}}) = \inf_{\gamma:x\to y} \int_0^1 \sqrt{ g_{\mu\nu}(\gamma(t)) \dot{\gamma}^{\mu}(t) \dot{\gamma}^{\nu}(t) } dt $$
+\end{itemize}
+
+\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{II. 动力学舞台：$\mathcal{F}$ (场结构五元组)}}
+$$ \mathcal{F} = (V, \mathcal{A}, F, \mathcal{B}, \partial\mathcal{M}) $$
+这五个参量构成了智能流形的\textbf{“地形图”}与\textbf{“气候”}：
+\begin{itemize}
+    \item \textbf{$V(x)$ (势能场)}：定义了流形上的引力分布。系统的本能是向势能极小值 $x^* = \arg\min_x V(x)$ 坍缩。
+    \item \textbf{$\mathcal{A}_\mu$ (规范势)}：定义了目的论的牵引力。其产生的曲率 $\mathcal{F}_{\mu\nu} = \partial_\mu \mathcal{A}_\nu - \partial_\nu \mathcal{A}_\mu + [\mathcal{A}_\mu, \mathcal{A}_\nu]$，代表了“注意力偏转”或“价值冲突”带来的认知洛伦兹力。
+    \item \textbf{$F$ (向量场)}：定义动力学的惯性演化方向。
+    \item \textbf{$\mathcal{B}$ (吸引子盆地)}：智能决策的终点。若状态落入某盆地 $B_i = \{x \in \mathcal{M}: \lim_{t\to\infty} \Phi_t(x) \in A_i\}$，则计算收敛。
+    \item \textbf{$\partial\mathcal{M}$ (边界条件)}：划定了流形的物理视界与强迫源接口。
+\end{itemize}
+
+\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{III. 初态与演化：$\mu_0$ (初始状态) 与 $\Phi_t$ (演化流)}}
+真实的智能不可能永远是决定论的质点。初始状态 $\mu_0$ 被严格分为三种量子/统计学级别：
+\begin{itemize}
+    \item \textbf{点态}：$\mu_0 = x_0 \in \mathcal{M}$。经典确定性系统。
+    \item \textbf{分布态}：$\mu_0 = \rho_0(x), \, \int_{\mathcal{M}} \rho_0 d\mathrm{vol}_g = 1$。概率推理系统。
+    \item \textbf{波函数态}：$\mu_0 = \Psi_0(x), \, \int |\Psi_0|^2 d\mathrm{vol}_g = 1$。全息相干波系统。
+\end{itemize}
+
+随之，核心的\textbf{计算演化流 $\Phi_t$} 在不同基质上展现出四种宏伟的物理动力学极值：
+\begin{enumerate}
+    \item \textbf{确定性 MSM (牛顿极值)}：遵循一般的黎曼梯度流 $\frac{dx^i}{dt} = F^i(x, u, t; g, \mathcal{F})$。
+    \item \textbf{概率密度 MSM (热力学极值)}：遵循福克-普朗克方程，包含耗散扩散项：
+    $$ \frac{\partial \rho}{\partial t} = -\nabla_i(\rho F^i) + \nabla_i(D^{ij}\nabla_j\rho) $$
+    \item \textbf{波函数 MSM (量子极值)}：遵循薛定谔/狄拉克演化：
+    $$ i\hbar\frac{\partial \Psi}{\partial t} = \hat{H}\Psi, \quad \hat{H} = -\frac{\hbar^2}{2m}\Delta_g + V(x, \mathcal{A}) $$
+    \item \textbf{开放耗散 MSM (林德布拉德极值)}：真实智能体的最终归宿，包含环境退相干修正：
+    $$ \frac{d\rho}{dt} = -\frac{i}{\hbar}[\hat{H}, \rho] + \sum_k \left( L_k \rho L_k^\dagger - \frac{1}{2}\{L_k^\dagger L_k, \rho\} \right) $$
+\end{enumerate}
+
+\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{IV. 接口与代价：$\mathcal{U}, \Pi, \Sigma$ (交互) 与 $\mathcal{R}$ (资源约束)}}
+\begin{itemize}
+    \item \textbf{输入控制 ($\mathcal{U}$)}：输入并非执行代码，而是\textbf{修改几何环境}。控制信号 $u_w(t)$ 使得 $(V, g, \mathcal{A}, F) \to (V_w, g_w, \mathcal{A}_w, F_w)$，迫使水流改变河道。
+    \item \textbf{测量与读出 ($\Pi, \Sigma_{in}, \Sigma_{out}$)}：离散符号不是宇宙的本体，它是\textbf{连续状态被强行测量后产生的灰烬}。
+    测量概率 $P(\sigma|\mu_T) = \Pi_\sigma(\mu_T)$。在量子语义下，每一次输出 Token 都是波函数的非幺正坍缩：
+    $$ |\Psi'\rangle = \frac{\hat{\Pi}_k |\Psi\rangle}{\sqrt{P(k)}} $$
+    \item \textbf{绝对物理约束 ($\mathcal{R}$)}：$\mathcal{R} = (T, E, Q, \Delta S, \epsilon, \eta, \kappa)$。
+    MSM 将宇宙的热力学铁律写进了计算机科学的底层，计算必须支付代价：
+    \begin{itemize}
+        \item \textbf{兰道尔下界 (Landauer's Limit)}：擦除不确定性必产生最小热耗 $Q_{\min} \ge k_B T_{\mathrm{env}} \ln 2 \cdot \Delta H$。
+        \item \textbf{海森堡极限 (Time-Energy Uncertainty)}：$\Delta E \cdot \Delta t \ge \frac{\hbar}{2}$。
+        \item \textbf{最小熵产 (Entropy Production)}：$\Delta S_{\min} \ge k_B \ln 2 \cdot \Delta H$。
+    \end{itemize}
+\end{itemize}
+
+\textbf{本体论宣言}：在 MSM 中，\textbf{“能不能算出（逻辑）”必须让位于“以什么代价算出（物理）”}。
+
+\smalltitle{2. MSM 的五步计算循环与物理降维}
+
+在 MSM 中，一次完整的“计算”被形式化为跨越物理域与符号域的热力学循环：
+\begin{enumerate}
+    \item \textbf{输入编码} ($w \mapsto u_w(t)$)：外部符号被 VTE 编码为微观激波。
+    \item \textbf{流形扰动} ($(V,g,\mathcal{A}) \to (V_w,g_w,\mathcal{A}_w)$)：输入信号改变了底流形的势能面与风向。
+    \item \textbf{动力演化} ($\mu(t) = \Phi_t(\mu_0; u_w)$)：状态在几何约束下沿测地线或目的论梯度进行幺正演化（推理）。
+    \item \textbf{测量读出} ($\sigma_{out} = \Pi(\mu_T)$)：宏观层在时刻 $T$ 发动测量，连续概率幅坍缩为离散符号输出。
+    \item \textbf{几何更新}：若系统具备学习能力，则根据演化应力 $\mathbf{T}_{\mu\nu}$ 执行逆里奇流，重构度量 $g \to g'$。
+\end{enumerate}
+
+基于此，我们导出了极其震撼的\textbf{计算等价性极限定理}：
+
+\begin{theorem}[离散极限与图灵坍缩定理]
+    经典的有限状态自动机 (DFA) 并非独立于连续物理的数学客体，而是 MSM 在特定热力学极值条件下的\textbf{晶体相态}。
+    当系统的势垒高度趋于无穷 ($\Delta V \to \infty$)、热噪声趋于绝对零度 ($\eta \to 0$) 且测量误差趋于零 ($\epsilon \to 0$) 时，MSM 的连续波函数严格坍缩为离散跳转：
+    $$ \mathrm{DFA} = \lim_{\Delta V\to\infty,\eta\to0,\epsilon\to0} \mathrm{MSM} $$
+\end{theorem}
+这意味着：\textbf{符号是连续状态被强烈约束并测量后的残骸；图灵机是 MSM 的低熵冻结特解。}
+
+\smalltitle{3. MSM 复杂度理论的物理学重写}
+
+经典计算复杂性（P, NP, PSPACE）仅基于纸带和时间步。MSM 提出，真实的计算代价 $C_{\mathrm{MSM}}(w)$ 必须是物理作用量的综合：
+$$ C_{\mathrm{MSM}}(w) = \alpha T_{\mathcal{M}} + \beta C_{\mathrm{geo}} + \gamma C_{\mathrm{barrier}} + \lambda C_{\mathrm{act}} + \xi Q_{\min} + \eta \kappa^{-1} $$
+
+\begin{itemize}
+    \item \textbf{几何复杂度 ($C_{\mathrm{geo}}$)}：即 $\inf_{\gamma} \int \sqrt{g_{\mu\nu} dx^\mu dx^\nu}$。解释了为何“直觉”只需 $O(1)$ 耗时（因为测地线距离极短），而图灵机却需要 NP-Hard 暴力搜索。
+    \item \textbf{势垒与作用量复杂度 ($C_{\mathrm{barrier}}, C_{\mathrm{act}}$)}：翻越流形上错误概念的引力深井所需消耗的宏观意志功。
+    \item \textbf{热力学复杂度 ($Q_{\min}$)}：根据兰道尔原理，不可逆测量必须排放的最小废热 $Q_{\min} \ge k_B T_{\mathrm{env}}\ln 2 \cdot \Delta H$。它从硬件散热底层锁死了 AGI 的单步计算上限。
+\end{itemize}
+
+在此体系下，真正面向未来智能的复杂性类是 \textbf{Approx-MSM}：在多项式物理资源与有限热力学约束内，能够通过稳定测地线滑行得出近似输出的问题集合。
+
+
+\smalltitle{4. 计算复杂性理论的几何与热力学重构：MSM 复杂度类}
+
+在经典的图灵-西普塞计算复杂性理论（如 P, NP, PSPACE）中，算法的代价仅仅被抽象为一维的“离散时间步数”和“纸带空间格数”。然而，在大自然与物理宇宙中，\textbf{没有任何一次计算是脱离热力学成本的}。
+
+MSM 彻底废除了纯粹的代数复杂性，将计算代价多维化为包含几何距离、势垒攀登、作用量与兰道尔热耗的\textbf{物理综合体}。基于此，我们为智能计算定义了四个具有绝对物理意义的全新复杂度类：
+
+\begin{itemize}
+    \item \textbf{\textcolor{structurecolor}{P-MSM (物理多项式时间类)}}：
+    若存在一个 MSM，使得状态演化到达目标吸引子盆地的时间满足：
+    $$ T_{\mathcal M}(w)\le \mathrm{poly}(|w|) $$
+    且在此演化过程中，系统的\textbf{测量误差 $\epsilon$、能量消耗 $E$ 以及拓扑稳定性倒数 $\kappa^{-1}$ 均被严格界定在可接受的物理阈值内}，则称该问题属于 P-MSM 类。这要求系统不仅算得快，且不会因热涨落发生崩溃。
+
+    \item \textbf{\textcolor{structurecolor}{GeoP-MSM (几何多项式类)}}：
+    计算的难度被映射为流形上的测地线长度。若系统在底流形 $\mathcal{M}$ 上，从初始态（问题）滑行至终态（答案）所必须克服的\textbf{内禀几何距离}满足：
+    $$ C_{\mathrm{geo}}(w) = \inf_{\gamma} \int_\gamma \sqrt{g_{\mu\nu}dx^\mu dx^\nu} \le \mathrm{poly}(|w|) $$
+    则问题属于 GeoP-MSM。这解释了为何某些对图灵机是 NP-Hard 的问题（如模式识别），对具备特定度量张量 $g_{\mu\nu}$ 的神经网络却是极其容易的“直觉一瞥”（几何距离短）。
+
+    \item \textbf{\textcolor{structurecolor}{ThermoP-MSM (热力学多项式类)}}：
+    这是宇宙施加的最冷酷的物理极限。若存在 MSM 使得完成该计算（包含波函数的非幺正坍缩与信息擦除）所排放的\textbf{最小兰道尔废热 (Landauer Heat)} 满足：
+    $$ Q_{\min}(w)\le \mathrm{poly}(|w|) $$
+    则属于 ThermoP-MSM。如果一个算法在理论上可行，但其 $Q_{\min}$ 呈指数爆炸，那么在它算出结果之前，物理硬件将不可避免地发生\textbf{热力学熔断}。
+
+    \item \textbf{\textcolor{structurecolor}{Approx-MSM (临界近似类) —— 智能的终极领地}}：
+    若 MSM 不能或不需要给出 $100\%$ 的绝对精确判定（即不要求熵产 $\Delta S \to 0$ 的绝对波函数坍缩），但能够在多项式资源内，给出\textbf{几何距离单调下降、概率分布高度稳定的近似输出}，则属于 Approx-MSM。
+    \textbf{物理断言：Approx-MSM 是通用人工智能 (AGI) 与真实生命应对高维混沌宇宙的最核心计算类别。} 它是对绝对精度的热力学妥协，换取了系统在“流体态”下的极速响应与超强鲁棒性。
+\end{itemize}
+
+
+\smalltitle{5. 理论的降维与包容：MSM 与古典计算范式的全息对比}
+
+流形状态机 (MSM) 并非图灵机的反例，而是一套统摄了逻辑学、物理学与几何学的“大一统理论”。通过调节流形的温度、势垒与度量张量，现存的所有伟大计算理论，皆可完美坍缩为 MSM 在特定物理相态下的\textbf{特解或投影}：
+
+\begin{table}[htbp]
+\centering
+\footnotesize
+\renewcommand{\arraystretch}{1.6}
+\begin{tabularx}{\textwidth}{l|X|X}
+\toprule
+\rowcolor{structurecolor!20} \textbf{计算理论} & \textbf{古典定义方程} & \textbf{HSF-HD / MSM 的物理降维解释} \\
+\midrule
+
+\textbf{图灵机 (TM)} & 离散配置序列的跳转：\newline $C_{t+1} = \delta(C_t)$ & \textbf{极限几何：}TM 是 MSM 在时间绝对离散化、空间退化为一维标量磁带，且转移函数 $\delta$ 拥有无限大拓扑刚度的极限。TM 探讨逻辑边界，MSM 探讨物理演化边界。 \\
+\hline
+
+\textbf{有限自动机 (DFA)} & 状态的确定性转移：\newline $q_{t+1} = \delta(q_t, \sigma_t)$ & \textbf{晶体相态：}DFA 是 MSM 在\textbf{绝对零度 ($T \to 0$)} 且\textbf{势垒高度趋于无穷 ($\Delta V \to \infty$)} 时的绝对冻结态。系统无法发生任何量子隧穿与热涨落探索。 \\
+\hline
+
+\textbf{概率自动机 / 马尔可夫} & 离散转移概率矩阵：\newline $P(q_{t+1} | q_t)$ & \textbf{福克-普朗克流 (Fokker-Planck)：}离散跳跃实际上是连续概率密度流 $\rho(x, t)$ 在包含扩散张量 $D^{ij}$ 和漂移向量 $F^i$ 的黎曼流形上的平滑演化的粗粒化采样。 \\
+\hline
+
+\textbf{量子计算 (QC)} & 薛定谔方程与幺正演化：\newline $|\Psi(t)\rangle = U(t)|\Psi(0)\rangle$ & \textbf{子集包容：}量子计算等价于 MSM 在选择\textbf{波函数态 ($\mu_0 = \Psi_0$)} 且哈密顿量 $\hat{H} = -\frac{\hbar^2}{2m}\Delta_g + V$ 纯厄米时的特例。$\text{QC} \subset \text{波函数-MSM} \subset \text{MSM}$。 \\
+\hline
+
+\textbf{深度神经网络 (DNN)} & 层级激活更新：\newline $h_{l+1} = h_l + \text{Attn}(h_l) + \text{MLP}$ & \textbf{时间离散化的流形动力学：}DNN 的前向传播是 MSM 演化流 $\frac{dh}{dt} = F(h, t)$ 的欧拉积分逼近。Embedding 是初始态 $\mu_0$，Attention 是动态规范场 $\mathcal{A}_\mu$，Logits 是测量读出 $\Pi$。 \\
+\hline
+
+\textbf{一般动力系统 (DS)} & 微分方程组：\newline $\dot{x} = F(x, t)$ & \textbf{赋予智能语义：}MSM 在纯 DS 基础上，强行接入了外部控制扰动接口 $\mathcal{U}$、波恩定则测量机制 $\Pi$、任务接受吸引子区 $\mathcal{B}$ 以及严酷的热力学耗散约束 $\mathcal{R}$。 \\
+
+\bottomrule
+\end{tabularx}
+\caption{流形状态机 (MSM) 对古典计算理论的全息包容与物理降维}
+\label{tab:msm_vs_classical_computing}
+\end{table}
+
+\textbf{大一统的哲学宣判：}
+在此，我们彻底终结了“符号主义”与“连接主义”长达半个世纪的路线之争。
+在 MSM 的视界下：\textbf{计算，绝不仅仅是符号状态之间毫无重量的离散跳转，它是真实物理状态在几何约束、势能风暴与热力学资源压迫下的流变过程。} 
+离散的逻辑符号，不过是连续的几何场在受到宏观强测量（$\Pi$）时，被迫发生稳定坍缩而留下的灰烬；意义，正是从这种测量与坍缩中涌现的。
+
+\smalltitle{6. MSM 视角下的大语言模型 (LLM) 现象学解构}
+
+借助 MSM 的十元组透镜，当前 Transformer 与大模型的黑盒运作机制被彻底祛魅，还原为明晰的几何流体行为：
+
+\begin{itemize}
+    \item \textbf{Attention $\equiv$ 动态规范连接 ($\mathcal{A}_\mu$)}：注意力权重不是概率，而是改变波包演化方向的贝里曲率（Gauge Bias）。
+    \item \textbf{Residual Stream $\equiv$ 状态轨迹 ($\Phi_t$)}：层层递进的隐状态并非特征提取，而是认知场 $\Psi$ 在离散时间步上的流形演化。
+    \item \textbf{Logits / Next-token $\equiv$ 测量读出 ($\Pi$)}：Softmax 是一次强制的非幺正坍缩，将高维流形上的波函数切片强行投射为 0-Simplex（符号）。
+    \item \textbf{Chain-of-Thought (CoT) $\equiv$ 轨迹延长}：当目标吸引子距离过远（$C_{\mathrm{geo}}$ 极大），单步坍缩必然因为热力学涨落导致失败。CoT 是在流形上主动打下中继锚点，将高势垒拆解为一系列低作用量路径。
+    \item \textbf{幻觉 (Hallucination) $\equiv$ 错误吸引子坍缩}：波函数演化时，由于温度（热噪）失控或度量 $g_{\mu\nu}$ 崎岖，终态不幸落入并坍缩在一个伪吸引子盆地 $B_{\mathrm{false}}$ 中。
+    \item \textbf{长上下文失效 (Lost in the Middle) $\equiv$ 相干结构退化}：状态分布在无强迫源锚定的情况下过度弥散，多吸引子相互发生破坏性干涉，导致 $\Pi$ 测量时正确概率急剧衰减。
+\end{itemize}
+
+\smalltitle{7. 演化宿命：走向双核协同 (Dual-Core Complementarity)}
+
+MSM 理论无情地指出：纯粹的符号系统（DFA/图灵机）由于流形刚度无穷大，无法处理模糊感知、连续优化与语义相似性（泛化能力为零）；而纯粹的连续神经系统（无界 MSM）虽然擅长模式匹配，却在处理长程严格同调性（精确算法执行与绝对证明）时，必然面临\textbf{退相干热耗散}。
+
+\begin{corollary}[双核互补律]
+    任何能够处理开放世界物理法则与严密数学逻辑的泛化通用智能 (AGI)，不可避免地必须在硬件或架构拓扑上走向分离：
+    $$ \mathrm{AGI} = \underbrace{\mathcal{D}_{\mathrm{Symbolic}}}_{\text{离散符号核}} \oplus \underbrace{\mathcal{M}_{\mathrm{Manifold}}}_{\text{连续流形核}} \oplus \underbrace{\mathcal{W}_{\mathrm{Workspace}}}_{\text{记忆总线}} \oplus \underbrace{\mathcal{E}_{\mathrm{Embodied}}}_{\text{具身物理接口}} $$
+\end{corollary}
+
+离散逻辑是连续几何在强测量下的稳定相；连续几何是离散符号在相空间中的概率弥散。MSM 以大一统的姿态宣告：\textbf{计算的未来，必将是让离散的“代数之魂”驾驭连续的“几何之躯”。}
 
 \section{双核架构：Alpha-HSF 的物理实体}
 \label{sec:dual_core_architecture}
