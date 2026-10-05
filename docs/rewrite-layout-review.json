@@ -1,9 +1,9 @@
 {
-  "pages": 89,
-  "bytes": 14420794,
+  "pages": 97,
+  "bytes": 16470779,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 63,
+  "numbered_sections": 68,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -447,7 +447,42 @@
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "15.1 从输入索引到具有身份的联合记录",
+      "start_pdf_page": 92,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "15.2 形质绑定：关系兼容、候选竞争与提交条件",
+      "start_pdf_page": 93,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "15.3 迁移与近似不变量：从传播直觉到可核验约束",
+      "start_pdf_page": 94,
+      "prose_lines": 36,
+      "calibrated_prose_page_equivalents": 0.802,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "15.4 有限分辨率编码与语义单元的属性谱系",
+      "start_pdf_page": 95,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "15.5 跨系统比较与 AgentOS 中的工程落点",
+      "start_pdf_page": 96,
+      "prose_lines": 42,
+      "calibrated_prose_page_equivalents": 0.935,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 14 chapters; does not validate the full book."
+  "scope": "Review subset: 15 chapters; does not validate the full book."
 }

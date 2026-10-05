@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 14,
-  "pending_chapters": 103,
+  "rewritten_chapters": 15,
+  "pending_chapters": 102,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -488,49 +488,37 @@
     {
       "order": 15,
       "path": "chapters/part-06/chp-quantization_reality.tex",
-      "title": "实在的量子化 — 形质二象性与张量实体",
-      "status": "queued-for-full-rewrite",
+      "title": "语义单元：有限分辨率、形质绑定与身份保持",
+      "status": "rewritten-reviewed",
       "original_han_floor": 4179,
-      "new_chapter_prose_han": 3593,
+      "new_chapter_prose_han": 7507,
       "original_readable_units": 3723,
-      "new_readable_units": 3723,
-      "opening_prose_han": 394,
+      "new_readable_units": 7521,
+      "opening_prose_han": 365,
       "sections": [
         {
-          "title": "本体定义：纤维丛上的激发态",
-          "prose_han": 275
+          "title": "从输入索引到具有身份的联合记录",
+          "prose_han": 1384
         },
         {
-          "title": "统计力学属性：形质二象性",
-          "prose_han": 316
+          "title": "形质绑定：关系兼容、候选竞争与提交条件",
+          "prose_han": 1411
         },
         {
-          "title": "构成方程：微观创世与相位锁定",
-          "prose_han": 168
+          "title": "迁移与近似不变量：从传播直觉到可核验约束",
+          "prose_han": 1297
         },
         {
-          "title": "物理图景：声子与光子的二象性隐喻",
-          "prose_han": 718
+          "title": "有限分辨率编码与语义单元的属性谱系",
+          "prose_han": 1386
         },
         {
-          "title": "语义子的传播不变量：守恒律的几何表达",
-          "prose_han": 1076
-        },
-        {
-          "title": "语义子的全息属性谱系",
-          "prose_han": 31
-        },
-        {
-          "title": "实在的切片：从连续流到离散子的相变",
-          "prose_han": 189
-        },
-        {
-          "title": "比较形态学：不同智能系统的粒子画像",
-          "prose_han": 426
+          "title": "跨系统比较与 AgentOS 中的工程落点",
+          "prose_han": 1664
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

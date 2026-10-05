@@ -1,9 +1,9 @@
 {
   "checks_passed": true,
-  "original_complete_chapters_verified": 103,
-  "fully_rewritten_chapters_length_verified": 14,
+  "original_complete_chapters_verified": 102,
+  "fully_rewritten_chapters_length_verified": 15,
   "baseline_chapter_chinese_characters": 568727,
-  "current_chapter_chinese_characters": 611787,
+  "current_chapter_chinese_characters": 615275,
   "scope": "Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.",
   "chapters": [
     {
@@ -120,11 +120,11 @@
     },
     {
       "path": "chapters/part-06/chp-quantization_reality.tex",
-      "original_exposition_preserved": true,
-      "validation_mode": "original-exposition-conservation",
+      "original_exposition_preserved": false,
+      "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 4179,
-      "current_chinese_characters": 4179
+      "current_chinese_characters": 7667
     },
     {
       "path": "chapters/part-06/chp-static_substrate.tex",

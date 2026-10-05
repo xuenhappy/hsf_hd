@@ -273,9 +273,14 @@
       "source_start_line": 3913,
       "source_end_line": 4261,
       "source_sha256": "455ddbe8f40e2c1f349ff677958fd15e9df9927fa0707d696e1fd7e82c753d10",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "语义单元：有限分辨率、形质绑定与身份保持",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-06/chp-static_substrate.tex",
