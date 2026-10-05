@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 16,
-  "pending_chapters": 101,
+  "rewritten_chapters": 17,
+  "pending_chapters": 100,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -560,41 +560,41 @@
     {
       "order": 17,
       "path": "chapters/part-06/chp-riemannian_base.tex",
-      "title": "黎曼基底 — 本体论的对称测度",
-      "status": "queued-for-full-rewrite",
+      "title": "表示距离：统计区分、路径代价与几何模型",
+      "status": "rewritten-awaiting-layout-review",
       "original_han_floor": 4667,
-      "new_chapter_prose_han": 4503,
+      "new_chapter_prose_han": 7091,
       "original_readable_units": 4650,
-      "new_readable_units": 4650,
-      "opening_prose_han": 211,
+      "new_readable_units": 7120,
+      "opening_prose_han": 351,
       "sections": [
         {
-          "title": "客观的骨架：黎曼度量 (\\texorpdfstring{$g_{\\mu\\nu}$}{g}) 的物理定义",
-          "prose_han": 439
+          "title": "比较对象与距离公理：对称性不提供因果方向",
+          "prose_han": 1471
         },
         {
-          "title": "度量的信息论推导：从费希尔微观态到归一化距离",
-          "prose_han": 479
+          "title": "统计距离：互信息、变异信息与局部参数几何",
+          "prose_han": 1032
         },
         {
-          "title": "信息的刚性：作为背景流形的世界图 (\\texorpdfstring{$G_W$}{G\\_W})",
-          "prose_han": 320
+          "title": "世界结构快照：证据约束、相似网络与版本更新",
+          "prose_han": 1100
         },
         {
-          "title": "测地线的本质：无场环境下的惯性滑行",
-          "prose_han": 247
+          "title": "路径优化与测地模型：驻值、最短与有效推理",
+          "prose_han": 1064
         },
         {
-          "title": "基底几何二象性：内蕴的运行法则与外蕴的物理支撑",
-          "prose_han": 1317
+          "title": "抽象计算与载体实现：内在规则、嵌入接口和资源预算",
+          "prose_han": 1028
         },
         {
-          "title": "形质群论：酉群的刚性与仿射群的涨落 (Group Theory of Morpho-Semantics)",
-          "prose_han": 1490
+          "title": "变换与更新：保范数条件、尺度变化和路由验证",
+          "prose_han": 1045
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
