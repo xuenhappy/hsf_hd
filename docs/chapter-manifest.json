@@ -484,9 +484,15 @@
       "source_start_line": 7619,
       "source_end_line": 7811,
       "source_sha256": "2fb4f75917e4db1190b65605d7c4d5da18feb6f23278044bd54ac7228298a39d",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-026-checkpoint.md",
+      "new_title": "载体可塑性：瞬态响应、持久更新与老化管理",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-07/chp-physics_of_gauge_source.tex",

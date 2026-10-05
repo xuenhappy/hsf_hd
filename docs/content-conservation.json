@@ -1,9 +1,9 @@
 {
   "checks_passed": true,
-  "original_complete_chapters_verified": 92,
-  "fully_rewritten_chapters_length_verified": 25,
+  "original_complete_chapters_verified": 91,
+  "fully_rewritten_chapters_length_verified": 26,
   "baseline_chapter_chinese_characters": 568727,
-  "current_chapter_chinese_characters": 637849,
+  "current_chapter_chinese_characters": 639872,
   "scope": "Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.",
   "chapters": [
     {
@@ -208,11 +208,11 @@
     },
     {
       "path": "chapters/part-07/chap-material_science_of_cognitive_matter.tex",
-      "original_exposition_preserved": true,
-      "validation_mode": "original-exposition-conservation",
+      "original_exposition_preserved": false,
+      "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 2017,
-      "current_chinese_characters": 2017
+      "current_chinese_characters": 4040
     },
     {
       "path": "chapters/part-07/chp-physics_of_gauge_source.tex",

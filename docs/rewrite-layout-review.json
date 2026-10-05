@@ -1,9 +1,9 @@
 {
-  "pages": 159,
-  "bytes": 19559952,
+  "pages": 163,
+  "bytes": 19593900,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 126,
+  "numbered_sections": 129,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -888,7 +888,28 @@
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "26.1 双时间尺度更新：活动响应与结构可塑性",
+      "start_pdf_page": 160,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "26.2 历史依赖：稳定性—可塑性权衡与结构僵化",
+      "start_pdf_page": 161,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "26.3 跨载体案例：蚁群、人脑与语言模型的更新机制",
+      "start_pdf_page": 162,
+      "prose_lines": 38,
+      "calibrated_prose_page_equivalents": 0.846,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 25 chapters; does not validate the full book."
+  "scope": "Review subset: 26 chapters; does not validate the full book."
 }
