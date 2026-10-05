@@ -1,9 +1,9 @@
 {
-  "pages": 133,
-  "bytes": 16781359,
+  "pages": 140,
+  "bytes": 19367680,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 103,
+  "numbered_sections": 109,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -727,7 +727,49 @@
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "23.1 外部时钟与内部事件序：两类时间变量的操作定义",
+      "start_pdf_page": 134,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "23.2 在线切片与历史状态包：互补接口而非智能等级",
+      "start_pdf_page": 135,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "23.3 切片序列与历史表示：可重建条件、规划路径和误差界",
+      "start_pdf_page": 136,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "23.4 历史状态的元更新：过去重估、当下提交与未来修订",
+      "start_pdf_page": 136,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "23.5 事件线程、依赖约束与查询保持压缩",
+      "start_pdf_page": 139,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "23.6 混合历史架构、AgentOS 实例与能力边界",
+      "start_pdf_page": 139,
+      "prose_lines": 36,
+      "calibrated_prose_page_equivalents": 0.802,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 22 chapters; does not validate the full book."
+  "scope": "Review subset: 23 chapters; does not validate the full book."
 }

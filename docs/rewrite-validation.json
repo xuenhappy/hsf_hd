@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 22,
-  "pending_chapters": 95,
+  "rewritten_chapters": 23,
+  "pending_chapters": 94,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -776,53 +776,41 @@
     {
       "order": 23,
       "path": "chapters/part-06/sec-cognitive_kaluza_klein_compactification.tex",
-      "title": "认知时空几何学 — 块宇宙、切片演化与元动力学",
-      "status": "queued-for-full-rewrite",
+      "title": "时间索引与历史状态动力学：切片、轨迹和结构压缩",
+      "status": "rewritten-reviewed",
       "original_han_floor": 5322,
-      "new_chapter_prose_han": 5175,
+      "new_chapter_prose_han": 7126,
       "original_readable_units": 5381,
-      "new_readable_units": 5381,
-      "opening_prose_han": 149,
+      "new_readable_units": 7147,
+      "opening_prose_han": 311,
       "sections": [
         {
-          "title": "时间的双重性：参数 \\texorpdfstring{$t$}{t} 与 维度 \\texorpdfstring{$\\tau$}{τ}",
-          "prose_han": 405
+          "title": "外部时钟与内部事件序：两类时间变量的操作定义",
+          "prose_han": 1120
         },
         {
-          "title": "视角 I：切片演化观 — \\texorpdfstring{$\\mathcal{M}^{(N)}$}{M(N)} 随 \\texorpdfstring{$t$}{t} 的流动",
-          "prose_han": 297
+          "title": "在线切片与历史状态包：互补接口而非智能等级",
+          "prose_han": 1010
         },
         {
-          "title": "视角 II：块宇宙观 — \\texorpdfstring{$\\mathcal{M}^{(N+1)}$}{M(N+1)} 的静态晶体",
-          "prose_han": 492
+          "title": "切片序列与历史表示：可重建条件、规划路径和误差界",
+          "prose_han": 1102
         },
         {
-          "title": "ADM 对偶：两种视角的数学等价性",
-          "prose_han": 393
+          "title": "历史状态的元更新：过去重估、当下提交与未来修订",
+          "prose_han": 1077
         },
         {
-          "title": "元动力学：随物理时间 \\texorpdfstring{$t$}{t} 修改块宇宙",
-          "prose_han": 595
+          "title": "事件线程、依赖约束与查询保持压缩",
+          "prose_han": 1115
         },
         {
-          "title": "语义子传播：世界线的编织与因果",
-          "prose_han": 424
-        },
-        {
-          "title": "AGI 的维度工程：构建 \\texorpdfstring{$N+1$}{N+1} 维的类闵可夫斯基芯片",
-          "prose_han": 550
-        },
-        {
-          "title": "认知卡鲁扎-克莱因机制：时间维度的自发紧致化与 \\texorpdfstring{$N / N+1$}{N / N+1} 混合架构",
-          "prose_han": 1589
-        },
-        {
-          "title": "结论：维度的卷曲与智慧的层级",
-          "prose_han": 281
+          "title": "混合历史架构、AgentOS 实例与能力边界",
+          "prose_han": 1391
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

@@ -427,9 +427,15 @@
       "source_start_line": 5976,
       "source_end_line": 6364,
       "source_sha256": "7bfc006c28cf4440d2dbf43249563989b76cd77a937c0d15aadaeadfa8915e94",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-023-checkpoint.md",
+      "new_title": "时间索引与历史状态动力学：切片、轨迹和结构压缩",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-07/chp-microscopic_layer_ch.tex",
