@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 24,
-  "pending_chapters": 93,
+  "rewritten_chapters": 25,
+  "pending_chapters": 92,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -864,53 +864,53 @@
     {
       "order": 25,
       "path": "chapters/part-07/chp-medium_layer_ch.tex",
-      "title": "介质层 — 认知场的物理实现与物性",
-      "status": "queued-for-full-rewrite",
+      "title": "运行载体层：计算介质、资源约束与跨尺度接口",
+      "status": "rewritten-reviewed",
       "original_han_floor": 8712,
-      "new_chapter_prose_han": 8543,
+      "new_chapter_prose_han": 9828,
       "original_readable_units": 8869,
-      "new_readable_units": 8869,
-      "opening_prose_han": 343,
+      "new_readable_units": 9861,
+      "opening_prose_han": 265,
       "sections": [
         {
-          "title": "物理基质谱系：晶格与波的耦合模态",
-          "prose_han": 596
+          "title": "计算载体谱系：生物网络、电子系统与环境介质",
+          "prose_han": 1096
         },
         {
-          "title": "关键物理常数：思维的波动边界",
-          "prose_han": 548
+          "title": "载体约束参数：时延、吞吐、保持与探索强度",
+          "prose_han": 1083
         },
         {
-          "title": "编码机制：物理量如何承载语义？",
-          "prose_han": 244
+          "title": "编码契约：载体状态如何支持任务语义",
+          "prose_han": 1086
         },
         {
-          "title": "介质病理：物理层面的认知崩溃",
-          "prose_han": 216
+          "title": "载体故障动力学：饱和、分区、漂移与恢复",
+          "prose_han": 1046
         },
         {
-          "title": "形质的绝对解耦与强制同构 — 物理基质的语义发生学",
-          "prose_han": 1903
+          "title": "载体与语义的对应：学习、选择与可验证等价",
+          "prose_han": 1081
         },
         {
-          "title": "分形同构与张量折叠 — 宏观双通路与微观形质的尺度跨越",
-          "prose_han": 1741
+          "title": "跨尺度分工：局部结构网络与全局分布表示",
+          "prose_han": 1039
         },
         {
-          "title": "跨尺度形质全息解剖 — 物理基质与语义流形的同态映射",
-          "prose_han": 1965
+          "title": "跨系统实现比较：人脑、语言模型与群体系统",
+          "prose_han": 1068
         },
         {
-          "title": "场的拓扑形态分类学",
-          "prose_han": 664
+          "title": "运行机制分类：泄漏、回返、路由与内容寻址",
+          "prose_han": 1051
         },
         {
-          "title": "混合场假说：AGI 的理想形态",
-          "prose_han": 323
+          "title": "混合载体架构：一般状态动力学与AgentOS落点",
+          "prose_han": 1013
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

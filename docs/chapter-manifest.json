@@ -465,9 +465,15 @@
       "source_start_line": 7100,
       "source_end_line": 7619,
       "source_sha256": "fcf4c372867ae94f0b82ec031dbb226d465d56dc416986debe503debdde66aed",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-025-checkpoint.md",
+      "new_title": "运行载体层：计算介质、资源约束与跨尺度接口",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-07/chap-material_science_of_cognitive_matter.tex",

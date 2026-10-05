@@ -1,9 +1,9 @@
 {
-  "pages": 151,
-  "bytes": 19496751,
+  "pages": 159,
+  "bytes": 19559952,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 117,
+  "numbered_sections": 126,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -825,7 +825,70 @@
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "25.1 计算载体谱系：生物网络、电子系统与环境介质",
+      "start_pdf_page": 152,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "25.2 载体约束参数：时延、吞吐、保持与探索强度",
+      "start_pdf_page": 153,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "25.3 编码契约：载体状态如何支持任务语义",
+      "start_pdf_page": 153,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "25.4 载体故障动力学：饱和、分区、漂移与恢复",
+      "start_pdf_page": 154,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "25.5 载体与语义的对应：学习、选择与可验证等价",
+      "start_pdf_page": 155,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "25.6 跨尺度分工：局部结构网络与全局分布表示",
+      "start_pdf_page": 156,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "25.7 跨系统实现比较：人脑、语言模型与群体系统",
+      "start_pdf_page": 156,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "25.8 运行机制分类：泄漏、回返、路由与内容寻址",
+      "start_pdf_page": 157,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "25.9 混合载体架构：一般状态动力学与AgentOS落点",
+      "start_pdf_page": 158,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 24 chapters; does not validate the full book."
+  "scope": "Review subset: 25 chapters; does not validate the full book."
 }
