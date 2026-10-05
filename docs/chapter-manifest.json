@@ -408,9 +408,15 @@
       "source_start_line": 5861,
       "source_end_line": 5976,
       "source_sha256": "695987f1d23c171fc0293a2391c1f81c7cb926da4a561820373351403758112c",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-022-checkpoint.md",
+      "new_title": "双重不对称性：任务可辨识度与主体控制偏置",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-06/sec-cognitive_kaluza_klein_compactification.tex",

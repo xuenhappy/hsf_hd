@@ -1,9 +1,9 @@
 {
-  "pages": 129,
-  "bytes": 16749779,
+  "pages": 133,
+  "bytes": 16781359,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 99,
+  "numbered_sections": 103,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -699,7 +699,35 @@
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "22.1 事实不对称：正向映射、逆问题与可辨识度",
+      "start_pdf_page": 130,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "22.2 主体不对称：规范状态、行动资格与控制投入",
+      "start_pdf_page": 131,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "22.3 联合代价与四类运行区间",
+      "start_pdf_page": 132,
+      "prose_lines": 36,
+      "calibrated_prose_page_equivalents": 0.802,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "22.4 诊断闭环、干预边界与理论位置",
+      "start_pdf_page": 133,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 21 chapters; does not validate the full book."
+  "scope": "Review subset: 22 chapters; does not validate the full book."
 }
