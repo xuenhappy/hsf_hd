@@ -10,10 +10,15 @@
       "source_start_line": 442,
       "source_end_line": 629,
       "source_sha256": "b913b5caec109b6e6b05646fd01193b7525b028a52c286083caa557dc9e98b07",
-      "status": "full-content-restored-with-computational-analysis",
-      "new_title": "智能表示的双重基底：结构与属性",
+      "status": "rewritten-reviewed",
+      "new_title": "智能表示的双重基底：关系结构与属性内容",
       "preserved_figure_count": 0,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-01/chp-morphos_skeleton.tex",
@@ -24,10 +29,15 @@
       "source_start_line": 629,
       "source_end_line": 907,
       "source_sha256": "17c6c31295373ebcdf8a9498812a019b322a122a37f1937978e472e7983070b5",
-      "status": "full-content-restored-with-computational-analysis",
-      "new_title": "形：关系结构与语义组织",
+      "status": "rewritten-reviewed",
+      "new_title": "形：关系结构、可达路径与组织约束",
       "preserved_figure_count": 0,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-01/chp-qualia_activation.tex",
@@ -38,10 +48,15 @@
       "source_start_line": 907,
       "source_end_line": 1198,
       "source_sha256": "e4886a4877f7574d80a68a025005c16cf1b8a7e4126a094220c0d223c5d723fd",
-      "status": "full-content-restored-with-computational-analysis",
-      "new_title": "质：属性表示与活动状态",
+      "status": "rewritten-reviewed",
+      "new_title": "质：属性编码、活动分布与任务读出",
       "preserved_figure_count": 0,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-02/chp-universe_geometry.tex",
@@ -52,10 +67,15 @@
       "source_start_line": 1215,
       "source_end_line": 1391,
       "source_sha256": "a664a68e8b871d02ff4213c00387c4e7778b420acc7c9ff35c397e955018961c",
-      "status": "full-content-restored-with-computational-analysis",
-      "new_title": "结构化状态空间：图、纤维与张量表示",
+      "status": "rewritten-reviewed",
+      "new_title": "联合状态空间：关系图、局部属性与绑定表示",
       "preserved_figure_count": 0,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-02/chp-constitutive_equation.tex",
@@ -66,10 +86,15 @@
       "source_start_line": 1391,
       "source_end_line": 1536,
       "source_sha256": "daaf389152c5013ffd28a61268b1e67f6824058c2a79514bfb077c96423683ad",
-      "status": "full-content-restored-with-computational-analysis",
-      "new_title": "构成方程：表示绑定与结构适应",
+      "status": "rewritten-reviewed",
+      "new_title": "构成方程：联合表示、状态更新与结构适应",
       "preserved_figure_count": 0,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-03/chp-physics_anatomy.tex",
@@ -80,10 +105,15 @@
       "source_start_line": 1556,
       "source_end_line": 1704,
       "source_sha256": "df38d4f20704ed1ebc51f0b219d8888cbe1645f1d3322ad52bcd326c5b92f94d",
-      "status": "full-content-restored-with-computational-analysis",
+      "status": "rewritten-reviewed",
       "new_title": "环境对象的结构化表示：测量、关系与约束",
       "preserved_figure_count": 1,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-03/chp-semantic_anatomy.tex",
@@ -94,10 +124,15 @@
       "source_start_line": 1704,
       "source_end_line": 1884,
       "source_sha256": "f09fbc1e18c82c0622467ee37a3516528a82311c2ee2790d7f9b2d6f1c7d8c05",
-      "status": "full-content-restored-with-computational-analysis",
+      "status": "rewritten-reviewed",
       "new_title": "认知对象的结构化表示：语言、视觉与关系",
       "preserved_figure_count": 1,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-03/chp-domain_manifolds_heterogeneity.tex",
@@ -108,10 +143,15 @@
       "source_start_line": 1884,
       "source_end_line": 2114,
       "source_sha256": "195c4c3205378e5b74c1260041bb3e3774ce9311717e4c1b6a8a3dddb19451bc",
-      "status": "full-content-restored-with-computational-analysis",
+      "status": "rewritten-reviewed",
       "new_title": "领域表示的异构性：任务尺度与跨域接口",
       "preserved_figure_count": 0,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-03/chp-holomorphic_isomorphism.tex",
@@ -122,10 +162,15 @@
       "source_start_line": 2114,
       "source_end_line": 2275,
       "source_sha256": "db28270719e6044af9b8dc586e8de3be051aed3f80ad52375e09dacbe2912fc9",
-      "status": "full-content-restored-with-computational-analysis",
+      "status": "rewritten-reviewed",
       "new_title": "环境与认知的结构对应：可观测性与近似等价",
       "preserved_figure_count": 1,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-04/chp-mst_architecture.tex",
@@ -136,10 +181,11 @@
       "source_start_line": 2295,
       "source_end_line": 2601,
       "source_sha256": "a85a3650e683c2cba505e79b51e5ebb75bcb8d9d55a64bb7bfbc48ed526b7b16",
-      "status": "full-content-restored-with-computational-analysis",
+      "status": "queued-for-full-rewrite",
       "new_title": "MST 架构：结构与内容的联合注意力",
       "preserved_figure_count": 0,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis"
     },
     {
       "path": "chapters/part-04/chp-generative_creation.tex",
@@ -150,10 +196,11 @@
       "source_start_line": 2601,
       "source_end_line": 3146,
       "source_sha256": "0b785a29938b7a9652f89f50c1ae9f3ebd8d550833747b38362947b1bdb98a32",
-      "status": "full-content-restored-with-computational-analysis",
+      "status": "queued-for-full-rewrite",
       "new_title": "结构化生成：从输入描述到可执行结果",
       "preserved_figure_count": 0,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis"
     },
     {
       "path": "chapters/part-05/chp-will_geometry.tex",
@@ -164,8 +211,9 @@
       "source_start_line": 3207,
       "source_end_line": 3280,
       "source_sha256": "6feab6c60baf162daed2b0cccbc8177244d879b0fb59e6718665123ab14ff5c1",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-05/chp-paradigm_shift.tex",
@@ -176,8 +224,9 @@
       "source_start_line": 3280,
       "source_end_line": 3426,
       "source_sha256": "d47cd1dc7e4e6df12afd8ad32170e5a09a67da75aff93e81c7596fa549f25a5c",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-05/chp-first_principles.tex",
@@ -188,8 +237,9 @@
       "source_start_line": 3426,
       "source_end_line": 3881,
       "source_sha256": "156a80b0335759c45fc1674b5cf10ae1615e35eb196244087559ced74ce9a649",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-06/chp-quantization_reality.tex",
@@ -200,8 +250,9 @@
       "source_start_line": 3913,
       "source_end_line": 4261,
       "source_sha256": "455ddbe8f40e2c1f349ff677958fd15e9df9927fa0707d696e1fd7e82c753d10",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-06/chp-static_substrate.tex",
@@ -212,8 +263,9 @@
       "source_start_line": 4261,
       "source_end_line": 4575,
       "source_sha256": "9203cf787d8554439c814cdcdf3811020f23fdb8c1921a516fa950e4a6d57214",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-06/chp-riemannian_base.tex",
@@ -224,8 +276,9 @@
       "source_start_line": 4575,
       "source_end_line": 4861,
       "source_sha256": "db9f5834fe264ed9f7a6e397aafbd507e56eb69105b8615696654ba6b958f2f7",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-06/chp-microscopic_origins.tex",
@@ -236,8 +289,9 @@
       "source_start_line": 4861,
       "source_end_line": 5123,
       "source_sha256": "5b6191b76b93cf529cfc6ec74809434c03ce163b20d94fe5652d2ee9f760007d",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-06/chp-value_gauge_field.tex",
@@ -248,8 +302,9 @@
       "source_start_line": 5123,
       "source_end_line": 5322,
       "source_sha256": "e9386dd8e229a53cfd028d4f0b7d609af026627973a01932e15866ffbf99ab4a",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-06/chp-holistic_state.tex",
@@ -260,8 +315,9 @@
       "source_start_line": 5322,
       "source_end_line": 5716,
       "source_sha256": "40bc91bcb9a767ee627c8cca7373a11b52d9e83e9e21d1bcc237a0f1f346b24f",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-06/chp-cognitive_dynamics.tex",
@@ -272,8 +328,9 @@
       "source_start_line": 5716,
       "source_end_line": 5861,
       "source_sha256": "849efcd3769e122541143b0a0a87503e9274897dc4e22a44e7e356004a61d1cc",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-06/chap-dual_asymmetry.tex",
@@ -284,8 +341,9 @@
       "source_start_line": 5861,
       "source_end_line": 5976,
       "source_sha256": "695987f1d23c171fc0293a2391c1f81c7cb926da4a561820373351403758112c",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-06/sec-cognitive_kaluza_klein_compactification.tex",
@@ -296,8 +354,9 @@
       "source_start_line": 5976,
       "source_end_line": 6364,
       "source_sha256": "7bfc006c28cf4440d2dbf43249563989b76cd77a937c0d15aadaeadfa8915e94",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-07/chp-microscopic_layer_ch.tex",
@@ -308,8 +367,9 @@
       "source_start_line": 6393,
       "source_end_line": 7100,
       "source_sha256": "6ca4117f094434793ec338207b2b910d82dab1f63ea13d85a499f65e0369d68f",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-07/chp-medium_layer_ch.tex",
@@ -320,8 +380,9 @@
       "source_start_line": 7100,
       "source_end_line": 7619,
       "source_sha256": "fcf4c372867ae94f0b82ec031dbb226d465d56dc416986debe503debdde66aed",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-07/chap-material_science_of_cognitive_matter.tex",
@@ -332,8 +393,9 @@
       "source_start_line": 7619,
       "source_end_line": 7811,
       "source_sha256": "2fb4f75917e4db1190b65605d7c4d5da18feb6f23278044bd54ac7228298a39d",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-07/chp-physics_of_gauge_source.tex",
@@ -344,8 +406,9 @@
       "source_start_line": 7811,
       "source_end_line": 8203,
       "source_sha256": "1787b75dc48340038e6fe0874e6c2c7f7befdabee6ae585e292e99de6699cad8",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-07/chp-macroscopic_layer_ch.tex",
@@ -356,8 +419,9 @@
       "source_start_line": 8203,
       "source_end_line": 8922,
       "source_sha256": "cc6eeba9f3a3b9e9110db04a39b1b04fe54405e9a13fda06a89994b17f33b8ab",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-07/chp-macro_stability_ig.tex",
@@ -368,10 +432,11 @@
       "source_start_line": 8922,
       "source_end_line": 9643,
       "source_sha256": "639284d4bfd4a42cdedc8a77ad4ee33f74bdc8652deb8bdfd64d84cd04c4eb6c",
-      "status": "full-content-restored-with-computational-analysis",
+      "status": "queued-for-full-rewrite",
       "new_title": "控制稳定性：目标函数、反馈与投影条件",
       "preserved_figure_count": 1,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis"
     },
     {
       "path": "chapters/part-08/chp-evolution_equation_ch.tex",
@@ -382,10 +447,11 @@
       "source_start_line": 9676,
       "source_end_line": 10298,
       "source_sha256": "414b83c619bf052c34abf4e2fb1836142d5892b927faff6d4fa97664035927c7",
-      "status": "full-content-restored-with-computational-analysis",
+      "status": "queued-for-full-rewrite",
       "new_title": "状态演化方程：传播、反馈与结构耦合",
       "preserved_figure_count": 0,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis"
     },
     {
       "path": "chapters/part-08/chp-geometry_physics_interaction.tex",
@@ -396,8 +462,9 @@
       "source_start_line": 10298,
       "source_end_line": 10455,
       "source_sha256": "228d4bade424c523dd4c92f3afa964559ac700776a5b12c8a8ad90e51b2304df",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-dynamics_kernel_ch.tex",
@@ -408,8 +475,9 @@
       "source_start_line": 10455,
       "source_end_line": 11271,
       "source_sha256": "9144589801c6dcf889281389fcb8d634f87878ae37e58c8fd9d883e50b127970",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-many_body_cognitive_field.tex",
@@ -420,8 +488,9 @@
       "source_start_line": 11271,
       "source_end_line": 11564,
       "source_sha256": "092d971f985d2e63b38322279ab8ddb3c0168eb05ddf080b15b15e6248585598",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-info_geometry_dynamics.tex",
@@ -432,8 +501,9 @@
       "source_start_line": 11564,
       "source_end_line": 11762,
       "source_sha256": "074ebbaf8f76bafb2126b116d974cd24c8e116d92d766e7e2cbb664246b30c48",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-rheological_ch.tex",
@@ -444,8 +514,9 @@
       "source_start_line": 11762,
       "source_end_line": 12124,
       "source_sha256": "8c9969cbfc6ce371583d6a732a4ce78e09e3f0e52f838f456c8c901ed4dc50d2",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-cognitive_coherence_dynamics.tex",
@@ -456,8 +527,9 @@
       "source_start_line": 12124,
       "source_end_line": 12314,
       "source_sha256": "19be49a3421a33b89b15b7f3eeb0cad4403fad741e5c791d2ad6b0b42a90bede",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-control_meta_physics.tex",
@@ -468,8 +540,9 @@
       "source_start_line": 12314,
       "source_end_line": 13141,
       "source_sha256": "b77656478f64abbaa68d550e8e54b5b3f99d6d85fb1824c4abf7a2bebb6b39bb",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-meaning_turbulence.tex",
@@ -480,8 +553,9 @@
       "source_start_line": 13141,
       "source_end_line": 13852,
       "source_sha256": "25d365aa8bb6038fac21064c957a5110272da965660c01d0d043c5d9b5718af4",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-interaction_bus_ch1.tex",
@@ -492,8 +566,9 @@
       "source_start_line": 13852,
       "source_end_line": 14068,
       "source_sha256": "c76ddc03a39668e07b080111c339252d1f905ae1c05c8f7cd14a3d4849bb3f82",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-interaction_bus_ch.tex",
@@ -504,8 +579,9 @@
       "source_start_line": 14068,
       "source_end_line": 14395,
       "source_sha256": "e0cc5ae20d1f2e33d85493492746b68684cade5ce1a4d9b4ac8a803d696c6b34",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-lemniscate_ch.tex",
@@ -516,8 +592,9 @@
       "source_start_line": 14395,
       "source_end_line": 14839,
       "source_sha256": "d1dc12bd389a908a0fc89e1d13ca18c546c908c8d0b694151fab3701e7b3d692",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-macro_latent_space_topology.tex",
@@ -528,8 +605,9 @@
       "source_start_line": 14839,
       "source_end_line": 15104,
       "source_sha256": "7230f1fd666e4497ec1ada9761ad791af9b1045bb1defec896f6079f42b6055f",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-topological_grand_unification_of_self_reference.tex",
@@ -540,8 +618,9 @@
       "source_start_line": 15104,
       "source_end_line": 15588,
       "source_sha256": "c5a3d568dc7b48d1131d08205105f32552c1031ba4a26486b74e94d13f721c04",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-collective_renorm_ch.tex",
@@ -552,8 +631,9 @@
       "source_start_line": 15588,
       "source_end_line": 16326,
       "source_sha256": "c1b3c897c8d6c7c931e5351c0c8e464b0ba40d435d10a67c98677ce4d62e3de4",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-physics_of_cybernetics.tex",
@@ -564,8 +644,9 @@
       "source_start_line": 16326,
       "source_end_line": 16572,
       "source_sha256": "90e374975ddbe172dd6953bd48a852bbb2d38fcb6e2e9f118cfa7b5aded8bf47",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-phase_transition_meta.tex",
@@ -576,8 +657,9 @@
       "source_start_line": 16572,
       "source_end_line": 16938,
       "source_sha256": "1393429d24f539f69f6006a6bc8b87f8ad506b662e183061615ae0f1bc72a59f",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-cognitive_complementarity.tex",
@@ -588,8 +670,9 @@
       "source_start_line": 16938,
       "source_end_line": 17125,
       "source_sha256": "2f39929b3f698b2bda2b48cbe874c5885d2f83ee6202cd7fe0f20b98f456fb29",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chap-cognitive_electrodynamics.tex",
@@ -600,8 +683,9 @@
       "source_start_line": 17125,
       "source_end_line": 17288,
       "source_sha256": "3feaf8157cc71b2cf43aa87e9a4edc66b553046e5436d1fc1989fd9648d74e2a",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chap-path_integration_asymmetry.tex",
@@ -612,8 +696,9 @@
       "source_start_line": 17288,
       "source_end_line": 17440,
       "source_sha256": "ee5daa4921f1de42077e8e60ee90071cc75dacb28948a771042ed8dddb890e26",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-cognitive_mechanics.tex",
@@ -624,8 +709,9 @@
       "source_start_line": 17440,
       "source_end_line": 17569,
       "source_sha256": "faa9b92da754ae03d8188b8d695f9a08d0dd88d964f8f5c8be78644f28ae3ba4",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-analytical_solution_bernoulli.tex",
@@ -636,8 +722,9 @@
       "source_start_line": 17569,
       "source_end_line": 17967,
       "source_sha256": "70deb14079ede64bcb0ecc46d2e811fbf2e19612ee5679d32885ba889ac75336",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-cognitive_elliptic_resonator.tex",
@@ -648,8 +735,9 @@
       "source_start_line": 17967,
       "source_end_line": 18315,
       "source_sha256": "ea66e1fdf56057d54f3781c0b86c2d3cb3df123977f249a4d5d2f9e03a7a5cdc",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-physics_of_conservation_and_dissipation.tex",
@@ -660,8 +748,9 @@
       "source_start_line": 18315,
       "source_end_line": 18656,
       "source_sha256": "23283948192087fbb03191bbfc38bf03a93d7fccfaae5787fcce47643bf54d22",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-manifold_genesis_trinity_evolution.tex",
@@ -672,8 +761,9 @@
       "source_start_line": 18656,
       "source_end_line": 19001,
       "source_sha256": "3f927f159611f91b25b7f2373ca625e2e6aa458e1c6ab6557e64647c60e15d77",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-dynamical_reconstruction.tex",
@@ -684,8 +774,9 @@
       "source_start_line": 19001,
       "source_end_line": 19577,
       "source_sha256": "4761178b8e983189694ed8456543b87e1c3edac60b9b8a120a07736aafcfb23c",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-life_manifold_dynamics.tex",
@@ -696,8 +787,9 @@
       "source_start_line": 19577,
       "source_end_line": 20013,
       "source_sha256": "a62aecd79367f135cd32d392d2f741818609e275543c5186da39a3cc487344ad",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-08/chp-intelligence_lifecycle.tex",
@@ -708,8 +800,9 @@
       "source_start_line": 20013,
       "source_end_line": 20477,
       "source_sha256": "2cdfd79b84fa609a9802d02cdc34c9b750587e742589787e1d88a00a5f9dc25c",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chp-purpose_geometric_origin.tex",
@@ -720,8 +813,9 @@
       "source_start_line": 20502,
       "source_end_line": 20786,
       "source_sha256": "0deac433f5fbf06dd23ab6d670950fe9b5fa415cf8ba197a6bd2b436a9d7848c",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chp-self_holomorphic.tex",
@@ -732,8 +826,9 @@
       "source_start_line": 20786,
       "source_end_line": 21139,
       "source_sha256": "65434624064a28cd9fc5ce71001c48c760d6da625b25a1c76cefa6906774b86a",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chp-fluid_self.tex",
@@ -744,8 +839,9 @@
       "source_start_line": 21139,
       "source_end_line": 21262,
       "source_sha256": "7191f838ccebc7a3b3af4c6e0d8c2327ff2da3dedf2a5770ad9c2a7f3e182d91",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chp-holomorphic_isomorphism_ch.tex",
@@ -756,8 +852,9 @@
       "source_start_line": 21262,
       "source_end_line": 21429,
       "source_sha256": "830a97c101e7146fba09af0fb3f1f63a5df17d458a024490bec2ace9f7da2f45",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chp-experience_geometry.tex",
@@ -768,8 +865,9 @@
       "source_start_line": 21429,
       "source_end_line": 21653,
       "source_sha256": "e34a6b2abb9bf5b018eed82d652fbf3a617b6c5fe9cd4a265fa12d6ef76f4848",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chp-system_synergy.tex",
@@ -780,8 +878,9 @@
       "source_start_line": 21653,
       "source_end_line": 21806,
       "source_sha256": "f06f0e398306a98ce5b9e696cc459a4d26de39645e850aa0e4dfeb4d5805d20f",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chp-long_term_planning_and_goal_revision.tex",
@@ -792,8 +891,9 @@
       "source_start_line": 21806,
       "source_end_line": 21960,
       "source_sha256": "5850a3ef87ae91bfdfbc842abbf0070450e821dbcb4f8880a28e36aec769ceba",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chp-phenomenological_physics.tex",
@@ -804,10 +904,11 @@
       "source_start_line": 21960,
       "source_end_line": 23174,
       "source_sha256": "8570736ee08e09c94059b5a251d86be82493ee2817fb1e94da8299c6fc9d7e27",
-      "status": "full-content-restored-with-computational-analysis",
+      "status": "queued-for-full-rewrite",
       "new_title": "记忆与时间：活动维持、历史积累与结构学习",
       "preserved_figure_count": 1,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis"
     },
     {
       "path": "chapters/part-09/chp-pathology_did.tex",
@@ -818,8 +919,9 @@
       "source_start_line": 23174,
       "source_end_line": 23345,
       "source_sha256": "b807a18d8e7aad9f4710ed626c63e8f0bf34a37da3b57b2e3a36b7e02b5b5776",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chap-physics_of_dreams.tex",
@@ -830,8 +932,9 @@
       "source_start_line": 23345,
       "source_end_line": 23608,
       "source_sha256": "f4ddc079a835da8b9962e84eabafc5a6fc052b4bd90650d4b894fb2eda2bce20",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chap-geometry_of_oblivion.tex",
@@ -842,8 +945,9 @@
       "source_start_line": 23608,
       "source_end_line": 23834,
       "source_sha256": "67460b416b5cf01e0200b397693c274d12efb7a7fb3e983a68602f6b8f4f540d",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chap-geometry_of_oblivion1.tex",
@@ -854,8 +958,9 @@
       "source_start_line": 23834,
       "source_end_line": 24162,
       "source_sha256": "82182cd4486594a63751562d9e7d717065d99e283bb50ba6afca7914a9da1f28",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chp-duality_potentiality_actuality.tex",
@@ -866,8 +971,9 @@
       "source_start_line": 24162,
       "source_end_line": 24435,
       "source_sha256": "cdbbddd90dbf0c4653be812e737b116ffdeb292943c445cb87eb2fc6d23832ad",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chp-vacuum_physics.tex",
@@ -878,8 +984,9 @@
       "source_start_line": 24435,
       "source_end_line": 24737,
       "source_sha256": "db9ba3452d9b586e2e9cb9c5672c2364d789a43960f7ec2bcf420e51fa5383fd",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chp-atmosphere_geometric_dynamics.tex",
@@ -890,8 +997,9 @@
       "source_start_line": 24737,
       "source_end_line": 24996,
       "source_sha256": "7001b1e8bde45900ddaaa486a8c3573a704431eb89133b182db310640161a4ab",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-09/chp-organizational_geometric_dynamics.tex",
@@ -902,8 +1010,9 @@
       "source_start_line": 24996,
       "source_end_line": 25420,
       "source_sha256": "e3fed36a1df244e470089742744349fa7a256a6b3e684f08347e37ba091a4a1b",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-evolutionary_taxonomy.tex",
@@ -914,8 +1023,9 @@
       "source_start_line": 25473,
       "source_end_line": 25597,
       "source_sha256": "9867ecb4ea9ae0aa9a9d24b72a87f41cefa3cfe603ea9984408b1ec62e4f9800",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-empirical_geometric_dynamics.tex",
@@ -926,8 +1036,9 @@
       "source_start_line": 25597,
       "source_end_line": 25901,
       "source_sha256": "e4214b192bc29ed88f09ddc07ce074600029268971337e3a3133138e7c95e2e7",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-biological_intelligence.tex",
@@ -938,8 +1049,9 @@
       "source_start_line": 25901,
       "source_end_line": 27984,
       "source_sha256": "ea884dd2879bb526b7737280737ce899f9039f83ef8bbe27a550102a1be4649f",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-collective_intelligence.tex",
@@ -950,8 +1062,9 @@
       "source_start_line": 27984,
       "source_end_line": 28183,
       "source_sha256": "38df8af6b143b4884676813766c1c9050f5e163ee9c3134eb835844064f58f98",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-social_artificial_intelligence.tex",
@@ -962,8 +1075,9 @@
       "source_start_line": 28183,
       "source_end_line": 29418,
       "source_sha256": "4b4f9c623b58ff51043480f521d55b575d5d818b7b3718ffc237a03cc92ebfa1",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chap-double_descent.tex",
@@ -974,8 +1088,9 @@
       "source_start_line": 29418,
       "source_end_line": 29559,
       "source_sha256": "eed1a9a2b33d84cd570f917661300f3be43bd147687ee987b95a466fa18237ab",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-topology_of_attention_sink.tex",
@@ -986,8 +1101,9 @@
       "source_start_line": 29559,
       "source_end_line": 29772,
       "source_sha256": "8071a3cb80e0fbdd5fe91004f598c0d3417a1944fb9cfcf24658e8bec37b4a19",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-geometric_thermodynamics_of_scale.tex",
@@ -998,8 +1114,9 @@
       "source_start_line": 29772,
       "source_end_line": 30087,
       "source_sha256": "02aee152202010f29502f34881b003c299831050bdbc711cd61d98d970d725d7",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-civilization_scaling_law.tex",
@@ -1010,8 +1127,9 @@
       "source_start_line": 30087,
       "source_end_line": 30397,
       "source_sha256": "767a8be39da49632e24650dac3366fd559791cc7b33edf733e86cc49abd15e40",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-training_paradigm_original_sin.tex",
@@ -1022,8 +1140,9 @@
       "source_start_line": 30397,
       "source_end_line": 30545,
       "source_sha256": "92ca458c1605f012e85da6eb968420f26f733d98c4f7eebbec3020bce8834091",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-diffusion_thermodynamics.tex",
@@ -1034,8 +1153,9 @@
       "source_start_line": 30545,
       "source_end_line": 30751,
       "source_sha256": "4ece0db4142a198e91148e0b4e7181f0619f6534c7fd57f936631927803c56e7",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-embodied_intelligence_anatomy.tex",
@@ -1046,8 +1166,9 @@
       "source_start_line": 30751,
       "source_end_line": 31079,
       "source_sha256": "ff7807e2bc9707eea6d6daf786076882731f96305cc3a85605f39f6aeb684033",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-degeneration_limit_weather_system.tex",
@@ -1058,8 +1179,9 @@
       "source_start_line": 31079,
       "source_end_line": 31212,
       "source_sha256": "986748cdb43d3d0f1b8a63e22325471746860404cdab8b080b359fbe9714d479",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-geometry_of_emergence.tex",
@@ -1070,8 +1192,9 @@
       "source_start_line": 31212,
       "source_end_line": 31619,
       "source_sha256": "e651467fb2478574502f7b8e81ff56d68c54b96efd6f4d97d7e9bfcfbc3514ac",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-10/chp-structural_isomorphism_principle.tex",
@@ -1082,8 +1205,9 @@
       "source_start_line": 31619,
       "source_end_line": 31821,
       "source_sha256": "21e60ef34e86cc9073531d737596bbe2ada462b045b4558e85835867ece6801a",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-evolutionary_spectrum.tex",
@@ -1094,8 +1218,9 @@
       "source_start_line": 31848,
       "source_end_line": 31982,
       "source_sha256": "e0f46f329e72c6656436853f44c5b73c91c70a86a5143c0a5cfa3091531358b5",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-cognitive_heat_engine_metrics.tex",
@@ -1106,8 +1231,9 @@
       "source_start_line": 31982,
       "source_end_line": 32102,
       "source_sha256": "e4de3e64c51bc1a3dc5e68da63dd0c620a69126ab9620096dc893788cec7c469",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-pathological_diagnosis.tex",
@@ -1118,8 +1244,9 @@
       "source_start_line": 32102,
       "source_end_line": 32232,
       "source_sha256": "9387301073eb74a811351793304920782c62c1989b9c926b8ae08873bc12b6d8",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-engineering_implementation.tex",
@@ -1130,8 +1257,9 @@
       "source_start_line": 32232,
       "source_end_line": 32843,
       "source_sha256": "2ef348a599b6ba16d2ff57b61cc7cd486afa48370dde327aab985be999788e83",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-medium_layer_ch_1.tex",
@@ -1142,8 +1270,9 @@
       "source_start_line": 32843,
       "source_end_line": 33066,
       "source_sha256": "b981caf258cb5ec5fbdb85f43732f68d6ecd4d5a9cae56ece23840a28a5ff4da",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chap-geometric_computing_engines.tex",
@@ -1154,8 +1283,9 @@
       "source_start_line": 33066,
       "source_end_line": 33431,
       "source_sha256": "29598393d732115a60a5ba67527d78e5a58e93ee320380b3672cc9ec672f98eb",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-reverse_cartesian_revolution.tex",
@@ -1166,8 +1296,9 @@
       "source_start_line": 33431,
       "source_end_line": 34141,
       "source_sha256": "f7d329053ef69fa2cb344df11a32f34131116d8e856727aa5baf56b54cc36c50",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-alpha_hsf_architecture.tex",
@@ -1178,8 +1309,9 @@
       "source_start_line": 34141,
       "source_end_line": 34473,
       "source_sha256": "9e4ce76f1192965788ffb40f257c254c49072af2a89024bc60bcf2bf70fee69b",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chap-software_control_msos.tex",
@@ -1190,10 +1322,11 @@
       "source_start_line": 34473,
       "source_end_line": 35219,
       "source_sha256": "40266bea205eeca2e455383940e7079df4a9f8db7a24e0a0a06445acc16ee479",
-      "status": "full-content-restored-with-computational-analysis",
+      "status": "queued-for-full-rewrite",
       "new_title": "智能运行时：从 HSF-HD 动力学到 AgentOS",
       "preserved_figure_count": 1,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis"
     },
     {
       "path": "chapters/part-11/chap-agi_cultivation.tex",
@@ -1204,8 +1337,9 @@
       "source_start_line": 35219,
       "source_end_line": 36125,
       "source_sha256": "c26fe94c1ed4447c168e33a7bfd8e1ee644556c7cd604a139d343b5a1efb4dcf",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-synthetic_affective_engineering.tex",
@@ -1216,8 +1350,9 @@
       "source_start_line": 36125,
       "source_end_line": 36322,
       "source_sha256": "7a63991613fcc5c2326ec58afdb0ee5dc5b053dcbce288a6d390d2ed11428544",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-hierarchical_control_engineering.tex",
@@ -1228,8 +1363,9 @@
       "source_start_line": 36322,
       "source_end_line": 36730,
       "source_sha256": "1a6557fde81fbd425ea9032ea91c35b247cadf316146dcb4e60d6387e32b6c70",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-cloud_edge_synergy.tex",
@@ -1240,8 +1376,9 @@
       "source_start_line": 36730,
       "source_end_line": 36835,
       "source_sha256": "2c7ed1ccb846c98b262e6dc4e102606f85d84fee946c8db0203929e4e629f17c",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-interconnection_engineering.tex",
@@ -1252,8 +1389,9 @@
       "source_start_line": 36835,
       "source_end_line": 37059,
       "source_sha256": "a811570d1312e18813b83f24c50cdaf57e17b60d43bd14c2d9b21d3c550f6427",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-gaia_engineering_the_machine.tex",
@@ -1264,8 +1402,9 @@
       "source_start_line": 37059,
       "source_end_line": 37250,
       "source_sha256": "07db5de0b24af6def02f66fbafaa66e827d66e2e45713e73864b05b957240658",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-fluid_swarm_engineering.tex",
@@ -1276,8 +1415,9 @@
       "source_start_line": 37250,
       "source_end_line": 37839,
       "source_sha256": "267b5d51452fc0450fd91f3380ae8549b34b75c324b509dc2be3a76d28186467",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-hive_evolution_engineering.tex",
@@ -1288,8 +1428,9 @@
       "source_start_line": 37839,
       "source_end_line": 37967,
       "source_sha256": "365e6d3afb5a82d25903d21fd4615d5f89e07038498d68c9c7e4cbc55ee84a58",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/sec-isomorphism_map.tex",
@@ -1300,8 +1441,9 @@
       "source_start_line": 37967,
       "source_end_line": 38147,
       "source_sha256": "f1b9a566a7484682270b4d91283cbfdf434a33b28059767c03fbcfe922b059ce",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-topological_biogenesis.tex",
@@ -1312,8 +1454,9 @@
       "source_start_line": 38147,
       "source_end_line": 38396,
       "source_sha256": "519776e4b2bf98aa6a817566a903abbd6c8537735df1081d9cec752cad75ae41",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chapter-108.tex",
@@ -1324,8 +1467,9 @@
       "source_start_line": 38396,
       "source_end_line": 38488,
       "source_sha256": "21f1facf7eeb0a1a8bde1b09cd3390494f40af85c3e9746b871e65cd738dc564",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "chapters/part-11/chp-conclusion.tex",
@@ -1336,8 +1480,9 @@
       "source_start_line": 38488,
       "source_end_line": 39371,
       "source_sha256": "dfa15f4de25be0d3ef14c101ca22f8a14adc5a7390eee300517e9e097ee37896",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "appendices/sec-section_4647.tex",
@@ -1348,8 +1493,9 @@
       "source_start_line": 39376,
       "source_end_line": 39459,
       "source_sha256": "03661d8bc7dd0e16b5d5fe52429f269ad7fc7c162b816bf37c7f93c18823e2af",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "appendices/chp-cpd_standard_model.tex",
@@ -1360,8 +1506,9 @@
       "source_start_line": 39459,
       "source_end_line": 39663,
       "source_sha256": "91337934414e21dc2d6d99cc2687ef23f5d7013872691371813c42675d4ce344",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "appendices/chp-fluid_moe_math_blueprint.tex",
@@ -1372,8 +1519,9 @@
       "source_start_line": 39663,
       "source_end_line": 39791,
       "source_sha256": "1f68d03c21c8c7411f40ecf7766b80552b7d74f033768ffb0b4c386023c76ff0",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "appendices/app-adiabatic_backprop.tex",
@@ -1384,8 +1532,9 @@
       "source_start_line": 39791,
       "source_end_line": 40121,
       "source_sha256": "7a8682a929fed16506028ee710f33e0278149d7a3d269711d6a78091fb4c1d4c",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "appendices/sec-section_8308.tex",
@@ -1396,8 +1545,9 @@
       "source_start_line": 40121,
       "source_end_line": 40146,
       "source_sha256": "181a3526ce0b932a7bacf1a31b0e7f8075c3a2608af2c99f9a64c925717baad2",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "appendices/sec-section_7739.tex",
@@ -1408,8 +1558,9 @@
       "source_start_line": 40146,
       "source_end_line": 40201,
       "source_sha256": "46aa4a02c616b77a4d4a8abf4aef021f80a722bbbb7b8a49912d89752349e02c",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "appendices/sec-section_9411.tex",
@@ -1420,8 +1571,9 @@
       "source_start_line": 40201,
       "source_end_line": 40334,
       "source_sha256": "a40dd2e859d30bf5ecf545911d755a9f2ac30ad6efe2175fbfd242bb6990f163",
-      "status": "full-content-restored-awaiting-sectionwise-revision",
-      "formatting_normalized": true
+      "status": "queued-for-full-rewrite",
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },
     {
       "path": "appendices/sec-section_5204.tex",
@@ -1432,11 +1584,13 @@
       "source_start_line": 40334,
       "source_end_line": 40528,
       "source_sha256": "0892416faf92722dfacfee5a49ee315ac2056620f388800e347208ec19ded9eb",
-      "status": "full-content-restored-with-computational-analysis",
+      "status": "queued-for-full-rewrite",
       "new_title": "理论与工程约化：从一般动力学到离散网络",
       "preserved_figure_count": 0,
-      "formatting_normalized": true
+      "formatting_normalized": true,
+      "previous_status": "full-content-restored-with-computational-analysis"
     }
   ],
-  "recovery_note": "All 117 complete baseline chapter bodies restored; 16 computational analyses are additions, not replacements. Original prefaces and 14 volume/part lead-ins restored."
+  "recovery_note": "All 117 complete baseline chapter bodies restored; 16 computational analyses are additions, not replacements. Original prefaces and 14 volume/part lead-ins restored.",
+  "rewrite_protocol": "2026-10-05 full chapter rewrite; no original chapter length decrease; two-level chapter/section headings; substantive half-page sections."
 }

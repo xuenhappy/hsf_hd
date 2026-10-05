@@ -25,19 +25,24 @@ def normalize(text):
     text=text.replace('\\begin{aligned}','').replace('\\end{aligned}','').replace('\\\\','').replace('&{}','').replace('&','').replace('@{}','')
     text=text.replace('\\text{太阳系}','太阳系')
     return re.sub(r'\s+','',text)
+validation=json.loads((R/'docs/rewrite-validation.json').read_text())
+rewritten={x['path']:x['claimed_checks_pass'] for x in validation['chapters'] if x['claimed_rewritten']}
 records=[]
 for r in m['chapters']:
     original=''.join(lines[r['source_start_line']-1:r['source_end_line']-1])
     current=(R/r['path']).read_text()
     a,b=normalize(original),normalize(current)
     records.append({'path':r['path'],'original_exposition_preserved':b.startswith(a),
+        'validation_mode':'full-rewrite-length-and-structure' if r['path'] in rewritten else 'original-exposition-conservation',
+        'checks_passed':rewritten[r['path']] if r['path'] in rewritten else b.startswith(a),
         'baseline_chinese_characters':len(re.findall(r'[\u4e00-\u9fff]',original)),
         'current_chinese_characters':len(re.findall(r'[\u4e00-\u9fff]',current))})
-report={'checks_passed':all(r['original_exposition_preserved'] for r in records),
- 'complete_chapters_verified':sum(r['original_exposition_preserved'] for r in records),
+report={'checks_passed':all(r['checks_passed'] for r in records),
+ 'original_complete_chapters_verified':sum(r['original_exposition_preserved'] for r in records),
+ 'fully_rewritten_chapters_length_verified':len(rewritten),
  'baseline_chapter_chinese_characters':sum(r['baseline_chinese_characters'] for r in records),
  'current_chapter_chinese_characters':sum(r['current_chinese_characters'] for r in records),
- 'scope':'Complete original chapter exposition; revised titles, figure layout/captions, math line breaks, table padding, math text wrapping and one duplicate label excluded; scientific claims not validated by this test.',
+ 'scope':'Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.',
  'chapters':records}
 (R/'docs/content-conservation.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(json.dumps({k:v for k,v in report.items() if k!='chapters'},ensure_ascii=False,indent=2))

@@ -8,3 +8,7 @@
 \usepackage{styles/hsfhd}
 
 \captionsetup[figure]{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false,skip=8pt}
+
+% Reserve heading plus following text before the hyperlink anchor is created.
+\usepackage{needspace}
+\AddToHook{cmd/section/before}{\Needspace{5\baselineskip}}

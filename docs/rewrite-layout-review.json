@@ -1,0 +1,271 @@
+{
+  "pages": 53,
+  "bytes": 9045017,
+  "text_height_pdf_points": 697.89,
+  "median_prose_line_pitch_pdf_points": 15.54,
+  "numbered_sections": 37,
+  "half_page_checks_pass": true,
+  "physical_page_clipping": [],
+  "sections": [
+    {
+      "title": "1.1 从对象属性到关系结构：表示问题的起点",
+      "start_pdf_page": 14,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "1.2 结构与内容的绑定：从符号到分布式表示",
+      "start_pdf_page": 15,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "1.3 从静态表示到状态更新：耦合与尺度",
+      "start_pdf_page": 15,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "1.4 模型的解释边界与可验证要求",
+      "start_pdf_page": 16,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "2.1 关系的类型、方向与身份",
+      "start_pdf_page": 18,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "2.2 结构操作与可达路径",
+      "start_pdf_page": 19,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "2.3 在关系图上运行：传播、约束与局部性",
+      "start_pdf_page": 19,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "2.4 杯子的结构模型：构造、修订与诊断",
+      "start_pdf_page": 20,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "3.1 属性的类型、尺度与来源",
+      "start_pdf_page": 22,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "3.2 编码空间与概率空间的区分",
+      "start_pdf_page": 23,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "3.3 激活机制、选择权重与持续更新",
+      "start_pdf_page": 23,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "3.4 内容读出、属性干预与记忆接口",
+      "start_pdf_page": 24,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "4.1 由位置记录构造联合状态空间",
+      "start_pdf_page": 28,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "4.2 局部属性空间与离散纤维的含义",
+      "start_pdf_page": 29,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "4.3 张量绑定、角色区分与可辨识性",
+      "start_pdf_page": 29,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "4.4 约束、离散编辑与运行时实现",
+      "start_pdf_page": 30,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "5.1 静态构成：绑定映射与可用表示",
+      "start_pdf_page": 32,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "5.2 动态构成：更新规则与目标变化",
+      "start_pdf_page": 32,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "5.3 状态维持：身份连续性与运行资格",
+      "start_pdf_page": 33,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "5.4 构造流程：从输入到可修订的联合状态",
+      "start_pdf_page": 34,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "6.1 从环境状态到观测记录：测量不是复制",
+      "start_pdf_page": 38,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "6.2 从观测到联合估计：关系与属性共同消歧",
+      "start_pdf_page": 39,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "6.3 预测、尺度与粗粒化：模型只保留任务所需信息",
+      "start_pdf_page": 39,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "6.4 领域规律、约束验证与行动闭环",
+      "start_pdf_page": 41,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "7.1 语言表示：表达顺序、事件角色与语境消歧",
+      "start_pdf_page": 42,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "7.2 视觉表示：区域、对象身份与场景关系",
+      "start_pdf_page": 43,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "7.3 推理表示：证明依赖、可信程度与因果条件",
+      "start_pdf_page": 43,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "7.4 跨模态协作：共同身份、接口契约与可修订理解",
+      "start_pdf_page": 44,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "8.1 语言与形式推理：候选生成和条件验证",
+      "start_pdf_page": 46,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "8.2 具身与制造：对象动力学、工艺条件与执行状态",
+      "start_pdf_page": 47,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "8.3 生命过程与实验：隐变量、模型尺度和证据更新",
+      "start_pdf_page": 47,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "8.4 社会协作：多主体状态、承诺与信息差异",
+      "start_pdf_page": 48,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "8.5 跨域调度：保持契约、控制损失与修订依赖",
+      "start_pdf_page": 49,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "9.1 观测可区分性：模型究竟需要区别哪些状态",
+      "start_pdf_page": 50,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "9.2 状态压缩与转移保持：何时可以定义商模型",
+      "start_pdf_page": 51,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "9.3 近似对应与误差传播：一步准确不等于长期可靠",
+      "start_pdf_page": 52,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "9.4 模型边界与理解能力：压缩、检验和可修订性",
+      "start_pdf_page": 53,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    }
+  ],
+  "scope": "Parts I–III only, 9 independently authored rewritten chapters; remaining 108 chapters are queued."
+}

@@ -1,0 +1,24 @@
+% Review of genuinely rewritten Parts I–III only. Complete book: hsf_hd.tex.
+\documentclass[lang=cn,10pt,scheme=chinese]{vendor/elegantbook}
+\input{config/packages.tex}
+\input{config/fonts.tex}
+\input{config/layout.tex}
+\input{config/metadata.tex}
+\subtitle{第一至三篇完整改写审阅本}
+\typeout{HSFHD_REVIEW_TEXTHEIGHT=\the\textheight}
+\typeout{HSFHD_REVIEW_TEXTWIDTH=\the\textwidth}
+\begin{document}
+\input{frontmatter/cover.tex}
+\maketitle
+\frontmatter
+\input{frontmatter/positioning.tex}
+\input{frontmatter/reading-guide.tex}
+\tableofcontents
+\mainmatter
+\input{introduction/introduction.tex}
+\bookvolume{第一卷：智能的结构与表示}
+\input{volumes/introduction-01.tex}
+\input{parts/part-01.tex}
+\input{parts/part-02.tex}
+\input{parts/part-03.tex}
+\end{document}
