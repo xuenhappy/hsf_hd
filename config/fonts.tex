@@ -1,5 +1,10 @@
 % CTeX/Fandol is the portable default supplied by texlive-lang-chinese.
 % Override fonts here, not in chapter files. Latin defaults live in the vendored class.
+% Explicit OpenType Latin fonts avoid incomplete Type-1 Unicode mappings in
+% mixed Chinese/Latin text on some XeTeX distributions.
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+\setmonofont{Latin Modern Mono}
 \xeCJKsetup{CJKspace=true,AutoFallBack=true}
 
 % Fandol lacks these rare characters on some distributions.

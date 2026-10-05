@@ -26,12 +26,13 @@ height=float(re.search(r'HSFHD_REVIEW_TEXTHEIGHT=([0-9.]+)pt',log).group(1))*72/
 def heading(entry):
  level,title,page=entry
  if level==1:return page-1,72
- needle=normalize(title).split(' ',1)[-1]
- needle=re.sub(r'^\d+(?:\.\d+)*','',needle)
+ # Match the stable CJK portion because some Type-1 fonts expose incomplete
+ # ToUnicode maps even when the visible mixed-script heading is correct.
+ needle=''.join(re.findall(r'[\u3400-\u4dbf\u4e00-\u9fff]+',normalize(title)))
  for actual in range(max(0,page-2),min(len(p),page+2)):
   for b in p[actual].get_text('dict')['blocks']:
    for line in b.get('lines',[]):
-    t=normalize(''.join(s['text'] for s in line['spans']))
+    t=''.join(re.findall(r'[\u3400-\u4dbf\u4e00-\u9fff]+',normalize(''.join(s['text'] for s in line['spans']))))
     if needle[:10] in t and any(s['size']>13 for s in line['spans']):return actual,line['bbox'][1]
  raise ValueError('Heading not found: '+title)
 report=[]

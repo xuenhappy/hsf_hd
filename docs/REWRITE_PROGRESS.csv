@@ -1,7 +1,7 @@
 order,path,status,original_han_floor,new_chapter_prose_han,original_readable_units,new_readable_units,section_count,minimum_section_prose_han
 1,chapters/part-01/chp-dual_basis.tex,rewritten-reviewed,1849,4946,1898,4951,4,1012
 2,chapters/part-01/chp-morphos_skeleton.tex,rewritten-reviewed,3200,4970,3348,4972,4,1081
-3,chapters/part-01/chp-qualia_activation.tex,rewritten-reviewed,3157,4620,3229,4627,4,1039
+3,chapters/part-01/chp-qualia_activation.tex,rewritten-reviewed,3157,4618,3229,4625,4,1037
 4,chapters/part-02/chp-universe_geometry.tex,rewritten-reviewed,1901,4645,1884,4648,4,1040
 5,chapters/part-02/chp-constitutive_equation.tex,rewritten-reviewed,1498,4737,1451,4745,4,1027
 6,chapters/part-03/chp-physics_anatomy.tex,rewritten-reviewed,1592,4690,1414,4693,4,1060
@@ -15,7 +15,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 14,chapters/part-05/chp-first_principles.tex,rewritten-reviewed,6266,8502,6254,8529,7,1021
 15,chapters/part-06/chp-quantization_reality.tex,rewritten-reviewed,4179,7507,3723,7521,5,1297
 16,chapters/part-06/chp-static_substrate.tex,rewritten-reviewed,3613,6953,3389,6969,5,1160
-17,chapters/part-06/chp-riemannian_base.tex,rewritten-awaiting-layout-review,4667,7091,4650,7120,6,1028
+17,chapters/part-06/chp-riemannian_base.tex,rewritten-reviewed,4667,7091,4650,7120,6,1028
 18,chapters/part-06/chp-microscopic_origins.tex,queued-for-full-rewrite,5191,5100,5255,5255,5,260
 19,chapters/part-06/chp-value_gauge_field.tex,queued-for-full-rewrite,2408,2304,2352,2352,4,304
 20,chapters/part-06/chp-holistic_state.tex,queued-for-full-rewrite,5153,4740,4902,4902,7,358

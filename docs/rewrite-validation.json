@@ -79,9 +79,9 @@
       "title": "质：属性编码、活动分布与任务读出",
       "status": "rewritten-reviewed",
       "original_han_floor": 3157,
-      "new_chapter_prose_han": 4620,
+      "new_chapter_prose_han": 4618,
       "original_readable_units": 3229,
-      "new_readable_units": 4627,
+      "new_readable_units": 4625,
       "opening_prose_han": 298,
       "sections": [
         {
@@ -90,7 +90,7 @@
         },
         {
           "title": "编码空间与概率空间的区分",
-          "prose_han": 1039
+          "prose_han": 1037
         },
         {
           "title": "激活机制、选择权重与持续更新",
@@ -561,7 +561,7 @@
       "order": 17,
       "path": "chapters/part-06/chp-riemannian_base.tex",
       "title": "表示距离：统计区分、路径代价与几何模型",
-      "status": "rewritten-awaiting-layout-review",
+      "status": "rewritten-reviewed",
       "original_han_floor": 4667,
       "new_chapter_prose_han": 7091,
       "original_readable_units": 4650,

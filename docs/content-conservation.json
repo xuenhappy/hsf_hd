@@ -1,9 +1,9 @@
 {
   "checks_passed": true,
-  "original_complete_chapters_verified": 101,
-  "fully_rewritten_chapters_length_verified": 16,
+  "original_complete_chapters_verified": 100,
+  "fully_rewritten_chapters_length_verified": 17,
   "baseline_chapter_chinese_characters": 568727,
-  "current_chapter_chinese_characters": 618707,
+  "current_chapter_chinese_characters": 621261,
   "scope": "Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.",
   "chapters": [
     {
@@ -28,7 +28,7 @@
       "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 3157,
-      "current_chinese_characters": 4682
+      "current_chinese_characters": 4680
     },
     {
       "path": "chapters/part-02/chp-universe_geometry.tex",
@@ -136,11 +136,11 @@
     },
     {
       "path": "chapters/part-06/chp-riemannian_base.tex",
-      "original_exposition_preserved": true,
-      "validation_mode": "original-exposition-conservation",
+      "original_exposition_preserved": false,
+      "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 4667,
-      "current_chinese_characters": 4667
+      "current_chinese_characters": 7223
     },
     {
       "path": "chapters/part-06/chp-microscopic_origins.tex",

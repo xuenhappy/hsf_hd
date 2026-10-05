@@ -309,7 +309,7 @@
       "source_start_line": 4575,
       "source_end_line": 4861,
       "source_sha256": "db9f5834fe264ed9f7a6e397aafbd507e56eb69105b8615696654ba6b958f2f7",
-      "status": "rewritten-awaiting-layout-review",
+      "status": "rewritten-reviewed",
       "new_title": "表示距离：统计区分、路径代价与几何模型",
       "formatting_normalized": true,
       "previous_status": "full-content-restored-awaiting-sectionwise-revision",
