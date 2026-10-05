@@ -2,7 +2,7 @@
 
 本项目研究智能系统的状态、结构、历史与控制如何在有限资源下共同演化。HSF-HD 位于系统科学与具体运行时架构之间，AgentOS 是其重要工程实例。
 
-当前正在按全章字数与二级结构要求实质重写 117 章。前 12 章已实写，其余 105 章仍待写；恢复原文及增补分析不计为完成。三卷十一篇、封面、前置章节、附录与原图保留。详见 [重构状态](docs/REFACTOR_STATUS.md)、[写作规范](docs/EDITORIAL_STANDARD.md) 与 [逐章进度](docs/REWRITE_PROGRESS.csv)。
+当前正在按全章字数与二级结构要求实质重写 117 章。前 13 章已实写，其余 104 章仍待写；恢复原文及增补分析不计为完成。三卷十一篇、封面、前置章节、附录与原图保留。详见 [重构状态](docs/REFACTOR_STATUS.md)、[写作规范](docs/EDITORIAL_STANDARD.md) 与 [逐章进度](docs/REWRITE_PROGRESS.csv)。
 
 ## 编译
 
@@ -20,7 +20,7 @@ apt-get install texlive-xetex texlive-latex-extra texlive-lang-chinese texlive-l
 make check       # 主编译图、标签、资源与插图完整性
 make smoke       # 第一卷审阅本（不是全书）
 make book        # 全书装配（目前包含待写原文）
-make rewrite-review # 仅已实写的前十二章
+make rewrite-review # 仅已实写的前十三章
 ```
 
 结果在 `build/`。根目录已有的 `hsf_hd.pdf` 是原稿成品，不是新版结果。发布日期固定在 `config/metadata.tex`，不随编译日期改变。

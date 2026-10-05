@@ -1,9 +1,9 @@
 {
-  "pages": 76,
-  "bytes": 9262780,
+  "pages": 81,
+  "bytes": 9320389,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 52,
+  "numbered_sections": 56,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -370,7 +370,35 @@
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "13.1 范式困境：层级还原与功能抽象的解释边界",
+      "start_pdf_page": 77,
+      "prose_lines": 36,
+      "calibrated_prose_page_equivalents": 0.802,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "13.2 核心命题：目标条件下的交互轨迹构成智能过程",
+      "start_pdf_page": 78,
+      "prose_lines": 38,
+      "calibrated_prose_page_equivalents": 0.846,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "13.3 目的的生成：内源先验、外源反馈与社会协商",
+      "start_pdf_page": 79,
+      "prose_lines": 43,
+      "calibrated_prose_page_equivalents": 0.958,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "13.4 双层约束：规范说明、可执行细化与工程验证",
+      "start_pdf_page": 80,
+      "prose_lines": 44,
+      "calibrated_prose_page_equivalents": 0.98,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 12 chapters; does not validate the full book."
+  "scope": "Review subset: 13 chapters; does not validate the full book."
 }

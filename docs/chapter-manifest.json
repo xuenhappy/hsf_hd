@@ -237,9 +237,14 @@
       "source_start_line": 3280,
       "source_end_line": 3426,
       "source_sha256": "d47cd1dc7e4e6df12afd8ad32170e5a09a67da75aff93e81c7596fa549f25a5c",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "目的交互主义：目标约束下的状态生成范式",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-05/chp-first_principles.tex",
