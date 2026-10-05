@@ -6,14 +6,14 @@
     "volumes": 3,
     "original_figure_blocks_preserved": 28,
     "original_figures_with_layout_adjustments": 28,
-    "original_figures_with_revised_captions": 7,
+    "original_figures_with_revised_captions": 8,
     "original_visual_assets_byte_verified": 26,
     "figure_blocks": 28,
     "labels": 815,
-    "reference_targets": 19,
+    "reference_targets": 20,
     "chapter_status": {
-      "rewritten-reviewed": 23,
-      "queued-for-full-rewrite": 94
+      "rewritten-reviewed": 24,
+      "queued-for-full-rewrite": 93
     }
   },
   "errors": []

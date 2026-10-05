@@ -22,7 +22,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 21,chapters/part-06/chp-cognitive_dynamics.tex,rewritten-reviewed,1640,4524,1635,4549,4,1007
 22,chapters/part-06/chap-dual_asymmetry.tex,rewritten-reviewed,1447,4635,1178,4659,4,1024
 23,chapters/part-06/sec-cognitive_kaluza_klein_compactification.tex,rewritten-reviewed,5322,7126,5381,7147,6,1010
-24,chapters/part-07/chp-microscopic_layer_ch.tex,queued-for-full-rewrite,8305,8109,8412,8412,8,555
+24,chapters/part-07/chp-microscopic_layer_ch.tex,rewritten-reviewed,8305,8959,8412,8997,8,1027
 25,chapters/part-07/chp-medium_layer_ch.tex,queued-for-full-rewrite,8712,8543,8869,8869,9,216
 26,chapters/part-07/chap-material_science_of_cognitive_matter.tex,queued-for-full-rewrite,2017,1855,1960,1960,3,364
 27,chapters/part-07/chp-physics_of_gauge_source.tex,queued-for-full-rewrite,3944,3483,3654,3654,6,77

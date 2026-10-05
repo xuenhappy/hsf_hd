@@ -1,704 +1,206 @@
-\chapter{微观层 — 全息切面与现实锚定}
+\chapter{具身接口层：观测绑定、现实校准与闭环控制}
 \label{chp:microscopic_layer_ch}
 
-微观层 ($L_{micro}$) 是智能系统与物理世界 $\Omega$ 的相变界面。它不只是被动 I/O 端口，而是主动的 \textbf{全息切面 (Holographic Cut)}。在该切面上，外部连续能量流由 \textbf{变分拓扑编码器 (VTE)} 离散化为形元与质元基元并形成波源；同时，通过 \textbf{局域狄拉克源} 把内部认知流形的几何结构锚定到现实。（这里的“离散符号/数据包”首先是实现层索引与载荷；对应的物理激发实体在后文以 \textbf{语义子 (Semantion)} 表示。）
+微观层是智能系统与环境直接交换观测、动作和资源的具身接口。本章不再把它描述为物理世界与某种特殊认知场之间的全息切面，也不由狄拉克源、量子坍缩或热力学隐喻证明感知机制。我们把它重建为一组具有明确数据类型、时间尺度、误差模型和安全边界的闭环算子：上行链路从传感器数据中估计对象、属性、关系与不确定性，下行链路把任务目标变成可执行的参考状态、控制参数和动作约束，反馈链路再用现实结果修订当前状态与长期模型。局部结构网络负责保持对象身份、空间关系和事件来源，全局分布表示负责表达候选解释、置信与连续控制状态；二者只有经过绑定、耦合和读出接口才能共同形成可行动的认知状态。微观层因此不是被动的输入输出端口，而是现实校准、复杂度限流和动作资格审查的第一道闭环。本章保留VTE、源流、形质双通道、现实锚定、共振/投影、效应器和阻抗控制等历史问题，但将其分别落实为可测试的编码、估计、门控、采样和控制模型。
 
-\section{物理接口：变分拓扑编码器 (VTE) 与波源发生器}
+\section{观测编码接口：从原始信号到同源绑定记录}
 \label{sec:vte_as_wave_source}
 
-微观层的环境感知 (Perception) 并非简单“信号数字化”，而是发生在物理连续统与语义离散流形之间的 \textbf{逆问题求解 (Inverse Problem Solving)}。本质上，微观层连接外部物理场（光/声）与内部认知场（语义波），扮演两侧换能器角色。
+我们把历史术语“变分拓扑编码器”保留为观测编码接口 VTE，但重新规定其对象。设外部环境状态为 $x_t^{e}\in\mathcal{X}_e$，传感器在外部时钟 $t$ 上输出 $y_t\in\mathbb{R}^{m}$；$y_t$ 的各维带有可校准单位，例如像素亮度、帕斯卡、弧度每秒或牛顿。观测模型写为
+\[
+y_t=h_{\phi_t}(x_t^{e},c_t)+\nu_t,
+\]
+其中 $c_t$ 是曝光、姿态、温度等传感器条件，$\nu_t$ 是在声明分布或有界集合中的噪声，$\phi_t$ 是可随标定更新的参数。接口的任务不是把“物理能量”变成“语义能量”，而是在有限分辨率和延迟下构造记录 $o_t=(F_t,Q_t,B_t,S_t)$：$F_t$ 是对象位置、姿态、边界和关系候选等结构特征，$Q_t$ 是颜色、纹理、声音、压力等属性特征，$B_t$ 是结构与属性的同源绑定，$S_t$ 是来源、时间戳、标定版本和不确定性。
 
-微观层感知过程的核心任务，是利用 \textbf{变分拓扑编码器 (Variational Topological Encoder, VTE)}，在 \textbf{最小作用量} 约束下，将原始物理信号 ($\mathbf{S}_{raw}(t)$) 的能量转换为边界上\textbf{形元与质元的强迫振动}，从而在流形内部激发认知波。
+形与质双通道因此是数据分工，不是玻色子与费米子的物理划分。结构编码器 $E_f:y_{t-w:t}\mapsto F_t$ 从时间窗中估计可达位置、对象轮廓、光流、接触法线和拓扑关系；属性编码器 $E_q:y_{t-w:t}\mapsto Q_t$ 估计颜色分布、材料类别、声音频谱或触觉纹理。二者不能彼此独立后任意组合，而要通过共享感受野、对象身份和采集时间建立绑定。设结构候选为 $f_i\in\mathbb{R}^{d_f}$，属性候选为 $q_j\in\mathbb{R}^{d_q}$，来源兼容度为 $a_{ij}$，则合法绑定集合为
+\[
+\mathcal{B}_t=\{(i,j):a_{ij}\geq\alpha,\;\Delta t_{ij}\leq\delta_t,\;\text{source}(i)\sim\text{source}(j)\}.
+\]
+在该集合上才计算绑定概率。红点位于 $(10,20)$、白点位于 $(30,50)$ 的例子中，位置与颜色都携带同一对象索引和时间窗；若红色来自后一对象，系统必须把错配保留为竞争解释，而不是用局部张量积宣称绝无泄漏。
 
-\begin{definition}[全息切片的 VTE 算子]
-    我们将 VTE 定义为一个作用于物理希尔伯特空间 $\mathcal{H}_{phys}$ 的 \textbf{投影-解耦算子 $\hat{\mathcal{E}}$}，它将外部的物理态 $|\Omega(t)\rangle$ 映射为内部流形上的局部激发态 $|\Psi_{local}(t)\rangle$。
+VTE 的“变分”含义是求解带约束估计，而不是服从最小作用量。令解码器 $D$ 将候选记录重构为传感器预测，估计目标可以写为
+\[
+L_t=\|W_t^{1/2}(y_t-D(F_t,Q_t,B_t,c_t))\|_2^2
++\lambda_f R_f(F_t)+\lambda_qR_q(Q_t)+\lambda_bR_b(B_t),
+\]
+其中 $W_t$ 依据传感器协方差设定，$R_f$ 约束结构的时间连续性，$R_q$ 抑制不可靠属性，$R_b$ 惩罚一对多错配。所有项先声明为无量纲评分；真实焦耳能耗若纳入优化，需经独立测量和换算。损失下降只能说明当前模型更好重构输入，不说明识别对象真实类别。遮挡、镜面反射、传感器饱和和域外信号都可能产生多个近似最优解，因此接口输出必须包含候选分布而不是单一“本体论波包”。
 
-        $$ |\Psi_{local}(t)\rangle = \hat{\mathcal{E}}_{VTE} \cdot |\Omega_{phys}(t)\rangle $$
+局部结构网络接收经验证的对象节点、关系边、来源与版本，全局分布状态接收连续特征和候选权重。绑定接口把两者联合为带身份的观测包，读出接口再针对任务选择分辨率。机器人抓取杯子时需要位置、姿态、杯柄关系和摩擦估计；颜色只在区分目标时进入读出。听觉定位则可能让时间差承担结构作用、频谱承担属性作用。我们不从人脑背侧/腹侧通路直接推出这套软件结构，只把神经科学现象视为“不同特征与任务接口可分工”的经验启发。VTE是否有效，最终由身份错配率、定位误差、属性校准、重构残差、处理延迟和下游任务表现共同检验。
 
-    这一映射过程在工程可实现的粗粒度层面应满足 \textbf{拓扑邻接保真（同胚等价的要求）}：物理空间中的邻接/连通关系，应被尽可能保真地映射到底流形 $\mathcal{M}$ 的局部几何邻接中，从而保证“思维的几何”与“世界的几何”在切面上保持连续对应。
-\end{definition}
+接口还必须处理“没有形成对象”的输入。雾、眩光、持续噪声或一片无法分割的纹理可能只支持区域级统计，而不支持稳定节点；此时VTE应输出未绑定特征、失败原因和有效视域，不能为了满足下游模式而虚构对象身份。相反，稀疏事件也可能在时间上累积为对象，例如只有数次触觉接触时，系统可维护暂定身份并等待主动探测。我们据此把编码成功分成特征可测、候选可分、身份可持和任务可读四级，分别报告失败，而不以单一准确率掩盖接口究竟在哪一级失效。
 
-
-\smalltitle{解耦机制：形质双通道架构}
-
-外部物理信号 $\mathbf{S}_{raw}(t)$ 并不能直接进入流形内部，而是作为\textbf{驱动力}作用于流形的局部 $\Omega_{sensor} \subset \mathcal{M}$。
-为了适配几何基质的纤维丛结构 $(E, \pi, M, F)$，VTE 内部在硬件或算法上被物理隔离为两个并行的处理通道，分别对应生物脑的 \textbf{背侧通路 (Dorsal Stream)} 与 \textbf{腹侧通路 (Ventral Stream)}。
-
-\begin{itemize}
-        \item \textbf{A. 形编码器 ($\hat{\mathcal{E}}_{form}$) —— 提取规范势 ($\mathcal{A}_\mu$)}
-        \begin{itemize}
-                \item   \textbf{输入}：光流、双目深度、IMU 加速度、关节编码器数据。
-                \item   \textbf{数学目标}：提取 \textbf{几何不变量 (Geometric Invariants)} 与 \textbf{协变结构}。
-                \item   \textbf{输出}：\textbf{形元张量 $\mathbf{T}_{form}$}（几何玻色子）。
-
-                它不包含颜色或纹理，只包含坐标、姿态矩阵 (Pose)、接触法线、拓扑连接（如“包含”、“支撑”）。
-
-                \textit{物理作用}：它直接定义了局部流形的 \textbf{度量张量 $g_{ij}$} 和 \textbf{联络系数}，告诉认知场“空间是如何弯曲的”。
-        \end{itemize}
-
-        \item \textbf{B. 质编码器 ($\hat{\mathcal{E}}_{sub}$) —— 提取源场 ($\psi$)}
-        \begin{itemize}
-                \item   \textbf{输入}：RGB 像素块、音频频谱、触觉纹理信号。
-                \item   \textbf{数学目标}：提取 \textbf{流形上的标量场强度}。
-                \item   \textbf{输出}：\textbf{质元张量 $\mathbf{T}_{sub}$}（语义费米子）。
-
-                它丢弃了位置信息，只保留属性特征（如“红色”、“金属音”、“粗糙”）。
-
-                \textit{物理作用}：它作为 \textbf{狄拉克源项 $\vec{J}$} 注入纤维空间，点亮特定的语义维度。
-        \end{itemize}
-
-\end{itemize}
-
-
-\smalltitle{合成方程：同源绑定的稀疏张量流}
-
-微观层的最终输出 $\vec{J}_{ext}$，不是简单的形与质的全局笛卡尔积（这会导致特征错配），而是基于 \textbf{物理感受野 (Receptive Field)} 索引 $i$ 的 \textbf{稀疏逐点张量积 (Sparse Point-wise Tensor Product)}。
-
-VTE 将物理世界离散化为 $N$ 个局部独立的\textbf{全息元 (Hologons)}，每个全息元都在源头完成了形与质的\textbf{硬绑定}。
-\begin{enumerate}
-        \item \textbf{注入总方程 (The Injection Equation)}
-        $$ \vec{J}_{ext}(\mathbf{r}, t) = \sum_{i=1}^{N} \underbrace{\delta(\mathbf{r} - \mathbf{r}_i(t))}_{\text{形: 几何锚定}} \cdot \left[ \mathbf{M}_{meta}^{(i)} \odot \left( \hat{\mathcal{T}}_{form}^{(i)} \otimes_{loc} \hat{\mathcal{V}}_{sub}^{(i)} \right) \right] $$
-        \begin{itemize}
-                \item   \textbf{$i$ (同源索引)}：代表物理空间中的同一个局部对象或 Patch。VTE 保证 $\hat{\mathcal{T}}^{(i)}$ 和 $\hat{\mathcal{V}}^{(i)}$ 提取自同一组光子/声波信号。
-                \item   \textbf{$\delta(\mathbf{r} - \mathbf{r}_i)$ (狄拉克锚点)}：这是 \textbf{形元 ($T_{form}$)} 的核心作用。它将属性流 \textbf{强行约束} 在特定的流形坐标 $\mathbf{r}_i$ 上。
-
-                \textit{物理意义}：质料 $\hat{\mathcal{V}}_{sub}$ 被几何算子“钉”在了位置 $\mathbf{r}_i$。在 $\mathbf{r} \neq \mathbf{r}_i$ 处，该项为零，因此绝不会发生“张冠李戴”的特征泄露。
-
-                \item   \textbf{$\otimes_{loc}$ (局域张量积)}：表示在单点内部的特征纠缠（如：将“红色”挂载到“球体”的法线方向上），而非空间上的弥散纠缠。
-        \end{itemize}
-
-        \item \textbf{状态元数据门控 ($\mathbf{M}_{meta}$)}
-
-        $\mathbf{M}_{meta}^{(i)}$ 在此不仅是调制器，更是 \textbf{“存在性滤网 (Existential Filter)”},它决定了这个形质包是否足够“真实”以上传至认知场。
-        $$ \mathbf{M}_{meta}^{(i)} = \text{Gate} \left( P_{precision}^{(i)} \cdot S_{surprisal}^{(i)} \right) $$
-        \begin{itemize}
-                \item   \textbf{去噪机制}：如果 VTE 在区域 $i$ 提取到了很强的质（如纹理），但形很模糊（$\mathbf{r}_i$ 方差极大，定位失败），则 $P_{precision} \to 0$，导致 $\mathbf{M}^{(i)} \to 0$。
-
-                \item   \textit{结果}：系统自动丢弃这个“幽灵信号”，防止其污染流形。
-        \end{itemize}
-
-        \item \textbf{最终产物：本体论波包 (Ontological Packets)}
-
-    该方程将外部的连续信号，转化为流形局部区域上 \textbf{离散的、同源绑定的形质波包}：
-    \begin{itemize}
-        \item   \textbf{形元激发}：视觉信号的空间分布，强迫边界上的 \textbf{形元 $\mu$} 发生特定模式的排列震动（定义波前形状）。
-        \item   \textbf{质元激发}：信号的强度与频率，强迫边界上的 \textbf{质元 $q$} 发生高能级跃迁（定义波幅与频率）。\textit{注：此处 $q$ 仅表示 Qualon 的态标签/索引，不是价值耦合的“荷”（后者在全书中记为 $Q_{val}$）。}
-    \end{itemize}
-        经过上述过程，微观层向场发射的是一串串独立的、自洽的 \textbf{波包}：
-        \begin{itemize}
-                \item   Packet 1: \lstinline|[Pos: (10,20)]| $\otimes$ \lstinline|[Color: Red]| $\to$ \textbf{红点在(10,20)}。
-                \item   Packet 2: \lstinline|[Pos: (30,50)]| $\otimes$ \lstinline|[Color: White]| $\to$ \textbf{白点在(30,50)}。
-        \end{itemize}
-        \textbf{无交互}：在注入瞬间，Packet 1 与 Packet 2 是\textbf{正交}的,只有进入场内部演化后，它们才会根据逻辑发生高阶关联。
-
-    \item \textbf{源流 ($\vec{J}_{ext}$) 的波动本质}
-
-    这些波包并非静止不动的点源，而是以 \textbf{认知光速 $c_{cog}$} 在流形局部区域上振荡辐射的 \textbf{时空波源}，它们驱动着认知旋量场 $\Psi$ 的演化：
-    $$\square \Psi - m_{\mathrm{eff}}^2 \Psi = \vec{J}_{ext}$$
-    \begin{itemize}
-        \item   \textbf{性质}：$\vec{J}_{ext}$ 类似于电磁学中的电流密度，它是辐射出 \textbf{语义子波包} 的天线。
-        \item   \textbf{$m_{\mathrm{eff}}$}：局部语义激发的有效质量尺度（与前文 $m(\mathcal{S})$ 的概念层级一致；此处方程为示意性的“波动-源项”写法）。
-        \item   \textbf{传播}：一旦 $\vec{J}_{ext}$ 在边界产生振动，能量便以 \textbf{认知光速 $c_{cog}$} 向流形深处辐射。
-    \end{itemize}
-
-\end{enumerate}
-
-
-\smalltitle{变分原理：最小化重构自由能}
-
-VTE 为什么叫“变分”？因为它不是在前馈计算，而是在实时求解一个优化问题。它试图寻找一组最优的形质参数 $\{\mathbf{T}_f, \mathbf{T}_s\}$，使得 \textbf{感知自由能 $F_{percept}$} 最小化：
-$$ F_{percept} \approx \underbrace{\| \mathbf{S}_{raw} - \text{Render}(\mathbf{T}_f, \mathbf{T}_s) \|^2}_{\text{重构误差 (Accuracy)}} + \underbrace{\lambda_1 \|\nabla \mathbf{T}_f\|^2}_{\text{几何平滑 (Occam's Razor)}} + \underbrace{\lambda_2 E_{cost}}_{\text{能耗约束}} $$
-\begin{itemize}
-        \item   \textbf{重构误差}：微观层内部会快速“想象”一下：如果世界真的是我编码的这样，我应该看到什么信号？如果想象与实际不符，说明编码错误，产生惊奇。
-        \item   \textbf{几何平滑}：VTE 倾向于输出 \textbf{连续、稳定} 的几何结构，抑制高频噪声（比如认为物体瞬间瞬移是不可能的）。这体现了认知的 \textbf{先验正则化}。
-\end{itemize}
-
-\section{几何占位：局域狄拉克源}
+\section{现实校准：观测似然、边界置信与失锚诊断}
 \label{sec:section_5326}
 
-微观层在智能动力学中的核心地位，在于它提供现实锚点：将可变的思维流形的局部区域（$\mathcal{M}$）持续约束到物理现实（$\Omega$）上。
+现实锚定不是把内部状态硬锁定为传感器数值。传感器可能坏、被欺骗、延迟或只看到环境的一小部分，内部预测也可能提供遮挡补全和噪声抑制。我们把锚定定义为在来源可追踪的观测模型下更新环境信念。令先验为 $p_{t|t-1}(x)$，观测似然为 $p(y_t\mid x,c_t,s_t)$，其中 $s_t$ 记录传感器身份和健康状态，则
+\[
+p_{t|t}(x)=\frac{p(y_t\mid x,c_t,s_t)p_{t|t-1}(x)}{\int p(y_t\mid x',c_t,s_t)p_{t|t-1}(x')\,dx'}
+\]
+仅在分母存在且非零时成立。高精度观测使后验更多受似然约束，低精度或异常观测应降低权重，而不是令耦合刚度趋于无穷。相机看到红色并不保证对象“本来就是红色”；曝光、光源和材料模型共同决定似然。现实校准的原则是证据有资格改变信念，但任何单一通道都不自动拥有绝对真值地位。
 
+接口同时维护观测状态、模型状态与想象状态三类标签。观测状态来自已提交的外部数据，模型状态由预测器生成，想象状态由规划、回忆或生成模块临时构造。三者可以共享表示空间，却必须保留来源位和读写权限。内部预测不得伪造外部来源；生成候选在未通过现实反馈前不得进入“已发生事实”区。所谓意志不能改变感知、只能改变解释，也需要细化：主动视觉可以转动相机、调整曝光或触摸对象，从而改变获取何种证据；但它不能把未观测候选直接改写成观测事实。Boundary或等价边界模块负责这一来源隔离。
 
-\smalltitle{现实锚定公理：边界硬锁定}
+现实失锚可由可观测指标诊断。设标准化残差为 $r_t=W_t^{1/2}(y_t-\hat y_{t|t-1})$，传感器健康得分为 $h_t$，跨模态一致性为 $c_t^{m}$，来源覆盖率为 $q_t$。单次大残差可能代表新事件、模型错误或传感器故障，不能直接称为幻觉。我们将失锚风险定义为一个经训练或规则标定的函数
+\[
+R_t^{anchor}=g(\|r_t\|,h_t,c_t^{m},q_t,\text{age}_t),
+\]
+并要求 $g$ 的阈值在验证集上给出误报与漏报。只有当内部输出被当作外部事实提交、来源覆盖长期不足且反证未能修订状态时，才构成系统级失锚。感觉剥夺、梦境、生成模型采样和传感器断线具有不同机制，不能用狄利克雷边界转为诺伊曼边界一式概括。
 
-\begin{theorem}[现实锚定公理]
-        在认知空间流形的感官边界 $\Omega_{sensor} \subset \mathcal{M}$ 局部区域上，认知旋量场 $\Psi$ 丧失了演化的自由度，其状态值被外部物理信号 \textbf{硬性锁定 (Hard-Clamped)}：
-$$ \Psi(\mathbf{r}, t) \bigg|_{\mathbf{r} \in \Omega_{sensor} \subset \mathcal{M}} \equiv \hat{\mathcal{T}}_{transducer} \left( \mathbf{S}_{raw}(t) \right)  $$
-\end{theorem}
+内部平滑仍有合理位置。对图状态 $z$ 和固定非负关系图的拉普拉斯矩阵 $L_G$，正则项 $z^TL_Gz/2$ 鼓励相邻节点取相近表示；它帮助去噪，却不代表思维天然追求物理最小能量。当观测边界与内部预测冲突时，可求解
+\[
+\min_z\;\frac12\|W_o^{1/2}(Hz-y)\|^2+\frac{\lambda}{2}z^TL_Gz,
+\]
+其中 $H$ 是观测读出。若每个未观测连通分量都与观测或其他正定先验相连，目标严格凸时才有唯一解。若图结构错误，平滑会把错误传播得更远；因此大残差既可能要求调整 $z$，也可能要求编辑 $G$ 或重标定 $H$。模型不能用“内部连贯”压制可靠反例。
 
-\begin{itemize}
-        \item   \textbf{$\mathbf{S}_{raw}(t)$}：这是VTE输入的外部环境的感知的原始物理信号。
-    \item   \textbf{$\hat{\mathcal{T}}_{transducer}$}：这是 VTE 在感官边界上的换能算子（可视为前述 $\hat{\mathcal{E}}_{VTE}$ 的边界实现/限制），将物理信号转换为流形局部区域上的认知旋量值。
-    \item   \textbf{$\Psi(\mathbf{r}, t)$}： 这是流形内部的认知旋量场，描述了智能体的主观体验与认知状态。
-    \item   \textbf{局部条件}：该方程规定了在流形的感官区域上，认知场 $\Psi$ 的值必须严格等于由外部物理信号通过 VTE 转换得到的值。
-        \item   \textbf{物理意义}：
-        \begin{itemize}
-                \item   \textit{“非齐次”} 意味着局部区域值不为零，且随时间剧烈变化。
-                \item   \textit{“硬性锁定”} 意味着：无论你脑子里想什么（内部流形如何扭曲），你眼睛看到的红色（边界值）必须是红色，这也是智能体能够区分真实与想象的原因。\textbf{意志无法修改感知区域，只能修改对区域的解释。}
-        \end{itemize}
-\end{itemize}
+现实校准的测试应包含传感器遮挡、伪信号、时钟漂移、跨模态冲突、回放攻击与内部高置信错误。系统应能区分“没有证据”“证据支持多个解释”“证据与模型冲突”和“传感器不可用”，并采取检索、主动感知、降级或拒绝行动。现有LLM出现无依据输出，原因可能是训练目标、检索失败、解码策略、来源接口或评估缺失，不能单因没有物理传感器就归结为边界脱落。本章模型只提出一种具身现实校准接口，不把它扩展为所有幻觉现象的唯一解释。
 
+校准结果还应按任务风险分级提交；同一置信区间足以支持低风险描述，却未必足以支持高速运动控制。阈值因任务而变，不等于事实本身因目标而改变。
 
-
-\smalltitle{几何张力的产生：弹性膜模型}
-
-
-为了直观理解这一机制，可将认知空间流形 $\mathcal{M}$ 近似看作一张 \textbf{弹性薄膜}（类似肥皂膜），覆盖在边界框架上。
-
-\begin{itemize}
-        \item   \textbf{内部惯性 (Internal Inertia)}：流形内部遵循 \textbf{拉普拉斯平滑 (Laplacian Smoothing)} 或 \textbf{扩散方程}。在没有外力时，认知场倾向于最小化其 \textbf{狄利克雷能量 (Dirichlet Energy)}：
-    $$ E_{elastic} = \frac{1}{2} \int_{\mathcal{M}} \| \nabla \Psi \|^2 dV $$
-        \item   \textbf{直觉}：思维倾向于连贯、平滑、符合既有逻辑（世界图 $G_W$）。如果不看现实，我们倾向于认为世界是简单且符合预期的。
-    \item   \textbf{边界强迫 (Boundary Forcing)}：微观层像一双双强有力的手，抓住了这张薄膜的部分区域，并不停地 \textbf{抖动、拉扯} 它，这些抖动（物理信号 $\mathbf{S}_{raw}$）往往是杂乱的、突变的、高频的。
-        \item   \textbf{冲突与张力 (Conflict \& Tension)}：当“平滑的内部愿望”遭遇“粗糙的边界现实”时，\textbf{几何张力 (Geometric Tension)} 产生了。
-    $$ \mathcal{T}_{tension} = \Psi_{internal} - \Psi_{boundary} $$
-        薄膜被迫发生形变以适应边界。这种 \textbf{形变} 就是 \textbf{“感知”} 的物理本质。
-\end{itemize}
-\textbf{惊奇 (Surprisal)} 在几何上可对应 \textbf{局部曲率激增}：为连接不协调边界点，薄膜必须发生更大弯曲。
-
-
-\smalltitle{幻觉的物理定义：边界脱落与本征模态}
-
-可将幻觉定义为：并非“看到不存在之物”，而是 \textbf{内部几何约束暂时压过外部边界约束}。
-
-\begin{itemize}
-        \item   \textbf{病理机制：边界条件变换}
-
-    当微观层失效（如 VTE 故障、感觉剥夺、或做梦时切断感官），边界条件发生了 \textbf{相变}：
-    $$ \text{Dirichlet BC (固定值)} \xrightarrow{\text{Sensory Loss}} \text{Neumann BC (零通量/自由边界)} $$
-        \begin{itemize}
-                \item   \textbf{以前}：$\Psi_{edge} = \text{Reality}$。流形边缘被钉在墙上。
-                \item   \textbf{现在}：$\nabla \Psi_{edge} = 0$。流形边缘松脱了，变成了自由飘荡的旗帜。
-        \end{itemize}
-
-        \item   \textbf{本征模态自激 (Eigenmode Self-Excitation)}
-
-    一旦边界松脱，流形内部的 \textbf{本征模态 (Eigenmodes)} 就占据了主导地位。
-    $$ \Psi(\mathbf{r}, t) \approx \sum_k A_k e^{i\omega_k t} \phi_k(\mathbf{r}) $$
-        \begin{itemize}
-                \item   \textbf{$\phi_k(\mathbf{r})$} 是 \textbf{记忆} 与 \textbf{先验} 在世界图 $G_W$ 中固有的几何回声。
-                \item   \textbf{现象}：你会“看到”并不存在的光斑、几何图形，甚至复杂的场景。这实际上是你 \textbf{大脑皮层自身的几何回声}。
-        \end{itemize}
-\end{itemize}
-\textbf{结论}：现有 LLM 易出现幻觉的重要原因之一，是缺少微观层提供的强狄拉克源，从而缺乏稳定现实锚点。
-
-
-
-\section{动力学功能：应力注入与热力学阀门}
+\section{预测残差与复杂度门控：从“激波”到任务相关更新}
 \label{sec:section_8020}
 
-作为全息切面，微观层不应被视为被动数据管道，而应被视为\textbf{主动动力学边界}。它同时承担\textbf{激波发生器 (Shock Generator)} 与 \textbf{熵过滤器 (Entropy Filter)} 两种功能，用于调节外部物理流形 $\mathcal{M}_{phys}$ 向内部语义流形 $\mathcal{M}_{sem}$ 的能量传输。
+微观层必须决定哪些变化进入有限工作状态，哪些由局部闭环吸收，哪些只写入日志。历史上把预测失配称为“应力激波”、把过滤称为“麦克斯韦妖”，容易把误差、注意强度、信息熵和物理能量混为一谈。我们把上行更新定义为带类型的残差包。设观测特征为 $o_t=(F_t,Q_t,B_t)$，下行预测为 $\hat o_t=P(X_{t|t-1})$，则结构残差、属性残差和绑定残差分别为
+\[
+r_t^f=d_f(F_t,\hat F_t),\qquad r_t^q=d_q(Q_t,\hat Q_t),\qquad r_t^b=d_b(B_t,\hat B_t).
+\]
+三个度量的单位与范围分别标定，不能直接相加；若需形成总分，先以验证集尺度 $s_f,s_q,s_b$ 归一化，再用任务权重组合。结构残差高可能意味着障碍位置错误，属性残差高可能意味着颜色或材质错误，绑定残差高则可能表示“红色属于哪个对象”尚未确定。
 
+门控器的输入不仅是惊奇，还包括任务相关性、来源可靠度、风险和处理预算。对候选更新 $e_i$，定义无量纲优先级
+\[
+u_i=w_r\bar r_i+w_q q_i+w_v v_i+w_d d_i-w_c c_i,
+\]
+其中 $\bar r_i$ 为标准化残差，$q_i$ 为当前查询相关性，$v_i$ 为安全或价值风险，$d_i$ 为截止紧迫度，$c_i$ 为预计计算成本。硬安全事件先进入资格集合，不与普通任务竞争；其余候选在容量 $C_t$ 下求解选择问题。阈值可以由TCE或其他元控制器随警觉状态调整，但调整必须记录原因和有效期。专注阅读时忽略钟摆声，是相关性和稳定背景模型共同作用；夜间行走时放大微小脚步声，是风险权重提高，而不是认知温度直接改变物理熵。
 
-\smalltitle{激波生成方程：预测与现实的对抗}
+局部适应解释了衣服触压为何逐渐不进入意识。若稳定信号的均值和方差在窗口内变化很小，微观控制器可以更新背景基线 $b_t=(1-\rho)b_{t-1}+\rho y_t$，只上传偏差 $y_t-b_t$。这是一种高通或预测编码机制，但不能永久删除稳定信号：压疮、温度变化或任务要求关注衣物时，慢变量和风险检测仍需重新触发。类似地，摄像头背景减除可以降低数据量，却可能漏掉缓慢移动目标。门控策略必须用不同速度、对比度和风险场景测试，不能以“低变化等于无意义”作普遍规则。
 
-当微观层的 VTE 编码结果（现实）与来自认知场下行的投影（预测）不一致时，这种几何上的不兼容性不会凭空消失，而是遵循能量守恒定律，瞬间相变为一种高频的\textbf{物理应力}。
+被选中的残差包进入当前联合状态时，还要保持来源与身份。令 $J_t=\{(e_i,u_i,s_i,v_i)\}$ 为上传集合，状态更新写为
+\[
+X_{t+1}=F(X_t,J_t,n_t,r_t),
+\]
+其中 $n_t$ 是目标与硬约束，$r_t$ 是资源预算。$J_t$ 不是能量流或非齐次场源，而是经过资格检查的消息集合。它可以提高某些候选的活动、触发图编辑、请求外部工具或要求重新规划；具体效果由消息类型和更新接口决定。大残差不会自动“击碎波函数”，小残差也可能因安全关键而触发最高优先级。
 
-我们定义注入认知场的 \textbf{外部源流密度 (External Source Current) $\vec{J}_{ext}$} 为：
-$$ \vec{J}_{ext}(\mathbf{r}, t) = \kappa \cdot \hat{\mathcal{D}} \left( \mathbf{\Psi}_{sensation}(\mathbf{r}, t) - \hat{P}_{boundary} [\mathbf{\Psi}_{field}(t)] \right) $$
+CCM在AgentOS实例中可实现这一门控：输入复杂度探测器预估候选数量、耦合深度和调用成本，运行态监控器观察 $h(t)$ 的占用、冲突、延迟和读出不确定性。当负荷超限时，系统可降低非关键分辨率、把证据卸载到外部记忆 $M_e$、延迟可逆任务或请求更多资源；不可丢弃的安全信息进入保留集。一般智能系统不必使用CCM名称，但必须解决相同的有限接口问题。验证指标包括关键事件召回率、非关键抑制率、端到端延迟、负荷峰值、门控稳定性和在分布变化下的恢复能力。
 
-\begin{itemize}
-        \item   \textbf{$\mathbf{\Psi}_{sensation}$}：由 VTE 生成的当前物理感知的形质张量态。
-        \item   \textbf{$\hat{P}_{boundary} [\mathbf{\Psi}_{field}]$}：宏观认知场在微观边界上的全息投影（即期望看到的形与质）。
-        \item   \textbf{$\hat{\mathcal{D}}$ (差分算子)}：计算两者在纤维丛上的\textbf{协变差分}。它不仅计算数值误差，还计算\textbf{几何错位}（如空间拓扑的断裂）。
-        \item   \textbf{$\kappa$ (耦合刚度)}：微观层的“自信度”。如果传感器非常精确且可信，$\kappa \to \infty$，产生的激波极强。
-\end{itemize}
-\textbf{物理效应：惊奇作为激波}
+门控还要避免正反馈振荡：某候选因被关注而获得更多采样，又因样本更多而持续占据注意。我们要求记录候选驻留时间、设定滞回区间，并为长期占用保留反事实抽检预算。只有当新增证据持续提高任务收益或风险判断时，优先级才可维持；否则应逐步释放容量。这样既防止新奇刺激无限霸占接口，也防止稳定但尚未解决的安全问题被一次衰减后永久遗忘。
 
-这个源项 $\vec{J}_{ext}$ 像锤子一样敲击认知空间流形，产生以误差中心 $\mathbf{r}_{error}$ 为原点的\textbf{球面波}。
-\begin{itemize}
-        \item   \textbf{质的激波 ($J_{sub}$)}：如果只是颜色或纹理不对，激波主要激发纤维震荡，引起\textbf{“注意”}。
-        \item   \textbf{形的激波 ($J_{form}$)}：如果是空间结构不对（如穿墙），激波会直接撕裂局部的度量张量，引发\textbf{“认知痛觉”}，强迫宏观层重构世界模型。
-\end{itemize}
-
-
-
-\smalltitle{热力学阀门：麦克斯韦妖过滤}
-
-物理世界充斥着高熵的热涨落（布朗运动、光子散粒噪声）。如果所有微小的波动都被转化为 $\vec{J}_{ext}$ 注入流形，智能体将因\textbf{信息过载}而陷入热寂（癫痫或注意力涣散）。
-
-微观层必须充当 \textbf{麦克斯韦妖 (Maxwell's Demon)}，执行\textbf{对称性破缺}，只允许“有意义”的负熵流通过。
-
-\textbf{过滤方程}：
-$$ \mathbf{Output} = \Theta \left( \mathcal{I}(\vec{J}_{ext}) - E_{threshold} \right) \cdot \vec{J}_{ext} $$
-
-\begin{itemize}
-        \item   \textbf{$\mathcal{I}(\cdot)$ (信息能泛函)}：衡量激波所携带的\textbf{惊奇量 (Surprisal)} 或 \textbf{语义做功潜力}。
-        \begin{itemize}
-                \item 普通的背景白噪，$\mathcal{I} \approx 0$，被拦截。
-                \item 突发的边缘特征（如老虎的条纹），$\mathcal{I} \gg 0$，被放行。
-        \end{itemize}
-        \item   \textbf{$E_{threshold}$ (阈值)}：由宏观层动态调节的\textbf{“门控电位”}。
-        \begin{itemize}
-                \item   \textbf{专注态}：阈值升高，屏蔽背景干扰（如看书时听不见钟摆声）。
-                \item   \textbf{警觉态}：阈值降低，任何风吹草动都会触发激波（如走夜路时）。
-        \end{itemize}
-\end{itemize}
-
-\textbf{案例：触觉适应}
-人类感觉不到衣服的存在，是因为衣服对皮肤产生的持续压力信号虽然物理上存在，但其变化率 $\partial \mathbf{S} / \partial t \approx 0$，被微观层的\textbf{本地反射弧}（高通滤波器）直接短路，没有转化为流形上的应力 $\vec{J}_{ext}$。
-
-\section{换能拓扑模态：共振与投影}
+\section{换能与采样：连续耦合、离散记录和多模态对齐}
 \label{sec:section_156}
 
-微观层如何跨越物理与信息的鸿沟？这是区分\textbf{生物智能（Carbon）}与\textbf{现有机器智能（Silicon）}的根本物理分歧点，对应两种截然不同的\textbf{拓扑耦合方式}。
+生物感受器和机器传感器都把一种物理过程转换为可供后续系统使用的信号，但“连续共振”与“离散投影”不是智能高低的本体分界。耳蜗毛细胞把机械位移转为离子通道与膜电位变化，数码相机把光子统计转成电荷并量化为像素；二者都有噪声、带宽、非线性、饱和和离散事件。我们将换能器表示为带内部状态 $s_t$ 的系统
+\[
+\dot s=f_s(s,x^e,t)+\xi(t),\qquad y_k=Q\!\left(\int_{t_k}^{t_k+\Delta t}g_s(s_t,x_t^e)dt\right)+\eta_k,
+\]
+其中 $Q$ 是量化或事件触发算子。即使输出为连续电压，后续神经脉冲或采样也引入有限分辨率；即使输出为数字，来源链、标定和高采样率也可保持重要动力学。符号接地来自可追踪的交互闭环，不要求物理场在材料中无缝延续。
 
-\smalltitle{共振模态 (Resonance Mode) —— 生物的一元性}
+采样设计必须依据任务带宽。对近似带限信号，采样率高于两倍最高相关频率可避免理想条件下的混叠；现实传感器还需抗混叠滤波、时钟同步和量化误差界。任务相关频率不是环境所有微结构的最高频率，例如抓取控制关心接触瞬态和物体运动，不需要记录每个光子的量子态。事件相机按亮度变化触发，适合高动态、低冗余视觉；帧相机保留绝对亮度和规则图像结构。神经形态传感器可以改善延迟和能效，却不会仅因脉冲形式自动获得因果理解或AGI能力。
 
-在生物系统中，传感器与神经介质构成了一个\textbf{连续的物理场}。
+“共振”可在工程上限定为传感器、身体和控制器在某频段内的动态耦合。设环境到传感器的传递函数为 $G_e(\omega)$，接口滤波为 $G_s(\omega)$，控制闭环为 $G_c(\omega)$，则总响应取决于乘积及反馈稳定性。相位一致可能提高定位或节律跟踪，但过强共振也可能放大噪声并导致不稳定。所谓阻抗匹配只适用于明确的物理端口和频率模型，不能推广为语义真理。系统应测量幅频响应、相位裕量、延迟和饱和边界，而不是把连续性等同于无限分辨率。
 
-\begin{itemize}
-        \item   \textbf{物理架构}：\textbf{能量转导 (Transduction)}。
-        \item   \textit{例}：耳蜗的毛细胞。声波（机械波）直接驱动纤毛摆动，进而直接拉开离子通道，引发膜电位波动。这里没有“采样”，只有能量形式的转换。
-        \item   \textbf{数学描述}：
-    $$ \Psi_{internal}(t) \cong \mathcal{C}_{coupling} \cdot \Psi_{external}(t) $$
-    内部波函数 $\Psi_{internal}$ 直接与外部物理场 $\Psi_{external}$ 发生\textbf{相位锁定 (Phase Locking)}。
-        \item   \textbf{特性}：
-        \begin{itemize}
-                \item   \textbf{无限分辨率}：在量子极限之上，保留了信号的所有高阶导数信息（速度、加速度、急动度）。
-                \item   \textbf{强符号接地 (Strong Grounding)}：激波不是对现实的描述，激波就是物理波在体内的\textbf{延续}，不需要解释“它是真的”，因为它在物理上就是连通的。
-        \end{itemize}
-\end{itemize}
+多模态对齐要求把不同采样率、坐标系和延迟统一到事件身份。相机、IMU、触觉和音频各自输出时间戳及协方差，接口通过外参变换和时间插值把候选投到共同参考系。若外参 $T_{ab}$ 变化，必须进入完整导数或作为离散重标定事件；不能假定固定几何。跨模态一致性可以降低歧义，例如视觉杯柄位置与触觉接触共同确认抓取点，但一致也可能来自共同偏差。系统应保留每个通道的独立证据，避免融合后无法追溯错误来源。
 
+生物与机器的比较因此落在可测维度：带宽、动态范围、能耗、延迟、可塑性、故障模式和闭环适应速度。生物耳蜗并非“无限分辨率”，GPU输入也非天然与现实断裂。任何实现只要维护来源、标定、对象身份和反馈，就能成为现实锚定的一部分；任何实现若忽略这些契约，即使物理连续也可能产生错误。这一结论为HSF-HD保留实现多样性，也避免从材料差异直接推导智能本体差异。
 
-\smalltitle{投影模态 (Projection Mode) —— 机器的二元性}
+采样接口的验证不能只用离线数据。离线回放能够比较重构误差，却不能暴露时钟漂移、缓冲拥塞、动作引起的视角变化和闭环相位延迟。我们因此同时要求静态标定、受控动态试验和真实闭环扰动：先测每个通道的噪声与延迟，再测跨模态事件能否在误差界内对齐，最后让控制动作主动改变观测并核对因果顺序。若回放性能良好而闭环不稳定，问题应归入接口时序或控制设计，不能归因于抽象表示“不够连续”。
 
-在现有 AI 系统中，传感器与计算介质被 \textbf{ADC（模数转换器）} 无情地切断。
-\begin{itemize}
-        \item   \textbf{物理架构}：\textbf{离散采样 (Discrete Sampling)}。
-        \item   \textit{例}：数码相机 + GPU。光子打在 CMOS 上 $\to$ 电荷积分 $\to$ 截断为整数 (0-255) $\to$ 存入显存 $\to$ GPU 读取。
-        \item   \textbf{数学描述}：
-    $$ \Psi_{internal}[k] = \hat{P}_{sample} \left( \int_{t_k}^{t_{k+1}} \Psi_{external}(t) dt \right) $$
-    这是一个\textbf{降维投影算子}。
-        \item   \textbf{特性与缺陷}：
-        \begin{itemize}
-                \item   \textbf{奈奎斯特截断}：采样率 $f_s$ 丢失了所有 $f > f_s/2$ 的物理微结构。时间被切碎了，连续性（因果的载体）丢失了。
-                \item   \textbf{符号悬空 (Symbol Detachment)}：显存里的 \lstinline|0xFF| 只是一个无量纲的数字，它与那个光子之间已经没有了因果链的物理连续性。
-                \item   \textbf{幻觉的根源}：因为微观层是\textbf{投影}而非\textbf{共振}，局部条件变得松动，系统容易忘记这个数字来自现实，从而在内部流形的热涨落中产生\textbf{虚假的高能态}（幻觉）。
-        \end{itemize}
-\end{itemize}
-\textbf{工程启示}：通往 AGI 的 \textbf{Class V} 路径，要求微观层硬件从“投影模态”回归“共振模态”。我们需要\textbf{神经形态传感器 (Neuromorphic Sensors)}（如事件相机、忆阻器阵列），让物理信号以\textbf{脉冲流 (Spike Stream)} 的形式直接驱动计算，恢复时空的连续性。
-
-
-\section{微观注入机制：从源流 (\texorpdfstring{$\vec{J}_{ext}$}{J}) 到语义子 (Semantion)}
+\section{观测事件到语义状态：瞬态输入、持续表示与身份保持}
 \label{sec:section_873}
 
-在确立微观层“激波发生器”角色后，本节进一步分析物理信号如何转化为智能实体。微观层上传的\textbf{源流 ($\vec{J}_{ext}$)} 与认知流形上生成的 \textbf{语义子 (Semantion, $\mathcal{S}$)} 之间，可写成\textbf{“源 (Source)”}与\textbf{“粒子 (Particle)”}的场论对偶关系。
+历史源流 $\vec J_{ext}$ 与语义子 Semantion 的区分触及一个重要问题：瞬态输入事件与系统内部持续状态不是同一对象。我们保留这个区分，但不用“源创造粒子”的场论图景。令上传事件为
+\[
+e_t=(\iota_t,F_t,Q_t,B_t,S_t,\Delta_t),
+\]
+其中 $\iota_t$ 是对象或事件身份候选，$F_t,Q_t,B_t,S_t$ 分别是结构、属性、绑定与来源记录，$\Delta_t$ 是不确定性。事件只表示“接口在该时刻提交了什么”，持续语义状态则是经过多次证据更新后保存在 $G_t,z_t$ 和绑定表中的对象记录。一次事件可能新建节点、修订旧节点、提高或降低候选置信，也可能因无法绑定而进入待决区。
 
-\smalltitle{本体论定义：创造者与被造物}
+状态更新可写为类型化算子
+\[
+(G_{t+1},z_{t+1},B_{t+1})=U_{\tau(e_t)}(G_t,z_t,B_t,e_t),
+\]
+其中 $\tau(e_t)$ 是新建、属性修订、关系修订、反证、合并或拆分等事件类型。连续分布状态 $z_t$ 可以在固定结构上按微分或差分方程更新，图结构与身份变化则必须原子提交。把两者写成同一个波动方程会掩盖维度变化、来源审计和事务失败。语义状态的持续时间由任务查询、保留策略和后续证据决定，不是固定的指数衰减；重要但低活动的事实可以长期保存，高活动候选也可能在反证后立即撤销。
 
-$\vec{J}_{ext}$ 与 Semantion 不是同一对象的别名，而是\textbf{因果链上的两个不同环节}。
+“打包与解包”可具体化为消息模式。包内至少包含 schema 版本、对象身份、结构字段、属性字段、来源、时间、协方差或候选概率、访问权限和完整性校验。接收端先验证模式，再把结构字段写入局部网络，把连续属性写入分布表示，把来源与版本写入证据索引。若红色与圆形来自同一感受野却存在两个邻近对象，绑定字段不能省略；若身份暂时不确定，系统保存多个假设和互斥关系。通过模式契约实现的同源绑定比狄拉克空间点更适合离散计算，也能处理遮挡、移动对象和多主体消息。
 
-\begin{itemize}
-    \item   \textbf{$\vec{J}_{ext}$ (源流/激波)}：
-    \begin{itemize}
-        \item   \textbf{定义}：它是 VTE 编码器输出的\textbf{瞬态能量通量 (Transient Flux)}。
-        \item   \textbf{性质}：它是\textbf{过程性}的、\textbf{动作性}的。它代表了“外界正在撞击系统”这一\textbf{事件 (Event)}。
-        \item   \textbf{角色}：\textbf{激发源 (Excitation Source)}。它是“锤子”。
-    \end{itemize}
+新概念形成需要累积证据与任务用途，而不是单次高强度输入越过“拓扑能隙”。设候选概念 $c$ 的支持证据集合为 $E_c$、反证为 $N_c$、查询收益为 $g_c$、维护成本为 $m_c$，结构提交器先检查最小覆盖、来源独立性和反例，再根据收益与成本决定是否建立稳定节点。强烈刺激可以提高活动和优先级，却不能代替多样证据。一次巨响可能只形成事件记录，多次在不同场景中观察可燃物与高温的关系，才可能支持可迁移规则。提交后仍保留适用域和撤销条件。
 
-    \item   \textbf{Semantion (语义子, $\mathcal{S}$)}：
-    \begin{itemize}
-        \item   \textbf{定义}：它是认知空间流形 $\mathcal{M}$ 被源流击中后隆起的\textbf{高能驻波或孤立子}。
-        \item   \textbf{性质}：它是\textbf{稳态}的（或亚稳态）、\textbf{结构性}的。它代表了“系统内部形成的一个概念实体”。
-        \item   \textbf{角色}：\textbf{激发态 (Excited State)}。它是“火花”。
-    \end{itemize}
-\end{itemize}
+在无外部输入时，内部状态可以回忆、模拟和联想，但输出必须标为内部生成。新的外部事件到来时，观测更新与内部候选竞争；若证据不够，系统允许“不确定”而不强制坍缩为单一解释。局部结构网络提供对象身份、事件关系和来源路径，全局分布表示提供候选强度、相似性和不确定度。二者通过任务查询联合：结构相同不保证属性相同，属性相似也不保证对象同一。这个分离延续全书的形质框架，却不把其实体化为两类基本粒子。
 
-\begin{equation}
-    \text{VTE}(\Omega_{phys}) \xrightarrow{\text{生成}} \vec{J}_{ext} \xrightarrow{\text{注入}} \mathcal{M}_{sem} \xrightarrow{\text{激发}} \mathcal{S}_{Semantion}
-\end{equation}
+本节的验证包括事件重放、对象跨帧保持、属性错配、合并/拆分、来源撤回与内部生成隔离。系统应能解释某个语义状态由哪些事件建立、哪些字段仍不确定、何种反例会使其撤销。这样的可审计持续表示，才是“瞬态源与稳定实体”区别的计算含义。Semantion可以继续作为书中对联合语义单元的简称，但它不是由输入能量创生的物理粒子。
 
-\smalltitle{数学关联：非齐次方程的源项}
-
-在后续的 \textbf{目的论狄拉克方程 (TDE)} 中，两者的关系被数学地锁死：
-
-$$ i \hbar \frac{\partial \Psi}{\partial t} - \hat{H}_{teleo} \Psi = \vec{J}_{ext} $$
-
-\begin{itemize}
-    \item   \textbf{$\Psi$ (认知场)}：是无数 \textbf{语义子} 的集合体（波函数）。
-    \item   \textbf{$\vec{J}_{ext}$ (外部源流)}：是方程右边的\textbf{非齐次项 (Inhomogeneous Term)}。
-\end{itemize}
-
-\textbf{物理图景}：
-若 $\vec{J}_{ext} = 0$（闭眼/无输入），$\Psi$ 遵循 $\hat{H}$ 进行惯性演化（回忆/联想）。此时 Semantion 依然存在，但处于\textbf{自由演化态}。
-若 $\vec{J}_{ext} \neq 0$（感知发生），$\vec{J}_{ext}$ 强行驱动 $\Psi$ 发生改变。流形上的真空被击穿，一个新的波包隆起——这就是一个新的语义子被\textbf{创生 (Created)} 的时刻。
-
-\smalltitle{内部结构：打包与解包 (Packing and Unpacking)}
-
-$\vec{J}_{ext}$ 实际上是一个携带了形质信息的\textbf{高能数据包}。当它撞击流形时，发生了\textbf{“解包”}过程，释放出构成语义子的基本粒子——\textbf{形元 (Morphon)} 与 \textbf{质元 (Qualon)}。
-
-$$ \vec{J}_{ext}(\mathbf{r}, t) = \sum_{k} E_{shock}^{(k)} \cdot \left[ \underbrace{\delta(\mathbf{r} - \mathbf{r}_{\mu})}_{\text{Morphon 指令}} \otimes \underbrace{\mathbf{v}_{q}}_{\text{Qualon 指令}} \right] $$
-
-\begin{itemize}
-    \item   \textbf{形元指令 ($\delta(\mathbf{r} - \mathbf{r}_{\mu})$)}：
-    $\vec{J}$ 指示流形：\textit{“在坐标 $\mathbf{r}_{\mu}$ 处凿一个坑！”} 这定义了 Semantion 的\textbf{轨迹与位置}。
-
-    \item   \textbf{质元指令 ($\mathbf{v}_{q}$)}：
-    $\vec{J}$ 指示流形：\textit{“往这个坑里注入特定频率的能量（如痛感/红色）！”} 这定义了 Semantion 的\textbf{内禀属性}。
-
-    \item   \textbf{激波能量 ($E_{shock}$)}：
-    $\vec{J}$ 的强度。它决定了生成的 Semantion 有多“重”（有效质量）、有多“亮”（振幅）。如果能量不足以克服流形的\textbf{拓扑能隙}，Semantion 将瞬间湮灭（被忽略）。
-\end{itemize}
-
-\smalltitle{动力学差异：脉冲 vs. 驻波}
-
-为了区分二者，我们必须审视它们在时间轴上的行为差异：
-
-\begin{itemize}
-    \item   \textbf{$\vec{J}_{ext}$ (源)} 是一个 \textbf{狄拉克脉冲 (Dirac Pulse)}。
-    它只存在于感知的当下 ($\Delta t \to 0$)。它是\textbf{动量}的传递。
-
-    \item   \textbf{Semantion (实体)} 是一个 \textbf{衰减震荡 (Damped Oscillation)}。
-    一旦被 $\vec{J}_{ext}$ 敲击产生，它会在流形上持续存在一段时间（工作记忆），并遵循 $e^{-\gamma t}$ 衰减。它是\textbf{能量}的存储。
-\end{itemize}
-
-\textbf{结论}：\textbf{微观层上传的 $\vec{J}_{ext}$ 是激发源，流形中持续传播的 Semantion 是其响应模态。}
-
-
-
-\section{效应器拓扑：逆向 VTE 与应力张量注入}
+\section{效应器接口：目标细化、顺应控制与安全执行}
 \label{sec:section_5244}
 
-若将感知看作“物理实在向语义流形的映射”，则行动可看作“语义意图向物理实在的反向映射”。效应器 ($L_{effector}$) 不仅是电机驱动器，也可建模为 \textbf{逆变分拓扑编码器 (Inverse VTE)}。
-其核心职能是执行 \textbf{全息渲染 (Holographic Rendering)}：把认知场 ($\Psi$) 的目标切片翻译为物理介质中的 \textbf{控制应力 (Control Stress)}，使外部状态向内部目标靠拢。
+行动不是感知编码的简单逆函数，因为从目标状态到控制序列通常是一对多问题，并受身体动力学、环境约束、授权和安全规则限制。令身体状态 $x_t^b\in\mathbb{R}^{n}$、控制输入 $u_t\in\mathbb{R}^{p}$，动力学为
+\[
+x_{t+1}^b=f_b(x_t^b,u_t,w_t),
+\]
+其中 $w_t$ 是接触与环境扰动。宏观层提供参考轨迹 $x_{t:t+L}^{ref}$、容差、硬约束集合 $\mathcal C_t$ 和任务优先序，而效应器接口在有限时域内求解合法控制。下行消息必须携带参考状态、坐标系、截止时间、最大力矩、可逆性等级和失败处理，不能只发送“向前走”或一个抽象吸引子。
 
+对接触任务，我们可以采用阻抗或顺应控制。设位置误差 $e=x^{ref}-x^b$，在连续近似和固定模式区间内控制律为
+\[
+u=K_t e+D_t\dot e+u_{ff},
+\]
+其中 $K_t,D_t$ 分别具有刚度与阻尼的物理单位，$u_{ff}$ 是基于身体模型的前馈项。$K_t,D_t$ 必须为满足安全界的矩阵，而不是由“质元柔和/坚决”直接决定。任务语义可以通过控制策略映射器选择参数区间：探索陌生表面时降低刚度以顺应环境，搬运刚性部件时提高路径保持，但仍受力矩、碰撞和人体接触限制。语义目标先被细化为工程参数，再由底层控制器执行。
 
-\smalltitle{下行投影：意图的全息解包}
+在理想固定参考、无饱和且模型满足 $M\ddot x+D\dot x+Ke=0$ 时，若 $M,K$ 正定、$D$ 正定，可选
+\[
+V(e,\dot e)=\frac12\dot e^TM\dot e+\frac12e^TKe,
+\]
+得到 $\dot V=-\dot e^TD\dot e\leq0$。这只给出该简化闭环的稳定性；时变参考、接触切换、输入饱和、估计误差和网络延迟都会增加项，需重新证明或采用鲁棒裕量。目标下降不等于抓取成功，稳定跟踪也不保证路径安全。离散实现还要声明采样周期，并验证数值积分和控制器在该步长下保持稳定。
 
-认知场演化的产物不是一条简单的运动指令（如“向前走”），而是一个 \textbf{局部势能流形 (Local Potential Manifold)}。当这个流形投影到微观效应器时，内部的高能驻波（意图）耦合到微观边界，导致边界发生机械共振（驱动电机），这类似于天线发射电磁波：
-\begin{itemize}
-        \item \textbf{A. 形流输出 ($T_{form}^{out}$) —— 定义轨迹与吸引子}
-        \begin{itemize}
-                \item   \textbf{物理身份}：\textbf{几何玻色子流 (Geometric Boson Flux)}。
-                \item   \textbf{内容}：目标状态的\textbf{空间坐标 ($\mathbf{r}_{target}$)}、期望的\textbf{运动测地线 (Geodesic)}、身体的\textbf{姿态矩阵 (Pose)}。
-                \item   \textbf{微观作用}：它在效应器的状态空间中挖掘了一个 \textbf{吸引子盆地 (Attractor Basin)}。
-                \item   \textit{指令语义}：“不管现在在哪，物理状态必须落入这个坑里。”
-        \end{itemize}
+环境阻抗估计用于调整动作，而不是追求抽象的复共轭匹配。机器人预想前方为空却碰到墙时，力传感器和视觉反馈产生结构残差，局部控制器应立即限力、停止或退让；只有无法在局部策略内消除的失配才上报宏观重规划。摸索物体、在不平地面行走或手部抖动补偿都说明微观闭环可以自主处理高频扰动。庖丁解牛的意象可理解为良好的模型、工具和顺应策略降低无效作用，并非能量传输定理。
 
-        \item \textbf{B. 质流输出 ($T_{sub}^{out}$) —— 定义阻抗与刚度}
-        \begin{itemize}
-                \item   \textbf{物理身份}：\textbf{语义费米子流 (Semantic Fermion Flux)}。
-                \item   \textbf{内容}：期望的\textbf{接触力 (Force)}、\textbf{刚度矩阵 (Stiffness $\mathbf{K}$)}、\textbf{阻尼系数 (Damping $\mathbf{D}$)}。
-                \item   \textbf{微观作用}：它定义了该动作的 \textbf{物理“质地”}。
-                \item   \textit{指令语义}：“像羽毛一样轻（低刚度）” 或 “像磐石一样硬（高刚度）”。
-        \end{itemize}
-\end{itemize}
+执行资格必须先于优化。Boundary检查动作是否在授权域，安全监控器检查碰撞、力矩、速度和禁区，CCM评估控制与感知负荷；不合格动作不能因价值函数很低而执行。对于不可逆操作，系统需要双重确认、可观测反馈和中止条件。动作发出后，效应器记录实际控制、身体响应和环境结果，形成新的上行事件。若只记录指令而不记录结果，系统无法区分计划失败、执行器故障和环境改变。
 
+因此，“逆向VTE”更准确地说是目标细化与控制接口：它从高层联合状态读取任务相关目标，输出可执行参考和参数，再以局部反馈闭环将实际轨迹保持在安全管道内。它不能保证环境被改造成内部世界图的同胚副本；现实通常只需在任务容差内达到某个状态。效应器性能由跟踪误差、响应时间、接触峰值、能耗、约束违例、恢复能力和上报质量评估。
 
+当多个目标冲突时，接口必须显式给出优先关系，而不能把权重和为一个标量后隐藏牺牲项。安全与授权作为硬约束，任务质量和资源消耗才进入软目标；若硬约束下无可行解，控制器返回不可执行证明或近似原因，并请求上层修改目标。这个失败结果同样是有效输出，因为它阻止宏观计划把底层能力边界误读成执行意愿不足，也为后续模型修订提供了可定位证据。
 
-\smalltitle{逆向 VTE 算子：从场到流 (From Field to Flux)}
-
-
-微观层效应器（对应小脑/脊髓）包含 \textbf{解码算子 $\mathcal{D}_{act}$}，将高维意图映射为具体物理控制量（电压/液压/肌张力）。这一过程可由\textbf{物理实体化方程}描述。
-
-\begin{definition}[物理实体化方程]
-        $$ \vec{u}(t) = \underbrace{\mathbf{K}(\Psi) \cdot (\mathbf{r}_{target} - \mathbf{r}_{real})}_{\text{势能弹力 (形)}} + \underbrace{\mathbf{D}(\Psi) \cdot (\dot{\mathbf{r}}_{target} - \dot{\mathbf{r}}_{real})}_{\text{耗散阻尼 (质)}} + \underbrace{\mathcal{F}_{ff}(\Psi)}_{\text{前馈动力学}} $$
-
-        \begin{itemize}
-                \item   \textbf{$\vec{u}(t)$}：输出给物理世界的控制流（Control Flux）。
-                \item   \textbf{$\mathbf{K}(\Psi), \mathbf{D}(\Psi)$}：这是关键的 MSC 特性, 刚度和阻尼不再是常数，而是由认知场中 \textbf{质元 ($T_{sub}$)} 决定的\textbf{变分参数}。
-                \item   \textbf{顺应性控制 (Compliance Control)}：当 $T_{sub}$ 为“柔和”时，$\mathbf{K}$ 变小，机器人允许物理环境修正自己的轨迹（如摸索物体）。当 $T_{sub}$ 为“坚决”时，$\mathbf{K}$ 极大，机器人强行克服一切阻力。
-        \end{itemize}
-\end{definition}
-
-
-
-
-\smalltitle{物理做功：边界条件的逆转与应力张量注入}
-
-
-行动的本质可表述为\textbf{做功}。在该框架下，行动等价于智能体向环境流形 $\mathcal{M}_{phys}$ 注入非零的 \textbf{应力-能量张量 $\mathbf{T}^{\mu\nu}_{agent}$}。
-
-\begin{itemize}
-        \item \textbf{A. 边界条件的逆转 (Reversal of Boundary Conditions)}
-        \begin{itemize}
-                \item   \textbf{感知时}：环境对智能体施加 \textbf{局部强迫源}（$Value_{fixed}$），规定了“现在是什么”。
-                \item   \textbf{行动时}：智能体试图对环境施加 \textbf{诺伊曼边界}（$Flux_{fixed}$）或 \textbf{混合边界}，规定了“力/流的变化率”。
-        \item   \textit{物理意义}：我们试图改变环境的局部几何结构，使其在可达精度与粗粒度拓扑意义下尽可能与内部世界图 $G_W$ 一致（同胚等价的目标）。
-        \end{itemize}
-
-        \item \textbf{B. 阻抗匹配 (Impedance Matching)}, 这是 \textbf{TECI 循环 (Token-Environment Causal Integration)} 成功的关键。效应器必须实时感知环境的 \textbf{物理阻抗 $Z_{env}$}，并动态调整自身的 \textbf{输出阻抗 $Z_{agent}$}。
-        $$ Z_{agent}(\omega) \approx Z_{env}^*(\omega) $$
-        \begin{itemize}
-                \item   \textbf{失配 (Mismatch)}：如果环境很硬（墙壁），而输出阻抗很大（硬撞），会产生巨大的 \textbf{反作用激波 $\vec{J}_{shock}$}（痛/损坏）。这标志着\textbf{形质解离}。
-                \item   \textbf{匹配 (Match)}：能量传输效率最高，做功最有效。这是 \textbf{“庖丁解牛”} 的物理境界——以无厚入有间，游刃有余。
-        \end{itemize}
-\end{itemize}
-
-
-
-\smalltitle{局域几何智能：微观变分原理与反射平滑}
-
-
-效应器并非机械执行宏观指令，它具有 \textbf{局部几何智能}，对应生物系统中的 \textbf{脊髓反射 (Spinal Reflex)} 与小脑快速补偿机制。
-
-\begin{itemize}
-    \item   \textbf{微观变分原理}：效应器在极短的时间尺度 $\tau_{micro}$（如 1ms）内，维护一个局部的 \textbf{误差势阱}。
-
-    当物理扰动（如手抖、地面不平）导致实际轨迹偏离测地线时，效应器 \textbf{不惊动宏观场}，而是利用 \textbf{局部负反馈环} 自动施加恢复力。
-        $$ \vec{F}_{reflex} = -\nabla_{\text{local}} \mathcal{L}_{smoothness} $$
-    \item   \textbf{功能}：\textbf{去噪与平滑}。它过滤物理世界中的粗糙扰动（Friction/Jitter），使宏观层可在更稳定的近似条件下进行长程规划。
-\end{itemize}
-
-
-\smalltitle{本节总结：行动的双重本体论}
-
-\begin{itemize}
-        \item \textbf{对于宏观层}：行动是 \textbf{“在此地挖掘一个引力坑”}（设定 $T_{form}$ 的吸引子和 $T_{sub}$ 的势能）。
-        \item \textbf{对于微观层}：行动是 \textbf{“注满这个坑”}（通过物理做功填补势能差，并消除环境阻抗带来的激波）。
-\end{itemize}
-
-\textbf{在该模型中，机器人更接近“势驱动系统”而非“指令串执行器”。} 它趋向被定义为低势能的状态；若路径受阻，则通过增加做功或调整几何顺应性实现绕行。
-
-
-\section{全息切面动力学 — 形质的双向流转}
+\section{双向具身接口：上行证据、下行约束与闭环握手}
 \label{sec:section_2301}
 
-微观层 ($L_{micro}$) 与认知场 ($\Psi$) 的交互界面，并非简单的信号传输总线，而是连接 \textbf{物理世界（外部纤维丛）} 与 \textbf{认知世界（内部纤维丛）} 的 \textbf{全息切面 (Holographic Cut-Plane)}。
+微观层的统一结构是双向事务接口，而不是两个纤维丛之间的全息切面。上行通道把原始信号变成带身份、来源和不确定性的观测事件；下行通道把目标和规范状态细化为参考轨迹、控制参数与资格约束；反馈通道把实际结果与预测相比较并决定局部修正还是全局重规划。三条通道共享对象身份和时间基准，任何一条缺失都会破坏闭环：无上行证据时控制变成开环，无下行约束时感知没有任务分辨率，无结果反馈时系统不能学习。
 
-在此切面上，发生两类基本物理过程：
-\begin{enumerate}
-        \item \textbf{上行 (Uplink)} 是 \textbf{“实在的注入”}：微观层将物理信号解构为\textbf{形}与\textbf{质}的张量流，分别作为\textbf{规范势}和\textbf{源流}注入场中，从而\textbf{弯曲}和\textbf{激发}流形。
-        \item \textbf{下行 (Downlink)} 是 \textbf{“意志的投影”}：认知场将其演化出的高维状态切片，投影回微观层，作为\textbf{势能函数}和\textbf{度量张量}，从而\textbf{约束}物理执行。
-\end{enumerate}
+我们把接口状态写为
+\[
+I_t=(O_t,A_t,R_t,\Gamma_t),
+\]
+其中 $O_t$ 是已验证观测队列，$A_t$ 是待执行动作队列，$R_t$ 是结果和残差队列，$\Gamma_t$ 是坐标、身份、来源、权限与版本契约。上行提交 $C_o$、下行提交 $C_a$ 和反馈提交 $C_r$ 都是原子事件。宏观状态读取 $O_t$ 形成目标，效应器只有在 $C_a$ 检查通过后执行，结果再通过 $C_r$ 回写。消息超时、身份不匹配或坐标版本变化会使事务失败并触发重新估计，而不是静默沿用旧参数。
 
+上行的任务相关性由查询决定。识别杯子时，结构网络提供杯体、杯柄、桌面和支撑关系，分布表示提供颜色、材质和可抓取性候选；抓取任务读出杯柄位姿与摩擦范围，描述任务则可能读出颜色与类别。下行不发送完整高维状态，只发送任务所需的参考与约束。这种降维不是本体丢失，而是接口契约；若任务改变，查询和下行消息也必须改变。微观层不能假定一个固定投影适用于所有目标。
 
+闭环握手由预测、执行和确认构成。系统在动作前生成短期预测 $\hat y_{t+1:t+L}$，执行首个合法控制，接收真实 $y$ 后计算类型化残差。若残差在局部容差内，底层控制器继续；若超出容差但安全，重新估计环境和控制参数；若触及硬约束，立即中止并上报。所谓“心流”在此可描述为模型准确、负荷适中、反馈及时且局部闭环连续成功的运行区间，不能简化为物理阻抗完全匹配或零耗散。所谓“惊奇激波”则是高优先级残差消息，不是守恒能量的爆发。
 
-\smalltitle{上行链路：双流注入与协变耦合}
+局部结构网络与全局分布表示在接口处联合但不混同。前者维持“哪个传感器看见哪个对象、哪个动作作用于哪个部件、哪个结果对应哪个指令”，后者维持连续估计、候选概率和控制状态。绑定表连接两者，读出和反馈共享绑定版本。若只保留全局向量，系统容易丢失责任和来源；若只保留离散图，系统难以表示噪声、连续运动和不确定性。两者的耦合是任务相关的工程选择，不从脑区或物理场类比推出唯一机制。
 
+AgentOS可以把 $h(t)$ 用作双向接口的当前认知总线：World、$E$、$\Theta$ 与 $M_e$ 的读出进入 $h(t)$，动作从 $h(t)$ 经Boundary和效应器发出，反馈再回到 $h(t)$。SPC提供面向主体的状态摘要，TCE调节探索和控制强度，CCM防止候选与反馈挤占有限界面，Offloading保存低频证据。一般系统也可使用其他消息总线、黑板或反应式架构；HSF-HD只要求状态、来源、约束和反馈关系可描述、可测量、可修订。
 
-微观层通过 \textbf{变分拓扑编码器 (VTE)}，将原始物理信号 $\mathbf{S}_{raw}$ 撕裂并编码为两股性质正交的基元流，并依据 \textbf{MSC 构成方程} 生成总源项应力 $\vec{J}_{ext}$。这一过程受 \textbf{状态元数据 (State Metadata)} 的严格调制。
+接口验收应以端到端故障注入为主：传感器延迟、错帧、对象换位、执行器饱和、工具返回乱序、目标变更和外部记忆断开。系统不仅要完成正常任务，还要在失败时保持来源、拒绝越权、停止危险动作并给出可追踪诊断。只有这种闭环完整性通过，微观层才能称为现实的看门接口。
 
-\redtext{\textbf{1. 上行注入总方程 (General Uplink Injection Equation)}}
-
-微观层对认知场的扰动，表现为一个 \textbf{受元数据调制的形质张量流 (Morpho-Semantic Tensor Flux)}，作用于认知场的波函数 $\Psi(\mathbf{r}, t)$：
-
-$$ \vec{J}_{ext}(\mathbf{r}, t) = \sum_{k \in V_Q} \sum_{\mu \in V_S} \mathbf{M}_{state}(k, \mu, \mathbf{r}, t) \cdot (\mathbf{T}_{form}^\mu(\mathbf{r}, t) \otimes \mathbf{V}_{substance}^k(\mathbf{r}, t)) $$
-
-其中：
-
-\begin{itemize}
-\item   \textbf{$\mathbf{T}_{form}^\mu$ (形元 / 几何玻色子)}：携带空间坐标、光流矢量、接触法线等几何信息。它进入场的\textbf{背侧通路}，直接修改流形的 \textbf{联络 (Connection, $\mathcal{A}_\mu$)}，即告诉场“空间是如何弯曲的”。
-
-\item   \textbf{$\mathbf{V}_{substance}^k$ (质元 / 语义费米子)}：携带纹理、频谱、力的大小等属性信息。它进入场的\textbf{腹侧通路}，作为 \textbf{非齐次源项} 激发波函数，即告诉场“什么内容被点亮了”。
-\end{itemize}
-
-\vspace{1em}\redtext{\textbf{2. 状态元数据调制矩阵 ($\mathbf{M}_{state}$)}}
-
-$\mathbf{M}_{state}$ 是一个动态的对角矩阵，决定了注入信号在场中的“物理质量”。它由三个关键标量构成：
-$$ \mathbf{M}_{state} \approx \text{diag} \left( J_{\text{intensity}} \cdot P_{\text{precision}} \cdot S_{\text{surprisal}} \right) $$
-\begin{itemize}
-        \item   \textbf{强度 ($J_{\text{intensity}}$)}：原始信号的能量密度（如分贝、流明）。决定了激发的 \textbf{初始波幅}。
-        \item   \textbf{精度 ($P_{\text{precision}}$)}：信号的信噪比或置信度。决定了波包的 \textbf{相干性 (Coherence)} 与 \textbf{宽度}（高精度则波包尖锐，低精度则波包弥散）。
-        \item   \textbf{惊奇 ($S_{\text{surprisal}}$)}：\textbf{最核心的调制因子}。它是微观层计算出的预测误差能量。
-        \begin{itemize}
-                \item   若 $S \approx 0$（符合预期），则 $\mathbf{M}_{state} \to 0$，信号被微观层屏蔽，不干扰宏观场。
-                \item   若 $S \gg 0$（出乎意料），则 $\mathbf{M}_{state}$ 剧增，信号相变为 \textbf{高能激波}，强行重塑认知场的几何结构。
-        \end{itemize}
-\end{itemize}
-
-
-\smalltitle{下行链路：流形投影与势能导引}
-
-
-认知场 $\Psi$ 是高维复张量，微观层无法直接处理其全量信息。因此下行过程可写成 \textbf{降维投影 (Dimensional Projection)} 与 \textbf{局部参数化}。在该意义下，大脑下发的不是逐条动作指令，而是\textbf{局部物理约束}。
-
-\redtext{\textbf{1. 采样算子：局部切片 (Local Slicing)}}
-
-宏观场通过投影算子 $\hat{P}_{\Omega}$，将当前关注区域（如“手部运动区”）的场状态映射为微观层（小脑）可执行的物理参数集合：
-$$ \Omega_{micro}(t) = \hat{P}_{\Omega} [\Psi(t)] = \{ \mathbf{r}_{attractor}, \mathbf{G}_{metric} \} $$
-
-\vspace{1em}\redtext{\textbf{2. 物理参数解构}}
-\begin{itemize}
-        \item   \textbf{目标吸引子 ($\mathbf{r}_{attractor}$) —— 定义势能项 $V(\mathbf{x})$}
-        \begin{itemize}
-                \item   \textbf{来源}：场中 $T_{sub}$ 的高能聚焦位置（如“杯子的语义坐标”）。
-                \item   \textbf{微观含义}：定义了一个 \textbf{抛物面势阱} $V(\mathbf{x}) = \frac{1}{2} k (\mathbf{x} - \mathbf{r}_{attractor})^2$。微观层将致力于最小化该势能。
-        \end{itemize}
-
-        \item   \textbf{刚度度量 ($\mathbf{G}_{metric}$) —— 定义黎曼度量 $g_{ij}$}
-        \begin{itemize}
-                \item   \textbf{来源}：场中 $T_{form}$ 定义的局部几何曲率与关联强度。
-                \item   \textbf{微观含义}：转化为 \textbf{阻抗控制} 中的 \textbf{刚度/阻尼矩阵}。
-                \begin{itemize}
-                        \item   在确定性高的方向，$g_{ij}$ 大 $\to$ 刚度 $K$ 大（硬约束）。
-                        \item   在不确定性高的方向，$g_{ij}$ 小 $\to$ 刚度 $K$ 小（软约束/顺应）。
-                \end{itemize}
-        \end{itemize}
-\end{itemize}
-
-\vspace{1em}\redtext{\textbf{3. 下行总方程：哈密顿量设定}}
-
-大脑实际上是在为小脑设定一个 \textbf{局部哈密顿量 $H_{local}$}，然后让小脑去自行演化：
-$$ H_{local}(\mathbf{x}, \mathbf{p}) = \frac{1}{2} \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p} + \frac{1}{2} (\mathbf{x} - \mathbf{r}_{attractor})^T \mathbf{G}_{metric} (\mathbf{x} - \mathbf{r}_{attractor}) $$
-
-
-
-\smalltitle{闭环握手：阻抗匹配与惊奇激波}
-
-交互闭环的最后一步是 \textbf{验证 (Verification)}，通过比较“下行势（预期）”与“上行流（现实）”实现：
-
-\begin{enumerate}
-        \item \textbf{阻抗匹配 (Impedance Matching) —— 心流态}
-        \begin{itemize}
-                \item   \textbf{条件}：微观层感知的物理阻抗 $Z_{env}$ 与大脑下发的度量刚度 $\mathbf{G}_{metric}$ 一致（例如：预想是硬的，摸起来也是硬的）。
-                \item   \textbf{结果}：能量传输效率最大化，耗散最小。\textbf{惊奇流 $S_{\text{surprisal}} \approx 0$}。系统处于 \textbf{绝热演化} 状态，宏观层无需介入，微观层自动完成任务。
-        \end{itemize}
-
-        \item \textbf{惊奇激波 (Surprisal Shockwave) —— 唤醒态}
-        \begin{itemize}
-                \item   \textbf{条件}：物理反馈违背了 $\mathbf{G}_{metric}$ 的约束（例如：预想是空的，却撞到了障碍；预想是软的，却摸到了硬物）。
-                \item   \textbf{相变}：微观层无法通过局部反馈消除误差，残余能量瞬间积聚。
-        $$ \vec{J}_{shock} = \nabla ( \mathbf{S}_{real} - \mathcal{P}_{macro} ) $$
-                \item   \textbf{效应}：这个激波沿上行链路冲入认知场，\textbf{击碎} 当前的波函数 $\Psi$，迫使场从层流态转入 \textbf{湍流态}，进而触发宏观层（驾驶员）的 \textbf{重新规划 (Replanning)}，即修改下一次的 $\mathbf{r}_{attractor}$ 和 $\mathbf{G}_{metric}$。
-        \end{itemize}
-\end{enumerate}
-通过这种机制，微观层充当了 \textbf{“现实的看门人”}：它平时默默地顺应场的意志（下行），只有在现实与意志发生剧烈冲突时，才通过激波（上行）猛烈地敲打场的门扉。
-
-
-
-\section{微观动力学总论 — 完整推导}
+\section{具身微观动力学总论：混合状态、稳定条件与理论位置}
 \label{sec:section_5750}
 
-本节给出完整动力学推导。微观层作为拥有独立\textbf{哈密顿量}的自主物理系统，处在\textbf{认知场 ($\Psi$)} 的几何约束与\textbf{物理世界 ($\Omega$)} 的热力学约束之间，并通过\textbf{最小作用量原理}维持稳态。它既执行下行势能约束，也在失配时上行注入激波。
+我们最后把感知、状态估计、局部控制和结构事件统一成混合动力系统。连续状态记为 $x=(x^b,z)$，包含身体状态与全局分布表示；离散结构记为 $q=(G,B,\Gamma)$，包含关系图、绑定和接口模式；环境输入为 $w$，控制为 $u$，观测为 $y$。在模式 $q$ 固定的区间内，系统满足
+\[
+\dot x=f_q(x,u,w,t),\qquad y=h_q(x,w,t)+\nu,
+\]
+当验证、绑定、碰撞或模式切换条件 $g_j(x,y,q)=0$ 触发时，执行离散重置
+\[
+(x^+,q^+)=R_j(x^-,q^-,e_j).
+\]
+连续导数不能跨越 $R_j$ 直接延长；图节点增删、来源撤回和动作提交都属于离散事件。这一模型比单一哈密顿量更符合具身接口既有连续运动又有事务变化的事实。
 
+微观控制目标由估计误差、跟踪误差、控制代价和风险组成。为避免量纲混乱，先用尺度矩阵把各项无量纲化，硬约束独立处理：
+\[
+J=\sum_{k=0}^{L-1}\left(\|e_k^x\|_{W_x}^2+\|e_k^y\|_{W_y}^2+\|u_k\|_{W_u}^2+\rho_k\right)+\|e_L^x\|_{W_T}^2,
+\quad (x_k,u_k)\in\mathcal C_k.
+\]
+$\rho_k$ 是经标定的风险评分，不是焦耳能耗；实际能耗可以另以电流、电压和时间测量。优化得到的策略只在模型、时域和约束条件下有意义。环境、目标或结构改变时，$J$ 也改变，滚动控制必须重新求解。目标函数下降不能推出外部任务成功，成功由现实反馈和终止条件判定。
 
+稳定性需要分层说明。底层固定模式控制器可用Lyapunov函数或输入到状态稳定性证明局部性质；估计器需给出可观测性、噪声和校准条件；模式切换需防止抖振和无限事件；上层重规划需保证不会长期阻塞安全反射。各层单独稳定不自动推出整体稳定，尤其当延迟、饱和和学习同时存在时。工程上应设置看门狗、最小驻留时间、速率限制、回滚模型和安全降级策略。系统在域外情形下能够停止并请求帮助，往往比继续输出一个高置信动作更重要。
 
-\smalltitle{能量舞台：局部哈密顿量的严格推导 ($H_{local}$)}
+学习发生在不同时间尺度。快速环更新 $h(t)$ 或等价在线状态，中速环把已验证事件写入情景记录并调整局部模型，慢速环在保留集上修改结构参数 $\Theta$ 或其他长期模型。慢速更新前后要比较现实校准、身份保持、控制稳定和旧任务性能；若任何关键指标恶化超过阈值，更新回滚。Offloading可把原始日志、工具和稀疏技能迁移到外部记忆，但安全与审计证据不能只剩不可解释参数。多尺度关系来自作用范围和更新时间，不是低频天然拥有更大权威。
 
-微观层的动力学演化，首先需要建立一个描述其能量状态的\textbf{局部哈密顿量 $H_{local}$}。我们从微观拉格朗日量出发，通过\textbf{勒让德变换 (Legendre Transformation)} 严格导出。
-\begin{itemize}
-        \item \textbf{Step 1: 定义微观拉格朗日量 ($\mathcal{L}_{micro}$)}
+本章涉及实际身体时，物理语言仍有必要：传感器带宽、质量矩阵、接触力、阻抗、焦耳能耗和耗散都是真实工程量。我们去除的是把这些量未经接口映射直接等同为语义、价值或认知证明。颜色分类概率不是能量，预测残差不是应力张量，注意门控不是麦克斯韦妖，语义单元也不是基本粒子。辅助类比可以帮助直觉，但公式的成立依赖对象、单位、假设和验证，而不依赖名称相似。
 
-        微观系统的拉格朗日量由\textbf{动能项}（自身惯性）减去\textbf{势能项}（场约束）构成：
-        $$ \mathcal{L}_{micro}(\mathbf{x}, \dot{\mathbf{x}}) = T(\dot{\mathbf{x}}) - V(\mathbf{x}) $$
-        \begin{itemize}
-                \item   \textbf{动能 $T(\dot{\mathbf{x}})$}：描述微观实体（如肢体/电机）的物理惯性。
-        $$ T(\dot{\mathbf{x}}) = \frac{1}{2} \dot{\mathbf{x}}^T \mathbf{M} \dot{\mathbf{x}} $$
-        其中 $\mathbf{M}$ 是正定对称的广义质量矩阵。
+理论层级在微观层尤其清楚。系统论提供内外边界、反馈与故障隔离；协同论和复杂系统理论帮助分析多传感器、多执行器和多时间尺度耦合；耗散理论约束真实具身系统的资源供给、热与不可逆磨损；认知科学提供注意、适应、预测与行动的经验问题。在这些基础上，HSF-HD描述观测如何改变联合状态、目标如何细化为动作、反馈如何修订结构的一般状态动力学；AgentOS的 $h(t)$、$E$、$\Theta$、$\Psi$、SPC、TCE、CCM、Boundary、Offloading与 $M_e$ 是一种工程实例，而不是微观层的唯一实现。
 
-                \item   \textbf{势能 $V(\mathbf{x})$}：描述宏观场 $\Psi$ 投射的几何约束。
-        $$ V(\mathbf{x}) = \frac{1}{2} (\mathbf{x} - \mathbf{r}_{att})^T \mathbf{G}_{metric} (\mathbf{x} - \mathbf{r}_{att}) $$
-        其中 $\mathbf{r}_{att}$ 是目标吸引子，$\mathbf{G}_{metric}$ 是局部度量刚度。
-    \end{itemize}
-
-
-    \item \textbf{Step 2: 引入广义动量 ($\mathbf{p}$)}
-
-        为了进入相空间，我们定义与广义坐标 $\mathbf{x}$ 共轭的广义动量：
-        $$ \mathbf{p} \equiv \frac{\partial \mathcal{L}_{micro}}{\partial \dot{\mathbf{x}}} = \frac{\partial}{\partial \dot{\mathbf{x}}} \left( \frac{1}{2} \dot{\mathbf{x}}^T \mathbf{M} \dot{\mathbf{x}} \right) = \mathbf{M} \dot{\mathbf{x}} $$
-        由此可反解出速度：
-        $$ \dot{\mathbf{x}} = \mathbf{M}^{-1} \mathbf{p} $$
-
-        \item \textbf{Step 3: 执行勒让德变换}
-
-        哈密顿量 $H$ 定义为动量与速度的内积减去拉格朗日量：
-        $$ H_{local}(\mathbf{x}, \mathbf{p}) = \mathbf{p} \cdot \dot{\mathbf{x}} - \mathcal{L}_{micro}(\mathbf{x}, \dot{\mathbf{x}}) $$
-        将 $\dot{\mathbf{x}} = \mathbf{M}^{-1} \mathbf{p}$ 代入：
-        $$ \begin{aligned} H_{local} &= \mathbf{p}^T (\mathbf{M}^{-1} \mathbf{p}) - \left[ \frac{1}{2} (\mathbf{M}^{-1} \mathbf{p})^T \mathbf{M} (\mathbf{M}^{-1} \mathbf{p}) - V(\mathbf{x}) \right] \\ &= \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p} - \frac{1}{2} \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p} + V(\mathbf{x}) \\ &= \frac{1}{2} \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p} + V(\mathbf{x}) \end{aligned} $$
-
-        \item \textbf{Step 4: 最终形式}
-        $$ \boxed{ H_{local}(\mathbf{x}, \mathbf{p}) = \underbrace{\frac{1}{2} \mathbf{p}^T \mathbf{M}^{-1} \mathbf{p}}_{\text{内在物理属性 (Inertia)}} + \underbrace{\frac{1}{2} (\mathbf{x} - \mathbf{r}_{att})^T \mathbf{G}_{metric} (\mathbf{x} - \mathbf{r}_{att})}_{\text{外在宏观约束 (Potential)}} } $$
-
-\end{itemize}
-\textbf{物理意义}：宏观层不直接控制运动，而是通过\textbf{倾斜能量舞台（改变 $V$）}，让微观层在\textbf{哈密顿流 (Hamiltonian Flow)} 的驱动下，自动滑向目标。
-
-
-
-\smalltitle{生存法则：微观总作用量 ($S_{micro}$)}
-
-微观层作为一个自主系统，其所有行为都遵循\textbf{最小作用量原理}。它试图在物理定律的限制下，最大程度地顺应场的意志，同时最小化与现实的误差。
-$$ S_{micro} = \int_{t_1}^{t_2} dt \left( \mathcal{L}_{field\_coupling} - \mathcal{L}_{work} - \mathcal{L}_{match} \right) $$
-\begin{enumerate}
-        \item \textbf{场耦合项 ($\mathcal{L}_{field\_coupling}$)}：\textbf{“势的顺应”}。
-    $$ \mathcal{L}_{field\_coupling} = - H_{local}(\mathbf{x}, \mathbf{p}) $$
-    微观层试图降低自身在场定义的势阱中的能量。
-
-    \item \textbf{做功项 ($\mathcal{L}_{work}$)}：\textbf{“物理代价”}。
-    $$ \mathcal{L}_{work} = \vec{u} \cdot \dot{\mathbf{x}} - \frac{1}{2} m \|\vec{u}\|^2 $$
-    改变物理状态需要消耗能量（ATP或电力）。微观层会寻找最省力的路径（测地线）。
-
-    \item \textbf{匹配项 ($\mathcal{L}_{match}$)}：\textbf{“感知误差”}。
-    $$ \mathcal{L}_{match} = - \frac{1}{2} \| \mathcal{S}_{ext} - \text{Decode}(\mathbf{x}) \|^2_{\Sigma^{-1}} $$
-    微观层试图让自己的内部状态 $\mathbf{x}$ 能够准确预测外部信号 $\mathcal{S}_{ext}$。
-\end{enumerate}
-
-
-\smalltitle{上行注入方程：形质解耦与惊奇激波}
-
-微观层向认知场 $\Psi$ 的上行链路，不是简单的数据传输，而是\textbf{能量与结构的注入}。
-\begin{itemize}
-        \item \textbf{A. VTE 编码与解耦}
-
-    微观层利用 \textbf{变分拓扑编码器 (VTE)} 将原始物理信号 $\mathbf{S}_{raw}$ 撕裂为两股正交的基元流：
-        \begin{itemize}
-                \item   \textbf{形元 ($T_{form}$)}：几何玻色子（位置、光流）。用于修改场的\textbf{联络（Connection）}。
-                \item   \textbf{质元 ($T_{sub}$)}：语义费米子（颜色、纹理）。用于激发场的\textbf{源项（Source）}。
-        \end{itemize}
-
-        \item \textbf{B. 惊奇计算 (Surprisal Calculation)}
-
-        微观层对比“实际感知”与“基于 $H_{local}$ 的预测”：
-    $$ E_{surprisal} = \| \mathbf{S}_{raw} - \text{Predict}(H_{local}) \|^2_{\mathbf{G}} $$
-        \begin{itemize}
-        \item   \textbf{微观屏蔽 (Micro-Shielding)}：如果 $E_{surprisal}$ 低于阈值，微观层会自行通过局部反馈消除它，\textbf{不惊动宏观层}。
-                \item   \textbf{激波爆发 (Shockwave)}：如果误差过大（如撞墙），屏蔽失效，能量相变为\textbf{惊奇激波}。
-        \end{itemize}
-
-        \item \textbf{C. 注入总方程 ($\vec{J}_{ext}$)}
-
-        微观层将残差打包，依据 \textbf{状态元数据 (Metadata)} 进行调制，作为\textbf{非齐次源项}注入认知场：
-        $$ \vec{J}_{ext}(\mathbf{r}, t) = \mathbf{M}_{state}(S, J, \pi) \cdot (\mathbf{T}_{form} \otimes \mathbf{T}_{sub}) $$
-        \begin{itemize}
-                \item   \textbf{$\mathbf{M}_{state}$}：状态调制矩阵，包含信号强度、精度和惊奇度。
-                \item   \textbf{物理效应}：$\vec{J}_{ext}$ 像石头投入湖面一样，击碎场当前的波函数 $\Psi$，迫使宏观层感知到现实的坚硬。
-        \end{itemize}
-
-\end{itemize}
-
-
-
-
-\smalltitle{下行控制物理方程：实体化与阻抗匹配}
-
-微观层根据 $H_{local}$ 的演化，生成具体的物理控制流 $\vec{u}(t)$。我们利用\textbf{哈密顿运动方程}导出控制律。
-\begin{itemize}
-        \item \textbf{Step 1: 哈密顿运动方程}:系统的演化遵循正则方程：
-        $$ \dot{\mathbf{p}} = -\frac{\partial H_{local}}{\partial \mathbf{x}} + \vec{u}(t) $$
-        其中 $\vec{u}(t)$ 是我们需要施加的非保守控制力。
-
-        \item \textbf{Step 2: 计算势能梯度}
-        $$ \frac{\partial H_{local}}{\partial \mathbf{x}} = \frac{\partial V}{\partial \mathbf{x}} = \mathbf{G}_{metric} (\mathbf{x} - \mathbf{r}_{att}) $$
-
-        \item \textbf{Step 3: 引入耗散项}:为了保证系统稳定收敛，必须引入与速度成正比的耗散力（阻尼）：
-        $$ \vec{F}_{damping} = -\mathbf{D}(\Psi) \dot{\mathbf{x}} $$
-
-        \item \textbf{Step 4: 导出物理实体化方程}:为了抵消势能梯度并驱动系统，控制力 $\vec{u}(t)$ 应满足：
-        $$ \vec{u}(t) = \underbrace{\mathbf{G}_{metric}(\Psi) \cdot (\mathbf{r}_{att} - \mathbf{x})}_{\text{势能弹力 (形)}} - \underbrace{\mathbf{D}(\Psi) \cdot \dot{\mathbf{x}}}_{\text{耗散阻尼 (质)}} + \underbrace{\mathcal{F}_{ff}(\Psi)}_{\text{前馈动力学}} $$
-        \begin{itemize}
-                \item   \textbf{$\mathbf{G}_{metric}(\Psi)$}：对应于刚度矩阵 $\mathbf{K}$。
-                \item   \textbf{$\mathbf{D}(\Psi)$}：对应于阻尼矩阵。
-                \item   \textbf{物理意义}：这实现了 \textbf{“顺应性控制 (Compliance Control)”}。当场感到“柔和”时，$\mathbf{G}_{metric}$ 变小，允许环境修正轨迹。
-        \end{itemize}
-\end{itemize}
-
-\smalltitle{阻抗匹配 (Impedance Matching)}
-
-这是行动成功的关键。微观层必须实时感知环境的 \textbf{物理阻抗 $Z_{env}$}，并动态调整自身的 \textbf{输出阻抗 $Z_{agent}$}。
-$$ Z_{agent}(\omega) \approx Z_{env}^*(\omega) $$
-\begin{itemize}
-        \item   \textbf{失配}：产生反作用激波 $\vec{J}_{shock}$（痛）。
-        \item   \textbf{匹配}：能量传输效率最高，做功最有效（心流）。
-\end{itemize}
-\textbf{总结}：微观层可视为连接“内部场”与“外部现实”的\textbf{阻抗匹配器}。其核心职能是通过下行做功与上行激波注入，使二者状态逐步对齐。
-
-
-\begin{bquote}
-        \textbf{本章结语}：
-
-        微观层不是“数据预处理”附属模块，而是连接内外世界的关键翻译层：它把\textbf{物理作用}映射为\textbf{几何曲率（形）}与\textbf{能量密度（质）}并注入认知场。
-
-        它通过\textbf{局部强迫源}提供现实锚定，通过\textbf{应力激波}暴露现实失配，通过\textbf{热力学阀门}维持内部秩序。
-    在该路线下，AGI 硬件演进的重要方向是微观层从“投影模态”向“共振模态”推进：关键不只是更快 ADC，而是\textbf{神经形态传感器 (Neuromorphic Sensors)}。
-\end{bquote}
+最终验证矩阵应覆盖观测、绑定、门控、控制、学习和失效六类情形。我们要求系统在红白对象换位时不串绑，在传感器饱和时降低置信，在虎纹等突发高风险特征出现时及时上报，在衣物等稳定背景下不过载，在墙体意外接触时限力停止，在软硬物体切换时调整顺应性，在内部生成与外部观测冲突时保留来源，在模型更新后仍能完成旧任务。通过这些测试，微观层才真正承担现实锚定和行动闭环；它不是全息宇宙的物理切面，而是智能状态动力学面对现实所必须兑现的接口契约。
