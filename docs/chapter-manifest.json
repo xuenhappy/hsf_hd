@@ -255,9 +255,14 @@
       "source_start_line": 3426,
       "source_end_line": 3881,
       "source_sha256": "156a80b0335759c45fc1674b5cf10ae1615e35eb196244087559ced74ce9a649",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "状态动力学的基本原理：目标、结构与受限更新",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-06/chp-quantization_reality.tex",

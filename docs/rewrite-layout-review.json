@@ -1,9 +1,9 @@
 {
-  "pages": 81,
-  "bytes": 9320389,
+  "pages": 89,
+  "bytes": 14420794,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 56,
+  "numbered_sections": 63,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -398,7 +398,56 @@
       "prose_lines": 44,
       "calibrated_prose_page_equivalents": 0.98,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "14.1 双目视角：任务分辨率与资源预算的共同约束",
+      "start_pdf_page": 82,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "14.2 目标泛函：由观测、结构与目标构造更新方向",
+      "start_pdf_page": 83,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "14.3 连续更新：完整导数、历史延续与扰动边界",
+      "start_pdf_page": 84,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "14.4 离散实现与轨迹变分：两类问题的推导条件",
+      "start_pdf_page": 85,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "14.5 多尺度控制：局部观测、运行状态与目标协调",
+      "start_pdf_page": 86,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "14.6 实现约束：传播时延、保留机制与探索尺度",
+      "start_pdf_page": 87,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "14.7 状态空间几何：绑定、可辨识度量与操作次序",
+      "start_pdf_page": 88,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 13 chapters; does not validate the full book."
+  "scope": "Review subset: 14 chapters; does not validate the full book."
 }

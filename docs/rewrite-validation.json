@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 13,
-  "pending_chapters": 104,
+  "rewritten_chapters": 14,
+  "pending_chapters": 103,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -444,33 +444,45 @@
     {
       "order": 14,
       "path": "chapters/part-05/chp-first_principles.tex",
-      "title": "第一性原理 — 信息-物理对偶场论",
-      "status": "queued-for-full-rewrite",
+      "title": "状态动力学的基本原理：目标、结构与受限更新",
+      "status": "rewritten-reviewed",
       "original_han_floor": 6266,
-      "new_chapter_prose_han": 6101,
+      "new_chapter_prose_han": 8502,
       "original_readable_units": 6254,
-      "new_readable_units": 6254,
-      "opening_prose_han": 278,
+      "new_readable_units": 8529,
+      "opening_prose_han": 324,
       "sections": [
         {
-          "title": "双目视角：从目的的二律背反到时空的涌现",
-          "prose_han": 993
+          "title": "双目视角：任务分辨率与资源预算的共同约束",
+          "prose_han": 1286
         },
         {
-          "title": "核心方程：智能演化的拉格朗日量",
-          "prose_han": 2287
+          "title": "目标泛函：由观测、结构与目标构造更新方向",
+          "prose_han": 1033
         },
         {
-          "title": "几何动力学图景与层级控制的物理必然",
-          "prose_han": 1572
+          "title": "连续更新：完整导数、历史延续与扰动边界",
+          "prose_han": 1154
         },
         {
-          "title": "认知空间的几何本体：全息纤维丛与算子相空间",
-          "prose_han": 971
+          "title": "离散实现与轨迹变分：两类问题的推导条件",
+          "prose_han": 1021
+        },
+        {
+          "title": "多尺度控制：局部观测、运行状态与目标协调",
+          "prose_han": 1236
+        },
+        {
+          "title": "实现约束：传播时延、保留机制与探索尺度",
+          "prose_han": 1243
+        },
+        {
+          "title": "状态空间几何：绑定、可辨识度量与操作次序",
+          "prose_han": 1205
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

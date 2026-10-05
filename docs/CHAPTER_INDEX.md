@@ -1,6 +1,6 @@
 # 章节目录与全章改写进度
 
-13 章已完整实写并完成篇幅与排版检查，104 章待写。增补分析和恢复原文不计为完成重写。
+14 章已完整实写并完成篇幅与排版检查，103 章待写。增补分析和恢复原文不计为完成重写。
 
 | 卷 | 篇 | 章文件 | 标题 | 状态 |
 | --- | --- | --- | --- | --- |
@@ -17,7 +17,7 @@
 | 1 | 4 | [chp-generative_creation](../chapters/part-04/chp-generative_creation.tex) | 结构化生成：从输入描述到可执行结果 | 完整实写；篇幅与排版已检查 |
 | 2 | 5 | [chp-will_geometry](../chapters/part-05/chp-will_geometry.tex) | 意志的计算几何：从静态表示到目标驱动的状态生成 | 完整实写；篇幅与排版已检查 |
 | 2 | 5 | [chp-paradigm_shift](../chapters/part-05/chp-paradigm_shift.tex) | 目的交互主义：目标约束下的状态生成范式 | 完整实写；篇幅与排版已检查 |
-| 2 | 5 | [chp-first_principles](../chapters/part-05/chp-first_principles.tex) | 第一性原理 — 信息-物理对偶场论 | 队列中；原文仍保留 |
+| 2 | 5 | [chp-first_principles](../chapters/part-05/chp-first_principles.tex) | 状态动力学的基本原理：目标、结构与受限更新 | 完整实写；篇幅与排版已检查 |
 | 2 | 6 | [chp-quantization_reality](../chapters/part-06/chp-quantization_reality.tex) | 实在的量子化 — 形质二象性与张量实体 | 队列中；原文仍保留 |
 | 2 | 6 | [chp-static_substrate](../chapters/part-06/chp-static_substrate.tex) | 静态基质 — 形质纠缠的纤维丛几何 | 队列中；原文仍保留 |
 | 2 | 6 | [chp-riemannian_base](../chapters/part-06/chp-riemannian_base.tex) | 黎曼基底 — 本体论的对称测度 | 队列中；原文仍保留 |
