@@ -1,9 +1,9 @@
 {
-  "pages": 97,
-  "bytes": 16470779,
+  "pages": 102,
+  "bytes": 16513339,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 68,
+  "numbered_sections": 73,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -482,7 +482,42 @@
       "prose_lines": 42,
       "calibrated_prose_page_equivalents": 0.935,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "16.1 高阶关系的构造：图、超边与单纯复形",
+      "start_pdf_page": 98,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "16.2 世界结构与体验记录：关联、控制和路径依赖",
+      "start_pdf_page": 99,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "16.3 局部属性空间与统计区分度的条件",
+      "start_pdf_page": 100,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "16.4 网络结构的资源取舍与受限编辑",
+      "start_pdf_page": 100,
+      "prose_lines": 38,
+      "calibrated_prose_page_equivalents": 0.846,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "16.5 拓扑诊断、有效维数与能力边界",
+      "start_pdf_page": 101,
+      "prose_lines": 40,
+      "calibrated_prose_page_equivalents": 0.891,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 15 chapters; does not validate the full book."
+  "scope": "Review subset: 16 chapters; does not validate the full book."
 }

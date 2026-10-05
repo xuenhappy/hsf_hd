@@ -291,9 +291,14 @@
       "source_start_line": 4261,
       "source_end_line": 4575,
       "source_sha256": "9203cf787d8554439c814cdcdf3811020f23fdb8c1921a516fa950e4a6d57214",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "关系基底：高阶结构、体验记录与表示容量",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-06/chp-riemannian_base.tex",
@@ -306,7 +311,9 @@
       "source_sha256": "db9f5834fe264ed9f7a6e397aafbd507e56eb69105b8615696654ba6b958f2f7",
       "status": "queued-for-full-rewrite",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "partial_draft": "docs/drafts/chapter-017-riemannian-base.tex",
+      "draft_checkpoint": "docs/drafts/chapter-017-checkpoint.md"
     },
     {
       "path": "chapters/part-06/chp-microscopic_origins.tex",
