@@ -1,0 +1,62 @@
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[
+    scale=1.3,
+    >=Stealth, % 使用箭头样式
+    font=\small
+]
+
+    % --- 定义坐标 ---
+    % 定义原点 Q (控制结果)
+    \coordinate (Q) at (0,0);
+
+    % 定义流形直线的角度 (例如 15度)
+    \def\ang{15}
+
+    % 定义流形上的点 (缩短了长度)
+    % R 点的位置 (理想态)
+    \coordinate (R) at ($(Q) + (180+\ang:2.0)$);
+
+    % 流形起点 (稍微延伸出 R 点一点点)
+    \coordinate (M_start) at ($(Q) + (180+\ang:2.5)$);
+    % 流形终点 (稍微延伸出 Q 点一点点)
+    \coordinate (M_end)   at ($(Q) + (\ang:1.5)$);
+
+    % 定义 P (现状) 在垂线上 (视觉垂直)
+    \coordinate (P) at ($(Q) + (90+\ang:2.2)$);
+
+    % --- 绘制图形 ---
+
+    % 1. 绘制流形 M_target (蓝色粗线，缩短版)
+    \draw[blue, very thick] (M_start) -- (M_end) node[right, black] {$\mathcal{M}_{target}$ (目的流形)};
+
+    % 2. 绘制 m-投影线 P -> Q (虚线, 带箭头)
+    \draw[dashed, thick, ->] (P) -- (Q);
+
+    % 3. 绘制 P -> R 的连接线 (细虚线)
+    \draw[dashed, thin] (P) -- (R);
+
+    % 4. 绘制直角标记
+    \draw[thick] ($(Q)!0.15cm!(P)$) --
+                 ($(Q)!0.15cm!(P)!0.15cm!90:(P)$) --
+                 ($(Q)!0.15cm!(M_end)$);
+
+    % --- 添加点和标签 ---
+
+    % 点 P
+    \fill (P) circle (1.5pt) node[above] {$P$ (现状)};
+
+    % 点 Q
+    \fill (Q) circle (1.5pt) node[below=3pt] {$Q$ (控制结果)};
+
+    % 点 R
+    \fill (R) circle (1.5pt) node[below=3pt] {$R$ (理想态)};
+
+    % --- 添加说明性文字 ---
+    \node[right, align=left] at ($(Q)!0.5!(P)$) {
+        $\nabla^{(m)} \perp \nabla^{(e)}$ \\
+        \footnotesize{m-投影}
+    };
+\end{tikzpicture}
+\caption{投影关系的几何示意；散度不等式与等式分别需要本章所述的凸性和正交条件}
+\end{figure}

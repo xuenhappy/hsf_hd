@@ -1,0 +1,22 @@
+\chapter{环境对象的结构化表示：测量、关系与约束}
+\label{chp:physics_anatomy}
+% Legacy section labels temporarily resolve to the chapter.
+\label{sec:general_relativity}
+\label{sec:quantum_field}
+\label{sec:condensed_matter}
+\label{sec:mirror_table}
+我们从环境中的可观测对象建立结构与属性表示。模型首先服务于感知、预测和行动，不要求复制环境的全部自由度。
+\section{测量与状态估计}
+令环境隐状态为 $z$，观测为 $o=H(z)+\xi$。传感器给出观测而不是隐状态本身，编码器 $e(o)$ 因而只能恢复任务相关信息。对指定噪声模型可以建立似然 $p(o\mid z)$；在缺少该模型时，我们只能给出经验误差，不能宣称表示无损。
+
+结构 $S$ 可包含邻接、包含、相对位置和事件先后关系；属性 $X$ 可包含测量值、类别特征和置信度。对于位置和速度等具有物理单位的属性，单位必须保留；不能将这些测量值与无量纲语义向量直接相加。
+\section{约束、预测与模型误差}
+设任务需要预测量 $y$，采用 $\widehat y=r(S,X)$。目标函数可以写成
+\begin{equation}\mathcal J=\mathbb E[\ell(\widehat y,y)]+\lambda\mathcal R(S,X),\end{equation}
+其中正则项表达结构复杂度或约束违背。误差较小只表明该模型在指定任务和数据分布上有效，不能推出内部表示与真实环境在全部尺度上同构。
+\section{物理知识作为特定领域约束}
+对真实机械或电路系统，守恒关系、运动方程和单位制可以作为模型约束。这些规律适用于所描述的环境对象；它们不因被智能体学习就成为内部活动的普遍规律。我们通过这种区分保留物理知识的作用，同时避免将环境模型和认知动力学混为一谈。
+
+\section{结构示意图}
+我们保留以下原图说明结构与内容的组织关系；图中的物理措辞只在指定领域或辅助解释中适用。
+\input{figures/preserved/chp-physics_anatomy.tex}

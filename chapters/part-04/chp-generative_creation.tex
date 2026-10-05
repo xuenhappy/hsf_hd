@@ -1,0 +1,21 @@
+\chapter{结构化生成：从输入描述到可执行结果}
+\label{chp:generative_creation}
+% Legacy section labels temporarily resolve to the chapter.
+\label{sec:text_image_msc}
+\label{tab:sd-vs-msc}
+\label{sec:image_text_msc}
+\label{sec:video_generation}
+\label{sec:morpho_elements_1}
+\label{sec:kant_categories}
+\label{sec:phenomenology}
+我们把生成任务表述为在输入条件下构造满足约束的结构与内容，并通过读出转化为可执行或可验证的结果。
+\section{生成变量与条件}
+给定描述 $u$，系统生成 $Y=(S,X)$，目标可以写为
+\begin{equation}Y^*\in\argmin_{Y\in\mathcal C(u)}\mathcal J(Y;u),\end{equation}
+其中 $\mathcal C(u)$ 表示合法性约束。我们不假定极小点必然存在或唯一；不可行输入需要报告约束冲突，不能通过输出流畅掩盖不可行性。
+\section{离散结构与连续属性}
+结构编辑可采用候选搜索，连续属性可采用梯度或其他优化方法。对于交替更新，只有每一步都不增加同一目标时，才能推导目标序列单调；结构编辑改变目标定义后，该结论需要重新分析。
+\section{读出、执行与闭环校准}
+读出器 $D(Y)$ 可以生成文本、程序、场景或控制计划。计划执行后，环境反馈通过编码器返回状态更新。内部生成的一致性与现实执行的正确性是不同指标，后者需要观测、实验或形式验证。
+\section{从表示生成到持续智能}
+MST 描述联合表示与生成的一条路线，HSF-HD 还需要历史、结构适应和目标控制，AgentOS 进一步管理这些过程的调度与边界。因此单次生成模型不是完整的持续智能体。

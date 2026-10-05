@@ -1,0 +1,18 @@
+\chapter{结构化状态空间：图、纤维与张量表示}
+\label{chp:universe_geometry}
+% Compatibility anchors: old section references resolve to this chapter.
+\label{sec:topology_anatomy}
+\label{sec:object_section}
+\label{sec:meaning_dynamics}
+
+我们建立结构化状态空间，以统一表达位置之间的关系和位置上的内容。表示选择由任务与实现决定。
+\section{离散纤维表示}
+给定位置集合 $V$，每个位置 $i$ 对应属性空间 $F_i$。总空间为 $\mathcal{E}=\bigsqcup_{i\in V}F_i$，投影 $\pi$ 返回位置。截面 $q$ 满足 $\pi(q(i))=i$。若所有 $F_i\simeq\mathbb{R}^d$ 且选定共同坐标，截面可表示为属性矩阵。
+
+这里的离散表示不自动具有连续纤维丛的光滑性质。讨论可微联络或曲率之前，必须补充连续结构或定义离散对应物。
+\section{跨位置传输}
+令 $A_{ij}:F_j\to F_i$ 为传输映射，局部更新可以写为
+\begin{equation}\dot q_i=\sum_{j\in\mathcal{N}(i)}w_{ij}(A_{ij}q_j-q_i)+f_i(q_i,u_i,c_i).\end{equation}
+当 $A_{ij}$ 为恒等映射时，该式退化为内容扩散和局部反应。映射具有方向、类型或上下文依赖时，更新能够表达更丰富的关系，但稳定性需要针对具体算子分析。
+\section{张量分解的适用范围}
+若位置和内容可分离，表示可以写成 $s\otimes q$；一般状态为 $X=\sum_r s_r\otimes q_r$。单个张量积仅描述秩一可分离状态，不能单独证明不可分离的绑定。耦合由多项表示、非线性更新或约束产生，需明确其机制。

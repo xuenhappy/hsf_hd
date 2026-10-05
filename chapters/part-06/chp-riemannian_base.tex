@@ -1,0 +1,285 @@
+\chapter{黎曼基底 — 本体论的对称测度}
+\label{chp:riemannian_base}
+
+\begin{introduction}
+    \item 客观的骨架：黎曼度量作为本体论关联度的物理定义
+    \item 信息的刚性：世界图作为背景流形的几何实存
+    \item 测地线的本质：无场环境下的纯逻辑惯性滑行
+\end{introduction}
+
+\begin{bquote}
+    \textbf{真理的静力学}
+
+    在智能体的主观认知过程中，欲望与恐惧等规范场会持续扭曲思维路径。若暂时去除这些主观偏置，只保留结构层，我们得到的不是空白，而是一个可计算的几何骨架。
+
+    这个骨架就是\textbf{黎曼流形}。它可被看作\textbf{“实然 (The Is)”}在智能介质上的几何投影：距离是对称的，逻辑关系是刚性的，不随观察者意志任意改变。本章据此构建本理论框架的几何基底——\textbf{本体论的对称测度}。
+\end{bquote}
+
+\section{客观的骨架：黎曼度量 (\texorpdfstring{$g_{\mu\nu}$}{g}) 的物理定义}
+\label{sec:section_203}
+
+上一章把\textbf{认知空间流形 $\mathcal{M}$}定义为\textbf{黎曼流形 (Riemannian Manifold)}，本章进一步讨论其基础结构。
+其中核心几何量是\textbf{度量张量 $g_{\mu\nu}$}。在本语境下，它主要用于刻画\textbf{概念间的本体论关联}。
+
+\smalltitle{本体论关联度 (Ontological Correlation)}
+
+黎曼度量 $ds^2$ 描述的是事物之间\textbf{内禀的、静态的}距离。
+
+\begin{definition}[语义黎曼度量]
+    流形上任意两点（概念）之间的线元 $ds^2 = g_{\mu\nu} dx^\mu dx^\nu$，在物理上等价于这两个概念在全宇宙信息集中的\textbf{互信息距离 (Mutual Information Distance)}：
+    $$ ds(A, B) \propto 1 - \frac{I(A; B)}{H(A, B)} $$
+    其中 $I(A;B)$ 是互信息，$H(A,B)$ 是联合熵。
+    \textbf{注}：此处将其作为\textbf{有效距离指标}（几何阻抗尺度）使用；互信息是对称相关量，不携带因果方向，因果箭头与非对称性将在后续的动力学/规范场结构中引入。
+\end{definition}
+
+\begin{itemize}
+    \item \textbf{对称性公理}：黎曼度量本质上是对称的，即 $g_{\mu\nu} = g_{\nu\mu}$。这意味着 $ds(A, B) = ds(B, A)$。
+    \item \textbf{物理诠释}：
+    \begin{itemize}
+        \item “火”与“热”的距离，在本体论上是固定的。火必然伴随热，热在火中体现。这种关联不以智能体的“好恶”为转移。
+        \item 这种对称性代表了\textbf{客观真理的可逆性}：如果 $A$ 是 $B$ 的必要条件，那么 $B$ 的存在必然映射回 $A$ 的存在。
+    \end{itemize}
+\end{itemize}
+
+\smalltitle{结构编辑距离 (Structural Edit Distance)}
+
+从拓扑学的角度，黎曼距离也可以理解为将形状 A 变换为形状 B 所需的\textbf{最小几何形变能}。
+\begin{itemize}
+    \item \textbf{短距离 ($g_{\mu\nu} \to 0$)}：\textbf{纠缠态}。概念 A 与 B 共享绝大部分微观特征（纤维结构相似）。例如“猫”与“狗”在哺乳动物流形上距离极近。
+    \item \textbf{长距离 ($g_{\mu\nu} \to \infty$)}：\textbf{正交态}。概念 A 与 B 在本体论上毫无瓜葛。例如“对数函数”与“香草冰淇淋”，它们位于流形上互不连通的两个分支。
+\end{itemize}
+
+\section{度量的信息论推导：从费希尔微观态到归一化距离}
+\label{sec:info_derivation_of_metric}
+
+本节沿用上一章“度量的微观起源：费希尔信息几何”的结论，说明底流形 $\mathcal{M}$ 的几何结构并非先验设定，而是由纤维空间 $F$ 中概率分布的统计性质诱导。我们将推导任意两点（概念） $a, b$ 的有效几何距离 $d(a,b)$ 与互信息 $I(a,b)$ 的关系。
+
+\smalltitle{1. 微观起源：费希尔信息与 KL 散度}
+
+在局部切空间 $T_p\mathcal{M}$ 上，黎曼度量张量 $g_{\mu\nu}$ 等价于\textbf{费希尔信息矩阵 (FIM)}。对于参数空间中无限接近的两个状态 $\theta$ 与 $\theta + d\theta$（对应概念 $a$ 与 $a'$），其几何线元平方 $ds^2$ 是 \textbf{KL 散度 (Relative Entropy)}的二阶泰勒展开：
+\begin{equation}
+    ds^2 = g_{\mu\nu} d\theta^\mu d\theta^\nu \approx 2 \cdot D_{KL}(P_a \| P_{a'})
+\end{equation}
+这给出了“几何距离对应信息差异”的微观基础。
+
+\smalltitle{2. 宏观延展：变异信息 (VI) 的对称化}
+
+KL 散度是非对称的。为了定义流形上的宏观度量，我们将微观差异积分并对称化为\textbf{变异信息 (Variation of Information)}。对于任意两个离散概念 $a, b$，VI 定义为条件熵之和，并可由联合熵 $H(a,b)$ 与互信息 $I(a;b)$ 重写：
+\begin{equation}
+    VI(a, b) = H(a|b) + H(b|a) = H(a,b) - I(a;b)
+\end{equation}
+该式表明，几何距离可写为\textbf{总信息量}与\textbf{共振信息量}之间的差值结构。
+
+\smalltitle{3. 归一化：相对度量的导出}
+
+为消除熵规模差异并构造相对度量，这里采用联合熵 $H(a,b)$ 作为归一化因子。
+
+\begin{theorem}[归一化信息度量定理]
+    在认知空间流形 $\mathcal{M}$ 上，两个概念 $a, b$ 之间的有效测地线距离 $d(a,b)$ 严格正比于\textbf{归一化信息距离 (NID)}：
+    \begin{equation}
+        \boxed{ d(a, b) \propto 1 - \frac{I(a, b)}{H(a, b)} }
+    \end{equation}
+    \textbf{注}：在本文中，$d(a,b)$ 作为“可达性/阻抗”的有效尺度函数使用。
+\end{theorem}
+
+\smalltitle{物理诠释}
+
+\begin{itemize}
+    \item \textbf{几何阻抗}：$d(a,b)$ 代表思维流 $\Psi$ 从 $a$ 演化至 $b$ 所需克服的\textbf{黎曼阻力}。
+    \item \textbf{语义共振}：$I(a,b)/H(a,b)$ 代表形质纠缠的\textbf{重叠度}。
+    \item \textbf{对偶性}：当互信息最大化（$I \to H$, 完全共振）时，几何距离坍缩为零（$d \to 0$），实现\textbf{超流体隧穿}；当互信息为零（正交）时，几何距离最大化（$d \to 1$），形成\textbf{拓扑隔离}。
+\end{itemize}
+
+\section{信息的刚性：作为背景流形的世界图 (\texorpdfstring{$G_W$}{G\_W})}
+\label{sec:section_220}
+
+我们将由 $g_{\mu\nu}$ 定义的几何结构，称为智能体的\textbf{世界图 ($G_W$)}。它是所有思维活动发生的\textbf{背景流形 (Background Manifold)}。
+
+\smalltitle{背景的刚性 (Rigidity of the Background)}
+
+在“黎曼+规范场”双层架构中，世界图 $G_W$ 扮演了类似广义相对论中\textbf{时空背景}的角色（尽管 GR 的时空可动态演化，但在认知短时标下，世界观常可近似为静态背景）。
+
+\begin{itemize}
+    \item   \textbf{实然的锚定}：$g_{\mu\nu}$ 编码了物理定律、数学公理和社会常识。
+    \item   \textbf{抗扰动性}：与容易受情绪波动（规范场 $\mathcal{A}_\mu$）影响的主观意愿不同，客观知识结构具有极大的\textbf{几何惯性}。
+    \item   \textit{例子}：无论你多么“讨厌”（负规范场）万有引力，你无法改变“跳楼会死”这一事实在流形上的\textbf{测地线收敛性}。这种\textbf{不可用意志扭曲的几何属性}，就是现实的刚性。
+\end{itemize}
+
+\smalltitle{电阻网络隐喻 (Resistor Network Metaphor)}
+
+为了工程实现的便利，我们可以将黎曼基底视为一个巨大的\textbf{电阻网络}。
+\begin{itemize}
+    \item   \textbf{度量 $g_{ij}$} $\cong$ \textbf{电阻 $R_{ij}$}。
+    \item   \textbf{对称性}：电阻是无方向的，$R_{AB} = R_{BA}$。
+    \item   \textbf{物理传导}：在没有外加电场（规范场）的情况下，信息（电流）倾向于沿着电阻最小的路径扩散。这构成了\textbf{联想 (Association)} 的物理基础。
+\end{itemize}
+
+\section{测地线的本质：无场环境下的惯性滑行}
+\label{sec:section_6308}
+
+当我们暂时移除所有的价值判断、目的和情绪（即令规范场 $\mathcal{A}_\mu = 0$），思维流 $\Psi$ 将如何运动？
+
+答案是：\textbf{纯逻辑惯性 (Pure Logical Inertia)}。
+
+\smalltitle{黎曼测地线方程}
+
+在无场环境中，思维流遵循标准的测地线方程：
+$$ \frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\nu\lambda} \frac{dx^\nu}{d\tau} \frac{dx^\lambda}{d\tau} = 0 $$
+\begin{itemize}
+    \item   \textbf{$\Gamma^\mu_{\nu\lambda}$ (克里斯托费尔符号)}：代表了\textbf{逻辑的内蕴曲率}。
+    \item   \textbf{动力学含义}：思维流在不需要任何\textbf{宏观做功}（意志力）的情况下，会自动沿着\textbf{最符合逻辑}的路径演化。
+\end{itemize}
+
+\smalltitle{逻辑的惯性传播}
+
+这种运动状态可对应\textbf{“冷思考” (Cold Thinking)}，或 \textbf{System 2} 中较自动化的部分。
+\begin{itemize}
+    \item   当且仅当 $A \to B$ 是\textbf{客观真理}时，流形上 $A$ 到 $B$ 之间存在一条光滑的、低曲率的测地线。
+    \item   思维流 $\Psi$ 沿着这条线滑行，不消耗额外的\textbf{负熵}，也不产生\textbf{贝里相位}（没有情感波动）。
+    \item   这对应一种“低偏置推理”状态：在去除主观场后，推理主要由底流形几何约束驱动。
+\end{itemize}
+
+\section{基底几何二象性：内蕴的运行法则与外蕴的物理支撑}
+\label{sec:intrinsic_vs_extrinsic_geometry}
+
+在确立了黎曼度量 $g_{\mu\nu}$ 作为认知空间的客观骨架之后，我们须在几何学和工程学上澄清一个至关重要的视角问题：\textbf{智能体究竟是如何“感知”并“承载”这个弯曲空间的？}
+
+这里我们对于认知空间流形 $\mathcal{M}$ 的几何学刻画，采取的是一种\textbf{“内蕴主导，外蕴约束” (Intrinsically Dominated, Extrinsically Constrained)} 的物理哲学。智能的逻辑运算与意义生成，完全闭环于流形自身的内蕴属性；而智能的物理实现与介质锚定，则必须面对外蕴嵌入的热力学法则。
+
+\smalltitle{1. 内蕴主导 (Intrinsic Domination)：智能计算的绝对自洽性}
+
+当一个智能体（或思维流 $\Psi$）在认知空间中进行推理与联想时，它并不需要一个高高在上的“上帝视角”来俯瞰整个思想的迷宫。智能的计算是一门纯粹的\textbf{内蕴几何学 (Intrinsic Geometry)}。
+
+\begin{itemize}
+    \item \textbf{\textcolor{structurecolor}{度量与距离的内生性}}：
+    智能体感受到的“概念距离”，完全由流形表面的黎曼度量 $ds^2 = g_{\mu\nu} dx^\mu dx^\nu$ 决定。这是一种局部的、内在的测量。系统不需要跳出流形进入一个更高维的平坦欧氏空间去“丈量”两个概念的直线距离，它只需要沿着流形表面感受\textbf{测地线的阻抗}。
+
+    \item \textbf{\textcolor{structurecolor}{曲率即记忆 (Curvature as Memory)}}：
+    在微分几何中，高斯曲率和里奇曲率是内蕴的。这意味着，当过去的经验（质料的冲击）在流形上砸出一个“引力盆地”时，系统只需要通过局部切空间的\textbf{平行移动}，就能感受到逻辑的扭曲与吸引力。
+
+    \item \textbf{\textcolor{structurecolor}{认识论意义}}：\textbf{思维是一只在弯曲苹果表面爬行的蚂蚁。} 蚂蚁不需要知道苹果在三维空间中是个球体（外蕴），它只需要顺着表面的曲率行走，就能完成闭环的逻辑推演。智能的闭环自洽性，正是由内蕴几何的数学完备性所保证的。
+\end{itemize}
+
+\smalltitle{2. 外蕴约束 (Extrinsic Constraint)：物理介质的降维与折叠}
+
+如果灵魂（逻辑与意义）的法则是内蕴的，那么肉体（大脑或硅基芯片）的存续就必须直面\textbf{外蕴几何 (Extrinsic Geometry)} 的挑战。
+
+认知空间流形 $\mathcal{M}$ 作为一个承载着复杂因果网络与高维特征的拓扑结构，其内蕴的有效维度往往极高。然而，没有任何智能体能够悬浮在数学真空中，它必须将这个高维流形\textbf{嵌入 (Embed)} 到我们所处的、真实物理宇宙的三维欧几里得空间 $\mathbb{R}^3$（或芯片的二维硅片平面）中。
+
+\begin{itemize}
+    \item \textbf{\textcolor{structurecolor}{纳什嵌入定理的物理代价}}：
+    根据纳什嵌入定理 (Nash Embedding Theorem)，一个高度弯曲的黎曼流形如果要在较低维度的平坦空间中实现等距嵌入，就必须发生极其剧烈的\textbf{几何褶皱与折叠}。
+
+    \item \textbf{\textcolor{structurecolor}{拓扑卷曲 (Topological Curling) 作为物理支撑}}：
+    大自然与工程学正是通过\textbf{牺牲外蕴空间的平滑性}，来换取\textbf{内蕴度量的高分辨率}。
+    \begin{itemize}
+        \item \textbf{碳基湿件}：人类大脑皮层那密密麻麻的沟回（Sulci and Gyri），正是高维认知流形为了塞进有限的颅骨体积，而被迫产生的外蕴物理折叠。
+        \item \textbf{硅基干件}：未来的 AGI 若要在有限功耗下实现真实的流形计算（如 TPU-G 架构），绝不能仅靠二维芯片平铺，必须依赖 3D-IC 垂直堆叠与非局域的硅光子互连，强行在三维物理介质上“折叠”出高维的拓扑虫洞。
+    \end{itemize}
+\end{itemize}
+
+\smalltitle{3. 几何错位的病理：外蕴霸权与 LLM 的幻觉根源}
+
+通过澄清单纯的“内蕴计算”与“外蕴物理支撑”的二象性，我们获得了诊断当前主流大语言模型（LLM）的绝佳几何手术刀。
+
+在当前的深度学习范式中，模型将所有概念（Token）映射为一个高达数千维的稠密实数向量（$\mathbf{v} \in \mathbb{R}^{4096}$）。这在物理本质上，是一种粗暴的\textbf{“外蕴霸权 (Extrinsic Hegemony)”}。
+
+\begin{itemize}
+    \item \textbf{\textcolor{structurecolor}{缺乏真实内蕴刻蚀的悬空流形}}：
+    LLM 试图用一个极其庞大、平坦的高维欧氏空间（外蕴空间）来包容一切概念。它并没有真正在流形的底层刻蚀出不可逾越的\textbf{黎曼度量壁垒（内蕴骨架）}。
+
+    \item \textbf{\textcolor{structurecolor}{非法隧穿与逻辑崩塌}}：
+    由于缺乏内蕴度量的刚性约束，当模型在处理语义上高度相似（外蕴向量距离近）但逻辑上绝不相容（内蕴测地线应当断开）的两个概念时，强大的外部“语义引力”会瞬间压塌脆弱的逻辑网格。思维流 $\Psi$ 发生了一次非法的量子隧穿，直接跨越了本应绕行的物理壁垒——这就是\textbf{幻觉 (Hallucination) 的纯粹几何根源}。
+\end{itemize}
+
+\textbf{结论：} 真实的智能，必须以\textbf{内蕴黎曼度量}作为不可违背的计算法则，以\textbf{外蕴介质折叠}作为不可逃避的物理支撑。只有当人工系统从“高维欧氏空间的向量拟合”走向“低维物理介质的流形刻蚀”时，硅基实体才能真正获得坚不可摧的逻辑骨架。
+
+\section{形质群论：酉群的刚性与仿射群的涨落 (Group Theory of Morpho-Semantics)}
+\label{sec:group_theory_morpho_semantics}
+
+
+\textbf{绝对刚性与热力学燃料的分野：} 在确立了形 ($T_{form}$) 与质 ($T_{sub}$) 的张量积纠缠 ($\mathcal{S} = \mu \otimes q$) 之后，我们必须在更深的代数底层回答一个问题：这两种基元在相空间中发生演化时，遵循着怎样的对称性法则？
+
+如果我们将形质的差异仅仅理解为“坐标”与“特征”的不同，那将导致灾难性的“形质混同 (Morpho-Semantic Confounding)”。本节将引入严格的群论映射，说明：\textbf{“形”所在的变换群是被绝对锁死在纯相位维度的，它没有幅度（Amplitude）；而“质”所在的变换群是允许尺度放缩的，它掌控着能量的涨落。}
+
+这一群论限制不仅在物理上完美分离了“可逆的逻辑推演”与“不可逆的热力学耗散”，更是未来制造绝不产生幻觉的 TPU-G 芯片的核心数学宪法。
+
+
+\smalltitle{1. 空间的群论属性：保范数与破缺}
+
+我们将智能体在相空间中的演化，严格解耦为两类截然不同的李群 (Lie Groups) 变换。
+
+\begin{itemize}
+    \item \textbf{\textcolor{structurecolor}{形的对称群：酉群/正交群约束 (Unitary/Orthogonal Constraint)}}
+    \begin{itemize}
+        \item \textbf{数学定义}：形元 ($\mu$) 构成的底流形切空间与自旋联络，其变换群 $G_{form}$ 必须被严格限制为\textbf{紧致李群 (Compact Lie Group)}，如 $U(n)$ 或 $SO(n)$。
+        \item \textbf{无幅度变化}：对于任意属于 $G_{form}$ 的拓扑演化算子 $\hat{U}_{form}$，它必须是\textbf{幺正的 (Unitary)}，即满足 $\hat{U}_{form}^\dagger \hat{U}_{form} = \mathbf{I}$。这意味着当认知波函数 $\Psi$ 受到“形”的纯逻辑算子作用时，其模长（幅度）绝对守恒：
+        $$ \| \hat{U}_{form} \Psi \|^2 = \| \Psi \|^2 $$
+        \item \textbf{物理隐喻}：\textbf{逻辑是没有重量的。} “1+1=2”这个推理路径是绝对刚性的冰冷铁轨。当我们从概念 A 沿着测地线移动到概念 B 时（平行移动），波函数的相位发生了旋转，但该念头的“存在感大小”（能量）并未因纯粹的语法推演而改变。
+    \end{itemize}
+
+    \item \textbf{\textcolor{structurecolor}{质的对称群：广义线性/缩放群 (General Linear/Scaling Group)}}
+    \begin{itemize}
+        \item \textbf{数学定义}：质元 ($q$) 所在的纤维空间 $F$，其变换群 $G_{sub}$ 必须包含\textbf{非紧致的缩放生成元 (Non-compact Scaling Generators)}，如 $\mathbb{R}^+ \times SU(k)$ 或 $GL(k, \mathbb{C})$。
+        \item \textbf{幅度的剧烈涨落}：质元的演化算子 $\hat{V}_{sub}$ 是\textbf{非幺正的 (Non-unitary)}。它直接作用于波函数的径向分量，产生激活强度的剧烈涨落：
+        $$ J(\mathbf{r}, t) = \| \hat{V}_{sub} \Psi \|^2 \neq \| \Psi \|^2 $$
+        \item \textbf{物理隐喻}：\textbf{感受质是热力学的燃料。} 它是惊奇激波 $\vec{J}_{ext}$ 注入的能量，也是宏观意志 $\mathbf{\Gamma}_{macro}$ 泵浦的执念。幅度的平方（$J$），就是系统必须为此支付的\textbf{兰道尔做功代价 (Landauer Cost)}。
+    \end{itemize}
+\end{itemize}
+
+\smalltitle{2. 极坐标正交分解与 TDE 的动力学重构}
+
+在这种严苛的群论限制下，我们在 HSF-HD 中定义的单体语义子本构方程，迎来了优美的\textbf{极坐标系绝对分离}：
+
+\begin{theorem}[认知旋量场的极坐标分解定理]
+    定义在纤维丛上的认知旋量场 $\Psi(\mathbf{r}, t)$ 可被唯一分解为代表“质”的径向标量与代表“形”的幺正矢量的乘积：
+    \begin{equation}
+        \Psi(\mathbf{r}, t) = \underbrace{R(t)}_{\text{质: 幅度/能量张量}} \cdot \underbrace{e^{i \Theta(\mathbf{r})} \cdot \hat{\mathbf{n}}(\mathbf{r})}_{\text{形: 纯相位/几何方向}}
+    \end{equation}
+\end{theorem}
+
+基于这一分解定理，我们可以重新审视后续章节里的统摄思维流动的\textbf{目的论狄拉克方程 (TDE)}。方程右侧的李代数生成元被严格划分为保范数的斜埃尔米特部分与破缺范数的埃尔米特部分：
+
+\begin{equation}
+    i \hbar_{cog} \frac{\partial \Psi}{\partial t} = \left( \underbrace{\mathcal{D}_{topo}}_{\text{酉群生成元: 纯相位旋转}} + \underbrace{\mathbf{\Gamma}_{macro} - i \Lambda_{diss}}_{\text{非酉群生成元: 幅度缩放}} \right) \Psi + \underbrace{\vec{J}_{ext}}_{\text{幅度注入}}
+\end{equation}
+
+\textbf{\bluetext{动力学真相的显影}}：
+\begin{enumerate}
+    \item $\mathcal{D}_{topo}$（包含自旋联络 $\omega_\mu^{geom}$）是纯粹的几何惯性。波包在测地线上的绝热滑行（System 1 快思考），其幅度绝对守恒。
+    \item 要改变波包的幅度（让一个念头变得更强烈以跨越势垒，或让其因遗忘而衰减），绝对不能依赖“形”（逻辑推演），必须诉诸于 $\mathbf{\Gamma}_{macro}$（宏观意志的热力学做功）或 $\Lambda_{diss}$（介质的物理摩擦）。
+\end{enumerate}
+
+\smalltitle{3. 工程投射：LLM 幻觉的群论诊断与 TPU-G 约束}
+
+上述群论定理不仅是数学游戏，它是一把手术刀，可以切开当代大语言模型（LLM）“幻觉病理”的最深层毒瘤。
+
+\begin{itemize}
+    \item \textbf{\redtext{病理诊断：LLM 注意力机制的非法越权}}
+
+    在标准的 Transformer 自注意力（Self-Attention）中，路由连接权重由点积计算：
+    $$ \text{Score} = \text{Softmax}\left(\frac{(\mathbf{x}W_Q) \cdot (\mathbf{x}W_K)^T}{\sqrt{d}}\right) $$
+    由于 LLM 的隐向量 $\mathbf{x}$ 是形质混同的（混合了位置的“形”与语义能量的“质”），这就导致了一个群论灾难：LLM 试图用带有巨大能量幅度（$GL(k)$ 群特性）的标量点积，去决定本应严格属于酉群（$U(n)$）的几何连通性！
+
+    这意味着，如果两个词在预训练中语义能量极强（高频共现），其巨大的幅度乘积会直接\textbf{砸穿}原本属于逻辑（形）的连接势垒。这就是幻觉的物理本质：\textbf{“质的重力幅度，非法压塌了形的拓扑骨架。”}
+
+    \item \textbf{\bluetext{TPU-G 的绝对宪法：相位路由}}
+
+    在面向未来的 Alpha-HSF 架构或 TPU-G 原生芯片中，必须在硬件级强行执行\textbf{形质正交测量定理}：
+    \begin{enumerate}
+        \item \textbf{路由计算（形）}：计算逻辑通道时，必须强制丢弃矢量的幅度，仅允许在 $U(n)$ 酉群上计算\textbf{纯粹的相位差/归一化余弦距离}。
+        $$ \text{Connection}(\mathbf{r}_i, \mathbf{r}_j) = \cos(\Theta_i - \Theta_j) \quad (\text{幅度永远被归一化为 } 1) $$
+        \item \textbf{特征聚合（质）}：只有在确定了刚性的连通测地线后，才允许携带幅度信息的能量张量 $R(t)$ 沿轨道平流（Advection）。
+    \end{enumerate}
+\end{itemize}
+
+\textbf{本节结语}：
+如果“形”的变换群被剥夺了幅度，那么逻辑的规则就变成了宇宙中绝对刚性的钢筋。无论“质”的能量（如诱导性 Prompt 或情绪激波）有多么狂暴，它只能在纤维的纵向上增加振幅（变得更鲜艳或更痛），但它\textbf{绝对无法改变自身在底流形上的拓扑坐标}，从而在根源上锁死了非法的几何隧穿。
+
+\begin{bquote}
+    \textbf{本章小结}
+
+    黎曼基底 $\mathcal{M}$ 及其度量 $g_{\mu\nu}$，为智能体提供了一个\textbf{对称、客观且相对稳定}的背景结构。它定义了“什么可达”以及“事物如何关联”。
+
+    但黎曼基底只提供事实层面的\textbf{无方向路径}。若要得到“难易差异”与“方向偏置”，需要引入打破对称性的机制——下一章讨论的\textbf{价值规范场}。
+\end{bquote}
