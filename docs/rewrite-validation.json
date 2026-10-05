@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 17,
-  "pending_chapters": 100,
+  "rewritten_chapters": 18,
+  "pending_chapters": 99,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -600,37 +600,37 @@
     {
       "order": 18,
       "path": "chapters/part-06/chp-microscopic_origins.tex",
-      "title": "微观起源 — 信息几何与统计流形",
-      "status": "queued-for-full-rewrite",
+      "title": "统计状态的微观建模：信息几何、估计界与学习坐标",
+      "status": "rewritten-reviewed",
       "original_han_floor": 5191,
-      "new_chapter_prose_han": 5100,
+      "new_chapter_prose_han": 5785,
       "original_readable_units": 5255,
-      "new_readable_units": 5255,
-      "opening_prose_han": 273,
+      "new_readable_units": 5838,
+      "opening_prose_han": 284,
       "sections": [
         {
-          "title": "统计流形：世界图的概率本体",
-          "prose_han": 260
+          "title": "从任务观测到统计模型：世界不等于分布族",
+          "prose_han": 1184
         },
         {
-          "title": "费希尔度量：本体论距离的物理起源",
-          "prose_han": 317
+          "title": "Fisher 信息：局部可辨识度及其成立条件",
+          "prose_han": 1118
         },
         {
-          "title": "测量的几何学：克拉梅尔-拉奥下界与统计不确定性",
-          "prose_han": 1457
+          "title": "估计精度：Cramér--Rao 界不是普遍不确定性原理",
+          "prose_han": 1159
         },
         {
-          "title": "语义子重述：作为分布波包的几何实体",
-          "prose_han": 1155
+          "title": "分布式语义状态：参数、期望与身份绑定",
+          "prose_han": 1016
         },
         {
-          "title": "双重联络：学习与感知的几何对偶",
-          "prose_han": 1638
+          "title": "对偶坐标与学习路径：从散度投影到可验证更新",
+          "prose_han": 1024
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

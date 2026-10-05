@@ -329,11 +329,16 @@
       "source_start_line": 4861,
       "source_end_line": 5123,
       "source_sha256": "5b6191b76b93cf529cfc6ec74809434c03ce163b20d94fe5652d2ee9f760007d",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "统计状态的微观建模：信息几何、估计界与学习坐标",
       "formatting_normalized": true,
       "previous_status": "full-content-restored-awaiting-sectionwise-revision",
       "partial_draft": "docs/drafts/chapter-018-microscopic-origins.tex",
-      "draft_checkpoint": "docs/drafts/chapter-018-checkpoint.md"
+      "draft_checkpoint": "docs/drafts/chapter-018-checkpoint.md",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-06/chp-value_gauge_field.tex",

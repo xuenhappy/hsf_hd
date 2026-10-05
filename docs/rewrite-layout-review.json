@@ -1,9 +1,9 @@
 {
-  "pages": 109,
-  "bytes": 16573506,
+  "pages": 114,
+  "bytes": 16621759,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 79,
+  "numbered_sections": 84,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -559,7 +559,42 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "18.1 从任务观测到统计模型：世界不等于分布族",
+      "start_pdf_page": 110,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "18.2 Fisher 信息：局部可辨识度及其成立条件",
+      "start_pdf_page": 111,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "18.3 估计精度：Cramér–Rao 界不是普遍不确定性原理",
+      "start_pdf_page": 112,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "18.4 分布式语义状态：参数、期望与身份绑定",
+      "start_pdf_page": 113,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "18.5 对偶坐标与学习路径：从散度投影到可验证更新",
+      "start_pdf_page": 113,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 17 chapters; does not validate the full book."
+  "scope": "Review subset: 18 chapters; does not validate the full book."
 }

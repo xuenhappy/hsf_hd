@@ -1,9 +1,9 @@
 {
   "checks_passed": true,
-  "original_complete_chapters_verified": 100,
-  "fully_rewritten_chapters_length_verified": 17,
+  "original_complete_chapters_verified": 99,
+  "fully_rewritten_chapters_length_verified": 18,
   "baseline_chapter_chinese_characters": 568727,
-  "current_chapter_chinese_characters": 621261,
+  "current_chapter_chinese_characters": 621959,
   "scope": "Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.",
   "chapters": [
     {
@@ -144,11 +144,11 @@
     },
     {
       "path": "chapters/part-06/chp-microscopic_origins.tex",
-      "original_exposition_preserved": true,
-      "validation_mode": "original-exposition-conservation",
+      "original_exposition_preserved": false,
+      "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 5191,
-      "current_chinese_characters": 5191
+      "current_chinese_characters": 5889
     },
     {
       "path": "chapters/part-06/chp-value_gauge_field.tex",

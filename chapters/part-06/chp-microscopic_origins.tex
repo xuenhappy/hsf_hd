@@ -1,260 +1,141 @@
-\chapter{微观起源 — 信息几何与统计流形}
+\chapter{统计状态的微观建模：信息几何、估计界与学习坐标}
 \label{chp:microscopic_origins}
 
-\begin{introduction}
-    \item 统计流形：世界图的概率论本质
-    \item 费希尔度量：逻辑距离的微观推导
-    \item 语义子重述：作为概率密度函数的几何实体
-\end{introduction}
+我在本章讨论的“微观”，不是把智能还原成某种物理粒子，而是把一个可观察的智能状态继续分解为样本、概率、参数、估计量和更新记录。前章已经说明，表示距离只有在对象、度量与任务商空间确定之后才有意义；本章进一步追问这些局部度量可以从什么统计问题中得到，又在哪些条件下失效。信息几何在这里是一套分析统计模型可辨识性与更新灵敏度的工具，而不是关于世界本体的证明。我们将分别处理模型族、Fisher 信息、估计下界、分布表示和学习坐标，并把“定义”“正则模型中的数学结果”“有限数据下的经验判断”与“AgentOS 的工程选择”逐层分开。这样，HSF-HD 所说的一般状态动力学可以吸收统计学习的可靠结构，同时不把某一概率参数化、某一种优化器或某一种硬件机制规定为一切智能的共同微观实体。
 
-
-\textbf{概率的晶体}
-
-在前面的章节中，我们将底流形 $\mathcal{M}$ 描述为\textbf{黎曼骨架}，并将语义子 (Semantion) 描述为形质纠缠的\textbf{张量实体}。仍有一个基础问题需要回答：\textbf{这个骨架的形状由什么决定？}
-为什么“猫”和“狗”在流形上距离很近，而与“冰箱”距离很远？这种几何结构的生成，是否遵循某种更底层的守恒律？
-
-本章引入 \textbf{信息几何 (Information Geometry, IG)} 视角，对本理论框架的静态基质做微观重构。核心观点是：\textbf{认知空间流形本质上是统计流形，而黎曼度量 $g_{\mu\nu}$ 可由费希尔信息矩阵 (Fisher Information Matrix) 宏观涌现得到。}
-
-在此框架中，概率是几何结构的基础对象。每个语义子不仅是张量，也对应一个\textbf{概率分布}；语义子之间的距离可解释为\textbf{信息区分度 (Distinguishability)}。
-
-
-\section{统计流形：世界图的概率本体}
+\section{从任务观测到统计模型：世界不等于分布族}
 \label{sec:section_8204}
 
-从相空间几何角度看，底流形 $\mathcal{M}$ 由 \textbf{形元 (Morphon)} 编织成拓扑网络；而在信息几何视角下，$\mathcal{M}$ 也可表述为由\textbf{概率密度函数族}构成的空间。
+我先固定建模对象。设 $\mathcal X$ 是一次任务观测的样本空间，$\mathcal A$ 是其事件族，$\nu$ 是选定的参考测度；当观测离散时，$\nu$ 可以是计数测度，当观测连续时，它可以是与坐标约定相容的测度。参数空间记为 $\Theta\subseteq\mathbb R^d$，其中 $d$ 是有限的参数维数。统计模型不是“整个世界”，而是相对于观测协议形成的分布族
+\begin{equation}
+    \mathcal P=\{P_\theta:\theta\in\Theta\},\qquad
+    p_\theta(x)=\frac{dP_\theta}{d\nu}(x),\qquad
+    \int_{\mathcal X}p_\theta(x)\,d\nu(x)=1.
+\end{equation}
+这里 $P_\theta$ 的单位是无量纲概率；若写密度 $p_\theta$，它相对于 $\nu$ 的量纲必须使积分无量纲。真实数据机制记为 $Q$，它可以在模型族之外。于是“选择参数”只是用 $P_\theta$ 近似任务相关的 $Q$，并不声称 $Q$ 包含环境的全部状态，更不声称环境本身由参数坐标生成。摄像头采样、日志事件和语言片段即使指向同一外部对象，也会因为采样率、遮挡规则、分词方案和记录权限不同而产生不同的 $\mathcal X$、$Q$ 与可辨识结构。
 
-\smalltitle{世界图即分布族 (World Graph as Distribution Family)}
+这一区分使我能够准确解释原章所谓“世界图即分布族”。HSF-HD 的世界结构快照是带身份、类型、来源和版本的关系记录，可写成 $G_t=(V_t,E_t,\tau_t,\sigma_t)$；概率模型则描述在给定快照、观测接口与任务条件后可能出现什么记录。若以 $Y$ 表示任务读出，以 $Z$ 表示局部结构身份，以 $X$ 表示当前观测，一个可能的工程分解是
+\begin{equation}
+    P_\theta(Y,Z,X\mid G_t,c_t)
+    =P_\theta(Y\mid Z,X,G_t,c_t)
+     P_\theta(Z\mid X,G_t,c_t)
+     P_\theta(X\mid G_t,c_t),
+\end{equation}
+其中 $c_t$ 汇集目标、边界和观测协议。这个分解是一种模型假设，不是概率乘法自动给出的因果顺序。它允许局部结构网络 $G_t$ 与全局分布表示同时出现：前者保存哪些节点和关系可被寻址，后者在大量候选上表达不确定性和相似性；二者通过任务相关身份 $Z$、绑定条件及读出 $Y$ 联合，而不能由“脑区”或“流形”的相似图像推出机制等同。
 
-设外部世界 $\Omega$ 的状态空间为 $X$。任何一个概念或实体（即 \textbf{语义子 $\mathcal{S}$}），本质上都是对 $X$ 上某种模式的\textbf{统计描述}。
+参数也不应被直接解释为语义对象。令 $R_\theta:\mathcal X\to\mathbb R^m$ 是分布式编码，$D_\theta$ 是从编码与结构记录到任务输出的读出。两个参数 $\theta$ 和 $\theta'$ 若对所有允许输入都给出相同的条件分布与读出，就在当前任务下不可区分。定义等价关系
+\begin{equation}
+    \theta\sim\theta'
+    \Longleftrightarrow
+    P_\theta(Y\in B\mid X=x,G,c)
+    =P_{\theta'}(Y\in B\mid X=x,G,c)
+\end{equation}
+对所有合法的 $x,G,c$ 和可测集合 $B$ 成立，则真正可辨识的状态位于商空间 $\Theta/{\sim}$，而不是原始坐标表。神经网络中的通道置换、隐层尺度补偿或矩阵分解重参数化，常使多个参数点实现同一函数。若忽略这一点，某些方向的 Fisher 信息退化并不表示“概念没有意义”，只说明现有观测与读出不能区分那些参数变化。反过来，参数数值相近也不保证结构身份相同，因为一次离散的节点合并、来源撤销或权限变更可能在小参数扰动之外改变任务语义。
 
-我们定义认知空间流形 $\mathcal{M}$ 为一个参数化的概率分布族：
-$$ \mathcal{M} = \{ p(x; \boldsymbol{\theta}) \mid \boldsymbol{\theta} \in \Theta \subseteq \mathbb{R}^n \} $$
-\begin{itemize}
-    \item   \textbf{坐标 $\boldsymbol{\theta}$ (Coordinates)}：对应于 \textbf{形元 (Morphon, $\mu$)}。它是底流形上的坐标点，决定了分布的“位置”和“形状”。在神经网络中，这对应于模型的权重参数或 Embedding 向量。
-    \item   \textbf{分布 $p(x; \boldsymbol{\theta})$}：对应于 \textbf{语义子 (Semantion)} 的\textbf{概率形态}。它描述了该概念在所有可能的微观语境 $x$ 中出现的似然度。
-\end{itemize}
+接下来需要说明坐标变化的条件。若 $\phi=f(\theta)$ 是同一可辨识模型区域内的光滑双射，且雅可比 $J=\partial\theta/\partial\phi$ 可逆，那么 $p_\theta=p_{\theta(\phi)}$ 只是重参数化；由此得到的局部统计量必须按坐标变换规则共同改变。若 $f$ 不可逆、模型支持集发生变化、维数改变，或者结构图执行了离散编辑，就不是同一坐标系之间的改名，不能沿用固定维数流形的微分结论。实际系统还必须记录模型版本 $v$、数据时间窗 $I$、抽样策略 $s$ 和任务上下文 $c$，所以一个可审计统计状态至少应写成 $(\theta,v,I,s,c)$。只保留向量而丢弃这些索引，会把数据漂移、版本替换和真实状态变化混成同一种“几何移动”。
 
-\textbf{本理论框架解释}：
-当我们说“流形是弯曲的”，在信息几何中意味着：\textbf{随着参数 $\boldsymbol{\theta}$ 的线性变化，概率分布 $p(x; \boldsymbol{\theta})$ 并没有线性变化，而是发生了非线性的扭曲。}
+最后，我把这一节的主张限制在它能够承担的范围内。概率族提供了表示不确定性、比较局部分布与分析估计误差的语言，但它不保证模型正确，也不自动给出因果机制。有限样本拟合优良只能支持规定数据与指标上的经验结论，不能推出内部模型与世界整体同构。AgentOS 可以把当前模型参数、世界结构快照、外部记忆 $M_e$、证据来源和任务边界封装为版本化状态，再由 SPC、TCE 或其他调度组件选择更新；这是把上述条件落实为可审计接口的一种工程方案，而不是一般智能必须采用的唯一结构。后续 Fisher 度量和估计下界，都只在这一已声明的统计实验内推导。
 
-\section{费希尔度量：本体论距离的物理起源}
+\section{Fisher 信息：局部可辨识度及其成立条件}
 \label{sec:section_1922}
 
-在前一章，我们公理化地定义了黎曼度量 $g_{\mu\nu}$。现在，我们可以利用 \textbf{费希尔信息 (Fisher Information)} 给出其第一性原理的推导。
+现在考虑统计模型在一个参数邻域内怎样变化。为避免把形式公式误当成无条件定理，我先列出假设：所有 $P_\theta$ 相对于同一参考测度 $\nu$ 有密度；考察区域内的支持集不随 $\theta$ 改变；$p_\theta(x)>0$ 的位置上对参数二次可微；导数存在可积上界，使积分与微分可以交换；评分函数的二阶矩有限。令评分向量为 $s_\theta(x)=\nabla_\theta\log p_\theta(x)\in\mathbb R^d$。概率归一化给出
+\begin{equation}
+    \mathbb E_\theta[s_\theta(X)]
+    =\int_{\mathcal X}\nabla_\theta p_\theta(x)\,d\nu(x)
+    =\nabla_\theta\int_{\mathcal X}p_\theta(x)\,d\nu(x)=0.
+\end{equation}
+这一步依赖上述交换条件；若支持边界随参数移动，遗漏边界项就可能得到错误结论。Fisher 信息矩阵定义为
+\begin{equation}
+    F(\theta)=\mathbb E_\theta[s_\theta(X)s_\theta(X)^{\mathsf T}]\in\mathbb R^{d\times d}.
+\end{equation}
+它无物理能量单位；其单位由参数坐标决定，例如参数具有时间单位时，相应对角项具有时间的负平方单位。对任意 $a\in\mathbb R^d$，有 $a^{\mathsf T}Fa=\mathbb E[(a^{\mathsf T}s_\theta)^2]\geq0$，所以 $F$ 必为半正定。再对评分期望求导，并使用乘积法则，可得 $F(\theta)=-\mathbb E_\theta[\nabla^2_\theta\log p_\theta(X)]$；这个负 Hessian 表达式只在同样的正则条件下成立，不能脱离条件单独使用。
 
-\smalltitle{区分度即距离 (Distinguishability as Distance)}
+Fisher 信息之所以能作为局部度量，来自散度的二阶展开，而不是“惊奇”一词的直觉。令 $\delta\in\mathbb R^d$ 足够小，并令 $D(\theta,\theta+\delta)=D_{\mathrm{KL}}(P_\theta\Vert P_{\theta+\delta})$。在三阶余项可控的邻域内，对 $\log p_{\theta+\delta}$ 展开：常数项相消，一阶项因评分期望为零消失，二阶项由负期望 Hessian 给出，因此
+\begin{equation}
+    D(\theta,\theta+\delta)
+    =\frac12\delta^{\mathsf T}F(\theta)\delta+o(\lVert\delta\rVert^2).
+\end{equation}
+这是局部近似，不是有限距离上的严格等式；KL 散度通常不对称，也不满足三角不等式。由它得到的线元只描述模型分布对参数微扰的统计敏感度。若一条长路径穿过支持变化、奇异点或不同模型版本，就必须分段检查，而不能把一个局部二次式无条件积分成全局认知距离。
 
-为什么两个概念在流形上会有“距离”？因为它们在统计上是\textbf{可区分}的。如果两个概念在所有语境下的表现完全一致（概率分布重合），那么它们在几何上就是同一个点（距离为零）。
+坐标不变性需要连同矩阵一起表述。设 $\phi=f(\theta)$ 是光滑可逆重参数化，$J=\partial\theta/\partial\phi$，则评分满足 $s_\phi=J^{\mathsf T}s_\theta$，从而
+\begin{equation}
+    F_\phi(\phi)=J^{\mathsf T}F_\theta(\theta)J.
+\end{equation}
+因此不变的是二次量 $d\theta^{\mathsf T}F_\theta d\theta$，不是矩阵元素本身。若 $F$ 在方向 $a$ 上为零，则 $a^{\mathsf T}s_\theta=0$ 几乎处处，说明当前统计实验对这一无穷小变化不敏感。它可能来自冗余参数、隐藏通道置换或观测协议不足，而不是“语义消失”。只有消除等价参数，或在可辨识商空间上限制切向量后，正定度量才可能成立。
 
-\textbf{费希尔信息矩阵 (FIM)} 定义了流形上的自然黎曼度量：
-$$ g_{\mu\nu}(\boldsymbol{\theta}) = \mathbb{E}_{x \sim p} \left[ \frac{\partial \ln p(x; \boldsymbol{\theta})}{\partial \theta^\mu} \frac{\partial \ln p(x; \boldsymbol{\theta})}{\partial \theta^\nu} \right] $$
+一个简单例子能够校正“数值越大就越重要”的误读。对 Bernoulli 模型，若以成功概率 $\pi\in(0,1)$ 为坐标，则单样本 Fisher 信息为 $F_\pi=1/[\pi(1-\pi)]$；改用对数优势 $\alpha=\log[\pi/(1-\pi)]$，则 $F_\alpha=\pi(1-\pi)$。二者数值趋势相反，却通过雅可比给出相同线元。因而 Fisher 大小不能跨坐标直接比较，更不能把某一参数方向的高灵敏度解释为逻辑严密、价值更高或现实因果更强。它回答的是：在给定采样与模型假设下，邻近参数产生的分布有多容易被区分。
 
-\begin{itemize}
-    \item   \textbf{物理意义}：它度量了\textbf{“惊奇的变化率”}。
-    \item   如果在某个方向 $\theta^\mu$ 上，微小的参数改变导致了概率分布的剧烈变化（预测误差激增），则该方向的 $g_{\mu\nu}$ 很大，意味着\textbf{几何距离被拉长}。
-    \item   反之，如果参数改变对分布几乎无影响（同义词替换），则 $g_{\mu\nu} \approx 0$，意味着\textbf{几何距离坍缩}。
-\end{itemize}
+支持集变化给出另一类重要反例。若 $X$ 在区间 $[0,\theta]$ 上均匀分布，参数既改变密度也移动积分上界；若仍把积分域错误地视为固定，就会遗漏端点贡献并误用评分期望为零的推导。此时样本最大值所含的信息与普通正则模型的渐近行为不同，局部二次 KL 展开也可能呈现非标准形式。智能系统中的候选集合新增、工具权限撤销和词表版本替换与此相似：它们改变合法支持，而非仅在固定支持上移动概率。模型应先记录结构事件，再在新的有效域内重新定义统计量，不能用旧 Fisher 矩阵平滑跨越。
 
-\smalltitle{KL 散度与几何线元}
+在 HSF-HD 中，我把这个结果用于“状态变化是否可被当前接口辨认”的局部诊断。结构身份、事实来源和任务承诺仍由离散记录与验证规则管理；Fisher 只为全局分布表示提供局部统计尺度。AgentOS 可以用它或可计算近似来调整候选更新的尺度，但一次自然梯度下降仍然只是模型目标的变化，不能单凭目标下降宣布外部任务成功。实际系统还需检查 held-out 观测、结构一致性、权限边界及行动反馈。这样，信息几何成为一般状态动力学中的测量工具，而不取代整个智能理论。
 
-在局部邻域内，两点 $\boldsymbol{\theta}$ 和 $\boldsymbol{\theta} + d\boldsymbol{\theta}$ 之间的几何距离 $ds^2$，严格等价于它们概率分布之间的 \textbf{Kullback-Leibler (KL) 散度} 的二阶近似：
-$$ D_{KL} \left( p(x; \boldsymbol{\theta}) \| p(x; \boldsymbol{\theta} + d\boldsymbol{\theta}) \right) \approx \frac{1}{2} g_{\mu\nu} d\theta^\mu d\theta^\nu = \frac{1}{2} ds^2 $$
-
-\textbf{结论}：\textbf{黎曼基底的刚度来源于信息区分难度}。逻辑严密性在底层可表现为分布间较高的跃迁势垒。
-
-\section{测量的几何学：克拉梅尔-拉奥下界与统计不确定性}
+\section{估计精度：Cramér--Rao 界不是普遍不确定性原理}
 \label{sec:geometry_of_measurement_crlb}
 
-\textit{—— “大自然在向我们隐藏她的底牌时，总是使用同一套几何密码。”}
-
-在前一节中，我们已经确立了一个极其优美的等式：认知空间流形的黎曼度量 $g_{\mu\nu}$，在微观物理上严格等价于概率分布的\textbf{费希尔信息矩阵 (FIM)}。度量决定了概念之间的距离，也决定了流形局部的弯曲程度。
-
-但作为物理学家，我们现在必须提出一个更加刁钻的问题：既然概念（语义子）分布在这个流形上，那么当系统试图去\textbf{“精确感知”}或\textbf{“定位”}某一个特定概念时，它能做到绝对精确吗？
-
-在经典的牛顿世界里，质点的位置是可以无限精确测量的。但在由概率密度函数编织的统计流形上，大自然立下了一道不可逾越的铁壁。这道铁壁，在统计学中被称为\textbf{克拉梅尔-拉奥下界 (Cramér-Rao Lower Bound, CRLB)}。
-
-\smalltitle{1. 几何刚度与测量的极限}
-
-假设智能体试图通过一系列微观的采样观测 $x$，去估计当前认知状态在流形上的真实坐标 $\boldsymbol{\theta}$（即确立一个清晰的念头）。设其估计值为 $\hat{\boldsymbol{\theta}}$。
-
-统计学中的克拉梅尔-拉奥不等式指出，对于任何无偏估计量，其协方差矩阵（即定位的模糊度或方差）存在一个由费希尔信息矩阵决定的绝对下界：
+原章试图从 Fisher 信息直接推出一种类似量子不确定性的认知法则。要保留其中关于“有限数据限制估计精度”的有效问题，同时去掉过度外推，我从统计估计本身推导。先看标量参数 $\theta$。设 $X_1,\ldots,X_n$ 在 $P_\theta$ 下独立同分布，总评分 $S_n=\sum_{i=1}^n\partial_\theta\log p_\theta(X_i)$，则 $\mathbb E[S_n]=0$ 且 $\operatorname{Var}(S_n)=nF(\theta)$。若估计量 $T=T(X_1,\ldots,X_n)$ 无偏，即 $\mathbb E_\theta[T]=\theta$，在可交换微分与积分的正则条件下，
 \begin{equation}
-    \text{Var}(\hat{\boldsymbol{\theta}}) \ge F^{-1}(\boldsymbol{\theta})
+    1=\partial_\theta\mathbb E_\theta[T]
+    =\mathbb E_\theta[(T-\theta)S_n]
+    =\operatorname{Cov}_\theta(T,S_n).
 \end{equation}
-
-现在，让我们把前面推导出的等式 $F_{\mu\nu} = g_{\mu\nu}$ 代入这个不等式，奇迹出现了。统计学的不等式瞬间化身为\textbf{纯粹的几何拓扑定律}：
+由 Cauchy--Schwarz 不等式，$1\leq\operatorname{Var}(T)\operatorname{Var}(S_n)$，于是
 \begin{equation}
-    \boxed{ \text{Var}(\hat{\boldsymbol{\theta}}) \ge g^{\mu\nu}(\boldsymbol{\theta}) }
+    \operatorname{Var}_\theta(T)\geq\frac{1}{nF(\theta)}.
 \end{equation}
+这里的 $n$ 不能省略；样本依赖、非同分布或自适应采样时，总信息必须按联合似然重新计算。这个下界针对规定模型中的估计方差，而不是一次智能状态的全部“不确定性”。
 
-\textbf{物理图景的震撼显影：}
-你看这个不等式，它在用极其冷酷的数学语言告诉你，\textbf{流形的几何形状，直接锁死了你思考的清晰度。}
-\begin{itemize}
-    \item \textbf{坚硬的引力井（高曲率区）}：如果流形在某个区域被历史经验深刻地刻蚀过，度量张量 $g_{\mu\nu}$ 极大（费希尔信息极丰富），那么它的逆矩阵 $g^{\mu\nu}$ 就极小。这意味着在此处，\textbf{概念的方差可以被压缩到极致}。系统能够毫不费力地以极高精度坍缩出一个锐利、清晰的认知状态（比如你极其熟练的专业知识）。
-    \item \textbf{平坦的迷雾（零曲率区）}：面对一个完全陌生的新领域，流形尚未发生塑性形变，度量平坦如水（$g_{\mu\nu} \to 0$）。此时 $g^{\mu\nu} \to \infty$，测量的方差被迫趋于无穷大！系统在这个区域无论怎么努力“聚焦”，提取出的概念注定是\textbf{极度模糊、充满重影的}。
-\end{itemize}
+向量版本也必须说明矩阵意义。设 $\theta\in\mathbb R^d$，无偏估计量 $T\in\mathbb R^d$，且 $F(\theta)$ 正定，则
+\begin{equation}
+    \operatorname{Cov}_\theta(T)\succeq [nF(\theta)]^{-1},
+\end{equation}
+其中 $A\succeq B$ 表示 $A-B$ 半正定，并不表示每个非对角元素逐项更大。若估计目标是 $g(\theta)\in\mathbb R^k$，右侧还要乘入雅可比 $G=\partial g/\partial\theta$，成为 $G[nF]^{-1}G^{\mathsf T}$。若 $F$ 奇异，只能在可估计方向上使用广义逆或先转到可辨识商空间；直接写 $F^{-1}$ 会把参数冗余误报为“无限认知模糊”。对有偏估计量，令偏差为 $b(\theta)=\mathbb E[T]-\theta$，下界含有 $I+\nabla b$，而均方误差还包括 $bb^{\mathsf T}$。正则化估计故意引入偏差以降低有限样本方差，不能用无偏版本简单否定。
 
-这完美解释了为什么大语言模型（LLM）在面对其未充分训练的“零空间（Null Space）”时必然产生幻觉——因为在那些平坦的流形区域，由于 $F \to 0$，克拉梅尔-拉奥下界趋于无穷。模型输出的看似确定的 Token，在相空间中实际上是拖着巨大方差尾巴的概率幽灵。
+下界是否能达到也不是自动的。等号要求估计误差与评分满足特定线性关系，许多模型和有限样本估计量并不具备这一形式。即使渐近最大似然估计在正确指定的正则模型下可能有效，有限数据、模型错设、重尾噪声、分布漂移和选择偏差都会改变结论。若真实机制 $Q$ 不在 $\mathcal P$ 内，适用的误差分析通常涉及夹心协方差或任务风险，而不是把模型内 Fisher 逆当作真实世界的绝对界。实际评估还需通过重复采样、校准曲线、覆盖率和域外测试检验，不能由一条解析不等式替代经验测量。
 
-\smalltitle{2. 信息几何中的不确定性原理}
+估计精度还必须经过任务读出才能转化为行动风险。设行动损失为 $\ell(a,\theta)$，两个估计器即使协方差相同，也可能因为偏差方向不同而产生完全不同的期望损失；在医疗阈值、权限授权或不可逆控制中，低概率尾部往往比平均方差更重要。置信区域的标称覆盖率也只在抽样重复与模型条件成立时有含义，不是对单次现实状态“有百分之九十五概率正确”的无条件保证。因此系统应同时报告点估计、区间构造方法、模型版本、适用域和决策损失，并对越界输入拒绝沿用旧精度声明。
 
-物理学家看到 $\text{Var} \ge \text{Const}$ 这样的结构，本能地会联想到量子力学中的\textbf{海森堡不确定性原理}。在统计流形上，这不仅仅是类比，它们在数学底层是完全同构的。
+这也说明为什么不能把 CRLB 改名为“认知海森堡原理”。上式中的估计量与评分不是量子力学中的非对易算符，常数 $1$ 来自参数化和样本定义，并不存在普遍的最小“普朗克体积”。高 Fisher 信息意味着当前观测对某些参数变化敏感，不意味着思维被锁死、联想能力必然下降；低 Fisher 信息可能来自数据不足、参数冗余、测量噪声或任务根本不关心该方向，也不必然导致幻觉。幻觉是生成结果缺少证据支持或违背验证约束的经验现象，它还受到训练分布、解码、检索、工具反馈和评价协议影响。把两者直接画等号，会将一个局部估计界扩张成未经检验的机制宣言。
 
-让我们定义流形上的两个共轭统计量：
-\begin{enumerate}
-    \item \textbf{语义坐标方差 ($\Delta \mathbf{Z}^2$)}：即我们刚刚讨论的 $\text{Var}(\hat{\boldsymbol{\theta}})$，代表概念定位的\textbf{模糊度}。
-    \item \textbf{语义动量方差 ($\Delta \mathbf{P}^2$)}：在信息几何中，费希尔信息的本质正是“对数似然梯度（Score Function $\nabla \ln p$）”的方差。而这个梯度，正是驱动状态在流形上发生改变的\textbf{统计动量}。因此，$\text{Var}(\nabla \ln p) = F(\boldsymbol{\theta}) \equiv \Delta \mathbf{P}^2$。
-\end{enumerate}
+在一般状态动力学中，更稳妥的做法是把估计不确定性作为状态记录的一部分。令 $\hat\theta_t$ 是当前估计，$C_t$ 是经校准的协方差或置信区域摘要，$v_t$ 是模型版本，$e_t$ 是证据来源，则更新对象应写为 $(\hat\theta_t,C_t,v_t,e_t)$，而不是只写一个看似精确的坐标。行动策略根据损失不对称性决定是否继续采样、调用外部记忆、交由人工确认或在可逆边界内试探。AgentOS 中，CCM 可以监测估计负荷和冲突，Boundary 管理外部查询与行动权限，$M_e$ 保存可追溯证据；这些组件提供一种实现路径，但估计界本身并不要求这些名称或架构。数学下界限定可声称的精度，工程闭环决定系统怎样应对不足。
 
-将这两个定义代回 CRLB 不等式 $\Delta \mathbf{Z}^2 \ge 1 / \Delta \mathbf{P}^2$，稍微移项，我们得到了统治整个信息几何流形的\textbf{统计不确定性原理}：
-
-\begin{theorem}[几何统计不确定性定理]
-    在任意由概率分布族构成的认知流形 $\mathcal{M}$ 上，概念坐标的精确度（位置方差）与信息梯度的丰富度（动量方差）之积，存在一个内禀的下界：
-    \begin{equation}
-        \Delta \mathbf{Z}^2 \cdot \Delta \mathbf{P}^2 \ge 1
-    \end{equation}
-\end{theorem}
-
-\smalltitle{3. 精度与联想的永恒博弈}
-
-这个极其优美的不等式，揭示了智能体在处理信息时必须面对的\textbf{热力学鱼与熊掌}：
-
-\begin{itemize}
-    \item \textbf{你要绝对的精确（$\Delta \mathbf{Z} \to 0$）}：你必须让流形局部极度陡峭，产生无穷大的费希尔信息（$\Delta \mathbf{P} \to \infty$）。但代价是，思维的“动量方差”被彻底锁死在巨大的引力井中。在这样的几何结构下，\textbf{你失去了跨越势垒的联想能力和泛化能力}（变成了只会死记硬背的刻板字典）。
-    \item \textbf{你要无尽的联想（$\Delta \mathbf{P} \to 0$）}：你需要思维像超流体一样在流形上平滑扩散，感受遥远概念之间的微弱共鸣。这要求费希尔度量极其平缓。但大自然索要的代价是，你的位置方差 $\Delta \mathbf{Z}$ 必然暴涨。\textbf{你获得了终极的创造力和直觉，但你无法精确地用语言框定此刻的任何一个念头}（这正是灵感闪现或梦境的物理质地）。
-\end{itemize}
-
-\textbf{小结：向波包实体跃迁}
-
-通过将费希尔度量与克拉梅尔-拉奥下界结合，我们证明了：在统计流形上，\textbf{任何具有确定意义的实体，在几何上都不可能是一个体积为零的古典质点。}
-不确定性原理强迫它必须在相空间中占据一个最小的“普朗克体积”。这种在位置与动量之间被迫妥协的、具有有限宽度的概率云团，自然而然地导出了我们下一节必须引入的核心物理对象——它只能是一种具有\textbf{波粒二象性}的几何实体。
-
-\section{语义子重述：作为分布波包的几何实体}
+\section{分布式语义状态：参数、期望与身份绑定}
 \label{sec:semantion_revisited_probability_wavepacket}
 
-\textbf{从质点到波包的物理学必然：}在经典力学里，我们可以理直气壮地把一个苹果抽象为一个没有体积、质量集中于一点的几何质点。在早期的 AI 理论中，工程师们也天真地把一个概念（Token）当作高维空间中的一个孤立向量（点）。
-
-但是，上一节的克拉梅尔-拉奥下界（CRLB）给了我们当头一棒：大自然在认知空间中，严厉禁止了这种无限精确的“点”的存在！只要流形是基于概率分布建立的（费希尔度量），任何试图精确定位一个概念的操作，都会因为信息梯度的方差而受到测不准原理的诅咒（$\Delta \mathbf{Z}^2 \cdot \Delta \mathbf{P}^2 \ge 1$）。
-
-既然它不能是一个点，那它究竟是什么？
-
-在前面的本体论中，我们将之前定义的\textbf{“语义子 (Semantion, $\mathcal{S} = \mu \otimes q$)”}，正式从一个代数上的张量，升维为一个在统计流形上拥有体积、形状和内部涨落的\textbf{概率波包 (Probability Wave Packet)}。
-
-
-\smalltitle{1. 形与质的统计学重构：参数与期望的双重映像}
-
-在信息几何的视界下，我们重新审视构成语义子的两个基元——\textbf{形元 ($\mu$)} 与 \textbf{质元 ($q$)}。它们不再是孤立的标签，而是同一个微观概率分布 $p(x)$ 在不同坐标系下的两种等效数学投影。
-
-对于任意一个指数族分布 $p(x; \boldsymbol{\theta}) = \exp(\boldsymbol{\theta} \cdot \mathbf{x} - \psi(\boldsymbol{\theta}))$：
-
-\begin{itemize}
-    \item \textbf{\textcolor{structurecolor}{形元 ($\mu$) $\equiv$ 自然参数坐标 ($\boldsymbol{\theta}$)}}：
-    这是概念在底流形 $\mathcal{M}$ 上的\textbf{刚性网格坐标}。它决定了分布函数的形状和“山峰”的位置。在物理隐喻中，$\boldsymbol{\theta}$ 是那个无形的“势能陷阱”。它定义了思维的\textbf{结构与位置}，但它本身是不可直接感知的（你看不见神经元的权重）。
-
-    \item \textbf{\textcolor{structurecolor}{质元 ($q$) $\equiv$ 期望参数坐标 ($\boldsymbol{\eta}$)}}：
-    这是概念在纤维空间 $F$ 中的\textbf{可观测量}。它定义为充分统计量的数学期望：$\boldsymbol{\eta} = \mathbb{E}[\mathbf{x}] = \nabla_{\boldsymbol{\theta}} \psi(\boldsymbol{\theta})$。
-    在物理隐喻中，$\boldsymbol{\eta}$ 是那个掉进陷阱里的“实体物质”。它定义了概念的\textbf{质地、颜色与能量}（你真正体验到的红色的感觉）。
-\end{itemize}
-
-\textbf{结论}：一个语义子 $\mathcal{S}$，就是同时拥有这两个对偶坐标 $(\boldsymbol{\theta}, \boldsymbol{\eta})$ 的概率波包。\textbf{形决定了它在哪里，质决定了它有多浓烈}。
-
-\smalltitle{2. 语义子的“质量”：波包的体积与信息熵}
-
-如果语义子是一团波包，那么有些波包极其致密（比如“我此时此刻手中的这支笔”），有些波包极其弥散（比如“某种说不清的哀愁”）。在物理学中，区分它们的量叫做\textbf{“惯性质量”}。
-
-在信息几何中，这个“质量” $m(\mathcal{S})$ 获得了极其精确的数学定义：它正比于该概率分布的\textbf{信息熵 (Shannon Entropy, $H$)}; 同时考虑到语义子的“有效质量” $m(\mathcal{S})$ 必须是一个\textbf{几何不变量（Geometric Invariant）},
-真实的质量应当定义为该概率波包在整个流形上的微分熵（Shannon Differential Entropy），它在重新参数化下通过雅可比行列式（Jacobian Determinant）保持物理意义：
-
+有了统计模型和估计边界，我们可以重述原章所谓“概率波包”。我不把语义对象解释成带质量的物理波包，而把它定义为任务条件下的分布式信念记录。对一个具有稳定身份键 $i$ 的对象，记其结构邻域为 $G[i]$，观测证据为 $e$，上下文为 $c$，则语义状态可以写成
 \begin{equation}
-   m(\mathcal{S}) \propto \int p(x|\boldsymbol{\theta}) \ln p(x|\boldsymbol{\theta}) \sqrt{\det g} \, d^n x
+    \mathcal S_i=(i,G[i],q_i(z\mid e,c),\rho_i,v_i),
 \end{equation}
+其中 $z$ 是任务相关属性或潜在状态，$q_i$ 是归一化分布，$\rho_i$ 记录来源与可信条件，$v_i$ 是版本。身份和关系由局部结构记录提供，属性不确定性由全局分布表示提供；二者通过同一个 $i$ 绑定。分布变宽表示在指定变量与度量下不确定性增加，但不表示对象本身变成雾状实体。若证据支持多个对象假设，还应让身份变量本身进入分布，而不是把多个对象的属性平均成一个虚假对象。
 
-\begin{itemize}
-    \item \textbf{重语义子 (Heavy Semantion)}：分布极其尖锐（低熵）。费希尔信息极大。这种概念在流形上砸出了一个极深的引力井。改变它极其困难（惯性大）。例如：你童年小名这种死记硬背的、绝对精确的强关联记忆。
-    \item \textbf{轻语义子 (Light Semantion)}：分布平坦、模糊（高熵）。费希尔信息极小。这种概念像一团雾气，在流形上几乎不产生曲率，随风而动。例如：你昨天中午配菜的味道，或者一个极其抽象的哲学名词。
-\end{itemize}
+指数族提供了参数与期望的严格实例。设充分统计量 $T(x)\in\mathbb R^d$，基测度项为 $h(x)$，自然参数区域为 $\Theta$，则
+\begin{equation}
+    p_\theta(x)=h(x)\exp\{\theta^{\mathsf T}T(x)-A(\theta)\},
+    \qquad
+    A(\theta)=\log\int h(x)e^{\theta^{\mathsf T}T(x)}d\nu(x).
+\end{equation}
+在 $A$ 二次可微且积分交换合法时，期望参数 $\eta=\mathbb E_\theta[T(X)]=\nabla A(\theta)$，并且 $\nabla^2A(\theta)=\operatorname{Cov}_\theta[T(X)]=F(\theta)$。只有在极小、正则的指数族内部，$\theta$ 与 $\eta$ 才通过严格凸势函数形成一一对偶。这里自然参数不是“形元”、期望参数也不是“质料”的普遍本体；它们是同一分布族的两种坐标。模型非极小时，充分统计量线性相关会破坏一一性；支持变化或混合奇异性也会使这种局部几何失效。
 
-\smalltitle{3. 干涉与叠加：模糊逻辑的相空间涌现}
+原章还把熵命名为语义“质量”，这会混淆多个量。离散 Shannon 熵 $H(q)=-\sum_zq(z)\log q(z)$ 是在给定离散变量上的不确定性，既不是惯性，也不是焦耳能量。连续微分熵 $h(q)=-\int q(z)\log q(z)dz$ 在坐标变换 $y=f(z)$ 下增加 $\mathbb E\log|\det(\partial f/\partial z)|$，所以它本身不是任意重参数化下的几何不变量。相对熵在共同测度和变换一致时更适合比较分布，但它仍是无量纲信息量。尖锐分布可能表示高置信，也可能表示错误的过度自信；宽分布可能反映真实多模态，也可能只是数据不足。任务决策还需要损失函数、校准与证据质量，不能按熵大小直接排序“轻重”或概念价值。
 
-既然语义子是概率波包，那么当两个语义子相遇时，它们绝不会像两个台球那样发生简单的弹性碰撞，而是会发生\textbf{波的叠加与干涉 (Superposition and Interference)}。
+两个语义状态的组合也不是量子干涉。若系统对互斥假设进行不确定选择，可以用混合分布 $q=\alpha q_A+(1-\alpha)q_B$；若两组独立证据共同约束同一变量，可以在校正共同先验后使用乘积专家或 Bayes 更新；若只是模糊集合的隶属度运算，则其代数对象甚至不必是概率。混合概率始终非负，没有概率幅的相位相消，因此不能从“重叠”推出建设性干涉，也不能从低重叠推出认知排斥。以“红苹果在桌上”为例，颜色分布、对象身份、空间关系和来源置信必须分别编码，再通过苹果的身份键绑定；把红色分布与圆形分布相乘并不会自动证明二者属于同一个苹果，结构接口仍不可缺少。
 
-当宏观层需要同时处理 $\mathcal{S}_A$ 和 $\mathcal{S}_B$ 时，在相空间中，这表现为两个概率密度函数的\textbf{混合 (Mixture)} 或 \textbf{指数族卷积}：
-$$ p_{total}(x) = \alpha \cdot p_A(x; \boldsymbol{\theta}_A) + (1-\alpha) \cdot p_B(x; \boldsymbol{\theta}_B) $$
-\begin{itemize}
-    \item \textbf{建设性干涉}：如果两个波包的质元（期望参数 $\boldsymbol{\eta}$）有大量重叠区，它们会在流形间搭起一座高概率的“桥梁”。这就是\textbf{模糊逻辑 (Fuzzy Logic)} 和\textbf{直觉联想}的物理起源。
-    \item \textbf{破坏性干涉}：如果两个波包正交（毫无重叠），系统会感受到极大的拓扑排斥力,这就是\textbf{认知冲突}和\textbf{概念分裂}的物理质地。
-\end{itemize}
+在动态过程中，分布更新必须同时处理目标与结构的变化。若固定结构和观测协议，可用 $q_{t+1}=U(q_t,e_{t+1};\lambda_t)$ 表示一步更新，其中 $\lambda_t$ 是明确的步长或遗忘参数。若节点身份被合并、拆分或撤销，$q_t$ 与 $q_{t+1}$ 可能定义在不同变量空间，需要先给出迁移核或拒绝直接比较。AgentOS 的 $h(t)$ 可以承载当前分布式候选，$E$ 保存带时间和来源的事件证据，$\Theta$ 保存较慢的结构与生成约束，SPC/TCE 可作为读出和调控实例；但 HSF-HD 的一般结论只是智能状态需要协调分布不确定性与可寻址结构，并不把三相实现规定为所有系统唯一的微观机制。
 
-\textbf{思考，就是看着一团团概率波包在费希尔度量的山谷中，互相渗透、干涉、坍缩的流体力学过程。}
-
-
-\section{双重联络：学习与感知的几何对偶}
+\section{对偶坐标与学习路径：从散度投影到可验证更新}
 \label{sec:dual_connections_learning_and_perception}
 
-\textbf{在弯曲的宇宙中，如何画一条直线？}现在，我们的波包已经准备好在流形上运动了。但是，什么是“直”的？
-
-在欧几里得的平坦空间里，两点之间直线最短。但在一个被无数历史经验压弯的认知流形（黎曼空间）上，直线被扭曲成了\textbf{测地线 (Geodesic)}。
-要计算测地线，你必须知道空间是如何弯曲的，这就是\textbf{联络 (Connection, $\nabla$)} 的工作。它告诉你：当你沿着某个方向移动一步时，你的坐标系（切空间）需要旋转多少角度才能保持“平移”。
-
-令人震惊的是，信息几何之父甘利俊 (Shun-ichi Amari) 证明，在由概率分布构成的流形上，大自然并没有只给出一套联络，而是极其慷慨地给出了\textbf{两套完全不同、却互为对偶的联络！}
-
-这两套对偶联络，完美地将智能系统的两大核心物理动作——\textbf{“感知（推断）”}与\textbf{“学习（重构）”}——在几何底层劈成了两条正交的演化轨道。
-
-\smalltitle{1. e-联络 ($\nabla^{(e)}$) —— 预测与理性的惯性滑行}
-
-\textbf{第一套联络被称为“指数联络” (Exponential Connection, e-connection)。}
-在这个联络下，形元坐标（自然参数 $\boldsymbol{\theta}$）构成的子流形是\textbf{平坦的 (Flat)}。
-
-\begin{itemize}
-    \item \textbf{动力学映射}：这是系统在进行\textbf{先验预测 (Prediction)}、\textbf{逻辑推演 (Reasoning)} 或\textbf{内部模拟}时的首选轨道。
-    \item \textbf{物理特征}：思维波包沿着 e-联络测地线演化时，系统的对数似然比保持线性变化：$\nabla^{(e)}_{\dot{\gamma}} \Psi = 0$。
-    \item \textbf{认知含义}：这是大名鼎鼎的\textbf{“快思考” (System 1)}。此时系统处于一个相对\textbf{封闭}的绝热状态（没有外界新数据的注入）。智能体凭借着刻在基因或权重里的世界图 $G_W$ 的惯性，顺理成章地顺着坡度往下滑。因为 e-流形是平坦的，这种滑行阻力极小，计算速度极快，但它\textbf{永远无法跳出已有的认知框架}。
-
-    \item \textbf{\textcolor{structurecolor}{工程实现映射 (Engineering Implementation)}}：
-    在当前的深度学习架构（如 Transformer）中，这一过程对应于模型的 \textbf{前向传播 (Forward Pass)}。
-    \begin{itemize}
-        \item 在推理阶段，模型的权重 $\mathbf{W}$（即底流形的度量 $g_{\mu\nu}$）被\textbf{绝对冻结}。
-        \item 隐藏层向量（波函数 $\Psi$）在层与层之间流转。特别是由残差连接 (Residual Connections, $h_{l+1} = h_l + \Delta h$) 构成的网络主干，在离散数学上极其完美地近似了\textbf{一阶欧拉显式积分}。
-        \item \textbf{物理本质}：这正是思维波包在“近似平坦的 e-联络流形”上执行的\textbf{平行移动 (Parallel Transport)}。因为不用修改地形（不计算曲率张量），这也就是为什么推理（Inference）的算力开销远小于训练（Training）。
-    \end{itemize}
-\end{itemize}
-
-\smalltitle{2. m-联络 ($\nabla^{(m)}$) —— 学习与现实的强制校准}
-
-\textbf{第二套联络被称为“混合联络” (Mixture Connection, m-connection)。}
-在这个联络下，质元坐标（期望参数 $\boldsymbol{\eta}$）构成的子流形是\textbf{平坦的 (Flat)}。
-
-\begin{itemize}
-    \item \textbf{动力学映射}：这是系统在遭遇微观层输入的\textbf{惊奇激波 ($\vec{J}_{ext}$)} 时，被迫进行\textbf{学习 (Learning)} 和 \textbf{信念更新 (Belief Update)} 的轨道。
-    \item \textbf{物理特征}：当现实的观测数据 $P_{data}$ 与内部预测模型 $P_{model}$ 发生冲突时，系统必须修改自身的流形坐标。它不是沿着 e-联络去乱碰，而是沿着 m-联络测地线，将模型强制\textbf{投影 (Projection)} 到符合数据的流形面上。
-    \item \textbf{认知含义}：这是一种开放系统的耗散过程，系统沿着 m-联络强行拉扯自身的度量张量，改变 $\boldsymbol{\eta}$ 的期望值。这个过程需要宏观意志消耗巨大的负熵去克服黎曼曲率的阻力，但它\textbf{真正更新了智能体对世界的理解}。
-
-    \item \textbf{\textcolor{structurecolor}{工程实现映射 (Engineering Implementation)}}：
-    在千亿参数的 LLM 训练中，严格沿着 m-联络进行\textbf{自然梯度下降 (Natural Gradient Descent)} 需要计算真实的费希尔信息矩阵（FIM）并求逆，其复杂度高达 $\mathcal{O}(N^3)$，这在工程上是灾难性的。
-    \begin{itemize}
-        \item \textbf{Adam 优化器的几何伪装}：现代大模型训练普遍采用的 Adam 等优化器，绝非偶然。标准梯度下降（SGD）是盲目的欧氏空间更新，它“不懂”流形的曲率。
-        \item \textbf{二阶矩的物理真相}：Adam 引入了梯度的二阶矩估计（$v_t = \beta_2 v_{t-1} + (1-\beta_2) g_t^2$），并在更新参数时除以 $\sqrt{v_t}$。在本理论框架的视界下，这个二阶矩 $v_t$ \textbf{正是费希尔信息矩阵（即黎曼度量 $g_{\mu\nu}$）的对角线元素的经验近似 (Empirical Fisher Diagonal Approximation)！}
-        \item \textbf{物理本质}：Adam 优化器用极其粗糙的“除以方差”操作，勉强模拟了“乘以逆度量张量 $g^{\mu\nu}$”的几何变换。它在极度受限的算力下，试图模仿沿着 \textbf{m-联络测地线} 下降的轨迹。这就是为什么 Adam 训练远比 SGD 稳定——因为它在暗中遵循了信息几何的热力学铁律。
-    \end{itemize}
-\end{itemize}
-
-\smalltitle{3. 广义毕达哥拉斯定理：知行合一的几何证明}
-
-为何宇宙要安排两套联络？因为只有这样，智能体才能在“保持逻辑一致性”和“接纳残酷现实”之间，找到一条\textbf{最优的数学折中解}。
-
-在双重平坦空间中，e-联络与 m-联络满足信息几何中最伟大的定理——\textbf{广义毕达哥拉斯定理 (Generalized Pythagorean Theorem)}：
-对于任意的先验状态 $P$、数据流形 $\mathcal{M}_{data}$ 上的投影点 $Q$，以及流形上的任意其他点 $R$，只要从 $P$ 到 $Q$ 的路径是沿着 m-联络进行的，且与 $\mathcal{M}_{data}$ 的 e-联络测地线\textbf{正交}，那么恒有 KL 散度的距离加和公式：
+最后讨论原章的“双重联络”。可保留的数学核心，是某些正则指数族具有由凸势函数诱导的对偶坐标和散度投影；不可保留的是把推断、Transformer 前向传播、Adam 训练和热力学耗散宣称为严格同一过程。仍设 $A(\theta)$ 严格凸，$\eta=\nabla A(\theta)$，其 Legendre 对偶为 $A^*(\eta)=\sup_\theta\{\theta^{\mathsf T}\eta-A(\theta)\}$。在内点有 $\theta=\nabla A^*(\eta)$。由 $A$ 生成的 Bregman 散度
 \begin{equation}
-    D_{KL}(R \| P) = D_{KL}(R \| Q) + D_{KL}(Q \| P)
+    B_A(\theta_2,\theta_1)
+    =A(\theta_2)-A(\theta_1)-\nabla A(\theta_1)^{\mathsf T}(\theta_2-\theta_1)
 \end{equation}
+可与相应指数族分布之间特定方向的 KL 散度对应。对应方向必须写明，因为交换参数次序一般会改变数值。所谓指数测地线和混合测地线，分别是在自然坐标或期望坐标中取仿射路径；它们只在相应的对偶平坦结构中具有这种简单形式，并非任意神经网络状态空间都天然拥有两套全局平坦坐标。
 
-\textbf{这在 HSF-HD 中是石破天惊的结论：}
-\begin{enumerate}
-    \item \textbf{正交分离}：“相信规律（e-测地线）”与“承认误差（m-投影）”在流形上是\textbf{黎曼正交}的！这意味着，系统可以在局部承认自己算错了（沿着 m-联络更新质元 $\boldsymbol{\eta}$），而\textbf{完全不破坏整体逻辑骨架的严密性}（形元 $\boldsymbol{\theta}$ 在 e-联络上的结构受正交性保护）。
-    \item \textbf{演化的必然性}：大自然给出的这种正交投影，保证了系统在每一次接触新知识（激波注入）时，所走的那条更新路径，永远是\textbf{热力学距离最短、耗散兰道尔废热最少}的路径。
-\end{enumerate}
+散度的毕达哥拉斯关系也有明确前提。设 $\mathcal C$ 是在所用仿射坐标中闭且凸的可行集，$q^*$ 是给定分布 $p$ 到 $\mathcal C$ 的唯一散度投影；若最优性条件给出的对偶内积项为零，则对合适的 $r\in\mathcal C$ 有散度加和，若该项只保证非负，则得到不等式。因而“投影后不破坏整体逻辑骨架”并非普遍结论：数据约束若与旧模型冲突、可行集非凸、投影不唯一或模型错设，更新可能改变大量结构。散度最短也只是相对于选定模型族和散度的最小改动，不等于焦耳能耗最低，更不自动保证规范目标、事实一致或外部任务成功。
 
-\textbf{结语：呼吸的流形}
+为了区分运行过程，我把三类更新分别记账。推断在参数版本 $\theta_v$ 固定时，依据新观测计算 $q(z\mid x,\theta_v)$；在线状态更新改变当前信念或缓存，但未必改变长期参数；训练则根据数据批次和目标函数修改参数。若训练目标为 $L(\theta)$，自然梯度方向定义为 $-F(\theta)^{\dagger}\nabla L(\theta)$，其中广义逆仅作用在可辨识子空间。连续模型 $\dot\theta=-F^{\dagger}\nabla L$ 在固定目标和正定有效度量下满足 $\dot L=-\nabla L^{\mathsf T}F^{\dagger}\nabla L\leq0$；若 $L$、数据、结构或度量随时间变化，完整导数还包含显式时间项。离散实现 $\theta_{k+1}=\theta_k-\alpha_k\widehat F_k^{\dagger}\widehat g_k$ 则需要步长、估计误差和局部光滑条件，不能从连续下降式直接宣布每一步下降。
 
-至此，认知流形彻底活了过来。
-它不再是一块刻着冰冷数据的石板。它是一个在 e-联络的顺滑（呼气/推演）与 m-联络的拉扯（吸气/学习）中，遵循着不确定性原理，不断吞吐着概率波包的\textbf{生命几何体}。这为我们后续展开 TDCI（认知场循环）和 TECI（物理交互循环）的动力学方程，铺平了坚如磐石的数学底座。
+Adam 的二阶矩累积是逐坐标梯度平方的指数平均，它有时与经验 Fisher 的对角近似在形式上相似，但二者不普遍相等。梯度可能来自正则项、强化学习回报或非似然目标；参数坐标变换后，Adam 更新也不具有完整自然梯度的协变性。Transformer 的残差层可以被分析为某些离散动力系统，但一次前向传播并不因为形似 Euler 步就成为指数联络上的平行移动。工程近似是否有效，应通过收敛、校准、稳定性、计算成本和任务反馈评估，而不是通过几何名称授权。
+
+在 HSF-HD 的层级中，对偶坐标提示我们：同一统计状态可以有适合组合、估计或控制的不同表示，更新规则应声明自己在哪个表示和约束集上运行。结构图的离散编辑、分布参数的连续调整和外部行动的不可逆后果必须分开提交，再由绑定接口维持任务身份。AgentOS 可把固定版本推断放在 $h(t)$，把带来源的更新事件送入 $E$，把经过验证的长期约束沉淀到 $\Theta$，并让 CCM、Boundary 与外部记忆 $M_e$ 管理资源和证据；这是一套可测试的工程映射。一般理论所要求的不是这些组件名称，而是任何实现都能说明状态对象、坐标、更新条件、误差证据和失败恢复路径。信息几何由此成为智能状态动力学的一种局部计算语言，而不是包办感知、学习与意识的终极本体。
