@@ -5,13 +5,15 @@
     "parts": 11,
     "volumes": 3,
     "original_figure_blocks_preserved": 28,
-    "original_figures_with_revised_captions": 14,
+    "original_figures_with_layout_adjustments": 28,
+    "original_figures_with_revised_captions": 1,
+    "original_visual_assets_byte_verified": 26,
     "figure_blocks": 28,
     "labels": 812,
-    "reference_targets": 16,
+    "reference_targets": 22,
     "chapter_status": {
-      "computational-rewrite": 16,
-      "migrated-unedited": 101
+      "full-content-restored-with-computational-analysis": 16,
+      "full-content-restored-awaiting-sectionwise-revision": 101
     }
   },
   "errors": []

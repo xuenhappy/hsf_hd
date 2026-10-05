@@ -1,21 +1,323 @@
 \chapter{MST 架构：结构与内容的联合注意力}
 \label{chp:mst_architecture}
-% Legacy section labels temporarily resolve to the chapter.
+
+理论需要落实到机器实现。在前几章中，我们给出了形与质耦合的数学框架。现在要做的是把它转译为可训练的模型结构，用代码实现“形质互变”的计算流程。
+
+这是关于\textbf{MST 工程实现}的一章。
+
+\begin{bquote}
+\textbf{巴别塔的图纸}
+
+\vspace{1em}现有 LLM 在语言建模上非常强，但在统一处理空间结构（形）与属性语义（质）时仍有明显限制。核心问题可概括为\textbf{维度坍缩}：把原本多维、分层的结构强行压入单一 Token 序列。\textbf{形质互变 Transformer (MST)} 的设计目标，就是缓解这种压缩损失。它采用\textbf{双塔结构}：一塔处理拓扑骨架，一塔处理属性内容，再在\textbf{融合层}完成耦合。
+
+\vspace{1em}本章将给出 MST 的工程蓝图：从张量定义到 PyTorch 结构，完整说明如何同时处理“在哪里”（结构）与“是什么”（属性）。
+\end{bquote}
+
+
+
+\section{双塔编码器 (Dual-Tower Encoder)：分离的视界}
 \label{sec:dual_encoder}
+
+MST 的第一步是\textbf{解耦 (Decoupling)}。我们使用两个专门通道，分别提取拓扑结构与语义属性。
+
+
+
+\smalltitle{形塔 (Shape Tower, $E_S$) —— 拓扑提取器}
+
+\begin{itemize}
+\item   \textbf{输入}：场景图 (Scene Graph)、点云 (Point Cloud)、或是文本中的句法树 (Syntax Tree)。
+
+\item   \textbf{数学目标}：构建底流形 $\mathcal{M}$ 的离散近似。
+
+\item   \textbf{架构选型}：\textbf{Graph Transformer} 或 \textbf{PointNet++}。它必须具有\textbf{置换不变性 (Permutation Invariance)}，关注的是节点间的连接关系（边），而非绝对顺序。
+\end{itemize}
+
+
+
+\smalltitle{质塔 (Quality Tower, $E_Q$) —— 纤维提取器}
+
+\begin{itemize}
+\item   \textbf{输入}：图像的纹理 Patch、文本的词向量、或实体的属性列表。
+
+\item   \textbf{数学目标}：提取纤维空间 $F$ 中的基向量。
+
+\item   \textbf{架构选型}：标准的 \textbf{ViT (Vision Transformer)} 或 \textbf{BERT}。它关注的是特征的深度与丰富度。
+\end{itemize}
+
+
+
+\smalltitle{[工程实现] 双塔编码器代码}
+
+
+\begin{lstlisting}
+import torch
+import torch.nn as nn
+
+class ShapeEncoder(nn.Module):
+    """
+    形塔：处理拓扑结构与空间关系
+    输入：邻接矩阵 (Adjacency) + 位置编码 (Pos)
+    输出：底流形嵌入 (Base Manifold Embeddings)
+    """
+    def __init__(self, dim_shape, num_layers):
+        super().__init__()
+        self.node_embed = nn.Linear(3, dim_shape) # 假设输入是 3D 坐标
+        # 使用 Graph Transformer 层处理拓扑关系
+        self.layers = nn.ModuleList([
+            GraphTransformerLayer(dim_shape) for _ in range(num_layers)
+        ])
+
+    def forward(self, x_pos, adj_matrix):
+        # x_pos: [Batch, N_nodes, 3]
+        h_shape = self.node_embed(x_pos)
+
+        # 在拓扑约束下演化
+        for layer in self.layers:
+            h_shape = layer(h_shape, adj_matrix)
+
+        return h_shape # [Batch, N_nodes, dim_shape]
+
+class QualityEncoder(nn.Module):
+    """
+    质塔：处理语义属性与感官细节
+    输入：语义 Token 或 图像 Patch
+    输出：纤维空间嵌入 (Fiber Space Embeddings)
+    """
+    def __init__(self, dim_quality, num_layers):
+        super().__init__()
+        self.token_embed = nn.Embedding(30000, dim_quality)
+        # 使用标准 Transformer 层处理语义关联
+        self.layers = nn.ModuleList([
+            nn.TransformerEncoderLayer(d_model=dim_quality, nhead=8)
+            for _ in range(num_layers)
+        ])
+
+    def forward(self, input_ids):
+        # input_ids: [Batch, Seq_len]
+        h_quality = self.token_embed(input_ids)
+
+        for layer in self.layers:
+            h_quality = layer(h_quality)
+
+        return h_quality # [Batch, Seq_len, dim_quality]
+\end{lstlisting}
+
+\section{形质融合注意力 (Morpho-Semantic Fusion Attention)}
 \label{sec:fusion_attention}
+
+这是 MST 的关键模块。与常见对称 Cross-Attention 不同，这里采用\textbf{不对称融合}：\textbf{形作为容器，质作为内容}。
+
+
+
+\smalltitle{物理机制：纤维的附着}
+
+融合过程在数学上等价于\textbf{将纤维束（质）“插”到底流形（形）的每一个点上}。
+
+\begin{itemize}
+    \item   \textbf{Query ($Q$)}：来自 \textbf{形塔}。形在问：“在这个位置，应该填什么？”
+    \item   \textbf{Key/Value ($K, V$)}：来自 \textbf{质塔}。质在答：“这里有红色、硬度、悲伤可供选择。”
+\end{itemize}
+
+\smalltitle{注意力公式}
+
+$$ \text{Fusion}(Q_S, K_Q, V_Q) = \text{Softmax}\left( \frac{Q_S W_Q (K_Q W_K)^T}{\sqrt{d}} + \mathbf{M}_{topo} \right) (V_Q W_V) $$
+\begin{itemize}
+    \item   \textbf{$\mathbf{M}_{topo}$ (拓扑掩码)}：这是一个关键的 MSC 约束。我们只允许“质”流向那些在拓扑上合法的“形”节点（例如，不能把“思想”这个质填入“颜色”这个形槽位）。
+\end{itemize}
+
+
+
+\smalltitle{融合层代码}
+
+
+\begin{lstlisting}
+class MorphoSemanticFusionLayer(nn.Module):
+    """
+    形质融合层：将'质'填充进'形'的骨架
+    """
+    def __init__(self, dim_model, num_heads):
+        super().__init__()
+        self.attn = nn.MultiheadAttention(embed_dim=dim_model, num_heads=num_heads)
+        self.norm = nn.LayerNorm(dim_model)
+        self.ffn = nn.Sequential(
+            nn.Linear(dim_model, 4 * dim_model),
+            nn.GELU(),
+            nn.Linear(4 * dim_model, dim_model)
+        )
+
+    def forward(self, h_shape, h_quality, topo_mask=None):
+        """
+        h_shape: [N_nodes, Batch, Dim] (作为 Query)
+        h_quality: [Seq_len, Batch, Dim] (作为 Key/Value)
+        """
+        # Cross-Attention: Shape 查阅 Quality
+        # 物理含义：为每个几何位置寻找最匹配的语义属性
+        context, _ = self.attn(
+            query=h_shape,
+            key=h_quality,
+            value=h_quality,
+            attn_mask=topo_mask
+        )
+
+        # 残差连接：保留原始拓扑结构
+        h_fused = self.norm(h_shape + context)
+
+        # FFN 演化
+        h_fused = h_fused + self.ffn(h_fused)
+
+        return h_fused # 输出的是"赋质之形" (Embodied Shape)
+\end{lstlisting}
+
+\section{混合解码器 (Hybrid Decoder)：双重实在的坍缩}
 \label{sec:hybrid_decoder}
+
+MST 的输出既不能只限于文字，也不能只限于像素。它需要同时给出离散语义结果与连续结构参数，因此使用混合解码头。
+
+
+
+\smalltitle{离散头 (Discrete Head) —— 输出符号}
+
+用于生成文本描述或逻辑标签。
+\begin{itemize}
+    \item   \textbf{机制}：标准的 \lstinline|Softmax| 投影。
+    \item   \textbf{物理意义}：波函数在语义轴上的坍缩。
+\end{itemize}
+
+\smalltitle{流形头 (Manifold Head) —— 输出参数场}
+
+用于生成图像、3D 模型或物理场。
+\begin{itemize}
+    \item   \textbf{机制}：输出\textbf{连续的几何参数}（如 SDF 符号距离场、网格坐标、光流矢量）。
+    \item   \textbf{物理意义}：波函数在时空轴上的坍缩。
+\end{itemize}
+
+
+
+\smalltitle{混合解码器代码}
+
+
+\begin{lstlisting}
+class HybridDecoder(nn.Module):
+    def __init__(self, dim_model, vocab_size, dim_manifold):
+        super().__init__()
+        # 1. 离散语义头 (Language Head)
+        self.lm_head = nn.Linear(dim_model, vocab_size)
+
+        # 2. 连续流形头 (Physics Head)
+        # 输出每个节点的空间坐标变化(dx, dy, dz) 或 物理属性(密度, 温度)
+        self.manifold_head = nn.Sequential(
+            nn.Linear(dim_model, dim_model),
+            nn.Tanh(), # 映射到 [-1, 1] 区间
+            nn.Linear(dim_model, dim_manifold)
+        )
+
+    def forward(self, h_fused):
+        # h_fused: [Batch, N_nodes, Dim]
+
+        # 分支 A: 预测这东西叫什么 (What is it?)
+        logits_text = self.lm_head(h_fused)
+
+        # 分支 B: 预测这东西长什么样/怎么动 (Where/How is it?)
+        # 这是一个回归任务
+        params_manifold = self.manifold_head(h_fused)
+
+        return logits_text, params_manifold
+\end{lstlisting}
+
+\section{MST 完整架构：创世循环}
 \label{sec:mst_complete}
+
+最后，将上述组件组装为完整的 \textbf{Morpho-Semantic Transformer}，形成端到端生成模型。
+
+
+
+\smalltitle{[工程实现] MST 主体代码}
+
+
+\begin{lstlisting}
+class MorphoSemanticTransformer(nn.Module):
+    def __init__(self, config):
+        super().__init__()
+        # 1. 双塔编码
+        self.shape_encoder = ShapeEncoder(config.dim, config.layers)
+        self.quality_encoder = QualityEncoder(config.dim, config.layers)
+
+        # 2. 桥接层 (适配维度差异)
+        self.bridge = nn.Linear(config.dim, config.dim)
+
+        # 3. 形质融合层 (堆叠多层以深度纠缠)
+        self.fusion_layers = nn.ModuleList([
+            MorphoSemanticFusionLayer(config.dim, config.heads)
+            for _ in range(config.fusion_layers)
+        ])
+
+        # 4. 混合解码
+        self.decoder = HybridDecoder(config.dim, config.vocab_size, config.manifold_dim)
+
+    def forward(self, inputs):
+        """
+        inputs: {
+            'shape': (pos, adj), # 拓扑流形数据
+            'quality': token_ids # 语义纤维数据
+        }
+        """
+        # Step 1: 分离编码 (Decoupled Encoding)
+        # 获取纯粹的"形"骨架
+        h_s = self.shape_encoder(inputs['shape']['pos'], inputs['shape']['adj'])
+        # 获取纯粹的"质"特征
+        h_q = self.quality_encoder(inputs['quality'])
+
+        # Step 2: 融合纠缠 (Entanglement)
+        # 将"质"作为颜料，一层层涂抹在"形"的骨架上
+        h_fused = h_s
+        for layer in self.fusion_layers:
+            # Q=Shape, K=Quality, V=Quality
+            h_fused = layer(h_shape=h_fused, h_quality=h_q)
+
+        # Step 3: 双重坍缩 (Dual Collapse)
+        # 同时得到 描述(Text) 和 实体(Physics)
+        text_logits, phys_params = self.decoder(h_fused)
+
+        return {
+            'description': text_logits, # 用于 NLP 任务
+            'structure': phys_params    # 用于 3D生成/机器人控制
+        }
+\end{lstlisting}
+
+\section{训练范式：形质对齐损失}
 \label{sec:training_paradigm}
+
+为了训练 MST，我们需要定义一个新的损失函数，强迫模型在“形”与“质”之间建立同构映射。
+$$ \mathcal{L}_{MST} = \mathcal{L}_{rec\_Q} + \lambda_1 \mathcal{L}_{rec\_S} + \lambda_2 \mathcal{L}_{bind} $$
+\begin{enumerate}
+        \item \textbf{$\mathcal{L}_{rec\_Q}$ (质重构损失)}：Cross-Entropy。预测的文本描述必须准确。
+        \item \textbf{$\mathcal{L}_{rec\_S}$ (形重构损失)}：MSE / Chamfer Distance。预测的 3D 坐标/图像像素必须与真实物理世界一致。
+        \item \textbf{$\mathcal{L}_{bind}$ (绑定损失)}：\textbf{核心创新}。
+\end{enumerate}
+利用 \textbf{对比学习 (Contrastive Learning)}，拉近“匹配形质对”（如：[球体]+[苹果]）的向量距离，推远“错配形质对”（如：[立方体]+[苹果]）的向量距离。
+
+\begin{bquote}
+\textbf{本章结语}：
+
+\vspace{1em}本章完成了从公式到实现的关键过渡：我们把《形质构成论》的核心关系写成了可运行的 Python 架构。MST 的意义在于，它不只做序列统计预测，而是尝试在潜空间中显式建模形与质的耦合结构。
+
+\vspace{1em}下一章，我们将讨论 MST 的应用场景，重点看它在生成任务中的表现与边界。
+\end{bquote}
+
+
+\section{计算动力学表达与论证边界}
+我们把上述问题、例证与机制讨论进一步落实到可计算的对象、更新规则和可验证条件。这里使用的状态、结构与控制是计算模型的变量；物理意象帮助理解相互作用，其适用性仍须由明确假设和独立观测支持。涉及同构、守恒、收敛及主观体验的论断，我们按本节给出的条件与边界解释，而不由形式相似性直接推出。
+
 我们提出形质联合 Transformer（MST）作为结构与属性分解的一种工程实例。架构假设必须通过实验检验，它不是 HSF-HD 唯一可能的实现。
-\section{双通道与类型约束}
+\subsection{双通道与类型约束}
 设输入包含 $n$ 个对齐位置，结构通道为 $T\in\mathbb R^{n\times d_s}$，内容通道为 $X\in\mathbb R^{n\times d_x}$。两通道可以使用不同编码器，但位置对应关系必须由数据或对齐模块定义。未经对齐的两个序列不能直接按同一节点索引融合。
-\section{结构引导的内容聚合}
+\subsection{结构引导的内容聚合}
 取 $Q=TW_Q$、$K=XW_K$、$V=XW_V$，其中 $Q,K\in\mathbb R^{n\times d_k}$，$V\in\mathbb R^{n\times d_v}$。定义
 \begin{equation}A=\operatorname{softmax}_{row}\left(\frac{QK^\top}{\sqrt{d_k}}+M(S)\right),\qquad Z=AV.\end{equation}
 掩码 $M(S)$ 表示允许关系，不允许的边可设为负无穷。每一行至少有一个合法位置，才能避免归一化未定义。$A$ 是聚合权重，不是结构与内容在物理意义上的纠缠。
-\section{目标与训练}
+\subsection{目标与训练}
 给定结构目标 $S^*$、属性目标 $X^*$ 和任务目标 $y$，可以定义
 \begin{equation}\mathcal L=\lambda_s\ell_s(\widehat S,S^*)+\lambda_x\ell_x(\widehat X,X^*)+\lambda_y\ell_y(r(Z),y)+\lambda_b\ell_b(T,X).\end{equation}
 绑定损失 $\ell_b$ 的正负样本需要符合任务语义；错误的负样本会惩罚合法组合。不同损失项应按尺度设置权重，训练损失下降不保证分解可辨识或域外泛化。
-\section{复杂度与对照实验}
+\subsection{复杂度与对照实验}
 稠密 $QK^\top$ 仍具有二次交互成本。稀疏关系可以减少实际交互数量，但必须说明稀疏模式和实现。我们以单通道基线、双通道无绑定、关系扰动和跨域测试区分结构分解带来的收益与参数增加带来的收益。

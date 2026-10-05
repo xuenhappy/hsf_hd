@@ -1,19 +1,307 @@
 \chapter{质：属性表示与活动状态}
 \label{chp:qualia_activation}
-% Compatibility anchors: old section references resolve to this chapter.
+
+如果说第二章处理的是几何骨架，那么这一章处理的就是填充这个骨架的内容。我们将讨论那些使对象变得可区分、可感知、可相互作用的东西。这是一章关于\textbf{“存在如何获得具体内容”}的讨论。
+
+\vspace{1em}
+\begin{bquote}
+\textbf{色相的洪流与存在的本味}
+
+\vspace{1em}只有骨架而没有内容的世界，仍然是不完整的。在那个由形元组织起来的结构里，虽然已经有了“位置”和“路径”，但还没有任何具体的东西占据这些位置，也没有任何量沿这些路径分布。
+真正让我们区分“这里有什么”和“那里有什么”的，并不只是拓扑关系，而是\textbf{质 (Qualia)}：例如视觉中的\textbf{红}，触觉中的\textbf{重}，感觉中的\textbf{痛}，以及物理相互作用中的\textbf{荷}。
+质不是附着在对象表面的额外标签，而是对象得以呈现具体性质的基本成分。
+
+\vspace{1em}因此，我们不再把“红色”理解成苹果外加的一张标签。更合适的说法是：在“苹果”所占据的区域里，红色这一方向上的纤维分量被激发了。
+
+\vspace{1em}本章将引入\textbf{纤维空间 (Fiber Space)}。在这里，“质”不再被看成主观形容词的集合，而是被表述为一组高维向量方向。这样一来，“形”给出结构，“质”给出内容，两者就能在同一数学框架中讨论。
+\end{bquote}
+
+
+
+% ---selection---
+
+\section{质的定义：从属性标签到向量场}
 \label{sec:qualia_definition}
+
+传统认知科学和面向对象编程（OOP）常常采取同一种直觉：把“属性（Property）”看成附属于“对象（Object）”的标签（例如 \lstinline|Apple.color = Red|）。
+
+MSC 提出\textbf{场论视角}的定义：\textbf{对象是背景，属性才是实体。}
+
+
+
+\smalltitle{纤维空间 (The Fiber Space)}
+
+在我们的几何模型中，底流形 $\mathcal{M}$（由形元构建的时空）上的每一个点 $\mathbf{r}$，都垂直生长着一个高维的线性空间，称为\textbf{纤维 $F_\mathbf{r}$}。
+$$ F_\mathbf{r} \cong \mathbb{R}^N $$
+\begin{itemize}
+        \item   \textbf{质}就是这个纤维空间中的\textbf{基向量 (Basis Vectors)}。
+        \item   \textbf{物理隐喻}：这就像电磁场分布在宇宙的每一个点上,你不能把电场“剥离”下来带走，因为电场是空间的属性。
+\end{itemize}
+
+
+
+\smalltitle{质即维度 (Qualia as Dimensions)}
+
+“红”不是一个标签，而是一个\textbf{维度},在纤维空间 $F$ 中，存在一个指向“红色方向”的基矢量 $\mathbf{e}_{red}$,所谓的“这个物体是红的”，在数学上意味着：该物体在 $\mathbf{r}$ 处的态矢量 $\Psi(\mathbf{r})$ 在 $\mathbf{e}_{red}$ 方向上有非零的投影。
+    $$ \langle \Psi(\mathbf{r}) | \mathbf{e}_{red} \rangle = J_{red} > 0 $$
+\textbf{结论}：\textbf{质元是内空间 (Internal Space) 的坐标轴。}
+
+\smalltitle{术语分层}
+
+本章会同时谈到“物理质”（可测量的内禀自由度）与“体验质”（主观体验维度），为保持后文数学对象的清晰，我们做一个层次划分：
+\begin{itemize}
+    \item \textbf{$Q^{phys}$}：物理层的质（如荷、自旋、质量耦合强度等），对应物理内空间/规范自由度，直接参与物理相互作用。
+    \item \textbf{$Q^{phen}$}：体验层的质（如红、痛、愉悦等），在 MSC 中它们同样可被视为“纤维基向量”的方向，但其观测通常是通过行为/报告/语境投影的间接方式完成。
+    \item \textbf{形式化约定}：本章的纤维几何写法优先建模 $Q^{phys}$ 与可工程实现的表征层 $Q^{repr}$；对 $Q^{phen}$ 的讨论保持“同构/对应”的解释立场，避免把体验直接等同为某一个单一物理量。
+\end{itemize}
+
+\section{质元 (\texorpdfstring{$V_Q$}{V(Q)})：存在的本征谱系}
 \label{sec:qualia_elements}
+
+宇宙中有多少种“质”？这构成了我们的 \textbf{质元词表 ($V_Q$)}，它们是不可还原的基元（在物理层与体验层分别呈现为不同的“可观测方式”）。
+\begin{enumerate}
+        \item \purpletext{Type I: 物理质 (Physical Qualia) — 所谓“客观”}
+
+        这是物理学家眼中的“荷 (Charge)”。它们决定了物体如何参与物理相互作用。
+        \begin{enumerate}
+                \item \textbf{质量算子 \lstinline|[Mass]| ($m$)}：
+                \begin{itemize}
+                        \item   \textbf{定义}：在引力场/惯性场中的耦合强度。
+                        \item   \textit{作用}：赋予“形”以\textbf{弯曲}的能力（广义相对论）。
+                \end{itemize}
+
+                \item \textbf{电荷算子 \lstinline|[Charge]| ($q$)}：
+                \begin{itemize}
+                        \item   \textbf{定义}：在电磁规范场中的耦合强度。
+                        \item   \textit{作用}：赋予“形”以\textbf{排斥或吸引}的动力。
+                \end{itemize}
+
+                \item \textbf{自旋算子 \lstinline|[Spin]| ($s$)}：
+                \begin{itemize}
+                        \item   \textbf{定义}：粒子在纤维空间中的内禀角动量。
+                \end{itemize}
+        \end{enumerate}
+
+        \item \purpletext{Type II: 感知质 (Phenomenological Qualia) — 所谓“主观”}
+
+        这是认知主体眼中的“感受 (Feeling)”。在 MSC 中，它们与物理质具有\textbf{同等的本体论地位}——它们也是纤维空间中的基向量，只是定义在\textbf{语义流形}上。
+        \begin{enumerate}
+                \item \textbf{色彩基底 \lstinline|[Color]| ($R, G, B$)}：
+                \begin{itemize}
+                        \item   \textbf{定义}：视觉纤维上的三个正交基底。
+                        \item   \textit{数学}：任何颜色都是这三个基底的线性组合 $\vec{c} = r\mathbf{e}_R + g\mathbf{e}_G + b\mathbf{e}_B$。
+                \end{itemize}
+
+                \item  \textbf{触觉基底 \lstinline|[Texture]| ($Roughness, Hardness$)}：
+                \begin{itemize}
+                        \item   \textbf{定义}：描述微观几何特征统计量的宏观基底。
+                \end{itemize}
+
+                \item \textbf{价值基底 \lstinline|[Valence]| ($Pleasure, Pain$)}：
+                \begin{itemize}
+                        \item   \textbf{定义}：这是最高级的质。它直接对应于\textbf{体验图 ($G_E$)} 中的势能高低。
+                \end{itemize}
+
+                \item \textbf{关键性质：正交性 (Orthogonality)} 在理想的纤维空间中，不同的质元是正交的。
+
+                \begin{itemize}
+                        \item   \lstinline|[红色]| 分量的大小不影响 \lstinline|[重]| 分量的大小。
+                        \item   这种正交性保证了世界的\textbf{丰富性}——我们可以在同一个位置同时拥有“重”、“红”、“甜”的苹果。
+                \end{itemize}
+        \end{enumerate}
+\end{enumerate}
+
+
+\section{激活场 (Activation Field) — 强度的几何学与实体的涌现}
 \label{sec:activation_field}
+
+有了“形”（位置）和“质”（维度），我们还需要最后一个要素：\textbf{量 (Magnitude)}，这就是\textbf{激活场 $J(\mathbf{r},t)$}。如果说底流形给出了承载位置，质元给出了可被激发的方向，那么激活场 $J$ 就给出了这些方向在何处、以多大强度出现。物体生成的本质，就是这种分布从弥散走向稳定的过程。
+
+\begin{definition}[”存在“的表示]
+        \begin{itemize}
+                \item 我们认为，\textbf{“存在”不是一个是非题（0 或 1），而是一个能量密度题（$J$ 值的大小）。}
+                \item 任何一个实体（Object/Entity），在数学上等价于底流形 $\mathcal{M}$ 上的一个\textbf{局部高能激发区 (Local High-Energy Excitation Zone)}。
+                \item 激活场 $J(\mathbf{r}, t)$ 是连接“抽象概念”与“具体现象”的桥梁, 它描述了质元在形流形上的分布密度、边界梯度以及相干性。\textbf{物体的生成，就是激活场从混沌涨落坍缩为稳定波包的过程。}
+        \end{itemize}
+\end{definition}
+
+
+\smalltitle{能量密度函数：存在的度量}
+
+
+首先，我们必须给“存在感”一个物理定义：设底流形上的位置为 $\mathbf{r}$，纤维空间中有 $N$ 种可能的质元（如红、硬、热...），系统的全息波函数为 $\Psi(\mathbf{r})$。
+
+\begin{definition}["存在感"的强度]
+    设在位置 $\mathbf{r}$ 处的纤维态可展开为 $\Psi(\mathbf{r},t)=\sum_{k\in V_Q} c_k(\mathbf{r},t)\,\mathbf{e}_k$。我们将第 $k$ 个质元的局部强度（或能量密度）记为
+    $$ J_k(\mathbf{r},t) \equiv |c_k(\mathbf{r},t)|^2 $$
+    则\textbf{激活场总强度 $J(\mathbf{r},t)$} 可自然取为该点上所有质元强度的总和（即范数的模方）：
+    $$ J(\mathbf{r},t) = \| \Psi(\mathbf{r},t) \|^2 = \sum_{k \in V_Q} J_k(\mathbf{r},t) = \sum_{k \in V_Q} |c_k(\mathbf{r},t)|^2 $$
+    其中 $c_k(\mathbf{r},t)$ 是第 $k$ 个质元在位置 $\mathbf{r}$ 的投影系数。
+
+    \textbf{物理意义}：
+    \begin{itemize}
+        \item   \textbf{$J(\mathbf{r}) \approx 0$}：\textbf{真空/背景}。这里有空间（形），也有潜在的属性维度（纤维），但没有能量注入，所以是黑暗的。
+        \item   \textbf{$J(\mathbf{r}) \gg 0$}：\textbf{实体}。这里“有东西”。能量把这个空间点点亮了。
+    \end{itemize}
+\end{definition}
+
+
+
+\smalltitle{激发的形态学：从“幽灵”到“晶体”}
+
+
+物体生成的不同阶段，对应着激活场 $J(\mathbf{r})$ 的不同几何分布形态。这解释了 AI 生成过程中从“模糊”到“清晰”的物理本质。
+
+
+\begin{itemize}
+        \item \textbf{Type I: 弥散态 (Diffuse State) —— 幽灵与氛围}
+        \begin{itemize}
+                \item   \textbf{数学形态}：$J(\mathbf{r})$ 是一个低幅度的、平缓的\textbf{高斯分布}或\textbf{均匀分布}。
+
+                \item   \textbf{现象}：T2I 生成的初期噪声图,人类感觉到的“氛围感”、“情绪基调”（比如“悲伤”弥漫在整个房间，而不是聚焦在某一点）。
+
+                \item   \textbf{几何特征}：\textbf{无边界 ($\nabla J \approx 0$)}。你无法指出它从哪里开始，到哪里结束。
+        \end{itemize}
+
+
+        \item \textbf{Type II: 孤立子态 (Soliton State) —— 粒子与物体}
+        \begin{itemize}
+                \item   \textbf{数学形态}：$J(\mathbf{r})$ 表现为紧致支撑的\textbf{波包 (Wave Packet)}，具有陡峭的边缘。
+        $$ J(\mathbf{r}) \sim \text{Sigmoid}( \text{SDF}(\mathbf{r}) ) $$
+                \item   \textbf{现象}：生成完成的图像中的“苹果”、物理世界中的原子、桌子。
+                \item   \textbf{几何特征}：\textbf{强边界 ($\nabla J \to \infty$)}。在物体表面，激活值从 1 骤降为 0。这种\textbf{梯度的突变}，就是我们感知的\textbf{轮廓}。
+        \end{itemize}
+
+        \item \textbf{Type III: 激波态 (Shockwave State) —— 运动与事件}
+        \begin{itemize}
+                \item   \textbf{数学形态}：$J(\mathbf{r}, t)$ 随时间剧烈变化，波峰在流形上移动。
+                \item   \textbf{现象}：一颗子弹飞过（能量中心的高速平移）、 一种情绪的爆发（愤怒值的瞬间拉升）。
+        \end{itemize}
+
+\end{itemize}
+
+
+\smalltitle{绑定的几何机制：相干共振 (Coherent Resonance)}
+
+
+这是认知科学的核心难题：\textbf{为什么“红色”的质和“圆形”的质，会自动结合成一个“苹果”？} 在 MSC 中，不需要额外的“胶水”，\textbf{共同的激活区域}就是胶水。
+
+
+\begin{theorem}[同步激发即绑定]
+    如果两个不同的质元 $Q_{red}$ 和 $Q_{round}$ 在底流形上的激活分布函数 $J_{red}(\mathbf{r})$ 和 $J_{round}(\mathbf{r})$ 呈现出\textbf{高度共定位}（co-localization），并且这种共定位是被“形”的边界/势垒约束住的（从而抑制泄漏），那么在宏观上它们就被观测为一个\textbf{单一实体}。
+
+    一个最直接的可计算刻画是重叠积分很大：
+    $$ \text{Overlap} = \int_{\mathcal{M}} J_{red}(\mathbf{r}) \cdot J_{round}(\mathbf{r}) \, d\mathbf{r} \ \ \text{(large)} $$
+    为了让“$\approx 1$”有明确意义，我们也可以用归一化重叠（余弦型）表达“几乎完全重合”：
+    $$ \text{NOverlap} = \frac{\int_{\mathcal{M}} J_{red}(\mathbf{r}) J_{round}(\mathbf{r})\, d\mathbf{r}}{\sqrt{\int_{\mathcal{M}} J_{red}(\mathbf{r})^2\, d\mathbf{r}}\,\sqrt{\int_{\mathcal{M}} J_{round}(\mathbf{r})^2\, d\mathbf{r}}} \approx 1 $$
+
+        \begin{itemize}
+                \item   \textbf{未绑定（错位）}：如果你看到了“红色的桌子”和“绿色的苹果”，说明 $J_{red}$ 流到了桌子的区域，发生了\textbf{泄漏 (Leakage)}。
+
+                \item   \textbf{精准绑定（纠缠）}：MST 模型的训练目标，就是通过 \textbf{Cross-Attention}，强行将 $J_{red}$ 的波峰拉扯到与 $J_{round}$（苹果的形）完全重合的位置。
+        \end{itemize}
+\end{theorem}
+
+
+\smalltitle{相干 + 竞争：绑定的能量视角（最小模型）}
+
+为了让“绑定”不仅是重叠的描述，还能解释\textbf{排他性}与\textbf{抗泄漏}，我们可以把绑定过程理解为一个简单的能量最小化：
+$$ E_{bind} = -\alpha\,\text{Overlap} \; +\; \beta\,\text{Leakage} \; +\; \gamma\,\text{Exclusivity} $$
+\begin{itemize}
+    \item \textbf{Overlap}：奖励共定位（相干共振）。
+    \item \textbf{Leakage}：惩罚激活越过形边界（颜色溢出、材质串扰）。
+    \item \textbf{Exclusivity}：惩罚同一位置被多个互斥对象/属性同时占据（错误绑定）。
+\end{itemize}
+
+
+
+\smalltitle{物体生成的过程：从流体到固体的相变}
+
+
+结合前述小节的“形”的编织过程，我们可以完整描述一个物体是如何“生成”出来的，这是一个\textbf{热力学冷却}过程。
+
+\begin{itemize}
+        \item \textbf{步骤 1：拓扑成核 (Nucleation) —— 形的建立}
+
+        形元先行, 在真空流形上，先圈出一块地 $\Omega$, 定义这块地的拓扑性质：封闭的、球状的,\textit{此时：有一个看不见的球体轮廓。}
+
+        \item \textbf{步骤 2：能量注入 (Injection) —— 质的填充}
+
+    质元登场，向区域 $\Omega$ 注入 \lstinline|[Red]|, \lstinline|[Sweet]| 的能量。\textit{初始时刻，能量仍呈流动态，可能会溢出边界（例如生成图中的颜色外溢）。}
+
+
+        \item \textbf{步骤 3：边界约束 (Confinement) —— 激活场的整形}
+
+        \textbf{“形”对“质”施加压力},底流形上的 \textbf{排斥算子 \lstinline|[Repel]|} 在边界 $\partial \Omega$ 处形成一道\textbf{无穷大势垒},激活场 $J(\mathbf{r})$ 被迫向内收缩，紧贴着边界流动,\textit{此时：颜色不仅填满了球体，而且边缘清晰锐利。}
+
+        \item \textbf{步骤 4：阈值锁定 (Thresholding) —— 实体的涌现}
+
+        最后，系统应用一个\textbf{观测算子 (Observation Operator)}，通常是一个非线性的激活函数（如 ReLU 或 Step Function）,
+        $$ \mathbb{O} = \mathbb{I}(J(\mathbf{r}) > J_{critical}) $$
+        凡是能量低于阈值的噪音被过滤掉（背景变黑）,凡是能量高于阈值的区域被\textbf{“固化”}为物体, \textbf{物体诞生了。}
+\end{itemize}
+
+\smalltitle{工程视角的总结}
+
+在 MST (形质互变 Transformer) 的代码实现中，\textbf{激活场} 对应的是 \textbf{Decoder 的输出层}:
+
+\begin{itemize}
+    \item   \textbf{形 (Morphos)} 输出了 \textbf{Mask / SDF}（哪里可以填）；
+    \item   \textbf{质 (Qualia)} 输出了 \textbf{Feature Vector}（填什么）；
+    \item   \textbf{激活场 (Activation Field)} 输出了 \textbf{Attention Map}（填的强度分布）。
+\end{itemize}
+
+\vspace{1em}\redtext{从工程角度看，生成一个质量较高的物体，就是在优化这个激活场，使其：}
+\begin{enumerate}
+        \item \textbf{强度够大}（存在感强）；
+        \item \textbf{边界够陡}（轮廓清晰）；
+        \item \textbf{重叠度够高}（形质完美对齐，颜色不溢出）。
+\end{enumerate}
+
+
+\section{质的功能：填充与驱动}
 \label{sec:qualia_function}
 
+如果说形是\textbf{骨架}，质就是填充骨架并驱动相互作用的内容，它至少具备以下功能：
+
+\begin{enumerate}
+        \item \textbf{填充 (Filling)}：质元填充了形元留下的拓扑空洞，它让抽象的关系变成了具体的体验, \textit{比喻}：形是线稿，质是上色。
+        \item \textbf{驱动 (Driving)}：\textbf{质不仅是被动的属性，它也是主动的力源。}
+        \begin{itemize}
+                \item   \textbf{不同质之间的相互作用}：在物理学中，\lstinline|[电荷]| 决定了物体在电磁场中受到的力；在语义学中，\lstinline|[美味]| 决定了物体在体验图中受到的\textbf{吸引力 (Desire)}。
+                \item   \textbf{结论}：\textbf{物体的运动轨迹（测地线），是由它所携带的“质”与环境的相互作用决定的。} 你怎么动，取决于你有什么质。
+        \end{itemize}
+\end{enumerate}
+
+
+\begin{bquote}
+        \textbf{本章结语}：
+
+    至此，我们已经得到了描述对象的两类基本成分：
+
+    \vspace{1em}一类是 \textbf{形 (Morphos)}，它规定了“哪里”与“关系”，给出对象的结构框架。
+
+    一类是 \textbf{质 (Qualia)}，它定义了“什么”与“感觉”，给出对象的具体内容。
+
+    前者像一个无内容的容器，后者像可以填入其中的分量。
+
+    \vspace{1em}下一章，我们将把这两者真正组合起来。届时引入\textbf{纤维丛 (Fiber Bundle)} 以后，就可以把“结构”与“内容”写成同一个数学对象，并进一步得到实体的构成方程。
+
+\end{bquote}
+
+
+\section{计算动力学表达与论证边界}
+我们把上述问题、例证与机制讨论进一步落实到可计算的对象、更新规则和可验证条件。这里使用的状态、结构与控制是计算模型的变量；物理意象帮助理解相互作用，其适用性仍须由明确假设和独立观测支持。涉及同构、守恒、收敛及主观体验的论断，我们按本节给出的条件与边界解释，而不由形式相似性直接推出。
+
+
 我们将“质”作为属性与内容的建模术语。颜色、词义特征、置信度和情绪标签都可以作为属性，但其编码值与真实体验不能直接等同。
-\section{向量、概率与周期变量}
+\subsection{向量、概率与周期变量}
 属性向量 $q\in\mathbb{R}^d$ 不必归一化；概率 $p$ 则满足 $p_i\ge0$、$\sum_i p_i=1$。对 logits $z$ 与尺度 $T>0$，我们定义
 \begin{equation}p_i=\frac{\exp(z_i/T)}{\sum_j\exp(z_j/T)}.\end{equation}
 信息熵 $H(p)=-\sum_i p_i\log p_i$ 对分布定义，不能直接用于任意向量的分量。$T$ 调整分布的相对集中程度，不具有热力学温度单位。
 
 相位 $\theta\in\mathbb{R}/2\pi\mathbb{Z}$ 可表示周期状态，复数形式 $a e^{i\theta}$ 可表达带方向的组合。模平方只有在模型明确规定并归一化时才能解释为概率。
-\section{活动强度与资源代价}
+\subsection{活动强度与资源代价}
 状态强度可定义为 $I(q)=\|q\|^2$，执行代价可以定义为运算次数、延迟或实际功耗。两者需要通过实现测量建立关系。我们不会从状态强度增加直接推断硬件能耗按相同比例增加。
-\section{有界投影的能力与边界}
+\subsection{有界投影的能力与边界}
 对闭凸集合 $C$，投影 $P_C(q)$ 给出最近可行点。若 $C$ 为半径 $r$ 的球，则 $\|P_C(q)\|\le r$。这只保证属性位于指定域内，不保证任务正确、梯度有效或闭环收敛。投影也可能删除任务所需的信息，需通过消融检查。

@@ -1,8 +1,10 @@
 % Shared packages not already provided by ElegantBook.
-\usepackage{ragged2e,microtype,float,makecell,tabularx,url}
+\usepackage{ragged2e,microtype,float,makecell,tabularx,url,adjustbox,placeins}
 \usepackage{standalone,tikz-3dplot}
 \usetikzlibrary{shapes.geometric,shapes.misc,arrows.meta,fadings,positioning,calc,backgrounds,fit,shadows}
 \AtBeginDocument{\special{pdf:minorversion 7}}
 \DeclareMathOperator*{\argmax}{arg\,max}
 \DeclareMathOperator*{\argmin}{arg\,min}
 \usepackage{styles/hsfhd}
+
+\captionsetup[figure]{font=small,labelfont=bf,justification=raggedright,singlelinecheck=false,skip=8pt}

@@ -188,9 +188,10 @@ $$ \mathbf{d}_{k+1} \circ \mathbf{d}_k = 0 \quad (\text{边界的边界为零}) 
     \item \textbf{物理意义}：这是\textbf{System 2 (慢思考)}的物理载体,它消耗大量电力，强行扭曲几何结构（学习/改变观念），是系统\textbf{“痛苦”与“意志”}的发生地。
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \begin{tikzpicture}[
+    \begin{adjustbox}{max width=0.98\linewidth,max totalheight=0.72\textheight}
+\begin{tikzpicture}[
         node distance=3.5cm,
         auto,
         >=latex,
@@ -306,6 +307,7 @@ $$ \mathbf{d}_{k+1} \circ \mathbf{d}_k = 0 \quad (\text{边界的边界为零}) 
         node[midway, label_text, align=center] {控制应力张量\\(做功 $\vec{u}$)};
 
 \end{tikzpicture}
+\end{adjustbox}
 \caption{HSF-HD SoC 混合动力学流图 (水平全闭环)}
 \label{fig:hsfhd_soc_horizontal}
 \end{figure}

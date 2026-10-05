@@ -1,3 +1,6 @@
 % CTeX/Fandol is the portable default supplied by texlive-lang-chinese.
 % Override fonts here, not in chapter files. Latin defaults live in the vendored class.
-\xeCJKsetup{CJKspace=true}
+\xeCJKsetup{CJKspace=true,AutoFallBack=true}
+
+% Fandol lacks these rare characters on some distributions.
+\IfFontExistsTF{AR PL Mingti2L Big5}{\setCJKfallbackfamilyfont{rm}{AR PL Mingti2L Big5}}{}

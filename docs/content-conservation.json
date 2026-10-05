@@ -1,0 +1,711 @@
+{
+  "checks_passed": true,
+  "complete_chapters_verified": 117,
+  "baseline_chapter_chinese_characters": 568727,
+  "current_chapter_chinese_characters": 577373,
+  "scope": "Complete original chapter exposition; revised titles, figure layout/captions, math line breaks, table padding, math text wrapping and one duplicate label excluded; scientific claims not validated by this test.",
+  "chapters": [
+    {
+      "path": "chapters/part-01/chp-dual_basis.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1849,
+      "current_chinese_characters": 2465
+    },
+    {
+      "path": "chapters/part-01/chp-morphos_skeleton.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3200,
+      "current_chinese_characters": 3723
+    },
+    {
+      "path": "chapters/part-01/chp-qualia_activation.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3157,
+      "current_chinese_characters": 3627
+    },
+    {
+      "path": "chapters/part-02/chp-universe_geometry.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1901,
+      "current_chinese_characters": 2352
+    },
+    {
+      "path": "chapters/part-02/chp-constitutive_equation.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1498,
+      "current_chinese_characters": 1942
+    },
+    {
+      "path": "chapters/part-03/chp-physics_anatomy.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1592,
+      "current_chinese_characters": 2156
+    },
+    {
+      "path": "chapters/part-03/chp-semantic_anatomy.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1879,
+      "current_chinese_characters": 2429
+    },
+    {
+      "path": "chapters/part-03/chp-domain_manifolds_heterogeneity.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4526,
+      "current_chinese_characters": 4981
+    },
+    {
+      "path": "chapters/part-03/chp-holomorphic_isomorphism.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1751,
+      "current_chinese_characters": 2264
+    },
+    {
+      "path": "chapters/part-04/chp-mst_architecture.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1390,
+      "current_chinese_characters": 1914
+    },
+    {
+      "path": "chapters/part-04/chp-generative_creation.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4481,
+      "current_chinese_characters": 4983
+    },
+    {
+      "path": "chapters/part-05/chp-will_geometry.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1769,
+      "current_chinese_characters": 1769
+    },
+    {
+      "path": "chapters/part-05/chp-paradigm_shift.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2209,
+      "current_chinese_characters": 2209
+    },
+    {
+      "path": "chapters/part-05/chp-first_principles.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 6266,
+      "current_chinese_characters": 6266
+    },
+    {
+      "path": "chapters/part-06/chp-quantization_reality.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4179,
+      "current_chinese_characters": 4179
+    },
+    {
+      "path": "chapters/part-06/chp-static_substrate.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3613,
+      "current_chinese_characters": 3613
+    },
+    {
+      "path": "chapters/part-06/chp-riemannian_base.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4667,
+      "current_chinese_characters": 4667
+    },
+    {
+      "path": "chapters/part-06/chp-microscopic_origins.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 5191,
+      "current_chinese_characters": 5191
+    },
+    {
+      "path": "chapters/part-06/chp-value_gauge_field.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2408,
+      "current_chinese_characters": 2408
+    },
+    {
+      "path": "chapters/part-06/chp-holistic_state.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 5153,
+      "current_chinese_characters": 5153
+    },
+    {
+      "path": "chapters/part-06/chp-cognitive_dynamics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1640,
+      "current_chinese_characters": 1640
+    },
+    {
+      "path": "chapters/part-06/chap-dual_asymmetry.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1447,
+      "current_chinese_characters": 1447
+    },
+    {
+      "path": "chapters/part-06/sec-cognitive_kaluza_klein_compactification.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 5322,
+      "current_chinese_characters": 5322
+    },
+    {
+      "path": "chapters/part-07/chp-microscopic_layer_ch.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 8305,
+      "current_chinese_characters": 8305
+    },
+    {
+      "path": "chapters/part-07/chp-medium_layer_ch.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 8712,
+      "current_chinese_characters": 8712
+    },
+    {
+      "path": "chapters/part-07/chap-material_science_of_cognitive_matter.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2017,
+      "current_chinese_characters": 2017
+    },
+    {
+      "path": "chapters/part-07/chp-physics_of_gauge_source.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3944,
+      "current_chinese_characters": 3944
+    },
+    {
+      "path": "chapters/part-07/chp-macroscopic_layer_ch.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 8398,
+      "current_chinese_characters": 8398
+    },
+    {
+      "path": "chapters/part-07/chp-macro_stability_ig.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 8583,
+      "current_chinese_characters": 9143
+    },
+    {
+      "path": "chapters/part-08/chp-evolution_equation_ch.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 8243,
+      "current_chinese_characters": 8852
+    },
+    {
+      "path": "chapters/part-08/chp-geometry_physics_interaction.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2031,
+      "current_chinese_characters": 2031
+    },
+    {
+      "path": "chapters/part-08/chp-dynamics_kernel_ch.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 7367,
+      "current_chinese_characters": 7367
+    },
+    {
+      "path": "chapters/part-08/chp-many_body_cognitive_field.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 5131,
+      "current_chinese_characters": 5131
+    },
+    {
+      "path": "chapters/part-08/chp-info_geometry_dynamics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2909,
+      "current_chinese_characters": 2909
+    },
+    {
+      "path": "chapters/part-08/chp-rheological_ch.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 5355,
+      "current_chinese_characters": 5355
+    },
+    {
+      "path": "chapters/part-08/chp-cognitive_coherence_dynamics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3059,
+      "current_chinese_characters": 3059
+    },
+    {
+      "path": "chapters/part-08/chp-control_meta_physics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 12668,
+      "current_chinese_characters": 12668
+    },
+    {
+      "path": "chapters/part-08/chp-meaning_turbulence.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 14495,
+      "current_chinese_characters": 14495
+    },
+    {
+      "path": "chapters/part-08/chp-interaction_bus_ch1.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2746,
+      "current_chinese_characters": 2746
+    },
+    {
+      "path": "chapters/part-08/chp-interaction_bus_ch.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4090,
+      "current_chinese_characters": 4090
+    },
+    {
+      "path": "chapters/part-08/chp-lemniscate_ch.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 5215,
+      "current_chinese_characters": 5215
+    },
+    {
+      "path": "chapters/part-08/chp-macro_latent_space_topology.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4716,
+      "current_chinese_characters": 4716
+    },
+    {
+      "path": "chapters/part-08/chp-topological_grand_unification_of_self_reference.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 9737,
+      "current_chinese_characters": 9737
+    },
+    {
+      "path": "chapters/part-08/chp-collective_renorm_ch.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 10355,
+      "current_chinese_characters": 10355
+    },
+    {
+      "path": "chapters/part-08/chp-physics_of_cybernetics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4769,
+      "current_chinese_characters": 4769
+    },
+    {
+      "path": "chapters/part-08/chp-phase_transition_meta.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 8319,
+      "current_chinese_characters": 8319
+    },
+    {
+      "path": "chapters/part-08/chp-cognitive_complementarity.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2149,
+      "current_chinese_characters": 2149
+    },
+    {
+      "path": "chapters/part-08/chap-cognitive_electrodynamics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1975,
+      "current_chinese_characters": 1975
+    },
+    {
+      "path": "chapters/part-08/chap-path_integration_asymmetry.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1544,
+      "current_chinese_characters": 1544
+    },
+    {
+      "path": "chapters/part-08/chp-cognitive_mechanics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1328,
+      "current_chinese_characters": 1328
+    },
+    {
+      "path": "chapters/part-08/chp-analytical_solution_bernoulli.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 6989,
+      "current_chinese_characters": 6989
+    },
+    {
+      "path": "chapters/part-08/chp-cognitive_elliptic_resonator.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 5802,
+      "current_chinese_characters": 5802
+    },
+    {
+      "path": "chapters/part-08/chp-physics_of_conservation_and_dissipation.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 7399,
+      "current_chinese_characters": 7399
+    },
+    {
+      "path": "chapters/part-08/chp-manifold_genesis_trinity_evolution.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 7519,
+      "current_chinese_characters": 7519
+    },
+    {
+      "path": "chapters/part-08/chp-dynamical_reconstruction.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 7346,
+      "current_chinese_characters": 7346
+    },
+    {
+      "path": "chapters/part-08/chp-life_manifold_dynamics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 7223,
+      "current_chinese_characters": 7223
+    },
+    {
+      "path": "chapters/part-08/chp-intelligence_lifecycle.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 6476,
+      "current_chinese_characters": 6476
+    },
+    {
+      "path": "chapters/part-09/chp-purpose_geometric_origin.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3327,
+      "current_chinese_characters": 3327
+    },
+    {
+      "path": "chapters/part-09/chp-self_holomorphic.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4108,
+      "current_chinese_characters": 4108
+    },
+    {
+      "path": "chapters/part-09/chp-fluid_self.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1261,
+      "current_chinese_characters": 1261
+    },
+    {
+      "path": "chapters/part-09/chp-holomorphic_isomorphism_ch.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2035,
+      "current_chinese_characters": 2035
+    },
+    {
+      "path": "chapters/part-09/chp-experience_geometry.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2480,
+      "current_chinese_characters": 2480
+    },
+    {
+      "path": "chapters/part-09/chp-system_synergy.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1523,
+      "current_chinese_characters": 1523
+    },
+    {
+      "path": "chapters/part-09/chp-long_term_planning_and_goal_revision.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2430,
+      "current_chinese_characters": 2430
+    },
+    {
+      "path": "chapters/part-09/chp-phenomenological_physics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 19877,
+      "current_chinese_characters": 20532
+    },
+    {
+      "path": "chapters/part-09/chp-pathology_did.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2266,
+      "current_chinese_characters": 2266
+    },
+    {
+      "path": "chapters/part-09/chap-physics_of_dreams.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3099,
+      "current_chinese_characters": 3099
+    },
+    {
+      "path": "chapters/part-09/chap-geometry_of_oblivion.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2841,
+      "current_chinese_characters": 2841
+    },
+    {
+      "path": "chapters/part-09/chap-geometry_of_oblivion1.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4293,
+      "current_chinese_characters": 4293
+    },
+    {
+      "path": "chapters/part-09/chp-duality_potentiality_actuality.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3905,
+      "current_chinese_characters": 3905
+    },
+    {
+      "path": "chapters/part-09/chp-vacuum_physics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4546,
+      "current_chinese_characters": 4546
+    },
+    {
+      "path": "chapters/part-09/chp-atmosphere_geometric_dynamics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4618,
+      "current_chinese_characters": 4618
+    },
+    {
+      "path": "chapters/part-09/chp-organizational_geometric_dynamics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 8933,
+      "current_chinese_characters": 8933
+    },
+    {
+      "path": "chapters/part-10/chp-evolutionary_taxonomy.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1150,
+      "current_chinese_characters": 1150
+    },
+    {
+      "path": "chapters/part-10/chp-empirical_geometric_dynamics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 5977,
+      "current_chinese_characters": 5977
+    },
+    {
+      "path": "chapters/part-10/chp-biological_intelligence.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 30769,
+      "current_chinese_characters": 30769
+    },
+    {
+      "path": "chapters/part-10/chp-collective_intelligence.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2809,
+      "current_chinese_characters": 2809
+    },
+    {
+      "path": "chapters/part-10/chp-social_artificial_intelligence.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 21011,
+      "current_chinese_characters": 21011
+    },
+    {
+      "path": "chapters/part-10/chap-double_descent.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1863,
+      "current_chinese_characters": 1863
+    },
+    {
+      "path": "chapters/part-10/chp-topology_of_attention_sink.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2825,
+      "current_chinese_characters": 2825
+    },
+    {
+      "path": "chapters/part-10/chp-geometric_thermodynamics_of_scale.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4730,
+      "current_chinese_characters": 4730
+    },
+    {
+      "path": "chapters/part-10/chp-civilization_scaling_law.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 6372,
+      "current_chinese_characters": 6372
+    },
+    {
+      "path": "chapters/part-10/chp-training_paradigm_original_sin.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2605,
+      "current_chinese_characters": 2605
+    },
+    {
+      "path": "chapters/part-10/chp-diffusion_thermodynamics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3800,
+      "current_chinese_characters": 3800
+    },
+    {
+      "path": "chapters/part-10/chp-embodied_intelligence_anatomy.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3703,
+      "current_chinese_characters": 3703
+    },
+    {
+      "path": "chapters/part-10/chp-degeneration_limit_weather_system.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2287,
+      "current_chinese_characters": 2287
+    },
+    {
+      "path": "chapters/part-10/chp-geometry_of_emergence.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 7145,
+      "current_chinese_characters": 7145
+    },
+    {
+      "path": "chapters/part-10/chp-structural_isomorphism_principle.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2317,
+      "current_chinese_characters": 2317
+    },
+    {
+      "path": "chapters/part-11/chp-evolutionary_spectrum.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1473,
+      "current_chinese_characters": 1473
+    },
+    {
+      "path": "chapters/part-11/chp-cognitive_heat_engine_metrics.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1810,
+      "current_chinese_characters": 1810
+    },
+    {
+      "path": "chapters/part-11/chp-pathological_diagnosis.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1608,
+      "current_chinese_characters": 1608
+    },
+    {
+      "path": "chapters/part-11/chp-engineering_implementation.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4285,
+      "current_chinese_characters": 4285
+    },
+    {
+      "path": "chapters/part-11/chp-medium_layer_ch_1.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2478,
+      "current_chinese_characters": 2478
+    },
+    {
+      "path": "chapters/part-11/chap-geometric_computing_engines.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 4160,
+      "current_chinese_characters": 4160
+    },
+    {
+      "path": "chapters/part-11/chp-reverse_cartesian_revolution.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 9588,
+      "current_chinese_characters": 9588
+    },
+    {
+      "path": "chapters/part-11/chp-alpha_hsf_architecture.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 5657,
+      "current_chinese_characters": 5657
+    },
+    {
+      "path": "chapters/part-11/chap-software_control_msos.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 9909,
+      "current_chinese_characters": 10611
+    },
+    {
+      "path": "chapters/part-11/chap-agi_cultivation.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 13940,
+      "current_chinese_characters": 13940
+    },
+    {
+      "path": "chapters/part-11/chp-synthetic_affective_engineering.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2119,
+      "current_chinese_characters": 2119
+    },
+    {
+      "path": "chapters/part-11/chp-hierarchical_control_engineering.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 7204,
+      "current_chinese_characters": 7204
+    },
+    {
+      "path": "chapters/part-11/chp-cloud_edge_synergy.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1521,
+      "current_chinese_characters": 1521
+    },
+    {
+      "path": "chapters/part-11/chp-interconnection_engineering.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2708,
+      "current_chinese_characters": 2708
+    },
+    {
+      "path": "chapters/part-11/chp-gaia_engineering_the_machine.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3470,
+      "current_chinese_characters": 3470
+    },
+    {
+      "path": "chapters/part-11/chp-fluid_swarm_engineering.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 7033,
+      "current_chinese_characters": 7033
+    },
+    {
+      "path": "chapters/part-11/chp-hive_evolution_engineering.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1631,
+      "current_chinese_characters": 1631
+    },
+    {
+      "path": "chapters/part-11/sec-isomorphism_map.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2806,
+      "current_chinese_characters": 2806
+    },
+    {
+      "path": "chapters/part-11/chp-topological_biogenesis.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 5725,
+      "current_chinese_characters": 5725
+    },
+    {
+      "path": "chapters/part-11/chapter-108.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1285,
+      "current_chinese_characters": 1285
+    },
+    {
+      "path": "chapters/part-11/chp-conclusion.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 15644,
+      "current_chinese_characters": 15644
+    },
+    {
+      "path": "appendices/sec-section_4647.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 431,
+      "current_chinese_characters": 431
+    },
+    {
+      "path": "appendices/chp-cpd_standard_model.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3527,
+      "current_chinese_characters": 3527
+    },
+    {
+      "path": "appendices/chp-fluid_moe_math_blueprint.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1325,
+      "current_chinese_characters": 1325
+    },
+    {
+      "path": "appendices/app-adiabatic_backprop.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 3713,
+      "current_chinese_characters": 3713
+    },
+    {
+      "path": "appendices/sec-section_8308.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 442,
+      "current_chinese_characters": 442
+    },
+    {
+      "path": "appendices/sec-section_7739.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 685,
+      "current_chinese_characters": 685
+    },
+    {
+      "path": "appendices/sec-section_9411.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 1015,
+      "current_chinese_characters": 1015
+    },
+    {
+      "path": "appendices/sec-section_5204.tex",
+      "original_exposition_preserved": true,
+      "baseline_chinese_characters": 2628,
+      "current_chinese_characters": 3136
+    }
+  ]
+}

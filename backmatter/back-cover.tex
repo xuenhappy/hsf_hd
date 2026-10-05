@@ -1,9 +1,10 @@
-% ========== 插入封底页 ==========
-\newpage                % 确保封底另起一页
-\newgeometry{margin=0cm}            % 临时将页边距设为 0
-\thispagestyle{empty}               % 清除页眉页脚（包括页码）
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio=false]{figure/back.png}
+\clearpage
+\newgeometry{margin=0pt}
+\thispagestyle{empty}
+\vspace*{0pt}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\paperwidth,height=0.97\paperheight,keepaspectratio]{figure/back.png}
 \end{figure}
-\restoregeometry                    % 恢复原有页边距
+\clearpage
+\restoregeometry

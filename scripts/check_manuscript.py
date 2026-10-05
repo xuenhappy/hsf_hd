@@ -79,7 +79,12 @@ def visual_source(block):
             if block[end] == '}' and block[end - 1] != '\\': depth -= 1
             end += 1
         pos = end
-    return '\n'.join(line.rstrip() for line in (out + block[pos:]).strip().splitlines())
+    out = out + block[pos:]
+    # Layout may change; drawing commands, asset paths and labels must survive.
+    out = re.sub(r'\\begin\{figure\}(?:\[[^]]*\])?', r'\\begin{figure}', out)
+    out = re.sub(r'(\\includegraphics)\[[^]]*\]', r'\1', out)
+    out = re.sub(r'\\begin\{adjustbox\}\{[^\n]*\}\s*|\\end\{adjustbox\}', '', out)
+    return re.sub(r'\s+', '', out)
 
 current = collections.Counter(hashlib.sha256(visual_source(x).encode()).hexdigest() for x in figs)
 baseline = json.loads((ROOT / 'docs/figure-baseline.json').read_text())
@@ -87,12 +92,27 @@ baseline_source = subprocess.check_output(['git', 'show', f'{manifest["baseline"
 original_figs = re.findall(r'\\begin\{figure\}(?:\[[^]]*\])?.*?\\end\{figure\}', baseline_source, re.S)
 old = collections.Counter(hashlib.sha256(visual_source(x).encode()).hexdigest() for x in original_figs)
 errors += [f'Original figure no longer compiled: {key}' for key, count in (old - current).items() for _ in range(count)]
+# Verify original binary/image/TikZ asset bytes, independently of presentation.
+original_assets = set(re.findall(r'\\(?:includegraphics|logo)(?:\[[^]]*\])?\{([^}]+)\}', baseline_source))
+original_assets.add('figure/tdci.tex')
+asset_bytes_verified = 0
+for asset in sorted(original_assets):
+    baseline_blob = subprocess.check_output(['git','rev-parse',f'{manifest["baseline"]}:{asset}'],cwd=ROOT).strip()
+    current_blob = subprocess.check_output(['git','hash-object',asset],cwd=ROOT).strip()
+    if baseline_blob != current_blob:
+        errors.append(f'Original visual asset modified: {asset}')
+    else:
+        asset_bytes_verified += 1
+old_captions = collections.Counter(x.strip() for x in re.findall(r'\\caption\{([^\n]+)', '\n'.join(original_figs)))
+new_captions = collections.Counter(x.strip() for x in re.findall(r'\\caption\{([^\n]+)', '\n'.join(figs)))
 counts = {
     'numbered_chapters': len(re.findall(r'\\chapter\{', active)),
     'parts': len(re.findall(r'\\part\{', active)),
     'volumes': len(re.findall(r'\\bookvolume\{', active)),
     'original_figure_blocks_preserved': sum((old & current).values()),
-    'original_figures_with_revised_captions': sum(x not in original_figs for x in figs),
+    'original_figures_with_layout_adjustments': sum(x not in original_figs for x in figs),
+    'original_figures_with_revised_captions': sum((old_captions-new_captions).values()),
+    'original_visual_assets_byte_verified': asset_bytes_verified,
     'figure_blocks': len(figs), 'labels': len(labels), 'reference_targets': len(set(refs)),
     'chapter_status': dict(collections.Counter(r['status'] for r in manifest['chapters'])),
 }

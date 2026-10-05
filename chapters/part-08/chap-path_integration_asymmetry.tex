@@ -50,9 +50,10 @@ $$ \text{Cost}(\gamma) = \int_{\gamma} \left( \sqrt{g_{\mu\nu} \dot{x}^\mu \dot{
 之所以不同主要原因有二，第一两个方向在高维黎曼流形上本身就是两个不同的路径，$H(x|y)$是已知$y$的语境作为起点，生成$x$的语境作为终点，后者反之两者本身就是起始不同的路径，自然意味着难度不同；
 第二是两者在规范场内的方向与规范场规定的方向也不一致，总和二者加一起造就了对于一个智能体而言不同方向上的思维难易度不一样；
 
-\begin{figure}[h]
+\begin{figure}[htbp]
     \centering
-    \begin{tikzpicture}
+    \begin{adjustbox}{max width=0.98\linewidth,max totalheight=0.72\textheight}
+\begin{tikzpicture}
         % 定义点 A 和 B
         \node (A) at (0,0) [circle, fill=blue!20, draw=blue, thick] {A};
         \node (B) at (6,0) [circle, fill=red!20, draw=red, thick] {B};
@@ -66,6 +67,7 @@ $$ \text{Cost}(\gamma) = \int_{\gamma} \left( \sqrt{g_{\mu\nu} \dot{x}^\mu \dot{
         % 规范场风向
         \draw[->, dashed, gray] (1, -1) -- (5, -1) node[right] {$\vec{E}$ (规范场/热力学箭头)};
     \end{tikzpicture}
+\end{adjustbox}
     \caption{双路径模型：顺流的生成与逆流的推理形成了一个非零面积的回路（磁滞环）。}
 \end{figure}
 

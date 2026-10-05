@@ -1,0 +1,35 @@
+\chapter{记忆与时间：活动维持、历史积累与结构学习}
+\label{chp:phenomenological_physics}
+% Compatibility anchors: old section references resolve to this chapter.
+\label{sec:section_9311}
+\label{sec:recall_dynamics}
+\label{sec:section_8767}
+\label{sec:psychological_illusion_of_time}
+\label{sec:geometry_of_qualia}
+\label{sec:section_6647}
+\label{sec:ontogenesis_of_observer}
+\label{sec:consciousness_closed_loop}
+\label{sec:consciousness_macro_structure_summary}
+\label{subsec:cosmic_recursion_hypothesis}
+\label{sec:section_1098}
+\label{sec:geometric_illusion_of_time_flow}
+
+我们将记忆区分为当前活动的维持、历史经历的积累和可复用结构的学习。这种区分首先依据更新机制和作用时间，而不是物理相态。
+\section{工作状态与有限维持}
+令 $x$ 为当前工作状态，模型 $\dot x=-Ax+Bu+Kx$ 表示输入与重入共同维持活动。工作状态能否持续取决于 $-A+K$ 的谱及输入条件。仅使谱接近零可能延长保持时间，也可能放大噪声；持久维持需要控制与资源约束共同分析。
+\section{历史记忆与指数积累}
+给定状态特征 $\varphi(x)$，我们定义 $\dot m=-\lambda m+\varphi(x)$，$\lambda>0$。积分因子给出
+\begin{equation}m(t)=e^{-\lambda(t-t_0)}m(t_0)+\int_{t_0}^t e^{-\lambda(t-s)}\varphi(x(s))\,ds.\end{equation}
+这是一种衰减历史摘要，不保留所有经历的完整顺序。需要事件顺序时，可以采用带时间戳的离散事件记录；二者在信息保真度、检索成本与更新延迟上不同。
+\section{结构学习与持续适应}
+结构更新 $\dot S=-\varepsilon_S\nabla_S\mathcal J(S;m)$ 使用历史证据改变未来处理规则。当前活动、历史积累和结构学习形成闭环；在 AgentOS 中，它们分别由工作记忆 $h(t)$、情景记忆 $E$ 和结构记忆 $\Theta$ 的机制实例化，而不是简单的三个存储位置。
+\section{计算时间与结构时间}
+计算时间记录更新顺序和延迟，事件时间记录外部发生顺序。若要定义结构变化量，可取
+\begin{equation}\tau_S(t)=\int_{t_0}^t\|\dot S(s)\|_W\,ds,\end{equation}
+其中范数和参数化必须固定。它描述结构轨迹的累积长度，不天然等于主观时间；参数重写后保持不变需要适当的几何度量。关于时间体验的解释仍需独立经验检验。
+\section{体验与自我模型的边界}
+我们可以建模自我相关的筛选、价值评价和历史连续性，但不能由这些计算功能直接证明主观感受存在。体验研究需要在可观测行为、报告与内部机制之间建立可反驳的联系。
+
+\section{表示与示意图}
+我们保留以下示意图以展示原有结构关系。图中历史物理术语遵循阅读约定中的计算解释；图的形式相似性不代替本章的假设、推导和验证。
+\input{figures/preserved/chp-phenomenological_physics.tex}

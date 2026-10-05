@@ -2,7 +2,7 @@
 
 本项目研究智能系统的状态、结构、历史与控制如何在有限资源下共同演化。HSF-HD 位于系统科学与具体运行时架构之间，AgentOS 是其重要工程实例。
 
-当前版本是模块化重构工作稿，保留三卷十一篇、109 个正文章和 8 个附录章。前言、绪论和 16 个核心章已按计算动力学重写；其余 101 章完成完整迁移，仍待逐章内容修订。详见 [重构状态](docs/REFACTOR_STATUS.md) 和 [写作规范](docs/EDITORIAL_STANDARD.md)。
+当前版本为完整内容恢复工作稿：保留三卷十一篇、109 个正文章和 8 个附录章，恢复原有序言、前言与卷/篇引言，保留独立绪论，并在 16 章增补计算动力学分析。全书逐节去物理化仍待完成，不能把增补分析视为完整改写。详见 [重构状态](docs/REFACTOR_STATUS.md) 和 [写作规范](docs/EDITORIAL_STANDARD.md)。
 
 ## 编译
 
@@ -18,7 +18,7 @@ apt-get install texlive-xetex texlive-latex-extra texlive-lang-chinese texlive-l
 
 ```sh
 make check       # 主编译图、标签、资源与插图完整性
-make smoke       # 新理论主线的快速审阅版本
+make smoke       # 第一卷审阅本（不是全书）
 make book        # 全书
 ```
 
@@ -37,7 +37,7 @@ make book        # 全书
 | appendices/ | 附录装配与独立附录 |
 | backmatter/ | 后置内容 |
 | figure/、image/ | 原有图像、TikZ 与 PDF，保留原路径 |
-| figures/preserved/ | 核心章节保留的原图环境 |
+| figures/preserved/、drafts/previous-condensed/ | 上轮压缩稿与抽取图的历史材料，不参与主书编译 |
 | docs/ | 章节清单、迁移证据、理论规范与审核状态 |
 | scripts/ | 结构迁移与检查工具 |
 

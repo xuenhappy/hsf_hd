@@ -1,13 +1,10 @@
-% 临时设置当前页面的边距为0
-\newgeometry{margin=0cm}
-% 取消当前页面的页码
+\clearpage
+\newgeometry{margin=0pt}
 \thispagestyle{empty}
-% 插入图片，并让它占满整个文本区域
-\begin{figure}[p]
-    \centering
-    \includegraphics[width=\paperwidth, height=\paperheight, keepaspectratio=false]{figure/cover-book.png}
+\vspace*{0pt}
+\begin{figure}[H]
+\centering
+\includegraphics[width=\paperwidth,height=0.97\paperheight,keepaspectratio]{figure/cover-book.png}
 \end{figure}
-% 恢复全局的页面设置
+\clearpage
 \restoregeometry
-% 新起一页，继续文档的其他内容
-\newpage
