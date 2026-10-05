@@ -349,9 +349,16 @@
       "source_start_line": 5123,
       "source_end_line": 5322,
       "source_sha256": "e9386dd8e229a53cfd028d4f0b7d609af026627973a01932e15866ffbf99ab4a",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "partial_draft": "docs/drafts/chapter-019-value-constraint-dynamics.tex",
+      "draft_checkpoint": "docs/drafts/chapter-019-checkpoint.md",
+      "new_title": "价值约束动力学：目标偏置、路径代价与规范更新",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-06/chp-holistic_state.tex",

@@ -1,9 +1,9 @@
 {
-  "pages": 114,
-  "bytes": 16621759,
+  "pages": 118,
+  "bytes": 16661153,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 84,
+  "numbered_sections": 88,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -594,7 +594,35 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "19.1 从事实状态到规范状态：方向来自目标与约束",
+      "start_pdf_page": 115,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "19.2 价值分解：目标、风险、语境与资源耦合",
+      "start_pdf_page": 116,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "19.3 复合规范结构：冲突、优先序与可修订承诺",
+      "start_pdf_page": 116,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "19.4 方向相关路径代价：连续模型、离散实现与适用边界",
+      "start_pdf_page": 117,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 18 chapters; does not validate the full book."
+  "scope": "Review subset: 19 chapters; does not validate the full book."
 }

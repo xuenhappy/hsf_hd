@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 18,
-  "pending_chapters": 99,
+  "rewritten_chapters": 19,
+  "pending_chapters": 98,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -636,33 +636,33 @@
     {
       "order": 19,
       "path": "chapters/part-06/chp-value_gauge_field.tex",
-      "title": "价值规范场 — 目的论的动力学偏置",
-      "status": "queued-for-full-rewrite",
+      "title": "价值约束动力学：目标偏置、路径代价与规范更新",
+      "status": "rewritten-reviewed",
       "original_han_floor": 2408,
-      "new_chapter_prose_han": 2304,
+      "new_chapter_prose_han": 4641,
       "original_readable_units": 2352,
-      "new_readable_units": 2352,
-      "opening_prose_han": 208,
+      "new_readable_units": 4665,
+      "opening_prose_han": 272,
       "sections": [
         {
-          "title": "主观的风向：规范势 (\\texorpdfstring{$\\mathcal{A}_\\mu$}{A}) 的引入",
-          "prose_han": 304
+          "title": "从事实状态到规范状态：方向来自目标与约束",
+          "prose_han": 1058
         },
         {
-          "title": "场的物理成分分解",
-          "prose_han": 322
+          "title": "价值分解：目标、风险、语境与资源耦合",
+          "prose_han": 1107
         },
         {
-          "title": "规范场的语义结构：从物理量到认知力",
-          "prose_han": 966
+          "title": "复合规范结构：冲突、优先序与可修订承诺",
+          "prose_han": 1092
         },
         {
-          "title": "几何效应：兰德斯度量与各向异性的时空",
-          "prose_han": 504
+          "title": "方向相关路径代价：连续模型、离散实现与适用边界",
+          "prose_han": 1112
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
