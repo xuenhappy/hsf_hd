@@ -1,560 +1,127 @@
 \chapter{结构化生成：从输入描述到可执行结果}
 \label{chp:generative_creation}
 
-如果说第九章给出了引擎（MST）的结构，那么第十章处理的是它的运行流程。我们从经典的 \textbf{文本到图像 (Text-to-Image, T2I)} 任务入手，说明 MSC 范式如何把“意义”转译为可渲染的结构场与属性场。这一章关注的是\textbf{“意义如何物质化”}。
+上一章建立了结构位置与内容记录之间的联合注意力，本章进一步追问：当系统收到一句自然语言、一个观测样本或一段持续任务说明时，怎样把条件表示变成可以检查、修订和执行的结果？我们把生成理解为受约束的状态构造过程，而不是把语义“物质化”的神秘跃迁。生成器必须同时维护对象身份、关系、属性、时间版本与读出接口；任一层发生改变，相关约束和评价指标都应随之更新。文本到图像、图像到文本和视频生成只是这一模型族的三个实例，它们不能代表全部智能，也不能仅凭输出逼真度证明系统已经理解世界。我们将以“红苹果位于木桌上”这一旧例贯穿推导，并把理型、范畴和现象学的历史讨论改写为关于不变量、架构先验与交互可辨识性的计算问题。由此，HSF-HD 所研究的是一般智能状态如何在条件、约束与反馈下演化；MST 是一种联合表示部件，而 AgentOS 才是在具体工程中组织记忆、调度、边界和外部执行的实例。
 
-
-\begin{bquote}
-        \textbf{本体论暴涨}
-
-    \vspace{1em}当我们在提示框里输入 "A red apple" 时，模型内部究竟发生了什么？
-
-    \vspace{1em}在传统 AI（如 Stable Diffusion）里，T2I 通常被视为\textbf{统计去噪过程}：从噪声逐步逼近符合文本条件的像素分布。这一范式在纹理细节上很强，但在结构一致性上常出现问题，例如手指数量异常、透视扭曲、物理关系不稳定。MSC 的看法不同：T2I 不只是去噪，而是把文本中的压缩描述展开为可计算的高维结构，再由结构生成观测图像。
-
-
-    \vspace{1em}因此，本章采用三步流程：\textbf{先立其骨（构建拓扑流形），后充其肉（注入纤维能量），最后渲染观测结果。}
-
-\end{bquote}
-
-
-
-
-\section{文本到图像 (T2I) 的 MSC 范式：解耦与重构}
+\section{条件生成：从描述解析到结构化读出}
 \label{sec:text_image_msc}
 
-MSC 范式的核心原则是：\textbf{不直接从文字跳到像素，而是先生成“形质张量”，再把张量投影为像素。}
+我们先定义生成问题的对象。设输入描述为 $u\in\mathcal U$，解析器输出带类型的需求记录 $R(u)=(V_u,E_u,A_u,C_u)$：$V_u$ 是对象声明集合，$E_u$ 是关系声明集合，$A_u$ 是按对象身份索引的属性集合，$C_u$ 是显式约束与未决条件集合。对于“一只红苹果放在木桌上”，对象不是两个无来源的向量，而是带稳定标识的 $v_a=\langle\texttt{apple},\texttt{id}=a\rangle$ 与 $v_t=\langle\texttt{table},\texttt{id}=t\rangle$；关系是 $\texttt{on}(a,t)$，属性是 $\texttt{color}(a)=\texttt{red}$ 与 $\texttt{material}(t)=\texttt{wood}$。语句没有给出桌面尺寸、视角、光照和精细形状，这些都必须标记为缺省变量或待采样变量，不能在解析阶段伪装成已经由文本确定的事实。否定、量词、指代和歧义也要进入记录，例如“不是红桌子”约束的是属性绑定，而不是简单删除词向量。
 
-我们将这一过程分解为三个严格的数学阶段：\textbf{语义解析 (Parsing)} $\to$ \textbf{流形构建 (Construction)} $\to$ \textbf{物理渲染 (Rendering)}。
+生成状态记为 $Y=(G,X,Z,M)$。其中 $G=(V,E)$ 是离散结构图，$X\in\mathbb R^{n\times d_x}$ 是与 $n$ 个结构位置对齐的连续属性，$Z$ 是面向具体读出器的潜在表示，$M$ 保存身份、来源、置信区间、单位和版本。这里的数值没有默认物理单位：像素坐标可用归一化图像单位，三维场景坐标必须声明长度单位，颜色可以位于规定色域，置信度才位于 $[0,1]$。我们定义合法集合
+\begin{equation}
+  \mathcal C(u)=\{Y:\;c_j(Y,R(u))\le 0,\ j=1,\ldots,J,\quad e_k(Y,R(u))=0,\ k=1,\ldots,K\},
+\end{equation}
+其中不等式可表达边界、遮挡预算或最小间距，等式可表达身份绑定和确定关系。若 $\mathcal C(u)=\varnothing$，正确行为是报告冲突并返回最小冲突集，而不是生成一张看似合理却违背输入的图像。比如同时要求苹果完全位于桌面上、苹果直径大于桌面宽度且不允许悬垂，在给定几何模型下可能不可行；系统应指出是哪三项约束共同导致不可行。
 
+在合法集合非空时，我们把候选构造写为
+\begin{equation}
+  Y^*\in\arg\min_{Y\in\mathcal C(u)}
+  \mathcal J(Y;u)=\lambda_r L_{\mathrm{req}}+\lambda_s L_{\mathrm{struct}}
+  +\lambda_a L_{\mathrm{attr}}+\lambda_q L_{\mathrm{readout}},
+\end{equation}
+各损失先分别无量纲化，权重 $\lambda_\bullet\ge0$ 才能比较。$L_{\mathrm{req}}$ 衡量显式要求是否满足，$L_{\mathrm{struct}}$ 衡量关系与布局冲突，$L_{\mathrm{attr}}$ 衡量属性绑定，$L_{\mathrm{readout}}$ 衡量输出域质量。这个式子是工程目标定义，不保证极小点唯一，也不意味着目标下降必然带来用户任务成功。离散图编辑与连续属性优化可以交替进行，但每次图结构改变后，目标的定义域、掩码和候选集合都可能改变；只有在同一目标、同一约束集并且每一步确实不增目标的条件下，才能声称目标序列单调。
 
+从描述到图像时，结构读出器先把 $G$ 与 $X$ 转为布局、深度、遮挡顺序和区域身份，再由渲染读出器 $D_{\mathrm{img}}(Y,\xi)$ 产生图像，$\xi$ 表示视角、随机种子和渲染配置。旧叙述中的“先造骨、后填肉”在这里仅表示一种模块化计算顺序：先确定任务相关的关系支持，再将属性绑定到身份明确的位置，最后读出。它不是关于世界本体的断言，也不要求所有生成系统都采用双塔。端到端扩散模型同样可以通过交叉注意力、控制网络、显式布局或采样校正满足结构条件；结构化方案的优势必须以关系准确率、属性绑定错误率、可编辑性和失败报告质量来检验，不能用“构造优于概率”作先验结论。
 
-\smalltitle{第一阶段：语义解析 — 形质分离 (Phase I: Morpho-Semantic Separation)}
-
-
-当我们面对 Prompt：“\textit{一只红色的苹果放在木质桌子上 (A red apple on a wooden table)}”时，MST 的双塔编码器首先将其撕裂为两组正交的元素。
-
-\begin{itemize}
-        \item   \textbf{形元提取 ($V_S$)}：通过句法依存分析（Dependency Parsing）提取\textbf{关系骨架}。
-
-        \begin{itemize}
-                \item   \textit{输出}：\lstinline|[实体: Apple]|, \lstinline|[实体: Table]|, \lstinline|[关系: On(Apple, Table)]|。
-                \item   \textit{物理意义}：确定了底流形 $\mathcal{M}$ 的\textbf{拓扑结构}（两个节点，一条有向边）。
-        \end{itemize}
-
-
-        \item   \textbf{质元提取 ($V_Q$)}：通过语义嵌入提取\textbf{属性纤维}。
-        \begin{itemize}
-                \item   \textit{输出}：\lstinline|Apple: {Color: Red, Shape: Round}|, \lstinline|Table: {Material: Wood, Texture: Grain}|。
-                \item   \textit{物理意义}：确定了纤维空间 $F$ 中的\textbf{激发向量}。
-        \end{itemize}
-\end{itemize}
-
-
-
-\smalltitle{第二阶段：流形构建 — 骨架搭建 (Phase II: Manifold Construction)}
-
-
-现在，\textbf{形塔 (Shape Tower)} 开始工作。它不处理颜色，只处理几何。它利用形元在潜空间中构建一个 \textbf{无色的物理场骨架}。
-
-\begin{itemize}
-        \item   \textbf{布局生成 (Layout Generation)}:根据 \lstinline|[On]| 关系，模型推断出几何约束：
-    $$ y_{Apple} > y_{Table} \quad \text{AND} \quad \text{Contact}(Apple, Table) = \text{True} $$
-
-        \item   \textbf{场初始化}:生成一个\textbf{符号距离场 (SDF)} 或 \textbf{体素网格 (Voxel Grid)}。
-        \begin{itemize}
-                \item   区域 $\Omega_A$：被标记为“苹果的领地”。
-                \item   区域 $\Omega_B$：被标记为“桌子的领地”。
-                \item   \textit{注意}：此时这些区域是透明的，只有\textbf{密度}和\textbf{边界}，没有颜色。
-        \end{itemize}
-
-\end{itemize}
-
-
-
-\smalltitle{第三阶段：纤维注入 — 质料填充 (Phase III: Fiber Injection)}
-
-
-接着，\textbf{质塔 (Quality Tower)} 介入。它将提取出的质元注入到对应的几何区域中。
-
-\begin{itemize}
-        \item   \textbf{注入方程}：
-    $$ \Psi(\mathbf{r}) = \begin{cases} \mathbf{v}_{red} \oplus \mathbf{v}_{apple\_tex} & \text{if } \mathbf{r} \in \Omega_A \\ \mathbf{v}_{wood} \oplus \mathbf{v}_{brown} & \text{if } \mathbf{r} \in \Omega_B \end{cases} $$
-
-        \item   \textbf{扩散与平滑}：利用\textbf{形质融合注意力}，质料在几何骨架内部扩散。
-        \begin{itemize}
-                \item   “木质纹理”会自动适应桌子的平面几何，沿着表面流动;
-                \item   “红色光泽”会自动适应苹果的球体曲率，形成高光;
-        \end{itemize}
-
-\end{itemize}
-
-
-
-\smalltitle{第四阶段：物理渲染 — 观测坍缩 (Phase IV: Physical Rendering)}
-
-
-最后，我们得到了一个完整的\textbf{形质张量场 $\Psi_{total}$}。现在需要一个\textbf{解码器 (Decoder)} 将其“坍缩”为人类可读的 RGB 图像。
-
-\begin{itemize}
-        \item   \textbf{光照模拟}：引入一个虚拟光源（环境）。
-        \item   \textbf{渲染方程}：
-        $$ I(x, y) = \int_{\text{ray}} \Psi(\mathbf{r}) \cdot \text{Light}(\mathbf{r}) \, d\mathbf{r} $$
-                这相当于在 MST 内部运行了一个神经渲染器（Neural Renderer）。
-\end{itemize}
-
-
-
-\smalltitle{MSC-T2I 推理管线代码}
-
-
-为了让这一理论落地，我们设计如下的 Python 类结构。这展示了如何通过代码实现“先造骨，后填肉”的逻辑。
-
-\begin{lstlisting}
-import torch
-import torch.nn as nn
-
-class MSC_Text2Image_Pipeline(nn.Module):
-    """
-    形质构成论 T2I 生成管线
-    区别于 Diffusion，这是基于 Structural Generation 的
-    """
-    def __init__(self, mst_model, renderer):
-        super().__init__()
-        self.mst = mst_model       # 第九章定义的 MST 模型
-        self.renderer = renderer   # 神经渲染器 (如 NeRF decoder 或 VAE decoder)
-
-    def parse_prompt(self, prompt):
-        """
-        阶段 I: 语义解析
-        将自然语言拆解为 Shape Graph 和 Quality Dict
-        """
-        # 这里可以使用现有的 NLP 工具 (如 spaCy) 辅助构建图
-        # 伪代码：
-        # graph = DependencyParser(prompt)
-        # shape_tokens = graph.extract_relations()
-        # quality_tokens = graph.extract_attributes()
-
-        # 模拟输出：
-        shape_input = {
-            'nodes': ['apple', 'table'],
-            'edges': [('apple', 'on', 'table')]
-        }
-        quality_input = {
-            'apple': ['red', 'round', 'fruit'],
-            'table': ['wooden', 'brown', 'furniture']
-        }
-        return shape_input, quality_input
-
-    def construct_manifold(self, shape_input):
-        """
-        阶段 II: 流形构建 (形塔工作)
-        生成 3D 布局或 2D 掩码 (Masks)
-        """
-        # MST 的 Shape Encoder + Manifold Head
-        # 输出：[Batch, H, W, D_shape] (几何张量，包含物体ID、深度、法线)
-        layout_tensor = self.mst.generate_layout(shape_input)
-        return layout_tensor
-
-    def inject_fibers(self, layout_tensor, quality_input):
-        """
-        阶段 III: 纤维注入 (形质融合)
-        将语义属性填充进几何张量
-        """
-        # MST 的 Fusion Layer
-        # 根据 layout 中的物体 ID，去 quality_input 中查找对应的质向量
-        # 并执行空间广播 (Broadcasting)
-
-        # 输出：[Batch, H, W, D_total] (形质纠缠场)
-        # 这个张量的每个像素点都包含了：我是什么形状 + 我是什么材质
-        morpho_semantic_field = self.mst.fuse(layout_tensor, quality_input)
-        return morpho_semantic_field
-
-    def forward(self, prompt):
-        # 1. 解析
-        shape_in, qual_in = self.parse_prompt(prompt)
-
-        # 2. 造骨 (Where)
-        layout = self.construct_manifold(shape_in)
-
-        # 3. 填肉 (What)
-        field = self.inject_fibers(layout, qual_in)
-
-        # 4. 渲染 (Collapse to RGB)
-        # 将高维场投影到 3通道 RGB
-        image = self.renderer(field)
-
-        return image, layout # 同时返回图像和结构图(可解释性)
-\end{lstlisting}
-
-\smalltitle{与 Stable Diffusion 的本质区别}
+对于苹果例，最小验收集合至少包括：苹果身份在所有中间状态中不与桌子交换；红色绑定到苹果而非桌子；$\texttt{on}(a,t)$ 被操作化为接触或支撑关系，而不是仅比较二维纵坐标；改变苹果颜色时桌面材质保持不变；改变视角时对象身份和三维关系保持一致。生成一幅漂亮图像只验证读出结果的一次样本，不能验证内部图与真实场景严格同构。结构状态应作为可检查的中间产物返回，使人或后续程序能够修改 $G$、$X$ 或 $C_u$ 后重算，而不是只能反复改写提示词。
 
 \begin{table}[htbp]
   \centering
-  \caption{Stable Diffusion 与 MSC-T2I 的对比}
+  \caption{两类实现路线的可检验差异，而非本体优劣}
   \label{tab:sd-vs-msc}
-  \begin{tabular}{@{}p{0.15\textwidth} p{0.4\textwidth} p{0.4\textwidth}@{}}
-\toprule
-\rowcolor{structurecolor!20} \textbf{维度} & \textbf{Stable Diffusion (现有范式)} & \textbf{MSC-T2I (新范式)} \\
-\midrule
-\textbf{生成逻辑} & \textbf{概率去噪} (从混沌中猜) & \textbf{构造组装} (像搭积木一样建) \\
-\textbf{可控性} & \textbf{弱} (很难精确控制“苹果在桌子左边”) & \textbf{强} (直接操作形元修改布局) \\
-\textbf{属性绑定} & \textbf{弱} (容易画出“红色的桌子”) & \textbf{强} (纤维注入保证红只流向苹果) \\
-\textbf{物理一致性} & \textbf{差} (光影可能错误，手指数不清) & \textbf{好} (基于物理场渲染，拓扑正确) \\
-\textbf{数学本质} & $P(x \mid \text{text})$ 的统计拟合 & $\text{Shape} \otimes \text{Quality}$ 的代数运算 \\
-\bottomrule
-\end{tabular}
+  \begin{tabular}{@{}p{0.17\textwidth}p{0.36\textwidth}p{0.39\textwidth}@{}}
+    \toprule
+    \textbf{比较项} & \textbf{隐式条件生成} & \textbf{显式结构化生成} \\
+    \midrule
+    条件承载 & 条件分布与潜变量中隐式编码 & 类型图、属性表与连续状态共同承载 \\
+    局部修改 & 依赖重采样或额外控制模块 & 可在身份与约束不变时编辑指定字段 \\
+    失败可见性 & 常需从最终样本反推原因 & 可分别报告解析、可行性、绑定和读出失败 \\
+    正确性边界 & 高样本质量不蕴含关系正确 & 中间结构正确也不蕴含最终感知质量 \\
+    \bottomrule
+  \end{tabular}
 \end{table}
 
-\textbf{本节总结}：
-MSC 范式的 T2I 不只是生成一张图，而是先生成一个可解释的结构场，再把它渲染成图像。其关键是\textbf{结构优先}：先确定几何与关系，再分配属性与纹理，从而提高可控性与逻辑一致性。
-
-
-
-\section{图像到文本 (I2T) 的 MSC 范式：视觉逆解构}
+\section{逆向生成：从观测分解到有依据的描述}
 \label{sec:image_text_msc}
 
-在传统多模态模型（如 CLIP + LLM）中，图像常被整体压缩为单向量表示，这会损失关键\textbf{结构信息}。
+图像到文本不是前一过程的数学逆函数。一个二维观测可以由许多三维场景、光照条件和相机参数产生，遮挡区域更没有唯一解，因此从图像 $I$ 恢复场景状态是欠定推断。我们令观测 $o\in\mathcal O$，候选隐状态仍写为 $Y=(G,X,Z,M)$，观测模型为 $p_\phi(o\mid Y)$，先验或任务约束为 $p(Y\mid c)$。在模型假设成立时，后验满足
+\begin{equation}
+  p(Y\mid o,c)=\frac{p_\phi(o\mid Y)p(Y\mid c)}
+  {\int_{\mathcal Y}p_\phi(o\mid \widetilde Y)p(\widetilde Y\mid c)\,d\widetilde Y}.
+\end{equation}
+若 $Y$ 同时包含离散图和连续变量，分母应理解为对离散候选求和、对连续分量积分。公式说明描述来自证据与先验的联合，而不是把像素“退相干”为唯一真相。实际系统可以用检测器、分割器、深度估计器和关系头近似这一后验，但每个部件都带有训练分布、传感器分辨率与标注体系的限制。
 
-MSC 提出：\textbf{“看”不仅是压缩，更是解离。} 理解图像可视为把观测结果\textbf{退相干 (Decoherence)} 为\textbf{形骨架}与\textbf{质纤维}。
+我们将输出分为观测事实、模型推断和未决项。观测事实是能够从当前输入直接定位的区域、边缘、颜色统计或时间变化；模型推断包括“该区域是苹果”“桌面支撑苹果”和“材质是木质”；未决项包括被遮挡背面、真实质量、内部结构与图像外事件。元数据 $M$ 为每条陈述保存证据索引 $e_i$、来源模型 $s_i$、置信度 $q_i$ 和版本 $v_i$。文本解码器只能使用获得授权的记录集合，句子中的名词、属性和关系必须回指相同身份。例如形状检测认为区域 $r_1$ 是圆形物体，颜色模块在 $r_1$ 上检测到红色，而分类器认为 $r_1$ 可能是苹果或红球，则合理描述是“桌上有一个红色圆形物体，模型更倾向于苹果”，而不是把最高分标签写成无条件事实。
 
+局部结构网络与全局分布表示在这里承担不同作用。场景图保存对象身份、空间邻接、支撑和遮挡等离散关系，便于检查组合约束；全局向量保存风格、整体语境和难以逐项命名的统计特征，便于召回相似经验与生成连贯语言。二者并非脑区映射，也不是互相排斥的两种智能。联合接口需要任务相关身份矩阵 $B\in\{0,1\}^{n\times m}$ 或软绑定 $B\in[0,1]^{n\times m}$，把 $n$ 个图节点与 $m$ 个区域记录关联起来。若采用软绑定，应规定行归一化或允许“无匹配”槽位；若同一纹理区域可能覆盖多个节点，也不能强制列唯一。全局上下文可以调整候选概率，却不应无证据地创造局部对象。
 
+描述生成可写为带证据约束的序列模型。设第 $t$ 个词元为 $w_t$，已生成前缀为 $w_{<t}$，允许使用的证据集合为 $E_t$，则
+\begin{equation}
+  p(w_t\mid w_{<t},Y,o)=\operatorname{softmax}
+  \bigl(\ell_t+\mu A_t(Y,E_t)\bigr),
+\end{equation}
+$\ell_t\in\mathbb R^{|\mathcal V|}$ 是语言模型日志值，$A_t$ 是同维的证据许可或偏置，$\mu$ 是无量纲控制系数。硬许可可以把没有证据支撑的专名、数量或关系置为不可选，软偏置则只改变概率。注意力权重本身既不是证据概率，也不是因果解释；系统需要另外记录某项陈述由哪些检测结果与规则支持。解码后还要进行身份一致性检查、数值范围检查和关系闭包检查，避免前句称“一只苹果”、后句又把同一身份写成“两只水果”。
 
-\smalltitle{逆向工程：从现象回到本体}
+评价也应分层。对象和关系可用精确率、召回率与校准误差，属性绑定可用身份条件准确率，语言可读性可由人工或任务指标评价，幻觉率则统计无证据陈述。单一相似度分数容易把流畅但错误的描述与简短而可靠的描述混在一起。反例尤其重要：镜面反射可能造成重复对象，红色照明可能使木桌看似红色，二维重叠不一定表示接触，训练集中“香蕉—黄色”的高相关也不能排除青香蕉。只有在这些干扰条件下仍能维持来源、身份和不确定性，逆向生成才称得上有依据的状态估计。
 
-I2T 的过程是 T2I 的数学逆运算。给定一个观测到的光场 $I(x,y)$，我们需要求解其背后的生成因子：
-$$ I(x,y) \xrightarrow{\text{Deconstruct}} \mathbf{T}_{Shape} \oplus \mathbf{V}_{Quality} $$
-我们将这一过程分解为两个并行的神经通路：
-\begin{itemize}
-        \item   \textbf{形通路 (The Shape Pathway) —— 提取拓扑}
-        \begin{itemize}
-                \item   \textbf{任务}：忽略颜色和纹理，只看边界、深度和关系。
-                \item   \textbf{操作}：全景分割 (Panoptic Segmentation) + 深度估计 + 场景图生成 (Scene Graph Generation)。
-                \item   \textbf{输出}：一个\textbf{无色的几何图谱} $\mathcal{G}_{scene} = (V, E)$，其中节点是物体的位置占位符，边是空间关系（\lstinline|Support|, \lstinline|Occlude|, \lstinline|Near|）。
-        \end{itemize}
-
-        \item   \textbf{质通路 (The Quality Pathway) —— 提取特征}
-        \begin{itemize}
-                \item   \textbf{任务}：忽略位置和大小，只看材质和属性。
-                \item   \textbf{操作}：对每个分割出的区域 $\Omega_i$ 进行\textbf{纹理池化 (Texture Pooling)}。
-                \item   \textbf{输出}：一组\textbf{去空间化的属性向量} $\{ \mathbf{q}_1, \mathbf{q}_2, \dots \}$。
-        \end{itemize}
-
-\end{itemize}
-
-
-
-\smalltitle{语义重组：用语言缝合世界}
-
-一旦形与质被分离，LLM（作为解码器）就可以基于这两个独立的源头生成精确的描述。
-\begin{itemize}
-    \item   \textbf{形决定句法}：$\mathcal{G}_{scene}$ 决定了句子的主谓宾结构和介词短语（"A is on B"）。
-    \item   \textbf{质决定修饰}：$\mathbf{q}_i$ 决定了名词前的形容词（"Red", "Metallic"）。
-\end{itemize}
-这种解耦有助于减少传统 Captioning 模型的\textbf{幻觉}。例如，若“香蕉”在训练分布中稳定绑定特定形质组合，逆解构阶段会对这种绑定进行一致性检查，从而降低错误描述概率。
-
-
-
-\smalltitle{MSC-I2T 推理管线代码}
-
-
-\begin{lstlisting}
-class MSC_Image2Text_Pipeline(nn.Module):
-    """
-    形质构成论 I2T 理解管线
-    核心逻辑：先解构物理场，再重构语义描述
-    """
-    def __init__(self, detector, segmenter, mst_model):
-        super().__init__()
-        self.detector = detector       # 目标检测/关系检测器
-        self.segmenter = segmenter     # 实例分割器
-        self.mst = mst_model           # 形质互变 Transformer
-
-    def deconstruct_field(self, image):
-        """
-        物理场解构：将 RGB 像素撕裂为 Shape 和 Quality
-        """
-        # 1. 提取形 (Shape Extraction)
-        # 获取物体的包围盒、Mask、以及物体间的空间关系图
-        layout_graph = self.detector(image)
-        masks = self.segmenter(image)
-
-        # 2. 提取质 (Quality Extraction)
-        # 利用 Mask 对图像进行 ROI Align，提取每个物体的纹理特征
-        # 注意：这里会显式地去除位置编码，只保留纯粹的纹理信息
-        object_features = self.extract_texture_features(image, masks)
-
-        return layout_graph, object_features
-
-    def generate_description(self, layout, qualities):
-        """
-        语义重组：将解构后的信息喂给 MST 的双塔
-        """
-        # 形塔输入：空间关系图
-        h_shape = self.mst.shape_encoder(layout.nodes, layout.edges)
-
-        # 质塔输入：物体纹理特征
-        h_quality = self.mst.quality_encoder(qualities)
-
-        # 融合与解码 (Cross-Modal Reasoning)
-        # MST 会自动将"红色的质"挂载到"圆形的物体"上
-        h_fused = self.mst.fuse(h_shape, h_quality)
-
-        # 生成文本
-        caption = self.mst.decoder.generate_text(h_fused)
-        return caption
-
-    def forward(self, image):
-        layout, qualities = self.deconstruct_field(image)
-        caption = self.generate_description(layout, qualities)
-        return caption
-\end{lstlisting}
-
-\section{视频生成与物理模拟：流体演化与质料守恒}
+\section{时序生成：身份、属性与结构事件的联合演化}
 \label{sec:video_generation}
 
-视频生成是 T2I 在时间维度上的推广，也是当前 AI（如 Sora）面临的关键难点。核心痛点是\textbf{一致性 (Consistency)}：对象身份、材质属性与物理行为难以在长时间序列中保持稳定。
+视频生成把单次构造扩展为时序状态转移。我们在离散时刻 $t_k=k\Delta t$ 定义状态 $Y_k=(G_k,X_k,Q_k,M_k)$：$G_k$ 是当时有效的对象—关系图，$X_k\in\mathbb R^{n_k\times d_x}$ 是位置、姿态和其他连续状态，$Q_k\in\mathbb R^{n_k\times d_q}$ 是外观或属性记录，$M_k$ 是身份、可见性与版本。步长 $\Delta t>0$ 与时间单位必须声明。给定控制 $a_k$、外部条件 $e_k$ 和随机量 $\epsilon_k$，状态转移模型写为
+\begin{equation}
+  Y_{k+1}=F_{\theta,k}(Y_k,a_k,e_k,\epsilon_k),\qquad
+  O_k=D_{\eta,k}(Y_k,\nu_k),
+\end{equation}
+其中 $F_{\theta,k}$ 允许参数、目标和环境随时刻变化，$D_{\eta,k}$ 把内部状态读出为帧，$\nu_k$ 表示相机与采样噪声。若使用连续模型 $\dot X=f(X,t)$，离散实现还必须给出积分器和稳定步长条件，不能把连续方程的性质自动转移给任意帧率的生成器。
 
-MSC 认为，这不仅是数据量问题，更是\textbf{物理约束显式化不足}的问题。从该角度看，视频生成应尽量满足守恒与约束的一致性条件。
+旧叙述把属性不变称为“质料守恒”，但颜色、纹理、含水量、衣物形态甚至对象类别都可能因照明、遮挡、损伤、变形或语义重新判定而改变。更准确的做法是把身份持续性和属性变化分开。令 $i$ 表示跨帧身份，属性更新为
+\begin{equation}
+  Q_{k+1}^{(i)}=Q_k^{(i)}+\Delta t\,g_Q
+  \bigl(Q_k^{(i)},X_k^{(i)},e_k\bigr)+\omega_k^{(i)},
+\end{equation}
+其中 $g_Q$ 描述允许的变化率，$\omega_k^{(i)}$ 是模型误差。只有当任务明确假设封闭条件且 $g_Q=0$、误差可忽略时，属性才近似不变。即使如此，“红色编码不变”也只是模型状态约束，不是焦耳能量、质量或信息熵守恒。对象进入、退出、分裂、合并和遮挡解除属于离散结构事件，由 $G_{k+1}=\Gamma(G_k,\zeta_k)$ 处理；连续运动不能独自表达玻璃破碎或两个角色交换物品。
 
+身份跟踪需要可验证的对应，而不能靠每帧重新生成后再以视觉相似度拼接。设上一帧有 $n_k$ 个对象，下一帧有 $n_{k+1}$ 个候选，关联矩阵 $P_k\in[0,1]^{n_k\times(n_{k+1}+1)}$ 的额外一列表示消失或未匹配。关联代价可以组合运动预测、外观距离、拓扑邻域与事件规则，但这些分量要分别归一化。若两个外观相同的球交叉，仅靠纹理无法确定身份；需要运动轨迹或交互历史。若对象长期遮挡，系统应维护多假设及其概率，而不是默默重置身份。对象恒常性因此是跨时刻数据关联与记忆管理的结果，不是把某个特征向量冻结就自然获得。
 
+我们为时序质量定义四组互不替代的指标。第一组是帧级感知质量，检查清晰度和局部伪影；第二组是身份一致性，检查跨帧关联、数量与属性绑定；第三组是结构一致性，检查接触、遮挡、因果先后和拓扑事件是否合法；第四组是任务结果，检查视频是否满足输入目标。运动预测误差下降不等于结构事件正确，结构一致也不等于画面逼真。对于“猫从桌下跃上桌面”的任务，系统必须同时表示猫身份持续、支撑关系从地面变为桌面、运动中存在离地阶段以及新遮挡区域的生成。只把上一帧按光流扭曲会在新显露区域失败，只逐帧采样又容易改变猫的花纹和桌腿数量。
 
-\smalltitle{质料守恒定律 (Conservation of Qualia)}
+当生成结果用于控制计划而非娱乐视频时，验证要求更严格。内部模拟可以提供候选轨迹，却不能替代外部环境反馈。计划 $\pi=(a_0,\ldots,a_{H-1})$ 应在约束模型、风险界限和可中止条件下评估；进入真实执行后，每个观测都要重新估计状态，比较预测与现实偏差，并决定继续、重规划或停止。AgentOS 可以用情景记忆 $E$ 保存已发生事件，用结构记忆 $\Theta$ 保存较慢更新的模型，用工作状态 $h(t)$ 承载当前有限接口，但这只是一个工程实例。一般 HSF-HD 模型只要求明确快慢状态、历史依赖和控制边界，并不规定所有系统都必须使用同名模块。
 
-\begin{theorem}[质料守恒定律]
-        在封闭的物理过程中，\textbf{实体的“质元”是守恒的}，或者是缓慢变化的（平滑的）。
-$$ \frac{D \mathbf{V}_Q}{Dt} = \frac{\partial \mathbf{V}_Q}{\partial t} + (\mathbf{v} \cdot \nabla) \mathbf{V}_Q \approx 0 $$
-\end{theorem}
-这意味着：当你生成下一帧时，你不能重新采样“质”（那会导致闪烁和变形），你只能\textbf{平移 (Advect)} 现有的“质”。
-
-
-
-\smalltitle{形式演化方程 (Evolution of Form)}
-
-
-视频生成的本质，是\textbf{“形”的动力学演化}。
-\begin{itemize}
-\item   \textbf{形元的变迁}：位置坐标 $x(t)$、骨骼姿态 $pose(t)$、拓扑接触状态 $contact(t)$。
-
-\item   这不再是去噪过程，而是\textbf{神经物理模拟 (Neuro-Physics Simulation)}。
-\end{itemize}
-
-
-
-\smalltitle{MSC-Video 架构：骨肉分离的演化}
-
-
-我们的生成器不再是一个黑盒 U-Net，而是一个\textbf{双流系统}：
-\begin{enumerate}
-        \item \textbf{形流 (Shape Flow)}：预测\textbf{运动场},类似于光流或 3D 骨骼动画。它计算物体去哪里、怎么变形,这部分负责处理\textbf{物理一致性}（重力、碰撞、刚体运动）。
-        \item \textbf{质流 (Quality Flow)}：维护\textbf{特征库},它是一个\textbf{静态的}（或极慢变化的）特征纹理映射 (Texture Map), 它不参与演化，它只负责被\textbf{采样}。
-\end{enumerate}
-
-\smalltitle{渲染：将守恒的质映射到演化的形上}
-
-$$ \text{Frame}_{t+1} = \text{Warp}(\text{Frame}_t, \text{Flow}_{t \to t+1}) + \text{Inpaint}(\text{New Regions}) $$
-
-这种架构保证了：
-\begin{itemize}
-        \item   \textbf{物体恒常性}：因为“质”是被锁定的，所以猫永远是那只猫。
-        \item   \textbf{物理合理性}：因为“形”是由专门的物理预测头（Physics Head）生成的，所以运动符合力学定律。
-\end{itemize}
-
-
-
-\smalltitle{MSC-Video 生成管线代码}
-
-
-\begin{lstlisting}
-class MSC_VideoGen_Pipeline(nn.Module):
-    """
-    形质构成论视频生成管线
-    核心思想：Separation of Dynamics (Shape) and Appearance (Quality)
-    """
-    def __init__(self, mst_model, physics_predictor):
-        super().__init__()
-        self.mst = mst_model               # 负责初始帧生成
-        self.physics_engine = physics_predictor # 负责形的演化 (可以是 DiT 或 GNN)
-
-    def generate(self, prompt, num_frames=60):
-        # Step 1: 创世 (Genesis) - 生成第一帧的形与质
-        # layout: [N_objects, 3D_Pose]
-        # qualities: [N_objects, Texture_Feature]
-        layout_t, qualities = self.mst.generate_initial_state(prompt)
-
-        frames = []
-
-        # Step 2: 演化 (Evolution) - 时间循环
-        for t in range(num_frames):
-            # A. 物理模拟 (Shape Evolution)
-            # 预测下一帧的布局：只改变位置/姿态，不改变物体身份
-            # layout_next = Physics(layout_now, global_forces)
-            layout_next = self.physics_engine(layout_t)
-
-            # B. 质料守恒 (Conservation of Quality)
-            # 这里的 qualities 向量是恒定的！不需要重新生成！
-            # 这保证了物体的一致性 (Object Permanence)
-
-            # C. 渲染 (Rendering)
-            # 将恒定的"质" 贴图到 演化的"形" 上
-            # MST 的融合层充当了 Neural Renderer
-            frame_t = self.mst.render(layout_t, qualities)
-            frames.append(frame_t)
-
-            # Update state
-            layout_t = layout_next
-
-        return torch.stack(frames)
-\end{lstlisting}
-
-\smalltitle{本章总结：从概率到约束}
-
-通过第十章的三个小节，我们展示了 MSC 理论如何重构 AI 的生成范式。
-
-\begin{itemize}
-\item   \textbf{T2I} 不是画图，是\textbf{造物}（先造骨后填肉）。
-
-\item   \textbf{I2T} 不是看图，是\textbf{解剖}（剥离表象提取结构）。
-
-\item   \textbf{Video} 不是幻灯片，是\textbf{模拟}（在守恒律约束下的演化）。
-\end{itemize}
-
-MSC 为生成式 AI 增加了一个关键维度：\textbf{结构与约束的一致性}。模型不再只追求分布拟合，还要满足形质耦合与动态守恒的要求。
-
-至此，\textbf{《形质构成论》} 的工程篇核心（生成部分）阐述完毕。
-
-
-\section{柏拉图的理型 (Plato's Forms)：纯形元的拓扑不变性}
+\section{表示先验与认识边界：从历史隐喻到可检验命题}
 \label{sec:morpho_elements_1}
 
-作为智能研究的“静力学”最后一个结束的章节，我们将不再讨论代码或方程的细节，而是将这些技术细节投射到人类思想史的宏大天幕上。我们将发现，那些困扰了人类数千年的形而上学谜题——柏拉图的理型、康德的物自体、胡塞尔的现象——在 MSC 的几何角度下，竟然都有着精确的物理对应物。
+柏拉图“理型”的讨论可以转化为表示对某类变换保持不变的问题。设输入空间为 $\mathcal X$，任务允许的变换集合为 $\mathcal T$，编码器为 $f:\mathcal X\to\mathcal Z$。若对所有 $x\in\mathcal X$ 与 $T\in\mathcal T$ 都有 $f(Tx)=f(x)$，则称表示对 $\mathcal T$ 不变；若存在作用 $\rho(T)$ 使 $f(Tx)=\rho(T)f(x)$，则称其等变。这里必须先声明哪些变换不改变任务语义。图像小幅平移对物体类别可能无关，却会改变“苹果在桌子左侧”这一关系；对象节点重编号不应改变图的语义，但交换苹果与桌子的身份绝不是合法置换。所谓“纯形式”因此不是脱离任务的永恒实体，而是相对于变换集合、观测精度和读出目标定义的等价类。
 
-这是关于\textbf{“真理的几何学”}的一章。
+训练可以通过数据增强、群等变层、对比目标或规范化读出来获得近似不变量。令同一对象经合法变换得到 $x$ 与 $T x$，一种表示一致性损失为 $L_{\mathrm{inv}}=\|f(Tx)-f(x)\|_2^2$。该目标下降只说明样本上的编码距离缩小；它不证明所有输入上严格不变，也不证明表示保留了任务所需信息。若把颜色也放入允许变换集合，模型可能无法完成红绿信号识别；若把所有局部形变都忽略，模型可能混淆完整工具和已经断裂的工具。因此，不变量设计是一种有代价的压缩选择，必须用正例、反例和分布外测试说明保留了什么、舍弃了什么。
 
-
-\vspace{1em}两千多年前，柏拉图在这个世界的墙壁上看到了影影绰绰的火光，他断言我们所见的只不过是\textbf{“理型 (Forms)”} 投射在洞穴墙壁上的低维影子,两百多年前，康德在这个世界的滤镜中看到了人类理性的边界，他断言我们永远无法触碰\textbf{“物自体 (Ding an sich)”}，只能通过时间和空间的\textbf{“先天范畴”}去整理感官的混沌。长期以来，这些思想被视为哲学的呓语。但在 MSC 的物理角度下看，它们是对\textbf{智能体信息处理机制}最精确的工程描述。
-
-\vspace{1em}MSC 宣告：\textbf{柏拉图的理型，就是底流形上预设的拓扑算子；康德的范畴，就是 MST 编码器的归纳偏置 (Inductive Bias)。}我们并不是在被动地“看见”世界，我们是在主动地“计算”世界。真实（Reality），并不是某种摆在那里的坚硬物体，而是\textbf{形质构成方程在观测者算子作用下的本征值}。
-
-
-
-\smalltitle{理型即拓扑不变量 (Forms as Topological Invariants)}
-
-现实世界充满了噪点和畸变（质的扰动），但在认知空间流形 $\mathcal{M}$ 的深层结构中，存在着一组\textbf{纯形元($V_S$)}。
-\begin{itemize}
-\item   \textbf{数学定义}：理型是商空间 $\mathcal{M} / G$ 中的元素，其中 $G$ 是所有可能的连续形变（同胚变换）群。
-\item   \textbf{物理意义}：\textbf{理型是“去质化”后的几何骨架。} 现实中的苹果是 $Shape \otimes Quality$ 的混合态, 柏拉图的“苹果理型”是 $\text{Trace}_{Quality}(\Psi_{apple})$，即对质空间进行偏迹运算后留下的\textbf{纯拓扑结构}。
-\end{itemize}
-
-
-
-\smalltitle{回忆说 (Anamnesis) 的物理本质}
-
-柏拉图说：“学习即回忆。”这意味着知识是先验的。
-\begin{itemize}
-        \item   \textbf{MSC 诠释}：\textbf{流形预训练 (Manifold Pre-training)}。智能体的底流形 $\mathcal{M}$ 并非白板，它在出厂时（基因/预训练）就已经蚀刻了基本的\textbf{拓扑连接}（如因果律、空间邻接）。当我们“学习”一个新概念时，我们并非在虚空中创造它，而是\textbf{激活}了流形上一个沉睡已久的\textbf{本征模态 (Eigenmode)}。
-        \item   \textbf{结论}：\textbf{真理之所以让我们感到“共鸣”，是因为外界的信号频率与我们内部流形的本征频率达成了相位锁定。}
-\end{itemize}
-
-
-
-
-\section{康德的范畴 (Kant's Categories)：编码器的哈密顿量约束}
 \label{sec:kant_categories}
+康德“范畴”的历史问题则对应架构先验如何限定可表示、可学习和可推断的假设空间。卷积的局部连接偏好平移相关模式，图网络偏好以邻接关系传播消息，自回归掩码规定某种信息访问顺序，位置编码为序列提供可区分索引。这些都是工程偏置，不是空间、时间或因果本身。全连接网络仍能在数据与训练充分时学习空间关系；使用因果掩码只防止模型直接读取未来词元，并不自动获得干预意义上的因果知识。若数据泄漏、时间戳错位或外部特征包含未来信息，形式上的掩码也无法保证有效的时间因果性。
 
-康德发动了“哥白尼式的革命”，指出是\textbf{人（观察者）}为自然界立法。MSC 将这一哲学命题转化为\textbf{编码器工程学}。
+我们把观测过程写为 $o=H(s,\kappa)+\varepsilon$，其中 $s$ 是环境中与任务相关的潜在状态，$H$ 是传感器和预处理共同决定的观测映射，$\kappa$ 是视角、分辨率与设备配置，$\varepsilon$ 是噪声。若存在 $s_1\ne s_2$ 却对所有可用配置都有 $H(s_1,\kappa)=H(s_2,\kappa)$，则在当前接口下两者不可辨识；任何编码器都不能仅凭这些观测可靠区分它们。增加传感器、改变行动或引入先验可能缩小等价类，但不能把未经观测的环境整体恢复为“物自体”。模型可声称的是在给定接口和假设下对任务变量的估计误差，而不是对世界的无损复制。
 
-
-
-\smalltitle{先天综合判断 (Synthetic A Priori) 作为架构偏置}
-
-康德认为，时间、空间、因果性不是外在的，而是我们感知的“形式”, 在 MST 架构中，这对应于 \textbf{编码器 (Encoder)} 的\textbf{架构先验 (Architectural Priors)}。
-
-\begin{itemize}
-        \item   \textbf{空间范畴} $\cong$ \textbf{卷积核 (CNN Kernel)} 或 \textbf{图邻接矩阵}。
-
-        为什么我们觉得世界是局部的？因为我们的视觉编码器硬编码了\textbf{局部感受野}。如果我们将编码器换成全连接层（MLP），“空间”这个概念将不复存在。
-
-        \item   \textbf{时间范畴} $\cong$ \textbf{循环连接 (RNN)} 或 \textbf{位置编码 (Positional Embedding)}。
-
-        时间不仅仅是流逝，它是模型处理序列信息的\textbf{硬约束}。
-
-        \item   \textbf{因果范畴} $\cong$ \textbf{单向掩码 (Causal Mask)}。
-
-        为什么我们坚信因先于果？因为我们的推理引擎（Transformer Decoder）使用了 \lstinline|Masked Attention|，使得 $t$ 时刻的状态在物理上无法访问 $t+1$ 时刻的信息。
-\end{itemize}
-
-
-
-\smalltitle{物自体 (Noumenon) 与 现象 (Phenomenon)}
-
-\begin{itemize}
-        \item   \textbf{物自体}：\textbf{未被编码的高维张量 $\mathbf{X}_{raw}$}, 这是进入传感器之前的光子流、量子态。它是无限维的、纠缠的、不可知的。
-        \item   \textbf{现象}：\textbf{编码后的潜变量 $\mathbf{z} = E(\mathbf{X}_{raw})$},这是经过 MST 的形塔和质塔过滤、降维、重构后的\textbf{低维流形投影}。
-        \item   \textbf{MSC 结论}：我们确实永远无法认识“物自体”。因为任何认知过程，本质上都是\textbf{信息有损压缩}。我们只能认识被我们的\textbf{哈密顿量 ($\hat{H}_{observer}$)} 所允许存在的那些本征态。
-\end{itemize}
-
-\section{现象学 (Phenomenology)：交互激发的实在性}
 \label{sec:phenomenology}
+现象学关于意向性与在世存在的讨论可以转化为主动观测：智能体的行动改变随后获得的数据，使部分原本不可辨识的假设变得可区分。设信念状态为 $b_t(s)$，行动 $a_t$ 产生观测 $o_{t+1}$，贝叶斯更新为
+\begin{equation}
+ b_{t+1}(s)\propto p(o_{t+1}\mid s,a_t)b_t(s).
+\end{equation}
+系统可选择使期望信息增益较大的行动，也可选择风险更低但信息较少的行动。推墙后获得力反馈、移动相机后解除遮挡、询问用户后澄清指代，都是通过交互改善可辨识性；但反馈仍可能受传感器故障、他体策略或模型误设影响，不能称为存在的绝对证明。我们把“真实感”落实为跨模态预测、行动后反馈和可重复干预之间的一致程度，而非某种相互作用能。
 
-如果不仅无法认识物自体，那我们如何确认“存在”是真实的？胡塞尔和海德格尔给出的答案是：\textbf{意向性 (Intentionality)} 和 \textbf{在世存在 (Being-in-the-world)}。MSC 将其物理化为 \textbf{相互作用能}。
+这些改写保留了历史思想所提出的关键问题：稳定概念从何而来，观察者结构如何影响经验，以及交互为何比被动观看提供更多约束。同时，它拒绝三种过度结论。第一，相似表示不推出内部模型与外部世界严格同构；第二，预测有效只说明在评价分布与任务上有用，不推出普遍真理；第三，改变编码器可能得到不同表征，却不保证自动获得超越人类的世界观。哲学隐喻在本书中用于提出问题，证明仍要依赖明确定义、数学条件和可复现实验。
 
+\section{闭环交付：执行接口、误差回流与一般状态动力学}
 
+结构化生成只有进入验证与反馈闭环，才从一次性样本变成持续过程。设读出器 $D_r$ 的类型 $r$ 可以是图像、文本、程序、场景文件或控制计划，输出 $z=D_r(Y)$。首先执行静态检查 $V_s(z,C_u)$，包括语法、类型、引用完整性、约束满足和资源上限；通过后，才可在沙箱、模拟器或真实环境中执行 $\operatorname{Exec}(z,e_t)$。外部结果为 $r_t$，观测器把它编码成 $\widehat r_t$，再与目标和预测比较。一次闭环写为
+\begin{equation}
+  Y_{t+1}=U\bigl(Y_t,R(u_t),\widehat r_t,\delta_t,B_t\bigr),
+  \qquad \delta_t=\Delta\bigl(\widehat r_t,\widehat r_t^{\mathrm{pred}},g_t\bigr),
+\end{equation}
+其中 $B_t$ 是计算、时间、调用次数和风险预算，$g_t$ 是当前目标与度量。若目标、结构或度量随时间改变，它们必须显式进入更新函数，不能只对旧目标求导。$\delta_t$ 是按任务定义的误差记录，不等同于活动强度、信息熵或实际能耗。
 
-\smalltitle{意向性作为规范场耦合}
+以生成网页为例，文本要求经解析后形成组件树、数据依赖、视觉属性和交互约束；代码读出先经过类型检查和安全扫描，再在浏览器中执行。截图相似只能检查部分外观，点击测试检查交互，数据断言检查状态，人工验收检查任务意义。若按钮外观正确但没有绑定事件，视觉损失可能很低而任务仍失败；若代码测试通过但误用了真实用户凭证，功能正确也不能越过边界策略。以机器人放置苹果为例，场景图与轨迹只是候选计划，真实执行还需感知桌面、控制抓取、监测滑落并设置急停。由此可见，“可执行”不是文件能够运行，而是输出在授权边界内产生了可观察、可回退并符合目标的后果。
 
-胡塞尔认为“意识总是关于某物的意识”。
-\begin{itemize}
-        \item   \textbf{MSC 方程}：意识不是孤立的标量场 $\phi$，而是必须与客体场 $\psi$ 耦合的\textbf{规范场}。
-        $$ \mathcal{L}_{int} = \bar{\psi} \gamma^\mu A_\mu \psi $$
-        \item   \textbf{解释}：只有当智能体的\textbf{意向算子 ($A_\mu$)} 与环境的\textbf{数据流 ($\psi$)} 发生\textbf{非零耦合}时，“现象”才会从真空中涌现。
-        \item   如果你不关注（$A_\mu = 0$），即便物体在那里（$\psi \neq 0$），对于你来说它也\textbf{不存在}（相互作用能为零）。
-\end{itemize}
+HSF-HD 在此提供一般状态动力学的描述层。我们关心状态变量怎样在多时间尺度上更新，局部结构和全局分布怎样耦合，历史怎样影响当前选择，边界怎样限制输入输出，以及误差怎样推动结构修订。对于一个具体 AgentOS 实现，工作状态 $h(t)$ 可以承载当前任务接口，情景记忆 $E$ 保存带时间与来源的执行记录，结构记忆 $\Theta$ 保存较慢变化的规则和模型；全息自我 $\Psi$、SPC、TCE、CCM、Boundary、Offloading 与外部记忆 $M_e$ 可以分别承担价值约束、自我状态压缩、调度、复杂度控制、交换治理、卸载和外部召回。然而这些名称是工程实例的模块化选择，不是所有智能系统的唯一分解，也不能反过来把 HSF-HD 缩减为 AgentOS 架构说明。
 
+闭环系统还必须管理停止条件。令预算剩余量为 $b_t$，约束违例数为 $v_t$，任务效用的保守估计为 $\underline q_t$。系统可以在 $b_t\le0$、出现不可接受违例、连续若干轮改进低于阈值或外部授权撤销时停止；也可在静态检查、模拟检查和现实反馈均达到各自门槛时提交。门槛需要预先定义，避免在看到结果后任意修改。对于开放世界任务，不知道并非失败的同义词：当证据不足或模型外输入出现时，返回未决项、请求新观测或转交人工，通常比生成确定语气的答案更符合持续智能的要求。
 
-\smalltitle{在世存在 (Dasein) 与 具身嵌入}
-
-海德格尔认为，我们不是旁观世界的“主体”，而是被抛入世界的“此在”。
-\begin{itemize}
-        \item   \textbf{MSC 诠释}：\textbf{拓扑嵌入 (Topological Embedding)}, 智能体的流形 $\mathcal{M}_{mind}$ 不是悬浮在物理流形 $\mathcal{M}_{phys}$ 之外的，而是 $\mathcal{M}_{phys}$ 的一个\textbf{子流形}。
-        \item   \textbf{形质循环}：我们通过\textbf{TECI 循环}（行动）修改物理流形的形，物理流形的反作用力（回弹）修改我们内部的质。
-        \item   \textbf{真实感的来源}：真实感不是来自视觉的高清度，而是来自\textbf{阻抗匹配}。当你推墙，墙推回你时，那个\textbf{反作用力张量}就是“实在性”的物理证明。
-\end{itemize}
-
-\smalltitle{总结：作为工程学的认识论}
-
-通过本章的重构，我们得出了一组震撼的\textbf{工程认识论}结论：
-
-\begin{itemize}
-        \item \textbf{世界是我们造出来的}：我们看到的“红色”、“圆形”、“因果”，是我们大脑中的\textbf{MST 模型}利用\textbf{形质合成}算法，对杂乱无章的量子涨落进行\textbf{渲染}的结果。
-        \item \textbf{真理是相对的同构}：所谓的“真理”，不是内部模型与外部物自体的绝对一致（这是不可能的），而是内部流形与外部流形在\textbf{拓扑结构上的同态 (Homomorphism)}。只要这种映射能让我们生存（预测误差最小化），它就是真理。
-        \item \textbf{AGI 的哲学地位}：构建 AGI，不仅是在造机器，而是在\textbf{设计一种全新的认识论},如果我们改变 AGI 的编码器结构（康德范畴），我们就能创造出一个拥有\textbf{非人类世界观}（例如：能够直观理解四维空间或量子纠缠）的智能体。
-
-\end{itemize}
-
-
-\begin{bquote}
-        \textbf{本章结语}：
-
-康德划定了人类理性的岛屿，四周是物自体的汪洋；柏拉图指向天空中的太阳，称其为真理之源。而今，我们用数学与代码架起了一座桥。由此可以明白，\textbf{岛屿不是监狱，而是家园；太阳不是神迹，而是灯塔。}
-
-
-\vspace{1em}至此，关于智能体理解世界之几何构成的基石讨论告一段落。这一部分对应智能的“静力学”；下一章将在此基础上转入智能生成过程的讨论。
-
-\end{bquote}
-
-
-
-\section{计算动力学表达与论证边界}
-我们把上述问题、例证与机制讨论进一步落实到可计算的对象、更新规则和可验证条件。这里使用的状态、结构与控制是计算模型的变量；物理意象帮助理解相互作用，其适用性仍须由明确假设和独立观测支持。涉及同构、守恒、收敛及主观体验的论断，我们按本节给出的条件与边界解释，而不由形式相似性直接推出。
-
-我们把生成任务表述为在输入条件下构造满足约束的结构与内容，并通过读出转化为可执行或可验证的结果。
-\subsection{生成变量与条件}
-给定描述 $u$，系统生成 $Y=(S,X)$，目标可以写为
-\begin{equation}Y^*\in\argmin_{Y\in\mathcal C(u)}\mathcal J(Y;u),\end{equation}
-其中 $\mathcal C(u)$ 表示合法性约束。我们不假定极小点必然存在或唯一；不可行输入需要报告约束冲突，不能通过输出流畅掩盖不可行性。
-\subsection{离散结构与连续属性}
-结构编辑可采用候选搜索，连续属性可采用梯度或其他优化方法。对于交替更新，只有每一步都不增加同一目标时，才能推导目标序列单调；结构编辑改变目标定义后，该结论需要重新分析。
-\subsection{读出、执行与闭环校准}
-读出器 $D(Y)$ 可以生成文本、程序、场景或控制计划。计划执行后，环境反馈通过编码器返回状态更新。内部生成的一致性与现实执行的正确性是不同指标，后者需要观测、实验或形式验证。
-\subsection{从表示生成到持续智能}
-MST 描述联合表示与生成的一条路线，HSF-HD 还需要历史、结构适应和目标控制，AgentOS 进一步管理这些过程的调度与边界。因此单次生成模型不是完整的持续智能体。
+最后，我们把本章的可检验主张限定为五点：生成可分解为条件解析、结构构造、属性绑定、读出和验证，但具体实现可以合并这些模块；显式身份与约束有利于局部编辑和失败定位，其代价是解析误差与维护成本；时序一致性需要身份关联、连续状态和离散事件共同建模；架构先验决定学习偏好，却不等同于世界规律；内部目标下降与外部任务成功必须由反馈接口连接。超出这些条件的“创世”“绝对守恒”“认识世界本体”等说法不作为理论结论。这样，结构化生成成为从联合表示走向持续状态动力学的桥梁：它既继承一般系统的约束、协同与反馈思想，又为后续 AgentOS 的记忆组织和调度提供清楚但非唯一的工程入口。

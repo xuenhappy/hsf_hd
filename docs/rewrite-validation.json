@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 10,
-  "pending_chapters": 107,
+  "rewritten_chapters": 11,
+  "pending_chapters": 106,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -341,44 +341,36 @@
       "order": 11,
       "path": "chapters/part-04/chp-generative_creation.tex",
       "title": "结构化生成：从输入描述到可执行结果",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "original_han_floor": 4481,
-      "new_chapter_prose_han": 4176,
+      "new_chapter_prose_han": 5770,
       "original_readable_units": 4948,
-      "new_readable_units": 5402,
-      "opening_prose_han": 266,
+      "new_readable_units": 5785,
+      "opening_prose_han": 334,
       "sections": [
         {
-          "title": "文本到图像 (T2I) 的 MSC 范式：解耦与重构",
-          "prose_han": 656
+          "title": "条件生成：从描述解析到结构化读出",
+          "prose_han": 1049
         },
         {
-          "title": "图像到文本 (I2T) 的 MSC 范式：视觉逆解构",
-          "prose_han": 407
+          "title": "逆向生成：从观测分解到有依据的描述",
+          "prose_han": 1070
         },
         {
-          "title": "视频生成与物理模拟：流体演化与质料守恒",
-          "prose_han": 596
+          "title": "时序生成：身份、属性与结构事件的联合演化",
+          "prose_han": 1021
         },
         {
-          "title": "柏拉图的理型 (Plato's Forms)：纯形元的拓扑不变性",
-          "prose_han": 682
+          "title": "表示先验与认识边界：从历史隐喻到可检验命题",
+          "prose_han": 1184
         },
         {
-          "title": "康德的范畴 (Kant's Categories)：编码器的哈密顿量约束",
-          "prose_han": 389
-        },
-        {
-          "title": "现象学 (Phenomenology)：交互激发的实在性",
-          "prose_han": 729
-        },
-        {
-          "title": "计算动力学表达与论证边界",
-          "prose_han": 451
+          "title": "闭环交付：执行接口、误差回流与一般状态动力学",
+          "prose_han": 1112
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

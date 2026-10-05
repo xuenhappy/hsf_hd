@@ -200,11 +200,15 @@
       "source_start_line": 2601,
       "source_end_line": 3146,
       "source_sha256": "0b785a29938b7a9652f89f50c1ae9f3ebd8d550833747b38362947b1bdb98a32",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "new_title": "结构化生成：从输入描述到可执行结果",
       "preserved_figure_count": 0,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-with-computational-analysis"
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-05/chp-will_geometry.tex",

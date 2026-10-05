@@ -1,9 +1,9 @@
 {
-  "pages": 61,
-  "bytes": 9114877,
+  "pages": 66,
+  "bytes": 9187093,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 42,
+  "numbered_sections": 47,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -300,7 +300,42 @@
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "11.1 条件生成：从描述解析到结构化读出",
+      "start_pdf_page": 62,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "11.2 逆向生成：从观测分解到有依据的描述",
+      "start_pdf_page": 63,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "11.3 时序生成：身份、属性与结构事件的联合演化",
+      "start_pdf_page": 64,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "11.4 表示先验与认识边界：从历史隐喻到可检验命题",
+      "start_pdf_page": 64,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "11.5 闭环交付：执行接口、误差回流与一般状态动力学",
+      "start_pdf_page": 65,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 10 chapters; does not validate the full book."
+  "scope": "Review subset: 11 chapters; does not validate the full book."
 }
