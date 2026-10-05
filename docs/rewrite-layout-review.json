@@ -1,9 +1,9 @@
 {
-  "pages": 125,
-  "bytes": 16720456,
+  "pages": 129,
+  "bytes": 16749779,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 95,
+  "numbered_sections": 99,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -671,7 +671,35 @@
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "21.1 局部更新与网络传播：状态变化而非能量搬运",
+      "start_pdf_page": 126,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "21.2 语义消息的同一性：结构包络、版本与任务不变量",
+      "start_pdf_page": 127,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "21.3 受约束路由：结构通道、目标偏置与主动探索",
+      "start_pdf_page": 127,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "21.4 运行相态：阻尼、探索、心流与结构学习",
+      "start_pdf_page": 128,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 20 chapters; does not validate the full book."
+  "scope": "Review subset: 21 chapters; does not validate the full book."
 }

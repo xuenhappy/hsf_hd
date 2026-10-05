@@ -389,9 +389,15 @@
       "source_start_line": 5716,
       "source_end_line": 5861,
       "source_sha256": "849efcd3769e122541143b0a0a87503e9274897dc4e22a44e7e356004a61d1cc",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-021-checkpoint.md",
+      "new_title": "认知传播动力学：激活传递、身份保持与运行相态",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-06/chap-dual_asymmetry.tex",
