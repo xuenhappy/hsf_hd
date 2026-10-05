@@ -181,11 +181,15 @@
       "source_start_line": 2295,
       "source_end_line": 2601,
       "source_sha256": "a85a3650e683c2cba505e79b51e5ebb75bcb8d9d55a64bb7bfbc48ed526b7b16",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "new_title": "MST 架构：结构与内容的联合注意力",
       "preserved_figure_count": 0,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-with-computational-analysis"
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-04/chp-generative_creation.tex",

@@ -8,7 +8,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 7,chapters/part-03/chp-semantic_anatomy.tex,rewritten-reviewed,1879,4709,1853,4715,4,1087
 8,chapters/part-03/chp-domain_manifolds_heterogeneity.tex,rewritten-reviewed,4526,5594,4561,5604,5,1025
 9,chapters/part-03/chp-holomorphic_isomorphism.tex,rewritten-reviewed,1751,4578,1763,4589,4,1059
-10,chapters/part-04/chp-mst_architecture.tex,queued-for-full-rewrite,1390,1477,1931,2411,6,30
+10,chapters/part-04/chp-mst_architecture.tex,rewritten-reviewed,1390,5977,1931,5991,5,1086
 11,chapters/part-04/chp-generative_creation.tex,queued-for-full-rewrite,4481,4176,4948,5402,7,389
 12,chapters/part-05/chp-will_geometry.tex,queued-for-full-rewrite,1769,1708,1717,1717,5,230
 13,chapters/part-05/chp-paradigm_shift.tex,queued-for-full-rewrite,2209,2142,2179,2179,4,294

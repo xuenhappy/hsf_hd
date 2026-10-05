@@ -19,7 +19,9 @@ for i,page in enumerate(p):
     if 72<=y<=770 and not any(abs(y-v)<2 for v in rows):rows.append(y)
  rows.sort();all_rows.append(rows)
  all_pitch.extend(b-a for a,b in zip(rows,rows[1:]) if 12<b-a<25)
-pitch=statistics.median(all_pitch);height=700.5069*72/72.27
+pitch=statistics.median(all_pitch)
+log=(R/'build/rewrite-review.log').read_text(errors='replace')
+height=float(re.search(r'HSFHD_REVIEW_TEXTHEIGHT=([0-9.]+)pt',log).group(1))*72/72.27
 # Locate chapter/section heading top independently of header text.
 def heading(entry):
  level,title,page=entry
@@ -55,5 +57,8 @@ for start in range(0,len(p),16):
  sheet.save(D/f'pages-{start+1:03d}.jpg')
 for i in sorted(set([heading(toc[k])[0] for k,_ in sections]+[0,1])):
  pix=p[i].get_pixmap(matrix=fitz.Matrix(1.25,1.25));pix.save(str(D/f'page-{i+1:03d}.png'))
-result={'pages':len(p),'bytes':(R/'build/rewrite-review.pdf').stat().st_size,'text_height_pdf_points':round(height,2),'median_prose_line_pitch_pdf_points':round(pitch,2),'numbered_sections':len(report),'half_page_checks_pass':all(r['half_page_prose_pass'] for r in report),'physical_page_clipping':clipped,'sections':report,'scope':'Parts I–III only, 9 independently authored rewritten chapters; remaining 108 chapters are queued.'}
+result={'pages':len(p),'bytes':(R/'build/rewrite-review.pdf').stat().st_size,'text_height_pdf_points':round(height,2),'median_prose_line_pitch_pdf_points':round(pitch,2),'numbered_sections':len(report),'half_page_checks_pass':all(r['half_page_prose_pass'] for r in report),'physical_page_clipping':clipped,'sections':report,'scope':f'Review subset: {sum(x[0]==2 for x in toc)} chapters; does not validate the full book.'}
 (R/'docs/rewrite-layout-review.json').write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n');print(json.dumps(result,ensure_ascii=False))
+
+if not result["half_page_checks_pass"] or clipped:
+ raise SystemExit("Review layout check failed")

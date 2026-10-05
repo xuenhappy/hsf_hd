@@ -1,9 +1,9 @@
 {
-  "pages": 53,
-  "bytes": 9045017,
+  "pages": 61,
+  "bytes": 9114877,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 37,
+  "numbered_sections": 42,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -265,7 +265,42 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "10.1 双通道编码：对象身份、关系类型与对齐契约",
+      "start_pdf_page": 56,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "10.2 联合注意力：合法支持、归一化与置换等变性",
+      "start_pdf_page": 57,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "10.3 混合解码：类别读出、连续参数与关系编辑",
+      "start_pdf_page": 57,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "10.4 完整计算流程：参考核、状态版本与资源条件",
+      "start_pdf_page": 58,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "10.5 训练与检验：目标尺度、合法负样本与组合泛化",
+      "start_pdf_page": 60,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Parts I–III only, 9 independently authored rewritten chapters; remaining 108 chapters are queued."
+  "scope": "Review subset: 10 chapters; does not validate the full book."
 }
