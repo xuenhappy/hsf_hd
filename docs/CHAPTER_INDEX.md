@@ -1,6 +1,6 @@
 # 章节目录与全章改写进度
 
-11 章已实写并完成排版检查，106 章待写。增补分析和恢复原文不计为完成重写。
+12 章已完整实写并完成篇幅与排版检查，105 章待写。增补分析和恢复原文不计为完成重写。
 
 | 卷 | 篇 | 章文件 | 标题 | 状态 |
 | --- | --- | --- | --- | --- |
@@ -14,8 +14,8 @@
 | 1 | 3 | [chp-domain_manifolds_heterogeneity](../chapters/part-03/chp-domain_manifolds_heterogeneity.tex) | 领域表示的异构性：任务尺度与跨域接口 | 完整实写；篇幅与排版已检查 |
 | 1 | 3 | [chp-holomorphic_isomorphism](../chapters/part-03/chp-holomorphic_isomorphism.tex) | 环境与认知的结构对应：可观测性与近似等价 | 完整实写；篇幅与排版已检查 |
 | 1 | 4 | [chp-mst_architecture](../chapters/part-04/chp-mst_architecture.tex) | MST 架构：结构与内容的联合注意力 | 完整实写；篇幅与排版已检查 |
-| 1 | 4 | [chp-generative_creation](../chapters/part-04/chp-generative_creation.tex) | 结构化生成：从输入描述到可执行结果 | 队列中；原文仍保留 |
-| 2 | 5 | [chp-will_geometry](../chapters/part-05/chp-will_geometry.tex) | 意志的几何学 — 从静态存在到动力学生成 | 队列中；原文仍保留 |
+| 1 | 4 | [chp-generative_creation](../chapters/part-04/chp-generative_creation.tex) | 结构化生成：从输入描述到可执行结果 | 完整实写；篇幅与排版已检查 |
+| 2 | 5 | [chp-will_geometry](../chapters/part-05/chp-will_geometry.tex) | 意志的计算几何：从静态表示到目标驱动的状态生成 | 完整实写；篇幅与排版已检查 |
 | 2 | 5 | [chp-paradigm_shift](../chapters/part-05/chp-paradigm_shift.tex) | 范式转向 — 目的交互主义 | 队列中；原文仍保留 |
 | 2 | 5 | [chp-first_principles](../chapters/part-05/chp-first_principles.tex) | 第一性原理 — 信息-物理对偶场论 | 队列中；原文仍保留 |
 | 2 | 6 | [chp-quantization_reality](../chapters/part-06/chp-quantization_reality.tex) | 实在的量子化 — 形质二象性与张量实体 | 队列中；原文仍保留 |

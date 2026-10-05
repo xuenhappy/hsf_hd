@@ -219,9 +219,14 @@
       "source_start_line": 3207,
       "source_end_line": 3280,
       "source_sha256": "6feab6c60baf162daed2b0cccbc8177244d879b0fb59e6718665123ab14ff5c1",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "意志的计算几何：从静态表示到目标驱动的状态生成",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-05/chp-paradigm_shift.tex",

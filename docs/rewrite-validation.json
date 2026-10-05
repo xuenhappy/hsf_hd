@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 11,
-  "pending_chapters": 106,
+  "rewritten_chapters": 12,
+  "pending_chapters": 105,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -376,37 +376,37 @@
     {
       "order": 12,
       "path": "chapters/part-05/chp-will_geometry.tex",
-      "title": "意志的几何学 — 从静态存在到动力学生成",
-      "status": "queued-for-full-rewrite",
+      "title": "意志的计算几何：从静态表示到目标驱动的状态生成",
+      "status": "rewritten-reviewed",
       "original_han_floor": 1769,
-      "new_chapter_prose_han": 1708,
+      "new_chapter_prose_han": 5722,
       "original_readable_units": 1717,
-      "new_readable_units": 1717,
-      "opening_prose_han": 0,
+      "new_readable_units": 5751,
+      "opening_prose_han": 304,
       "sections": [
         {
-          "title": "跨越笛卡尔的裂痕",
-          "prose_han": 249
+          "title": "跨越表征与行动的裂痕",
+          "prose_han": 1083
         },
         {
-          "title": "四大物理法则的语义统一场",
-          "prose_han": 544
+          "title": "四类计算约束的协同状态场",
+          "prose_han": 1057
         },
         {
-          "title": "认知世界的呼吸",
-          "prose_han": 237
+          "title": "智能的呼吸：观测、展开、提交与沉淀",
+          "prose_han": 1136
         },
         {
-          "title": "双重对称：切面上的双重宇宙",
-          "prose_han": 230
+          "title": "内外边界：模型状态与环境过程的非对称耦合",
+          "prose_han": 1035
         },
         {
-          "title": "使命与初衷",
-          "prose_han": 448
+          "title": "使命与初衷：智能一般动力学及其工程落点",
+          "prose_han": 1107
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
