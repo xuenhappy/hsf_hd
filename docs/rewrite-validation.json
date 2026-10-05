@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 19,
-  "pending_chapters": 98,
+  "rewritten_chapters": 20,
+  "pending_chapters": 97,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -668,45 +668,45 @@
     {
       "order": 20,
       "path": "chapters/part-06/chp-holistic_state.tex",
-      "title": "全息状态 — 认知旋量场",
-      "status": "queued-for-full-rewrite",
+      "title": "整体认知状态：联合表示、激活读出与语义迁移",
+      "status": "rewritten-reviewed",
       "original_han_floor": 5153,
-      "new_chapter_prose_han": 4740,
+      "new_chapter_prose_han": 7910,
       "original_readable_units": 4902,
-      "new_readable_units": 4902,
-      "opening_prose_han": 360,
+      "new_readable_units": 7943,
+      "opening_prose_han": 328,
       "sections": [
         {
-          "title": "态的严格定义：形质二象的复合旋量",
-          "prose_han": 513
+          "title": "整体状态的定义：结构、内容与任务条件的联合记录",
+          "prose_han": 1034
         },
         {
-          "title": "态的内部动力学：双向耦合与相位锁定",
-          "prose_han": 597
+          "title": "内部动力学：双向耦合、绑定稳定与结构可塑性",
+          "prose_han": 1115
         },
         {
-          "title": "显化：激活场与波恩定则的认知诠释",
-          "prose_han": 512
+          "title": "状态显化：激活、可观测读出与决策提交",
+          "prose_han": 1094
         },
         {
-          "title": "全息状态的严密表述：认知旋量场的参数化本构方程",
-          "prose_han": 885
+          "title": "整体状态的参数化：可辨识分量与本构接口",
+          "prose_han": 1142
         },
         {
-          "title": "语义量的物理映射：从功能到几何",
-          "prose_han": 358
+          "title": "语义量的计算定义：丰富度、一致性与惊奇",
+          "prose_han": 1035
         },
         {
-          "title": "语义移动的几何学：截面演化与平行移动",
-          "prose_han": 542
+          "title": "语义迁移：跨语境对齐、接口补偿与路径依赖",
+          "prose_han": 1045
         },
         {
-          "title": "语义不变量与动力学演化：诺特定理及语义子的传播",
-          "prose_han": 973
+          "title": "不变量与学习：身份连续、资源收支和受控重构",
+          "prose_han": 1117
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

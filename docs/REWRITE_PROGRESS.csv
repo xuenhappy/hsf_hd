@@ -18,7 +18,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 17,chapters/part-06/chp-riemannian_base.tex,rewritten-reviewed,4667,7091,4650,7120,6,1028
 18,chapters/part-06/chp-microscopic_origins.tex,rewritten-reviewed,5191,5785,5255,5838,5,1016
 19,chapters/part-06/chp-value_gauge_field.tex,rewritten-reviewed,2408,4641,2352,4665,4,1058
-20,chapters/part-06/chp-holistic_state.tex,queued-for-full-rewrite,5153,4740,4902,4902,7,358
+20,chapters/part-06/chp-holistic_state.tex,rewritten-reviewed,5153,7910,4902,7943,7,1034
 21,chapters/part-06/chp-cognitive_dynamics.tex,queued-for-full-rewrite,1640,1576,1635,1635,4,262
 22,chapters/part-06/chap-dual_asymmetry.tex,queued-for-full-rewrite,1447,1158,1178,1178,4,77
 23,chapters/part-06/sec-cognitive_kaluza_klein_compactification.tex,queued-for-full-rewrite,5322,5175,5381,5381,9,281

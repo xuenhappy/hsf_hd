@@ -369,9 +369,16 @@
       "source_start_line": 5322,
       "source_end_line": 5716,
       "source_sha256": "40bc91bcb9a767ee627c8cca7373a11b52d9e83e9e21d1bcc237a0f1f346b24f",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "partial_draft": "docs/drafts/chapter-020-holistic-state-dynamics.tex",
+      "draft_checkpoint": "docs/drafts/chapter-020-checkpoint.md",
+      "new_title": "整体认知状态：联合表示、激活读出与语义迁移",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-06/chp-cognitive_dynamics.tex",

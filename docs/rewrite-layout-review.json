@@ -1,9 +1,9 @@
 {
-  "pages": 118,
-  "bytes": 16661153,
+  "pages": 125,
+  "bytes": 16720456,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 88,
+  "numbered_sections": 95,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -622,7 +622,56 @@
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "20.1 整体状态的定义：结构、内容与任务条件的联合记录",
+      "start_pdf_page": 119,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "20.2 内部动力学：双向耦合、绑定稳定与结构可塑性",
+      "start_pdf_page": 120,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "20.3 状态显化：激活、可观测读出与决策提交",
+      "start_pdf_page": 120,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "20.4 整体状态的参数化：可辨识分量与本构接口",
+      "start_pdf_page": 121,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "20.5 语义量的计算定义：丰富度、一致性与惊奇",
+      "start_pdf_page": 122,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "20.6 语义迁移：跨语境对齐、接口补偿与路径依赖",
+      "start_pdf_page": 123,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "20.7 不变量与学习：身份连续、资源收支和受控重构",
+      "start_pdf_page": 124,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 19 chapters; does not validate the full book."
+  "scope": "Review subset: 20 chapters; does not validate the full book."
 }
