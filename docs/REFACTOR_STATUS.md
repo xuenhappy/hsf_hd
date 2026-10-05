@@ -36,4 +36,4 @@
 
 `make check` 检查编译图、资源、标签、已声明重写章的长度与结构，并验证待写章原文仍完整。`python3 scripts/check_rewrite.py --all` 仅在 117 章全部完成时通过。正文不以填写字数为目标，字数门槛只是防止再次压缩丢失论述。
 
-第17章六个编号小节已完成全文、公式、编译、半页门槛与逐页视觉复核，正式状态为 `rewritten-reviewed`。下一章按清单顺序为第18章 `chapters/part-06/chp-microscopic_origins.tex`。
+第17章六个编号小节已完成全文、公式、编译、半页门槛与逐页视觉复核，正式状态为 `rewritten-reviewed`。第18章已实写章首语和第一编号小节，持久草稿与精确续写位置位于 `docs/drafts`；正式章节仍为 queued，不计入完成数。

@@ -331,7 +331,9 @@
       "source_sha256": "5b6191b76b93cf529cfc6ec74809434c03ce163b20d94fe5652d2ee9f760007d",
       "status": "queued-for-full-rewrite",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "partial_draft": "docs/drafts/chapter-018-microscopic-origins.tex",
+      "draft_checkpoint": "docs/drafts/chapter-018-checkpoint.md"
     },
     {
       "path": "chapters/part-06/chp-value_gauge_field.tex",
