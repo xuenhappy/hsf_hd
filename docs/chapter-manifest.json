@@ -561,11 +561,16 @@
       "source_start_line": 9676,
       "source_end_line": 10298,
       "source_sha256": "414b83c619bf052c34abf4e2fb1836142d5892b927faff6d4fa97664035927c7",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "new_title": "状态演化方程：传播、反馈与结构耦合",
       "preserved_figure_count": 0,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-with-computational-analysis"
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "draft_checkpoint": "docs/drafts/chapter-030-checkpoint.md",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-geometry_physics_interaction.tex",

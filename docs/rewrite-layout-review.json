@@ -1,9 +1,9 @@
 {
-  "pages": 187,
-  "bytes": 19787644,
+  "pages": 198,
+  "bytes": 19861993,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 151,
+  "numbered_sections": 160,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1063,7 +1063,70 @@
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "30.1 从轨迹原则到带类型的状态演化方程",
+      "start_pdf_page": 190,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "30.2 固定结构上的传播：网络耦合、衰减与有界响应",
+      "start_pdf_page": 191,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "30.3 输入与控制：观测校正、目标反馈和资源约束",
+      "start_pdf_page": 192,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "30.4 结构—内容耦合：身份绑定、协变更新与事件重置",
+      "start_pdf_page": 193,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "30.5 多时间尺度激发：频谱分解、非线性耦合与状态包形成",
+      "start_pdf_page": 194,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "30.6 语法、语义与语用：从物理相变改写为接口组合",
+      "start_pdf_page": 194,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "30.7 连续模型的严格推导：目标函数、梯度流与专门传播形式",
+      "start_pdf_page": 195,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "30.8 离散实现、混合事件与数值稳定条件",
+      "start_pdf_page": 196,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "30.9 模型验证与理论边界：从状态下降到任务成功",
+      "start_pdf_page": 197,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 29 chapters; does not validate the full book."
+  "scope": "Review subset: 30 chapters; does not validate the full book."
 }
