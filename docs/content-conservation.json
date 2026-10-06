@@ -1,9 +1,9 @@
 {
   "checks_passed": true,
-  "original_complete_chapters_verified": 87,
-  "fully_rewritten_chapters_length_verified": 30,
+  "original_complete_chapters_verified": 86,
+  "fully_rewritten_chapters_length_verified": 31,
   "baseline_chapter_chinese_characters": 568727,
-  "current_chapter_chinese_characters": 647724,
+  "current_chapter_chinese_characters": 650857,
   "scope": "Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.",
   "chapters": [
     {
@@ -248,11 +248,11 @@
     },
     {
       "path": "chapters/part-08/chp-geometry_physics_interaction.tex",
-      "original_exposition_preserved": true,
-      "validation_mode": "original-exposition-conservation",
+      "original_exposition_preserved": false,
+      "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 2031,
-      "current_chinese_characters": 2031
+      "current_chinese_characters": 5164
     },
     {
       "path": "chapters/part-08/chp-dynamics_kernel_ch.tex",

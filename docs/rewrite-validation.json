@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 30,
-  "pending_chapters": 87,
+  "rewritten_chapters": 31,
+  "pending_chapters": 86,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1132,33 +1132,33 @@
     {
       "order": 31,
       "path": "chapters/part-08/chp-geometry_physics_interaction.tex",
-      "title": "几何与物理的互动机制 — 认知爱因斯坦场方程",
-      "status": "queued-for-full-rewrite",
+      "title": "状态—结构耦合：活动、学习与可塑性",
+      "status": "rewritten-awaiting-layout-review",
       "original_han_floor": 2031,
-      "new_chapter_prose_han": 1927,
+      "new_chapter_prose_han": 5088,
       "original_readable_units": 1970,
-      "new_readable_units": 1970,
-      "opening_prose_han": 143,
+      "new_readable_units": 5102,
+      "opening_prose_han": 312,
       "sections": [
         {
-          "title": "作用量原理：几何与思维的统一场",
-          "prose_han": 260
+          "title": "结构几何的计算定义与耦合对象",
+          "prose_han": 1022
         },
         {
-          "title": "认知应力-能量张量：形流的压力与质流的重力",
-          "prose_han": 1072
+          "title": "更新驱动的分解：活动负荷、重要性与保持证据",
+          "prose_han": 1121
         },
         {
-          "title": "场方程推导：双向耦合的数学终局",
-          "prose_han": 76
+          "title": "状态—结构耦合方程与稳定性推导",
+          "prose_han": 1178
         },
         {
-          "title": "物理诠释：学习即引力塌缩",
-          "prose_han": 376
+          "title": "学习案例、提交协议与一般理论边界",
+          "prose_han": 1455
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

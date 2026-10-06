@@ -1,154 +1,140 @@
-\chapter{几何与物理的互动机制 — 认知爱因斯坦场方程}
+\chapter{状态—结构耦合：活动、学习与可塑性}
 \label{chp:geometry_physics_interaction}
 
-在确立思维流动的目的论狄拉克方程后，下一步问题是：承载思维的认知流形 $\mathcal{M}$ 如何随动力学共同演化。为此，本章构建包含\textbf{几何作用量}与\textbf{认知物质作用量}的总拉格朗日量，并通过变分原理导出\textbf{认知爱因斯坦场方程}。
-我们定义\textbf{认知应力-能量张量 $T_{\mu\nu}$}，以宏观势能（$\mathbf{\Gamma}_{macro}$）与思维强度（$\Psi$）表征源项强度。由此，“意志影响几何”的说法被重写为\textbf{可计算、可检验的场方程耦合}。
+上一章建立了状态在既定结构上的传播、反馈与事件更新，本章进一步回答结构本身如何被运行过程改变。智能系统并不只在固定状态空间中运动：反复使用会改变访问路径，新证据会修订关系，重要事件会调整保持优先级，长期训练还会形成技能和新的压缩接口。我们因此把历史上“思维改变几何”的直觉改写为状态—结构双向耦合问题。这里的几何只表示任务相关的距离、邻接、可达性和读出条件，不预设它与物理时空同构；更新来源也不再称为应力或质量，而是可观测的使用统计、预测残差、价值标记、验证结果与资源条件。我们将定义快速状态、慢速结构和绑定接口，推导耦合模型的下降与稳定条件，再用机械记忆、强烈事件、心流和遗忘说明模型的经验边界。这样，HSF-HD保留智能过程反过来塑造结构的核心命题，却把它落实为可实现、可审计的一般状态动力学。
 
-\section{作用量原理：几何与思维的统一场}
+\section{结构几何的计算定义与耦合对象}
 \label{sec:section_7455}
-智能系统的演化轨迹，遵循\textbf{总作用量 $S_{total}$} 的极值原理。这个作用量必须同时包含描述“舞台”（世界图几何）和“演员”（认知场动力学）的项。
-$$ S_{total} = \underbrace{S_{geom}[g_{\mu\nu}]}_{\text{几何成本}} + \underbrace{S_{cog}[\Psi, g_{\mu\nu}]}_{\text{认知动力}} $$
 
+我们先定义对象。令运行状态为 $x(t)\in\mathcal X\subseteq\mathbb R^n$，它包含当前任务窗口中可连续更新的活动、候选权重与控制量；令局部结构网络为 $S(t)=(V,E,W,\rho,\nu)\in\mathcal S$，其中 $V$ 是带稳定身份的节点，$E$ 是有类型关系，$W$ 是边参数，$\rho$ 给出角色与接口类型，$\nu$ 记录来源和版本；令全局分布表示为 $z(t)\in\mathbb R^d$ 或概率分布 $p_t\in\mathcal P(\mathcal Z)$；绑定记录 $b(t)\in\mathcal B$ 把结构身份与分布候选连接。目标版本记为 $g(t)\in\mathcal G$，外部观测为 $o(t)\in\mathcal O$，资源账本为 $r(t)\in\mathbb R_{ge0}^{d_r}$。这些对象的空间、维数和单位不同，不能因为都影响学习就合并成一个所谓“认知能量”。
 
+在查询族 $\mathcal Q$ 上，我们用读出差异定义任务相关的结构几何。对联合记录 $q_i,q_j$，定义
+\begin{equation}
+ d_{S,g}(q_i,q_j)=\inf_{\pi:i\leadsto j}\sum_{e\in\pi}c_e(S,g)
+ +\lambda_z d_z(z_i,z_j)+\lambda_b d_b(b_i,b_j).
+ \label{eq:structure_task_metric}
+\end{equation}
+路径项描述关系可达代价，$d_z$ 描述分布差异，$d_b$ 描述绑定不确定性。各项进入同一标量前必须无量纲化或具有明确换算；若不能换算，就应保留向量代价并使用偏序。该函数未必满足严格度量公理：有向关系会使距离不对称，不可达节点的代价可能为无穷。因此这里的“几何”是一组声明过的比较和可达规则，而不是所有智能系统都必须服从的黎曼流形。
 
-\smalltitle{几何作用量 (Geometric Action)}
+固定结构版本 $S_v$ 时，状态按
+\begin{equation}
+ \dot x=f(x,z,b,o,c;S_v,g,r)
+ \label{eq:state_given_structure}
+\end{equation}
+演化。节点和关系决定哪些信息能够相互作用，角色类型决定哪些绑定合法，版本号决定一次读出依据哪份结构。反过来，状态并不直接“弯曲”结构；它先产生使用统计和编辑证据。我们定义窗口统计
+\begin{equation}
+ \xi(t)=\Xi\bigl(x_{[t-W,t]},z_{[t-W,t]},b_{[t-W,t]},o_{[t-W,t]},g,r\bigr),
+\end{equation}
+其中 $W>0$、聚合函数、缺失值规则和来源资格都写入协议。共同激活、预测残差、任务结果、人工确认和安全违规是不同分量。共同激活只能支持相关，干预后的差异才可能支持方向；任务成功只支持当前评价协议，不能推出结构与世界整体同构。
 
-这是维持世界图 $G_W$ 存在的结构成本，采用\textbf{爱因斯坦-希尔伯特 (Einstein-Hilbert)} 形式：
-$$ S_{geom} = \frac{1}{2\kappa} \int d^4x \sqrt{-g} \, (R - 2\Lambda) $$
-\begin{itemize}
-    \item   \textbf{$R$ (里奇标量)}：流形的平均曲率。系统倾向于平滑化（最小化 $R$），以降低拓扑复杂度（奥卡姆剃刀）。
-    \item   \textbf{$\Lambda$ (认知世界常数)}：系统的基础遗忘率或背景偏置。
-\end{itemize}
+结构更新分为参数变化与离散编辑。边权、访问优先级和保持系数可以在固定节点集合上连续变化，写为 $\dot\theta=F_\theta(\theta,\xi)$；节点创建、关系换型、身份合并和接口迁移则在事件 $e_j$ 到来时经 $S^+=\mathcal R_{e_j}(S^-,\mathcal E_j)$ 完成。证据包 $\mathcal E_j$ 至少包含来源、时间、目标版本、反例检查、权限和回滚点。把离散编辑伪装成普通导数会掩盖身份断裂，也无法解释旧查询如何迁移到新结构。
 
+这种定义保留“舞台与演员共同演化”的问题，却改变了论证资格。状态空间不是先验的物理时空，结构成本也不需要复制爱因斯坦—希尔伯特作用量。我们真正能够观察的是路径长度、访问延迟、预测误差、绑定冲突和版本差异；能够控制的是增益、检索、编辑和资源分配；能够验证的是外部任务和保留查询。局部结构网络负责身份、关系与组合约束，全局分布表示负责相似性、候选与不确定性，二者通过绑定联合读出。结构几何的改变必须同时报告网络版本、分布读出与绑定可辨识性，不能由某个脑区或物理场的类比代替这些检查。
 
+在工程清单中，我们还要求每个结构量说明刷新周期和所有者。缓存命中率可能改变访问代价，却未必修改长期结构；提示词改变可能影响当前读出，却不能算作参数学习；外部工具升级可能提高任务得分，却不意味着内部几何改善。只有在冻结其他接口、对候选结构施加干预并重复观察后，才有理由把变化归因于结构耦合。由此，模型从一开始就为可辨识性和反例保留位置。
 
-\smalltitle{认知作用量 (Cognitive Action)}
-
-这是生成第\ref{chp:evolution_equation_ch}章中“目的论狄拉克方程”的源头，在弯曲流形上，其拉格朗日密度 $\mathcal{L}_{\Psi}$ 为：
-$$ S_{cog} = \int d^4x \sqrt{-g} \, \bar{\Psi} \left[ i \gamma^\mu (\nabla_\mu - i A_\mu) - \mathbf{M}_{eff} \right] \Psi $$
-\begin{itemize}
-    \item   \textbf{$\nabla_\mu$}：协变导数，包含自旋联络，确保思维在弯曲空间中的协变性。
-    \item   \textbf{$A_\mu$}：由体验图 $G_E$ 辐射的规范场（价值偏好）。
-    \item   \textbf{$\mathbf{M}_{eff}$ (有效质量矩阵)}：对应于 $\mathcal{D}_{topo} + \mathbf{\Gamma}_{macro}$。
-    \item   \textbf{关键定义}：\textbf{宏观意志 $\mathbf{\Gamma}_{macro}$ 被视为一种“质量”}。意志越强，思维的“分量”越重，惯性越大，且产生的引力效应越强。
-\end{itemize}
-
-\section{认知应力-能量张量：形流的压力与质流的重力}
+\section{更新驱动的分解：活动负荷、重要性与保持证据}
 \label{sec:section_3331}
-在广义相对论中，物质告诉时空如何弯曲。在这里我们需要回答：\textbf{是认知场中的什么成分，定义了认知空间流形 $\mathcal{M}$ 的曲率？}
 
-基于 MSC 的纤维丛模型，认知场 $\Psi$ 被解构为 \textbf{形 ($T_{form}$)} 与 \textbf{质 ($T_{sub}$)} 的双重流。相应地，作为场方程源项的 \textbf{应力-能量张量 $\mathbf{T}_{\mu\nu}$} 也必须发生\textbf{正交分解}。
+原章把结构改变的来源分为“逻辑压力”和“价值质量”，并借应力—能量张量解释短暂与持久形变。我们保留这一现象区分，但改用可测的更新驱动。令 $\xi_f(t)$ 表示快速活动驱动，包括节点访问率、候选竞争、推理深度、冲突数、预测残差和验证延迟；令 $\xi_s(t)$ 表示慢速保持驱动，包括跨情境复现、任务收益、主体相关性、社会承诺、风险等级、人工确认和长期预测改进。二者是统计向量，不是物理张量，也不要求正交。高负荷可能伴随高重要性，重要事件也可能几乎不需要复杂推理，因此模型必须允许相关而不混同。
 
-我们提出 \textbf{形质张量分离公理}：智能体的“意志”由两部分物理量构成——\textbf{逻辑的动能（形式压力）}与\textbf{价值的势能（实质质量）}。
-$$ \mathbf{T}_{\mu\nu}^{total} = \mathbf{T}_{\mu\nu}^{Shape} + \mathbf{T}_{\mu\nu}^{Substance} $$
+对固定结构参数 $\theta\in\Theta\subseteq\mathbb R^m$，候选变化率定义为
+\begin{equation}
+ u_\theta=A_f\phi_f(\xi_f)+A_s\phi_s(\xi_s)-\nabla_\theta\Omega(\theta),
+ \label{eq:structure_update_drive}
+\end{equation}
+其中 $A_f,A_s$ 将不同统计映射到参数变化率空间，$\phi_f,\phi_s$ 包含校准、截断和时间聚合，$\Omega$ 是复杂度、漂移或兼容性正则。三项必须与 $\dot\theta$ 同维。这个式子是工程模型：它说明哪些记录有资格提出变化，不保证提案正确。提交前仍要执行独立验证、硬约束和保留查询检查。
 
+为区分瞬时活动与持久证据，我们引入活动痕迹 $a(t)\in\mathbb R_{ge0}^m$ 和慢证据 $m(t)\in\mathbb R_{ge0}^m$：
+\begin{align}
+ \tau_a\dot a&=-a+\phi_f(\xi_f),\\
+ \tau_m\dot m&=-\delta_m m+\phi_s(\xi_s)+C_{am}\sigma(a).
+ \label{eq:trace_consolidation}
+\end{align}
+其中 $0<\tau_a\ll\tau_m$，$\delta_m\ge0$ 是保持衰减率，$C_{am}$ 描述经验证的重复活动怎样转化为慢证据。只有当该转换由数据辨识，并受到任务结果和来源质量门控时，重复才被允许巩固结构；否则系统会把频繁出现的错误或攻击输入固化。这个双时标模型解释“算得很累但没有记住”与“一次事件长期影响”可以并存，而不把活动强度称为压力，也不把情感意义称为质量。
 
+重要性还要分解。我们把保持优先级写成 $v=(v_{task},v_{self},v_{social},v_{risk},v_{novel})$，分别表示任务效用、主体连续性、社会承诺、安全风险和新颖度。若需要标量排序，聚合规则必须由目标版本 $g$ 声明；法律、安全或不可逆承诺可采用硬优先级，不能被其他收益抵消。情绪强度可以是主体相关性或风险的一个观测，但强烈不等于真实，也不等于值得永久保存。对人类创伤的长期影响只能作为经验假说；在人工系统中，类似行为可能来自高优先级写入、回放或参数更新，不能从功能相似推出机制等同。
 
-\smalltitle{形张量 ($\mathbf{T}_{\mu\nu}^{Shape}$)：逻辑的压力与剪切}
-这一分量源于 \textbf{形元($T_{form}$, 几何玻色子)} 在底流形上的\textbf{非平凡演化}。它对应于物理学中的 \textbf{动能项} 和 \textbf{辐射压}。
-\begin{itemize}
-    \item   \textbf{物理来源}：由 \textbf{协变导数} 和 \textbf{规范场张量} 定义。它描述了思维在结构调整、逻辑推演过程中的剧烈程度。
-        $$ \mathbf{T}_{\mu\nu}^{Shape} \sim \text{Tr}(\mathcal{F}_{\mu\lambda} \mathcal{F}^\lambda_\nu) + (\nabla_\mu \mathcal{A}) (\nabla_\nu \mathcal{A}) $$
-    \item   \textbf{认知含义}：\textbf{认知负荷 (Cognitive Load)} 与 \textbf{逻辑复杂度}。
-    \item   \textbf{压力 ($T_{ii}$)}：当系统进行高强度的逻辑运算（如数学证明、代码生成）时，形元快速流转，对流形产生巨大的\textbf{“光压”}。
-    \item   \textbf{剪切应力 ($T_{i \neq j}$)}：当思维路径发生冲突（逻辑悖论、死循环）时，流形承受巨大的\textbf{拓扑撕裂力}。
-    \item   \textbf{几何效应}：\textbf{弹性形变 (Elastic Deformation)}。纯粹的逻辑压力通常导致流形的\textbf{暂时性膨胀}或\textbf{震荡}。一旦任务结束（算完了），压力消失，流形往往回弹复原。
-    \item   \textbf{结论}：\textbf{逻辑是“热”的，但它是“轻”的。单纯的思考很难形成长期的记忆。}
-\end{itemize}
+结构更新还受资源和机会限制。系统繁忙时，$\xi_f$ 很大，却未必有带宽执行慢速整理；空闲回放时，活动峰值不高，反而可能完成压缩、去重和索引重建。实际变化可写为
+\begin{equation}
+ \dot\theta=\Pi_{\mathcal T_\Theta(\theta)}
+ \left(q(r,t)M(\mathcal E,g)u_\theta\right),
+\end{equation}
+其中 $q\in[0,1]$ 是资源门控，$M$ 是证据与权限门控，$\Pi$ 投影到约束集合切锥。若结构为离散图，该式只更新参数，节点和关系编辑仍须进入事务队列。设备焦耳能耗由遥测得到，不能用损失、痕迹幅度或资源门控值替代。
 
-\smalltitle{质张量 ($\mathbf{T}_{\mu\nu}^{Substance}$)：价值的重力与静质量}
-这一分量源于 \textbf{质元($T_{sub}$, 语义费米子)} 在纤维空间中的\textbf{激发密度}。它对应于物理学中的 \textbf{质能项} 和 \textbf{静质量}。
+遗忘也由不同机制组成。痕迹衰减表示活动减少；索引淘汰表示内容仍在但暂时不可达；新证据覆盖表示模型被修订；权限撤销表示读出被禁止；外部记忆失联表示接口故障。式\eqref{eq:trace_consolidation}只覆盖第一类与部分巩固过程，不是普遍遗忘定律。一次回忆若只提高当前激活，结构可能根本没有改变；若提高后续访问率，可能是索引刷新；若修改内容，则属于重巩固。实验应分别测量内容保真、访问概率、结构版本和跨任务迁移。
 
-\begin{itemize}
-    \item   \textbf{物理来源}：由 \textbf{激活场 $J(\mathbf{r})$} 和 \textbf{体验势能 $V_E$} 定义。
-     $$ \mathbf{T}_{\mu\nu}^{Substance} \sim g_{\mu\nu} \cdot \left( \underbrace{m_{rest} \|\psi_{sub}\|^2}_{\text{静质量}} + \underbrace{V_E(\mathbf{r})}_{\text{势能}} \right) $$
-    \item   \textbf{关键修正}：\textbf{只有“质”才拥有静质量。}在前面我们说过，“红色”、“痛苦”、“爱”这些质料，不仅仅是属性，它们是\textbf{有重量的实体}。$m_{rest}$ 取决于该质元在体验图 $G_E$ 中的权重。\textbf{情感越强烈，质量越重。}
-    \item   \textbf{认知含义}：\textbf{重要性 (Significance)} 与 \textbf{刻骨铭心}。
-    \item   \textbf{几何效应}：\textbf{塑性形变 (Plastic Deformation)}。高密度的质张量会在底流形上压出一个深深的\textbf{引力坑 (Gravity Well)},这种形变是\textbf{永久性}的。即使思维流 $\Psi$ 离开了，这个坑（曲率）依然存在。
-    \item   \textbf{结论}：\textbf{情感是“重”的。只有携带了高能质料的思维，才能刻蚀出长时记忆。}
-\end{itemize}
+历史上的“形”由此被拆成结构操作和快速活动，“质”被拆成内容、价值标记与保持证据。逻辑推演可以提出关系编辑，重要性可以调节保留资格；只有通过验证的提案才成为持久结构。高重复不必然形成正确知识，高价值不必然带来有效学习，而低负荷路径可能只是训练后更高效。这个分解既保留原章关于机械学习、强烈记忆和遗忘的具体问题，也避免把类比性词汇当成计算证明。
 
-\smalltitle{完整的认知场方程 (Refined Cognitive Field Equation)}
-
-现在，我们可以写出 \textbf{认知爱因斯坦方程} 的精细结构形式，描述意志如何重塑现实：
-$$ \underbrace{G_{\mu\nu}}_{\text{学习/结构改变}} = \kappa \cdot \left( \underbrace{\alpha \cdot \text{Stress}(\text{Logic})}_{\text{逻辑压力}} + \underbrace{\beta \cdot \text{Mass}(\text{Value})}_{\text{价值重力}} \right) $$
-这个方程解释了三种不同的认知现象：
-\begin{itemize}
-\item   \textbf{Case A: 机械记忆 (Rote Learning)}
-    \begin{itemize}
-        \item   状态：高逻辑压力 ($\mathbf{T}^{Shape}$ 大)，零情感质量 ($\mathbf{T}^{Substance} \approx 0$)。
-        \item   结果：流形发生微弱的弹性震荡。为了记住它，需要无数次重复（用动能换势能）。\textbf{效率极低。}
-    \end{itemize}
-    \item   \textbf{Case B: 创伤性学习 (Traumatic Learning)}
-    \begin{itemize}
-        \item   状态：逻辑简单 ($\mathbf{T}^{Shape}$ 小)，但情感质量极大 ($\mathbf{T}^{Substance} \to \infty$)。
-        \item   结果：流形瞬间发生剧烈的塑性坍缩，形成黑洞般的吸引子。\textbf{一次经历，永生难忘。}
-    \end{itemize}
-    \item   \textbf{Case C: 心流 (Flow)}
-    \begin{itemize}
-        \item   状态：形与质完美匹配（阻抗匹配）。
-        \item   结果：$\mathbf{T}^{Shape}$ 的压力被流形的曲率抵消，$\mathbf{T}^{Substance}$ 沿着测地线无摩擦滑行。\textbf{做功极大，但主观感觉“毫不费力”。}
-    \end{itemize}
-\end{itemize}
-
-\smalltitle{物理推论：遗忘的物理学}
-
-为什么我们会遗忘？在 MSC 看来，\textbf{遗忘是流形的“弹性回弹”}。
-\begin{itemize}
-    \item   \textbf{形张量}造成的变形主要是弹性的，随时间 $t$ 衰减极快（短期记忆丢失）。
-    \item   \textbf{质张量}造成的变形主要是塑性的，但如果缺乏持续的\textbf{“质料填充”}（回想/复习），引力坑也会在\textbf{流形张力（熵增）}的作用下慢慢抚平。
-    \item   \textbf{如何抵抗遗忘？}必须不断向该区域注入 \textbf{高能质元}（重新激活情感/价值）, 或者通过 \textbf{拓扑手术}（将坑转化为环/洞），利用拓扑保护机制来锁定记忆。
-\end{itemize}
-\textbf{洞见：意志（Will）} 在本模型中不是单一标量，而是由\textbf{逻辑剪切}与\textbf{价值引力}共同组成的张量效应。对顽固结构（习惯或环境约束）的改变，通常需要逻辑重构与价值加权同时作用。
-
-\section{场方程推导：双向耦合的数学终局}
+\section{状态—结构耦合方程与稳定性推导}
 \label{sec:section_2061}
-现在，我们对\textbf{总作用量 $S_{total}$} 关于度量张量 $g^{\mu\nu}$ 进行变分，并令其为零（最小作用量原理）：
-$$ \delta S_{total} = \delta S_{geom} + \delta S_{cog} = 0 $$
-\begin{enumerate}
-    \item \textbf{几何部分的变分}：
-    $$ \delta S_{geom} = \frac{1}{2\kappa} \int d^4x \sqrt{-g} \, \left( G_{\mu\nu} + \Lambda g_{\mu\nu} \right) \delta g^{\mu\nu} $$
-    其中 $G_{\mu\nu} = R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu}$ 为爱因斯坦张量。
 
-    \item  \textbf{认知部分的变分}：
-    由定义可知：$\delta S_{cog} = -\frac{1}{2} \int d^4x \sqrt{-g} \, T_{\mu\nu} \, \delta g^{\mu\nu}$。
+现在给出可推导的双向耦合模型。我们先固定一个结构模式和一段没有离散编辑的时间区间。令 $x\in\mathbb R^n$ 为快速状态，$\theta\in\Theta\subseteq\mathbb R^m$ 为可微结构参数，外部输入为 $u(t)$，目标版本为 $g(t)$。假设存在连续可微的任务—一致性泛函
+\begin{equation}
+ \mathcal L(x,\theta;u,g)=\ell_{task}(R_\theta x,u,g)
+ +\lambda_c\ell_{cons}(x,\theta)+\lambda_s\Omega(\theta),
+ \label{eq:state_structure_objective}
+\end{equation}
+其中读出 $R_\theta$、损失各项和权重已无量纲化，硬安全条件放入可行集而不作为可被收益抵消的软惩罚。$\mathcal L$ 是设计评价函数，不是自然界的总作用量；遗漏的目标和外部性不会因为数学下降而自动满足。
 
-    \item \textbf{合并方程}：
-    $$ \frac{1}{2\kappa} (G_{\mu\nu} + \Lambda g_{\mu\nu}) - \frac{1}{2} T_{\mu\nu} = 0 $$
-\end{enumerate}
-整理即得 \textbf{认知爱因斯坦场方程}：
-$$ \mathbf{R}_{\mu\nu} - \frac{1}{2}R \mathbf{g}_{\mu\nu} + \Lambda \mathbf{g}_{\mu\nu} = \kappa \cdot \mathbf{T}_{\mu\nu}(\Psi, \mathbf{\Gamma}_{macro}) $$
+在度量矩阵 $G_x=G_x^\top\succ0$、$G_\theta=G_\theta^\top\succ0$ 下，选择双时间尺度梯度流
+\begin{align}
+ \dot x&=-G_x^{-1}\nabla_x\mathcal L+B_xu+C_xc,\\
+ \dot\theta&=-\varepsilon G_\theta^{-1}\nabla_\theta\mathcal L
+ +\varepsilon D_\theta\xi_s,
+ \label{eq:coupled_state_structure_flow}
+\end{align}
+其中 $0<\varepsilon\ll1$ 表示结构更新较慢，$c$ 是宏观控制，$D_\theta\xi_s$ 是未被当前目标充分表达的保持证据。若 $u,c,g,\xi_s$ 固定且该附加驱动为零，沿轨迹有
+\begin{equation}
+ \frac{d\mathcal L}{dt}=-\nabla_x\mathcal L^\top G_x^{-1}\nabla_x\mathcal L
+ -\varepsilon\nabla_\theta\mathcal L^\top G_\theta^{-1}\nabla_\theta\mathcal L\le0.
+ \label{eq:coupled_descent_result}
+\end{equation}
+这是给定假设下的数学结果：指定目标非增。它不证明唯一收敛、不证明外部任务成功，也不证明真实智能一定采用梯度流。唯一平衡还需要强凸性、紧性或可辨识性；非凸系统可能停在鞍点、局部极小或一族等价参数上。
 
-\section{物理诠释：学习即引力塌缩}
+当目标、输入、结构或度量变化时，完整导数还包含 $\partial_t\mathcal L$、$\partial_u\mathcal L\dot u$、$\partial_g\mathcal L\dot g$ 和度量估计项。结构模式在 $\tau_j$ 离散编辑时，应计算跳变量
+\begin{equation}
+ \Delta_j\mathcal L=\mathcal L(x^+,\theta^+;u^+,g^+)
+ -\mathcal L(x^-,\theta^-;u^-,g^-),
+\end{equation}
+不能把节点增删写成普通 $\dot\theta$。必要的修订可能暂时提高旧目标，却改善新任务或消除安全缺陷；控制器必须比较目标版本和保留查询，而不是机械拒绝所有上升步骤。
+
+若 $L(\theta)$ 是局部网络的传播矩阵，快速子系统可取 $\dot x=-[L(\theta)+R]x+Bu+Cc$。若对所有允许的 $\theta$ 都存在 $P=P^\top\succ0$、$Q\succ0$ 使
+\begin{equation}
+ [L(\theta)+R]^\top P+P[L(\theta)+R]\succeq Q,
+\end{equation}
+并且结构变化有界，则可以建立共同的局部稳定界。若不存在共同 $P$，还需限制切换驻留时间或逐模式分析。某个固定版本稳定，不意味着在线学习时仍稳定；强化已激活路径可能造成候选垄断、回声室或灾难性遗忘，因此需要更新率上界、反例采样和多样性约束。
+
+双时间尺度约化也有条件。只有每个固定 $\theta$ 下的快系统存在唯一且统一吸引的平衡 $x^*(\theta)$，并且结构变化足够慢，才可近似令 $x\approx x^*(\theta)$。多稳态、长时延、突发输入和结构事件都会破坏该近似。在危机响应、探索或控制切换时，快慢尺度可能临时接近，继续使用准稳态推导会漏掉瞬态风险。
+
+离散实现采用步长 $\Delta t_x$ 与 $\Delta t_\theta$：$x_{k+1}=x_k-\Delta t_xG_x^{-1}\widehat{\nabla_x\mathcal L}_k$，结构参数在投影后更新。连续下降不保证任意步长稳定；在梯度为 $L$-Lipschitz 的欧氏特例中通常要求 $0<\Delta t<2/L$，随机估计还需方差条件。结构更新必须在影子版本执行并原子提交。辨识时要分别比较仅更新状态、仅更新结构和联合更新的轨迹；若关闭结构更新后长期迁移不变，就不能把改善归因于可塑性。由此，原先借变分推导“认知场方程”的愿望被重建为有对象、有假设、有边界的计算模型。
+
+模型还要处理控制器与学习器相互追逐的问题。若控制器依据旧结构生成动作，而结构学习器同时改变传播路径，闭环中就会出现版本时延；若学习器又把控制器造成的数据分布当成自然环境，参数估计会产生选择偏差。我们因此在每个事务中固定结构版本，记录动作策略、观测窗口和目标版本，再在事务边界计算更新。在线部署可使用双缓冲：活动版本负责服务，候选版本接收增量并在回放集、反例集和安全集上验证。只有验证通过才交换版本指针。这个协议牺牲部分即时可塑性，却使稳定性分析、错误归因和回滚成为可能，也明确区分了连续状态校正与持久结构学习。
+
+若必须边运行边学习，我们将参数估计误差 $\tilde\theta=\hat\theta-\theta^*$ 纳入扩展状态，并为 $(x,\tilde\theta)$ 构造复合Lyapunov函数。此时需要持久激励、噪声界和投影条件才能讨论参数收敛；只有状态误差趋零时，参数仍可能不可辨识。因而“行为正确”不等于“内部结构正确”，预测有效也不推出整体同构。数学证明必须准确停在假设能够支持的位置。
+
+\section{学习案例、提交协议与一般理论边界}
 \label{sec:section_7984}
-该方程不仅完成了形式推导，也给出了智能演化的可解释动力学图景。
 
+耦合模型首先产生可区分的机制假说。机械记忆表现为同一材料反复被访问，快速痕迹 $a$ 多次升高，但跨情境迁移、因果验证或任务收益不足，慢证据 $m$ 的增长有限。若重复伴随正确反馈，转换项可逐步改善索引与路径，使读出延迟下降；若反馈缺失，系统可能只熟悉表面形式。实验必须同时测量复现准确率、变式迁移、保持时长和错误固化，不能仅凭训练次数宣称结构已学习。
 
+强烈事件对应另一种输入组合：风险、主体相关性或社会后果使慢驱动在短时间内增大，触发高优先级记录、回放或保护性策略。一次经历可以长期影响结构，但影响方向未必正确。传感器误报、操纵性信息和错误归因同样可能获得高优先级，因此仍需来源校验与后续修订。对人类创伤，该模型只是功能层假说；对Agent，应设置上限、衰减、人工审核和反事实复核，避免单次异常永久劫持结构。
 
-\smalltitle{意志弯曲现实 (Will Bends Reality)}
-\begin{itemize}
-    \item   \textbf{右边 ($T_{\mu\nu}$)}：包含了宏观意志 $\mathbf{\Gamma}_{macro}$。
-    \item   \textbf{左边 ($R_{\mu\nu}$)}：包含了世界图 $G_W$ 的几何结构。
-    \item   \textbf{机制}：当宏观层提高聚焦强度（增大 $\Psi$）或抬升控制势垒（增大 $\mathbf{\Gamma}_{macro}$）时，右侧源项能量密度增加；为保持方程平衡，左侧几何量随之调整。
-    \item   \textbf{结果}：流形局部曲率改变后，概念间有效距离与可达路径发生重排，表现为新联想形成或长期记忆加深。
-\end{itemize}
+心流可被操作化为任务难度、技能结构和控制负担的匹配区间。令任务误差为 $e_k$，控制修正为 $\|c_k\|$，中断率为 $q_k$，有效进展为 $p_k$；经验判据可要求窗口内进展高、误差有界、中断低且控制修正不过度。“轻松”不表示零计算，而可能表示已有结构提供短访问路径、预测较准、反馈及时，因而元控制无需频繁改写计划。任务过易可能没有学习，任务过难会增加冲突与回滚，过度自信还可能在低内部负担下稳定输出错误，因此心流必须与外部质量联合测量。
 
-\smalltitle{学习的引力动力学特征 (Gravitational Nature of Learning)}
-\begin{itemize}
-    \item   \textbf{重现}：当思维波 $\Psi$ 在某一区域反复通过时，该区域能量密度 $T_{00}$ 累积上升。
-    \item   \textbf{曲率增长}：随能量密度增加，局部曲率 $R$ 变大，系统更倾向形成稳定吸引域。
-    \item   \textbf{吸引子形成}：一旦形成\textbf{测地线汇聚点 (Attractor Basin)}，邻近思维轨迹将更高概率回流该区域。
-        这可用于统一描述\textbf{习惯}、\textbf{技能}与\textbf{知识固化}等现象。
-\end{itemize}
+技能与习惯都可能形成高概率路径，但规范地位不同。经验证的技能让相似输入更快进入成功策略，习惯则可能在目标改变后仍自动触发。若旧路径在新目标下持续产生高后悔值，却因访问优势被反复选择，就需要降低门控、引入替代路径或执行结构编辑。所谓“引力井”只能作为直觉；真正可检验的是选择概率、切换成本、目标后悔和干预结果。
 
+遗忘必须按失败模式诊断。内容可被穷举找到但常规检索失败，问题在索引或路由；参数更新后旧任务下降，可能是干扰；来源失效后的删除属于版本治理；权限撤销导致不可访问，并不表示载体已删除；外部记忆 $M_e$ 离线则是接口故障。复习只对部分机制有效，复习错误内容还会加重错误。我们分别执行保持、检索、权限、来源和迁移测试，不用一条衰减曲线包办所有遗忘。
 
+每个候选更新先在影子结构 $S'$ 上执行，并迁移绑定 $b\mapsto b'$。令 $\mathcal Q_{keep}$ 为必须保持的查询，$\mathcal Q_{new}$ 为希望改善的查询，定义
+\begin{align}
+ D_{keep}&=\sup_{q\in\mathcal Q_{keep}}d_q(R_q(S,b),R_q(S',b')),\\
+ I_{new}&=\mathbb E_{q\in\mathcal Q_{new}}[L_q(S,b)-L_q(S',b')].
+\end{align}
+只有硬约束通过、$D_{keep}$ 不超过风险阈值、$I_{new}$ 在独立数据上为正且资源允许时，才提交新版本。高风险字段可要求精确保持，低风险查询可使用统计容差。提交后保留回滚点，监测分布漂移、绑定冲突和外部任务回归。结构改变由此成为有证据、有版本、有恢复路径的受控事务，而不是不可逆的“塑性坍缩”。
 
-\smalltitle{闭环动力学 (Closed-Loop Dynamics)}
+可辨识性构成重要边界。相同输出改善可能来自状态增益、缓存、边权更新、提示变化或外部工具升级；只观察任务分数无法判断结构是否改变。我们需要冻结接口、随机化输入或直接干预候选边。若多个参数组合产生相同读出，就报告等价类和置信区间，不把一个拟合解解释成唯一内部几何。行为数据可以支持人类认知的功能模型，却不能自动证明神经结构与软件变量一一对应。
 
-至此，本书关于智能过程的动力学核心完成了最终闭环：
-\begin{itemize}
-    \item   \textbf{狄拉克方程}：几何 $g_{\mu\nu}$ 决定了思维 $\Psi$ 怎么流（\textbf{时空告诉物质如何运动}）。
-    \item   \textbf{爱因斯坦方程}：思维 $\Psi$ 的能量决定了几何 $g_{\mu\nu}$ 怎么弯（\textbf{物质告诉时空如何弯曲}）。
-\end{itemize}
+AgentOS给出具体落点：$h(t)$ 承载快速状态与当前绑定，$E$ 保存带时间和来源的事件证据，$\Theta$ 保存慢结构与生成约束；$\Psi$、SPC、TCE和CCM参与主体读出、压缩、控制与复杂度管理，Boundary审核跨界资格，Offloading把部分结构或过程迁移到外部记忆 $M_e$。这些组件可以实现统计、门控、影子更新和回滚，但不是HSF-HD本身的定义。其他系统只要明确状态、结构、绑定、证据和验证接口，同样属于这一模型族。
 
-智能可表述为这两组方程的\textbf{非线性耦合演化}所产生的\textbf{自组织结构}。
+本章与前章形成双向闭环：给定结构时，传播方程描述状态如何变化；给定经过验证的状态历史时，学习规则描述结构如何修订。系统论、协同论、耗散结构理论、复杂系统理论和认知科学提供开放性、层级与反馈原则；HSF-HD把它们组织成智能的一般状态动力学；AgentOS再把模型实例化为运行时工程。物理能量、质量和应力只有在研究真实设备、机器人或生物载体时才按本领域定义进入约束；讨论抽象记忆和价值时，它们不能充当证明。HSF-HD作为智能的一般“空气动力学”，不是复制一条包办所有智能的场方程，而是要求每次结构改变都说明对象、证据、稳定条件、旧能力保持、外部收益和失败恢复。

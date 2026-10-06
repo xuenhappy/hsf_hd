@@ -579,11 +579,18 @@
       "part": 8,
       "kind": "chapter",
       "source_start_line": 10298,
-      "source_end_line": 10455,
-      "source_sha256": "228d4bade424c523dd4c92f3afa964559ac700776a5b12c8a8ad90e51b2304df",
-      "status": "queued-for-full-rewrite",
-      "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+    "source_end_line": 10455,
+    "source_sha256": "228d4bade424c523dd4c92f3afa964559ac700776a5b12c8a8ad90e51b2304df",
+    "status": "rewritten-awaiting-layout-review",
+    "new_title": "状态—结构耦合：活动、学习与可塑性",
+    "preserved_figure_count": 0,
+    "formatting_normalized": true,
+    "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+    "draft_checkpoint": "docs/drafts/chapter-031-checkpoint.md",
+    "rewrite_method": "individually-authored-complete-body",
+    "heading_depth": "chapter-opening-and-numbered-sections",
+    "minimum_section_prose_han": 1000,
+    "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-dynamics_kernel_ch.tex",
