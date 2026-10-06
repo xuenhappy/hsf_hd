@@ -678,9 +678,15 @@
       "source_start_line": 12124,
       "source_end_line": 12314,
       "source_sha256": "19be49a3421a33b89b15b7f3eeb0cad4403fad741e5c791d2ad6b0b42a90bede",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "认知相干动力学：绑定、粗粒化与无中心协同",
+      "draft_checkpoint": "docs/drafts/chapter-036-checkpoint.md",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-control_meta_physics.tex",

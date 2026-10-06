@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 35,
-  "pending_chapters": 82,
+  "rewritten_chapters": 36,
+  "pending_chapters": 81,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1312,33 +1312,33 @@
     {
       "order": 36,
       "path": "chapters/part-08/chp-cognitive_coherence_dynamics.tex",
-      "title": "认知相干动力学 — 语义子的集体锁相与全域共振",
-      "status": "queued-for-full-rewrite",
+      "title": "认知相干动力学：绑定、粗粒化与无中心协同",
+      "status": "rewritten-reviewed",
       "original_han_floor": 3059,
-      "new_chapter_prose_han": 2946,
+      "new_chapter_prose_han": 4680,
       "original_readable_units": 3046,
-      "new_readable_units": 3046,
-      "opening_prose_han": 277,
+      "new_readable_units": 4694,
+      "opening_prose_han": 295,
       "sections": [
         {
-          "title": "局部动力学：语义子间的规范耦合与集体锁相",
-          "prose_han": 610
+          "title": "局部耦合：同步证据、对象身份与绑定提交",
+          "prose_han": 1005
         },
         {
-          "title": "全域动力学：序参量涌现与哈肯-伺服机制",
-          "prose_han": 491
+          "title": "全域粗粒化：任务序参量与快慢变量约化",
+          "prose_han": 1121
         },
         {
-          "title": "拓扑终局：调和流与意义的结晶",
-          "prose_han": 363
+          "title": "全局约束：循环空间、结构冗余与意义保持",
+          "prose_han": 1065
         },
         {
-          "title": "无宏观层的共振相变：自发对称性破缺与幽灵序参量",
-          "prose_han": 1205
+          "title": "无中心协同：自组织阈值、伪相干与调控边界",
+          "prose_han": 1194
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

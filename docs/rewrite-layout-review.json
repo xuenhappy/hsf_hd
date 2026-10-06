@@ -1,9 +1,9 @@
 {
-  "pages": 225,
-  "bytes": 20069992,
+  "pages": 229,
+  "bytes": 20095801,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 185,
+  "numbered_sections": 189,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1301,7 +1301,35 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "36.1 局部耦合：同步证据、对象身份与绑定提交",
+      "start_pdf_page": 226,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "36.2 全域粗粒化：任务序参量与快慢变量约化",
+      "start_pdf_page": 227,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "36.3 全局约束：循环空间、结构冗余与意义保持",
+      "start_pdf_page": 227,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "36.4 无中心协同：自组织阈值、伪相干与调控边界",
+      "start_pdf_page": 228,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 35 chapters; does not validate the full book."
+  "scope": "Review subset: 36 chapters; does not validate the full book."
 }
