@@ -541,11 +541,16 @@
       "source_start_line": 8922,
       "source_end_line": 9643,
       "source_sha256": "639284d4bfd4a42cdedc8a77ad4ee33f74bdc8652deb8bdfd64d84cd04c4eb6c",
-      "status": "queued-for-full-rewrite",
-      "new_title": "控制稳定性：目标函数、反馈与投影条件",
+      "status": "rewritten-reviewed",
+      "new_title": "宏观控制稳定性：统计几何、反馈条件与架构验证",
       "preserved_figure_count": 1,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-with-computational-analysis"
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "draft_checkpoint": "docs/drafts/chapter-029-checkpoint.md",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-evolution_equation_ch.tex",

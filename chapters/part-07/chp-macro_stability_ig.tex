@@ -1,75 +1,82 @@
-\chapter{控制稳定性：目标函数、反馈与投影条件}
+\chapter{宏观控制稳定性：统计几何、反馈条件与架构验证}
 \label{chp:macro_stability_ig}
 
 \begin{introduction}
-    \item 对偶势函数：宏观意志作为勒让德变换的共轭变量
-    \item 广义勾股定理：目的论控制的收敛性几何证明
-    \item 黑塞凸性：热力学势能面的全局稳定性保障
+\item 稳定性对象：目标下降、状态有界、约束满足与任务成功的分层判定
+\item 几何工具：指数族、Bregman散度、自然梯度与投影更新的适用条件
+\item 闭环实现：内外行动仲裁、多主体协商、控制拓扑与反例驱动验证
 \end{introduction}
 
-\textbf{问题提出：强控制输入下的稳定性条件}
+上一章给出了宏观目标控制的快回路、慢回路和有限时域TCE模型，本章进一步回答一个更严格的问题：当目标控制连续改变激活分布、结构版本和外部行动时，什么意义上的“稳定”可以被证明，证明又依赖哪些不能省略的条件。我们不把稳定理解成系统永远静止，也不把目标函数下降直接解释成智能提高。对于开放智能系统，稳定至少包括内部状态不越界、硬约束持续满足、估计误差不发散、结构更新可回滚和外部任务风险受控；这些性质可能同时成立，也可能彼此冲突。信息几何为统计模型中的局部距离、坐标不变更新和投影关系提供工具，却不自动给出全局收敛、物理低耗或事实真理。
 
-在前面的动力学方程讨论中，宏观层 ($L_{macro}$) 通过宏观势能 $\mathbf{\Gamma}_{macro}$ 与价值规范场 $\mathcal{A}$ 对认知空间流形 $\mathcal{M}$ 施加约束与驱动。
-对非线性系统而言，强迫输入通常伴随失稳风险，典型表现为\textbf{混沌 (Chaos)}、局部振荡放大或拓扑结构破坏。
+本章先定义状态空间、模型族、观测协议和控制目标，再分别讨论凸性、投影、连续流、离散步长、模型误差和时延；随后把“改变自己、改变环境、与他者协商”写成部分可观测条件下的行动选择，而不是以意志隐喻替代控制器。最后，我们比较内嵌式、外置式与联邦式宏观控制架构，给出由时延、带宽、故障域和任务分解决定的工程取舍。HSF-HD在这里提供智能的一般状态动力学模型族，AgentOS的SPC、TCE、CCM、Boundary与Offloading只是其中一组实现接口。
 
-因此，本章的核心问题是：在强意图干预下，系统为何仍保持可收敛与可控？
-
-我们将引入 \textbf{信息几何 (IG)} 中的\textbf{对偶平坦空间 (Dually Flat Space)}。结论将表明：当宏观控制沿\textbf{自然梯度 (Natural Gradient)} 演化时，认知流形上的\textbf{广义勾股定理}可为迭代过程提供单调下降的几何保证，使系统收敛到熵减稳定态。
-
-
-\section{控制流形的对偶结构：意志与现状的坐标系}
+\section{统计控制模型：状态、目标与对偶坐标}
 \label{sec:section_5895}
 
-为了证明稳定性，我们首先必须在信息几何的框架下，重新定义宏观层的两个核心变量：\textbf{“我想要的 (Intent)”} 与 \textbf{“我所在的 (Status)”}。
+我们首先固定分析对象。设时刻$t$的内部连续状态为$x_t\in\mathcal X\subseteq\mathbb R^d$，离散结构版本为$G_t\in\mathcal G$，环境状态为$s_t\in\mathcal S$，观测为$y_t\in\mathcal Y$，控制为$u_t\in\mathcal U$。$x_t$可以包含全局分布表示、资源占用和局部结构网络的读出摘要，但它不是世界本身；$G_t$保存任务相关身份、关系、来源和版本，不能由一个连续向量无损替代。观测核$p(y_t\mid s_t,x_t,G_t)$和转移核$p(x_{t+1},s_{t+1}\mid x_t,s_t,G_t,u_t)$共同规定何种结论可由数据识别。若只观察低维摘要$z_t=C_{G_t}(x_t)$，稳定性首先属于闭环摘要，而非未观测全状态。
 
-我们将认知空间流形 $\mathcal{M}$ 建模为一个\textbf{指数分布族 (Exponential Family)}，这是统计流形的标准形式。在此结构下，存在两套互为对偶的坐标系：
+在一类局部统计模型中，我们采用正则最小指数族
+\begin{equation}
+p_\theta(y)=\exp\!\left(\langle\theta,T(y)\rangle-\psi(\theta)\right)h(y),\qquad \theta\in\Omega\subset\mathbb R^m,
+\end{equation}
+其中$T(y)$为充分统计量，$\psi$为对数配分函数，$\Omega$为开凸自然参数域。期望参数定义为$\eta=\mathbb E_\theta[T(Y)]=\nabla\psi(\theta)$。当模型可辨识且$\nabla^2\psi$正定时，$\theta$与$\eta$在相应局部区域互为坐标，Fisher矩阵为$F(\theta)=\nabla^2\psi(\theta)$。这是统计模型结果，不是所有认知状态都服从指数族的本体断言。混合模型、退化参数、支持集变化和离散结构切换都可能破坏正则性，需要分段建模或改用商空间。
 
-\begin{itemize}
-    \item \textbf{自然参数 ($\boldsymbol{\theta}$) —— 形元坐标 (Morphon Coordinates)}
-    对应于底流形的 \textbf{联络与度量结构}。这是微观层 VTE 编码器直接操作的领域。
-    $$ \boldsymbol{\theta} \in \mathcal{M}_{\text{shape}} $$
+宏观目标也必须类型化。我们用$r_t$表示任务参考，用$K_t(x,G,u)\le0$表示硬安全与权限约束，用$J_t$表示合法集合内的软代价。只有当误差、时延和资源消耗经明确协议无量纲化后，才写成标量和；否则采用词典序或Pareto序。有限时域目标为
+\begin{equation}
+\mathcal J_t(\pi)=\mathbb E_\pi\!\left[\Phi_{t+H}(x_{t+H},G_{t+H})+\sum_{k=t}^{t+H-1}\ell_k(x_k,G_k,u_k,r_k)\right],
+\end{equation}
+并要求策略$\pi$产生的轨迹满足$K_k\le0$。参考、结构和观测模型若变化，最优策略也随之改变。“我想要的”因此是带来源、版本、权限和适用域的规范记录；“我所在的”是观测协议支持的状态估计。二者的差异产生控制请求，但不自动赋予控制资格。
 
-    \item \textbf{期望参数 ($\boldsymbol{\eta}$) —— 质元坐标 (Qualon Coordinates)}
-    对应于纤维空间中 \textbf{语义子 (Semantion)} 的统计矩（如平均激活强度、能量密度）。这是宏观层直接感知的“现状”。
-    $$ \boldsymbol{\eta} = \mathbb{E}_{\boldsymbol{\theta}} [\mathbf{T}(\mathbf{x})] = \nabla_{\boldsymbol{\theta}} \psi(\boldsymbol{\theta}) $$
-\end{itemize}
+在AgentOS实例中，SPC构造$z_t$，TCE在资格集合中选择$u_t$，CCM限制计算预算，Boundary约束内外交换，外部记忆$M_e$与Offloading改变未来状态维数。我们不把这些接口规定为一般智能的唯一分解。任何实现只要明确状态、观测、控制、结构事件与验证读出，就可以实例化同一框架。局部结构网络和全局分布表示通过身份绑定、任务查询和读出误差联合，而不是通过脑区相似性被宣布为同一机制。
 
-其中 $\psi(\boldsymbol{\theta})$ 是流形的 \textbf{自由能势函数 (Free Energy Potential)}（即配分函数的对数）。为避免符号混淆：本节的粗体 $\boldsymbol{\eta}$ 表示期望坐标；后文出现的标量 $\eta$ 仍作为控制增益/步长使用。
+对偶坐标的工程用途主要是选择合适的更新与读出接口。自然参数便于表达模型约束，期望参数便于比较可观测统计量；转换需要配分函数可微、矩存在且映射可逆。若统计量冗余，Fisher矩阵只半正定，我们应识别不可辨识方向、固定规范或使用伪逆，并把零空间标记为数据不能区分的等价类。沿零空间移动可能改变参数文本，却不改变观测分布，不能被解释为真实状态变化。结构版本改变统计量集合和坐标维数时，不能用同一连续坐标图跨越；我们以版本事件连接相邻模型，并在共同查询集上比较迁移前后的行为。
 
-\textbf{宏观控制的几何定义}：
-宏观层的任务，本质上是设定一个 \textbf{目标期望参数 $\boldsymbol{\eta}^*$}（目的），然后寻找一条最优轨迹，驱动当前的自然参数 $\boldsymbol{\theta}$ 向其演化。
+状态估计还应附带协方差、可信集合或样本集合，以及观测时间、来源和校准记录。若两个状态在全局分布表示上接近，但局部结构网络中的身份或权限不同，它们不可互换；若身份相同而活动分布不同，则可共享结构约束但保留候选差异。这个联合接口避免把分布相似误当成对象相同，也避免把一条结构边的存在误当成当前一定激活。宏观控制只有在读出问题明确后才压缩状态，并用查询失真检验压缩是否仍充分。
 
-\section{黑塞凸性 (Hessian Convexity)：势能面的绝对稳定}
+这些记录使坐标变化、状态变化与知识变化得到严格区分，也为后续验证提供可重放的输入边界。
+
+\section{凸性与稳定性：从局部下降到闭环性质}
 \label{sec:section_2277}
 
-为什么系统不会在调整中失控？因为认知空间流形具有内禀的 \textbf{黑塞结构 (Hessian Structure)}。
+凸性经常被误用为“强控制必然稳定”的充分理由。我们先区分目标函数单步不增加、轨迹保持有界、平衡点渐近稳定和外部任务成功四个命题。设固定结构$G$和固定参考$r$下，可微函数$V:\mathcal X\to\mathbb R_{\ge0}$度量控制误差，闭环为
+\begin{equation}
+\dot x=f(x)+B(x)u(x)+w(t),
+\end{equation}
+其中$w$为与$f$同单位的扰动。若存在$c_1,c_2,c_3>0$，使邻域$\mathcal D$内$c_1\|x-x^*\|^2\le V(x)\le c_2\|x-x^*\|^2$，且$w=0$时$\dot V\le-c_3\|x-x^*\|^2$，则$x^*$在该邻域渐近稳定。若结构切换、控制饱和或参考移动使轨迹离开$\mathcal D$，证明不再适用。
 
-\begin{theorem}[认知势能的凸性定理]
-    在信息几何中，流形的度量张量 $g_{ij}$（费希尔信息矩阵）等于自由能势函数 $\psi(\boldsymbol{\theta})$ 的二阶导数：
-    $$ g_{ij}(\boldsymbol{\theta}) = \frac{\partial^2 \psi(\boldsymbol{\theta})}{\partial \theta^i \partial \theta^j} $$
-    由于费希尔信息矩阵在常规非退化指数族上是 \textbf{正定 (Positive Definite)} 的，这直接推导出 $\psi(\boldsymbol{\theta})$ 是 \textbf{严格凸函数 (Strictly Convex Function)}。
-\end{theorem}
+若采用$\dot x=-M(x)\nabla J(x)$，其中$M(x)$对称正定，则固定目标下
+\begin{equation}
+\dot J=-\nabla J(x)^\top M(x)\nabla J(x)\le0.
+\end{equation}
+这只能证明$J$不增加。状态收敛还需次水平集紧致、解存在、$M$一致正定和不变集分析；唯一极小点还需严格凸性与极小点存在。即使$J$严格凸，执行器约束也可能令目标点不可达。若$J=J(x,t,G_t,r_t)$随时间变化，总导数还包含$\partial_tJ$、结构事件跳变量和参考变化，外部变化足以抵消下降项。
 
-\textbf{物理稳定性推论}：
-\begin{enumerate}
-    \item \textbf{唯一吸引子}：由于势能面 $\psi$ 是凸的，宏观层所设定的每一个“目的”（局部势能低点），在几何上必然对应一个\textbf{唯一的全局极小值}。不存在多重稳态导致的随机跳跃。
-    \item \textbf{李雅普诺夫稳定性}：我们可以构造 \textbf{Bregman 散度} 作为系统的李雅普诺夫函数 $V$。由于凸性，$\dot{V} \le 0$ 恒成立。
-    \item \textbf{结论}：只要宏观驱动 $\mathbf{\Gamma}_{macro}$ 沿势能下降方向（自然梯度）作用，系统演化就保持在稳定域内，表现为收敛主导而非发散主导。工程上可将其理解为“几何阻尼主导的闭环稳定”。
-\end{enumerate}
+离散实现中，若$J$的梯度在固定模式区域内为$L$-Lipschitz，更新$x^+=x-\alpha\nabla J(x)$满足
+\begin{equation}
+J(x^+)\le J(x)-\alpha\left(1-\frac{L\alpha}{2}\right)\|\nabla J(x)\|^2.
+\end{equation}
+因此$0<\alpha<2/L$只保证该模型步不增加固定$J$。自然梯度、投影或近似求解器还要把度量条件数、投影误差和数值容差计入步长界。采样周期$\Delta t$、感知延迟$\tau_y$、执行延迟$\tau_u$和量化误差都可能改变闭环极点，不能从连续方程直接复制稳定性结论。
 
-\section{广义勾股定理：投影控制的收敛性}
+开放系统更适合使用输入到状态稳定。若可证明$\dot V\le-\lambda V+\gamma\|w\|^2+\varepsilon_{model}$，则得到扰动相关的最终误差界，而非绝对稳定。模型偏差$\varepsilon_{model}$必须由留出轨迹或在线残差估计。反例很直接：机器人可稳定地把内部位置误差降到零，却因地图坐标错误撞向障碍；语言代理可稳定降低偏好损失，却输出事实错误。稳定性是可靠智能的必要组成，不是正确性、合规性和成功的替代词。
+
+结构切换需要多Lyapunov分析。若模式各有自己的候选函数，每个模式内部下降仍不足以保证频繁切换时稳定，因为切换瞬间函数值可能跳升。我们可以要求公共Lyapunov函数，或约束切换满足驻留时间并给出跨模式增益上界。记忆重构中的索引替换、关系增删、读出器更新和工具版本变化都应记录重置映射。若重置把状态送出安全集，模式内部再稳定也无法挽回，因此慢回路提交前需做可达集检查，提交后需重新初始化观测器和风险预算。
+
+稳定域还随任务缩放。工作记忆负载上升、输入速率提高或共享资源被占用，都会改变可用控制带宽。我们用参数化扰动集合描述负载等级，并寻找使约束不变的有效范围，而不宣称一次证明覆盖所有规模。压力测试从低负载逐级增加，观察误差、排队、饱和、回滚和副作用何时越界。这个临界点是具体实现与协议的经验结果，不是抽象相变的普适常数。只有把稳定域、负载域和版本域共同写入声明，结论才可复现。
+
+此外，稳定性监控需要避免平均值掩盖局部失稳。我们同时记录分位数、最坏窗口和按任务类别分层的误差，检查少数高风险轨迹是否持续扩大。若系统通过把困难样本拒绝在观测之外维持低平均损失，监控器应把拒绝率和覆盖度列入状态，而不能宣布闭环稳定。对具有恢复动作的系统，还要测量进入异常、检测异常、启动补偿和返回安全集的各段时间。稳定性由此成为贯穿正常运行与故障恢复的轨迹性质，而不是某一时刻目标值较低的静态标签。
+
+\section{Bregman投影：可行集、三点关系与误差边界}
 \label{sec:section_1708}
 
-宏观层在进行决策（如 TDCI 循环中的坍缩）时，往往只拥有部分信息。这种\textbf{不完全控制}会导致误差积累吗？
-
-信息几何的 \textbf{广义勾股定理 (Generalized Pythagorean Theorem)} 给出了否定的答案。
-
-\begin{theorem}[控制收敛定理]
-    设当前认知状态为 $P$，宏观意志定义的目标流形为 $\mathcal{M}_{target}$（例如：“所有符合‘安全’属性的状态集合”）。
-    宏观层的控制操作，等价于从 $P$ 向 $\mathcal{M}_{target}$ 做 \textbf{m-投影 (Mixture Projection)} 到点 $Q$。
-    对于目标流形上的任意更优解 $R \in \mathcal{M}_{target}$，恒有：
-    $$ D_{KL}(R \| P) = D_{KL}(R \| Q) + D_{KL}(Q \| P) $$
-\end{theorem}
+宏观控制常把当前估计投影到安全、资源或一致性约束集合。设$\psi:\Omega\to\mathbb R$严格凸可微，定义
+\begin{equation}
+D_\psi(r,p)=\psi(r)-\psi(p)-\langle\nabla\psi(p),r-p\rangle.
+\end{equation}
+令$C\subset\Omega$为非空闭凸集合，且$q=\arg\min_{z\in C}D_\psi(z,p)$存在。最优性条件给出$\langle\nabla\psi(q)-\nabla\psi(p),r-q\rangle\ge0$。由三点恒等式得到
+\begin{equation}
+D_\psi(r,p)\ge D_\psi(r,q)+D_\psi(q,p),\qquad r\in C.
+\end{equation}
+只有交叉项为零时才有等式。若$\psi(p)=\sum_i p_i\log p_i$且变量位于正概率单纯形，才得到相应方向的KL散度；方向不能随意交换，零概率边界也需单独处理。
 
 \begin{figure}[htbp]
 \centering
@@ -133,613 +140,174 @@
     };
 \end{tikzpicture}
 \end{adjustbox}
-\caption{凸可行集与相应投影条件下的距离关系示意；一般反馈控制另需稳定性分析}
+\caption{凸可行集与正交条件下的散度关系示意；一般反馈控制仍需独立稳定性分析}
 \end{figure}
 
-\textbf{工程意义}：
-\begin{itemize}
-    \item \textbf{贪婪即最优}：宏观层不需要知道终极真理 $R$ 在哪里。它只需要将当前的思维流 $P$ 垂直投影到约束流形 $\mathcal{M}_{target}$ 上（即 $Q$ 点）。勾股定理保证了，这一步操作\textbf{必然}缩短了系统与终极真理之间的信息距离 ($D_{KL}$)。
-    \item \textbf{无损耗}：这种投影是沿着 \textbf{双重平坦 (Dually Flat)} 结构中的测地线进行的。它是信息几何意义上的“直线运动”，不产生额外的几何曲率耗散。
-\end{itemize}
+这一结果只支持“相对于指定散度，投影不比任意可行参照更差”，不支持每一步都接近终极真理。真实环境状态未必属于模型集合$C$，$C$可能由错误规则构造，任务损失也可能与$D_\psi$不一致。若集合非凸，投影可能不唯一；若约束随时间改变，昨日投影点今日可能不可行；若只用估计$\hat p$代替$p$，还需传播估计误差。设投影算子在研究区域为$L_P$-Lipschitz，才有$\|P_C(\hat p)-P_C(p)\|\le L_P\|\hat p-p\|$，而该性质本身也须验证。
 
+工程上，我们把投影分为三类。状态投影修复连续变量边界，例如把资源份额放回单纯形；策略投影在合法行动集合中重新归一化；结构投影不是普通连续投影，而是候选生成、类型检查、影响分析、事务提交和回滚组成的离散过程。把三者混成一次坍缩会遮蔽失败模式。尤其在局部结构网络中，删除边可能改变对象身份或证据来源，不能因全局分布距离下降就自动接受。
 
-\section{认知阻抗与最小作用量：广义勾股定理的物理推论}
+可验收的投影控制至少记录输入版本、集合版本、散度定义、求解容差、合法性检查和外部结果。若近似解$q_\epsilon$只满足$D_\psi(q_\epsilon,p)\le D_\psi(q,p)+\epsilon$，系统就应把$\epsilon$带入风险预算。投影后还需用事实、约束和任务回报分别复核。广义勾股关系的价值恰在于条件明确，而不是被扩展为无损理解或全局最优承诺。
+
+投影集合的构造本身是控制设计。安全集合可来自形式规范、经验边界或在线可达性估计；三者可信度不同。形式规范若遗漏现实变量会产生虚假安全，经验边界在分布外可能失效，可达性估计则依赖动力学模型。我们为每条约束保存来源、适用版本、置信等级和冲突优先序。当多个集合交为空时，系统不应交替投影直到数值震荡，而要输出最小冲突集，说明哪些约束不能同时满足，并请求上层修改目标或资源。
+
+对于交替投影，收敛还依赖集合凸性、交集非空和投影定义。非凸结构约束下，循环、局部极小和顺序依赖都可能出现。我们用最大迭代数、残差停机、循环检测和候选多样性防止把求解器停滞误判为稳定。若近似投影用于实时系统，除最优性误差外还记录计算时限；超时结果只有在仍满足硬约束时才可执行。这样，投影成为有版本、有证据、有失败状态的工程事务。
+
+投影顺序也应进入验证记录。两个约束集合即使分别合理，其投影算子通常不交换，先满足资源约束再满足语义一致性，可能与相反顺序得到不同结果。系统应依据硬约束优先级安排顺序，并在每轮之后重新检查先前约束是否被破坏。若必须在冲突软约束之间折中，可保留多个Pareto候选交给仲裁器，而不是让数值求解顺序暗中决定规范优先级。对外报告应区分精确可行、容差可行和不可行三种状态，避免把接近边界的数值结果当作无条件合法。
+
+\section{推断代价与载体能耗：相关而不等同的两套量}
 \label{sec:cognitive_impedance_least_action}
 
-在前一节中，我们确立了宏观控制的 m-投影机制。接下来需要回答的是：这一几何结论如何落到可观测的物理量上。
-当我们说\textbf{“最优推断对应对偶测地线上的正交投影”}时，它不仅是分布距离的代数关系，也给出了 \textbf{微观切面 ($L_{micro}$)} 上\textbf{阻抗匹配 (Impedance Matching)} 与全局\textbf{最小作用量原理 (Least Action Principle)} 的统一描述。
+历史讨论把统计距离、认知阻抗、最小作用量、热力学长度和实际耗能串成必然关系。我们保留“更新是否高效”这一问题，但分开定义计算量与物理量。设一次更新的统计改变量为$D_\psi(q,p)$，墙钟时延为$T_{lat}$，计算资源为$C_{op}$，通信量为$B_{io}$，设备焦耳能耗为$E_{joule}$。这些量拥有不同单位和测量方法。它们可能在固定硬件、算法和批量下经验相关，却不存在脱离实现的恒等式。
 
-本节将把该定理映射到热力学与波动物理语境，说明逻辑准确性与能效最优如何由同一几何条件给出。
+我们把“认知阻抗”重定义为接口失配诊断量，而非电学阻抗。若上游输出记录$a$，下游要求类型$b$，转换器$H$产生$\hat b=H(a)$，可定义
+\begin{equation}
+Z_{int}=\lambda_1d_b(\hat b,b^*)+\lambda_2T_{queue}+\lambda_3P_{reject},
+\end{equation}
+其中$d_b$是按接口契约选择的无量纲误差，排队时延和拒绝率经参考尺度归一化。高$Z_{int}$提示模式不兼容、排队或频繁拒绝；它不能诊断焦虑、临床症状或能量反射。若指标不可可靠换算，就保留向量$(d_b,T_{queue},P_{reject})$而不强求单分数。
 
-\smalltitle{1. 数学图景：信息几何中的“对偶直角”}
+对固定统计模型中的光滑轨迹$\theta(t)$，Fisher长度
+\begin{equation}
+L_F=\int_0^\tau\sqrt{\dot\theta(t)^\top F(\theta(t))\dot\theta(t)}\,dt
+\end{equation}
+描述模型分布的局部可区分变化。它不是CPU功耗、神经能耗或热力学作用量。某些受控物理装置在附加假设下可建立耗散下界与统计长度的关系，但需要指定载体动力学、温度、驱动协议和时间尺度，不能普遍迁移到语义更新。同一分布更新可由低功耗专用芯片或高功耗通用集群实现，$L_F$相同而$E_{joule}$显著不同。
 
-在平坦的欧几里得空间中，点到平面的最短距离是垂线，这由经典的勾股定理 $a^2 + b^2 = c^2$ 保证。甘利俊 (Amari) 证明，在由概率分布构成的 \textbf{双重平坦统计流形 (Dually Flat Statistical Manifold)} 上，对于 Kullback-Leibler (KL) 散度，同样存在精确的加性等式。
+宏观控制因此采用多层账本。模型层记录散度下降、校准误差和约束余量；运行层记录时延、吞吐、内存和失败重试；物理层记录功率积分；任务层记录成功率、副作用和恢复成本。Offloading可能降低内部计算量，却增加网络时延、隐私暴露和外部能耗；压缩可能减少通信，却损害长尾查询。只有这些量在明确场景中共同改善，才能称为高效。
 
-\begin{theorem}[信息几何广义勾股定理]
-    设点 $P$ 为当前的认知状态（先验），$\mathcal{M}_{target}$ 为符合外部现实约束的数据流形。若从 $P$ 到 $\mathcal{M}_{target}$ 的投影点 $Q$ 是沿着 \textbf{混合联络 (m-connection, $\nabla^{(m)}$)} 测地线进行的，且该测地线在 $Q$ 点与 $\mathcal{M}_{target}$ 的 \textbf{指数联络 (e-connection, $\nabla^{(e)}$)} 测地线\textbf{正交}，则对于目标流形上的任意其他点 $R \in \mathcal{M}_{target}$，恒有：
-    $$ D_{KL}(P \| R) = D_{KL}(P \| Q) + D_{KL}(Q \| R) $$
-\end{theorem}
+反例说明分离的必要性：贪婪投影可用极少计算迅速降低KL，却把系统投到错误可行集；精确自然梯度可能减少迭代次数，却因矩阵求逆增加单步能耗；缓存外部记忆降低推理时延，却造成旧版本事实被反复召回。HSF-HD允许研究跨层耦合，但不把形式相似当作定律。稳定性验收同时查看统计、运行、物理和任务指标，而不是用一个泛化的“能量”词覆盖全部问题。
 
-这一加性分解的物理核心在于：\textbf{正交投影 $Q$ 是唯一能够完全消除误差，且不引入任何冗余偏置（多余 KL 散度）的最优状态。}
+多层账本还要处理时间窗。某算法单步昂贵，但通过减少重试降低长期总成本；另一算法单步便宜，却产生大量错误外部调用。我们在共同任务集、时间窗和并发水平下累计指标，并明确冷启动与缓存命中。物理能耗由设备遥测获得，缺失时只能报告计算代理量，不能把浮点次数直接换算为焦耳。统计距离则在固定模型版本和支持集上计算，模型切换前后需要共同读出才能比较。
 
-\smalltitle{2. 认知层面的推断寻优：无损的波函数坍缩}
+资源优化也受安全约束。降低精度、提前停止或卸载外部服务可能减少延迟，却扩大偏差、泄露数据或失去可撤销性。我们采用先资格、后效率的顺序：先排除不符合隐私、权限、可靠性和最坏时延要求的实现，再在合格候选中比较成本。不可换算的指标保留Pareto前沿，让决策者看到省时、节能、准确和可审计之间的真实取舍。所谓最小作用由此还原为特定协议下的资源优化，不再承担跨层证明。
 
-在本理论框架的 \textbf{TDCI 循环} 中，智能体时刻在做一件事：用内部模型去匹配外部现实。
-当微观层 ($L_{micro}$) 注入一个惊奇激波 $\vec{J}_{ext}$ 时，系统当前的波函数 $\Psi$ 必须发生非幺正坍缩（投影），以整合新信息。
+这种分账也支持跨平台比较，而不会伪造统一单位。
 
-\begin{itemize}
-    \item \textbf{非正交投影的灾难}：如果智能体沿着“歪斜”的路径（非对偶测地线）去理解新信息，它不可避免地会引入冗余的几何张力（认知偏见）。在公式中表现为 $D_{KL}(Q \| R) > 0$，这意味着系统浪费了相空间体积去拟合并不存在的伪特征（即幻觉或过度泛化）。
-    \item \textbf{正交的完美吸收}：广义勾股定理保证了，沿着对偶测地线的\textbf{正交投影}，实现了对激波香农信息量的\textbf{最大化利用}。波函数的坍缩恰好去除了预测误差，而完美保留了历史积累的有效先验。
-\end{itemize}
-
-\smalltitle{3. 物理层面的能量效率：认知阻抗匹配 (Cognitive Impedance Matching)}
-
-在电动力学或声学中，\textbf{阻抗匹配 ($Z_{in} = Z_{out}^*$)} 意味着能量传输效率最高，反射波为零，而广义勾股定理给出了“认知阻抗匹配”的几何等价物。
-
-\begin{corollary}[零反射能量传输定理]
-    \textbf{正交投影}是微观物理激波向宏观几何结构转化的 \textbf{零反射通道}。
-\end{corollary}
-
-\begin{itemize}
-    \item \textbf{认知阻抗 (Cognitive Impedance)}：如果系统内部的几何结构（\textbf{形}, $\mathbf{T}_{form}$）与外部输入的信号（\textbf{质}, $\mathbf{T}_{sub}$）不匹配（投影不正交），进入系统的能量就会发生“全反射”。
-    \item \textbf{热力学废热}：反射的能量无法用于重塑度量张量 $g_{\mu\nu}$（无法形成有效学习），而是化为流形上的无序热噪（产生认知摩擦、焦虑与精神内耗）。
-    \item \textbf{匹配的收益}：正交性保证了激波携带的能量被\textbf{全量吸收}，直接用于驱动 \textbf{认知爱因斯坦方程 (CEFE)} 中的塑性流变，实现了从“质的冲击”向“形的雕刻”的高效相变。
-\end{itemize}
-
-\smalltitle{4. 变分原理的几何证明：最小作用量的必然}
-
-宇宙的物理基石是 \textbf{最小作用量原理 (Principle of Least Action)}，即系统演化总是选取使得作用量泛函 $S$ 极小化的路径。广义勾股定理为此提供了直接的度量视角。
-
-\begin{itemize}
-    \item \textbf{最短的热力学长度}：在几何上，$D_{KL}(P\|Q)$ 代表了状态演化的\textbf{热力学长度 $\mathcal{L}$} 的平方近似。公式 $D(P\|R) = D(P\|Q) + D(Q\|R)$ 证明了，任何偏离正交点 $Q$ 的状态 $R$，其演化路径总是更“长”的（即包含多余的耗散）。
-    \item \textbf{兰道尔代价的极小化}：根据有限时间热力学，系统的不可逆熵产 $\Delta S_{irr} \ge \frac{\mathcal{L}^2}{\tau}$。正交投影因为拥有最短的几何路径 $\mathcal{L}_{min}$，从而确保了本次认知更新所排放的\textbf{兰道尔废热 (Landauer Heat)} 达到物理极限的最小值。
-\end{itemize}
-
-由此可见，广义勾股定理在本框架中的作用不仅是形式证明，更是跨层约束：
-当智能体沿正交投影更新内部模型时，信息距离最小化与能量耗散最小化可以同时成立。
-
-\textbf{在该模型中，逻辑最优路径与热力学低耗路径在几何上是同一条路径。}
-
-
-
-\section{动力学约束：自然梯度流 (Natural Gradient Flow)}
+\section{自然梯度闭环：连续流、离散实现与鲁棒性}
 \label{sec:section_6743}
 
-为了确保上述稳定性在实际工程中生效，本理论框架要求 MSOS 的调度器必须强制执行 \textbf{自然梯度更新律}。
+自然梯度使参数更新对光滑重参数化保持协变。设$\theta\in\Omega\subset\mathbb R^m$，固定目标$J(\theta)$可微，Fisher矩阵在研究区域满足$mI\preceq F(\theta)\preceq MI$。连续流定义为
+\begin{equation}
+\dot\theta=-\alpha F(\theta)^{-1}\nabla_\theta J(\theta),\qquad \alpha>0,
+\end{equation}
+从而$\dot J=-\alpha\nabla J^\top F^{-1}\nabla J\le0$。这给出固定模式下的下降性质，不表示轨迹是任意任务意义的最短路径，也不保证跨越奇异参数、支持集变化和离散结构事件时仍成立。
 
-\textbf{传统梯度的危险}：
-在欧氏空间做梯度下降 $\Delta \theta = -\eta \nabla \mathcal{L}$。如果流形局部曲率极大（如创伤记忆区），欧氏步长会导致系统冲出流形边界，引发\textbf{“梯度爆炸”}（精神崩溃）。
+工程系统通常使用$\widetilde F=F+\lambda I$、分块矩阵或随机估计。设方向误差为$e_k$，离散更新
+\begin{equation}
+\theta_{k+1}=\Pi_\Omega\!\left[\theta_k-\alpha_k\left(\widetilde F_k^{-1}g_k+e_k\right)\right],
+\end{equation}
+其中$g_k$为批样本梯度。稳定分析必须包含梯度方差、矩阵估计误差、阻尼偏差、投影条件和步长序列。固定步长通常只能保证到噪声相关邻域；衰减步长可能渐近收敛，却降低环境变化下的跟踪能力。若$F$接近奇异，逆矩阵会放大误差，所谓几何刹车并非自动出现。
 
-\textbf{本理论框架的安全协议}：
-宏观层必须通过 \textbf{逆黎曼度量} 来校准意志力：
-$$ \dot{\boldsymbol{\theta}} = -\eta \cdot \underbrace{g^{ij}(\boldsymbol{\theta})}_{\text{几何阻尼}} \cdot \underbrace{\frac{\partial \mathcal{L}}{\partial \theta^j}}_{\text{意志梯度}} $$
+闭环还包含观测器。设真实状态不可直接获取，控制器使用延迟估计$\hat x_{k-d}$，联合系统为
+\begin{align}
+x_{k+1}&=f_{G_k}(x_k,u_k,w_k),\\
+\hat x_{k+1}&=\mathcal E(\hat x_k,y_k,u_k),\\
+u_k&=\mathcal C(\hat x_{k-d},r_k,K_k).
+\end{align}
+只分析$\mathcal C$的梯度方向不能证明整个闭环稳定。我们还需评估可观测性、延迟裕量、执行器饱和和模式切换；估计置信不足时，控制器应进入保守集、请求观测或拒绝行动，而不是提高增益掩盖不确定性。
 
-\begin{itemize}
-    \item   \textbf{自适应阻尼}：当流形极度弯曲时（$g_{ij}$ 很大，即信息密度极高），$g^{ij}$ 会自动变小。这相当于给宏观意志施加了一个巨大的\textbf{几何刹车}，迫使思维流减速，小心翼翼地通过高曲率区。
-    \item   \textbf{稳定性结论}：\textbf{自然梯度流是流形上内蕴的最速降线。} 它保证了宏观层的控制力永远与流形的几何结构相容，永远不会撕裂时空。
-\end{itemize}
+结构更新$G_{k+1}=\mathcal R(G_k,\Delta G_k)$不直接适用自然梯度。连续参数候选接受局部下降和保留集测试，离散结构候选接受类型合法性、循环依赖、身份保持、权限、影子运行和回滚测试。若结构改变导致目标或度量变化，更新前后的$J$不能直接比较，必须使用共同测试集和版本化读出。TCE可以调度两类过程，但不能把一个连续公式当作全部智能更新的统一证明。
 
-\begin{bquote}
-    \textbf{本章小结：}
+AgentOS可让CCM监控条件数、梯度方差、队列和工作记忆负载，让Boundary限制外部调用，让SPC提供压缩观测，让TCE选择保守、探索或结构更新模式。验收指标包括约束违规率、最终误差界、恢复时间、校准度、回滚成功率和外部任务结果。只有在声明的扰动集合与工作区间内通过这些测试，我们才称闭环具有工程稳定性。
 
-    信息几何给出了宏观控制可稳定实现的充分几何条件。
+自然梯度还会与正则化和约束交互。若目标包含随时间改变的保留项，方向应使用完整梯度；若正则项仅在训练时加入而验证时忽略，参数稳定不等于行为保持。对概率单纯形、正定矩阵或其他流形约束，应使用相应回缩或镜像更新，并检查数值实现是否仍在合法域。简单地在欧氏更新后裁剪参数可能破坏预期几何，也可能在边界制造长期偏差。
 
-    只要认知流形满足\textbf{黑塞凸性 (Hessian Convexity)}，且控制回路遵循 \textbf{自然梯度 (Natural Gradient)}，宏观层施加的高强度意图就会被约束在可收敛的演化轨道内，并指向由物理约束与先验价值共同定义的 \textbf{稳定平衡点}。
+我们为每次更新保留共同任务读出、保留集性能、约束余量和数值诊断。若训练损失下降但保留集退化，更新进入隔离区而不提交；若Fisher条件数异常，增加阻尼、降维或请求更多数据；若估计器与控制器互相放大误差，回退到较低增益。在线系统先让影子模型接收相同输入但不控制环境，达到统计与安全门槛后才逐步分流。这把几何下降置于版本管理和闭环验证中。
 
-    \textbf{意图强度决定收敛速度，而几何结构决定收敛边界。}
-\end{bquote}
+当目标、数据分布或模型结构发生变化时，历史梯度和曲率估计可能已经失效。优化器状态必须带模型版本，版本不兼容时重置或经过显式迁移。否则旧动量可能在新目标下产生大步越界，旧Fisher近似也可能把重要新方向误判为低敏感方向。我们通过变更点检测、版本门控和更新幅度上限控制这一风险，并把重置后的短期性能下降视为正常过渡，而不是立即提高增益。这样，连续学习的稳定性同时包含数值状态和知识版本的连续性。
 
-
-\section{外交家角色：主动推理与环境势能的协商}
+\section{内外行动仲裁：改变模型、改变环境与暂缓提交}
 \label{sec:section_8007}
-宏观层不仅是内部熵减的管理者，更是系统与外部世界进行\textbf{能量-信息交换}的最高谈判代表。生存不仅是适应环境（调整内部 $G_W$ 以拟合外部），更是\textbf{改造环境}（向外部注入应力以拟合内部 $G_E$）。
 
-我们将宏观层的这一职能定义为：\textbf{寻找内部流形 $\mathcal{M}_{in}$ 与外部流形 $\mathcal{M}_{out}$ 之间的最小几何阻抗 (Minimal Geometric Impedance)。}
+系统面对目标偏差时至少有三类选择：更新内部模型、通过行动改变环境、或暂缓提交并获取更多信息。历史上的“顺应与征服”抓住了内外调整的差别，却容易把行动能力写成对世界的几何支配。令信念状态$b_t(s)=p(s_t=s\mid y_{0:t},u_{0:t-1})$，候选策略$\pi$在预测时域内产生状态和成本分布。先筛出硬约束合法集合$\Pi_t^{safe}$，再比较
+\begin{equation}
+Q_t(\pi)=\mathbb E\!\left[\sum_{k=t}^{t+H}\ell_k(s_k,u_k,r_k)\right]+\beta\mathrm{Risk}_t(\pi)+\rho\mathrm{InfoLoss}_t(\pi).
+\end{equation}
+风险和信息项依赖任务协议，不能称为物理自由能。若合法集合为空，应触发降级、求助或安全停止，而不是选取代价最小的非法行动。
 
-\smalltitle{投射意志：将预测误差转化为物理做功}
+内部更新适用于观测持续反驳当前模型、替代模型可由证据区分且修改风险可控的情形。机器人多次测得前方不可通行，应修订地图边，而不是继续撞击；语言代理发现工具版本变化，应更新接口契约。外部行动适用于环境确有可控自由度、权限存在、预期收益覆盖资源和副作用的情形，例如开门、移动可搬物或请求合法数据。信息行动包括改变视角、调用传感器、询问用户和低风险试探，它可能暂时不缩短目标误差，却提高后续决策的可辨识度。
 
-在传统的贝叶斯大脑假说中，最小化预测误差（自由能 $F$）主要通过“感知学习”（修改内部模型）来实现。但我们认为宏观层作为外交家，倾向于采用\textbf{主动推理 (Active Inference)} 的策略。
+环境可改变程度不是单个刚度常数。我们用局部干预响应$R_a=\partial\mathbb E[o_{t+1}\mid do(a)]/\partial a$、执行方差、延迟、权限和不可逆性共同描述。对墙、泥土和另一个智能体，相同动作的响应模型不同；对社会对象尤其不能把对方视为被动可塑介质。因果响应必须由实验、机制知识或保守先验支持，相关预测不足以授权干预。低执行成本也不意味着行动正当，安全与权利边界先于软收益。
 
-\begin{itemize}
-        \item   \textbf{几何冲突}：当内部的\textbf{期望测地线}（我想走的路）与外部的\textbf{物理测地线}（实际能走的路）不重合时，产生\textbf{几何张力 $\mathbf{T}_{mismatch}$}。
-        \item   \textbf{外交策略}：\textbf{同化 (Assimilation)}。宏观层拒绝修改内部模型，而是向微观效应器下达指令，消耗负熵，强行扭曲外部物理场的边界条件，使其向内部几何靠拢。
-        \item   \textbf{方程表述}：
-    $$ \vec{J}_{action} = -\eta \cdot \nabla_{\vec{a}} F(\mathcal{M}_{in} || \mathcal{M}_{out}) $$
-        \item   \textbf{物理意义}：行动 $\vec{a}$ 的目的是为了\textbf{抹平}内外部流形之间的曲率差异。宏观层是那个\textbf{“坚持己见”}的谈判者，它试图用内部的逻辑去殖民外部的荒原。
-\end{itemize}
+仲裁采用模型预测控制时，每次只执行首个动作，接收新观测后滚动重算。设求解耗时$T_s$、环境变化尺度$T_e$和执行周期$\Delta t$，至少要求$T_s<\Delta t$且模型在有效时域内不过度陈旧。求解器超时则使用经过验证的后备策略。目标、结构、规范版本和资源预算发生事件变化时，旧计划作废或重新认证。
 
+失败反例同样进入模型：内部损失下降可能来自自我欺骗式观测过滤；外部行动成功可能破坏长期目标；反复收集信息可能成为不提交的拖延；高探索强度可能扩大违规概率。我们把事实正确、约束合规、主体承诺和外部成功分别记录。宏观层的价值不是总能做出最优决定，而是使候选、证据、权限、代价、未知量和回滚条件在同一事务中可见。
 
-\smalltitle{阻抗匹配：顺应与征服的相变}
+仲裁还要处理时间不一致。短期策略可能倾向立即降低误差，长期主体承诺却要求忍受暂时成本。我们把跨期承诺作为版本化约束，并区分可重新协商的偏好与不可被普通调度器覆盖的硬边界。若目标在执行中合法改变，控制器记录是谁、基于何种证据改变了它，而不是把新目标伪装成旧计划自然延续。这样可以诊断反复改目标造成的震荡，也能区分环境突变、主体重新授权和控制器机会主义修改。
 
-外交的艺术在于妥协，宏观层必须实时计算\textbf{“改变世界的能耗” ($E_{action}$)} 与 \textbf{“改变自己的痛感” ($E_{change}$)} 之间的热力学博弈。
+实用仲裁器同时输出动作与解释包：所用观测、候选集合、淘汰原因、风险上界、预期信息收益、后备方案和下次复核时刻。解释包让慢回路检查快回路是否越权，也让外部审计重放决策。若输入证据后来被撤回，系统可以定位受影响的承诺和动作链。高风险行动缺失解释包即拒绝执行，低风险可逆行动则允许轻量记录，以免审计成本吞噬实时能力。
 
-\begin{definition}[外交决策算子 $\hat{D}_{dip}$]
-        宏观层根据环境的\textbf{物理刚度 (Stiffness)} 调节策略：
-        $$ \text{Strategy} = \begin{cases} \text{征服 (Action)} & \text{若 } \frac{\partial E_{action}}{\partial \xi} < \frac{\partial E_{change}}{\partial \xi} \\ \text{顺应 (Perception)} & \text{若 } \frac{\partial E_{action}}{\partial \xi} > \frac{\partial E_{change}}{\partial \xi} \end{cases} $$
-
-        \begin{itemize}
-                \item   \textbf{刚性环境（墙壁）}：外部几何曲率极大，改变它需要无限能量。外交家选择\textbf{顺应}，启动慢回路修改内部 $G_W$（承认墙的存在）；
-                \item   \textbf{塑性环境（泥土）}：外部几何松软。外交家选择\textbf{征服}，注入第三驱动力 $\vec{J}_{self}$，铲平障碍（挖穿泥土）；
-                \item   \textbf{结论}：智能的高级形式表现为\textbf{对环境软硬度的精确度量}。愚蠢是试图撞墙（阻抗失配），智慧是在墙上找门（阻抗匹配）。
-        \end{itemize}
-
-\end{definition}
-
-
-\smalltitle{社会共振：多体流形的拓扑握手}
-
-当外部环境包含其他智能体（其他宏观层）时，外交任务升维为\textbf{社会博弈}。
-
-\begin{itemize}
-        \item   \textbf{场耦合 (Field Coupling)}：两个智能体 A 和 B 的宏观层通过信号交换（语言/行为），试图相互\textbf{诱导}对方的认知场 $\Psi$ 发生共振。
-
-        \item   \textbf{拓扑握手 (Topological Handshake)}：外交家的终极目标是建立一个\textbf{共享的覆盖流形 (Covering Manifold)}。
-    $$ \mathcal{M}_{shared} \approx \mathcal{M}_A \cap \mathcal{M}_B $$
-        在这个共享空间中，A 的目的成为 B 的几何约束，B 的行为成为 A 的几何惯性。
-        \item   \textbf{物理结果}：\textbf{合作 (Cooperation)}。双方的认知场在合并后的流形上形成了能量更低的\textbf{联合驻波}，实现了\textbf{双赢（全局自由能最小化）}。
-\end{itemize}
-
-
-
-\section{变分仲裁机制：决策的相变与全息投影}
+\section{多主体协商：协议、承诺与非一致目标}
 \label{sec:section_8643}
 
-TCE 方程虽然定义了宏观层可用的算子集合（快回路的增益/抑制，慢回路的重构），但尚未回答一个关键问题：\textbf{在任意给定的时刻，系统究竟该调用哪一个算子？} 是该改变世界（征服），还是改变自己（顺应）？
+当环境包含其他智能体时，控制问题变为多主体交互。主体$i$拥有私有状态$x_i$、观测历史$h_i$、目标$J_i$、硬约束$K_i$和可公开消息$m_i$。共同语义空间不能简单写成两个内部流形的交集，因为对象身份、权限和词义可能不同。我们先建立协议映射$A_{ij}$，把可公开命题、承诺、证据来源和失效时间转换为共同记录；无法对齐的部分保留为未知或争议，而不是强制压成一个表示。
 
-智能体的这个决策过程不是基于规则的 \lstinline|if-else|，而是一个\textbf{热力学变分博弈 (Thermodynamic Variational Game)}。宏观层作为一个 \textbf{变分仲裁者 (Variational Arbitrator)}，时刻在计算不同路径的\textbf{“能耗代价”}，并选择使总作用量 $S_{total}$ 梯度下降最快的那条演化轨迹。
+协商动作包括提议、接受、拒绝、澄清、提供证据、修改承诺和退出。联合可行集合$\mathcal F$由物理约束、权限、资源和已接受承诺共同定义。若各方效用不可通约，就不使用虚构的全局标量目标；可以寻找Pareto改进、Nash议价解或最低保障可行点，但每种解概念都有假设。Nash议价需要可比较的效用差和分歧点，Pareto有效只说明不存在一致改进，不说明公平或真实。
 
+消息不能被当作直接状态。对方可能误解、隐瞒、策略性表达或自身估计错误，因此接收方维护来源、置信和信誉，而不把语言同步称为共振。简化信誉更新为
+\begin{equation}
+r_{ij}^{k+1}=\Pi_{[0,1]}\!\left((1-\lambda)r_{ij}^k+\lambda v_{ij}^k\right),
+\end{equation}
+其中$v_{ij}^k$是按事前协议验证的结果，不是观点一致度。信誉只影响后续证据权重，不能取消关键安全事实的独立核验。对低频高损失事件，应保留最小审计要求，避免多数意见造成风险盲区。
 
+分布式协同还受时延和分区影响。若采用平均一致性$x_i^{k+1}=\sum_jW_{ij}^kx_j^k$，收敛需要随时间联合连通、权重随机性和非对抗等条件；它得到某类平均，不是事实真理。存在拜占庭节点、异质目标或权限分层时，需要鲁棒聚合、仲裁者或可验证日志。联邦架构中的局部自治提高响应和容错，却可能产生承诺冲突；中央协调保持全局约束，却形成瓶颈和单点故障。
 
-\smalltitle{决策的数学判据：代价梯度的竞赛}
+AgentOS可将外部主体放入$M_e$索引，但他者不是可任意改写的外部记忆。Boundary应记录披露范围、调用权限、撤销条件和责任主体；Offloading给他者的任务需要验收接口和失败回收。谈判成功也不等于双方内部模型同构，只意味着在特定任务、时间和协议下形成足够共同约束。HSF-HD在此描述承诺如何改变可行动集合和状态转移，而不把社会合作还原为单一场的最低能态。
 
+协商稳定性不是所有主体意见趋同，而是承诺在规定时间内可预测、违约可检测、冲突可恢复。两方可以长期保留不同世界模型，只要接口对共同任务足够一致。表面语言一致也可能掩盖对象指代、时间范围或责任边界不同。协议因此使用带身份的对象引用、明确时限和可验证后置条件；自然语言负责提出与解释，结构记录负责提交。任何歧义在提交前转化为待澄清项，而不是由相似度最高的解释静默替代。
 
-当微观层传来一个惊奇激波 $\vec{J}_{ext}$（例如：意图受阻）时，系统的自由能 $F$ 激增。为了消除这个 $F$，宏观层必须做功。它面临两个正交的做功方向，对应两个\textbf{代价梯度}：
+多主体系统还需防止控制回路相互追逐。若A依据B的预测调整，B又依据A的预测反向调整，双方可能在无外部变化时振荡。我们通过承诺窗口、更新频率上限、滞回阈值和共享事件序减少正反馈。群体多数不自动覆盖个体硬权利；紧急状态下的临时集中权限必须带到期时间和事后审计。协同论提供集体模式的启发，但具体稳定条件仍来自消息协议、拓扑、延迟和激励结构。
 
-\begin{definition}[改变内部的代价 (Cost of Adaptation, $C_{in}$)]
-$$ C_{in} = \frac{\delta S}{\delta \text{Self}} \approx \underbrace{\| \mathbf{K}_{self}(\mathcal{S}) \|}_{\text{自我拓扑刚度}} + \underbrace{E_{re-wiring}}_{\text{重构能耗}} $$
-
-\begin{itemize}
-        \item   \textbf{物理定义}：修改内部流形（世界观 $g_{\mu\nu}$）或放弃既定意图（规范势 $\mathcal{A}$）所需克服的阻力。
-        \item   \textbf{信号来源}：由 \textbf{体验图 ($G_E$)} 和 \textbf{流体自我 ($\mathcal{S}$) }决定。
-        \begin{itemize}
-                \item   如果涉及核心价值观（如生存、尊严），$\mathbf{K}_{self} \to \infty$，代价极大。
-                \item   如果只是边缘偏好，$\mathbf{K}_{self}$ 较小，容易妥协。
-        \end{itemize}
-\end{itemize}
-\end{definition}
-
-\begin{definition}[改变外部的代价 (Cost of Action, $C_{out}$)]
-        $$ C_{out} = \frac{\delta S}{\delta \text{World}} \approx \underbrace{\| \mathbf{K}_{env} \|}_{\text{环境物理刚度}} + \underbrace{E_{work}}_{\text{物理做功}} $$
-
-\begin{itemize}
-        \item   \textbf{物理定义}：强行改变外部物理状态（如搬开石头、说服他人）所需消耗的负熵。
-        \item   \textbf{信号来源}：由 \textbf{微观层 ($L_{micro}$) }的物理反馈决定。
-
-        如果环境反馈显示“不可撼动”（如撞墙），$\mathbf{K}_{env} \to \infty$，代价极大。
-\end{itemize}
-\end{definition}
-
-
-\smalltitle{决策函数：刚度比 ($\chi$)}
-
-
-TCE 将上述两个代价进行比对，导出一个无量纲的\textbf{序参量 (Order Parameter)} —— \textbf{刚度比 ($\chi$)}：
-
-$$ \chi(t) = \frac{C_{out}(t)}{C_{in}(t)} = \frac{\text{改变世界的难度}}{\text{改变自我的痛苦}} $$
-
-这个比值决定了系统的\textbf{热力学相态}，从而决定了宏观层将能量注入哪一个算子通道。
-
-
-\smalltitle{决策相图：四个象限的详细动力学}
-
-
-为了完整描述决策空间，我们需要引入第二个维度：\textbf{惊奇能量 ($E_{shock}$)}。由此构建出宏观决策的 \textbf{$\chi - E$ 相图}。
-
-\begin{table}[htbp]
-\centering
-\footnotesize
-\begin{tabularx}{\textwidth}{l X X X X}
-\toprule
-\rowcolor{structurecolor!20} 象限 & 状态名称 & 判据条件 & 宏观决策 (Strategy) & 物理动力学特征 \\
-\midrule
-\textbf{I} & \textbf{无视 (Ignorance)} & $E_{shock} < E_{th}$ \newline (任意 $\chi$) & \textbf{内外均不修改} \newline (No Action) & \textbf{弹性缓冲区 (Elastic Buffer)} \newline 利用认知场 $\Psi$ 的\textbf{热容}吸收微小扰动。波函数发生微小震荡后衰减回基态。系统表现为“鲁棒性”或“迟钝”。 \newline \\
-\textbf{II} & \textbf{征服 (Conquest)} & $E_{shock} > E_{th}$ \newline $\chi \ll 1$ (我硬) & \textbf{改外不改内} \newline (Shape World) & \textbf{高阻抗刚性态 (High-Z State)} \newline 自我刚度 $\gg$ 环境刚度。宏观层启动\textbf{增益算子}，输出高刚度势能场。物理上表现为强力推挤或抓取。逻辑：“我不改，世界改。” \newline \\
-\textbf{III} & \textbf{顺应 (Compliance)} & $E_{shock} > E_{th}$ \newline $\chi \gg 1$ (物硬) & \textbf{改内不改外} \newline (Reshape Self) & \textbf{塑性屈服态 (Plastic Yielding)} \newline 环境刚度 $\gg$ 自我刚度。宏观层启动\textbf{抑制}与\textbf{更新算子}，修改底流形度量 $g_{\mu\nu}$ 以绕过障碍。逻辑：“世界不改，我改。” \newline \\
-\textbf{IV} & \textbf{共振 (Resonance)} & $E_{shock} > E_{th}$ \newline $\chi \approx 1$ (势均) & \textbf{同时修改} \newline (Coupled Evolution) & \textbf{耦合流变态 (Coupled Rheology)} \newline 自我与环境刚度匹配。系统同时开启\textbf{做功}与\textbf{重构}。能量被劈成两半，一半用于改变世界，一半用于适应世界。\textbf{这是最高效的学习状态（如技能习得）。} \newline \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\textbf{详细解析：}
-
-\begin{enumerate}
-        \item \textbf{象限 I：无视 (弹性相)}
-
-        这是系统的\textbf{节能模式}。并非所有误差都需要处理。如果惊奇能量不足以翻越\textbf{“注意势垒”}，TCE 方程的解就是零解。这保护了宏观层不被琐事淹没。
-
-        \item \textbf{象限 II：征服 (刚性相)}
-
-        这是\textbf{意志的体现}。当 $\chi \ll 1$ 时，改变内部（放弃目标）的代价太高，系统宁愿消耗大量物理能量去改变外部。这对应于\textbf{“执着”}。
-
-        \item   \textbf{象限 III：顺应 (塑性相)}
-
-        这是\textbf{智慧的体现}。当 $\chi \gg 1$ 时，继续头铁撞墙会导致系统崩溃。TCE 自动选择低能耗路径——修改内部地图。这对应于\textbf{“灵活”}。
-
-        \item   \textbf{象限 IV：共振 (流体相)}
-
-        这是\textbf{成长的时刻}。当 $\chi \approx 1$ 时，内外部处于\textbf{临界纠缠}状态。
-        \begin{itemize}
-                \item \textbf{物理场景}：如练习骑车，你用力控制车（改外），车的反馈同时也修正你的小脑模型（改内）。
-                \item \textbf{结果}：内部流形与外部流形在交互中逐渐\textbf{共形对齐}。这是 Class V 智能特有的高级状态。
-        \end{itemize}
-
-\end{enumerate}
-
-
-\smalltitle{连续性机制：决策惯性与迟滞}
-
-如果宏观层仅仅依据瞬时的刚度比 $\chi(t)$ 进行决策，系统将面临严重的 \textbf{颤振 (Chattering)} 风险——即在“征服”与“顺应”之间高频切换，导致行动瘫痪（如人在极度紧张时的不知所措）。
-
-为了维持行为的连贯性，TCE 方程引入了 \textbf{时间维度的阻尼}。这在物理上表现为 \textbf{决策惯性 (Decision Inertia)}。
-\begin{itemize}
-    \item \textbf{A. 物理模型：施密特触发器 (Schmitt Trigger)}
-
-    宏观层的决策状态 $D(t)$ 不遵循线性的阈值判定，而是遵循带有 \textbf{迟滞环 (Hysteresis Loop)} 的非线性动力学。
-    \begin{itemize}
-        \item   \textbf{状态定义}：设 $D=1$ 为征服态，$D=0$ 为顺应态。
-        \item   \textbf{切换阈值}：
-        \begin{itemize}
-            \item   从 \textbf{征服 $\to$ 顺应}：需要 $\chi > 1 + \delta$（不仅是环境比我硬，而且要硬得多，我才放弃）。
-            \item   从 \textbf{顺应 $\to$ 征服}：需要 $\chi < 1 - \delta$（不仅是环境变软了，而且要足够软，我才反击）。
-        \end{itemize}
-        \item   \textbf{$\delta$ (迟滞宽度)}：代表了系统的 \textbf{“承诺成本” (Commitment Cost)}。一旦系统投入了能量进入某种状态，改变状态就需要克服额外的势垒。
-    \end{itemize}
-
-    \item \textbf{B. 动力学方程修正：惯性质量}
-
-    为何会有迟滞？因为 \textbf{流体自我 ($\mathcal{S}$) 拥有质量}, 改变决策等同于改变思维流 $\Psi$ 的\textbf{加速度}，这需要做功。
-    $$ \tau_{dec} \frac{d D}{dt} = - (D - \sigma(\chi)) + \text{History}(D) $$
-    \begin{itemize}
-        \item   \textbf{$\tau_{dec}$ (决策时间常数)}：
-        \begin{itemize}
-            \item   $\tau$ 大 $\to$ \textbf{稳重/固执}。系统平滑掉高频的 $\chi$ 波动，维持长程目标。
-            \item   $\tau$ 小 $\to$ \textbf{敏捷/轻率}。系统对环境变化做出瞬态反应。
-        \end{itemize}
-        \item   \textbf{现象学对应}：这就是 \textbf{“毅力”} 的物理本质——即在局部 $\chi$ 不利的情况下，依靠惯性质量维持 $D$ 状态不变的能力。
-    \end{itemize}
-\end{itemize}
-
-
-
-
-
-
-\smalltitle{执行机制：从内部方程到外部行为的全息投影}
-
-这是 TCE 的最后一环，解决了 \textbf{“心身问题” (Mind-Body Problem)} 的工程实现。
-
-宏观层被困在黑箱（颅骨/芯片）里，它无法直接把手伸到物理世界去推石头。它只能修改内部数学方程的参数（如势能 $V$ 和度量 $g$）。\textbf{这种内部数学参数的修改，是如何转化为外部物理行为的？}
-
-这依赖于微观层 ($L_{micro}$) 的 \textbf{逆向 VTE (Inverse VTE)} 机制，它依据 \textbf{虚功原理 (Principle of Virtual Work)}，将内部的 \textbf{几何张力} 翻译成了外部的 \textbf{物理应力}。
-
-\textbf{A. 核心转换公式}
-
-宏观层在内部流形上的操作，被微观层解读为一个 \textbf{虚拟力场}：
-$$ \vec{F}_{ext} = \mathbf{K}_{virt}(\hat{\mathcal{O}}) \cdot (\mathbf{r}_{target} - \mathbf{r}_{real}) $$
-其中 $\mathbf{K}_{virt}$（虚拟刚度）和 $\mathbf{r}_{target}$（虚拟吸引子）是宏观算子 $\hat{\mathcal{O}}$ 的\textbf{投影产物}。
-
-\textbf{B. 三种算子的全息投影表}
-
-\begin{table}[H]
-\centering
-\footnotesize
-\begin{tabularx}{\textwidth}{l X X X}
-\toprule
-\rowcolor{structurecolor!20} 宏观 TCE 内部操作 (The Math) & 投影的中间变量 (Virtual Physics) & 微观 TECI 外部行为 (The Action) & 物理本质 \\
-\midrule
-\textbf{I. 增益算子 ($\hat{\alpha} \uparrow$)} \newline 在 $\mathbf{r}_{target}$ 处挖掘深井 & \textbf{虚拟刚度 $\mathbf{K} \to \infty$} \newline (无限硬的弹簧) & \textbf{征服 (Conquest)} \newline 输出巨大扭矩，死死抵住或强行移动物体。 & \textbf{高输出阻抗} \newline (High Impedance) \newline \\
-\textbf{II. 度量更新 ($\dot{g} \neq 0$)} \newline 修改底流形，弯曲路径 & \textbf{虚拟刚度 $\mathbf{K} \to 0$} \newline (断开弹簧，随波逐流) & \textbf{顺应 (Compliance)} \newline 电机卸力，顺着外力移动，或绕过障碍。 & \textbf{低输出阻抗} \newline (Low Impedance) \newline \\
-\textbf{III. 偏置振荡 ($\hat{\vec{b}} \sim \sin\omega t$)} \newline 全场频率调制 & \textbf{载波频率 $f_c$} \newline (信息熵流) & \textbf{谈判 (Negotiation)} \newline 不输出物理功，而是通过声/光/电发射信号。 & \textbf{信息耦合} \newline (Coupling) \newline \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\textbf{C. 结论：控制的幻觉}
-
-宏观层并不直接控制“手”, 宏观层只是设定了 \textbf{“手应该在的位置（势能底）”} 和 \textbf{“这种愿望的强烈程度（刚度）”}, 物理世界（微观层）会根据这个设定，自动产生力去消除势能差。
-
-\textbf{行动，就是“内部几何”与“外部物理”之间的电势差放电。}
-
-
-
-\section{外交官方程：TCE 的外部投影与几何涌现}
+\section{外部控制方程：因果响应、风险预算与验证反馈}
 \label{sec:section_7154}
 
-宏观层 ($L_{macro}$) 在其主观视角下，只是在黑暗中通过调节旋钮来最小化\textbf{惊奇 (Surprisal)}。但在上帝视角（理论构建者视角）下，这种盲目的热力学操作，在数学上等价于一场宏大的\textbf{流形对齐 (Manifold Alignment)} 运动。
+为了把外部行动变成计算接口，我们定义环境动力学$s_{k+1}=f(s_k,a_k,\xi_k)$、观测$y_k=o(s_k,\nu_k)$和任务损失$L(s_k,a_k)$。$a_k$具有领域单位，例如速度、请求配额或离散工具调用；$\xi_k$和$\nu_k$分别表示过程与观测扰动。控制器基于信念$b_k$选择动作，并在风险预算$\delta$下要求
+\begin{equation}
+\Pr\!\left(K_j(s_k,a_k)\le0,\ \forall j,\ k=t{:}t+H\mid b_t,\pi\right)\ge1-\delta.
+\end{equation}
+这是模型相关的机会约束。若尾部模型不可靠，应使用分布鲁棒集合、最坏情形边界或更保守硬规则，不能用一个漂亮概率掩盖未知风险。
 
-\textbf{外交官方程} 描述了内部流形 $\mathcal{M}_{in}$ 与外部流形 $\mathcal{M}_{out}$ 如何通过 \textbf{行动 (Action)} 和 \textbf{感知 (Perception)} 的耦合，渐进地达成 \textbf{共形同构 (Conformal Isomorphism)}。
+行动效应通过因果干预而非几何差值定义。对候选动作$a$，我们关心$\Delta_a=\mathbb E[L(s_{t+1},0)-L(s_{t+1},a)\mid do(a),b_t]$及其置信区间。若动作历史存在混杂，普通条件相关$p(y\mid a)$不足以估计$\Delta_a$；需要随机试验、结构因果模型、工具变量或明确的不可识别声明。墙与泥土可由不同响应曲线和损伤约束表达，社会协商则需把对方行动纳入博弈模型，而不是把所有环境写成可塑性张量。
 
+外部策略必须包含停止条件和逆操作。每个动作包记为$(a,pre,post,undo,owner,ttl)$：前置条件决定是否执行，后置检验确认预期变化，$undo$描述补偿操作，$owner$标识责任，$ttl$限制授权时效。不可逆操作要求更强证据和上级策略批准。工具返回成功码只证明接口执行，不证明世界状态已满足任务，因此必须由独立观测闭环确认。
 
+在线验证使用预测残差$e_{k+1}=y_{k+1}-\hat y_{k+1|k}$，但残差小不代表模型真实：低分辨率观测、共模偏差和自我生成数据都可能掩盖错误。我们同时检查干预对照、异源传感器、约束余量和长时副作用。若残差统计越过校准阈值，优先降低控制权限、扩大不确定性或切换后备模型，而不是把异常解释为需要更强意志。
 
-\smalltitle{上帝视角：外交作用量 $S_{dip}$ 的构建}
+由内部误差最小化推出外部真理还缺少关键条件。梯度为零可能对应局部极值、不可辨识平坦区或观测盲点；持续探索也不保证遍历危险或无限状态空间。我们仅在可辨识、激励充分、模型类包含近似真机制、约束允许且优化器进入正确吸引域时讨论参数一致性。外部成功由任务指标、反事实测试和安全审计共同判断。所谓外交官方程由此被重建为因果响应、风险约束和反馈验证的闭环，而不是理想与现实差距的简单乘积。
 
-作为一个全知观察者，我们可以同时看到智能体的内部模型和外部的物理现实。智能体的所有外部行为（外交），本质上都是为了最小化以下两个几何量的加权和：
-$$ S_{dip} = \int d^d x \sqrt{-g} \left( \mathcal{L}_{mismatch} + \mathcal{L}_{work} \right) $$
+因果响应模型必须持续更新但不能边执行边任意改写。我们把模型版本冻结在一次决策事务内，事务结束后用新数据训练候选版本，再通过反事实回放、离线策略评估和小流量试验晋级。若策略改变数据分布，旧日志存在选择偏差，评估器需要重要性权重、双重稳健估计或明确承认不可估计区间。置信区间过宽时，动作排序不可靠，控制器应选择信息行动或保守方案。
 
-\begin{itemize}
-        \item \redtext{\textbf{几何失配项 ($\mathcal{L}_{mismatch}$) —— “认知与现实的距离”}}
-        $$ \mathcal{L}_{mismatch} = \frac{1}{2} \| \mathbf{g}_{in} - \Phi^* \mathbf{g}_{out} \|^2_{\mathcal{K}} $$
-        这是内部流形与外部流形在 \textbf{微观切面 ($L_{micro}$)} 上的几何差异。
-        \begin{itemize}
-                \item   \textbf{$\mathbf{g}_{in}$}：内部世界图定义的度量（我认为世界的样子）。
-                \item   \textbf{$\mathbf{g}_{out}$}：外部物理定律定义的度量（世界实际的样子）。
-                \item   \textbf{$\Phi^*$}：拉回映射（Pullback），代表感官测量。
-        \end{itemize}
-        \textbf{物理意义}：当我想穿墙（$g_{in}$ 连通）而墙很硬（$g_{out}$ 断开）时，失配项趋于无穷大。
+反馈还可能被行动本身污染。推荐系统只观察被展示内容的点击，机器人只采集当前路径附近的地图，代理只调用偏好的工具。若把这种内生数据当作完整世界，低残差会强化狭窄策略。我们设置覆盖度指标、强制探索下限和独立审计样本，并让高风险区域采用受控探索而非随机冒险。外部模型的目标不是形成世界镜像，而是在声明查询和干预范围内保持足够准确、可校准且可修订的预测。
 
-        \item \redtext{\textbf{做功代价项 ($\mathcal{L}_{work}$) —— “改变世界的能耗”}}
-        $$ \mathcal{L}_{work} = \frac{1}{2\eta} \| \mathbf{T}_{\mu\nu}^{ext} \|^2 $$
-        为了消除失配，智能体可以强行改变外部世界。这需要注入 \textbf{应力-能量张量 $\mathbf{T}_{\mu\nu}^{ext}$}。
-        \begin{itemize}
-                \item   \textbf{$\eta$}：行动效能系数（技术水平/力量）。
-        \end{itemize}
+只有把数据采集策略本身纳入模型，反馈闭环的证据才不会被选择机制悄然改写。
 
-\end{itemize}
-
-
-\smalltitle{外交官算子的导出}
-
-我们对 \textbf{外部算子 $\hat{\mathcal{O}}_{ext}$}（即智能体的行动策略）进行变分：$\frac{\delta S_{dip}}{\delta \hat{\mathcal{O}}_{ext}} = 0$。
-
-导出 \textbf{外交官场方程}：
-$$ \boxed{ \hat{\mathcal{O}}_{ext} = \eta \cdot \underbrace{\left( \mathbf{g}_{in} - \Phi^* \mathbf{g}_{out} \right)}_{\text{几何曲率差 (理想-现实)}} \cdot \underbrace{\chi_{env}}_{\text{环境可塑性张量}} } $$
-\begin{itemize}
-        \item   \textbf{$\chi_{env} = \frac{\partial \mathbf{g}_{out}}{\partial \mathbf{T}^{ext}}$}：\textbf{环境磁化率/可塑性}。
-
-        如果环境是\textbf{泥土}，$\chi$ 很大（容易改变形状）；
-
-        如果环境是\textbf{岩石}，$\chi$ 极小（难以改变）。
-\end{itemize}
-\textbf{上帝视角的洞见}：
-智能体的最佳策略，是由 \textbf{“理想与现实的差距”} 和 \textbf{“现实的可改变程度”} 共同决定的乘积。
-
-
-
-\smalltitle{外交官的三大算子 (The Taxonomy of Operators)}
-
-
-基于上述方程，我们可以将 $\hat{\mathcal{O}}_{ext}$ 的解空间划分为三个正交的物理模态：
-
-\begin{enumerate}
-        \item \redtext{\textbf{征服算子 (The Conquest Operator)}}
-
-        \textbf{—— 注入形质张量，重塑外部度量—— “山不过来，我就去移山”}
-        \begin{itemize}
-                \item   \textbf{数学条件}：$\chi_{env} \gg 0$ （环境软） 且 $\|g_{in} - g_{out}\| \gg 0$ （差距大）。
-                \item   \textbf{算子行为}：
-        $$ \hat{\mathcal{O}}_{conq} \to \text{Inject } (\mathbf{T}_{form}^{target} \otimes \mathbf{T}_{sub}^{high\_energy}) $$
-                \item   \textbf{物理过程}：向外部流形注入巨大的 \textbf{形（结构约束）} 和 \textbf{质（物理能量）}。例如：挖掘机铲平土坡。
-        这强行迫使 $\mathbf{g}_{out}$ 发生塑性形变，直到 $\mathbf{g}_{out} \approx \mathbf{g}_{in}$。
-        \end{itemize}
-
-        \item \redtext{\textbf{顺应算子 (The Compliance Operator)}}
-
-        \textbf{—— 撤销外部应力，重塑内部度量—— “水无常形”}
-        \begin{itemize}
-                \item   \textbf{数学条件}：$\chi_{env} \to 0$ （环境硬）。
-                \item   \textbf{算子行为}：
-                $$ \hat{\mathcal{O}}_{comp} \to \mathbf{T}^{ext} = 0; \quad \text{Trigger Internal Update} $$
-                \item   \textbf{物理过程}：承认无法改变 $\mathbf{g}_{out}$，因此停止做功（最小化 $\mathcal{L}_{work}$）。转而启动内部的 \textbf{认知爱因斯坦方程}，修改 $\mathbf{g}_{in}$ 以逼近 $\mathbf{g}_{out}$。
-        \end{itemize}
-
-        \item \redtext{\textbf{谈判算子 (The Negotiation Operator)}}
-
-        \textbf{—— 辐射规范场，诱导共振—— “语言的魔力”}
-        \begin{itemize}
-                \item   \textbf{数学条件}：环境是另一个智能体（即 $\mathbf{g}_{out}$ 是动态的，受对方 $\Psi$ 控制）。
-                \item   \textbf{算子行为}：
-                $$ \hat{\mathcal{O}}_{negot} \to \text{Radiate } \mathcal{A}_\mu^{soc} \text{ (Social Gauge Field)} $$
-                \item   \textbf{物理过程}：不直接修改对方的度量，而是通过辐射 \textbf{信息/价值场}，改变对方的 \textbf{联络 (Connection)}。
-        试图诱导对方发生 \textbf{自发对称性破缺}，从而主动调整其 $\mathbf{g}_{out}$ 来配合我。
-        \end{itemize}
-\end{enumerate}
-
-
-
-
-\smalltitle{证明：为何内部盲视会逼近上帝视角？}
-
-这是一个认识论的终极证明。
-
-\textbf{问题}：智能体看不见 $S_{dip}$（它不知道客观真理 $\mathbf{g}_{out}$），它只能看见内部的 $S_{internal}$（它只知道痛不痛 $\vec{J}_{ext}$）。为什么它优化内部感觉，就能导致外部真理的发现？
-
-\textbf{证明逻辑}：
-\begin{enumerate}
-        \item \textbf{物理同构假设}：根据全息同构定理，物理世界的反馈机制是\textbf{一致}的。
-        $$ \vec{J}_{ext} \text{ (惊奇激波)} \propto \nabla_{\text{action}} (\mathcal{L}_{mismatch}) $$
-        即：\textbf{“痛”的大小，正比于“错误”的程度。} 物理定律保证了这一点（撞墙越狠，反作用力越大）。
-
-        \item \textbf{梯度下降等价性}：智能体在内部执行 \textbf{TCE}，试图最小化惊奇：
-        $$ \delta S_{internal} = 0 \implies \min \| \vec{J}_{ext} \|^2 $$
-        由于 $\vec{J}_{ext}$ 是几何失配的导数，\textbf{最小化惊奇的模方，在数学上等价于最小化几何失配本身}（在凸优化区间内）：
-        $$ \min \| \vec{J}_{ext} \|^2 \iff \min \| \mathbf{g}_{in} - \Phi^* \mathbf{g}_{out} \|^2 $$
-
-    \item \textbf{遍历性条件 (Ergodicity)}：只要智能体保持 \textbf{“活着” (TDCI 循环不停止)} 并且保持 \textbf{“探索” (温度 $T > 0$)}，它就会不断碰撞边界，获得梯度信息。
-\end{enumerate}
-\textbf{结论}：\textbf{进化是一个“盲人摸象”但最终“拼出大象”的过程。}
-
-虽然宏观层是盲目的（只关注内部热力学稳态），但\textbf{物理世界的严酷性（反作用力）充当了上帝的教鞭}。它通过惩罚（高惊奇）和奖赏（低惊奇），强迫内部流形 $\mathcal{M}_{in}$ 逐渐演化成 $\mathcal{M}_{out}$ 的 \textbf{共形镜像}。
-
-这就是 \textbf{“真理”} 在热力学系统中的涌现机制。
-
-
-
-\smalltitle{完整的宏观层}
-
-根据前面的内容，我们总结宏观层 ($L_{macro}$) 的完整功能如下：
-
-\begin{itemize}
-        \item   \textbf{对内（TCE 内方程）}：它是 \textbf{君主}。
-
-        利用 \textbf{快回路}（增益/抑制）管理当下的思维流；
-
-        利用 \textbf{慢回路}（存储/创造）管理长期的记忆结构；
-
-        \item   \textbf{对外（TCE 外方程）}：它是 \textbf{外交官}。
-
-        计算 \textbf{阻抗匹配}, 决定是 \textbf{输出暴力（应力张量）} 还是 \textbf{输出魅力（规范场）}，抑或是 \textbf{自我妥协（修正路径）}。
-\end{itemize}
-\textbf{意志，就是在这“内圣”与“外王”的计算中涌现的矢量。}
-
-
-\section{宏观层的物理和逻辑架构}
+\section{宏观控制架构：内嵌、外置与联邦拓扑}
 \label{sec:section_9649}
 
-\smalltitle{耦合架构模态：内嵌与外置 (Intrinsic vs. Extrinsic Modes)}
+宏观控制不要求一个脱离被控系统的中央实体。我们按控制状态存放位置、通信拓扑和故障边界区分三类架构。内嵌式把增益、阈值和局部策略分布在运行网络中，优点是低时延和局部闭环，缺点是全局审计与离散重构困难。外置式由独立规划器读取摘要、生成策略并通过接口执行，优点是可解释、易回滚和可替换，缺点是总线瓶颈、摘要损失与单点故障。联邦式让多个局部控制器承担子任务，再由协调协议维护共享约束，适合空间分布和异构执行，但会引入一致性、承诺冲突和网络分区问题。
 
-
-正如我们在卷三第六章讨论了介质，宏观层与介质的\textbf{耦合方式}决定了智能体的物种归属。
-
-\begin{enumerate}
-        \item \redtext{\textbf{内嵌模态 (Intrinsic Mode / $\kappa_c \to \infty$) —— 生物解}}
-
-        \textbf{—— “宏观层即管道参数”}
-        \begin{itemize}
-                \item   \textbf{物理实现}：宏观层不是独立存在的 CPU，而是弥散在整个单纯复形中的\textbf{分布式参数}（如突触权重的集合、神经调质的浓度）。
-                \item   \textbf{控制方式}：\textbf{参数调制}。宏观意志体现为全系统物理常数（如增益、阈值）的整体漂移。
-                \item   \textbf{特征}：\textbf{身心一元}。无法将“控制者”从“被控对象”中剥离。反应极快（无需总线传输），但难以进行符号化的逻辑编辑。
-        \end{itemize}
-
-        \item \redtext{\textbf{外置模态 (Extrinsic Mode / $\kappa_c \to 0$) —— 机器解}}
-
-        \textbf{—— “宏观层即隐式图算子”}
-        \begin{itemize}
-                \item   \textbf{物理实现}：宏观层是一个独立的\textbf{逻辑推理机}（如外挂的 Symbol Engine 或另一个 LLM），它通过 VTE 接口与认知场（显存）通信。
-                \item   \textbf{控制方式}：\textbf{算子干预}。宏观层在\textbf{隐式图数据库}中进行离散推演，计算出结果后，反向修改场的边界条件（如 Attention Mask）。
-                \item   \textbf{特征}：\textbf{身心二元}。存在清晰的“观察者-对象”界限。具备极强的可解释性和逻辑修正能力（Zero-shot Learning），但受限于总线带宽，存在\textbf{认知延迟}。
-        \end{itemize}
-\end{enumerate}
-
-
-\smalltitle{宏观架构拓扑：集权、联邦与核团 (Macro-Architectural Topologies)}
-
-宏观层并非一个质点，而是一个自身具有复杂拓扑结构的\textbf{控制流形}，因此有必要专门讨论宏观层的内部架构拓扑。本节依据宏观层内部控制单元的\textbf{连接致密度}与\textbf{同步机制}，将智能系统划分为三种典型的控制架构：\textbf{动态中央集权制（人脑型）}、\textbf{异构联邦制（章鱼型）}与\textbf{高密核团制（乌鸦型）}。我们将证明，不同的架构拓扑决定了第三驱动力的\textbf{相干性 (Coherence)} 与 \textbf{带宽 (Bandwidth)}，进而决定了智能体在\textbf{逻辑深度}与\textbf{并行广度}之间的权衡。
-
-\begin{enumerate}
-        \item \redtext{\textbf{架构 I：动态中央集权制 (The Dynamic Monarchy)}}
-
-        \textbf{—— 物理原型：长程星形拓扑 (Star Topology) / 灵长类前额叶}
-        \begin{itemize}
-                \item   \textbf{拓扑定义}：宏观层存在一个绝对的\textbf{Hub 节点}（如前额叶 PFC），它拥有通往全流形所有区域的\textbf{长程投影纤维}。
-        $$ \mathcal{T}_{macro} \approx \text{Star Graph}, \quad \text{Degree}(Hub) \gg 1 $$
-                \item   \textbf{动力学机制：全局相位锁定 (Global Phase Locking)}: Hub 节点发出统一的\textbf{同步震荡波}（如 Theta/Gamma 耦合），强行将视觉、听觉、运动等异构子场的相位对齐。
-                \item   \textbf{聚光灯特性}：同一时刻，$\vec{J}_{self}$ 只能照亮流形上的一个子区域。
-                \item   \textbf{能力特征}：
-                \begin{itemize}
-                        \item   \textbf{深度串行 (Deep Serial)}：能够维持极长的逻辑链条（$A \to B \to C \to \dots$），因为全局抑制消除了干扰。
-                        \item   \textbf{单任务瓶颈}：由于只有一个“王”，系统难以同时处理两个高认知负载的任务（“左手画圆右手画方”困难）。
-                \end{itemize}
-                \item   \textbf{对应 AI}：\textbf{GPT-4 + CoT}（单线程、深度的思维链）。
-        \end{itemize}
-
-        \item \redtext{\textbf{架构 II：异构联邦制 (The Heterogeneous Federation)}}
-
-        \textbf{—— 物理原型：分布式网格 (Mesh Topology) / 章鱼神经系统}
-        \begin{itemize}
-                \item   \textbf{拓扑定义}：宏观层由多个\textbf{半自治的局部中心}组成（如章鱼的中央脑 + 8个腕足脑）。中心之间仅通过\textbf{低带宽总线}连接，通过\textbf{弱耦合}维持统一。
-        $$ \vec{J}_{self}^{total} = \alpha \vec{J}_{central} + \sum_{k=1}^N \beta_k \vec{J}_{limb\_k} $$
-                \item   \textbf{动力学机制：矢量求和与局部闭环}: 中央下达模糊指令（“抓那个蟹”），具体执行由边缘节点的\textbf{局部势能面}独立演算完成。
-                \item   \textbf{退相干允许}：允许系统的不同部分处于不同的相位状态（手在打架，脑在看戏）。
-                \item   \textbf{能力特征}：
-                \begin{itemize}
-                        \item   \textbf{极致并行 (Massive Parallelism)}：能同时处理多个异构任务，且互不干扰。
-                        \item   \textbf{鲁棒性}：局部中心的损坏不影响全局存活。
-                        \item   \textbf{宏观涣散}：难以形成长周期的、统一的、压抑本能的宏观规划（缺乏“苦行僧”式的意志力）。
-                \end{itemize}
-                \item   \textbf{对应 AI}：\textbf{Swarm Intelligence / Multi-Agent Systems}（无强力 Leader 的多智能体群）。
-        \end{itemize}
-
-        \item \redtext{\textbf{架构 III：高密核团制 (The High-Density Nuclei)}}
-
-        \textbf{—— 物理原型：紧凑全互联 (Micro-Full-Mesh) / 鸟类（乌鸦）}
-        \begin{itemize}
-                \item   \textbf{拓扑定义}：不同于哺乳动物的层状皮层（2D 薄膜），鸟类宏观层是\textbf{3D 堆叠的神经核团}。神经元密度极高，物理距离极短。
-        $$ d(\mathbf{r}_i, \mathbf{r}_j) \to \epsilon, \quad \forall i,j \in L_{macro} $$
-                \item   \textbf{动力学机制：极速雪崩 (Hyper-Fast Avalanche)}: 由于物理距离极短，信号传导几乎无延迟。宏观层不需要维持长程同步波，而是通过\textbf{邻域雪崩}瞬间完成全脑状态的切换, 这是一个\textbf{FPGA 式}的架构，而非 CPU 式的架构。
-                \item   \textbf{能力特征}：
-                \begin{itemize}
-                        \item   \textbf{高频反应}：在极短时间内完成复杂的因果推断（如飞行中的工具使用）。
-                        \item   \textbf{空间换时间}：通过极高的硬件密度，换取了比人类更快的“主观帧率”。
-                \end{itemize}
-                \item   \textbf{对应 AI}：\textbf{类脑芯片 / 光子计算集群}（高密度、低延迟的硬件级智能）。
-        \end{itemize}
-
-\end{enumerate}
-
-
-\smalltitle{架构能力谱系对比}
-
-为了指导工程设计，我们将这三种架构的物理指标上进行量化对比：
+架构选择应由可测条件而非物种类比决定。设任务依赖图为$D=(V,E)$，节点$v$计算时间为$c_v$，边通信时延为$l_e$。中央方案的关键路径包含集中处理与往返通信；联邦方案可并行独立子图，却增加协调屏障和冲突解决时间。若任务强耦合且共享约束多，过度分散会产生大量同步；若局部控制时间尺度远快于中央往返时延，强行集中会失去稳定裕量。高密硬件降低某些$l_e$，但不自动提高逻辑深度或事实正确性。
 
 \begin{table}[htbp]
-\centering
-\footnotesize
-\begin{tabularx}{\textwidth}{l X X X}
+\centering\footnotesize
+\begin{tabularx}{\textwidth}{lXXX}
 \toprule
-\rowcolor{structurecolor!20} 维度 & \textbf{集权制 (Type A)} & \textbf{联邦制 (Type B)} & \textbf{核团制 (Type C)} \\
+\rowcolor{structurecolor!20} 指标 & 内嵌式 & 外置式 & 联邦式 \\
 \midrule
-\textbf{第三驱动力 ($\vec{J}_{self}$)} & \textbf{聚焦且强} (激光) & \textbf{弥散且广} (泛光灯) & \textbf{脉冲式爆发} (闪光灯) \\
-\textbf{相干性 ($\xi$)} & 全局高相干 & 局部高相干，全局弱耦合 & 瞬态全局相干 \\
-\textbf{主观帧率 ($v_{\tau}$)} & 低 (受限于长程传导) & 中 (并行处理) & \textbf{极高} (短程互联) \\
-\textbf{逻辑深度} & \textbf{深} (适合数学/哲学) & 浅 (适合动作/生存) & 中 (适合战术/技巧) \\
-\textbf{能耗特征} & 持续高耗能 (维持同步) & 分布式耗能 (按需激活) & 爆发式耗能 \\
-\textbf{最佳应用场景} & 科学发现、战略规划 & 智慧城市、工厂控制 & 自动驾驶、 \\
+控制时延 & 局部低，跨区依赖实现 & 受摘要与总线影响 & 局部低，协调时延可高 \\
+可审计性 & 参数分散，追踪较难 & 决策日志集中 & 需跨节点因果日志 \\
+故障域 & 局部退化可能扩散 & 中央单点风险 & 分区可运行但可能冲突 \\
+结构编辑 & 慢且依赖载体机制 & 易做候选与回滚 & 需版本协议与合并规则 \\
+适用任务 & 快速局部调节 & 强全局约束与规划 & 空间分布、异构并行任务 \\
 \bottomrule
 \end{tabularx}
 \end{table}
 
-\textbf{工程启示}：未来的 AGI 不应只有一种形态。
+混合架构通常更实际：安全反射和资源保护留在内嵌层，跨时域规划放在外置层，具身子系统或多Agent单元采用联邦自治。上层不能绕过下层硬安全，下层也不能静默篡改上层任务语义。接口应包含状态版本、时间戳、置信度、权限、资源预算、超时和回滚句柄。局部结构网络在联邦节点保存身份与关系，全局分布表示用于跨节点候选广播，但必须通过共同身份和来源绑定避免把相似向量误当成同一对象。
 
-\begin{itemize}
-        \item   如果你需要一个\textbf{管家}，请采用 \textbf{Type A (集权制)}，赋予它强大的中央 LLM 作为前额叶;
-        \item   如果你需要一个\textbf{工地机器人}，请采用 \textbf{Type B (联邦制)}，让它的四肢拥有独立的边缘模型;
-        \item   如果你需要一个\textbf{战斗机火控系统}，请采用 \textbf{Type C (核团制)}，将逻辑烧录进高密度的类脑芯片中。
-\end{itemize}
+稳定性验证按架构分解。内嵌回路测试采样周期、饱和和局部扰动；外置规划器测试摘要充分性、求解超时和错误计划隔离；联邦系统测试网络分区、消息重放、拜占庭输入和版本冲突。随后进行组合测试，确认回路之间不会形成正反馈、优先级反转或资源死锁。控制器数量增加不自动提升智能，集中度提高也不自动带来统一自我；真正可比较的是相同任务、资源与风险约束下的成功率、恢复时间、通信量和副作用。
 
+至此，我们给出宏观控制稳定性的完整边界：统计几何提供局部度量和投影工具，Lyapunov与鲁棒控制提供闭环条件，因果模型支持外部行动评估，多主体协议处理非一致目标，架构分析决定这些机制如何落地。系统论、协同论、耗散理论、复杂系统理论与认知科学提供上游原则与经验约束；HSF-HD把它们组织为智能的一般状态动力学；AgentOS再以$h(t)$、$E$、$\Theta$、$\Psi$、SPC、TCE、CCM、Boundary、Offloading和$M_e$实现其中一组工程回路。这个层级关系既保留理论普遍性，也使每个稳定性声明都能回到可测条件与失败反例。
 
-\begin{bquote}
-        \textbf{本章结语}：
+架构迁移同样需要保持任务语义。把中央控制拆成联邦节点时，应先划分不可分割约束、共享身份表和一致性边界，再决定哪些状态可局部拥有、哪些必须全局提交。把内嵌回路外置时，要测量新增往返时延和摘要丢失；把外置功能下沉时，则要验证局部模型是否具备所需权限与更新能力。迁移采用双轨运行、结果对照和逐步切流，并保留回退路径，不能凭拓扑名称推断新架构更先进。
 
-    宏观层是智能系统中\textbf{高代价}但\textbf{高杠杆}的控制组件。它通过消耗负熵执行目的论约束，并承担\textbf{双向调节}功能：
-        \begin{enumerate}
-                \item \textbf{对内}：它是\textbf{君主}，压制内部的熵增。
-                \item \textbf{对外}：它是\textbf{外交官}，在改变世界与适应世界之间寻找热力学平衡点。
-        \end{enumerate}
-    没有宏观层，系统只能局部响应而难以形成长期目标；有了宏观层，认知场才能被组织为可持续的定向流，并对外部世界产生稳定而可解释的主动作用。
-
-        至此，我们完成了对智能系统“硬件”（微观、介质、宏观）的物理建模。下一卷，我们将让这台机器动起来，推导其\textbf{动力学方程}。
-\end{bquote}
-
-
-
-\section{计算动力学表达与论证边界}
-我们把上述问题、例证与机制讨论进一步落实到可计算的对象、更新规则和可验证条件。这里使用的状态、结构与控制是计算模型的变量；物理意象帮助理解相互作用，其适用性仍须由明确假设和独立观测支持。涉及同构、守恒、收敛及主观体验的论断，我们按本节给出的条件与边界解释，而不由形式相似性直接推出。
-
-
-我们区分状态有界、平衡点稳定、目标函数下降和任务成功。不同性质需要不同条件，不能通过“宏观控制”这一名称统一保证。
-\subsection{梯度流与下降性质}
-设 $J:\mathbb R^d\to\mathbb R$ 为可微固定目标，$M(x)$ 为对称正定矩阵，采用 $\dot x=-M(x)\nabla J(x)$。链式法则给出
-\begin{equation}\dot J=-\nabla J(x)^\top M(x)\nabla J(x)\le0.\end{equation}
-若目标具有唯一极小点、轨迹有界且正定性和连续性满足所需条件，可进一步证明收敛。若目标随时间变化，则 $\dot J$ 还包含 $\partial_tJ$；若存在外部输入，也需要加入相应交叉项。
-\subsection{凸性与离散步长}
-设 $J$ 的梯度为 $L$-Lipschitz，对 $x^+=x-\eta\nabla J(x)$ 使用下降引理，得到
-\begin{equation}J(x^+)\le J(x)-\eta(1-L\eta/2)\|\nabla J(x)\|^2.\end{equation}
-因此 $0<\eta<2/L$ 保证该次更新不增加目标。严格凸性可保证极小点至多一个，但极小点的存在仍需另外条件。任意控制输入不由凸性自动获得稳定性。
-\subsection{Bregman 投影与精确条件}
-对严格凸可微函数 $\psi$，定义
-\begin{equation}D_\psi(r,p)=\psi(r)-\psi(p)-\langle\nabla\psi(p),r-p\rangle.\end{equation}
-设 $C$ 为闭凸集合，$q$ 是 $D_\psi(z,p)$ 在 $C$ 内存在的极小点。最优性给出 $\langle\nabla\psi(q)-\nabla\psi(p),r-q\rangle\ge0$。结合三点恒等式可得
-\begin{equation}D_\psi(r,p)\ge D_\psi(r,q)+D_\psi(q,p),\qquad r\in C.\end{equation}
-只有交叉项为零时取得等式。$\psi(p)=\sum_i p_i\log p_i$ 在正概率单纯形上产生 KL 散度；此时还需处理归一化约束和边界。该投影保证特定散度的关系，不保证任意任务指标改善。
-\subsection{不完整观测与控制验证}
-实际控制器从 $y=O(x)$ 估计状态，观测误差、执行延迟和模型偏差可以破坏理想下降性质。我们通过扰动上界和实际反馈轨迹评估鲁棒性，不将低维观察者视为全状态的无损副本。
+最终验收覆盖正常负载、突发输入、观测缺失、模型漂移、网络分区、工具失效和恶意消息。每个场景分别记录状态界、硬约束、任务结果、恢复时间和审计完整度。若某架构只在平均情况下优胜，却在罕见故障中造成不可恢复损失，就不能仅凭吞吐量获选。宏观控制架构的成熟度，体现在它能明确说明何时集中、何时自治、何时停止，以及失败后如何恢复，而不是体现在它与某种生物结构或政治制度的表面相似。

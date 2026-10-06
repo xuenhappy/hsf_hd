@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 28,
-  "pending_chapters": 89,
+  "rewritten_chapters": 29,
+  "pending_chapters": 88,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1028,57 +1028,53 @@
     {
       "order": 29,
       "path": "chapters/part-07/chp-macro_stability_ig.tex",
-      "title": "控制稳定性：目标函数、反馈与投影条件",
-      "status": "queued-for-full-rewrite",
+      "title": "宏观控制稳定性：统计几何、反馈条件与架构验证",
+      "status": "rewritten-reviewed",
       "original_han_floor": 8583,
-      "new_chapter_prose_han": 8112,
+      "new_chapter_prose_han": 9902,
       "original_readable_units": 7853,
-      "new_readable_units": 8363,
-      "opening_prose_han": 260,
+      "new_readable_units": 9962,
+      "opening_prose_han": 479,
       "sections": [
         {
-          "title": "控制流形的对偶结构：意志与现状的坐标系",
-          "prose_han": 285
+          "title": "统计控制模型：状态、目标与对偶坐标",
+          "prose_han": 1034
         },
         {
-          "title": "黑塞凸性 (Hessian Convexity)：势能面的绝对稳定",
-          "prose_han": 278
+          "title": "凸性与稳定性：从局部下降到闭环性质",
+          "prose_han": 1034
         },
         {
-          "title": "广义勾股定理：投影控制的收敛性",
-          "prose_han": 261
+          "title": "Bregman投影：可行集、三点关系与误差边界",
+          "prose_han": 1012
         },
         {
-          "title": "认知阻抗与最小作用量：广义勾股定理的物理推论",
-          "prose_han": 1194
+          "title": "推断代价与载体能耗：相关而不等同的两套量",
+          "prose_han": 1013
         },
         {
-          "title": "动力学约束：自然梯度流 (Natural Gradient Flow)",
-          "prose_han": 365
+          "title": "自然梯度闭环：连续流、离散实现与鲁棒性",
+          "prose_han": 1063
         },
         {
-          "title": "外交家角色：主动推理与环境势能的协商",
-          "prose_han": 726
+          "title": "内外行动仲裁：改变模型、改变环境与暂缓提交",
+          "prose_han": 1048
         },
         {
-          "title": "变分仲裁机制：决策的相变与全息投影",
-          "prose_han": 1464
+          "title": "多主体协商：协议、承诺与非一致目标",
+          "prose_han": 1004
         },
         {
-          "title": "外交官方程：TCE 的外部投影与几何涌现",
-          "prose_han": 1249
+          "title": "外部控制方程：因果响应、风险预算与验证反馈",
+          "prose_han": 1022
         },
         {
-          "title": "宏观层的物理和逻辑架构",
-          "prose_han": 1522
-        },
-        {
-          "title": "计算动力学表达与论证边界",
-          "prose_han": 508
+          "title": "宏观控制架构：内嵌、外置与联邦拓扑",
+          "prose_han": 1193
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
