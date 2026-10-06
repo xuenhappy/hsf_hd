@@ -1,9 +1,9 @@
 {
-  "pages": 229,
-  "bytes": 20095801,
+  "pages": 239,
+  "bytes": 20160722,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 189,
+  "numbered_sections": 201,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1329,7 +1329,91 @@
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "37.1 资源账本：信息处理、耗散与物理能耗",
+      "start_pdf_page": 230,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.2 时间尺度分离：快速响应、工作态与结构更新",
+      "start_pdf_page": 231,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.3 有限实现域：容量、带宽、时延与可达性",
+      "start_pdf_page": 231,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.4 生成模型的运行边界：算子、状态与上下文",
+      "start_pdf_page": 232,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.5 谱约束案例：残差混合与 mHC 的验证方式",
+      "start_pdf_page": 233,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.6 边界条件：输入开放、记忆保持与交换调节",
+      "start_pdf_page": 234,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.7 存在条件：闭环可行性而非拓扑充分性",
+      "start_pdf_page": 234,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.8 双层稳定：状态收敛、结构保持与切换鲁棒性",
+      "start_pdf_page": 235,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.9 运行循环：观测、压缩、控制与沉淀",
+      "start_pdf_page": 236,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.10 计算不可约性：信息依赖、验证成本与时间资源",
+      "start_pdf_page": 237,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.11 增长上限：扩展、学习与现实交互的瓶颈",
+      "start_pdf_page": 237,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.12 能力包络：多目标权衡、分时调度与异构协作",
+      "start_pdf_page": 238,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 36 chapters; does not validate the full book."
+  "scope": "Review subset: 37 chapters; does not validate the full book."
 }

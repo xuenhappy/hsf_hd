@@ -697,9 +697,15 @@
       "source_start_line": 12314,
       "source_end_line": 13141,
       "source_sha256": "b77656478f64abbaa68d550e8e54b5b3f99d6d85fb1824c4abf7a2bebb6b39bb",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "智能边界与稳态：资源、时序和可验证控制",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json",
+      "draft_checkpoint": "docs/drafts/chapter-037-checkpoint.md"
     },
     {
       "path": "chapters/part-08/chp-meaning_turbulence.tex",

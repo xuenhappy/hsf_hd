@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 36,
-  "pending_chapters": 81,
+  "rewritten_chapters": 37,
+  "pending_chapters": 80,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1344,65 +1344,65 @@
     {
       "order": 37,
       "path": "chapters/part-08/chp-control_meta_physics.tex",
-      "title": "存在的边界与稳态 — 热力学、边界与稳定性",
-      "status": "queued-for-full-rewrite",
+      "title": "智能边界与稳态：资源、时序和可验证控制",
+      "status": "rewritten-reviewed",
       "original_han_floor": 12668,
-      "new_chapter_prose_han": 12361,
+      "new_chapter_prose_han": 12778,
       "original_readable_units": 12840,
-      "new_readable_units": 12840,
-      "opening_prose_han": 370,
+      "new_readable_units": 12862,
+      "opening_prose_han": 283,
       "sections": [
         {
-          "title": "智能热力学：熵平衡与兰道尔代价",
-          "prose_han": 695
+          "title": "资源账本：信息处理、耗散与物理能耗",
+          "prose_han": 1042
         },
         {
-          "title": "时序稳定性：认知波恩-奥本海默近似",
-          "prose_han": 354
+          "title": "时间尺度分离：快速响应、工作态与结构更新",
+          "prose_han": 1039
         },
         {
-          "title": "智能体的物理实现条件：流形的紧致性公理",
-          "prose_han": 1127
+          "title": "有限实现域：容量、带宽、时延与可达性",
+          "prose_han": 1065
         },
         {
-          "title": "特例分析：悬空流形与生成式约束 (The Case of LLMs)",
-          "prose_han": 830
+          "title": "生成模型的运行边界：算子、状态与上下文",
+          "prose_han": 1006
         },
         {
-          "title": "实证案例：DeepSeek mHC 与流形生成的谱约束",
-          "prose_han": 950
+          "title": "谱约束案例：残差混合与 mHC 的验证方式",
+          "prose_han": 1066
         },
         {
-          "title": "空间稳定性：认知谐振腔的边界条件",
-          "prose_han": 328
+          "title": "边界条件：输入开放、记忆保持与交换调节",
+          "prose_han": 1066
         },
         {
-          "title": "存在性定理：智能系统的拓扑充要条件",
-          "prose_han": 326
+          "title": "存在条件：闭环可行性而非拓扑充分性",
+          "prose_han": 1024
         },
         {
-          "title": "控制论谱系：双层稳定性判据",
-          "prose_han": 552
+          "title": "双层稳定：状态收敛、结构保持与切换鲁棒性",
+          "prose_han": 1051
         },
         {
-          "title": "TDCI 循环：纤维丛上的认知卡诺热机",
-          "prose_han": 1349
+          "title": "运行循环：观测、压缩、控制与沉淀",
+          "prose_han": 1025
         },
         {
-          "title": "智能过程的计算不可约性 — 不可逾越的时间几何",
-          "prose_han": 1489
+          "title": "计算不可约性：信息依赖、验证成本与时间资源",
+          "prose_han": 1038
         },
         {
-          "title": "智能爆炸的物理终结：AGI 的热力学与几何绝对上限",
-          "prose_han": 2242
+          "title": "增长上限：扩展、学习与现实交互的瓶颈",
+          "prose_han": 1030
         },
         {
-          "title": "智能的拓扑包络：多维能力的几何耦合与不可能超曲面",
-          "prose_han": 1749
+          "title": "能力包络：多目标权衡、分时调度与异构协作",
+          "prose_han": 1043
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
