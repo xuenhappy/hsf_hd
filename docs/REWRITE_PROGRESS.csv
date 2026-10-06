@@ -33,7 +33,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 32,chapters/part-08/chp-dynamics_kernel_ch.tex,rewritten-reviewed,7367,8041,7305,8082,7,1037
 33,chapters/part-08/chp-many_body_cognitive_field.tex,rewritten-reviewed,5131,6119,4889,6160,5,1068
 34,chapters/part-08/chp-info_geometry_dynamics.tex,rewritten-reviewed,2909,4807,2920,4854,4,1088
-35,chapters/part-08/chp-rheological_ch.tex,queued-for-full-rewrite,5355,5256,5467,5467,5,860
+35,chapters/part-08/chp-rheological_ch.tex,rewritten-reviewed,5355,5701,5467,5732,5,1000
 36,chapters/part-08/chp-cognitive_coherence_dynamics.tex,queued-for-full-rewrite,3059,2946,3046,3046,4,363
 37,chapters/part-08/chp-control_meta_physics.tex,queued-for-full-rewrite,12668,12361,12840,12840,12,326
 38,chapters/part-08/chp-meaning_turbulence.tex,queued-for-full-rewrite,14495,14154,14532,14532,15,418

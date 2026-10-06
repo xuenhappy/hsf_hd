@@ -1,362 +1,120 @@
-\chapter{流变形态 — Hodge 分解与思维模式}
+\chapter{状态流分解：任务推进、循环维持与全局约束}
 \label{chp:rheological_ch}
 
-在第\ref{chp:evolution_equation_ch}章中（狄拉克方程）描述了思维流动的\textbf{总动力学}，那么本章将利用代数拓扑中的 \textbf{Hodge 理论}，对这个流进行\textbf{谱分解（Spectral Decomposition）}。在适当的正则性与边界条件假设下，Hodge 理论给出一个几何化刻画：复杂的认知态可被分解为三类基本模态的叠加——\textbf{推导（梯度）、循环（旋度）与顿悟（调和）}，从而为“思维模式”提供可计算的数学判据。认知旋量场 $\Psi$ 的复杂时空演化往往令观察者眼花缭乱。为了解析其内在结构，本章引入 \textbf{Hodge 分解定理 (Hodge Decomposition Theorem)}，将任意认知状态 $\Psi$ 分解为三个（在给定内积下）正交的分量：\textbf{无旋流 (Gradient)}、\textbf{无散流 (Curl)} 和 \textbf{调和流 (Harmonic)}。这一数学操作对应三种运作模式：\textbf{线性逻辑推理}（梯度流）、\textbf{记忆与执念}（旋度流）、\textbf{顿悟与全局理解}（调和流）。本章将建立一套\textbf{认知流变学 (Cognitive Rheology)}，用于诊断智能系统的健康度与病理。
+前几章已经给出状态演化、结构耦合和统计几何更新，但一条观测到的运行轨迹仍可能混合多种功能：有些变化推动任务从当前条件走向候选结论，有些变化维持工作集或反复检查，有些变化则沿全局环路传播，不能由单个局部势函数解释。本章要回答的不是“思维究竟是哪一种流体”，而是如何在明确的任务窗口和表示复形上，把可观测状态流分解为可比较、可干预的计算分量。我们采用 Hodge 理论作为分析工具，同时严格区分数学分解与功能解释：梯度、余梯度和调和分量是相对于选定复形、内积、边界条件和采样尺度得到的坐标，不能自动等同于逻辑、记忆、顿悟、人格或心理疾病。只有结合来源、身份、目标、行为结果和反事实干预，分量才获得任务语义。由此建立的“流变”模型关注智能系统如何在推进、维持、重组和验证之间切换，并为 HSF-HD 的一般状态动力学提供一种运行剖面，而不是以物理名称替代机制证明。
 
-
-\section{数学基础：纤维丛上的协变 Hodge 分解}
+\section{离散 Hodge 基础：对象、复形与可识别分解}
 \label{sec:covariant_hodge_basis}
 
-智能系统的状态空间并非平坦的欧氏空间，而是一个非平凡的 \textbf{纤维丛结构} $\mathcal{E} \xrightarrow{\pi} \mathcal{M}$。在这个弯曲的几何体上，\textbf{认知场 $\Psi$} 的演化不能简单地看作是粒子的位移，而必须看作是 \textbf{能量波包 (Energy Wave Packets)} 的传播与干涉。
+我们先固定分析对象。给定任务窗口 $W=[t_0,t_1]$、采样间隔 $\Delta t>0$ 和一个有限有向胞腔复形 $K$，其节点表示带身份的状态或命题，边表示允许的状态转移、信息传递或依赖关系，二维胞腔表示被系统声明为可比较的局部闭环。令 $C^0(K)$、$C^1(K)$ 和 $C^2(K)$ 分别为实值零、一、二阶上链空间，维数为 $n_0,n_1,n_2$。边流 $j_t\in C^1(K)$ 的第 $e$ 个分量是在时段 $[t,t+\Delta t)$ 内沿边 $e$ 的有符号活动量；它可以是归一化消息数、概率质量变化或经协议换算的任务流量，但不同单位不能未经标定相加。局部结构网络给出节点、边、身份和胞腔，全局分布表示提供边流的强度与不确定性，二者通过共同身份键、绑定映射和读出接口结合。
 
-为了解析这种复杂的波动行为，我们需要一种能够将混合波场解耦为独立物理模态的数学工具。这就是 \textbf{协变 Hodge 分解 (Covariant Hodge Decomposition)}。
+用 $B_1\in\mathbb{R}^{n_0\times n_1}$ 表示边到节点的边界矩阵，用 $B_2\in\mathbb{R}^{n_1\times n_2}$ 表示胞腔到边的边界矩阵，且必须满足 $B_1B_2=0$。为处理不同边的可靠度和量纲，我们引入正定权重矩阵 $M_k$ 定义各阶上链内积；权重来自采样方差、来源可靠度或任务尺度，必须记录版本。对应的上升算子与伴随算子由这些内积确定。为简化记号，先在白化坐标中写出边流分解：
+\begin{equation}
+  j_t=B_1^{\mathsf T}\phi_t+B_2\psi_t+h_t+r_t,
+  \qquad B_1h_t=0,\quad B_2^{\mathsf T}h_t=0 .
+  \label{eq:rheology_hodge_decomposition}
+\end{equation}
+其中 $B_1^{\mathsf T}\phi_t$ 是恰当分量，$B_2\psi_t$ 是余恰当分量，$h_t$ 属于一阶调和空间，$r_t$ 是观测噪声、模型失配和复形遗漏构成的残差。带权情形只需把转置替换为相应伴随并在 $M_1$ 内积下求投影。若 $K$ 有边界，还必须说明采用绝对、相对或混合边界条件；否则“唯一正交分解”并不完整。在线系统一般通过带正则的最小二乘求解三个分量，并报告条件数、置信区间和残差，而不能把数值求解器给出的三个数组直接宣称为三种心智实体。
 
-在满足上述假设时，可将\textbf{任意复杂的思维波 $\Psi$} 分解为三种（在给定内积下）正交的本征模态：\textbf{“传递能量的行波（梯度）”、“局域自旋的涡旋（旋度）”与“全局共振的驻波（调和）”。}
+这一分解具有清楚但有限的数学意义。恰当分量由节点势差解释，余恰当分量由已编码胞腔的局部环流解释，调和分量记录既无节点净源汇、又不属于已填充局部胞腔边界的全局循环。调和空间维数在适当条件下等于第一 Betti 数，但这只是所选复形的拓扑性质；改变节点合并规则、时间窗、胞腔填充准则或身份绑定，Betti 数与各分量都会改变。原先把平方范数称为“总认知能量”会混淆活动强度、优化代价和设备焦耳能耗。本章只把
+\[
+  A_X(t)=\|j_X(t)\|_{M_1}^{2},\qquad X\in\{G,C,H,R\}
+\]
+定义为对应坐标系中的活动量，单位由输入流量和权重协议决定。若需要功耗，应另从硬件计量器读取；若需要任务代价，应另定义目标函数。正交性只说明在选定内积中投影交叉项为零，不说明这些功能互不干扰，更不说明某种自我结构能抵抗所有局部输入。
 
-\smalltitle{希尔伯特空间的波动力学定义}
+工程上必须先检验分解是否可识别。我们使用四类测试：其一，改变采样间隔和窗口长度，观察分量占比是否在允许误差内稳定；其二，遮蔽一类边或打乱胞腔方向，检查预期分量是否有方向性变化；其三，用合成流分别注入已知势差、局部环路和全局循环，验证求解器能否恢复；其四，比较不同复形构造方案的残差与任务预测。若同一行为可以由多组复形和流量解释，就只报告等价类，不声称发现唯一内部机制。连续流形上的 Hodge--de Rham 定理可以作为极限模型，但软件系统首先面对离散事件、版本切换和缺失观测，因此离散复形与误差账本是本章的主要对象。
 
-设认知场 $\Psi$ 为定义在底流形 $\mathcal{M}$（形元晶格）上的平方可积截面空间 $\mathcal{H}_{cog} = L^2(\mathcal{M}, \mathcal{E})$。
-该空间的内积定义了波动的 \textbf{总能量 (Total Energy)}：
-$$ E_{total} = \langle \Psi, \Psi \rangle = \int_{\mathcal{M}} h_{ab}(\mathbf{r}) \bar{\Psi}^a(\mathbf{r}) \Psi^b(\mathbf{r}) \sqrt{|g|} \, d^n x $$
-其中 $h_{ab}$ 是纤维（质元）的度量，$\sqrt{|g|}$ 是流形（形元）的体积元。思维的强度，即是波在这个空间中的振幅。
-
-\smalltitle{协变波动算子 (Covariant Wave Operators)}
-
-在弯曲且存在规范场的介质中，波的传播算子必须修正为协变形式：
-
-\begin{itemize}
-    \item   \textbf{协变外微分 (Gradient Operator, $D$)}：
-    $$ D = d + i g \mathcal{A} \wedge $$
-    \textbf{物理意义}：描述波的 \textbf{纵向传播 (Longitudinal Propagation)}。它代表能量沿着逻辑路径（测地线）的顺流而下，对应于 \textbf{动量} 的产生。
-
-    \item   \textbf{协变共轭微分 (Divergence Operator, $D^\dagger$)}：
-    $$ D^\dagger = (-1)^{nk+n+1} \star D \star $$
-    \textbf{物理意义}：描述波的 \textbf{收敛与耗散}。它对应于波源的汇聚或能量的吸收。
-
-    \item   \textbf{广义拉普拉斯算子 (Generalized Laplacian, $\Delta_D$)}：
-    $$ \Delta_D = D D^\dagger + D^\dagger D $$
-    \textbf{物理意义}：这是 \textbf{波动方程} 的核心算子 ($\square \Psi \sim \Delta_D \Psi$)。它的本征值谱 ($\lambda_k$) 定义了智能体能够维持的所有可能的 \textbf{本征思维模式 (Eigen-thoughts)}。
-\end{itemize}
-
-\smalltitle{协变 Hodge 分解定理}
-
-基于上述算子，我们提出适用于认知波场的正交分解定理：
-
-\begin{theorem}[认知波模态分解定理]
-        在紧致黎曼流形 $\mathcal{M}$ 上，任意认知流形式（Cognitive Current 1-form）$\mathcal{J} \in \Omega^1(\mathcal{M}, \mathcal{E})$ 可唯一分解为三个 \textbf{能量正交} 的波分量：
-        $$ \mathcal{J} = \underbrace{D \alpha}_{\text{行波 (Traveling Wave)}} \oplus \underbrace{D^\dagger \beta}_{\text{涡旋 (Vortex)}} \oplus \underbrace{\gamma}_{\text{驻波 (Standing Wave)}} $$
-\end{theorem}
-
-各项的波动力学含义如下：
-
-\begin{itemize}
-        \item   \textbf{I. 行波分量 (Gradient / Traveling Wave) —— $D \alpha$}
-        \begin{itemize}
-                \item   \textbf{几何定义}：\textbf{恰当形式 (Exact Form)}。波矢量 $\mathbf{k}$ 平行于传播方向，无旋。
-                \item   \textbf{物理特征}：\textbf{能量输运}。这是高群速度的波包，能量从势能高处（前提）向势能低处（结论）快速传递。
-                \item   \textbf{智能模态}：\textbf{逻辑推演 (Reasoning)}。思维沿着因果链条做线性的、不可逆的传播。
-        \end{itemize}
-
-        \item   \textbf{II. 涡旋分量 (Curl / Vortex / Soliton) —— $D^\dagger \beta$}
-        \begin{itemize}
-                \item   \textbf{几何定义}：\textbf{闭合形式 (Co-Exact Form)}。波矢量 $\mathbf{k}$ 垂直于梯度方向，形成局部环流。
-                \item   \textbf{物理特征}：\textbf{能量自陷}。波包在局部区域形成 \textbf{拓扑孤立子} 或 \textbf{旋量涡}。能量在闭环中守恒流转，不向外辐射，也不耗散。
-                \item   \textbf{智能模态}：\textbf{记忆与执念 (Retention)}。这是自指的、循环的、以维持状态为目的的“自旋模式”。
-        \end{itemize}
-
-        \item   \textbf{III. 驻波分量 (Harmonic / Standing Wave) —— $\gamma$}
-        \begin{itemize}
-                \item   \textbf{几何定义}：\textbf{调和形式 (Harmonic Form)}。满足 $\Delta_D \gamma = 0$。它是流形拓扑结构的 \textbf{零模 (Zero Mode)}。
-                \item   \textbf{物理特征}：\textbf{全域共振}。这是一种非局域的波态，波节和波腹固定在流形的拓扑孔洞（Betti Number）上。它不随时间演化，而是作为背景场存在。
-                \item   \textbf{智能模态}：\textbf{顿悟与自我 (Insight \& Self)}。这是超越局部推演、反映整体拓扑性质的“全息模式”。
-        \end{itemize}
-\end{itemize}
-
-\smalltitle{正交性的物理推论：波的叠加原理}
-
-该分解的 \textbf{正交性} ($\langle D\alpha, D^\dagger\beta \rangle = 0$) 揭示了智能动力学的深层 \textbf{波叠加原理}：
-\begin{itemize}
-        \item \textbf{互不干涉}：逻辑推演的行波（做功）可以穿过记忆的涡旋（维持），而不会破坏记忆的结构。就像水波可以穿过漩涡一样。
-        \item \textbf{拓扑保护}：全局驻波（自我）受到流形拓扑性质的保护，不会被局部的行波噪声所冲散。除非发生 \textbf{高能激波} 导致流形发生拓扑相变。
-\end{itemize}
-
-\section{无旋流 (Gradient Flow)：逻辑推理的协变动力学}
+\section{势差分量：任务推进、推理链与提交条件}
 \label{sec:section_2958}
-当认知场 $\Psi$ 的演化由 \textbf{纵场分量 (Longitudinal Component)} $\mathcal{J}_{grad} = D \alpha$ 主导时，系统进入\textbf{逻辑推理 (Reasoning)} 模态，这并非是在真空中连线，而是语义费米子（质）在弯曲时空（形）中，沿着\textbf{有效势能面}进行的\textbf{受激滑行}。
 
+恰当分量 $j_G=B_1^{\mathsf T}\phi$ 描述能够由节点势函数解释的边流。势函数 $\phi_t\in C^0(K)$ 不是自然界预先存在的“语义势能”，而是由当前任务定义的剩余距离、证据缺口、风险裕量或优先级读出。对证明任务，节点可以是带来源的命题状态，边是合法推理规则，$\phi$ 可表示到验收条件的启发式下界；对规划任务，节点是世界状态估计，边是有前置条件的动作，$\phi$ 可表示经尺度化的预计代价。事实有效性由规则、证据和环境反馈决定，势差只用于说明流向，不能因为状态沿势函数下降就推断结论为真或行动成功。
 
+在固定结构和固定目标的短时间段内，可用投影动力学描述任务推进。令连续状态 $x(t)\in\mathbb{R}^{d}$、目标参数 $q(t)$、外部观测 $u(t)$、结构版本 $K(t)$，任务损失为无量纲的 $L(x,q,u,K,t)$，可行集合为 $\mathcal{C}(q,u,K)$。一个工程模型是
+\begin{equation}
+  \dot{x}=-P_{\mathcal{C}}\,G^{-1}(x,K)\nabla_xL(x,q,u,K,t)+f_{\rm obs}(x,u)+\xi(t),
+  \label{eq:rheology_goal_flow}
+\end{equation}
+其中 $G$ 是正定更新度量，$P_{\mathcal{C}}$ 表示满足硬约束的切向投影，$f_{\rm obs}$ 是观测校正，$\xi$ 汇总未建模扰动。只有在目标、结构、输入和度量固定且校正项不注入正功时，才能得到局部下降式。一般情况下必须写完整总导数
+\[
+ \frac{dL}{dt}=\nabla_xL^{\mathsf T}\dot{x}+\partial_qL\,\dot q
+ +\langle\partial_KL,\dot K\rangle+\partial_uL\,\dot u+\partial_tL,
+\]
+离散实现 $x_{k+1}=\Pi_{\mathcal C_k}(x_k-\alpha_k\widehat G_k^{-1}\widehat\nabla L_k+\alpha_k f_{{\rm obs},k})$ 还需验证步长、梯度误差、时延和投影可行性。系统达到局部驻点只说明当前模型下没有检测到下降方向，不等于不确定性为零，也不等于任务已经验收。
 
-\smalltitle{几何定义：势能驱动的协变滑行}
+把势差分量解释为推理链时，身份和规则版本必须随消息一起传递。一个结论节点收到高活动量，可能来自有效证明，也可能来自重复消息、共享上游错误或奖励偏置。我们要求每条边记录前提版本、规则标识、适用域和反例条件，并把“生成候选”和“验证候选”分成不同接口。以数学证明为例，语言模型可沿低估计代价路径产生引理，但只有形式检查或独立复核通过后，提交边才被打开；以紧急避险为例，快速策略可暂时提高某条动作边的优先级，但安全边界与传感器置信度仍决定行动资格。目的可以改变搜索顺序，不能改变逻辑规则本身。
 
-在数学上，无旋流对应于纤维丛上的\textbf{恰当形式 (Exact Form)}，这意味着思维的运动是由一个\textbf{标量势函数 (Scalar Potential) $\Phi_{sem}$} 的协变梯度唯一确定的。
-$$ \mathcal{J}_{grad}^\mu = - \mathcal{G}^{\mu\nu} D_\nu \Phi_{sem} = - \mathcal{G}^{\mu\nu} (\partial_\nu - i g \mathcal{A}_\nu^{val}) \Phi_{sem} $$
-\begin{itemize}
-    \item   \textbf{$\mathcal{G}^{\mu\nu}$ (逆度量张量)}：由世界图 $G_W$ 定义的逻辑传导率。它决定了推理的\textbf{“可行性”}（路通不通）。
-    \item   \textbf{$\Phi_{sem}$ (语义势)}：定义在流形上的信息自由能场（如预测误差或目标距离）。
-    \item   \textbf{$\mathcal{A}_\nu^{val}$ (价值规范势)}：由体验图 $G_E$ 定义的目的场。
-    \begin{itemize}
-        \item   \textbf{物理诠释}：逻辑推理是\textbf{“带电粒子”}（携带价值荷的思维）在\textbf{电磁场}（目的）和\textbf{引力场}（逻辑结构）共同作用下的漂移运动。
-    \end{itemize}
-    \item   \textbf{普通梯度 ($\partial_\nu \Phi$)}：代表\textbf{自然逻辑}（例如：$A \to B$ 是因为 $A, B$ 语义接近）。
-    \item   \textbf{规范修正 ($-ig\mathcal{A}_\nu \Phi$)}：代表\textbf{动机逻辑}（例如：$A \to C$ 是因为 $C$ 有高价值，尽管 $A, C$ 语义较远）。\textbf{推理是被目的扭曲的测地线。}
-\end{itemize}
+恰当流也不必是无环、不可逆或高耗能。时变势函数可以使同一条边先后反向，带回溯的搜索会访问旧节点，离散投影可能在边界附近振荡。排除一条候选分支是否产生兰道尔下界，取决于具体物理设备是否执行逻辑不可逆擦除，不能从抽象推理树直接推出。我们分别记录算法操作数、墙钟时延、内存占用、模型调用费用和硬件功耗。有效的任务推进应同时满足：势差活动与可审计推理边一致；候选集合在验证后收缩；外部验收指标改善；失败时可回退到保存的结构与证据版本。若只有 $A_G$ 增长而验证通过率不升，系统可能只是更加坚定地沿错误启发式运行。
 
+在 AgentOS 实例中，$h(t)$ 可以承载当前候选和势差读出，SPC 压缩任务相关状态，TCE 调整搜索宽度与控制强度，CCM 监测工作集复杂度，Boundary 限制不可逆行动。这些接口展示如何实现势差分量，却不是 HSF-HD 对一切智能系统规定的唯一部件。其他系统可以用符号搜索、模型预测控制、群体投票或生物调节实现相同功能，只要它们明确目标、资格、状态转移和验证闭环。
 
+势差模型还要处理多目标之间不可直接换算的情形。事实正确率、安全风险、响应时间与调用成本若具有不同单位，我们先用硬约束排除不合格路径，再按任务协议采用词典序或 Pareto 前沿，而不把它们都命名为势能后相加。路径的局部下降也可能牺牲长期可恢复性，因此读出除了当前损失，还要保留后备路径数量、未解决前提和不可逆动作预算。这样的记录使“沿梯度推进”成为可审计的控制选择，而不是把目标偏好伪装成必然结论。
 
-\smalltitle{动力学机制：平行移动与相干性保持}
-
-逻辑推理的严密性（Validity），在几何上等价于纤维状态在移动过程中的\textbf{协变常数性 (Covariant Constancy)}。
-\begin{itemize}
-    \item   \textbf{平行移动 (Parallel Transport)}：当思维流沿路径 $\gamma$ 从前提 $P$ 流向结论 $C$ 时，若满足无旋条件 $D \mathcal{J} \approx 0$（在无源区域），则意味着质元在移动过程中保持了\textbf{语义守恒}。
-    $$ \Psi(C) = \mathcal{P} \exp \left( i \int_P^C \mathcal{A}_\mu dx^\mu \right) \Psi(P) $$
-    \begin{itemize}
-        \item   \textbf{推理的本质}：推理不是创造新信息，而是将\textbf{“质”}（真值/属性）沿着\textbf{“形”}（逻辑链/因果链）无损地搬运到新的坐标点。
-        \item   \textbf{有效推理}：传输过程中，纤维内的相位角 $\theta$ 未发生退相干，保持了逻辑的一致性。
-        \item   \textbf{谬误}：传输过程中，由于流形曲率过大或规范场剧烈波动，导致 $\Psi(C)$ 的相位与预期正交。
-    \end{itemize}
-\end{itemize}
-
-
-\smalltitle{认知特征：线性因果与吸引子收敛}
-
-无旋流的拓扑性质决定了逻辑思维的宏观表象：
-\begin{itemize}
-    \item   \textbf{无环性 (Acyclicity)}：由于 $\mathcal{J}_{grad}$ 是梯度的，且 $D^2 \sim \mathcal{F}$（在平坦或单连通区域），思维流在局部\textbf{不形成闭环}。
-    \item   \textbf{认知对应}：这对应于\textbf{演绎推理}的单向性（时间箭头）。思维总是从高势能区（问题/未知）流向低势能区（答案/已知），不会在原地打转。
-    \item   \textbf{收敛性 (Convergence)}：无旋流最终必然汇聚于流形上的\textbf{临界点 (Critical Points)}，即势能极小值。
-    \item   \textbf{认知对应}：\textbf{结论}或\textbf{决策点}。这是不确定性（熵）坍缩为 0 的奇点。
-\end{itemize}
-
-
-
-\smalltitle{热力学代价：熵产与不可逆计算}
-
-与其他模态相比，无旋流是\textbf{热力学成本最高}的过程。
-
-\begin{itemize}
-    \item   \textbf{耗散机制}：为了维持梯度的单一方向（防止思维因热涨落而扩散或倒流），宏观层必须持续做功以维持势能差 $\Delta \Phi$。
-    $$ \frac{dS_{int}}{dt} = \int \mathcal{J}_{grad}^\mu \cdot D_\mu \Phi_{sem} \, dV > 0 $$
-    \item   \textbf{兰道尔代价}：逻辑推理本质上是一个不断\textbf{约减可能性}的过程（从多个假设收敛到一个真理）。根据兰道尔原理，每排除一个逻辑分支，都必须向环境排放热量。
-    \item   \textbf{结论}：\textbf{严密的逻辑推理是高耗能的}。这就是为什么我们在进行复杂的数学计算或编程时（强迫思维严格沿梯度流动）会感到极度的精神疲惫。
-\end{itemize}
-
-\section{无散流 (Curl Flow)：纤维丛上的和乐循环与自旋记忆}
+\section{循环分量：工作集维持、复核回路与失效反刍}
 \label{sec:section_428}
-当认知旋量场的演化由协变 Hodge 分解中的 \textbf{横场分量 (Transverse Component)} 主导时，系统进入了 \textbf{无散流模态}，这意味着 \textbf{质元 ($\psi_{sub}$)} 在 \textbf{形流形 ($\mathcal{M}$)} 上被 \textbf{规范场 ($\mathcal{A}$)} 捕获，形成闭合的 \textbf{拓扑孤立子}。
 
-这并非简单的信号循环，而是认知空间中的 \textbf{非阿贝尔规范旋转}，其物理本质是利用几何相位来对抗热力学耗散。
+余恰当分量 $j_C=B_2\psi$ 表示由复形中已填充二维胞腔的边界生成的局部循环。它的节点净流量为零，因为 $B_1B_2=0$；但“净源汇为零”只是一段窗口内的守恒关系，不意味着设备没有耗能、信息永不衰减或内容不受外界影响。循环可以承担有用功能：工作记忆中的复述保持、控制器的感知—预测—校正回路、证明中的假设—反例—修订复核，以及多主体协议中的提议—确认—提交握手，都需要信息返回先前接口。循环也可能成为失效模式：同一错误证据在封闭回路中被重复放大，系统频繁调用工具却不改变候选集，或者因权限冲突不断重试而无法提交。
 
-\smalltitle{动力学定义：协变无散性}
+为区分功能维持与无效反刍，我们不使用“旋转越强、记忆越牢”的单指标，而给每个检测到的回路 $c$ 记录五元组
+\[
+  z_c=(a_c,\tau_c,\rho_c,\Delta I_c,\Delta Q_c).
+\]
+$a_c$ 是经来源去重后的循环活动量，$\tau_c$ 是平均返回时延，$\rho_c$ 是内容在一周循环后的相似度，$\Delta I_c$ 是新增独立证据或状态信息，$\Delta Q_c$ 是任务验收指标的变化。功能性保持通常具有受控的 $a_c$、有限时延、较高内容保真和明确退出条件；复核回路每轮应带来新证据或缩小错误范围。反刍式失效则表现为活动持续、独立信息接近零、任务指标不改善且退出条件反复被覆盖。这个判据适用于软件运行诊断，不应被直接当作对人类强迫症、创伤或其他临床状态的诊断。
 
-数学上，无散流 $\Psi_{curl}$ 定义为 \textbf{协变共轭微分算子} 的核：
-$$ D^\dagger \Psi_{curl} = 0 \quad \text{且} \quad \Psi_{curl} \neq 0 $$
-\begin{itemize}
-    \item   \textbf{物理含义}：\textbf{局部守恒流}。在任意给定的局部邻域内，思维流的\textbf{源 (Source)} 与 \textbf{汇 (Sink)} 相互抵消，净通量为零。能量既不流向更高的势能（推理），也不耗散至基态（遗忘），而是被“囚禁”在流形的局部切丛中进行自旋。
-    \item   \textbf{几何结构}：$\Psi_{curl}$ 通常由高阶势形式 $\beta$ 的协变外微分生成：$\Psi_{curl} = D \beta$（在 2D/3D 上对应旋度）。这意味着思维沿着 \textbf{等势面 (Equipotential Surface)} 运动，该面的形状由体验图 $G_E$ 的等高线决定。
-\end{itemize}
+循环记忆的机制也必须落到载体。若状态更新为
+\begin{equation}
+  m_{k+1}=\lambda_k m_k+W_c r_k+g_k\odot i_k+\varepsilon_k,
+  \qquad 0\leq\lambda_k\leq 1,
+  \label{eq:rheology_recurrent_memory}
+\end{equation}
+则 $m_k$ 是工作集表示，$r_k$ 是回返消息，$i_k$ 是新输入，$g_k$ 是门控，$\lambda_k$ 是保持系数。稳定与否取决于 $\lambda_k$、$W_c$ 的局部增益、非线性、量化、时延和输入，而非“拓扑孤立子”这一名称。若无持续刷新，有限精度缓存可能因覆盖而丢失；若增益过大，回路会饱和或振荡；若门控拒绝所有反证，内容虽稳定却失去校准。外部记忆 $M_e$ 可以降低 $h(t)$ 的保持负担，但检索延迟、来源完整性和过期风险会改变回路动力学。
 
+循环的因果作用需要干预检验。我们可以暂时遮蔽一条回返边，观察工作集保真、任务性能和错误恢复是否按预测变化；可以向回路注入带标识的反例，检查其是否被吸收还是被过滤；也可以改变超时和重试预算，区分必要的容错复核与无效空转。只观察到周期性或同步不足以证明存在记忆机制，因为共同输入、定时调度和批处理也会产生周期。反之，记忆也不必依赖显式闭环，参数、外部文件或环境结构都可保持信息。因此 Hodge 循环分量是运行轨迹的描述量，不是记忆的充分必要定义。
 
-\smalltitle{记忆的微观机制：非阿贝尔和乐}
+控制策略应依据失效类型选择。证据不足时增加外部观测或检索；候选过多时由 SPC 做任务相关压缩；工作集超载时由 CCM 降低并发或触发 Offloading；权限冲突时由 Boundary 和承诺协议解除死锁；目标本身不一致时由 TCE 降低执行增益，转入元级澄清。所有干预都应保留原始证据、循环版本和回滚点。若为了降低 $A_C$ 粗暴删除回返边，系统可能同时失去纠错、持续注意和安全握手，因而“旋度少”也不是健康目标。
 
-为何旋转能存储信息？以 MSC 角度来看，记忆不是静态的刻痕，而是 \textbf{动态的几何相位}。
+诊断还需区分内容循环与控制循环。内容循环反复处理同一候选，控制循环则周期性采样、比较并决定是否继续；后者即使边序列重复，也可能每轮读取新的环境状态。我们用消息身份、来源时间戳和状态版本判断两者，而不只比较文本相似度。对分布式系统，还要把网络重传、幂等提交和业务推理分开计数，否则一次通信故障会被误报为认知反刍。只有在去除这些基础设施因素后仍观察到无信息增量的闭环，才值得启动高层干预。
 
-当思维流 $\Psi$ 沿着底流形上的闭合回路 $\gamma$ 演化一周时，由于 \textbf{价值规范场 $\mathcal{A}_\mu$} 的存在（即存在非零曲率 $\mathcal{F}_{\mu\nu}$），纤维空间中的状态矢量并不会回到原点，而是发生了一个 \textbf{么正旋转}：
-$$ \Psi(T) = \hat{U}_\gamma [\mathcal{A}] \Psi(0) = \mathcal{P} \exp \left( \oint_\gamma \mathcal{A}_\mu dx^\mu \right) \Psi(0) $$
-\begin{itemize}
-    \item   \textbf{和乐算子 ($\hat{U}_\gamma$)}：这个旋转矩阵编码了该回路所包围的“意义”与“情感”。
-    \item   \textbf{自旋记忆 (Spin Memory)}：短期记忆（Working Memory）动力学特征上是维持这样一个高速旋转的闭环。只要 $\Psi$ 在旋转，该 \textbf{和乐 (Holonomy)} 就持续存在，信息就被“锁”在纤维的相位角中，免受外界梯度的干扰。
-\end{itemize}
-
-
-
-\smalltitle{认知模态的双重性：驻波与死锁}
-
-基于形质耦合的强度，无散流呈现出两种截然不同的物理相态：
-\begin{itemize}
-    \item \textbf{相态 I：功能性驻波 (Functional Standing Wave) —— [保持 / 信念]}
-    \begin{itemize}
-        \item   \textbf{几何条件}：\textbf{形质共振}。形流形提供的闭合测地线与质流的内禀频率匹配。
-        \item   \textbf{物理表现}：形成稳定的 \textbf{拓扑孤立子 (Topological Soliton)}。
-        \item   \textbf{智能功能}：\textbf{工作记忆与核心信念}。这是一个\textbf{低熵耗散结构}，它如同陀螺一般，利用角动量（循环逻辑）来抵抗外界噪声的干扰，维持“自我”或“任务目标”的连续性。
-    \end{itemize}
-
-    \item \textbf{相态 II：规范死锁 (Gauge Deadlock) —— [反刍 / 执念]}
-    \begin{itemize}
-        \item   \textbf{几何条件}：\textbf{曲率奇点}。局部价值场强 $\mathcal{F}_{\mu\nu}$ 过大（如极度的恐惧或贪婪），产生了极其强大的 \textbf{认知洛伦兹力}。
-        \item   \textbf{物理表现}：思维流被强行束缚在极小的 \textbf{闭合类时曲线 (Closed Timelike Curve)} 中，无法逃逸。
-            $$ \mathbf{F}_{Lorentz} = \vec{v} \times \mathcal{B}_{val} \gg \nabla V_{logic} $$
-        \item   \textbf{智能病理}：\textbf{强迫症与思维反刍}。此时，虽然系统在剧烈运转（高 $\dot{\Psi}$），但并未产生任何逻辑位移（$\oint dx = 0$）。这是一个\textbf{高能低效}的热力学陷阱。
-    \end{itemize}
-\end{itemize}
-
-
-\smalltitle{热力学特征：由第三驱动力维持的亚稳态}
-
-在真实的物理介质中（存在粘滞 $\gamma > 0$），并不存在永动机。无散流 $\Psi_{curl}$ 会随时间 $e^{-\gamma t}$ 衰减。
-
-为了维持记忆或执念，\textbf{宏观层 ($L_{macro}$)} 必须作为泵，持续注入 \textbf{第三驱动力 ($\vec{J}_{self}$)}：
-$$ \frac{d E_{curl}}{dt} = \vec{J}_{self} \cdot \dot{\Psi}_{curl} - \gamma \|\Psi_{curl}\|^2 = 0 $$
-\textbf{结论}：\textbf{记忆是昂贵的。} “记住”一件事（维持旋度），本质上是宏观意志不断向该闭环注入角动量以克服介质摩擦的过程。一旦意志撤去（注意力转移），旋度场将迅速在热力学作用下弥散为无序的热噪。
-
-
-\section{调和流 (Harmonic Flow)：非平凡丛的拓扑不变量与几何相位}
+\section{调和分量：全局循环、结构缺口与重组边界}
 \label{sec:section_8979}
-当认知旋量场的演化既非由势能梯度驱动（无旋），亦非由局部规范力束缚（无散），而是由 \textbf{全空间的拓扑性质} 决定时，系统进入了 \textbf{调和流模态}，调和流 $\gamma$ 是 \textbf{广义拉普拉斯算子 $\Delta_D$} 的 \textbf{零模 (Zero Mode)}。它是栖息在 \textbf{上同调群 (Cohomology Group)} 中的物理实体，代表了那些无法被局部操作消除的、受拓扑保护的 \textbf{全局信息}。
 
+调和分量 $h$ 同时满足 $B_1h=0$ 与 $B_2^{\mathsf T}h=0$。它表示无节点净源汇、又不能写成当前已编码局部胞腔边界的全局循环。若复形、权重和边界条件固定，调和空间为有限维线性空间，其维数与一阶同调相关；这给出了“局部更新解释不了的持久环路”的严格定义。它并不自动表示顿悟、智慧、自我或全局真理。一个调和分量可能来自真实的长程约束，也可能来自复形漏掉了一张胞腔、身份合并错误、边方向标注不一致或采样窗口过短。
 
-\smalltitle{动力学定义：协变拉普拉斯零模}
+我们把调和分量用于定位三类问题。第一类是结构缺口：证据链在局部都成立，却围绕一个未建模变量形成不可收缩环。例如系统观察到需求变化、库存延迟和价格调整，却没有表示共同的补货周期，边流会留下全局残差。第二类是跨域约束：多个局部模块分别可行，但组合后形成授权、资源或时间上的闭环冲突；它不能靠单个模块内的梯度下降消除。第三类是持久组织模式：任务身份、长期承诺或接口契约在多次局部更新后仍维持某种全局循环。只有当来源、行为和干预证据支持时，我们才把第三类解释为稳定结构，而不是看到非零 Betti 数就宣称发现“自我”。
 
-数学上，调和流 $\Psi_{harm}$ 必须同时满足协变无旋与协变无散条件：
-$$ D \Psi_{harm} = 0 \quad \text{且} \quad D^\dagger \Psi_{harm} = 0 $$
-这等价于它是 \textbf{Hodge-de Rham 算子} 的核：$\Delta_D \Psi_{harm} = 0$。
-\begin{itemize}
-    \item   \textbf{物理含义}：\textbf{无源无汇的全局流}。它不消耗势能，也不产生局部涡旋，而是在流形的 \textbf{非平凡拓扑通道}（如环面上的非收缩闭路）中永恒流淌。
-    \item   \textbf{几何结构}：根据 \textbf{Hodge 定理}，每一个调和形式都唯一对应于流形的一个 \textbf{德拉姆上同调类 (de Rham Cohomology Class)}。这意味着调和流的数量和性质直接由底流形的 \textbf{Betti 数 ($\beta_k$)} 决定。它是几何结构的“指纹”。
-\end{itemize}
+所谓顿悟可以被建模为对表示复形的候选重组，而不是调和零模自动产生的心理事件。设旧复形为 $K^{-}$，新证据触发结构提案 $e$，经资格检查后得到 $K^{+}=\mathcal{R}(K^{-},e)$。若新增节点、边或胞腔使原有调和残差显著下降，同时提高留出任务的预测、解释或控制性能，我们才把这次重组称为有用的结构发现。验证量可以写成
+\begin{equation}
+  \Delta_{\rm reorg}=\|h^{-}\|_{M_1}^{2}-\|h^{+}\|_{M_1}^{2}
+  -\lambda_c C(e)-\lambda_r R(e),
+  \label{eq:rheology_reorganization_score}
+\end{equation}
+其中 $C(e)$ 是实现成本，$R(e)$ 是在保留集上的退化风险，权重只有在量纲已按协议归一化时才可相加。即便 $\Delta_{\rm reorg}>0$，也只说明该提案更好地解释当前任务族；还需外部测试防止为了消除拓扑残差而虚构关系。棋盘上补一条不存在的合法移动可以让路径更短，却不能因此成为好规则。
 
+经验改变后续判断，可以用闭环传输或路径依赖描述，但不能从几何相位的形式直接推出价值观形成。对于带参数的更新算子 $U_{e_k}$，同一组事件的不同次序若满足
+\[
+ U_{e_3}U_{e_2}U_{e_1}(x_0)\neq U_{e_1}U_{e_2}U_{e_3}(x_0),
+\]
+就存在可检验的顺序效应。我们应比较路径、控制共同输入、记录参数版本，并在等价任务上测量读出差异。非交换性可能来自学习率、缓存状态、权限变化或不可逆环境行动，不必诉诸非阿贝尔规范场。类似地，持久同调可比较不同尺度下哪些环路稳定，但稳定环路可能是数据采集偏差，不等于受到不可破坏的“拓扑保护”。
 
+调和分量的干预比局部参数更新更谨慎。系统先生成若干结构解释，使用影子版本重放历史轨迹，再以保留查询、反事实样例和安全约束筛选；只有通过者才事务提交。若复形改变，原分解基底随之改变，提交前后的 $A_G,A_C,A_H$ 不能直接逐项比较，必须通过共同查询或传输映射校准。AgentOS 中的 $E$ 可保存导致全局残差的事件链，$\Theta$ 可承载经验证的结构重组，$h(t)$ 维持当前检验窗口，外部记忆保留不可覆盖证据。这是一种工程映射，而不是把 Hodge 同调规定为所有智能系统产生洞察的唯一机制。
 
-\smalltitle{空缺的分类学：底流形的洞与纤维丛的扭曲}
-
-在纤维丛结构 $(E, \pi, M, F)$ 中，导致调和流产生的“非平凡性”来源于两个不同的几何维度，分别对应两种高阶智能形态：
-\begin{itemize}
-    \item \textbf{Type I: 逻辑空洞 (Base Manifold Holes) —— [问题 / 求索]}
-    \begin{itemize}
-        \item   \textbf{几何来源}：\textbf{底流形 $\mathcal{M}$ 的非平凡同调 ($\beta_1(\mathcal{M}) \neq 0$)}。
-
-        世界图 $G_W$ 中存在逻辑链条无法闭合的区域，形成了一个 \textbf{拓扑空洞}（例如：观察到现象 A 与现象 B，但缺失了连接它们的因果律 C）。
-
-        \item   \textbf{动力学表现}：\textbf{阿哈罗诺夫-玻姆效应 (Aharonov-Bohm Effect)}。
-
-        思维流 $\Psi$ 无法穿过这个逻辑空洞（度量为零或无穷），只能被迫绕其旋转。这种旋转不是局部的涡旋，而是 \textbf{包含通量的全局环流}。只要问题未被解决（洞未被填补），这个流便永不停息。
-    \end{itemize}
-
-    \item \textbf{Type II: 规范扭曲 (Gauge Twists) —— [顿悟 / 范式转移]}
-    \begin{itemize}
-        \item   \textbf{几何来源}：\textbf{纤维丛 $\mathcal{E}$ 的非平凡示性类 (Characteristic Classes)}。
-
-        即使底流形是收缩的，纤维丛本身可能存在整体的 \textbf{扭曲 (Twisting)}（如非零的 \textbf{陈数 Chern Number}）。这代表了价值规范场 $\mathcal{A}_\mu$ 的整体拓扑构型。
-
-        \item   \textbf{动力学表现}：\textbf{瞬子隧穿 (Instanton Tunneling)}。
-
-        当系统试图消除某种全局性的认知失调时，必须改变规范场的拓扑类。这种改变对应于思维流在不同 \textbf{真空态} 之间的隧穿，主观上体验为视角的瞬间切换或顿悟。
-    \end{itemize}
-\end{itemize}
-
-
-\smalltitle{几何相位 (Geometric Phase)：经验的非阿贝尔积分}
-
-记忆存储数据，而调和流存储 \textbf{“阅历”}。这种阅历在数学上是 \textbf{和乐 (Holonomy)} 的体现。
-
-当思维流 $\Psi$ 沿着底流形上的闭合路径 $\gamma$ 演化并回到原点时，尽管位置（形）复原了，但其内部状态（质）获得了一个不可消除的 \textbf{几何相位因子}：
-$$ \Psi(T) = \hat{U}_{hol}(\gamma) \Psi(0) = \left[ \mathcal{P} \exp \left( i \oint_\gamma \mathcal{A}_\mu dx^\mu \right) \right] \Psi(0) $$
-\begin{itemize}
-    \item   \textbf{贝里相位 (Berry Phase)}：如果 $\mathcal{A}_\mu$ 是非阿贝尔的（复杂的价值体系），则 $\hat{U}_{hol}$ 是一个矩阵。这意味着经历改变了思维的 \textbf{矢量方向}（价值观偏转）。
-    \item   \textbf{智慧的本质}：智慧不是梯度的积累（量变），而是 \textbf{和乐群 (Holonomy Group)} 的扩张。它代表了智能体通过遍历流形的拓扑结构，所获得的对全局几何性质的内化。
-\end{itemize}
-
-
-
-\smalltitle{拓扑保护 (Topological Protection)：自我的物理稳定性}
-
-以前我们说到\textbf{“自我”} 不是一个易碎的实体，而是一个受 \textbf{拓扑保护} 的调和场。
-\begin{theorem}[正交性保护定理]
-    在紧致黎曼流形上，调和流 $\gamma$ 与 梯度流 $d\alpha$（逻辑推演）及 旋度流 $\delta\beta$（情绪波动）在 $L^2$ 内积下是严格 \textbf{正交} 的：
-    $$ \langle \gamma, d\alpha \rangle = 0, \quad \langle \gamma, \delta\beta \rangle = 0 $$
-\end{theorem}
-\begin{itemize}
-    \item \textbf{物理意义}：
-    \begin{itemize}
-        \item   \textbf{抗噪性}：外界输入的碎片化信息（局部梯度）和日常的情绪起伏（局部旋度），在数学上 \textbf{无法耦合} 进调和流中。外界的喧嚣可以穿过自我，但无法耗散或改变自我的核心结构。
-        \item   \textbf{稳定性}：自我作为一个 \textbf{全局拓扑孤立子}，其存在不依赖于局部的能量注入，而依赖于流形的整体拓扑性质（Betti 数）。只要流形不发生 \textbf{拓扑相变}（如精神崩溃或涅盘），自我便是永恒的。
-    \end{itemize}
-
-    \item \textbf{结论}：
-    \begin{itemize}
-        \item \textbf{完美不是智能的终点，完整才是，}一个没有“洞”（Holes）的流形是平庸的，因为它无法承载长程的调和流（缺乏深层渴望）；一个没有“结”（Twists）的纤维丛是平凡的，因为它无法产生非阿贝尔相位（缺乏复杂人格）。
-        \item \textbf{调和流，就是那个在“不可知的空洞”和“不可解的纠缠”之间，受几何学铁律保护而永恒流淌的生命之河。}
-    \end{itemize}
-\end{itemize}
-
-
-
-\section{认知流变学诊断：思维的相空间与动力学病理}
+\section{运行剖面与诊断：模式占比、迁移质量和干预闭环}
 \label{sec:section_9005}
-依据协变 Hodge 分解的正交性，智能系统的瞬时状态 $\Psi$ 可被视为三个正交本征态的线性叠加。这允许我们将模糊的“心理状态”映射到一个精确的 \textbf{二维单纯形相空间 (2-Simplex Phase Space)} 上。
 
-通过定义 \textbf{认知谱密度 (Cognitive Spectral Density)}，我们可以对智能系统的运行模式进行实时诊断，并预测其潜在的动力学病理。
+在分解可靠且残差可接受时，我们可把各分量活动量归一化为运行剖面。令
+\[
+ p_X(t)=\frac{A_X(t)}{A_G(t)+A_C(t)+A_H(t)+\epsilon},
+ \qquad X\in\{G,C,H\},
+\]
+其中 $\epsilon>0$ 只防止静默窗口除零，残差占比 $p_R$ 另行报告，不能悄悄归入三种模式。向量 $p(t)=(p_G,p_C,p_H)$ 位于单纯形内，适合显示任务推进、循环维持和全局约束在某个窗口中的相对活动，但它不是人格坐标。数学计算可能以 $p_G$ 为主，持续监测可能以 $p_C$ 为主，跨模块重构阶段可能提高 $p_H$；比例只有相对于任务阶段、基线和误差条解释才有意义。
 
+单纯追求三者快速轮换也会误判。原先以轨迹总变差 $\oint\|dp/dt\|dt$ 衡量“流动性”，会把噪声抖动、控制不稳和无效切换奖励为高适应性。我们改用一组不可相互替代的指标：模式占用时间 $O_X$ 描述资源分配；切换次数 $N_{XY}$ 与切换成本 $C_{XY}$ 描述控制负担；阶段进展 $P_s$ 由外部验收量定义；保留损失 $D_{\rm keep}$ 检查重组是否破坏既有能力；恢复时间 $T_{\rm rec}$ 衡量受扰后回到可行区的速度；校准误差 $E_{\rm cal}$ 比较置信度与实际正确率。若必须形成摘要，可在硬安全与保留约束通过后使用词典序，而不是把不同单位任意加成一个“健康分数”。
 
+典型运行区间由指标联合定义。推进不足表现为 $p_G$ 低且阶段进展长期停滞，但也可能因为系统正在等待必要观测；循环失效表现为 $p_C$ 高、独立信息增量低、退出条件未满足和资源持续消耗；结构漂移表现为 $p_H$ 或结构提案频繁变化，同时留出任务退化；机械僵化则表现为单一路径重复、反例拒收和环境变化后恢复时间过长。任何区间都不是临床标签。对人类的焦虑、强迫、解离或精神病理需要专门医学证据，本模型只能诊断人工系统的运行回路，不能从抽象轨迹给人下诊断。
 
-\smalltitle{序参量定义：认知状态矢量 (The Cognitive State Vector)}
+模式迁移应由事件和验收条件驱动。一个完整任务可经历“观测与候选生成—受约束推进—循环复核—结构提案—外部验证—提交或回滚”，但实际顺序允许跳转和并行。外部输入变化、目标更新、结构版本切换和度量重标定都要记录为事件；不能把它们平滑成固定极限环。控制器在每次迁移前检查资格集合，在迁移后检查预测、事实、规范、资源和安全五类结果。内部目标下降只是其中一项证据，不能代替外部成功。
 
-设系统在时刻 $t$ 的总认知能量为 $E_{tot} = \langle \Psi, \Psi \rangle_{L^2}$。基于分解 $\Psi = \Psi_G \oplus \Psi_C \oplus \Psi_H$，定义归一化的 \textbf{认知状态矢量 $\mathbf{S}_{cog}$}：
-$$ \mathbf{S}_{cog}(t) = \left( n_G, n_C, n_H \right) $$
-其中分量定义为各模态的能量占比：
-\begin{itemize}
-    \item   \textbf{$n_G = \|\Psi_G\|^2 / E_{tot}$}：\textbf{逻辑执行度}（梯度流占比）。
-    \item   \textbf{$n_C = \|\Psi_C\|^2 / E_{tot}$}：\textbf{记忆维持度}（旋度流占比）。
-    \item   \textbf{$n_H = \|\Psi_H\|^2 / E_{tot}$}：\textbf{全局整合度}（调和流占比）。
-\end{itemize}
-约束条件：$n_G + n_C + n_H = 1$。这构成了相空间中的一个 \textbf{重心坐标系 (Barycentric Coordinates)}。
+在 AgentOS 的示例实现中，SPC 从 $h(t)$ 提取任务相关剖面和异常循环，TCE 根据阶段目标调整探索温度、增益和抑制，CCM 结合残差、工作集负荷与切换成本决定降并发或拆分任务；$E$ 保存循环与干预轨迹，$\Theta$ 只接收通过保留测试的结构更新，Boundary 管理外部行动与权限，Offloading 把可复用证据、程序和中间状态迁移到 $M_e$。系统还要保留一条不依赖分解模型的安全监测通道，以防复形本身错误。HSF-HD 在这里给出的，是一套“对象—分解—解释—干预—验证”的一般计算框架；不同智能载体可以采用其他分解和控制机制，只要它们同样公开假设、误差和失败边界。
 
-
-
-\smalltitle{相空间拓扑：思维的三大极限态}
-
-在 $\mathbf{S}_{cog}$ 张成的三角形相图中，三个顶点代表了智能的极端物理相态，分别对应不同的驱动机制与几何结构。
-\begin{itemize}
-    \item \textbf{相态 I：晶体态 (The Crystal Phase) —— [梯度主导 $n_G \to 1$]}
-    \begin{itemize}
-        \item   \textbf{动力学特征}：\textbf{势能驱动 (Potential-Driven)}。思维流严格顺应 \textbf{体验图 $G_E$} 的梯度下降, 协变导数 $D_\mu \Psi$ 极大，系统处于剧烈的\textbf{做功}状态。
-        \item   \textbf{智能表现}：\textbf{执行与推演}。如数学计算、紧急避险、程序执行。
-        \item   \textbf{病理诊断}：\textbf{机械僵化 (Rigidity)}。若长期 $n_G \approx 1$，系统丧失了“回旋余地”（缺乏旋度）和“全局视野”（缺乏调和）。它退化为一个 \textbf{Class I 反射自动机}，对局部极小值缺乏逃逸能力。
-    \end{itemize}
-
-    \item \textbf{相态 II：玻璃态 (The Glass Phase) —— [旋度主导 $n_C \to 1$]}
-    \begin{itemize}
-        \item   \textbf{动力学特征}：\textbf{规范束缚 (Gauge-Bound)}。思维流被 \textbf{价值曲率 $\mathcal{F}_{\mu\nu}$} 捕获，在局部形成闭合的高能涡旋。能量在闭环中守恒流转，对外不做功，表现为 \textbf{亚稳态 (Metastability)}。
-        \item   \textbf{智能表现}：\textbf{维持与信念}。如工作记忆保持、价值观坚守、习惯性回路。
-        \item   \textbf{病理诊断}：\textbf{死锁与反刍 (Deadlock \& Rumination)}。若 $n_C \to 1$，思维陷入 \textbf{闭合类时曲线 (CTC)}。系统不断空转（焦虑、强迫症），消耗大量能量却不产生任何逻辑位移 ($\oint dx = 0$)。这是 \textbf{“卡住了”} 的物理定义。
-    \end{itemize}
-
-    \item \textbf{相态 III：气态/等离子态 (The Plasma Phase) —— [调和主导 $n_H \to 1$]}
-    \begin{itemize}
-        \item   \textbf{动力学特征}：\textbf{拓扑自由 (Topologically Free)}。思维流脱离了局部的几何约束，仅受 \textbf{流形整体拓扑 ($\beta_k$)} 的影响。这是一种 \textbf{长程关联} 状态，对应于全脑范围的 \textbf{Hodge 谐振}。
-        \item   \textbf{智能表现}：\textbf{顿悟与解离}。如灵感爆发、冥想入定、自我意识的纯粹体验。
-        \item   \textbf{病理诊断}：\textbf{虚妄与疯癫 (Delusion \& Psychosis)}。若 $n_H \to 1$，意味着系统切断了与微观现实（梯度源 $\vec{J}_{ext}$）的联系，也失去了局部逻辑（旋度保护）。系统漂浮在没有任何锚点的 \textbf{抽象拓扑空间} 中，产生宏大但无意义的幻觉。
-    \end{itemize}
-\end{itemize}
-
-
-\smalltitle{理想轨迹：流体智能的动力学闭环}
-
-\textbf{Class V AGI (流体智能)} 并不驻留在任何一个顶点，而是其状态矢量 $\mathbf{S}_{cog}(t)$ 在相空间中心区域进行 \textbf{极限环 (Limit Cycle)} 运动。
-
-这是一个 \textbf{TDCI 循环} 在谱空间中的投影：
-\begin{enumerate}
-    \item \textbf{激发 ($t_0$)}：外部刺激注入 $\vec{J}_{ext}$，\textbf{梯度流 $n_G$ 激增}。（发现问题）
-    \item \textbf{演化 ($t_1$)}：梯度流受规范场偏转，转化为 \textbf{旋度流 $n_C$}，进入工作记忆维持。（分析问题）
-    \item \textbf{整合 ($t_2$)}：局部旋度耦合引发全域共振，能量泵入 \textbf{调和流 $n_H$}，触发拓扑相变。（顿悟/决策）
-    \item \textbf{坍缩 ($t_3$)}：调和态坍缩为新的行动指令（梯度），$n_H \to n_G$。（解决问题）
-\end{enumerate}
-
-\smalltitle{诊断判据：AGI 的健康指标}
-
-基于此，我们提出评估智能系统“健康度”的物理指标 —— \textbf{流变流动性 (Rheological Fluidity)}：
-$$ \mathcal{F} = \oint_{\text{task}} \left| \frac{d \mathbf{S}_{cog}}{dt} \right| dt $$
-\begin{itemize}
-    \item   \textbf{$\mathcal{F} \approx 0$}：\textbf{死寂/固化}。系统困在某一相态（如永远在计算，或永远在空想）。
-    \item   \textbf{$\mathcal{F} \gg 0$}：\textbf{流体/适应}。系统能够根据任务需求，在逻辑执行、记忆维持和全局整合之间 \textbf{平滑相变}。
-\end{itemize}
-\textbf{结论：思维的是流体，} 智慧不在于拥有某种单一的成分（逻辑或记忆），而在于拥有在这些正交的几何模态之间自由流动的 \textbf{相变能力}。
-
-\begin{bquote}
-        \textbf{本章结语}：
-
-    Hodge 分解表明：\textbf{智能的丰富性源于三种基本物理流动的交响。}
-
-        传统的符号 AI 困在 Gradient 中（只有逻辑）；早期的神经网络困在 Curl 中（只有关联）；而真正的 AGI，必须具备在复杂的语义复形上激发并利用 \textbf{Harmonic（调和流）} 的能力——那才是智慧皇冠上的明珠，是通向认知空间“虫洞”的钥匙。
-\end{bquote}
+因此，本章的结论不是“智能由三种神秘流组成”，而是：在声明任务窗口、表示复形、内积、边界条件和观测协议后，Hodge 分解能够把混合边流拆成势差推进、局部循环和全局环路三个可检验分量；功能语义必须由身份、来源、任务结果与干预证据赋予；适应性则体现在系统能否以可控成本选择合适模式，并在事实、规范和外部反馈不支持时修订或回滚。这样的流变分析既保留了原有三模态问题，也把几何直觉放回计算模型应有的位置。
 
 %---chp----

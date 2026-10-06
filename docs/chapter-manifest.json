@@ -659,9 +659,15 @@
       "source_start_line": 11762,
       "source_end_line": 12124,
       "source_sha256": "8c9969cbfc6ce371583d6a732a4ce78e09e3f0e52f838f456c8c901ed4dc50d2",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "状态流分解：任务推进、循环维持与全局约束",
+      "draft_checkpoint": "docs/drafts/chapter-035-checkpoint.md",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-cognitive_coherence_dynamics.tex",

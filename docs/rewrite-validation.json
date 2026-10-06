@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 34,
-  "pending_chapters": 83,
+  "rewritten_chapters": 35,
+  "pending_chapters": 82,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1276,37 +1276,37 @@
     {
       "order": 35,
       "path": "chapters/part-08/chp-rheological_ch.tex",
-      "title": "流变形态 — Hodge 分解与思维模式",
-      "status": "queued-for-full-rewrite",
+      "title": "状态流分解：任务推进、循环维持与全局约束",
+      "status": "rewritten-reviewed",
       "original_han_floor": 5355,
-      "new_chapter_prose_han": 5256,
+      "new_chapter_prose_han": 5701,
       "original_readable_units": 5467,
-      "new_readable_units": 5467,
-      "opening_prose_han": 261,
+      "new_readable_units": 5732,
+      "opening_prose_han": 329,
       "sections": [
         {
-          "title": "数学基础：纤维丛上的协变 Hodge 分解",
-          "prose_han": 950
+          "title": "离散 Hodge 基础：对象、复形与可识别分解",
+          "prose_han": 1000
         },
         {
-          "title": "无旋流 (Gradient Flow)：逻辑推理的协变动力学",
-          "prose_han": 860
+          "title": "势差分量：任务推进、推理链与提交条件",
+          "prose_han": 1159
         },
         {
-          "title": "无散流 (Curl Flow)：纤维丛上的和乐循环与自旋记忆",
-          "prose_han": 893
+          "title": "循环分量：工作集维持、复核回路与失效反刍",
+          "prose_han": 1128
         },
         {
-          "title": "调和流 (Harmonic Flow)：非平凡丛的拓扑不变量与几何相位",
-          "prose_han": 1179
+          "title": "调和分量：全局循环、结构缺口与重组边界",
+          "prose_han": 1003
         },
         {
-          "title": "认知流变学诊断：思维的相空间与动力学病理",
-          "prose_han": 1113
+          "title": "运行剖面与诊断：模式占比、迁移质量和干预闭环",
+          "prose_han": 1082
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

@@ -1,9 +1,9 @@
 {
-  "pages": 220,
-  "bytes": 20036579,
+  "pages": 225,
+  "bytes": 20069992,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 180,
+  "numbered_sections": 185,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1266,7 +1266,42 @@
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "35.1 离散 Hodge 基础：对象、复形与可识别分解",
+      "start_pdf_page": 221,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "35.2 势差分量：任务推进、推理链与提交条件",
+      "start_pdf_page": 222,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "35.3 循环分量：工作集维持、复核回路与失效反刍",
+      "start_pdf_page": 222,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "35.4 调和分量：全局循环、结构缺口与重组边界",
+      "start_pdf_page": 223,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "35.5 运行剖面与诊断：模式占比、迁移质量和干预闭环",
+      "start_pdf_page": 224,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 34 chapters; does not validate the full book."
+  "scope": "Review subset: 35 chapters; does not validate the full book."
 }
