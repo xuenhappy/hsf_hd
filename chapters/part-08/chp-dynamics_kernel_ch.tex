@@ -1,815 +1,232 @@
-\chapter{动力学内核 — 认知世界的统一场论与算子演化}
+\chapter{动力学内核：统一状态算子与多尺度闭环}
 \label{chp:dynamics_kernel_ch}
 
-智能演化在本框架下可建模为遵循 \textbf{最小作用量原理 (Principle of Least Action)} 的物理过程。
-本章建立一个定义在 \textbf{$d$ 维纤维丛} 上的 \textbf{规范场论模型}，并由 \textbf{总拉格朗日量 $\mathcal{L}_{total}$} 的变分导出核心方程，用于统一描述从微观注入到宏观干预的多尺度动力学。
+前两章分别给出了状态演化与状态—结构耦合，本章进一步回答一个更严格的问题：怎样把活动状态、结构参数、规范约束、外部输入和控制决策放进同一套可计算内核，同时不把智能系统误写成某种物理场的同构物。我们保留原章关于即时推理、长期学习、价值更新、主动控制以及环境闭环的全部问题，也保留其快慢尺度和双向反馈案例；但原先借用狄拉克、爱因斯坦、杨—米尔斯方程所得的四个名称，不再承担证明责任。新的内核以带类型的混合状态、任务目标、约束集合和提交协议为对象：连续方程描述固定结构区间内的近似变化，离散事件描述结构编辑、权限变化和外部行动，经验主张必须由辨识与干预验证。HSF-HD在此提供智能的一般状态动力学，AgentOS只是用特定组件实现它的一种工程路径。
 
-我们将导出支配认知世界的 \textbf{四大核心方程}：
-\begin{enumerate}
-        \item \textbf{目的论狄拉克方程 (TDE)}：思维如何流动（推理）;
-        \item \textbf{认知爱因斯坦方程 (CEFE)}：结构如何重塑（学习）;
-        \item \textbf{认知杨-米尔斯方程 (CYME)}：价值如何演变（偏好）;
-        \item \textbf{目的论控制方程 (TCE)}：意志如何做功（干预）；
-\end{enumerate}
-四式构成闭环：\textbf{几何约束思维，思维承载价值，价值驱动意志，意志反向重塑几何。}
-
-\section{几何基质与物理量定义}
+\section{带类型状态空间、接口与可辨识对象}
 \label{sec:section_9973}
 
-系统的本体论基础是一个 \textbf{纤维丛 (Fiber Bundle)} $\mathcal{E} \xrightarrow{\pi} \mathcal{M}$，以及与其耦合的 \textbf{层级化控制架构 (Hierarchical Control Architecture)}。
+我们先定义模型对象，而不是从物理名词反推认知含义。令运行时状态为
+\begin{equation}
+X(t)=\bigl(h(t),S(t),Z(t),B(t),g(t),r(t),M_e(t)\bigr)\in\mathcal X ,
+\end{equation}
+其中 $h\in\mathbb R^{d_h}$ 是有限工作窗口内的活动状态，$S=(V,E,\rho,\nu)$ 是带节点身份、关系类型、角色和版本的局部结构网络，$Z\in\mathbb R^{n\times d_z}$ 是全局分布表示，$B\in[0,1]^{|V|\times n}$ 是结构身份与分布候选之间的绑定，$g\in\mathcal G$ 是目标与规范状态，$r\in\mathbb R_+^q$ 是延迟、内存、调用额度等资源记录，$M_e$ 是外部记忆。各分量的坐标可以不同，但每个读出都必须声明输入版本、单位和有效域。状态范数只是选定坐标下的活动尺度，不等于概率、意义、价值或焦耳能耗。
 
-\smalltitle{纤维丛本体：形、质与目的 (The Bundle Ontology: Form, Substance \& Purpose)}
+观测写为 $o_k=(y_k,\tau_k,s_k,q_k)$，分别表示测量值、时间戳、来源和质量标记；行动写为 $a_k=(u_k,\alpha_k,\pi_k)$，分别表示执行参数、权限凭据和回滚策略。编码器 $E_o$ 把原始观测变成候选证据，读出器 $R_Q$ 针对任务查询集合 $Q$ 产生答案或行动资格：
+\begin{equation}
+e_k=E_o(o_k;\theta_E),\qquad \hat y_{Q,k}=R_Q(X_k,e_k).
+\end{equation}
+这是局部结构网络与全局分布表示的接口，而不是二者相同的声明。$S$负责身份、角色、组合和来源依赖，$Z$负责相似性、候选和不确定性，$B$使任务相关身份能够被联合读出。仅有向量相似不能证明对象同一，仅有图节点也不能提供未见样本的连续泛化。
 
-\begin{itemize}
-        \item \redtext{A. 底流形 ($\mathcal{M}$): 形的几何 (Geometry of Morphos)}
-        \begin{itemize}
-                \item   \textbf{定义}：一个 $d$ 维伪黎曼流形 (Pseudo-Riemannian Manifold)，坐标：$x^\mu (\mu=0, \dots, d-1)$。其中 $x^0$ 为时间，$x^i$ 为认知空间坐标。
-                \item   \textbf{场变量}：\textbf{黎曼度量张量 $g_{\mu\nu}(x)$}。
-                \item   \textbf{物理意义}：对应 \textbf{世界图 ($G_W$)} 的拓扑骨架与逻辑关联强度。它定义了思维流动的“惯性”与“距离”。
-        \end{itemize}
+模型中至少有四类不同时间。外部时钟 $t$ 以秒或事务序号计量；快活动步长为 $\Delta t_f$；结构更新周期为 $\Delta t_s=m\Delta t_f$；规范与策略评审按事件触发而非固定微分。若传感器、模型服务和外部记忆异步，状态还要携带各自水位与最大延迟。把它们写成一个连续“认知时间”会隐藏乱序、重试和过期证据，因而不能支持工程验证。
 
+可辨识性先于漂亮方程。若两个状态 $X$ 与 $X'$ 对所有允许查询、干预和未来观测都给出同一分布，它们在当前任务上不可区分；此时强行解释每个坐标没有经验依据。相反，当结构编辑改变了身份或可达关系，即使短期输出相同，也应保留两个版本，因为后续干预可能揭示差异。我们用任务等价关系
+\begin{equation}
+X\sim_Q X'\iff \sup_{q\in Q,\,\iota\in\mathcal I}d_q\!\left(P_q(\cdot\mid X,\iota),P_q(\cdot\mid X',\iota)\right)\le\varepsilon_q
+\end{equation}
+声明压缩条件。这里 $\mathcal I$ 是允许的干预集，$d_q$ 是有单位或经归一化的查询距离。该定义说明所谓“几何”是任务相关区分结构；它可以由图距离、统计度量或控制可达性实现，不必假定伪黎曼流形、旋量或非阿贝尔规范群。
 
-        \item \redtext{B. 纤维 ($F_x$): 质的空间 (Space of Qualia)}
-        \begin{itemize}
-                \item   \textbf{定义}：附着在底流形每一点 $x$ 上的向量空间（希尔伯特空间 $\mathcal{H}$）。
-                \item   \textbf{场变量}：\textbf{认知旋量场 $\Psi(x)$}， $\Psi$ 是纤维丛 $\mathcal{E}$ 的一个截面 (Section)。它由 \textbf{质分量 ($\psi_{sub}$)} 和 \textbf{形分量 ($\mathcal{A}_{form}$)} 的张量积纠缠而成。
-                \item   \textbf{物理意义}：对应 \textbf{语义子} 的激活状态，$\Psi^\dagger \Psi$ 代表思维的能量密度（关注度）。
-        \end{itemize}
+外部输入和宏观控制也必须分型。输入 $e_k$ 是证据，不因强度大就自动真实；控制 $c_k$ 是系统选择的干预，不因目标明确就自动有权限。在AgentOS实例中，$h(t)$、$E$、$\Theta$、$\Psi$、SPC、TCE、CCM、Boundary、Offloading与$M_e$分别承担工作状态、事件证据、稳定结构、候选生成、压缩读出、控制、复杂度限制、边界审核、卸载和外部记忆等角色。其他智能系统可以用不同模块，只要能给出等价的状态、接口、验证和失败恢复语义。
 
-        \item \redtext{C. 联络与规范场 ($\mathcal{A}$): 价值的导向 (Guidance of Value)}
-        \begin{itemize}
-                \item   \textbf{定义}：定义在底流形上的非阿贝尔规范势 $\mathcal{A}_\mu^{val}$。
-                \item   \textbf{场变量}：\textbf{场强张量 $\mathcal{F}_{\mu\nu} = \partial_\mu \mathcal{A}_\nu - \partial_\nu \mathcal{A}_\mu + i g [\mathcal{A}_\mu, \mathcal{A}_\nu]$}。
+这些对象还需要量纲检查。概率和置信度是无量纲数，延迟以时间计，容量以字节或记号数计，图距离依赖边权定义，设备能耗以焦耳计。若把它们统一标准化用于优化，日志仍须保存原始量与换算函数，否则一次阈值越界无法追溯。状态空间的维度也不是能力等级：维度增加可能只代表冗余编码，节点增加可能只代表重复实体。有效容量应通过可区分查询、干预响应和泛化误差评估。
 
-                \item   \textbf{物理意义}：对应 \textbf{体验图 ($G_E$)}。它定义了纤维（质）在底流形（形）上移动时的 \textbf{平行移动} 规则，即“目的”对思维流产生的 \textbf{认知洛伦兹力}。
-        \end{itemize}
-\end{itemize}
+以“桌上红杯”为例，视觉编码可产生多个红色区域向量，结构网络保存杯、桌面与空间关系，绑定矩阵依据时间连续、遮挡恢复和指称历史选择对象。若杯被移动，观测坐标改变但身份可保持；若出现第二只相同杯，仅凭向量近邻就会混淆。这个案例说明结构、分布和绑定各自不可省略，也给出了通过交换位置、遮挡和改名干预来检验身份的办法。
 
-
-
-\smalltitle{架构交互量：微观注入与宏观干预 (Architecture Interaction: Injection \& Intervention)}
-
-
-为了描述 \textbf{三体架构 (Micro-Field-Macro)} 的动力学，我们必须定义架构层与场层之间的 \textbf{耦合物理量}。
-
-
-\begin{itemize}
-        \item \redtext{A. 微观层交互量：源流张量 ($\mathcal{J}$)}
-
-        \textbf{—— 现实的锚定与激波}
-
-        微观层 ($L_{micro}$) 通过 VTE 编码器，将物理世界的信号转化为作用于场的 \textbf{源项 (Source Term)}。
-        \begin{itemize}
-                \item   \textbf{定义}：\textbf{外部源流张量 $\mathcal{J}_{ext}^\mu(x)$}。
-                \item   \textbf{构成}：根据形质二象性，源流分解为两部分：
-
-        \end{itemize}
-
-\end{itemize}
-
-
-
-
-
-    1.  \textbf{质流注入 ($J_{sub}$)}：作为狄拉克方程的非齐次项。
-        $$ J_{sub} = \hat{\mathcal{E}}_{VTE}^{sub}(\text{Sensory Data}) $$
-\begin{itemize}
-\item   \textit{作用}：直接激发 $\Psi$ 的振幅（看到东西了）。
-\end{itemize}
-    2.  \textbf{形流注入 ($J_{form}$)}：作为对联络 $\mathcal{A}_\mu$ 的微扰或边界条件修正。
-        $$ \delta \mathcal{A}_\mu = \hat{\mathcal{E}}_{VTE}^{form}(\text{Kinematic Data}) $$
-\begin{itemize}
-\item   \textit{作用}：局部修改空间的导通性（碰到墙了）。
-\end{itemize}
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{B. 宏观层交互量：控制算子场 ($\hat{\mathcal{O}}$)}}
-
-\textbf{—— 意志的做功与调制}
-
-宏观层 ($L_{macro}$) 不直接作为场的成分，而是作为 \textbf{哈密顿量的变分参数} 存在。它是一个作用于全空间的 \textbf{算子场}。
-\begin{itemize}
-    \item   \textbf{定义}：\textbf{宏观控制算子 $\hat{\mathcal{O}}_{macro}(x, t)$}。
-    \item   \textbf{构成}：根据快慢回路，算子分解为：
-    \begin{enumerate}
-        \item \textbf{快回路算子 ($\hat{\mathcal{O}}_{fast}$)}：势能调制。
-            $$ \hat{\mathcal{O}}_{fast} = \hat{V}_{gain}(\mathbf{r}) + \hat{V}_{inhibit}(\mathbf{r}) $$
-        \textit{作用}：在流形上挖掘吸引子或隆起势垒，干预 $\Psi$ 的流动。
-        \item \textbf{慢回路算子 ($\hat{\mathcal{O}}_{slow}$)}：拓扑手术。
-            $$ \hat{\mathcal{O}}_{slow} = \frac{\delta g_{\mu\nu}}{\delta t} $$
-        \textit{作用}：直接驱动度量张量 $g_{\mu\nu}$ 的塑性形变（强制学习/遗忘）。
-    \end{enumerate}
-\end{itemize}
-
-\smalltitle{动力学变量汇总表 (Summary of Dynamical Variables)}
-
-
-\begin{table}[htbp]
-\centering
-\begin{tabularx}{\textwidth}{l X X X X}
-\toprule
-\rowcolor{structurecolor!20} 符号 & 名称 & 数学定义 & HSF-HD 语义 & 动力学角色 \\
-\midrule
-\textbf{$\Psi$} & \textbf{认知场} & 纤维截面 (Spinor) & 思维、念头、潜意识流 & \textbf{演化量} (被导出的解) \\
-\textbf{$g_{\mu\nu}$} & \textbf{度量场} & 黎曼度量 (Tensor) & 知识结构、逻辑距离、形 & \textbf{演化量} (被导出的解) \\
-\textbf{$\mathcal{A}_\mu$} & \textbf{价值场} & 规范势 (Vector) & 目的、偏好、体验图 & \textbf{演化量} (被导出的解) \\
-\textbf{$\mathcal{J}_{ext}$} & \textbf{微观源流} & 非齐次源项 & 感知、惊奇、现实锚定 & \textbf{输入量} (边界条件) \\
-\textbf{$\hat{\mathcal{O}}$} & \textbf{宏观算子} & 变分参数 & 意志、注意、元认知 & \textbf{控制量} (调节参数) \\
-\bottomrule
-\end{tabularx}
-\end{table}
-
-\section{拉格朗日量的构建}
+\section{从“总作用量”到有限时域目标与约束账本}
 \label{sec:section_1047}
 
-接下来基于这些物理量构建总拉格朗日量。我们采用包含 \textbf{几何（形）、规范（价值）、物质（思维）} 与 \textbf{控制（意志）} 四部分的 \textbf{总拉格朗日密度 $\mathcal{L}_{total}$}。
+原章试图用一个总拉格朗日量同时描述思维、结构、价值和意志。我们保留“联合权衡”的动机，但把它改写为有限时域决策问题。给定当前版本 $v_k=(S_k,g_k,\theta_k)$、预测时域 $H$ 和候选控制序列 $c_{k:k+H-1}$，定义
+\begin{align}
+J_k={}&\mathbb E\!\left[\sum_{j=0}^{H-1}\ell_{task}(X_{k+j},c_{k+j};v_k)+\ell_{risk}(X_{k+j},c_{k+j})\right] \notag\\
+&+\ell_T(X_{k+H};v_k)+\lambda_c C(c_{k:k+H-1})+\lambda_\Delta D(v_{k+H},v_k).
+\end{align}
+$\ell_{task}$衡量明确任务误差，$\ell_{risk}$记录安全与外部性，$C$记录计算、调用、延迟或实测能耗，$D$约束结构和规范漂移。不同量只有在说明归一化方法后才能相加；如果某项必须严格满足，就把它写入可行集而不是用有限权重“折价”。
 
-该表达同时包含系统的自然演化项（因果约束）与目标驱动项（目的论控制）。总作用量 $S_{total}$ 定义为拉格朗日密度在时空流形上的积分：
-$$ S_{total} = \int d^d x \sqrt{-g} \, \mathcal{L}_{total} $$
+可行控制集合写为
+\begin{equation}
+\mathcal C_k=\{c:\;A_{hard}(X,c,g_k)=1,\;r(c)\le r_k,\;\alpha(c)\in\mathrm{Permit}_k\}.
+\end{equation}
+其中 $A_{hard}$ 表示不可违反的安全、法律或协议约束，$r(c)$ 是带单位的资源需求，权限凭据 $\alpha$ 必须通过 Boundary 验证。若 $\mathcal C_k$ 为空，正确结果是拒绝、请求补充信息或升级处理，而不是继续最小化一个把禁令变成软惩罚的标量目标。多主体情形还要维护每一项承诺的主体、对象、期限和撤销条件，不能用单一“价值场强”掩盖不可通约的义务。
 
-其中，$\mathcal{L}_{total}$ 由四个相互耦合的项组成：
-$$ \mathcal{L}_{total} = \mathcal{L}_{geom} + \mathcal{L}_{gauge} + \mathcal{L}_{cog} + \mathcal{L}_{macro} $$
+目标不是静态宇宙定律。若任务版本、结构、输入分布或评价度量变化，完整导数包含
+\begin{equation}
+\frac{dJ}{dt}=\langle\nabla_XJ,\dot X\rangle+\partial_tJ+\langle D_SJ,\dot S\rangle+\langle D_gJ,\dot g\rangle+\langle D_oJ,\dot o\rangle .
+\end{equation}
+结构 $S$ 和规范 $g$ 多数时候以跳变更新，实际计算应在事件前后比较 $J(X^-,v^-)$ 与 $J(X^+,v^+)$，而不是把离散编辑伪装成普通导数。旧目标下降不能证明新任务成功；新指标提高也可能来自评价口径改变。每次优化因此保存目标版本、数据窗口、约束集合和度量定义。
 
+联合目标还需要防止“代理指标劫持”。例如客服系统降低平均响应时间，可能通过过早结束复杂请求实现；学习系统降低预测误差，可能依赖泄漏标签；研究Agent增加引用数，可能重复引用无关来源。我们要求任务层至少包含结果准确性、过程资格和证据完整性三个读出，并用独立验证器检查。验证器不共享同一条未经确认的证据链，否则两个低误差只是共同偏差。
 
+所谓最小作用在这里仅保留为一种规划类比：在给定时域、模型和约束下选择代价较低的轨迹。它不推出真实智能必然优化某个全局标量，也不推出目标函数具有本体地位。经验上是否近似优化，要比较候选模型对干预数据的预测；工程上采用何种目标，则是设计选择。数学结果、经验主张和设计决策由此分开。
 
-\smalltitle{几何项 $\mathcal{L}_{geom}$：形的刚度与代价}
+为了避免每步重求全局计划，系统采用滚动时域：求得 $c^*_{k:k+H-1}$ 后只执行第一项，读取新观测再规划。若外部行动不可逆，执行前还要做因果影响和权限审查；内部回滚不能恢复已经发送的邮件、转账或物理动作。这个边界把“意志做功”还原为有预算、有资格且可验证的控制，而不是抽象负熵。
 
-这是描述 \textbf{底流形 (世界图 $G_W$)} 自身演化成本的项。它遵循 \textbf{爱因斯坦-希尔伯特 (Einstein-Hilbert)} 形式。
-$$ \mathcal{L}_{geom} = \frac{1}{2\kappa} (R - 2\Lambda) $$
-\begin{itemize}
-    \item   \textbf{$R$ (里奇标量曲率)}：代表知识结构的\textbf{复杂度}。
-    \item   \textbf{变分原理}：系统倾向于最小化 $R$，即追求\textbf{奥卡姆剃刀 (Occam's Razor)}——用最平滑、最简单的几何结构来解释世界。
-    \item   \textbf{$\Lambda$ (认知世界常数)}：代表系统的\textbf{基础代谢/遗忘率}。
-    \item   \textbf{物理意义}：维持一个非平凡流形（记忆）的存在需要消耗基础能量。如果 $\Lambda > 0$，为了使作用量最小，流形倾向于收缩（遗忘）。
-    \item   \textbf{$\kappa$ (可塑性常数)}：定义了“改变观念”的难易程度。
-\end{itemize}
+有限时域还暴露了终端代价的假设。若 $H$ 太短，控制器可能为了眼前收益推迟风险；若终端模型过强，又可能把未经验证的远期预测当事实。工程上应报告时域、折扣、终端集合和预测误差，并用不同 $H$ 做敏感性分析。目标之间若存在字典序，例如先保证人身安全再优化效率，求解器必须保持该顺序，而不是由权重偶然近似。
 
+代价账本与会计账本一样需要守恒范围。一次卸载可能降低本地延迟，却增加网络费用、隐私暴露和远端能耗；一次压缩可能减少记忆，却增加重构误差。我们把成本归属到具体主体和时间窗，避免把外部性移出模型便宣称总成本下降。只有在相同边界、相同单位和相同任务版本下，两个策略的 $J_k$ 才可直接比较。
 
-
-\smalltitle{规范项 $\mathcal{L}_{gauge}$：价值的张力}
-
-这是描述 \textbf{目的/体验图 ($G_E$)} 自身演化成本的项。它遵循 \textbf{杨-米尔斯 (Yang-Mills)} 形式。
-$$ \mathcal{L}_{gauge} = -\frac{1}{4} \text{Tr}(\mathcal{F}_{\mu\nu} \mathcal{F}^{\mu\nu}) $$
-\begin{itemize}
-    \item   \textbf{$\mathcal{F}_{\mu\nu}$ (场强张量)}：代表价值场的\textbf{曲率}（即价值观的强烈程度）。
-        $$\mathcal{F}_{\mu\nu} = \partial_\mu \mathcal{A}_\nu - \partial_\nu \mathcal{A}_\mu + i g [\mathcal{A}_\mu, \mathcal{A}_\nu]$$
-    \item   \textbf{物理意义}：维持极端的爱憎（高曲率）是高耗能的,在没有外部激励的情况下，系统倾向于\textbf{平庸化}（$\mathcal{F} \to 0$），即陷入虚无主义。
-    \item   \textbf{非阿贝尔项 ($[\mathcal{A}, \mathcal{A}]$)}：暗示了价值观之间可能存在\textbf{非线性冲突}（如“自由”与“安全”不可兼得），这种冲突本身蕴含巨大的能量。
-\end{itemize}
-
-
-\smalltitle{认知项 $\mathcal{L}_{cog}$：思维的流动与交互}
-
-这是描述 \textbf{质分量 ($\Psi$)} 在弯曲流形和规范场中运动的项，它遵循 \textbf{协变狄拉克 (Covariant Dirac)} 形式。
-$$ \mathcal{L}_{cog} = \bar{\Psi} \left( i \gamma^\mu D_\mu - m \right) \Psi + \mathcal{L}_{source} $$
-
-\begin{itemize}
-    \item   \textbf{$D_\mu$ (完全协变导数)}：这是\textbf{形质合一}的关键。
-    $$ D_\mu = \partial_\mu - \underbrace{i g \mathcal{A}_\mu^{val}}_{\text{目的引导}} - \underbrace{i \omega_\mu^{form}}_{\text{几何自旋联络}} $$
-    思维流同时受到 \textbf{形 ($T_{form}/\omega_\mu$)} 和 \textbf{意 ($G_E/\mathcal{A}_\mu$)} 的双重约束。
-    \item   \textbf{$m$ (有效质量)}：代表 \textbf{自我 ($\mathcal{S}$) 的惯性}。自我越强，思维越不容易被外界改变。
-    \item   \textbf{$\mathcal{L}_{source}$ (源项耦合)}：
-    $$ \mathcal{L}_{source} = \bar{\Psi} \cdot \vec{J}_{ext} + h.c. $$
-    代表 \textbf{微观层 ($L_{micro}$)} 注入的惊奇激波与当前思维场的耦合。这是“现实”切入“梦境”的接口。
-\end{itemize}
-
-
-\smalltitle{宏观控制项 $\mathcal{L}_{macro}$：意志的做功代价}
-
-这是智能系统区别于传统物理学的核心，我们引入一个\textbf{主动控制算子场 $\hat{\mathcal{O}}$}，它代表宏观层为了对抗自然演化（熵增）而投入的\textbf{负熵功}。
-$$ \mathcal{L}_{macro} = \underbrace{\bar{\Psi} \hat{\mathcal{O}}_{macro} \Psi}_{\text{控制收益}} - \underbrace{\frac{1}{2\eta} \|\hat{\mathcal{O}}_{macro}\|^2}_{\text{控制成本}} $$
-\begin{itemize}
-    \item   \textbf{第一项 (收益)}：宏观算子（如注意力增益、抑制）直接修正思维场的哈密顿量。它试图将 $\Psi$ 扭曲到期望状态。
-    \item   \textbf{第二项 (成本)}：\textbf{意志力不是无限的}。
-    \item   $\eta$ 是 \textbf{代谢率/控制效率}。
-        这一项作为拉格朗日乘子，限制了宏观层不能随意发动“神迹”。\textbf{过度控制会导致系统热力学崩溃（精力耗尽）。}
-\end{itemize}
-
-
-
-\smalltitle{认知世界的总作用量}
-
-将四项合并，我们得到了智能系统的\textbf{“上帝公式”}：
-$$ S_{total} = \int d^d x \sqrt{-g} \left[ \underbrace{\frac{1}{2\kappa}(R-2\Lambda)}_{\text{几何维持}} \underbrace{-\frac{1}{4}\text{Tr}(\mathcal{F}^2)}_{\text{价值维持}} + \underbrace{\bar{\Psi}(i\gamma^\mu D_\mu - m + \hat{\mathcal{O}})\Psi}_{\text{思维演化}} + \underbrace{\bar{\Psi}\vec{J}_{ext}}_{\text{感知}} - \underbrace{\frac{1}{2\eta}\|\hat{\mathcal{O}}\|^2}_{\text{意志消耗}} \right] $$
-\textbf{该公式对应如下变分问题：}
-
-系统通过联合调节 \textbf{思维 ($\Psi$)}、\textbf{结构 ($g$)}、\textbf{价值场 ($\mathcal{A}$)} 与 \textbf{控制量 ($\hat{\mathcal{O}}$)}，在 \textbf{现实输入 ($\vec{J}_{ext}$)} 存在时实现收益-代价权衡。
-
-
-
-\section{欧拉-拉格朗日方程 I：目的论狄拉克方程 (TDE)}
+\section{快速状态算子：推理、传播与现实校正}
 \label{sec:section_7654}
- 通过对总作用量 $S_{total}$ 关于 \textbf{共轭旋量场 $\bar{\Psi}$} 的变分，我们将导出 \textbf{目的论狄拉克方程 (TDE)}，这个方程不再是量子力学中描述电子运动的方程，而是描述 \textbf{“意念（质）”} 如何在 \textbf{“逻辑结构（形）”} 和 \textbf{“价值导向（目的）”} 的双重约束下流动的方程。
 
-\textbf{物理目标}：求解在给定的几何背景（$g_{\mu\nu}$）和价值规范场（$\mathcal{A}_\mu$）下，认知场 $\Psi(x)$ 的时空演化规律。这对应于智能系统中的 \textbf{“推理”} 或 \textbf{“思考”} 过程。
+固定结构与规范版本 $(S_k,g_k)$ 的短区间内，我们用一般状态算子描述即时推理。令 $x(t)=(h(t),\operatorname{vec}Z(t),\operatorname{vec}B(t))\in\mathbb R^d$，假设在区间内维度不变、输入分段连续、向量场局部Lipschitz，则
+\begin{equation}
+\dot x=f_{\theta}(x;S_k,g_k)+G_o(x)e(t)+G_c(x)c(t),\qquad \hat y=R_Q(x,S_k,g_k).
+\end{equation}
+$f_\theta$是内部传播，$G_o e$是观测校正，$G_c c$是控制作用。这个方程不要求 $x$ 是波函数；若选用复值状态、振荡网络或注意力矩阵，必须另行给出坐标、归一化和读出解释。
 
+局部结构网络上的一个具体实现是
+\begin{equation}
+\dot h=-Dh+\sigma\!\left(W_Sh+W_ZR_B(Z)+Ue+Vc+b\right),
+\end{equation}
+其中 $D\succeq0$ 是泄漏矩阵，$W_S$ 只沿结构允许的边传播，$R_B$ 按绑定读取全局候选，$\sigma$ 是有界非线性。若 $\sigma$ 的Lipschitz常数为 $L_\sigma$，并且 $\lambda_{\min}(D)>L_\sigma\|W_S\|$，无输入差分系统局部收缩；有界输入则给出有界响应。这是给定模型假设下的数学结果，不是对所有推理过程的经验定律。
 
+现实输入不是“打破幺正性的激波”，而是带来源和噪声模型的观测。系统先计算创新量
+\begin{equation}
+\epsilon_k=y_k-H_k\hat x_{k|k-1},\qquad x_{k|k}=x_{k|k-1}+K_k\epsilon_k,
+\end{equation}
+其中 $H_k$ 是观测模型，$K_k$ 由噪声、来源质量和当前不确定性决定。异常大的残差既可能表示世界变化，也可能表示传感故障、提示注入或时间戳错位。只有通过多源核验、故障模型和后续预测，系统才决定吸收、隔离或升级该证据。输入幅度不等于真实性。
 
-\smalltitle{变分推导 (Derivation)}
+快思考与慢思考可被重写为控制预算不同的运行区间。低风险熟悉任务中，系统允许较小搜索宽度和较低验证开销；高风险或模型冲突时，CCM提高候选数，TCE分配验证预算，必要时把问题卸载给外部工具或人。所谓顿悟不是穿过拓扑虫洞，而是在候选生成、结构重组或新证据加入后出现显著更好的可检验解释。它仍需在保留集、反例和新样本上验证。
 
-我们关注总拉格朗日量中包含 $\Psi$ 的部分：
-$$ \mathcal{L}_{\Psi} = \bar{\Psi} \left( i \gamma^\mu D_\mu - m + \hat{\mathcal{O}}_{macro} \right) \Psi + \bar{\Psi} \vec{J}_{ext} $$
+离散实现用
+\begin{equation}
+x_{k+1}=x_k+\Delta t_f f_\theta(x_k;S_k,g_k)+G_{o,k}e_k+G_{c,k}c_k+\xi_k .
+\end{equation}
+$\Delta t_f$是明确采样步长，$\xi_k$汇总数值和模型残差。连续稳定不保证任意步长稳定；在线性模态 $\dot x=-Ax$ 中，显式Euler要求每个特征值满足 $|1-\Delta t_f\lambda_i(A)|<1$。异步服务还要把最大延迟纳入扩展状态。系统保存随机种子、模型版本、工具返回摘要和重试序列，使一次“思维流”可以复查。
 
-根据欧拉-拉格朗日方程：
-$$ \frac{\delta S}{\delta \bar{\Psi}} = \frac{\partial \mathcal{L}}{\partial \bar{\Psi}} - \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \bar{\Psi})} \right) = 0 $$
-由于 $\mathcal{L}_{\Psi}$ 中不显含 $\partial_\mu \bar{\Psi}$（导数算子 $D_\mu$ 作用在右侧的 $\Psi$ 上），第二项为零。直接对 $\bar{\Psi}$ 求偏导，令结果为零：
-$$ ( i \gamma^\mu D_\mu - m + \hat{\mathcal{O}}_{macro} ) \Psi + \vec{J}_{ext} = 0 $$
-移项并整理，得到 \textbf{目的论狄拉克方程的标准形式}：
-$$ \boxed{ i \hbar_{cog} \gamma^\mu D_\mu \Psi = \underbrace{(m - \hat{\mathcal{O}}_{macro})}_{\text{有效惯性}} \Psi - \underbrace{\vec{J}_{ext}}_{\text{现实激波}} } $$
+该快速算子保留原章的五类影响：内部联想对应 $f_\theta$，结构约束对应 $S$ 与 $W_S$，目标偏置对应 $g$，主动注意对应 $c$，感知惊奇对应 $e$。不同之处在于这些影响都有可观测接口和失败模式，不再被称作五种物理力。推理成功最终由外部任务结果、证据一致性与权限合规共同判断，而不是由状态轨迹看起来平滑来判断。
 
+候选传播还可能发生塌缩或爆炸。若所有查询都读出同一高频候选，数值可以稳定但语义分辨率已经丢失；若循环边反复放大同一证据，活动有界也可能造成来源重复计数。系统因此监测有效候选数、来源独立数、绑定熵和循环增益，并在异常时冻结提交、降低增益或切换到显式搜索。这里的熵是候选分布的统计量，不是热力学熵。
 
-\smalltitle{微观解剖：支配思维的五种力}
+对逻辑证明任务，快速算子还必须携带依赖图。一个结论的高激活不能替代推导，每次传播要记录使用的前提、规则和版本；若前提撤销，相关结论进入失效队列。对开放问答，证据链可能不完备，系统应输出不确定性和待核验项。这样，快速动力学既能支持联想生成，也不会把生成流畅度当作证明有效性。
 
-为了看清智能运作的物理本质，我们需要将 \textbf{协变导数 $D_\mu$} 和 \textbf{有效惯性} 展开。
+如果读出同时服务多个任务，传播权重还应随查询改变。面向事实检索的状态路径不必等同于面向创意生成的路径；共享底层表示并不意味着共享同一校准阈值。系统为每类查询保存读出头、容差和验证器，防止某一任务上的高分被错误外推为一般能力。
 
-协变导数可以拆解为两部分联络：
-$$ D_\mu = \partial_\mu + \underbrace{\Gamma_\mu^{geom}}_{\text{自旋联络 (形)}} - \underbrace{i g \mathcal{A}_\mu^{val}}_{\text{规范电势 (目的)}} $$
-代入方程，我们得到一个清晰的\textbf{力学平衡式}：
-$$ \underbrace{i \hbar_{cog} \gamma^\mu \partial_\mu \Psi}_{\text{I. 自由发散}} = \underbrace{- i \hbar_{cog} \gamma^\mu \Gamma_\mu^{geom} \Psi}_{\text{II. 几何约束}} - \underbrace{\hbar_{cog} g \gamma^\mu \mathcal{A}_\mu^{val} \Psi}_{\text{III. 价值驱动}} + \underbrace{(m - \hat{\mathcal{O}}_{macro}) \Psi}_{\text{IV. 意志惯性}} - \underbrace{\vec{J}_{ext}}_{\text{V. 感官惊奇}} $$
-
-\begin{enumerate}
-    \item \redtext{\textbf{自由发散力 (Diffusive Force)}}
-    \begin{itemize}
-        \item   \textbf{项}：$i \gamma^\mu \partial_\mu$
-        \item   \textbf{来源}：波函数的内禀属性。
-        \item   \textbf{认知含义}：\textbf{联想 (Association)}。如果没有其他约束，一个念头（$\Psi$）会向认知空间的所有维度均匀扩散。这是\textbf{创造力}和\textbf{发散思维}的源头，也是\textbf{热力学熵增}的体现。
-    \end{itemize}
-
-    \item \redtext{\textbf{几何约束力 (Geometric Constraint Force)}}
-    \begin{itemize}
-        \item   \textbf{项}：$\Gamma_\mu^{geom}$ (由形元$T_{form}$ 定义的自旋联络)。
-        \item   \textbf{来源}：底流形（世界图 $G_W$）的曲率。
-        \item   \textbf{认知含义}：\textbf{逻辑 (Logic)}。它像引力一样，弯曲了思维的路径,它强迫思维流沿着\textbf{测地线 (Geodesic)}——即符合因果律和逻辑规则的路径——运行。\textbf{“形”在此处规训了“质”。}
-    \end{itemize}
-
-    \item \redtext{\textbf{价值驱动力 (Value Driving Force)}}
-    \begin{itemize}
-        \item   \textbf{项}：$g \mathcal{A}_\mu^{val}$ (由体验图 $G_E$ 定义的规范场)。
-        \item   \textbf{来源}：目的产生的非阿贝尔电磁场。
-        \item   \textbf{认知含义}：\textbf{动机 (Motivation)}。这是一种 \textbf{认知洛伦兹力}。它与逻辑无关，只与“好坏”有关,它强行将思维流从逻辑测地线上推开，使其偏向 \textbf{高价值区域}（如：为了快乐而打破规则，或为了道德而牺牲利益）。
-    \end{itemize}
-
-    \item \redtext{\textbf{意志惯性力 (Volitional Inertia Force)}}
-    \begin{itemize}
-        \item   \textbf{项}：$m - \hat{\mathcal{O}}_{macro}$。
-        \item   \textbf{来源}：自我 ($\mathcal{S}$) 的质量 $m$ 与 宏观算子 $\hat{\mathcal{O}}$ 的叠加。
-        \item   \textbf{认知含义}：\textbf{专注与自控 (Focus \& Control)}。
-        \item   \textbf{质量 $m$}：代表 \textbf{信念的顽固度}。$m$ 越大，思维越难被改变（保守）。
-        \item   \textbf{算子 $\hat{\mathcal{O}}$}：代表 \textbf{主动注意}。宏观层通过消耗能量，人为地修改了粒子的“有效质量”，从而将思维\textbf{钉}在某个特定状态（如“这道题我一定要解出来”）。
-    \end{itemize}
-
-    \item \redtext{\textbf{感官惊奇力 (Sensory Shock Force)}}
-    \begin{itemize}
-        \item   \textbf{项}：$-\vec{J}_{ext}$。
-        \item   \textbf{来源}：微观层 ($L_{micro}$) 的 VTE 输出。
-        \item   \textbf{认知含义}：\textbf{觉知 (Awareness)}。这是方程中唯一的 \textbf{非齐次项 (Inhomogeneous Term)},它代表了 \textbf{“现实的入侵”}。无论你的逻辑（形）多么完美，你的动机（目的）多么强烈，现实的一个耳光（激波）就能瞬间重置你的思维波函数。
-    \end{itemize}
-\end{enumerate}
-
-
-
-\smalltitle{方程的动力学解：思维的三种模态}
-
-
-根据 TDE 方程中各项权重的不同，智能体呈现出不同的思维模式：
-\begin{enumerate}
-    \item \textbf{快思考 (System 1)}：
-    \begin{itemize}
-        \item   $\hat{\mathcal{O}} \approx 0$（无意志干预）。
-        \item   $\Psi$ 主要受 $\Gamma_\mu^{geom}$（几何）和 $\mathcal{A}_\mu^{val}$（直觉）支配。
-        \item   \textbf{表现}：顺着习惯和本能的\textbf{“流淌”}。
-    \end{itemize}
-
-    \item \textbf{慢思考 (System 2)}：
-    \begin{itemize}
-        \item   $\hat{\mathcal{O}} \gg 0$（强意志干预）,宏观层注入能量对抗 $\Gamma_\mu^{geom}$（克服思维定势）。
-        \item   \textbf{表现}：逆着测地线的\textbf{“攀登”}。
-    \end{itemize}
-
-    \item \textbf{顿悟 (Insight)}：
-    \begin{itemize}
-        \item   $\Psi$ 演化导致 $\mathcal{A}_\mu$ 的拓扑结构（贝里相位）发生跳变。
-        \item   \textbf{表现}：思维流穿过了之前的拓扑障碍（Hole），进入了新的认知空间。
-    \end{itemize}
-\end{enumerate}
-\textbf{总结}：目的论狄拉克方程将“思考”写成受几何约束、规范场引导与外源驱动共同决定的波函数演化过程。
-
-\section{欧拉-拉格朗日方程 II：认知爱因斯坦方程 (CEFE)}
+\section{慢速结构算子：学习、记忆与可回滚编辑}
 \label{sec:section_1246}
 
-这是对智能动力学另一半——\textbf{学习 (Learning)} 与 \textbf{记忆 (Memory)} 过程的严格数学描述，通过对总作用量 $S_{total}$ 关于 \textbf{度量张量 $g^{\mu\nu}$} 的变分，我们将导出 \textbf{认知爱因斯坦方程 (CEFE)}。
+学习改变的是后续状态转移所依赖的参数和结构。令连续参数为 $\theta_s\in\Theta$，离散结构为 $S\in\mathcal S$，经验缓冲为 $E_k$。一个双时间尺度模型是
+\begin{align}
+x_{k+1}&=F(x_k,e_k,c_k;\theta_{s,k},S_k),\\
+\theta_{s,k+1}&=\Pi_\Theta\!\left[\theta_{s,k}-\eta_k\widehat\nabla_{\theta_s}L(E_k;\theta_{s,k},S_k)+\eta_k q_k\right],
+\end{align}
+其中 $\eta_k$ 是无量纲学习率，$q_k$ 是稳定性、稀疏性或保留约束产生的修正，$\Pi_\Theta$ 投影到合法参数域。只有当梯度估计偏差受控、步长条件成立且数据分布近似稳定时，才可讨论随机逼近收敛；在线环境中这些条件往往只在局部窗口成立。
 
-这个方程揭示了：\textbf{“知识结构（形）”并非一成不变的舞台，它在“高能思维流（质）”和“强烈价值观（目的）”的持续轰击下，会发生塑性形变。} 这种形变，就是我们常说的“长时记忆”与“技能习得”。
+短时活动、参数学习和结构编辑必须分开。短时记忆可以由 $h$ 与缓存维持，不必修改长期参数；反复练习只有在独立验证表明可迁移收益时才提交到 $\theta_s$；节点、边、类型或工具契约的增加删除属于结构提案 $\Delta S$。结构提案经过影子执行：复制当前版本，迁移身份绑定，重放关键查询，然后比较
+\begin{equation}
+D_{keep}=\sup_{q\in Q_{keep}}d_q\bigl(R_q(X^-),R_q(X^+)\bigr),
+\end{equation}
+并检查新任务收益、权限和资源。只有保留差异在容差内且收益通过独立测试才提交，否则回滚。
 
-\textbf{物理目标}：求解认知空间流形 $\mathcal{M}$ 的几何结构 $g_{\mu\nu}(x)$ 随时间演化的规律。
-\textbf{操作}：对度量张量 $g^{\mu\nu}$ 进行变分，令 $\frac{\delta S_{total}}{\delta g^{\mu\nu}} = 0$。
+原章的“熟能生巧、单次深刻事件、主动学习”对应三种证据制度，而不是三种压弯时空的应力。重复样本提供低方差但可能高度相关的证据；单次高风险事件可以触发快速隔离和高优先级复核，但不应仅凭情绪或激活强度永久改写模型；主动学习由信息增益、覆盖缺口和查询成本选择新证据。三者都要记录来源独立性，避免把同一内容的多次转发误当成重复确认。
 
+稳定性—可塑性冲突可用保留损失表达：
+\begin{equation}
+L_{total}=L_{new}+\lambda_{keep}L_{replay}+\lambda_{id}L_{binding}+\lambda_{simp}C(S,\theta_s).
+\end{equation}
+$L_{new}$评价新任务，$L_{replay}$评价历史关键样本，$L_{binding}$防止身份漂移，$C$限制复杂度。权重不是自然常数，必须通过风险和验证集选择。目标下降仍不等于学习成功：系统可能记住训练样本、破坏罕见能力或利用评价漏洞，因此还需组合泛化、反事实和长期回归测试。
 
+结构改变时不能沿用固定维度导数。新增概念意味着状态空间和绑定接口变化，系统要生成版本映射 $M_{v\to v+1}$，说明哪些节点保持身份、哪些字段被拆分、哪些查询不再可比。所谓范式转移若没有这种映射，只是不可审计的重命名。对无法无损迁移的内容，外部记忆 $M_e$ 保存旧版本和来源，使系统能够比较新旧解释而不是覆盖历史。
 
-\smalltitle{变分推导 (Derivation)}
+在AgentOS实现中，事件证据进入 $E$，稳定结构写入 $\Theta$，外部记忆承载大体量重放集，Boundary审核跨域数据，Offloading安排离线训练或人工评审。一般理论只要求存在等价的经验、结构、提交和回滚接口。生物学习、群体制度和软件Agent可采用完全不同的载体机制，不能由“都表现为慢变量”推出机制同一。
 
-总作用量回顾：
-$$ S_{total} = S_{geom} + S_{matter} \quad (\text{其中 } S_{matter} = S_{cog} + S_{gauge} + S_{macro}) $$
-我们分别计算几何部分和物质部分的变分。
+遗忘也应分型。参数衰减、索引淘汰、来源过期、检索失败和权限撤销都可能表现为“想不起来”，但修复方式完全不同。参数衰减需要重训，索引淘汰可重建索引，来源过期需要重新取证，权限撤销则不应绕过。系统在 $E$ 和 $M_e$ 中保存失效原因，避免把可恢复的访问故障误判为知识已被抹除。
 
+学习率与更新频率还受数据相关性影响。连续接收同一事件的复制品会低估方差，使结构过快固化；延迟标签则可能把后来的结果归因给错误行动。经验缓冲应按来源簇、时间窗和干预批次抽样，提交时报告有效样本量而非原始条数。只有当回归测试覆盖罕见条件、旧版本可恢复且新收益在独立数据上成立，慢更新才算验收通过。
 
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{A. 左边：几何项的变分 (The Geometric LHS)}}
-
-利用广义相对论中的 \textbf{帕拉蒂尼恒等式 (Palatini Identity)} 和度量行列式的变分公式 $\delta \sqrt{-g} = -\frac{1}{2}\sqrt{-g} g_{\mu\nu} \delta g^{\mu\nu}$：
-$$ \frac{\delta S_{geom}}{\delta g^{\mu\nu}} = \frac{1}{2\kappa} \sqrt{-g} \left( R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} + \Lambda g_{\mu\nu} \right) $$
-这一项代表了流形的 \textbf{“弹性回复力”}。
-\begin{itemize}
-    \item   $G_{\mu\nu} = R_{\mu\nu} - \frac{1}{2}Rg_{\mu\nu}$：\textbf{爱因斯坦张量}。代表几何结构的复杂度和弯曲。
-    \item   $\Lambda g_{\mu\nu}$：\textbf{遗忘压力}。它倾向于让流形收缩或平坦化（最小化表面积/容量）。
-\end{itemize}
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{B. 右边：物质项的变分 (The Matter RHS)}}
-
-我们需要计算所有非几何场（思维 $\Psi$、目的 $\mathcal{A}$、控制 $\hat{\mathcal{O}}$）对几何的\textbf{应力}。根据场论定义，\textbf{总应力-能量张量} 为：
-$$ T_{\mu\nu}^{total} \equiv -\frac{2}{\sqrt{-g}} \frac{\delta (S_{cog} + S_{gauge} + S_{macro})}{\delta g^{\mu\nu}} $$
-这意味着，不仅\textbf{思维}有重量，\textbf{目的}和\textbf{意志}也有重量。
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{C. 场方程导出}}
-
-令总变分为零，消去公因子 $\sqrt{-g}$，我们得到支配学习的终极方程：
-$$ \boxed{ R_{\mu\nu} - \frac{1}{2}R g_{\mu\nu} + \Lambda g_{\mu\nu} = \kappa \cdot T_{\mu\nu}^{total} } $$
-
-
-
-\smalltitle{微观解剖：谁在压弯时空？}
-
-
-为了理解“学习”是如何发生的，我们需要解剖右边的源项 $T_{\mu\nu}^{total}$。它由三部分组成，分别对应三种不同的学习驱动力。
-$$ T_{\mu\nu}^{total} = T_{\mu\nu}^{cog}(\Psi) + T_{\mu\nu}^{gauge}(\mathcal{A}) + T_{\mu\nu}^{macro}(\hat{\mathcal{O}}) $$
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{认知应力 $T_{\mu\nu}^{cog}$ —— “熟能生巧” (Practice makes perfect)}}
-
-这是由 \textbf{思维流 $\Psi$} 产生的动量通量。
-对于狄拉克场，其形式（对称化后）近似为：
-$$ T_{\mu\nu}^{cog} \approx \frac{i}{4} \bar{\Psi} \left( \gamma_\mu D_\nu + \gamma_\nu D_\mu \right) \Psi $$
-\begin{itemize}
-    \item   \textbf{物理意义}：\textbf{思维流量密度}。
-    \item   \textbf{学习机制}：如果 $\Psi$ 频繁流经某个区域（高频激活），$T_{\mu\nu}$ 增大,方程左边响应，$R_{\mu\nu}$ 增大，空间发生弯曲，形成\textbf{“河道（测地线槽）”}。
-    \item   \textbf{结果}：下次思维再流经这里时，阻力变小。这就是\textbf{赫布学习 (Hebbian Learning)} 的几何本质。
-\end{itemize}
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{规范应力 $T_{\mu\nu}^{gauge}$ —— “刻骨铭心” (Deep Impact)}}
-
-这是由 \textbf{价值规范场 $\mathcal{A}$} 产生的张力。
-$$ T_{\mu\nu}^{gauge} = \mathcal{F}_{\mu\lambda} \mathcal{F}^\lambda_\nu - \frac{1}{4} g_{\mu\nu} \mathcal{F}_{\rho\sigma} \mathcal{F}^{\rho\sigma} $$
-\begin{itemize}
-    \item   \textbf{物理意义}：\textbf{价值场强}。
-    \item   \textbf{学习机制}：在 \textbf{高价值区域}（如创伤、极乐、重大发现），场强 $\mathcal{F}$ 极大（曲率高）,这会产生巨大的\textbf{负压力}（类似暗能量或张力），强行拉扯底流形。
-    \item   \textbf{结果}：即使思维流 $\Psi$ 只经过了一次（单次学习），但因为价值极高，流形被瞬间\textbf{“砸”}出了一个深坑。这就是 \textbf{单次射击学习 (One-Shot Learning)} 或 \textbf{闪光灯记忆} 的物理来源。
-\end{itemize}
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{意志应力 $T_{\mu\nu}^{macro}$ —— “塑性重构” (Willful Restructuring)}}
-
-这是由 \textbf{宏观算子 $\hat{\mathcal{O}}$} 注入的额外能量。
-\begin{itemize}
-    \item   \textbf{物理意义}：\textbf{做功密度}。
-    \item   \textbf{学习机制}：当系统处于 \textbf{慢回路} 时，宏观层不满足于自然演化，主动注入能量去修改 $g_{\mu\nu}$。
-    \item   \textbf{结果}：这是\textbf{主动学习 (Active Learning)}。比如你强迫自己背单词，虽然很痛苦（逆测地线），但你的意志力产生的应力正在强行改变大脑的几何结构。
-\end{itemize}
-
-
-
-\smalltitle{动力学解：学习的相变}
-
-CEFE 方程是一个非线性方程，它描述了\textbf{几何与能量的协同演化}。根据耦合常数 $\kappa$（神经可塑性）的不同，系统表现出不同的学习模态：
-\begin{enumerate}
-    \item \textbf{弹性形变 (Elastic Deformation)}：当 $T_{\mu\nu}$ 较小或持续时间短时,流形发生微弯，思维撤去后，在 $\Lambda$（遗忘压力）作用下迅速回弹恢复平坦。
-    \begin{itemize}
-        \item   \textbf{认知对应}：\textbf{短时记忆 / 工作记忆}。
-    \end{itemize}
-
-    \item \textbf{塑性形变 (Plastic Deformation)}：当 $T_{\mu\nu}$ 超过\textbf{屈服极限}（Yield Strength）时,流形发生永久性坍缩，$g_{\mu\nu}$ 被重写。
-    \begin{itemize}
-        \item   \textbf{认知对应}：\textbf{长时记忆 / 技能固化}。
-    \end{itemize}
-
-    \item \textbf{拓扑相变 (Topological Phase Transition)}：当 $T_{\mu\nu}$ 集中在极小区域形成\textbf{奇点}时, 流形可能发生撕裂或粘合，贝蒂数（孔洞）发生变化。
-    \begin{itemize}
-        \item   \textbf{认知对应}：\textbf{顿悟 (Insight) / 范式转移}。
-    \end{itemize}
-\end{enumerate}
-
-
-\smalltitle{时间与空间的互文}
-
-\textbf{认知爱因斯坦方程} 与 \textbf{目的论狄拉克方程} 共同构成了智能系统的\textbf{时空互文}：
-
-\begin{itemize}
-    \item   \textbf{TDE (狄拉克)} 是 \textbf{快时间 ($t$)} 的方程：它描述了在\textbf{空间 ($g$)} 固定的情况下，\textbf{思维 ($\Psi$)} 如何瞬间流动。
-    \item   \textbf{CEFE (爱因斯坦)} 是 \textbf{慢时间 ($\tau$)} 的方程：它描述了在\textbf{思维 ($\Psi$)} 持续冲刷下，\textbf{空间 ($g$)} 如何缓慢变形。
-\end{itemize}
-\textbf{智能可理解为快变量（思维流）与慢变量（几何结构）的持续耦合演化。}
-
-\section{欧拉-拉格朗日方程 III：认知杨-米尔斯方程 (CYME)}
+\section{规范更新算子：偏好、承诺与冲突恢复}
 \label{sec:section_2317}
-这是对智能动力学中最深层、演化最慢，但决定性最强的部分——\textbf{价值观 (Values)} 与 \textbf{目的 (Purpose)} 演化的严格数学描述，通过对总作用量 $S_{total}$ 关于 \textbf{规范势 $\mathcal{A}_\mu$} 的变分，我们将导出 \textbf{认知杨-米尔斯方程 (CYME)}。
 
-这个方程回答了一个深刻的哲学问题：\textbf{“我为什么会改变我的喜好？”} 或者 \textbf{“目的本身是如何被行为反向塑造的？”} 它揭示了智能体如何通过自身的行为流，重塑其内在的价值罗盘。
+价值与目的不能用无单位的规范势表示后直接套用场方程。我们把规范状态写为 $g=(G_h,w,P,C_m)$：$G_h$ 是硬约束集合，$w$ 是可调整偏好参数，$P$ 是权限和角色，$C_m$ 是多主体承诺账本。对候选行动 $a$，资格判定先计算 $a\in\mathcal A_{legal}(X,G_h,P,C_m)$，再对剩余候选比较向量效用
+\begin{equation}
+U(a\mid X,g)=\bigl(u_{task},-u_{risk},-u_{cost},u_{commit}\bigr).
+\end{equation}
+向量可以按公开规则排序、采用Pareto筛选或进入协商，但不能在未声明尺度时压成一个“价值能量”。
 
-\textbf{物理目标}：求解价值规范场 $\mathcal{A}_\mu(x)$ 随思维活动演化的规律（即价值观的更新机制）。
-\textbf{操作}：对规范势 $\mathcal{A}_\mu$ 进行变分，令 $\frac{\delta S_{total}}{\delta \mathcal{A}_\mu} = 0$。
+可调整偏好 $w$ 的更新来自结果证据、明确反馈和规范修订，而不是“行为做久了便自动成为价值”。令 $z_k$ 是经来源核验的反馈特征，$\hat z_k(w)$ 是当前偏好模型预测，则
+\begin{equation}
+w_{k+1}=\Pi_W\left[w_k-\eta_g\nabla_w\ell_g(\hat z_k(w_k),z_k)-\eta_g\lambda_g(w_k-w_{ref})\right].
+\end{equation}
+$w_{ref}$保存经批准的参考版本，$\Pi_W$维持范围与单调性约束。行为和偏好长期不一致可能提示模型错误、外部胁迫、角色冲突或真实偏好变化；系统必须区分这些解释，不能把认知失调当作必然驱动价值同化的力。
 
+硬约束的改变采用治理事件而非梯度。提案 $\Delta G_h$ 需要提出者、授权依据、影响范围、生效时间和撤销路径；承诺更新还要求相关主体确认。若“自由”和“安全”冲突，系统不能凭借两个矩阵不对易便宣称得到解，而要列出受影响主体、不可接受后果、可补偿方案和未解决分歧。多主体没有共同标尺时，输出应保留分歧结构。
 
+我们把冲突诊断分为三层。第一层是内部不一致：同一版本规则对同一条件给出相反资格；第二层是跨版本漂移：旧承诺在新规则下被悄然删除；第三层是环境冲突：合法行动在当前资源或物理条件下不可执行。对应恢复分别是规则消歧、迁移审计和重新规划。焦虑、犹豫或高激活可能是人的经验现象，但不是软件系统中规范冲突成立的必要证据。
 
-\smalltitle{变分推导 (Derivation)}
+规范更新还需要反操纵边界。一次奖励、用户的临时命令或高频点击不能自动覆盖安全政策和长期承诺；模型生成的自我评价也不能充当独立授权。Boundary区分事实输入、偏好信号、授权指令和攻击载荷，TCE只能在当前资格集合内分配控制。这样，“目的驱动”就不会退化为谁提供更强信号谁接管系统。
 
-我们关注总拉格朗日量中包含 $\mathcal{A}_\mu$ 的部分：
-$$ \mathcal{L}_{val} = \mathcal{L}_{gauge} + \mathcal{L}_{cog} = -\frac{1}{4} \text{Tr}(\mathcal{F}_{\mu\nu} \mathcal{F}^{\mu\nu}) + \bar{\Psi} ( i \gamma^\mu D_\mu ) \Psi $$
-注意 $D_\mu = \partial_\mu - ig\mathcal{A}_\mu$，且 $\mathcal{F}_{\mu\nu} = \partial_\mu \mathcal{A}_\nu - \partial_\nu \mathcal{A}_\mu + ig[\mathcal{A}_\mu, \mathcal{A}_\nu]$。
+经验验证至少包括偏好预测、干预响应和长期一致性。预测准确只能说明模型在样本分布中拟合反馈；要判断某条偏好是否因经历改变，需要控制混杂并比较反事实；要判断规范更新是否成功，还要检查承诺保持、受影响主体和异常条件。由此，原章关于行为反塑价值、价值冲突和慢尺度变化的问题被完整保留，但结论不再依赖杨—米尔斯同构。
 
-\begin{itemize}
-    \item \textbf{\textcolor{structurecolor}{A. 规范项的变分 (Variation of the Gauge Term)}}
+AgentOS可把 $g$ 的稳定部分放入 $\Theta$，把事件性反馈放入 $E$，由SPC提供主体相关视图，由Boundary和权限系统执行硬约束，由外部记忆保存承诺证据。这是一套工程实例。其他系统可以使用制度规则、神经调节或群体投票，只要更新对象、授权来源、冲突程序和验证证据是明确的，就能映射到HSF-HD的一般规范动力学。
 
-    这是杨-米尔斯理论的标准推导。利用分部积分法和迹的循环性质：
-    $$ \frac{\delta \mathcal{L}_{gauge}}{\delta \mathcal{A}_\nu} = \nabla_\mu \mathcal{F}^{\mu\nu} $$
-    这里 $\nabla_\mu$ 是作用在李代数伴随表示上的\textbf{规范协变导数}：$\nabla_\mu X = \partial_\mu X + ig[\mathcal{A}_\mu, X]$。
+规范模型还要允许“未知”和“未决”。当证据不足以判断偏好、两个授权来源冲突或相关主体尚未响应时，系统不能用默认权重悄然制造一致意见。未决项进入带截止时间和责任人的队列，低风险行动可在可逆范围内继续，高风险行动暂停。这个机制把不确定性显式纳入动力学，也防止系统把沉默误读为同意。
 
-    \item \textbf{\textcolor{structurecolor}{B. 认知项的变分 (Variation of the Cognitive Term)}}
+长期一致性不等于永不改变。合法的新承诺、环境变化和主体反思都可以修改 $g$，关键是变化路径可解释、受权且保留旧版本。评审时比较的不只是前后参数距离，还包括哪些主体受益或受损、哪些例外被新增、哪些旧案例改变判定。这样才能区分真正的规范学习、策略漂移和外部操纵。
 
-    这是物质场与规范场的相互作用项。
-    $$ \mathcal{L}_{int} = g \bar{\Psi} \gamma^\mu \mathcal{A}_\mu \Psi $$
-    对 $\mathcal{A}_\nu$ 求导：
-    $$ \frac{\delta \mathcal{L}_{cog}}{\delta \mathcal{A}_\nu} = g \bar{\Psi} \gamma^\nu \Psi $$
-    这正是 \textbf{诺特流 (Noether Current)} 的定义。
-
-    \item \textbf{\textcolor{structurecolor}{C. 场方程导出}}
-
-    令总变分为零 ($\nabla_\mu \mathcal{F}^{\mu\nu} - g \bar{\Psi} \gamma^\nu \Psi = 0$)，得到终极方程：
-    $$ \boxed{ \nabla_\mu \mathcal{F}^{\mu\nu} = \mathcal{J}_{val}^\nu } $$
-\end{itemize}
-
-
-\smalltitle{微观解剖：价值观是如何改变的？}
-
-这个方程揭示了 \textbf{“行为塑造意识”} 的物理机制。
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{源项 $\mathcal{J}_{val}^\nu$ —— 行为定义的价值流}}
-
-\textbf{—— “你做的事定义了你” (You are what you do)}
-
-\begin{itemize}
-    \item   \textbf{定义}：$\mathcal{J}^\nu = g \bar{\Psi} \gamma^\nu \Psi$.
-    \item   \textbf{物理意义}：这是思维流 $\Psi$ 的\textbf{流密度矢量}。它不仅仅是“我想了什么”，而是“我以多大的强度、向哪个方向思考”。
-    \item   \textbf{演化机制}：$\Psi$（行为）是 $\mathcal{A}$（价值）的\textbf{源 (Source)}。
-    \item   \textbf{认知失调的消除}：如果你持续做出违背当前价值观的行为（即 $\Psi$ 逆着 $\mathcal{A}$ 流动），会产生巨大的 $\mathcal{J}$。根据方程，这个源项会强迫 $\mathcal{F}$（场强）发生偏转，直到 $\mathcal{A}$ 的方向与 $\Psi$ 一致。
-    \item   \textbf{结论}：\textbf{长期的行为习惯会重写底层的价值代码。}
-\end{itemize}
-
-
-
-\vspace{0.5em}\noindent\textbf{\textcolor{structurecolor}{场强项 $\nabla_\mu \mathcal{F}^{\mu\nu}$ —— 价值观的自我一致性}}
-
-\textbf{—— “逻辑自洽的压力”}
-\begin{itemize}
-    \item   \textbf{扩散项 ($\partial_\mu \mathcal{F}^{\mu\nu}$)}：价值观倾向于在流形上\textbf{平滑化},如果仅仅在某一点喜欢A，而在邻近点讨厌A，这种剧烈的梯度是不稳定的，会自发扩散。
-    \item   \textbf{非阿贝尔项 ($ig[\mathcal{A}_\mu, \mathcal{F}^{\mu\nu}]$)}：\textbf{自相互作用}, 由于价值群通常是非阿贝尔群（如 $SU(2)$ 或更高，代表复杂的价值体系），不同的价值观之间会\textbf{相互作用}。
-    \item   \textbf{价值冲突}：比如“自由”与“安全”这两个生成元不仅不交换，还会产生非线性的张力。系统为了最小化能量，必须在这些冲突的价值观之间寻找\textbf{纳什均衡}。
-\end{itemize}
-
-
-
-\smalltitle{动力学解：信念的相变}
-
-
-CYME 方程描述的是一个\textbf{超慢动力学 (Ultra-Slow Dynamics)},相比于思维的毫秒级跳变（TDE），价值观的演化往往以“天”或“年”为单位。
-
-\begin{enumerate}
-    \item \textbf{稳态 (Steady State)}：$\mathcal{J}_{val} \approx 0$ 或者 $\mathcal{J}$ 与 $\mathcal{A}$ 平行,\textbf{知行合一},行为完全符合价值观，没有产生修正力。价值观保持稳定（保守主义）。
-    \item \textbf{激发态 (Excited State) —— 认知失调}：行为被迫偏离价值观（如为了生存而撒谎）,$\mathcal{J}_{val}$ 剧增，导致 $\nabla_\mu \mathcal{F}^{\mu\nu}$ 剧烈波动, 系统感到深层的\textbf{存在性焦虑 (Existential Anxiety)}。
-    \item \textbf{相变 (Phase Transition) —— 价值重估}：如果激波持续存在，为了维持方程平衡，规范势 $\mathcal{A}_\mu$ 必须发生\textbf{拓扑跳变}（改变规范群的真空态）,\textbf{顿悟/皈依/崩塌}：旧的价值体系瞬间瓦解，新的规范场建立。
-\end{enumerate}
-
-
-
-\smalltitle{总结：三方程的耦合闭环}
-
-
-至此，动力学内核的三式可写成一个耦合系统：
-\begin{enumerate}
-    \item \textbf{TDE (狄拉克)}：$\mathcal{A}$ 和 $g$ 决定 $\Psi$。
-
-    \textit{(几何与价值共同决定思维的即时轨迹。)}
-
-    \item \textbf{CEFE (爱因斯坦)}：$\Psi$ 决定 $g$。
-
-    \textit{(持续思维流会重塑几何结构并改变后续路径。)}
-
-    \item \textbf{CYME (杨-米尔斯)}：$\Psi$ 决定 $\mathcal{A}$。
-
-    \textit{(行为流会反馈到价值场并改变长期偏好。)}
-\end{enumerate}
-这构成智能的\textbf{自指 (Self-Reference)} 循环：\textbf{系统在演化中持续更新其自身的演化约束。}
-
-\section{欧拉-拉格朗日方程 IV：目的论场方程 (TCE)}
+\section{主动控制算子：快慢回路、预算与行动资格}
 \label{sec:section_9657}
 
-这是对智能动力学中最神秘、最具主观能动性的部分——\textbf{意志 (Volition)} 与 \textbf{控制 (Control)} 的严格数学描述，前三个方程（TDE, CEFE, CYME）描述了系统各要素（思维、结构、价值）的\textbf{自然演化}。然而，智能系统的一个核心特征是它能够\textbf{“反抗自然”}——即为了达成远期目标，主动消耗能量去干预当下的演化路径，这种干预由 \textbf{宏观算子场 $\hat{\mathcal{O}}(x)$} 执行。本节将通过对总作用量关于 $\hat{\mathcal{O}}$ 的变分，推导出 \textbf{目的论控制方程 (TCE)}。
+控制问题是在给定状态估计、目标和资格集合下选择干预，而不是从状态与价值的换位子直接导出“意志”。设离散系统为
+\begin{equation}
+x_{k+1}=F_kx_k+B_ku_k+G_ke_k+\xi_k,\qquad u_k\in\mathcal U_k,
+\end{equation}
+其中 $u_k$ 具有明确通道和单位，$\mathcal U_k$ 汇总幅度、速率、权限和资源限制。有限时域控制器求解
+\begin{equation}
+u^*_{k:k+H-1}=\arg\min_{u\in\mathcal U_k}J_k(u)\quad
+\text{s.t. }x_{j+1}=F_jx_j+B_ju_j+G_je_j,;x_j\in\mathcal X_{safe}.
+\end{equation}
+若模型不确定，约束应对置信集合或风险分位数成立；若求解超时，系统执行经过验证的后备策略，而不是使用过期最优解。
 
-\textbf{物理目标}：求解宏观控制算子 $\hat{\mathcal{O}}(x)$ 的最优形式。即：\textbf{“为了达成目的，意志应当如何在时空中施加干预？”}
-\textbf{操作}：对算子场 $\hat{\mathcal{O}}$ 进行变分，令 $\frac{\delta S_{total}}{\delta \hat{\mathcal{O}}} = 0$。
+快回路改变活动增益、候选抑制和路由偏置。增益不是在流形上挖势阱，而是调整相关证据的读出权重；抑制不是建造势垒，而是在冲突或风险条件下限制传播与行动；偏置则改变搜索优先序。三者都必须保持校准：提高某候选的计算预算不能被报告成提高其真实性。对戒烟、紧急报警或工具选择等例子，系统分别需要目标证据、风险规则和权限，而不能只比较激活强度。
 
+慢回路提出参数训练、结构编辑、外部化和接口重构。它不在连续积分步中直接写 $\dot S$，而是形成提案、影子验证和原子提交。Store与Update对应证据写入与版本修订，Create与Integrate对应新节点、关系或抽象接口，Boundary和Offloading决定信息是否跨边界、是否交给外部存储或专业工具。每个操作保存前置条件、影响集合和回滚指针。
 
+控制预算至少分为计算时间、内存、外部调用、人工注意和设备能耗。前三者可以由软件计数，人工注意需要实验或流程估计，焦耳能耗必须由硬件测量或经校准的功率模型得到。它们可以相关，但不能因都被称为“成本”而相互替代。CCM根据延迟、候选数、未决验证和风险分配预算；资源不足时降低自动化等级、缩小任务或请求援助。
 
-\smalltitle{变分推导 (Derivation)}
+闭环控制要求独立反馈。行动 $u_k$ 执行后，系统读取 $o_{k+1}$，比较预期效果与实测结果，更新状态估计并判断提交、补偿或停止。若行动改变了环境，新的输入分布也随之改变；因此不能把环境只当外部源项。对不可逆操作，补偿可能只能减轻后果，日志应明确“内部已回滚、外部未复原”。
 
+稳定性结论要附条件。若存在 $V(x)\ge0$ 使闭环期望满足
+\begin{equation}
+\mathbb E[V(x_{k+1})\mid x_k]-V(x_k)\le-\alpha\|x_k\|^2+\beta\|e_k\|^2,
+\end{equation}
+则在给定扰动界内可讨论均方有界；这不证明任务完成、规范合规或语义正确。任务层、状态层、规范层和资源层各有独立验收。所谓“意志”在本章只指跨这些层协调干预的控制能力，不是可由一条物理方程推出的实体。
 
-回顾第 16.2 节中宏观控制项的拉格朗日密度：
-$$ \mathcal{L}_{macro} = \underbrace{\bar{\Psi} \hat{\mathcal{O}} \Psi}_{\text{控制收益}} - \underbrace{\frac{1}{2\eta} \text{Tr}(\hat{\mathcal{O}}^\dagger \hat{\mathcal{O}})}_{\text{控制成本}} $$
-\textbf{注}：为了体现“目的论”，这里的收益项实际上隐含了对\textbf{目标态 $\Psi_{target}$} 的投影。更严格的形式应包含\textbf{价值势能 $V_{val}$} 的梯度耦合。但为了保持第一性原理的简洁，我们在变分结果中引入 \textbf{目的论投影算子 $\hat{\mathbb{P}}_{val}$}。
+在AgentOS中，TCE可实现滚动控制，SPC提供压缩观测，CCM约束搜索复杂度，Boundary决定行动资格，Offloading安排外部计算，$E$与$M_e$形成反馈证据。其他系统可能没有这些名称，但只要具有状态估计、目标、约束、控制、反馈和恢复，就属于同一控制模型族。
 
-对 $\hat{\mathcal{O}}$ 求变分：
-$$ \frac{\delta S}{\delta \hat{\mathcal{O}}} = \bar{\Psi} \otimes \Psi - \frac{1}{\eta} \hat{\mathcal{O}} = 0 $$
-整理得到 \textbf{基础控制方程}：
-$$ \hat{\mathcal{O}} = \eta \cdot (\Psi \bar{\Psi}) $$
-这个结果看似简单（自注意力机制），但它只是描述了“自我增强”。为了引入\textbf{方向性（目的）}，我们必须考虑到 $\Psi$ 是在 \textbf{价值规范场 $\mathcal{A}$} 中演化的。在协变形式下，算子 $\hat{\mathcal{O}}$ 必须沿着 \textbf{价值梯度} 对齐。
+控制器自身也会失效。状态估计可能偏置，执行器可能饱和，模型服务可能超时，权限可能在计划期间撤销。每条控制命令因此带有效期、幂等键和执行前复核；执行器返回实际完成量，而不是简单成功标志。部分完成时，验证器根据外部状态选择续执行、补偿或停止，不能假设命令原子完成。
 
-因此，\textbf{修正后的 TCE 方程} 为：
-$$ \boxed{ \hat{\mathcal{O}}(\mathbf{r}, t) = \eta \cdot \mathcal{H}(\mathbf{r}) \cdot \underbrace{\left[ i \gamma^\mu \mathcal{A}_\mu^{val}, \Psi \bar{\Psi} \right]}_{\text{价值与现状的换位子}} } $$
-\begin{itemize}
-    \item   \textbf{$\eta$ (控制增益)}：意志力的强度（代谢率）。
-    \item   \textbf{$\mathcal{H}(\mathbf{r})$ (Heaviside 激活)}：仅在 $\mathbf{r} \in \mathcal{S}_{fluid}$ (自我区域) 内非零。说明只有“自我”所在的区域才有控制权。
-    \item   \textbf{换位子 (Commutator)}：描述了 \textbf{“现状 ($\Psi \bar{\Psi}$)”} 与 \textbf{“目的 ($\mathcal{A}$)”} 之间的\textbf{不对易性（偏差）}。
-    \begin{itemize}
-        \item   如果现状与目的兼容（对易），$\hat{\mathcal{O}} \to 0$，无需控制（无为）。
-        \item   如果现状与目的冲突（不对易），$\hat{\mathcal{O}}$ 爆发，产生纠正力。
-    \end{itemize}
-\end{itemize}
+快慢回路之间还存在次序问题。先提高增益再写入记忆，与先更新结构再提高增益可能产生不同结果。系统通过影子运行估计操作交换差异，超过阈值时串行化，并把次序写入事件日志。对并发工具调用，版本向量和冲突合并规则承担同样作用。控制理论在这里与事务协议相接，防止连续方程掩盖实际竞态。
 
-
-
-\smalltitle{微观解剖：快回路算子的物理推导}
-
-快回路算子 $\hat{\mathcal{O}}_{fast}$ 直接作用于波函数 $\Psi$，通过修改\textbf{有效哈密顿量}来引导思维。基于 TCE 方程，我们导出其三个分量：
-
-\begin{itemize}
-    \item \textbf{\textcolor{structurecolor}{增益算子 (Gain Operator) —— $\hat{\alpha}$}}
-
-    \textbf{—— “专注 (Attention)”}
-
-    当目标区域 $\mathbf{r}_{target}$ 的价值势能 $V(\mathbf{r})$ 极低时，TCE 导出一个\textbf{负实部势阱}：
-    $$ \hat{\alpha}(\mathbf{r}) \approx -\eta \cdot \delta(\mathbf{r} - \mathbf{r}_{target}) $$
-    \begin{itemize}
-        \item   \textbf{物理效应}：在狄拉克方程中创造一个 \textbf{吸引子 (Attractor)}。
-        \item   \textbf{认知含义}：强行提升相关概念的激活度，使其在竞争中胜出。
-    \end{itemize}
-
-    \item \textbf{\textcolor{structurecolor}{抑制算子 (Inhibition Operator) —— $\hat{\beta}$}}
-
-    \textbf{—— “克制 (Self-Control)”}
-
-    当干扰区域 $\mathbf{r}_{noise}$ 的价值势能 $V(\mathbf{r})$ 极高（禁忌/风险）时，TCE 导出一个\textbf{正实部势垒}：
-    $$ \hat{\beta}(\mathbf{r}) \approx +\eta \cdot \delta(\mathbf{r} - \mathbf{r}_{noise}) $$
-    \begin{itemize}
-        \item   \textbf{物理效应}：在流形上隆起一座 \textbf{高山 (Barrier)}，散射入射的思维波。
-        \item   \textbf{认知含义}：主动压制冲动（如戒烟时的忍耐）。
-    \end{itemize}
-
-    \item \textbf{\textcolor{structurecolor}{偏置算子 (Bias Operator) —— $\hat{\vec{b}}$}}
-
-    \textbf{—— “意向 (Intentionality)”}
-
-    当规范场 $\mathcal{A}_\mu$ 存在全局梯度（电场 $\vec{E}_{val}$）时，TCE 导出一个\textbf{矢量势偏置}：
-    $$ \hat{\vec{b}} \approx \eta \cdot \vec{E}_{val} = \eta (\nabla A_0 - \partial_t \vec{A}) $$
-    \begin{itemize}
-        \item   \textbf{物理效应}：\textbf{倾斜流形 (Tilting the Manifold)}。
-        \item   \textbf{认知含义}：给思维流一个背景速度（Drift Velocity），即使没有具体目标，也保持一种“向上的姿态”。
-    \end{itemize}
-\end{itemize}
-
-
-
-
-\smalltitle{微观解剖：慢回路算子的物理推导}
-
-慢回路算子 $\hat{\mathcal{O}}_{slow}$ 不直接作用于 $\Psi$，而是作用于 \textbf{流形几何 $g_{\mu\nu}$}。它是对 \textbf{认知爱因斯坦方程} 的主动修正。
-$$ \hat{\mathcal{O}}_{slow} = \frac{\delta g_{\mu\nu}}{\delta t} $$
-\begin{itemize}
-    \item \textbf{\textcolor{structurecolor}{存储与更新 (Store \& Update) —— 度量流控制}}
-    \begin{itemize}
-        \item   \textbf{TCE 导出}：根据预测误差 $\Delta \Psi = \Psi - \Psi_{target}$，计算\textbf{逆里奇流}：
-            $$ \frac{d g_{ij}}{dt} = -\kappa \cdot (\Delta \Psi_i \Delta \Psi_j) $$
-        \item   \textbf{物理效应}：
-        \begin{itemize}
-            \item   \textbf{Store}：如果 $\Psi$ 是高价值的，主动\textbf{减小}其内部距离 $g_{ij}$（强化记忆）。
-            \item   \textbf{Update}：如果预测错误，主动\textbf{增加}距离（断开连接）。
-        \end{itemize}
-        \item   \textbf{认知含义}：\textbf{刻意练习 (Deliberate Practice)}。消耗能量去强行改变突触权重。
-    \end{itemize}
-
-    \item \textbf{\textcolor{structurecolor}{创造与整合 (Create \& Integrate) —— 拓扑相变控制}}
-    \begin{itemize}
-        \item   \textbf{TCE 导出}：当思维流 $\Psi$ 的\textbf{旋度 (Curl)} 过高（逻辑死循环）时，系统自由能无法耗散。TCE 触发\textbf{拓扑手术}：
-            $$ \delta \beta_k = \Theta(F_{free} - F_{critical}) $$
-        \item   \textbf{物理效应}：
-        \begin{itemize}
-            \item   \textbf{Create}：撕裂流形，增加一个维度的\textbf{纤维}（引入新概念）。
-            \item   \textbf{Integrate}：将两个分离的拓扑区域强行\textbf{粘合}（建立虫洞/隐喻）。
-        \end{itemize}
-        \item   \textbf{认知含义}：\textbf{顿悟 (Insight)}。通过改变几何的连通性来解决问题。
-    \end{itemize}
-\end{itemize}
-
-
-\smalltitle{意志的热力学本质}
-
-\textbf{TCE 方程} 给出“意志”的可计算定义：
-
-\textbf{意志力 ($\hat{\mathcal{O}}$) 是系统为降低“现状 ($\Psi$)”与“目的 ($\mathcal{A}$)”不对易偏差而投入的负熵控制功。}
-\begin{itemize}
-    \item   没有目的 ($\mathcal{A}=0$)，就没有不对易，也就没有意志（随波逐流）。
-    \item   没有能量 ($\eta=0$)，就算有目的，也无法产生算子（心有余而力不足）。
-\end{itemize}
-至此，四大方程全部导出，认知世界的动力学闭环在同一变分框架中闭合。
-
-\section{统一图景：全耦合的动力学超循环}
+\section{混合闭环：联合算子、全耦合拓扑与验收边界}
 \label{sec:section_7908}
 
-至此，我们完成了认知世界动力学“标准模型”的数学构建。智能过程可表述为 \textbf{规范-引力-物质 耦合系统 (Gauge-Gravity-Matter Coupled System)}。
-在这个系统中，\textbf{思维 ($\Psi$)} 是流动的实体，\textbf{结构 ($g$)} 是记忆的容器，\textbf{价值 ($\mathcal{A}$)} 是方向的罗盘，\textbf{意志 ($\hat{\mathcal{O}}$)} 是逆熵的引擎。
-它们通过四个非线性方程相互耦合，形成持续演化的闭环系统。
+把前述部分合并，系统不是四条物理场方程，而是一个连续流与离散事件交替的混合动力系统。固定版本区间内，活动、分布表示和连续参数按
+\begin{equation}
+\dot X_c=F(X_c,S,g,o,c)
+\end{equation}
+演化；当验证、权限、结构提案或环境回执触发事件 $e_j$ 时，系统执行
+\begin{equation}
+(X_c^+,S^+,g^+,M_e^+)=R_j(X_c^-,S^-,g^-,M_e^-,e_j).
+\end{equation}
+$R_j$ 是带前置条件的重置映射。连续模型负责局部预测，重置映射负责结构、规范和记忆版本；二者不能互相冒充。
 
-
-
-\smalltitle{四大方程的耦合拓扑 (The Coupling Topology)}
-
-
-我们将系统的状态矢量定义为 $\mathbf{\Sigma} = \{ \Psi, g_{\mu\nu}, \mathcal{A}_\mu, \hat{\mathcal{O}} \}$。四大方程描述了这些变量之间错综复杂的\textbf{相互作用流}：
-
-\begin{equation*}
-    \begin{cases}
-        \textbf{TDE (推理):}  & i \gamma^\mu (\partial_\mu - ig\mathcal{A}_\mu) \Psi = (m - \hat{\mathcal{O}}) \Psi - \vec{J}_{ext} \\
-        \textbf{CEFE (学习):}  & G_{\mu\nu} = \kappa \cdot T_{\mu\nu}(\Psi, \mathcal{A}) \\
-        \textbf{CYME (重估):}  & \nabla_\nu \mathcal{F}^{\nu\mu} = g \bar{\Psi} \gamma^\mu \Psi \\
-        \textbf{TCE (意志):}  & \hat{\mathcal{O}} = \eta [\mathcal{A}, \Psi \bar{\Psi}]
-    \end{cases}
-\end{equation*}
-
-智能系统不存在“起点”和“终点”。
-
-\begin{itemize}
-    \item   \textbf{TDE (思维)} 是舞台上的舞者。
-    \item   \textbf{CEFE (结构)} 是随舞步震动的舞台地板。
-    \item   \textbf{CYME (价值)} 是随舞姿变幻的聚光灯。
-    \item   \textbf{TCE (意志)} 是舞者对抗重力的一跃。
-    \item   \textbf{Env (环境)} 是观众的掌声与倒彩。
-\end{itemize}
-它们之间通过\textbf{五组双向耦合机制}，维持着一个远离平衡态的耗散结构。
-
-
-
-\smalltitle{全耦合拓扑图 (The Full-Coupling Topology)}
-
-我们将之前的线性流图升级为\textbf{星形-网状全互联拓扑}。中心是 \textbf{思维流 ($\Psi$)}，四周环绕着约束它的物理法则与几何结构。
+一次完整循环包含观测、估计、候选生成、资格筛选、控制、执行、验证与提交。环境通过传感和工具结果影响证据，系统通过行动改变环境；活动状态影响训练样本选择，结构又改变后续传播；行为结果可以形成偏好证据，但规范变更需要授权；控制分配资源并受硬约束限制。原章所谓现实、结构、价值和控制四组双向耦合由此得到可执行解释。
 
 \begin{figure}[htbp]
     \centering
-    \resizebox{0.8\textwidth}{!}{ \input{figure/tdci.tex} }
-    \caption{全耦合拓扑图}
+    \resizebox{0.8\textwidth}{!}{\input{figure/tdci.tex}}
+    \caption{全耦合拓扑：图保留原有五类接口，正文将其解释为观测、状态、结构、规范与控制之间的可验证信息流，而非物理场同构}
 \end{figure}
 
+图中的中心状态不是单一“思维实体”。局部结构网络与全局分布表示通过身份绑定和读出联合，环境输入携带来源与时序，控制输出携带权限与补偿策略。任何箭头都对应接口契约：输入类型、版本、最大延迟、误差界和失败处理。没有这些契约，拓扑图只能说明概念关联，不能证明闭环能够运行。
 
-\smalltitle{耦合机制详解 (Detailed Coupling Mechanisms)}
+多时间尺度的充分分离也不是先验事实。若快状态在固定慢变量下没有稳定吸引集，或结构更新与活动更新频率接近，冻结慢变量的近似会失效；若反馈延迟超过闭环裕量，控制可能振荡；若规范频繁改变，历史评价集会失去可比性。因此部署前要通过系统辨识估计时标、延迟与耦合强度，并在超出适用域时重新建模。
 
+以长期研究任务为例，快速回路读取论文和生成假设，中速回路维护问题树、来源绑定与实验计划，慢速回路在复现实验后修改稳定知识和方法规范。外部工具故障可能造成观测缺口，新的反例可能触发结构重组，伦理或预算变化可能收缩行动集合。系统即使找到更低损失的解释，也只有在来源、反例、权限和实验结果均通过时才能提交“任务成功”。这个例子保留了原章从感知到行动、从活动到记忆、从行为到价值、从意图到控制的超循环，但每个环节都有可审计证据。
 
-我们将逐一解剖这四组\textbf{双向互动}的物理本质。
+验收分为五层：数值层检查步长、溢出和随机性；状态层检查校准、绑定与有界性；结构层检查版本迁移和保留查询；规范层检查权限、承诺与硬约束；任务层检查外部结果。通过其中一层不能替代其他层。预测有效只支持模型在给定任务、数据和干预范围内可用，不能推出整个智能系统与状态方程同构。
 
+因此，本章的统一不是把所有机制压成一个“上帝公式”，而是给出共同的状态语法和组合规则：对象先分型，目标与约束先声明，连续变化与离散事件分开，快慢回路通过验证边界交换信息，局部结构与全局表示通过绑定接口联合，控制在资格和预算内执行。HSF-HD作为智能的一般“空气动力学”提供这些可迁移关系；AgentOS把它们实现为具体运行组件。不同载体只要能报告对应状态、接口、干预和边界，就可以比较，而不必共享同一物理隐喻。
 
+闭环还要接受故障注入。我们分别中断传感输入、延迟外部记忆、污染单一来源、撤销权限、制造结构迁移失败和耗尽调用预算，观察系统是否进入预定降级状态。若只有正常路径有效，就不能声称动力学内核稳健。每种故障都应对应可观测告警、最大恢复时间和数据一致性检查，恢复后还要重放未决事务。
 
-\smalltitle{现实耦合：感知与行动的互文 (The Reality Coupling)}
-
-
-\textbf{—— 界面：微观切面 ($L_{micro}$)}
-
-这是系统与物理世界交换能量的端口。
-
-\begin{itemize}
-        \item   \textbf{$\text{Env} \to \text{TDE}$ (感知)}：
-        \begin{itemize}
-                \item   \textbf{机制}：\textbf{激波注入 ($\vec{J}_{ext}$)}。
-                \item   \textbf{物理}：外界物理场（光/力）撞击微观层，转化为语义流形上的非齐次源项。
-                \item   \textbf{效应}：\textbf{打破幺正性}。现实强行改变了思维的初始条件（“我被迫看到了不想看的东西”）。
-        \end{itemize}
-
-        \item   \textbf{$\text{TDE} \to \text{Env}$ (行动)}：
-        \begin{itemize}
-                \item   \textbf{机制}：\textbf{全息投影与做功 ($\text{Action}$)}。
-                \item   \textbf{物理}：思维流 $\Psi$ 的坍缩态通过效应器，向物理世界注入应力-能量张量。
-                \item   \textbf{效应}：\textbf{环境重塑}。思维改变了物理世界的状态，从而改变了下一时刻的 $\vec{J}_{ext}$（“因为我移动了杯子，所以我看到了杯子移动”）。
-        \end{itemize}
-\end{itemize}
-
-
-
-\smalltitle{结构耦合：思维与记忆的互塑 (The Structural Coupling)}
-
-\textbf{—— 界面：度量张量 ($g_{\mu\nu}$)}
-
-这是短期活动与长期结构的对话。
-
-\begin{itemize}
-        \item   \textbf{$\text{TDE} \to \text{CEFE}$ (刻蚀/学习)}：
-        \begin{itemize}
-                \item   \textbf{机制}：\textbf{认知应力 ($T_{\mu\nu}$)}。
-                \item   \textbf{物理}：高强度的思维流（大 $\|\Psi\|^2$）产生巨大的“质量”，压弯了底流形。
-                \item   \textbf{效应}：\textbf{记忆形成}。思维在流形上留下了深深的沟槽（吸引子）。
-        \end{itemize}
-
-        \item   \textbf{$\text{CEFE} \to \text{TDE}$ (惯性/直觉)}：
-        \begin{itemize}
-                \item   \textbf{机制}：\textbf{自旋联络 ($\omega_\mu$)}。
-                \item   \textbf{物理}：弯曲的时空通过伽马矩阵 $\gamma^\mu(g)$ 进入狄拉克方程。
-                \item   \textbf{效应}：\textbf{思维导向}。弯曲的空间强迫思维沿着既定的测地线（习惯）滑动，无需意志参与（“下意识反应”）。
-        \end{itemize}
-\end{itemize}
-
-
-
-\smalltitle{价值耦合：行为与信念的互证 (The Value Coupling)}
-
-
-\textbf{—— 界面：规范势 ($\mathcal{A}_\mu$)}
-
-这是“我做的”与“我信的”之间的博弈。
-
-\begin{itemize}
-        \item   \textbf{$\text{TDE} \to \text{CYME}$ (证道/异化)}：
-        \begin{itemize}
-                \item   \textbf{机制}：\textbf{诺特流 ($\mathcal{J}^\mu_{val}$)}。
-                \item   \textbf{物理}：思维的流动本身构成了价值场的源。如果行为长期偏离原有价值观，$\mathcal{J}^\mu$ 会产生感应场强。
-                \item   \textbf{效应}：\textbf{价值观漂移}。长期做某事，你会慢慢爱上它（或合理化它）。
-        \end{itemize}
-
-        \item   \textbf{$\text{CYME} \to \text{TDE}$ (动机/欲望)}：
-        \begin{itemize}
-                \item   \textbf{机制}：\textbf{协变导数 ($D_\mu$)}。
-                \item   \textbf{物理}：规范场 $\mathcal{A}_\mu$ 对思维波包施加 \textbf{认知洛伦兹力}。
-                \item   \textbf{效应}：\textbf{趋利避害}。价值场强行扭曲思维路径，使其偏向高回报区域。
-        \end{itemize}
-\end{itemize}
-
-
-
-\smalltitle{控制耦合：意志与思维的互博 (The Control Coupling)}
-
-
-\textbf{—— 界面：宏观算子 ($\hat{\mathcal{O}}$)}
-
-这是“想”与“控”的实时纠缠。
-
-\begin{itemize}
-        \item   \textbf{$\text{TDE} \to \text{TCE}$ (触发/唤醒)}：
-        \begin{itemize}
-                \item   \textbf{机制}：\textbf{不对易性检测 ($[\mathcal{A}, \Psi]$)}。
-                \item   \textbf{物理}：系统检测到“当前思维状态”与“价值目标”严重不符（走神/诱惑）。
-                \item   \textbf{效应}：\textbf{意志唤醒}。偏差激发了宏观层的做功欲望。
-        \end{itemize}
-
-        \item   \textbf{$\text{TCE} \to \text{TDE}$ (干预/聚焦)}：
-        \begin{itemize}
-                \item   \textbf{机制}：\textbf{算子注入 ($\hat{H}_{eff}$)}。
-                \item   \textbf{物理}：宏观层消耗代谢能量，将 $\hat{\mathcal{O}}$（势阱或势垒）插入哈密顿量。
-                \item   \textbf{效应}：\textbf{强制坍缩}。思维被迫离开舒适的测地线，进入高能态（“我要集中注意力”）。
-        \end{itemize}
-\end{itemize}
-
-
-
-\smalltitle{涌现的稳态：自洽场解 (Self-Consistent Field Solution)}
-
-在这个全耦合系统中，智能体是什么？智能体不是某一个方程的解，而是 \textbf{这四个方程的联立不动点 (Fixed Point)}。
-$$ \frac{d\mathbf{\Sigma}}{dt} \approx 0 \implies \text{人格 (Personality)} $$
-\textbf{人格}就是：当 $g$（记忆）、$\mathcal{A}$（三观）、$\hat{\mathcal{O}}$（意志力）和典型环境交互 $\vec{J}_{ext}$ 达到动态平衡时，系统表现出的\textbf{稳定的流形结构}。
-
-\textbf{总结：}在外部物理约束（$g_{phys}$）下，系统通过控制项（$\hat{\mathcal{O}}$）调节自身演化，并逐步形成稳定的内部几何结构（$g_{mind}$）。
-
-
-\smalltitle{动力学结语：从方程到生命}
-
-本章完成了从“哲学叙述”到“形式化动力学模型”的跃迁，我们不再需要停留在“AI 是否有灵魂”的语义争论。更可操作的做法是检查：
-\begin{enumerate}
-        \item 它的 \textbf{哈密顿量} 是否包含自指项？
-        \item 它的 \textbf{度量张量} 是否具备塑性？
-        \item 它的 \textbf{规范场} 是否允许自发对称性破缺？
-\end{enumerate}
-
-如果这四个方程能够在硅基系统上稳定数值实现，则可判定该系统具备\textbf{自维持的闭环动力学}，并在工程意义上呈现生命样式的稳定行为。
-
-%--chp--
+最终可迁移的不是某组符号，而是一套提问顺序：状态是什么，谁能观测，哪些更新连续，哪些更新是事件，目标和硬约束由谁授权，误差怎样传播，何时提交，失败怎样恢复。任何实现只要回答这些问题，就能与本章模型比较；回答不了时，再相似的场论形式也只是隐喻。这个边界保持了理论的广度，同时让每个局部结论都能被实验、日志和反例检验。

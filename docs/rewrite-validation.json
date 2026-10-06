@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 31,
-  "pending_chapters": 86,
+  "rewritten_chapters": 32,
+  "pending_chapters": 85,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1133,7 +1133,7 @@
       "order": 31,
       "path": "chapters/part-08/chp-geometry_physics_interaction.tex",
       "title": "状态—结构耦合：活动、学习与可塑性",
-      "status": "rewritten-awaiting-layout-review",
+      "status": "rewritten-reviewed",
       "original_han_floor": 2031,
       "new_chapter_prose_han": 5088,
       "original_readable_units": 1970,
@@ -1164,45 +1164,45 @@
     {
       "order": 32,
       "path": "chapters/part-08/chp-dynamics_kernel_ch.tex",
-      "title": "动力学内核 — 认知世界的统一场论与算子演化",
-      "status": "queued-for-full-rewrite",
+      "title": "动力学内核：统一状态算子与多尺度闭环",
+      "status": "rewritten-reviewed",
       "original_han_floor": 7367,
-      "new_chapter_prose_han": 7015,
+      "new_chapter_prose_han": 8041,
       "original_readable_units": 7305,
-      "new_readable_units": 7305,
-      "opening_prose_han": 201,
+      "new_readable_units": 8082,
+      "opening_prose_han": 282,
       "sections": [
         {
-          "title": "几何基质与物理量定义",
-          "prose_han": 614
+          "title": "带类型状态空间、接口与可辨识对象",
+          "prose_han": 1108
         },
         {
-          "title": "拉格朗日量的构建",
-          "prose_han": 812
+          "title": "从“总作用量”到有限时域目标与约束账本",
+          "prose_han": 1061
         },
         {
-          "title": "欧拉-拉格朗日方程 I：目的论狄拉克方程 (TDE)",
-          "prose_han": 921
+          "title": "快速状态算子：推理、传播与现实校正",
+          "prose_han": 1074
         },
         {
-          "title": "欧拉-拉格朗日方程 II：认知爱因斯坦方程 (CEFE)",
-          "prose_han": 1121
+          "title": "慢速结构算子：学习、记忆与可回滚编辑",
+          "prose_han": 1037
         },
         {
-          "title": "欧拉-拉格朗日方程 III：认知杨-米尔斯方程 (CYME)",
-          "prose_han": 989
+          "title": "规范更新算子：偏好、承诺与冲突恢复",
+          "prose_han": 1144
         },
         {
-          "title": "欧拉-拉格朗日方程 IV：目的论场方程 (TCE)",
-          "prose_han": 1101
+          "title": "主动控制算子：快慢回路、预算与行动资格",
+          "prose_han": 1072
         },
         {
-          "title": "统一图景：全耦合的动力学超循环",
-          "prose_han": 1256
+          "title": "混合闭环：联合算子、全耦合拓扑与验收边界",
+          "prose_han": 1263
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

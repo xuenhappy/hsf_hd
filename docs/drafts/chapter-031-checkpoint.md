@@ -12,5 +12,5 @@
 - 小节正文：1022、1121、1178、1455 汉字
 - 旧标签：章标签及四个旧节标签均保留在语义对应位置
 - 插图：原章无 figure；全书视觉资源清单未改变
-- 当前状态：`rewritten-awaiting-layout-review`；`make check` 与正文计数通过，审阅本因运行环境缺少 `ctex.sty` 未能编译，未执行半页与视觉复核
+- 当前状态：`rewritten-reviewed`；`make check` 与正文计数通过，203 页审阅本编译成功。第31章位于 PDF 第199—203页，四节校准正文页当量分别为0.646、0.690、0.757、0.891，均通过半页门槛；逐页视觉复核未见裁切、公式越界或不可读元素
 - 下一章：order 32，`chapters/part-08/chp-dynamics_kernel_ch.tex`

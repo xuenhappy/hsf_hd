@@ -1,9 +1,9 @@
 {
-  "pages": 198,
-  "bytes": 19861993,
+  "pages": 210,
+  "bytes": 19961405,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 160,
+  "numbered_sections": 171,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1126,7 +1126,84 @@
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "31.1 结构几何的计算定义与耦合对象",
+      "start_pdf_page": 199,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "31.2 更新驱动的分解：活动负荷、重要性与保持证据",
+      "start_pdf_page": 200,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "31.3 状态—结构耦合方程与稳定性推导",
+      "start_pdf_page": 201,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "31.4 学习案例、提交协议与一般理论边界",
+      "start_pdf_page": 202,
+      "prose_lines": 40,
+      "calibrated_prose_page_equivalents": 0.891,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "32.1 带类型状态空间、接口与可辨识对象",
+      "start_pdf_page": 204,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "32.2 从“总作用量”到有限时域目标与约束账本",
+      "start_pdf_page": 205,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "32.3 快速状态算子：推理、传播与现实校正",
+      "start_pdf_page": 206,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "32.4 慢速结构算子：学习、记忆与可回滚编辑",
+      "start_pdf_page": 207,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "32.5 规范更新算子：偏好、承诺与冲突恢复",
+      "start_pdf_page": 207,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "32.6 主动控制算子：快慢回路、预算与行动资格",
+      "start_pdf_page": 208,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "32.7 混合闭环：联合算子、全耦合拓扑与验收边界",
+      "start_pdf_page": 209,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 30 chapters; does not validate the full book."
+  "scope": "Review subset: 32 chapters; does not validate the full book."
 }

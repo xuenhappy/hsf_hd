@@ -29,8 +29,8 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 28,chapters/part-07/chp-macroscopic_layer_ch.tex,rewritten-reviewed,8398,9760,8342,9823,7,1157
 29,chapters/part-07/chp-macro_stability_ig.tex,rewritten-reviewed,8583,9902,7853,9962,9,1004
 30,chapters/part-08/chp-evolution_equation_ch.tex,rewritten-reviewed,8243,10263,7308,10307,9,1031
-31,chapters/part-08/chp-geometry_physics_interaction.tex,rewritten-awaiting-layout-review,2031,5088,1970,5102,4,1022
-32,chapters/part-08/chp-dynamics_kernel_ch.tex,queued-for-full-rewrite,7367,7015,7305,7305,7,614
+31,chapters/part-08/chp-geometry_physics_interaction.tex,rewritten-reviewed,2031,5088,1970,5102,4,1022
+32,chapters/part-08/chp-dynamics_kernel_ch.tex,rewritten-reviewed,7367,8041,7305,8082,7,1037
 33,chapters/part-08/chp-many_body_cognitive_field.tex,queued-for-full-rewrite,5131,4768,4889,4889,5,556
 34,chapters/part-08/chp-info_geometry_dynamics.tex,queued-for-full-rewrite,2909,2836,2920,2920,4,229
 35,chapters/part-08/chp-rheological_ch.tex,queued-for-full-rewrite,5355,5256,5467,5467,5,860
