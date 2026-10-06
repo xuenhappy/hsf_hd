@@ -640,9 +640,15 @@
       "source_start_line": 11564,
       "source_end_line": 11762,
       "source_sha256": "074ebbaf8f76bafb2126b116d974cd24c8e116d92d766e7e2cbb664246b30c48",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "信息几何动力学：统计状态、投影更新与迁移边界",
+      "draft_checkpoint": "docs/drafts/chapter-034-checkpoint.md",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-rheological_ch.tex",
