@@ -9,11 +9,11 @@
     "original_figures_with_revised_captions": 9,
     "original_visual_assets_byte_verified": 26,
     "figure_blocks": 28,
-    "labels": 826,
+    "labels": 827,
     "reference_targets": 20,
     "chapter_status": {
-      "rewritten-reviewed": 32,
-      "queued-for-full-rewrite": 85
+      "rewritten-reviewed": 33,
+      "queued-for-full-rewrite": 84
     }
   },
   "errors": []

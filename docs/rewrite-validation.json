@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 32,
-  "pending_chapters": 85,
+  "rewritten_chapters": 33,
+  "pending_chapters": 84,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1208,37 +1208,37 @@
     {
       "order": 33,
       "path": "chapters/part-08/chp-many_body_cognitive_field.tex",
-      "title": "多体认知场论 — 语义子的规范辐射与非线性纠缠",
-      "status": "queued-for-full-rewrite",
+      "title": "多单元认知动力学：耦合、冲突与级联激活",
+      "status": "rewritten-reviewed",
       "original_han_floor": 5131,
-      "new_chapter_prose_han": 4768,
+      "new_chapter_prose_han": 6119,
       "original_readable_units": 4889,
-      "new_readable_units": 4889,
-      "opening_prose_han": 289,
+      "new_readable_units": 6160,
+      "opening_prose_han": 297,
       "sections": [
         {
-          "title": "源的觉醒：语义子的微观辐射与宏观自我的重整化",
-          "prose_han": 665
+          "title": "从局部单元到整体变量：影响源、耦合图与尺度压缩",
+          "prose_han": 1147
         },
         {
-          "title": "认知的泡利不相容原理：语义费米子的排斥张力",
-          "prose_han": 556
+          "title": "排斥的计算含义：身份保持、约束冲突与认知失调",
+          "prose_han": 1188
         },
         {
-          "title": "认知的受激辐射：记忆雪崩与正反馈 (Stimulated Emission of Cognition)",
-          "prose_han": 760
+          "title": "记忆级联：匹配、门控、阈值与正反馈边界",
+          "prose_han": 1068
         },
         {
-          "title": "非线性项：非线性目的论狄拉克方程 (NL-TDE)",
-          "prose_han": 998
+          "title": "统一非线性状态方程：相互作用、离散实现与稳定条件",
+          "prose_han": 1182
         },
         {
-          "title": "多体交互的几何分类学：纠缠、同步与受激辐射",
-          "prose_han": 1500
+          "title": "交互分类与因果判别：绑定、同步和触发激活",
+          "prose_han": 1237
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

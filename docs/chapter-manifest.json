@@ -621,9 +621,15 @@
       "source_start_line": 11271,
       "source_end_line": 11564,
       "source_sha256": "092d971f985d2e63b38322279ab8ddb3c0168eb05ddf080b15b15e6248585598",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "多单元认知动力学：耦合、冲突与级联激活",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-033-checkpoint.md",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-info_geometry_dynamics.tex",

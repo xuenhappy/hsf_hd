@@ -1,9 +1,9 @@
 {
-  "pages": 210,
-  "bytes": 19961405,
+  "pages": 215,
+  "bytes": 20008148,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 171,
+  "numbered_sections": 176,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1203,7 +1203,42 @@
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "33.1 从局部单元到整体变量：影响源、耦合图与尺度压缩",
+      "start_pdf_page": 211,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "33.2 排斥的计算含义：身份保持、约束冲突与认知失调",
+      "start_pdf_page": 212,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "33.3 记忆级联：匹配、门控、阈值与正反馈边界",
+      "start_pdf_page": 213,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "33.4 统一非线性状态方程：相互作用、离散实现与稳定条件",
+      "start_pdf_page": 213,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "33.5 交互分类与因果判别：绑定、同步和触发激活",
+      "start_pdf_page": 214,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 32 chapters; does not validate the full book."
+  "scope": "Review subset: 33 chapters; does not validate the full book."
 }
