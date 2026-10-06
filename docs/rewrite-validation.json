@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 26,
-  "pending_chapters": 91,
+  "rewritten_chapters": 27,
+  "pending_chapters": 90,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -944,41 +944,41 @@
     {
       "order": 27,
       "path": "chapters/part-07/chp-physics_of_gauge_source.tex",
-      "title": "价值的物理学 — 规范场的辐射源与载体",
-      "status": "queued-for-full-rewrite",
+      "title": "价值调节动力学：来源、广播与多层约束",
+      "status": "rewritten-reviewed",
       "original_han_floor": 3944,
-      "new_chapter_prose_han": 3483,
+      "new_chapter_prose_han": 6767,
       "original_readable_units": 3654,
-      "new_readable_units": 3654,
-      "opening_prose_han": 209,
+      "new_readable_units": 6831,
+      "opening_prose_han": 257,
       "sections": [
         {
-          "title": "源的定义：认知电荷与麦克斯韦方程",
-          "prose_han": 77
+          "title": "价值来源：从“价值荷”到可审计规范状态",
+          "prose_han": 1090
         },
         {
-          "title": "生物智能 (Carbon)：神经调质的化学广播",
-          "prose_han": 352
+          "title": "生物调节：神经调质证据与多尺度控制边界",
+          "prose_han": 1128
         },
         {
-          "title": "硅基智能 (Silicon)：奖励模型与Prompt的算子化",
-          "prose_han": 330
+          "title": "人工系统：奖励、提示与采样接口的分层作用",
+          "prose_han": 1063
         },
         {
-          "title": "社会智能 (Collective)：符号与信用的场",
-          "prose_han": 193
+          "title": "社会调节：制度、激励与分布式规范传播",
+          "prose_han": 1055
         },
         {
-          "title": "特殊的价值物理载体 — “自我”的规范奇点的介质解剖",
-          "prose_han": 1374
+          "title": "主体模型：自我相关调节而非规范奇点",
+          "prose_han": 1084
         },
         {
-          "title": "双源干涉原理：背景辐射与自我微扰的矢量叠加",
-          "prose_han": 948
+          "title": "多源协调：背景先验、主体目标与冲突恢复",
+          "prose_han": 1090
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

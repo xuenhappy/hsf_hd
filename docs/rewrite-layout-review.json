@@ -1,9 +1,9 @@
 {
-  "pages": 163,
-  "bytes": 19593900,
+  "pages": 169,
+  "bytes": 19644675,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 129,
+  "numbered_sections": 135,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -909,7 +909,49 @@
       "prose_lines": 38,
       "calibrated_prose_page_equivalents": 0.846,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "27.1 价值来源：从“价值荷”到可审计规范状态",
+      "start_pdf_page": 164,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "27.2 生物调节：神经调质证据与多尺度控制边界",
+      "start_pdf_page": 165,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "27.3 人工系统：奖励、提示与采样接口的分层作用",
+      "start_pdf_page": 166,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "27.4 社会调节：制度、激励与分布式规范传播",
+      "start_pdf_page": 166,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "27.5 主体模型：自我相关调节而非规范奇点",
+      "start_pdf_page": 167,
+      "prose_lines": 38,
+      "calibrated_prose_page_equivalents": 0.846,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "27.6 多源协调：背景先验、主体目标与冲突恢复",
+      "start_pdf_page": 168,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 26 chapters; does not validate the full book."
+  "scope": "Review subset: 27 chapters; does not validate the full book."
 }

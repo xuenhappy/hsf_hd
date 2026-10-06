@@ -503,9 +503,15 @@
       "source_start_line": 7811,
       "source_end_line": 8203,
       "source_sha256": "1787b75dc48340038e6fe0874e6c2c7f7befdabee6ae585e292e99de6699cad8",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-027-checkpoint.md",
+      "new_title": "价值调节动力学：来源、广播与多层约束",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-07/chp-macroscopic_layer_ch.tex",
