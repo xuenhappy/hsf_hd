@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 27,
-  "pending_chapters": 90,
+  "rewritten_chapters": 28,
+  "pending_chapters": 89,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -984,37 +984,45 @@
     {
       "order": 28,
       "path": "chapters/part-07/chp-macroscopic_layer_ch.tex",
-      "title": "宏观层 — 目的的引擎与势能重塑",
-      "status": "queued-for-full-rewrite",
+      "title": "宏观目标控制：状态压缩、快慢回路与结构重塑",
+      "status": "rewritten-reviewed",
       "original_han_floor": 8398,
-      "new_chapter_prose_han": 8014,
+      "new_chapter_prose_han": 9760,
       "original_readable_units": 8342,
-      "new_readable_units": 8342,
-      "opening_prose_han": 238,
+      "new_readable_units": 9823,
+      "opening_prose_han": 320,
       "sections": [
         {
-          "title": "力的来源：第三驱动力与参量做功机制",
-          "prose_han": 720
+          "title": "控制来源：目标偏差、干预资格与资源预算",
+          "prose_han": 1157
         },
         {
-          "title": "宏观感知：全息场的重整化与全局坍缩",
-          "prose_han": 932
+          "title": "宏观观测：分布式状态的压缩、校准与不确定性",
+          "prose_han": 1473
         },
         {
-          "title": "几何操作（快回路）：势能建筑师",
-          "prose_han": 537
+          "title": "快速回路：增益、抑制与方向偏置的受限控制",
+          "prose_han": 1283
         },
         {
-          "title": "拓扑手术（慢回路）：纤维丛重构的六大算子",
-          "prose_han": 1044
+          "title": "缓慢回路：六类结构操作与可回滚编辑",
+          "prose_han": 1379
         },
         {
-          "title": "目的论场方程 (TCE) — 从作用量导出的算子价值调制",
-          "prose_han": 4543
+          "title": "TCE控制方程：受限最优控制而非目的论场方程",
+          "prose_han": 1207
+        },
+        {
+          "title": "快速控制的推导：局部响应、投影更新与闭环校验",
+          "prose_han": 1345
+        },
+        {
+          "title": "缓慢控制的推导：结构学习、离散编辑与稳定保留",
+          "prose_han": 1596
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

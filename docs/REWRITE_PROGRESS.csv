@@ -26,7 +26,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 25,chapters/part-07/chp-medium_layer_ch.tex,rewritten-reviewed,8712,9828,8869,9861,9,1013
 26,chapters/part-07/chap-material_science_of_cognitive_matter.tex,rewritten-reviewed,2017,3774,1960,3799,3,1092
 27,chapters/part-07/chp-physics_of_gauge_source.tex,rewritten-reviewed,3944,6767,3654,6831,6,1055
-28,chapters/part-07/chp-macroscopic_layer_ch.tex,queued-for-full-rewrite,8398,8014,8342,8342,5,537
+28,chapters/part-07/chp-macroscopic_layer_ch.tex,rewritten-reviewed,8398,9760,8342,9823,7,1157
 29,chapters/part-07/chp-macro_stability_ig.tex,queued-for-full-rewrite,8583,8112,7853,8363,10,261
 30,chapters/part-08/chp-evolution_equation_ch.tex,queued-for-full-rewrite,8243,7669,7308,7863,8,224
 31,chapters/part-08/chp-geometry_physics_interaction.tex,queued-for-full-rewrite,2031,1927,1970,1970,4,76

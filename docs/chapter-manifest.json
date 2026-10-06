@@ -522,9 +522,15 @@
       "source_start_line": 8203,
       "source_end_line": 8922,
       "source_sha256": "cc6eeba9f3a3b9e9110db04a39b1b04fe54405e9a13fda06a89994b17f33b8ab",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-028-checkpoint.md",
+      "new_title": "宏观目标控制：状态压缩、快慢回路与结构重塑",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-07/chp-macro_stability_ig.tex",
