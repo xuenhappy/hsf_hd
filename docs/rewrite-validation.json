@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 48,
-  "pending_chapters": 69,
+  "rewritten_chapters": 49,
+  "pending_chapters": 68,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1888,33 +1888,33 @@
     {
       "order": 49,
       "path": "chapters/part-08/chap-path_integration_asymmetry.tex",
-      "title": "路径积分与不对称性 — 顺流与逆流的热力学",
-      "status": "queued-for-full-rewrite",
+      "title": "方向不对称：正向生成、逆向辨识与路径预算",
+      "status": "rewritten-reviewed",
       "original_han_floor": 1544,
-      "new_chapter_prose_han": 1406,
+      "new_chapter_prose_han": 4532,
       "original_readable_units": 1458,
-      "new_readable_units": 1458,
-      "opening_prose_han": 209,
+      "new_readable_units": 4551,
+      "opening_prose_han": 241,
       "sections": [
         {
-          "title": "双路径模型：事实距离 vs. 思维距离",
-          "prose_han": 381
+          "title": "双路径模型：表示距离与方向任务成本",
+          "prose_han": 1048
         },
         {
-          "title": "顺流动力学：生成与直觉",
-          "prose_han": 280
+          "title": "正向路径：条件生成、默认转移与约束验收",
+          "prose_han": 1041
         },
         {
-          "title": "逆流动力学：推理与学习",
-          "prose_han": 388
+          "title": "逆向路径：可辨识性、搜索验证与学习更新",
+          "prose_han": 1095
         },
         {
-          "title": "总结：不对称的智慧",
-          "prose_han": 148
+          "title": "回路差异：不可逆记录、绕行策略与闭环验收",
+          "prose_han": 1107
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

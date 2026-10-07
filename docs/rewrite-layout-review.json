@@ -1,9 +1,9 @@
 {
-  "pages": 316,
-  "bytes": 31570692,
+  "pages": 320,
+  "bytes": 31593962,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 277,
+  "numbered_sections": 281,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1945,7 +1945,35 @@
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "49.1 双路径模型：表示距离与方向任务成本",
+      "start_pdf_page": 317,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "49.2 正向路径：条件生成、默认转移与约束验收",
+      "start_pdf_page": 318,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "49.3 逆向路径：可辨识性、搜索验证与学习更新",
+      "start_pdf_page": 319,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "49.4 回路差异：不可逆记录、绕行策略与闭环验收",
+      "start_pdf_page": 319,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 48 chapters; does not validate the full book."
+  "scope": "Review subset: 49 chapters; does not validate the full book."
 }
