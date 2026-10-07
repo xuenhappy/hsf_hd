@@ -906,9 +906,15 @@
       "source_start_line": 17125,
       "source_end_line": 17288,
       "source_sha256": "3feaf8157cc71b2cf43aa87e9a4edc66b553046e5436d1fc1989fd9648d74e2a",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "方向与顺序：任务代价场和非交换状态更新",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-048-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chap-path_integration_asymmetry.tex",

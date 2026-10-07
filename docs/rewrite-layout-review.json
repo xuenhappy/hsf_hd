@@ -1,9 +1,9 @@
 {
-  "pages": 312,
-  "bytes": 31544969,
+  "pages": 316,
+  "bytes": 31570692,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 273,
+  "numbered_sections": 277,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1917,7 +1917,35 @@
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "48.1 两类效应的对象、空间与局部分解",
+      "start_pdf_page": 313,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "48.2 方向性任务代价：生成、逆推与证据预算",
+      "start_pdf_page": 314,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "48.3 非交换更新：学习顺序、绑定与历史残留",
+      "start_pdf_page": 315,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "48.4 耦合控制、离散实现与工程验收",
+      "start_pdf_page": 315,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 47 chapters; does not validate the full book."
+  "scope": "Review subset: 48 chapters; does not validate the full book."
 }

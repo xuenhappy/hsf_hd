@@ -51,7 +51,7 @@
 | 2 | 8 | [chp-physics_of_cybernetics](../chapters/part-08/chp-physics_of_cybernetics.tex) | 控制的物理学 —— 反馈、目的与流形上的驾驭 | 队列中；原文仍保留 |
 | 2 | 8 | [chp-phase_transition_meta](../chapters/part-08/chp-phase_transition_meta.tex) | 运行相变：探索、执行与结构更新的临界控制 | 已独立全文重写并完成排版复核 |
 | 2 | 8 | [chp-cognitive_complementarity](../chapters/part-08/chp-cognitive_complementarity.tex) | 认知互补：分布式展开、离散提交与顺序依赖 | 已独立全文重写并完成排版复核 |
-| 2 | 8 | [chap-cognitive_electrodynamics](../chapters/part-08/chap-cognitive_electrodynamics.tex) | 认知电磁动力学 — 难度投影与相位扭转 | 队列中；原文仍保留 |
+| 2 | 8 | [chap-cognitive_electrodynamics](../chapters/part-08/chap-cognitive_electrodynamics.tex) | 方向与顺序：任务代价场和非交换状态更新 | 已独立全文重写并完成排版复核 |
 | 2 | 8 | [chap-path_integration_asymmetry](../chapters/part-08/chap-path_integration_asymmetry.tex) | 路径积分与不对称性 — 顺流与逆流的热力学 | 队列中；原文仍保留 |
 | 2 | 8 | [chp-cognitive_mechanics](../chapters/part-08/chp-cognitive_mechanics.tex) | 认知材料力学 — 弹性推理与塑性学习 | 队列中；原文仍保留 |
 | 2 | 8 | [chp-analytical_solution_bernoulli](../chapters/part-08/chp-analytical_solution_bernoulli.tex) | Fisher 流形上的可解析特解 — 一维伯努利流形与认知量子单摆 | 队列中；原文仍保留 |

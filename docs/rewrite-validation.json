@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 47,
-  "pending_chapters": 70,
+  "rewritten_chapters": 48,
+  "pending_chapters": 69,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1856,33 +1856,33 @@
     {
       "order": 48,
       "path": "chapters/part-08/chap-cognitive_electrodynamics.tex",
-      "title": "认知电磁动力学 — 难度投影与相位扭转",
-      "status": "queued-for-full-rewrite",
+      "title": "方向与顺序：任务代价场和非交换状态更新",
+      "status": "rewritten-reviewed",
       "original_han_floor": 1975,
-      "new_chapter_prose_han": 1881,
+      "new_chapter_prose_han": 5097,
       "original_readable_units": 1926,
-      "new_readable_units": 1926,
-      "opening_prose_han": 219,
+      "new_readable_units": 5123,
+      "opening_prose_han": 264,
       "sections": [
         {
-          "title": "统一场论：思维受力的正交分解",
-          "prose_han": 200
+          "title": "两类效应的对象、空间与局部分解",
+          "prose_han": 1190
         },
         {
-          "title": "纵向分量：计算不可逆性作为热力学难度 (电场项)",
-          "prose_han": 510
+          "title": "方向性任务代价：生成、逆推与证据预算",
+          "prose_han": 1259
         },
         {
-          "title": "横向分量：路径排序效应作为几何相位 (磁场项)",
-          "prose_han": 627
+          "title": "非交换更新：学习顺序、绑定与历史残留",
+          "prose_han": 1101
         },
         {
-          "title": "终极综合：认知洛伦兹力方程",
-          "prose_han": 325
+          "title": "耦合控制、离散实现与工程验收",
+          "prose_han": 1283
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
