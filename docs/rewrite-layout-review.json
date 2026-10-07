@@ -1,9 +1,9 @@
 {
-  "pages": 262,
-  "bytes": 31146001,
+  "pages": 270,
+  "bytes": 31193665,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 224,
+  "numbered_sections": 233,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1574,7 +1574,70 @@
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "41.1 双域系统：内部状态、环境过程与边界接口",
+      "start_pdf_page": 263,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "41.2 任务对齐：结构对应、信号校准与失配分解",
+      "start_pdf_page": 264,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "41.3 行动回路：计划细化、受限执行与环境回执",
+      "start_pdf_page": 264,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "41.4 感知回路：观测绑定、模型校正与结构重整",
+      "start_pdf_page": 265,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "41.5 社会交互：消息、共同知识与制度约束",
+      "start_pdf_page": 266,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "41.6 层级控制：目标压缩、执行自由度与残差上报",
+      "start_pdf_page": 267,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "41.7 能力不对称：可观测性、影响力与治理边界",
+      "start_pdf_page": 267,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "41.8 整体双循环：快慢耦合、外部记忆与持续适应",
+      "start_pdf_page": 268,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "41.9 稳定性与验证：从局部收敛到闭环可靠性",
+      "start_pdf_page": 269,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 40 chapters; does not validate the full book."
+  "scope": "Review subset: 41 chapters; does not validate the full book."
 }

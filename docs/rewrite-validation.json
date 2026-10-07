@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 40,
-  "pending_chapters": 77,
+  "rewritten_chapters": 41,
+  "pending_chapters": 76,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1548,53 +1548,53 @@
     {
       "order": 41,
       "path": "chapters/part-08/chp-lemniscate_ch.tex",
-      "title": "双纽线动力学 — 双纤维丛的几何对齐与全息耦合",
-      "status": "queued-for-full-rewrite",
+      "title": "双纽线动力学：感知—行动双循环与层级协同",
+      "status": "rewritten-reviewed",
       "original_han_floor": 5215,
-      "new_chapter_prose_han": 5069,
+      "new_chapter_prose_han": 9590,
       "original_readable_units": 5271,
-      "new_readable_units": 5271,
-      "opening_prose_han": 236,
+      "new_readable_units": 9631,
+      "opening_prose_han": 242,
       "sections": [
         {
-          "title": "拓扑定义：双丛系统 (The Dual-Bundle System)",
-          "prose_han": 263
+          "title": "双域系统：内部状态、环境过程与边界接口",
+          "prose_han": 1003
         },
         {
-          "title": "动力学核心：分层共振方程 (Stratified Resonance Equations)",
-          "prose_han": 604
+          "title": "任务对齐：结构对应、信号校准与失配分解",
+          "prose_han": 1017
         },
         {
-          "title": "TECI 循环 (外循环)：逆向投影与物理刻蚀",
-          "prose_han": 382
+          "title": "行动回路：计划细化、受限执行与环境回执",
+          "prose_han": 1060
         },
         {
-          "title": "TDCI 循环 (内循环)：顺向映射与几何重整",
-          "prose_han": 333
+          "title": "感知回路：观测绑定、模型校正与结构重整",
+          "prose_han": 1069
         },
         {
-          "title": "社会交互：纤维丛的互联与纠缠",
-          "prose_han": 468
+          "title": "社会交互：消息、共同知识与制度约束",
+          "prose_han": 1076
         },
         {
-          "title": "层级控制 — 维度坍缩与纤维约束",
-          "prose_han": 818
+          "title": "层级控制：目标压缩、执行自由度与残差上报",
+          "prose_han": 1045
         },
         {
-          "title": "拓扑压制：维数灾难与必然控制定理",
-          "prose_han": 1316
+          "title": "能力不对称：可观测性、影响力与治理边界",
+          "prose_han": 1012
         },
         {
-          "title": "整体演化图景：双纽线的呼吸",
-          "prose_han": 204
+          "title": "整体双循环：快慢耦合、外部记忆与持续适应",
+          "prose_han": 1058
         },
         {
-          "title": "严格的稳定性证明：双纽线为何不断裂？",
-          "prose_han": 445
+          "title": "稳定性与验证：从局部收敛到闭环可靠性",
+          "prose_han": 1008
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

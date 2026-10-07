@@ -773,9 +773,15 @@
       "source_start_line": 14395,
       "source_end_line": 14839,
       "source_sha256": "d1dc12bd389a908a0fc89e1d13ca18c546c908c8d0b694151fab3701e7b3d692",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "双纽线动力学：感知—行动双循环与层级协同",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-041-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-macro_latent_space_topology.tex",
