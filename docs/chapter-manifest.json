@@ -887,9 +887,15 @@
       "source_start_line": 16938,
       "source_end_line": 17125,
       "source_sha256": "2f39929b3f698b2bda2b48cbe874c5885d2f83ee6202cd7fe0f20b98f456fb29",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "认知互补：分布式展开、离散提交与顺序依赖",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-047-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chap-cognitive_electrodynamics.tex",

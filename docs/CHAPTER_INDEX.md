@@ -50,7 +50,7 @@
 | 2 | 8 | [chp-collective_renorm_ch](../chapters/part-08/chp-collective_renorm_ch.tex) | 群体重整化 — 组织立体化学与高阶涌现 | 队列中；原文仍保留 |
 | 2 | 8 | [chp-physics_of_cybernetics](../chapters/part-08/chp-physics_of_cybernetics.tex) | 控制的物理学 —— 反馈、目的与流形上的驾驭 | 队列中；原文仍保留 |
 | 2 | 8 | [chp-phase_transition_meta](../chapters/part-08/chp-phase_transition_meta.tex) | 运行相变：探索、执行与结构更新的临界控制 | 已独立全文重写并完成排版复核 |
-| 2 | 8 | [chp-cognitive_complementarity](../chapters/part-08/chp-cognitive_complementarity.tex) | 认知互补原理 — 思维的波粒二象性 | 队列中；原文仍保留 |
+| 2 | 8 | [chp-cognitive_complementarity](../chapters/part-08/chp-cognitive_complementarity.tex) | 认知互补：分布式展开、离散提交与顺序依赖 | 已独立全文重写并完成排版复核 |
 | 2 | 8 | [chap-cognitive_electrodynamics](../chapters/part-08/chap-cognitive_electrodynamics.tex) | 认知电磁动力学 — 难度投影与相位扭转 | 队列中；原文仍保留 |
 | 2 | 8 | [chap-path_integration_asymmetry](../chapters/part-08/chap-path_integration_asymmetry.tex) | 路径积分与不对称性 — 顺流与逆流的热力学 | 队列中；原文仍保留 |
 | 2 | 8 | [chp-cognitive_mechanics](../chapters/part-08/chp-cognitive_mechanics.tex) | 认知材料力学 — 弹性推理与塑性学习 | 队列中；原文仍保留 |

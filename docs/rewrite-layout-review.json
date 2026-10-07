@@ -1,9 +1,9 @@
 {
-  "pages": 306,
-  "bytes": 31508783,
+  "pages": 312,
+  "bytes": 31544969,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 267,
+  "numbered_sections": 273,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1875,7 +1875,49 @@
       "prose_lines": 53,
       "calibrated_prose_page_equivalents": 1.18,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "47.1 任务读出与不相容性：互补关系的计算定义",
+      "start_pdf_page": 307,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "47.2 分布式展开：候选生成、耦合传播与可逆近似",
+      "start_pdf_page": 308,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "47.3 离散提交：从概率候选到可执行动作",
+      "start_pdf_page": 308,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "47.4 误差下界：精确读出与关联覆盖的条件性权衡",
+      "start_pdf_page": 309,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "47.5 顺序效应：基底改变、状态写入与迟滞",
+      "start_pdf_page": 310,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "47.6 TDCI闭环：展开—验证—提交的协同调度",
+      "start_pdf_page": 311,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 46 chapters; does not validate the full book."
+  "scope": "Review subset: 47 chapters; does not validate the full book."
 }
