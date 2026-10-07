@@ -48,7 +48,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 47,chapters/part-08/chp-cognitive_complementarity.tex,rewritten-reviewed,2149,6851,2025,6875,6,1032
 48,chapters/part-08/chap-cognitive_electrodynamics.tex,rewritten-reviewed,1975,5097,1926,5123,4,1101
 49,chapters/part-08/chap-path_integration_asymmetry.tex,rewritten-reviewed,1544,4532,1458,4551,4,1041
-50,chapters/part-08/chp-cognitive_mechanics.tex,queued-for-full-rewrite,1328,1250,1291,1291,4,121
+50,chapters/part-08/chp-cognitive_mechanics.tex,rewritten-reviewed,1328,4635,1291,4656,4,1028
 51,chapters/part-08/chp-analytical_solution_bernoulli.tex,queued-for-full-rewrite,6989,6819,7069,7069,7,347
 52,chapters/part-08/chp-cognitive_elliptic_resonator.tex,queued-for-full-rewrite,5802,5609,5775,5775,8,331
 53,chapters/part-08/chp-physics_of_conservation_and_dissipation.tex,queued-for-full-rewrite,7399,7258,7485,7485,4,1183

@@ -938,15 +938,21 @@
     {
       "path": "chapters/part-08/chp-cognitive_mechanics.tex",
       "title": "认知材料力学 — 弹性推理与塑性学习",
+      "new_title": "快慢认知力学：瞬态适应、结构学习与稳定—可塑平衡",
       "volume": 2,
       "part": 8,
       "kind": "chapter",
       "source_start_line": 17440,
       "source_end_line": 17569,
       "source_sha256": "faa9b92da754ae03d8188b8d695f9a08d0dd88d964f8f5c8be78644f28ae3ba4",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-050-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-analytical_solution_bernoulli.tex",

@@ -53,7 +53,7 @@
 | 2 | 8 | [chp-cognitive_complementarity](../chapters/part-08/chp-cognitive_complementarity.tex) | 认知互补：分布式展开、离散提交与顺序依赖 | 已独立全文重写并完成排版复核 |
 | 2 | 8 | [chap-cognitive_electrodynamics](../chapters/part-08/chap-cognitive_electrodynamics.tex) | 方向与顺序：任务代价场和非交换状态更新 | 已独立全文重写并完成排版复核 |
 | 2 | 8 | [chap-path_integration_asymmetry](../chapters/part-08/chap-path_integration_asymmetry.tex) | 方向不对称：正向生成、逆向辨识与路径预算 | 已独立全文重写并完成排版复核 |
-| 2 | 8 | [chp-cognitive_mechanics](../chapters/part-08/chp-cognitive_mechanics.tex) | 认知材料力学 — 弹性推理与塑性学习 | 队列中；原文仍保留 |
+| 2 | 8 | [chp-cognitive_mechanics](../chapters/part-08/chp-cognitive_mechanics.tex) | 快慢认知力学：瞬态适应、结构学习与稳定—可塑平衡 | 已独立全文重写并完成排版复核 |
 | 2 | 8 | [chp-analytical_solution_bernoulli](../chapters/part-08/chp-analytical_solution_bernoulli.tex) | Fisher 流形上的可解析特解 — 一维伯努利流形与认知量子单摆 | 队列中；原文仍保留 |
 | 2 | 8 | [chp-cognitive_elliptic_resonator](../chapters/part-08/chp-cognitive_elliptic_resonator.tex) | 认知椭圆谐振腔 — 一维流形上的拓扑相变与自我的涌现 | 队列中；原文仍保留 |
 | 2 | 8 | [chp-physics_of_conservation_and_dissipation](../chapters/part-08/chp-physics_of_conservation_and_dissipation.tex) | 守恒与耗散的物理学 — 认知场的能量退相干与拓扑不变量 | 队列中；原文仍保留 |

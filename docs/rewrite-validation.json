@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 49,
-  "pending_chapters": 68,
+  "rewritten_chapters": 50,
+  "pending_chapters": 67,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1920,33 +1920,33 @@
     {
       "order": 50,
       "path": "chapters/part-08/chp-cognitive_mechanics.tex",
-      "title": "认知材料力学 — 弹性推理与塑性学习",
-      "status": "queued-for-full-rewrite",
+      "title": "快慢认知力学：瞬态适应、结构学习与稳定—可塑平衡",
+      "status": "rewritten-reviewed",
       "original_han_floor": 1328,
-      "new_chapter_prose_han": 1250,
+      "new_chapter_prose_han": 4635,
       "original_readable_units": 1291,
-      "new_readable_units": 1291,
-      "opening_prose_han": 207,
+      "new_readable_units": 4656,
+      "opening_prose_han": 257,
       "sections": [
         {
-          "title": "双频动力学：时间尺度的物理分离",
-          "prose_han": 121
+          "title": "双时间尺度：快状态、慢结构与可观测分离",
+          "prose_han": 1037
         },
         {
-          "title": "推理动力学：同步演化的弹性时空",
-          "prose_han": 268
+          "title": "推理动力学：受约束快态响应与可撤销工作态",
+          "prose_han": 1099
         },
         {
-          "title": "学习动力学：绝热分离的塑性刻蚀",
-          "prose_han": 242
+          "title": "学习动力学：证据聚合、结构提案与受控保留",
+          "prose_han": 1028
         },
         {
-          "title": "宏观调控：相变阀门与认知退火",
-          "prose_han": 412
+          "title": "宏观调控：学习资格、提交阀门与闭环验收",
+          "prose_han": 1214
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
