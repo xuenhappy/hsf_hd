@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 44,
-  "pending_chapters": 73,
+  "rewritten_chapters": 45,
+  "pending_chapters": 72,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1744,37 +1744,37 @@
     {
       "order": 45,
       "path": "chapters/part-08/chp-physics_of_cybernetics.tex",
-      "title": "控制的物理学 —— 反馈、目的与流形上的驾驭",
-      "status": "queued-for-full-rewrite",
+      "title": "控制的计算动力学：反馈、目的与多尺度驾驭",
+      "status": "rewritten-reviewed",
       "original_han_floor": 4769,
-      "new_chapter_prose_han": 4633,
+      "new_chapter_prose_han": 5749,
       "original_readable_units": 4765,
-      "new_readable_units": 4765,
-      "opening_prose_han": 484,
+      "new_readable_units": 5780,
+      "opening_prose_han": 277,
       "sections": [
         {
-          "title": "维纳的幽灵：从误差信号到几何张力",
-          "prose_han": 615
+          "title": "从误差信号到任务相关的几何张力",
+          "prose_han": 1046
         },
         {
-          "title": "目的论的数学：把“渴望”写进拉格朗日量",
-          "prose_han": 507
+          "title": "目的、约束与控制律：从价值场到可审计优化",
+          "prose_han": 1052
         },
         {
-          "title": "延迟与摩擦：控制论的 PID 同构与时间分离",
-          "prose_han": 1107
+          "title": "延迟、摩擦与PID型多时间尺度更新",
+          "prose_han": 1087
         },
         {
-          "title": "从负反馈到主动推断：流形上的自由能极小化",
-          "prose_han": 945
+          "title": "从负反馈到主动推断：信念与环境的双向校正",
+          "prose_han": 1113
         },
         {
-          "title": "阶层控制网：多体架构中的“奴役原理”",
-          "prose_han": 975
+          "title": "阶层控制与协同约化：宏观序参量的权限边界",
+          "prose_han": 1174
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

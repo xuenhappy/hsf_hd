@@ -849,9 +849,15 @@
       "source_start_line": 16326,
       "source_end_line": 16572,
       "source_sha256": "90e374975ddbe172dd6953bd48a852bbb2d38fcb6e2e9f118cfa7b5aded8bf47",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "控制的计算动力学：反馈、目的与多尺度驾驭",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-045-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-phase_transition_meta.tex",

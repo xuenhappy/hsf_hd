@@ -1,9 +1,9 @@
 {
-  "pages": 294,
-  "bytes": 31361134,
+  "pages": 299,
+  "bytes": 31396255,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 257,
+  "numbered_sections": 262,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1805,7 +1805,42 @@
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "45.1 从误差信号到任务相关的几何张力",
+      "start_pdf_page": 295,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "45.2 目的、约束与控制律：从价值场到可审计优化",
+      "start_pdf_page": 296,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "45.3 延迟、摩擦与PID型多时间尺度更新",
+      "start_pdf_page": 296,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "45.4 从负反馈到主动推断：信念与环境的双向校正",
+      "start_pdf_page": 297,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "45.5 阶层控制与协同约化：宏观序参量的权限边界",
+      "start_pdf_page": 298,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 44 chapters; does not validate the full book."
+  "scope": "Review subset: 45 chapters; does not validate the full book."
 }
