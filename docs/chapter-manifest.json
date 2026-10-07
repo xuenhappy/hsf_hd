@@ -716,9 +716,15 @@
       "source_start_line": 13141,
       "source_end_line": 13852,
       "source_sha256": "25d365aa8bb6038fac21064c957a5110272da965660c01d0d043c5d9b5718af4",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "意义的湍流：有限计算中的多尺度表征与结构重整",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-038-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-interaction_bus_ch1.tex",

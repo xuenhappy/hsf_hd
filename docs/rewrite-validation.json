@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 37,
-  "pending_chapters": 80,
+  "rewritten_chapters": 38,
+  "pending_chapters": 79,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1408,77 +1408,77 @@
     {
       "order": 38,
       "path": "chapters/part-08/chp-meaning_turbulence.tex",
-      "title": "意义的湍流 — 认知几何的卷曲与尺度重整化",
-      "status": "queued-for-full-rewrite",
+      "title": "意义的湍流：有限计算中的多尺度表征与结构重整",
+      "status": "rewritten-reviewed",
       "original_han_floor": 14495,
-      "new_chapter_prose_han": 14154,
+      "new_chapter_prose_han": 16139,
       "original_readable_units": 14532,
-      "new_readable_units": 14532,
-      "opening_prose_han": 237,
+      "new_readable_units": 16190,
+      "opening_prose_han": 246,
       "sections": [
         {
-          "title": "几何的极限：从度量平铺到拓扑卷曲",
-          "prose_han": 1596
+          "title": "有限表示：任务距离、压缩与可实现性",
+          "prose_han": 1103
         },
         {
-          "title": "智能的紧致性公理：有限性与不卷曲的物理灾难",
-          "prose_han": 617
+          "title": "容量边界：遗忘、干扰与运行资格",
+          "prose_han": 1058
         },
         {
-          "title": "几何铸模：卷曲作为多层级重整化的硬件化",
-          "prose_han": 725
+          "title": "层级表征：粗粒化、查询保持与结构摘要",
+          "prose_han": 1038
         },
         {
-          "title": "动力学闭环：里奇流的自指雕刻",
-          "prose_han": 418
+          "title": "双向更新：证据聚合、目标约束与结构修订",
+          "prose_han": 1030
         },
         {
-          "title": "意义的级联：借鉴湍流 RG 的认知场对比",
-          "prose_han": 517
+          "title": "多尺度流动：非线性、拥塞与语义级联",
+          "prose_han": 1062
         },
         {
-          "title": "层级重整化的双向卷曲：内化的分辨率与外化的连续性",
-          "prose_han": 1281
+          "title": "内化与外化：压缩、卸载与跨期连续",
+          "prose_han": 1038
         },
         {
-          "title": "纯几何动力学：宏观意志的拓扑发生学 (Topological Ontogeny of the Macro-Layer)",
-          "prose_han": 1237
+          "title": "元控制的形成：从瞬态响应到自我模型",
+          "prose_han": 1018
         },
         {
-          "title": "物理基质的协同演化：形质的硬件化 (Hardware Instantiation of Morpho-Semantics)",
-          "prose_han": 858
+          "title": "载体协同：表示、网络与组织结构",
+          "prose_han": 1066
         },
         {
-          "title": "硅基智能的介质相变：从 2D 阵列到高维拓扑处理单元 (TPU-G)",
-          "prose_han": 608
+          "title": "计算介质：存储墙、互连与异构加速",
+          "prose_han": 1068
         },
         {
-          "title": "层级化重整流 (HRF) 的数学原理",
-          "prose_han": 529
+          "title": "HRF计算模型：编码、解码与跨尺度误差",
+          "prose_han": 1255
         },
         {
-          "title": "跨层级流动的物理统一：场方程的对偶演化",
-          "prose_han": 897
+          "title": "跨层耦合：上行创新、下行约束与闭环稳定",
+          "prose_han": 1102
         },
         {
-          "title": "全息大统一：整体系统的动力学特征",
-          "prose_han": 521
+          "title": "全局联合状态：分层算子、读出与可观测性",
+          "prose_han": 1006
         },
         {
-          "title": "重整化的涌现效应：非局域联络与拓扑保护",
-          "prose_han": 669
+          "title": "跨尺度涌现：快捷联络、不变量与快速推断",
+          "prose_han": 1017
         },
         {
-          "title": "认知流形的拓扑发生学：多尺度折叠与重整化群的终极收束",
-          "prose_han": 1673
+          "title": "结构发生：学习阶段、尺度约化与递归边界",
+          "prose_han": 1012
         },
         {
-          "title": "因果同构与维度饱和：认知流形的可能极值",
-          "prose_han": 1771
+          "title": "能力极限：维度、因果保持与开放问题",
+          "prose_han": 1020
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
