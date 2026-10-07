@@ -41,7 +41,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 40,chapters/part-08/chp-interaction_bus_ch.tex,rewritten-reviewed,4090,4678,4163,4712,4,1017
 41,chapters/part-08/chp-lemniscate_ch.tex,rewritten-reviewed,5215,9590,5271,9631,9,1003
 42,chapters/part-08/chp-macro_latent_space_topology.tex,rewritten-reviewed,4716,8312,4668,8353,7,1062
-43,chapters/part-08/chp-topological_grand_unification_of_self_reference.tex,queued-for-full-rewrite,9737,9418,9667,9667,6,778
+43,chapters/part-08/chp-topological_grand_unification_of_self_reference.tex,rewritten-reviewed,9737,9849,9667,9914,9,1015
 44,chapters/part-08/chp-collective_renorm_ch.tex,queued-for-full-rewrite,10355,9976,10346,10346,8,1084
 45,chapters/part-08/chp-physics_of_cybernetics.tex,queued-for-full-rewrite,4769,4633,4765,4765,5,507
 46,chapters/part-08/chp-phase_transition_meta.tex,queued-for-full-rewrite,8319,8224,8487,8487,5,1141

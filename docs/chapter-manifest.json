@@ -811,9 +811,15 @@
       "source_start_line": 15104,
       "source_end_line": 15588,
       "source_sha256": "c5a3d568dc7b48d1131d08205105f32552c1031ba4a26486b74e94d13f721c04",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "自指闭环：身份维持、元观察与可验证控制",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-043-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-collective_renorm_ch.tex",

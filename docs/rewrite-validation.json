@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 42,
-  "pending_chapters": 75,
+  "rewritten_chapters": 43,
+  "pending_chapters": 74,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1644,41 +1644,53 @@
     {
       "order": 43,
       "path": "chapters/part-08/chp-topological_grand_unification_of_self_reference.tex",
-      "title": "自指的拓扑大一统 — 测量、隐状态与宏观做功的闭环动力学",
-      "status": "queued-for-full-rewrite",
+      "title": "自指闭环：身份维持、元观察与可验证控制",
+      "status": "rewritten-reviewed",
       "original_han_floor": 9737,
-      "new_chapter_prose_han": 9418,
+      "new_chapter_prose_han": 9849,
       "original_readable_units": 9667,
-      "new_readable_units": 9667,
-      "opening_prose_han": 293,
+      "new_readable_units": 9914,
+      "opening_prose_han": 376,
       "sections": [
         {
-          "title": "四元本体论：自指闭环的几何拓扑基底",
-          "prose_han": 778
+          "title": "自指对象：身份状态、自我模型与四类功能",
+          "prose_han": 1028
         },
         {
-          "title": "测量相变与能量劈分律：从感受质到动力学源项",
-          "prose_han": 1046
+          "title": "元观察：从内部测量到带置信度的自我读出",
+          "prose_han": 1015
         },
         {
-          "title": "宏观引擎的爆发：从李群旋转到认知空间的法则重塑",
-          "prose_han": 1751
+          "title": "历史重入：事件绑定、语义沉淀与正反馈阻断",
+          "prose_han": 1078
         },
         {
-          "title": "双涡旋对偶：流体自我 ($\\mathcal{S}_{fluid}$) 与宏观极限环 ($\\mathcal{S}^*$) 的全息共生",
-          "prose_han": 1476
+          "title": "宏观控制：从策略方向到可执行控制包",
+          "prose_han": 1076
         },
         {
-          "title": "生物学确证：PFC-DMN 的拓扑共生与动力学双星系统",
-          "prose_han": 1296
+          "title": "闭环动力学：固定点、极限环与切换稳定性",
+          "prose_han": 1054
         },
         {
-          "title": "内生马具工程：观察算子的正交能量劈分与控制论闭环",
-          "prose_han": 2778
+          "title": "双向耦合：局部结构、全局分布与身份可生存域",
+          "prose_han": 1048
+        },
+        {
+          "title": "神经科学约束：PFC、DMN与分布式协同边界",
+          "prose_han": 1073
+        },
+        {
+          "title": "内生元控制：复杂度管理、行动资格与外部验收",
+          "prose_han": 1054
+        },
+        {
+          "title": "理论边界：一般状态动力学与AgentOS实例",
+          "prose_han": 1047
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

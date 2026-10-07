@@ -1,9 +1,9 @@
 {
-  "pages": 277,
-  "bytes": 31246541,
+  "pages": 285,
+  "bytes": 31295601,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 240,
+  "numbered_sections": 249,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1686,7 +1686,70 @@
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "43.1 自指对象：身份状态、自我模型与四类功能",
+      "start_pdf_page": 278,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "43.2 元观察：从内部测量到带置信度的自我读出",
+      "start_pdf_page": 279,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "43.3 历史重入：事件绑定、语义沉淀与正反馈阻断",
+      "start_pdf_page": 279,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "43.4 宏观控制：从策略方向到可执行控制包",
+      "start_pdf_page": 280,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "43.5 闭环动力学：固定点、极限环与切换稳定性",
+      "start_pdf_page": 281,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "43.6 双向耦合：局部结构、全局分布与身份可生存域",
+      "start_pdf_page": 282,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "43.7 神经科学约束：PFC、DMN与分布式协同边界",
+      "start_pdf_page": 283,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "43.8 内生元控制：复杂度管理、行动资格与外部验收",
+      "start_pdf_page": 283,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "43.9 理论边界：一般状态动力学与AgentOS实例",
+      "start_pdf_page": 284,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 42 chapters; does not validate the full book."
+  "scope": "Review subset: 43 chapters; does not validate the full book."
 }
