@@ -792,9 +792,15 @@
       "source_start_line": 14839,
       "source_end_line": 15104,
       "source_sha256": "7230f1fd666e4497ec1ada9761ad791af9b1045bb1defec896f6079f42b6055f",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "宏观潜空间：任务压缩、受限几何与闭环控制",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-042-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-topological_grand_unification_of_self_reference.tex",

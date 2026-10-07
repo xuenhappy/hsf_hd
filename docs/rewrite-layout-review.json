@@ -1,9 +1,9 @@
 {
-  "pages": 270,
-  "bytes": 31193665,
+  "pages": 277,
+  "bytes": 31246541,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 233,
+  "numbered_sections": 240,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1637,7 +1637,56 @@
       "prose_lines": 26,
       "calibrated_prose_page_equivalents": 0.579,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "42.1 任务商空间：从高维活动到可验证宏观状态",
+      "start_pdf_page": 271,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "42.2 受限几何：方向、幅度与资源状态的分账",
+      "start_pdf_page": 272,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "42.3 非交换更新：历史顺序、算子组合与经验保持",
+      "start_pdf_page": 272,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "42.4 切空间动力学：约束梯度、离散回缩与安全边界",
+      "start_pdf_page": 273,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "42.5 快慢分离：窗口聚合、随机逼近与漂移跟踪",
+      "start_pdf_page": 274,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "42.6 自指闭环：固定点、极限环与身份连续性",
+      "start_pdf_page": 275,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "42.7 向下控制：宏观策略接口、探索调节与外部验收",
+      "start_pdf_page": 276,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 41 chapters; does not validate the full book."
+  "scope": "Review subset: 42 chapters; does not validate the full book."
 }
