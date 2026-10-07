@@ -1,9 +1,9 @@
 {
   "checks_passed": true,
-  "original_complete_chapters_verified": 72,
-  "fully_rewritten_chapters_length_verified": 45,
+  "original_complete_chapters_verified": 71,
+  "fully_rewritten_chapters_length_verified": 46,
   "baseline_chapter_chinese_characters": 568727,
-  "current_chapter_chinese_characters": 672162,
+  "current_chapter_chinese_characters": 672553,
   "scope": "Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.",
   "chapters": [
     {
@@ -368,11 +368,11 @@
     },
     {
       "path": "chapters/part-08/chp-phase_transition_meta.tex",
-      "original_exposition_preserved": true,
-      "validation_mode": "original-exposition-conservation",
+      "original_exposition_preserved": false,
+      "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 8319,
-      "current_chinese_characters": 8319
+      "current_chinese_characters": 8710
     },
     {
       "path": "chapters/part-08/chp-cognitive_complementarity.tex",

@@ -1,9 +1,9 @@
 {
-  "pages": 299,
-  "bytes": 31396255,
+  "pages": 306,
+  "bytes": 31508783,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 262,
+  "numbered_sections": 267,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1840,7 +1840,42 @@
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "46.1 任务相关序参量：结构复杂度、传播范围与目标对齐",
+      "start_pdf_page": 300,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "46.2 运行相态：稳定执行、无序搜索与自适应临界区间",
+      "start_pdf_page": 301,
+      "prose_lines": 39,
+      "calibrated_prose_page_equivalents": 0.869,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "46.3 相变控制机制：从探索退火到结构提交",
+      "start_pdf_page": 302,
+      "prose_lines": 48,
+      "calibrated_prose_page_equivalents": 1.069,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "46.4 LLM温度诊断：输出采样不等于系统退火",
+      "start_pdf_page": 304,
+      "prose_lines": 52,
+      "calibrated_prose_page_equivalents": 1.158,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "46.5 涌现的操作定义：跨尺度闭合、稳健与可干预性",
+      "start_pdf_page": 305,
+      "prose_lines": 53,
+      "calibrated_prose_page_equivalents": 1.18,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 45 chapters; does not validate the full book."
+  "scope": "Review subset: 46 chapters; does not validate the full book."
 }

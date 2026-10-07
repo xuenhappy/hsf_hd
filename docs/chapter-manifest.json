@@ -868,9 +868,15 @@
       "source_start_line": 16572,
       "source_end_line": 16938,
       "source_sha256": "1393429d24f539f69f6006a6bc8b87f8ad506b662e183061615ae0f1bc72a59f",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "运行相变：探索、执行与结构更新的临界控制",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-046-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-cognitive_complementarity.tex",
