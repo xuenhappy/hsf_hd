@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 43,
-  "pending_chapters": 74,
+  "rewritten_chapters": 44,
+  "pending_chapters": 73,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1696,49 +1696,49 @@
     {
       "order": 44,
       "path": "chapters/part-08/chp-collective_renorm_ch.tex",
-      "title": "群体重整化 — 组织立体化学与高阶涌现",
-      "status": "queued-for-full-rewrite",
+      "title": "群体重整化：组织的多尺度状态动力学",
+      "status": "rewritten-reviewed",
       "original_han_floor": 10355,
-      "new_chapter_prose_han": 9976,
+      "new_chapter_prose_han": 10422,
       "original_readable_units": 10346,
-      "new_readable_units": 10346,
-      "opening_prose_han": 294,
+      "new_readable_units": 10460,
+      "opening_prose_han": 395,
       "sections": [
         {
-          "title": "键合物理：双纤维丛的轨道杂化与共形互锁",
-          "prose_han": 1167
+          "title": "键合条件：接口耦合、身份边界与联合更新",
+          "prose_han": 1175
         },
         {
-          "title": "分形重整化与社会语义子 (Social Semantions) — 物理形质向组织实体的高阶跃迁",
-          "prose_han": 1382
+          "title": "群体重整化：从微观轨迹到社会语义状态",
+          "prose_han": 1284
         },
         {
-          "title": "涌现机制：几何奴役与纤维的重整化",
-          "prose_han": 1084
+          "title": "涌现判据：慢变量、下行约束与误差边界",
+          "prose_han": 1175
         },
         {
-          "title": "高阶网络的拓扑涌现 — 作为嵌套流形的节点发生学",
-          "prose_han": 1204
+          "title": "高阶网络：子图封装、超边与可展开节点",
+          "prose_han": 1209
         },
         {
-          "title": "立体异构：纤维丛的堆积几何与能带结构",
-          "prose_han": 1184
+          "title": "组织异构体：四类拓扑及其任务适配",
+          "prose_han": 1301
         },
         {
-          "title": "分形递归 — 智能三体系统的尺度不变性",
-          "prose_han": 1408
+          "title": "分形递归：跨尺度接口与有限自相似",
+          "prose_han": 1266
         },
         {
-          "title": "动力学演化：组织的相变反应",
-          "prose_han": 1133
+          "title": "组织演化：重构、分裂、合并与退出",
+          "prose_han": 1298
         },
         {
-          "title": "缺失与耗散 — 组织的病理动力学与真空不稳定性",
-          "prose_han": 1120
+          "title": "病理相态：退相干、约束挫折与成核风险",
+          "prose_han": 1319
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

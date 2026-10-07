@@ -830,9 +830,15 @@
       "source_start_line": 15588,
       "source_end_line": 16326,
       "source_sha256": "c1b3c897c8d6c7c931e5351c0c8e464b0ba40d435d10a67c98677ce4d62e3de4",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "群体重整化：组织的多尺度状态动力学",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-044-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-physics_of_cybernetics.tex",
