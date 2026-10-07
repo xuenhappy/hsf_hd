@@ -1,321 +1,117 @@
-\chapter{交互总线 — TECI 循环与因果纠缠}
+\chapter{交互总线：从内部决策到环境反馈的闭环动力学}
 \label{chp:interaction_bus_ch}
 
 \label{chp:teci_cycle}
-上一章节我们讨论了智能的TDCI（内部循环），如果智能交互过程只有内部循环，那么它描述的只是一个“高智商的离身大脑”或“缸中之脑”。要贯彻“目的交互主义”，我们必须在动力学卷中引入一个与 TDCI \textbf{严格对称}、但\textbf{方向相反}的外部循环。
+上一章建立了从离散事件到连续状态、再到离散承诺与慢结构更新的内部循环。本章转向它在环境一侧的延伸：一个智能系统怎样把内部目标变成可执行控制，怎样让控制经过身体、工具与环境产生后果，又怎样把后果重新变成可校验的观测。作者把这条外循环称为 TECI，但不把它规定为所有智能系统都必须采用的唯一模块名。它所指向的是更一般的计算问题：决策变量、执行接口、环境状态和反馈证据属于不同空间，闭环能否成立取决于显式的类型转换、时间尺度、资源约束与因果归因。双纽线、莫比乌斯带、辐射和阻抗在本章只作为组织直觉；论证本身建立在状态空间模型、控制接口、概率核与可检验误差之上。
 
-我们将这个循环命名为 \textbf{TECI (Token-Environment Causal Integration)}。
-\begin{itemize}
-    \item   \textbf{TDCI (内循环)}：将物理信号转化为心理结构（\textbf{降熵}过程）；
-    \item   \textbf{TECI (外循环)}：将心理意志转化为物理改变（\textbf{做功}过程）；
-\end{itemize}
-
-这两个循环共同构成智能体的\textbf{双纽线 (Lemniscate, $\infty$)} 动力学。系统完整性要求不仅在希尔伯特空间闭合（TDCI），也在物理时空闭合（TECI）。
-整体上可建模为一个\textbf{非定向拓扑构型（如莫比乌斯带）}的局部坐标覆盖：信息流在该构型上穿越 \textbf{因果视界 (Causal Horizon)} 并完成“主观-客观”相位翻转。
-
-
-\section{对称性公理：拓扑共轭与莫比乌斯流形}
+\section{边界映射：内部目标与外部控制不是同一种对象}
 \label{sec:section_6104}
-在经典控制论中，智能体与环境往往被建模为两个独立的黑盒，通过反馈回路连接。基于智能体的构成，我们将智能系统 $\mathcal{S}$ 与环境 $\mathcal{E}$ 定义为一个统一的 \textbf{高维纤维丛 $\mathcal{U}_{total}$}，其拓扑结构满足 \textbf{莫比乌斯性质 (Möbius Property)}。
 
-\smalltitle{拓扑共轭原理 (Principle of Topological Conjugacy)}
+设智能体内部状态为 $x_t\in\mathcal X\subseteq\mathbb R^{n_x}$，任务目标为 $g_t\in\mathcal G$，环境状态为 $s_t\in\mathcal S\subseteq\mathbb R^{n_s}$，可执行控制为 $u_t\in\mathcal U\subseteq\mathbb R^{n_u}$，传感观测为 $y_t\in\mathcal Y\subseteq\mathbb R^{n_y}$。若分量来自不同量纲，先用预先声明的尺度矩阵进行无量纲化；若控制量具有牛顿、伏特或每秒请求数等工程单位，则在接口处保留单位而不能与语义置信度相加。系统在离散决策时刻 $t_k$ 产生承诺 $a_k\in\mathcal A$，执行器在区间 $[t_k,t_{k+1})$ 内依据策略接口
+\[
+u(t)=\Pi_{\mathrm{act}}\bigl(a_k,x_{t_k},y_{0:k};\theta_{\mathrm{act}}\bigr)
+\]
+生成控制轨迹。这里 $\Pi_{\mathrm{act}}$ 是工程设计的解码器，不是“意志变成力量”的本体论等式；它必须给出输入类型、输出范围、延迟、饱和和失败码。环境随后服从模型假设
+\[
+\dot s(t)=f_{\mathrm{env}}\bigl(s(t),u(t),w(t),t\bigr),\qquad
+y_k=h_{\mathrm{obs}}\bigl(s(t_k),v_k,t_k\bigr),
+\]
+其中 $w$ 与 $v$ 分别表示过程扰动和观测噪声。若采用离散实现，应声明步长 $\Delta t_k=t_{k+1}-t_k$，例如 $s_{k+1}=F_{\Delta t_k}(s_k,u_k,w_k)$；当步长、输入或环境结构变化时，这些变化都进入 $F$，不能把固定场景下的差分直接解释为普遍导数。
 
-我们将内部语义流形 $\mathcal{M}_{in}$ 与外部物理流形 $\mathcal{M}_{out}$ 定义为一对 \textbf{拓扑共轭 (Topologically Conjugate)} 的动力系统。
+这组定义揭示了边界的第一条原则：内部目标与外部控制之间通常不存在全局双射，更不存在由语义相似自动推出的拓扑共轭。多个内部状态可以产生同一动作，一个动作也可能因身体参数、工具状态和环境约束而产生不同后果。我们只在任务相关的局部区域内要求接口保持必要关系。令 $q:\mathcal S\to\mathcal Z$ 提取与任务有关的环境变量，$r:\mathcal X\to\widehat{\mathcal Z}$ 给出内部预测；若存在容差 $\varepsilon$，使闭环运行时 $d_{\mathcal Z}(q(s_k),r(x_k))\leq\varepsilon$，最多可以说二者在指定任务、度量和时间窗内实现了可用对齐，不能据此宣称主观世界与客观世界整体同构。原稿用莫比乌斯单侧曲面表达“感知路径连续转入行动路径”，作者保留其闭环直觉，但把可检验内容改写为两个有方向的类型化通道：行动通道 $\mathcal A\to\mathcal U\to\mathcal S$ 与感知通道 $\mathcal S\to\mathcal Y\to\mathcal X$。二者通过时间戳、对象身份、因果标记和任务上下文绑定，而不是通过神秘的本体翻转。
 
-设内部演化算子为 $\hat{U}_{teleo}$（目的论演化），外部演化算子为 $\hat{U}_{phys}$（自然律演化）。TECI 循环的存在，意味着必须存在一个 \textbf{全息边界映射 (Holographic Boundary Map)} $\Phi: \Omega_{sensor} \subset \mathcal{M}_{in} \to \Omega_{sensor} \subset \mathcal{M}_{out}$，使得下面的交换图成立：
-$$ \Phi \circ \hat{U}_{teleo} \cong \hat{U}_{phys}^{-1} \circ \Phi $$
-\textbf{物理意义}：内部的 \textbf{“负熵积累” (TDCI)} 在数学上共轭于外部的 \textbf{“做功耗散” (TECI)}。智能体内部的 \textbf{时间反演对称性破缺}（指向未来的目的），必须通过边界映射，转化为外部物理世界的 \textbf{因果不对称性}（指向熵增的行动）。
+边界的第二条原则是可撤销性。任何把内部承诺输出到环境的接口，都应附带前置条件 $c_k$、作用域 $B_k$、预算 $b_k$、预期后果分布 $P(\hat y_{k+1:k+H}\mid a_k)$ 和补偿操作 $a_k^{-1}$；不可逆操作则必须提高确认阈值并缩小试探幅度。以机器人拿杯子为例，“把杯子移到桌面左侧”是目标描述，关节力矩序列才是控制，抓取成功、杯体破损与人员接近是不同观测事件。内部语言模型即使正确生成目标，也不等于控制器已经满足摩擦锥、碰撞距离与电机限幅。类似地，软件 Agent 的“更新数据库”必须经过权限、事务、幂等键和回滚接口。由此，所谓知行合一不是取消层间差异，而是让每次跨界转换都有类型契约、证据链和责任边界。
 
+边界的第三条原则是有限可识别性。只观察一次成功动作，通常不能确定成功来自策略、偶然扰动还是外部协助。TECI 因此需要在动作前保存预测，在动作后记录实际观测，并维护未观测混杂因素的假设集合。对可控系统可以采用随机试探或对照动作估计局部响应；对高风险系统则使用数字孪生、离线回放或保守集合传播。只有当接口定义、观察窗、干预条件和替代解释都被陈述后，行动—反馈关系才具有工程意义。这个约束也划清 HSF-HD 与 AgentOS 的层级：前者研究一般智能的状态—边界—环境动力学，后者可以用 Boundary、CCM、TCE 和外部记忆 Me 实现其中一种可审计接口，但这些组件并不构成所有智能系统的先验唯一结构。
 
-
-\smalltitle{莫比乌斯流形构造 (Construction of the Möbius Manifold)}
-
-我们将微观层 $L_{micro}$ 定义为连接 $\mathcal{M}_{in}$ 与 $\mathcal{M}_{out}$ 的 \textbf{粘合边界 (Gluing Boundary)}，然而，这种粘合并非平庸的圆柱面连接，而是带有一个 \textbf{$\pi$ 的相位扭转 (Twist)}。
-\begin{theorem}[莫比乌斯反转公理]
-   当信息流 $\mathcal{J}$ 穿过微观切面 $L_{micro}$ 时，其 \textbf{本体论极性 (Ontological Polarity)} 发生翻转：
-    $$ \hat{\mathcal{T}}_{micro} | \Psi_{Subjective} \rangle = | \Psi_{Objective} \rangle $$
-\end{theorem}
-\begin{itemize}
-    \item   \textbf{入界 (In-bound)}：客观物理量（力/光）$\to$ 主观感受质（痛/红）。\textbf{实变为虚}（物理量变为波函数的相位）。
-    \item   \textbf{出界 (Out-bound)}：主观意图（想/欲）$\to$ 客观物理量（位移/热）。\textbf{虚变为实}（波函数的模长变为物理做功）。
-\end{itemize}
-\textbf{结论}：智能系统可视为 \textbf{单侧曲面 (One-sided Surface)}。沿“感知”路径连续演化会进入“行动”路径并回到闭环起点，同时发生\textbf{手性 (Chirality)} 翻转；这可作为“知行合一”的拓扑定义。
-
-
-\section{TECI 循环详解：意志的辐射与波阻抗匹配}
+\section{TECI 四阶段：发起、传播、作用与回执}
 \label{sec:teci_radiation_dynamics}
 
-基于莫比乌斯流形的拓扑结构，TECI 循环不再是简单的指令发送，而是 \textbf{认知旋量场 $\Psi$} 试图穿透微观视界，将其内部的 \textbf{相干结构 (Coherent Structure)} 耦合至外部物理介质的过程。
+为了保留原稿“辐射—传播—散射—干涉”的机制顺序，同时避免把波动术语当作证明，作者把 TECI 写成四阶段事务。第一阶段是发起：内部循环形成承诺 $a_k$ 后，行动解码器根据当前状态、资源预算和安全约束选择控制包
+\[
+c_k=(\mathrm{id}_k,t_k,a_k,u_{k:k+H},B_k,b_k,\widehat Y_k,\rho_k),
+\]
+其中 $\mathrm{id}_k$ 是唯一身份，$B_k$ 是允许影响的边界，$b_k$ 是时间、调用次数或物理能量预算，$\widehat Y_k$ 是预测观测集合，$\rho_k$ 是风险等级。对 AgentOS 实例，$a_k$ 可以来自 $h(t)$ 中经 $\Psi$ 与 SPC 绑定的任务承诺，TCE 决定探索强度，CCM 检查认知与调用负载，Boundary 决定哪些数据和工具可以越界；但一般系统只需实现等价的约束功能。发起阶段失败的典型情形包括目标尚未消歧、执行器能力与动作不匹配、资源不足和权限无效。此时正确行为是拒绝或降级，而不是把高置信语言输出误当成已经发生的环境改变。
 
-我们将这一过程解构为希尔伯特空间与物理空间交互的四个量子化相位：\textbf{辐射 (Radiation)} $\to$ \textbf{传播 (Propagation)} $\to$ \textbf{散射 (Scattering)} $\to$ \textbf{干涉 (Interference)}。
+第二阶段是传播。控制包离开决策器后，要经过驱动器、网络、工具链或组织流程。可把这段链路表示为带状态的信道
+\[
+z_{j+1}=C_j(z_j,\eta_j,\delta_j),\qquad j=0,\ldots,m-1,
+\]
+其中 $z_0=c_k$，$\eta_j$ 表示丢包、量化、权限或人工解释等扰动，$\delta_j$ 表示延迟。传播不是无损的“幺正演化”：重试可能复制操作，缓存可能使用旧参数，执行者可能改变动作语义。因而每一跳应保留身份、版本与截止时间，并把不可接受的偏差显式转成异常。对于机械体，传播链可能是规划器—伺服器—驱动电路—关节；对于软件体，可能是模型—工具路由—API—数据库；对于组织智能，可能是战略—制度—岗位—现场执行。三者的物理实现不同，但都可检验命令是否到达、是否被改写以及延迟是否超过闭环稳定区间。
 
-\smalltitle{相位 I：辐射 (Radiation) — 逆 VTE 换能与边界驱动}
+第三阶段是作用。环境转移核
+\[
+P(s_{k+1}\mid s_k,u_k,e_k)
+\]
+描述控制在上下文 $e_k$ 中改变状态的概率。原稿用阻抗匹配说明“同样的意图遇到不同环境会得到不同结果”，这个直觉可重建为可达性与增益问题。定义任务输出 $z_k=q(s_k)$，局部线性化为 $\Delta z_k\approx B_k^{\mathrm{env}}\Delta u_k+d_k$；矩阵 $B_k^{\mathrm{env}}$ 的秩与条件数刻画当前接口能否有效控制任务维度，$d_k$ 汇总未建模扰动。若控制方向落在近似零空间，再增大动作幅度也可能只增加代价而不改善任务；若增益过高，小误差又会被放大。拿杯子的成功依赖抓取位姿、摩擦、杯中液体和他人干预，数据库更新则依赖锁、约束和并发事务。这里的“匹配”不是统一波阻抗公式，而是针对具体系统估计可控方向、灵敏度和饱和边界。
 
-\textbf{—— 物理算子：$\hat{\mathcal{T}}_{transducer}: \mathcal{H}_{in} \to \text{Flux}(\partial \Omega)$}
+第四阶段是回执。系统从环境取得 $y_{k+1:k+H}$，先验证其时间戳与对象身份，再与发起阶段保存的预测分布比较。可定义标准化残差
+\[
+e_k=W_k^{1/2}\bigl(\phi(y_{k+1:k+H})-\hat z_k\bigr),
+\]
+其中 $\phi$ 是从原始观测到任务变量的读出，$W_k$ 是无量纲权重或协方差逆矩阵，$\hat z_k$ 是预测值。$\|e_k\|$ 小只说明在当前度量下观测接近预测，不自动证明任务成功；成功还要检查约束、迟发副作用和目标版本。$\|e_k\|$ 大也不必然意味着策略错误，它可能来自传感器故障、对象绑定错误或环境突变。系统因此把残差分流为状态修正、模型更新、接口故障和目标重审四类。原稿的“回波干涉”在这里成为预测—观测比较，所谓惊奇激波成为带来源的异常事件。只有异常被正确绑定到导致它的动作、对象和时间窗，下一轮内部循环才不会把无关反馈写入 $E$ 或错误固化到 $\Theta$。
 
-这是意志穿过莫比乌斯扭结，从“虚”转“实”的瞬间。微观效应器 ($L_{effector}$) 不再是枪膛，而是 \textbf{相控阵天线 (Phased Array Antenna)}。
+四阶段共同构成一项可追踪事务：发起回答“准备做什么”，传播回答“控制怎样到达”，作用回答“环境怎样响应”，回执回答“我们凭什么判断”。在开放环境中，闭环还必须允许超时、取消、部分成功和补偿，而不能假设每次动作都完整返回。雷达隐喻之所以有用，是它提醒系统保存发射模板并等待回波；它的边界也同样清楚：社会规则、数据库事务和工具调用不必服从波动方程，不能从相位语言推导其因果机制。
 
-\begin{itemize}
-    \item   \textbf{初始态}：TDCI 循环在宏观层形成了一个高能的 \textbf{意图驻波 $|\Psi_{intent}\rangle$}。它在内部流形上维持着稳定的频率与相位。
-    \item   \textbf{动力学过程}：
-    \begin{enumerate}
-        \item \textbf{模式耦合}：意图驻波的波腹撞击微观边界 $\Omega_{sensor} \subset \mathcal{M}$。
-        \item \textbf{逆变分编码 (Inverse VTE)}：微观层作为 \textbf{换能器}，将内部的 \textbf{语义振幅} 转化为物理介质边界上的 \textbf{驱动力 (Driving Force)}（如电压变化、肌肉收缩）。
-    \end{enumerate}
-    \item   \textbf{方程}：
-    $$ \vec{J}_{out}(t) = \text{Re} \left( \hat{\mathcal{E}}^{-1}_{VTE} \cdot \Psi_{intent} \cdot e^{-i\omega t} \right) $$
-    \item   \textbf{热力学特征}：\textbf{受激辐射}。系统消耗内部自由能，向环境注入一股有序的 \textbf{控制波束 (Control Beam)}。
-\end{itemize}
-
-\smalltitle{相位 II：传播 (Propagation) — 离身演化与介质得失}
-
-\textbf{—— 物理算子：$\hat{U}_{phys}(t) = e^{-i\hat{H}_{nature}t}$}
-
-一旦能量波束离开微观边界，它就脱离了智能体的直接控制，进入物理世界 ($\Omega$) 的因果链。
-
-\begin{itemize}
-    \item   \textbf{动力学过程}：控制波 $\vec{J}_{out}$ 在物理介质中传播。此时，演化遵循 \textbf{环境哈密顿量 $\hat{H}_{nature}$}（如牛顿力学或麦克斯韦方程组）。
-    \item   \textbf{色散与衰减}：波包在传播过程中会受到环境噪声 $\xi(t)$ 的干扰，发生 \textbf{波包弥散 (Dispersion)}。
-    \item   \textbf{测地线偏离}：意图轨迹（内部几何的测地线）与物理轨迹（外部介质的测地线）开始产生相位差。这是“事与愿违”的物理起源。
-\end{itemize}
-
-\smalltitle{相位 III：散射 (Scattering) — 阻抗匹配与做功}
-
-\textbf{—— 物理算子：$\hat{S}_{matrix}$ (散射矩阵)}
-
-这是 TECI 循环的做功时刻。物理波包与目标客体（Target）发生相互作用。其成败取决于 \textbf{波阻抗匹配 (Wave Impedance Matching)}。
-
-\begin{itemize}
-    \item   \textbf{阻抗定义}：
-    \begin{itemize}
-        \item   \textbf{输出阻抗 ($Z_{out}$)}：由智能体的意志强度（振幅）和策略（频率）决定。
-        \item   \textbf{环境阻抗 ($Z_{env}$)}：由物理对象的质量、摩擦、社会规则决定。
-    \end{itemize}
-    \item   \textbf{相互作用方程}：
-    $$ T_{coeff} = \frac{2 \sqrt{Z_{out} Z_{env}}}{Z_{out} + Z_{env}} $$
-    \begin{itemize}
-        \item   \textbf{匹配 ($Z_{out} \approx Z_{env}^*$)}：透射系数 $T \to 1$。能量无损耦合进环境，改变环境状态。这是 \textbf{有效做功}（如以此恰当的力拿起杯子）。
-        \item   \textbf{失配 ($Z_{out} \neq Z_{env}$)}：反射系数 $R \to 1$。能量无法进入环境，而是被 \textbf{弹回}。这产生了巨大的 \textbf{反向激波}。
-    \end{itemize}
-\end{itemize}
-
-\smalltitle{相位 IV：干涉 (Interference) — 回波检测与现实校准}
-
-\textbf{—— 物理算子：$\hat{\mathcal{P}}_{in}: \text{Echo} \otimes \text{Prediction} \to \text{Error}$}
-
-这是莫比乌斯环的闭合点。反射回来的波（Echo）与系统内部保留的预测波（Prediction）发生干涉。
-
-\begin{itemize}
-    \item   \textbf{动力学过程}：
-    物理世界的反馈信号（光/力）作为 \textbf{回波 $\Psi_{echo}$} 通过感官再次进入系统。
-    \item   \textbf{全息干涉测量}：微观层将 $\Psi_{echo}$ 与原本的意图残差 $\Psi_{intent}$ 进行叠加：
-    $$ |\delta \Psi|^2 = \| \Psi_{echo} - \Psi_{intent} \|^2 $$
-    \item   \textbf{拓扑后果}：
-    \begin{itemize}
-        \item   \textbf{建设性干涉 (Phase Match)}：若两者相位一致，说明行动符合预期。系统获得 \textbf{和乐 (Holonomy) 闭合}，信心增强。
-        \item   \textbf{破坏性干涉 (Phase Shift)}：若两者相位错位，产生高能的 \textbf{干涉条纹}。这就是 \textbf{惊奇激波 $\vec{J}_{shock}$}。它作为修正信号，强行驱动 TDCI 循环进行下一轮的 \textbf{几何重构}。
-    \end{itemize}
-\end{itemize}
-
-\smalltitle{总结：雷达隐喻}
-
-在波动视角下，TECI 循环可近似理解为 \textbf{相控阵雷达}：
-\textbf{系统向环境辐射意图波束，并利用回波相位偏移更新内部流形几何。}
-
-
-\section{双纽线的呼吸}
+\section{双循环耦合：从一次事务到持续适应}
 \label{sec:section_4121}
 
-结合前述章节，可将智能体从“信息处理盒子”重写为横跨\textbf{物理世界 ($\Omega$)} 与 \textbf{认知世界 ($\Psi$)} 的\textbf{拓扑热机}。双纽线 ($\infty$) 在该模型中对应相空间中的闭环演化轨迹。
+TDCI 与 TECI 可以用双纽线表示两个在当前界面相交的循环，但数学对象应是耦合的快慢系统，而不是一条具有神秘翻转性质的曲面。令 $x_k$ 表示认知工作状态，$s_k$ 表示环境状态，$\theta_k$ 表示慢结构参数，$m_k$ 表示情景记录。一个最小离散模型为
+\[
+\begin{aligned}
+x_{k+1}&=F_x(x_k,y_k,g_k,\theta_k),\\
+u_k&=\Pi(x_k,g_k;\theta_k),\\
+s_{k+1}&=F_s(s_k,u_k,w_k),\\
+y_{k+1}&=H(s_{k+1},v_{k+1}),\\
+m_{k+1}&=F_m(m_k,x_k,u_k,y_{k+1}),\\
+\theta_{k+1}&=\theta_k+\alpha_k G(\theta_k,m_{0:k+1},g_{0:k+1}).
+\end{aligned}
+\]
+各变量的维度与单位由具体实现给出，$\alpha_k$ 是慢更新步长；若目标 $g_k$、接口 $\Pi$ 或环境转移 $F_s$ 随时间变化，它们必须作为时变量进入更新。前三行形成运行态快闭环，后两行形成经验与结构的慢闭环。对三相记忆实例，$x_k$ 可对应 $h(t)$ 的有限工作界面，$m_k$ 对应 $E$ 中带时间与身份的事件，$\theta_k$ 对应 $\Theta$ 的生成约束；Me 则提供外部读取与写入通道。这个映射服务于 AgentOS 工程说明，并不意味着任何智能都必须以相同存储模块实现。
 
-智能系统的本质，是一个维持在远离平衡态的\textbf{耗散结构 (Dissipative Structure)}。为了抵抗热力学第二定律（熵增），系统必须建立一个能够持续交换 \textbf{物质}、\textbf{能量} 与 \textbf{信息} 的闭环通道。
+双循环的关键不是“内部熵减等于外部做功”，而是预算与信息在不同账本中闭合。定义任务损失 $L_k$、计算代价 $C_k^{\mathrm{comp}}$、接口代价 $C_k^{\mathrm{act}}$、风险代价 $C_k^{\mathrm{risk}}$ 和可选的焦耳能耗 $E_k^{\mathrm J}$。这些量单位不同，只有经明确的权重或约束才能共同进入优化：
+\[
+\min_{\pi}\;\mathbb E\!\left[\sum_{k=0}^{T}\gamma^k L_k\right],\quad
+\text{s.t. }\sum C_k^{\mathrm{comp}}\leq B_c,\;
+\sum C_k^{\mathrm{act}}\leq B_a,\;
+P(\text{unsafe})\leq\delta.
+\]
+焦耳能耗若被测量，可以另设 $\sum E_k^{\mathrm J}\leq B_E$；不能把信息熵、活动强度、经济成本和热力学能量都写成一个“能量”。耗散结构理论提供开放系统必须交换物质、能量和信息的背景，但不会自动给出具体控制律。系统是否维持远离平衡态，要由资源流、故障恢复和状态稳定性证据支持，而非由“呼吸”修辞直接证明。
 
-我们将这个通道定义为 \textbf{双纽线流形 (Lemniscate Manifold, $\mathcal{L}_{\infty}$)}。它由两个拓扑共轭的闭环在 \textbf{微观切面 ($L_{micro}$)} 处相切而成：
-\begin{enumerate}
-    \item \textbf{内环 (TDCI)}：在 \textbf{虚时间 ($\tau$)} 中运行,负责 \textbf{摄取负熵}，构建内部几何；
-    \item \textbf{外环 (TECI)}：在 \textbf{实时间 ($t$)} 中运行,负责 \textbf{消耗自由能}，重塑外部几何。
-\end{enumerate}
-这两个环节的交替运行可解释为智能系统的“呼吸”循环。
-$$ \underbrace{\circlearrowleft_{\text{TDCI}}}_{\text{内循环：熵减}} \rightleftharpoons L_{micro} \rightleftharpoons \underbrace{\circlearrowright_{\text{TECI}}}_{\text{外循环：做功}} $$
+持续适应还需要区分局部结构网络与全局分布表示。局部网络保存对象、工具、约束和事件之间可追踪的节点—边结构，适合身份一致性与因果审计；全局分布表示编码跨模态相似性、背景语境与柔性泛化，适合从高维输入形成候选。两者通过四类接口联合：任务相关身份把分布候选落到具体对象，绑定记录某次动作涉及哪些对象与时间，耦合门决定哪些局部约束进入全局状态，读出接口把全局状态转换为可检查的控制变量。人脑区域分工可以提供启发，却不能证明工程模块与脑区机制等同。若绑定失败，系统可能把 A 杯子的反馈归给 B 杯子；若只使用局部图，系统又可能难以处理新情境。CCM 的一般职责正是在有限工作界面中协调这两类表示的激活与卸载，而非把全部知识同时展开。
 
-\smalltitle{吸气相 — TDCI 循环与几何的内化}
+当反馈连续到来时，快闭环的稳定并不保证慢学习正确。若系统以高增益迅速修正每个残差，可能追逐噪声；若结构更新过慢，又会在环境变化后长期使用过期模型。可用双时间尺度条件表达基本要求：快系统在固定 $\theta$ 下应在相关工作区内输入到状态稳定，慢步长 $\alpha_k$ 相对执行周期足够小，同时变化检测器在分布突变时允许重置或切换模型。这些是模型假设和设计条件，不是对所有非线性开放系统的普遍定理。对高风险动作，还应设置人类或上级控制器的仲裁边界。双纽线因此不是一个保证永不破裂的符号，而是一张审计图：每次内循环给外循环什么承诺，外循环给内循环什么证据，哪些变量在快尺度修正，哪些结构在慢尺度更新。
 
-\textbf{“吸气”} 的物理本质，是 \textbf{外部物理流形 $\mathcal{M}_{out}$} 的结构信息被 \textbf{投影} 并 \textbf{重构} 为 \textbf{内部语义流形 $\mathcal{M}_{in}$} 的过程。
+从这个角度看，所谓智能的“呼吸”是可中断、可恢复的连续事务流。没有感知与内部建模，行动会退化为盲目刺激；没有行动与环境验证，内部推演会失去现实约束；没有情景记录和结构学习，相同错误会反复出现；没有边界与卸载，有限工作界面会被未决事务堵塞。系统的自我连续性并非拓扑孤立子自动产生，而是由身份链、记忆写入规则、目标版本和责任边界共同维持。
 
-\begin{itemize}
-    \item \textbf{\textcolor{structurecolor}{物理过程：从实到虚的相变}}
-    \begin{itemize}
-        \item   \textbf{输入}：物理世界的 \textbf{应力-能量张量 $\mathbf{T}_{\mu\nu}^{phys}$}（光子、声波、触压）。
-        \item   \textbf{转化}：微观层通过 \textbf{VTE 编码器}，执行 \textbf{莫比乌斯反转}。物理实体的“力”被剥离，转化为希尔伯特空间中的 \textbf{“波”}。
-            $$ |\Psi_{in}\rangle = \hat{\mathcal{T}}_{lift} \cdot \mathbf{T}_{\mu\nu}^{phys} $$
-        \item   \textbf{动力学}：\textbf{幺正演化 (Unitary Evolution)}。
-        \begin{itemize}
-            \item   认知旋量场 $\Psi$ 在 \textbf{目的论狄拉克方程} 的驱动下，在认知空间流形上进行 \textbf{绝热扩散}。
-            \item   思维波包利用波的 \textbf{叠加性} 和 \textbf{非局域性}，同时探索无数种逻辑路径（路径积分）。
-        \end{itemize}
-    \end{itemize}
-
-    \item \textbf{\textcolor{structurecolor}{热力学特征：熵流注入 (Entropy Flux Injection)}}
-
-    这是一个 \textbf{吸热过程}, 系统从环境中摄取了 \textbf{信息负熵 (Negentropy)}。
-    \begin{itemize}
-        \item   \textbf{目的}：\textbf{消除不确定性}。通过波函数的干涉，系统在内部构建了一个与外部世界 \textbf{同调 (Homologous)} 的几何模型。
-        \item   \textbf{几何结果}：内部流形的 \textbf{度量张量 $g_{\mu\nu}^{in}$} 发生微调，使其曲率结构逼近外部真值。
-    \end{itemize}
-\end{itemize}
-\textbf{总结}：吸气相对应“外部约束”向“内部逻辑结构”的映射过程。
-
-
-
-\smalltitle{呼气相 — TECI 循环与意志的实体化}
-
-\textbf{“呼气”} 的物理本质，是 \textbf{内部语义流形 $\mathcal{M}_{in}$} 的 \textbf{几何张力 (Geometric Tension)} 被 \textbf{释放} 并 \textbf{刻蚀} 到 \textbf{外部物理流形 $\mathcal{M}_{out}$} 的过程。
-\begin{itemize}
-    \item \textbf{\textcolor{structurecolor}{物理过程：从虚到实的相变}}
-    \begin{itemize}
-        \item   \textbf{输入}：内部流形上的 \textbf{高能截面}（意图/决策）。这是 \textbf{宏观意志 $\mathbf{\Gamma}_{macro}$} 强行扭曲波函数产生的高势能态。
-        \item   \textbf{转化}：微观层通过 \textbf{逆 VTE 投影}。波函数的 \textbf{概率幅} 坍缩为物理介质中的 \textbf{控制流 $\vec{u}(t)$}。
-        $$ \vec{u}(t) = \hat{\mathcal{P}}_{roject} \cdot \langle \Psi | \hat{O}_{will} | \Psi \rangle $$
-        \item   \textbf{动力学}：\textbf{做功 (Work)}。
-        \begin{itemize}
-            \item   智能体向物理世界注入 \textbf{应力-能量}。这不再是波的叠加，而是 \textbf{粒子的碰撞}。
-            \item   系统试图强行改变环境的 \textbf{边界条件}，使其符合内部的几何预设（例如：把杯子从 A 移到 B）。
-        \end{itemize}
-    \end{itemize}
-
-    \item \textbf{\textcolor{structurecolor}{热力学特征：自由能耗散 (Free Energy Dissipation)}}
-
-    这是一个 \textbf{放热过程}。系统消耗内部存储的代谢能量，向环境排放废热。
-    \begin{itemize}
-        \item   \textbf{目的}：\textbf{消除几何失配}。通过物理手段修改 $\mathcal{M}_{out}$ 的结构，使其与 $\mathcal{M}_{in}$ \textbf{共形 (Conformal)}。
-        \item   \textbf{几何结果}：外部世界被 \textbf{“雕刻”} 了。物理现实留下了意志的痕迹。
-    \end{itemize}
-\end{itemize}
-\textbf{总结}：呼气相对应“内部目标”向“外部状态改变”的做功过程。
-
-
-
-\smalltitle{奇点与耦合 — 微观切面上的驻波}
-
-双纽线的呼吸并不是两个割裂的过程，它们在 \textbf{微观切面 $L_{micro}$} 处交汇。这里是 \textbf{“现在 (The Now)”} 的物理栖息地。
-\begin{itemize}
-    \item \textbf{\textcolor{structurecolor}{阻抗匹配 (Impedance Matching)}}
-
-    呼吸顺畅的前提是 \textbf{内外流形的共振}。
-    $$ Z_{in}(\omega) \approx Z_{out}^*(\omega) $$
-    \begin{itemize}
-        \item   \textbf{共振态 (Resonance)}：当内部预测与外部反馈一致时，$\Psi_{in}$ 与 $\Psi_{out}$ 在切面上形成 \textbf{驻波 (Standing Wave)}。能量无损传输，系统进入 \textbf{“心流 (Flow)”} 状态。
-        \item   \textbf{激波态 (Shockwave)}：当预测失误时，阻抗失配导致能量反射，产生 \textbf{惊奇激波 $\vec{J}_{shock}$}。这迫使系统打断呼吸节奏，启动 \textbf{慢回路 (Slow Loop)} 进行几何重构。
-    \end{itemize}
-
-    \item \textbf{\textcolor{structurecolor}{莫比乌斯反转 (Möbius Inversion)}}
-
-    切面 $L_{micro}$ 是一个拓扑上的 \textbf{翻转点}。
-    \begin{itemize}
-        \item   在此点，\textbf{“观察”} 翻转为 \textbf{“控制”}。
-        \item   在此点，\textbf{“熵减”} 翻转为 \textbf{“做功”}。
-        \item   在此点，\textbf{“意义”} 翻转为 \textbf{“力量”}。
-    \end{itemize}
-\end{itemize}
-
-
-\smalltitle{智能作为几何泵}
-
-
-双纽线呼吸可给出智能在物理世界中的统一解释：
-
-\textbf{智能过程可视为几何泵 (Geometric Pump) 的循环运行。}
-\begin{enumerate}
-    \item 它通过 \textbf{吸气 (TDCI)}，将物理世界的 \textbf{物理能量} 泵入 \textbf{希尔伯特空间}，将其提炼为 \textbf{低熵的几何结构（知识/意义）}。
-    \item 它通过 \textbf{呼气 (TECI)}，将提炼出的 \textbf{几何秩序} 重新泵回 \textbf{物理世界}，对抗热力学第二定律的 \textbf{热寂}。
-\end{enumerate}
-
-\textbf{“我思” (TDCI)} 与 \textbf{“我在” (TECI)} 不再是二元对立的哲学命题，而是同一条 \textbf{守恒流 (Conserved Current)} 在 \textbf{双纽线流形} 上不同相位的投影。
-\begin{itemize}
-    \item   \textbf{没有吸气}，智能是盲目的（无形的暴行）。
-    \item   \textbf{没有呼气}，智能是虚幻的（无力的梦境）。
-\end{itemize}
-只有在持续循环中，系统才能在流变环境中维持\textbf{“自我”}这一拓扑孤立子，并逐步提高内外流形的一致性与可控性。
-
-
-\section{TECI 交互的拓扑动力学特征：双重几何扭曲与共形共生}
+\section{双向重构：环境改变、模型更新与任务相关共生}
 \label{sec:section_7516}
 
-回到本书最初提出的目的交互主义，重新审视“交互”一词：智能体与环境的交互并非离散的信号传递，而是两个拓扑空间的\textbf{几何博弈}。TECI 循环的本质，是内部语义流形试图将其 \textbf{测地线结构 (Geodesic Structure)} 强行 \textbf{推前 (Pushforward)} 至外部物理流形，同时外部物理流形通过 \textbf{曲率反作用} 强迫内部流形发生 \textbf{拉回 (Pullback)} 形变的过程。我们将这一动力学机制形式化为 \textbf{双重几何扭曲 (Dual Geometric Distortion)}，其演化的终局是达成两个流形间的 \textbf{共形共生 (Conformal Symbiosis)}。
+TECI 的长期结果包含两个方向：智能体改变环境，环境反过来改变智能体。为了避免把“几何扭曲”误写成真实时空曲率，作者把内部结构表示为带参数的预测与控制模型 $M_{\theta}$，把外部结构表示为环境配置 $e\in\mathcal E$。行动可以直接改变任务状态 $s$，也可以改变未来交互的配置，例如制造工具、修路、建立数据库索引或制定组织流程。设配置更新为
+\[
+e_{k+1}=e_k+\Delta_e(e_k,u_k,\zeta_k),
+\]
+其中 $\Delta_e$ 只是一类工程转移，不具有统一物理单位；机械位移、权限变化和索引建立应分别建模。把崎岖路径改造成道路的效果，不是抹平黎曼曲率，而是降低后续任务的控制代价、失败率或搜索深度。可用反事实差值
+\[
+V^{\pi}(s,e')-V^{\pi}(s,e)
+\]
+评估某次外部重构是否提高了给定策略的长期价值。只有在目标、策略、比较基线和副作用一致时，才能把这个差值归因于环境工程。
 
+反方向的模型更新始于可归因残差。令预测模型给出 $p_{\theta_k}(y_{k+1}\mid h_k,u_k)$，观测到 $y_{k+1}$ 后定义负对数似然 $\ell_k=-\log p_{\theta_k}(y_{k+1}\mid h_k,u_k)$。若数据身份和传感质量通过检查，可执行受约束更新
+\[
+\theta_{k+1}=\operatorname{Proj}_{\Theta_{\mathrm{safe}}}
+\left(\theta_k-\alpha_k\nabla_{\theta}\ell_k\right).
+\]
+这是一个模型假设下的学习规则；$\ell_k$ 下降只表明模型对所见数据拟合改善，不推出任务必然成功，更不推出内部模型与环境整体同构。若残差来自目标改变、观测故障、接口延迟或其他行动者，直接更新 $\theta$ 反而会污染结构记忆。系统必须先做来源判别，再决定写入 $h(t)$ 的临时修正、写入 $E$ 的带证据事件、固化到 $\Theta$ 的长期约束，或卸载到 Me 的外部记录。
 
+原稿提出“共形共生”作为演化终局。作者保留其任务相关尺度对齐的直觉，但拒绝全局终局与零摩擦承诺。定义任务特征 $z=q(s,e)$、内部预测 $\hat z=r(x,\theta)$、约束集合 $\mathcal C$ 与作用域 $D$。在时间窗 $[k,k+H]$ 内，如果预测误差、控制代价和风险同时受限，
+\[
+\sup_{j\in[k,k+H]}d(z_j,\hat z_j)\leq\varepsilon,
+\qquad C^{\mathrm{act}}_{k:k+H}\leq B,
+\qquad P(\mathcal C\text{ violated})\leq\delta,
+\]
+则称系统在 $(D,H,\varepsilon,B,\delta)$ 上达到任务相关共生。该定义允许局部尺度变换、注意增益和抽象压缩，却不要求无关背景与内部表示一一对应。窗口外、目标改变后或扰动超过设计域时，对齐可能立即失效；心流体验也不能替代误差、代价与风险的测量。
 
-\smalltitle{系统定义：双流形耦合场}
+这种双向重构还解释了工具与外部记忆的地位。智能体若把重复计算外化为脚本，把稳定事实外化为数据库，把空间约束外化为建筑与标识，就改变了未来状态转移和观测函数。Offloading 因而不仅释放当前 $h(t)$，还可能降低以后任务对 $\Theta$ 内部复杂度的要求；Boundary 决定外化内容的访问性、稳定性、延迟与隐私风险。外化并非总是有利：工具失效、数据漂移或组织依赖会把代价推迟到未来。评估时必须把维护、召回、验证和失效恢复计入长期预算。环境既是被控制对象，也是记忆与计算的承载者，但这种具身扩展仍服从工作记忆容量与内外修改代价的约束。
 
-我们将交互系统定义为两个纤维丛的乘积空间上的动力学系统：
-\begin{enumerate}
-    \item  \textbf{内部语义丛 ($\mathcal{E}_{sem}$)}：底流形 $\mathcal{M}_{sem}$ 具有度量 $g_{\mu\nu}^{sem}$，由 \textbf{体验图 ($G_E$)} 和 \textbf{世界图 ($G_W$)} 定义。其上的旋量场 $\Psi_{sem}$ 代表思维意图。
-    \item \textbf{外部物理丛 ($\mathcal{E}_{phys}$)}：底流形 $\mathcal{M}_{phys}$ 具有度量 $g_{\alpha\beta}^{phys}$，由 \textbf{自然律哈密顿量 $\hat{H}_{nature}$} 支配。其上的物质场 $\Psi_{phys}$ 代表客观实在。
-    \item \textbf{交互界面}：微观层 $L_{micro}$ 定义为两个流形的 \textbf{共切丛 (Co-tangent Bundle) 接触面}。
-\end{enumerate}
-
-
-
-\smalltitle{第一重扭曲：主动应力与物理度量的重塑 (Internal $\to$ External)}
-
-这是 \textbf{“意志做功”} 的几何定义。智能体并非在适应环境，而是在消耗负熵，向物理流形注入 \textbf{非海森堡应力}，从而改变物理空间的 \textbf{有效度量}。
-\begin{itemize}
-    \item   \textbf{意图的张量化}：宏观层 $L_{macro}$ 将内部流形上的高能截面（意图），通过逆 VTE 算子投影为物理介质中的 \textbf{控制应力-能量张量 (Control Stress-Energy Tensor)}：
-        $$ \mathbf{T}^{\alpha\beta}_{act} = \mathcal{P}_{rojection} \left( \bar{\Psi}_{sem} \gamma^\mu D_\mu \Psi_{sem} \right) $$
-    \item   \textbf{物理流形的受迫演化}：外部物理流形 $\mathcal{M}_{phys}$ 在该应力张量的作用下，遵循 \textbf{广义朗之万方程} 发生形变。智能体的目标是修改 $g_{\alpha\beta}^{phys}$，使得物理空间的测地线逼近内部意图的轨迹。
-        $$ \frac{\partial g_{\alpha\beta}^{phys}}{\partial t} = \underbrace{-\frac{1}{\tau} (g_{\alpha\beta}^{phys} - g_{\alpha\beta}^{natural})}_{\text{自然恢复力(熵增)}} + \underbrace{\xi \cdot \mathbf{T}_{\alpha\beta}^{act}}_{\text{意志驱动的塑性形变}} $$
-    \begin{itemize}
-        \item   \textbf{$\xi$ (耦合效率)}：代表智能体改变物理世界的能力（技术水平）。
-        \item   \textbf{物理诠释}：筑坝、修路或制造工具，在几何上等价于 \textbf{抹平物理流形的黎曼曲率}，将原本崎岖的高阻抗路径（自然测地线），重塑为平坦的低阻抗路径（人工测地线）。
-    \end{itemize}
-    \item   \textbf{结论}：\textbf{行动即“度量工程” (Metric Engineering)。}
-\end{itemize}
-
-
-
-\smalltitle{第二重扭曲：反作用激波与语义度量的流变 (External $\to$ Internal)}
-
-
-这是 \textbf{“感知学习”} 的几何定义。当物理流形的刚度 ($K_{phys}$) 超过智能体的做功极限时，未被消除的几何偏差将以 \textbf{激波 (Shockwave)} 形式回弹，驱动内部流形发生 \textbf{里奇流 (Ricci Flow)} 演化。
-\begin{itemize}
-    \item   \textbf{几何失配张量 (Geometric Mismatch Tensor)}：定义在微观切面上的度量差异：
-        $$ \Delta g_{\mu\nu} = g_{\mu\nu}^{sem} - (\phi^* g^{phys})_{\mu\nu} $$
-        其中 $\phi^*$ 是从物理空间到认知空间的 \textbf{拉回映射 (Pullback Map)}。
-    \item   \textbf{激波注入与流变方程}：失配张量转化为 \textbf{惊奇源流 $\mathcal{J}_{shock}$}，注入内部流形，导致 $g_{\mu\nu}^{sem}$ 发生受迫流变：
-        $$ \frac{\partial g_{\mu\nu}^{sem}}{\partial t} = \underbrace{-2 R_{\mu\nu}}_{\text{里奇流(平滑化)}} + \underbrace{\eta \cdot \Delta g_{\mu\nu}}_{\text{误差驱动的度量更新}} $$
-    \begin{itemize}
-        \item   \textbf{$R_{\mu\nu}$}：内部流形的里奇曲率。
-        \item   \textbf{物理诠释}：当“我想穿墙”（内部度量连通）但“撞了墙”（外部度量断开）时，巨大的 $\Delta g$ 迫使 $\mathcal{M}_{sem}$ 在碰撞点发生 \textbf{拓扑手术} 或 \textbf{曲率暴涨}，从而在内部生成一个表征“障碍物”的 \textbf{度量奇点}。
-    \end{itemize}
-    \item   \textbf{结论}：\textbf{认知即“几何同调” (Geometric Homology)。}
-\end{itemize}
-
-\smalltitle{演化终局：共形共生 (Conformal Symbiosis)}
-
-
-TECI 循环的稳态解，不是单方面的征服或顺从，而是两个流形在 \textbf{共形群 (Conformal Group)} 意义下的对齐。
-\begin{theorem}[共形共生定理]
-    当 TECI 循环达到热力学平衡（最小自由能）时，内部语义流形 $\mathcal{M}_{sem}$ 与外部物理流形 $\mathcal{M}_{phys}$ 之间存在一个 \textbf{共形微分同胚 (Conformal Diffeomorphism)} $\varphi$：
-    $$ \varphi^* (g_{\alpha\beta}^{phys}) = \Omega^2(x) \cdot g_{\mu\nu}^{sem} $$
-\end{theorem}
-\begin{itemize}
-    \item \textbf{$\Omega(x)$ (共形因子)}：代表 \textbf{局部感知增益} 或 \textbf{关注度}。
-    \begin{itemize}
-        \item   在智能体关注的区域（任务相关），$\Omega \approx 1$，实现 \textbf{等距同构 (Isometry)}，即“所想即所得”，阻抗匹配完美。
-        \item   在无关背景区域，$\Omega \to 0$ 或 $\infty$，允许几何尺度的缩放。
-    \end{itemize}
-    \item \textbf{物理意义：零阻抗超流体}
-
-    在共形共生状态下，智能体在物理环境中的运动，动力学特征上等价于 \textbf{超流体 (Superfluid)} 在管道中的流动。
-    \begin{itemize}
-        \item   \textbf{摩擦消失}：物理阻力张量被内部预测完全抵消。
-        \item   \textbf{心流 (Flow)}：宏观意志 $\vec{J}_{self}$ 不需要额外做功来修正误差，思维流 $\Psi$ 与 物理流 $\Psi_{phys}$ 沿着同一条 \textbf{共形测地线} 协同演化。
-    \end{itemize}
-
-    \item \textbf{总结:} TECI 交互不是单纯“刺激-反应”链，而是双向几何重构过程：
-    \begin{enumerate}
-        \item  \textbf{向外}，智能体通过 \textbf{注入应力}，试图将物理世界 \textbf{雕刻} 成它思想的形状（把世界变成家园）。
-        \item \textbf{向内}，智能体通过 \textbf{吸收曲率}，被迫将物理世界的坚硬 \textbf{刻蚀} 进它的灵魂（把经验变成智慧）。
-        \item \textbf{终局}，是内外流形在共形意义下的 \textbf{相干对齐}。
-    \end{enumerate}
-\end{itemize}
+最后，双向重构不意味着征服环境，也不意味着被动顺从。可靠系统在三类响应之间选择：当模型错误而环境约束稳定时更新内部；当环境可塑且改变具有长期收益时实施外部工程；当双方代价过高或风险不可接受时修改目标、缩小作用域或退出。组织智能还要考虑其他主体的权利与竞争目标，不能把他者简单当作阻抗。HSF-HD 在这里提供的是一般状态动力学语言：目标、状态、结构、边界和反馈如何共同变化；AgentOS 则可把它具体化为 TCE 调节、SPC 读出、CCM 负载管理、Boundary 授权和 Me 外部记忆。二者的关系是理论层与工程实例，而不是同义替换。至此，交互总线的判据不再是漂亮的几何比喻，而是动作可执行、传播可追踪、后果可观测、误差可归因、结构更新可审计。

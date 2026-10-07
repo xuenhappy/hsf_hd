@@ -38,7 +38,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 37,chapters/part-08/chp-control_meta_physics.tex,rewritten-reviewed,12668,12778,12840,12862,12,1006
 38,chapters/part-08/chp-meaning_turbulence.tex,rewritten-reviewed,14495,16139,14532,16190,15,1006
 39,chapters/part-08/chp-interaction_bus_ch1.tex,rewritten-reviewed,2746,4748,2777,4784,4,1029
-40,chapters/part-08/chp-interaction_bus_ch.tex,queued-for-full-rewrite,4090,3980,4163,4163,4,448
+40,chapters/part-08/chp-interaction_bus_ch.tex,rewritten-reviewed,4090,4678,4163,4712,4,1017
 41,chapters/part-08/chp-lemniscate_ch.tex,queued-for-full-rewrite,5215,5069,5271,5271,9,204
 42,chapters/part-08/chp-macro_latent_space_topology.tex,queued-for-full-rewrite,4716,4548,4668,4668,7,379
 43,chapters/part-08/chp-topological_grand_unification_of_self_reference.tex,queued-for-full-rewrite,9737,9418,9667,9667,6,778

@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 39,
-  "pending_chapters": 78,
+  "rewritten_chapters": 40,
+  "pending_chapters": 77,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1516,33 +1516,33 @@
     {
       "order": 40,
       "path": "chapters/part-08/chp-interaction_bus_ch.tex",
-      "title": "交互总线 — TECI 循环与因果纠缠",
-      "status": "queued-for-full-rewrite",
+      "title": "交互总线：从内部决策到环境反馈的闭环动力学",
+      "status": "rewritten-reviewed",
       "original_han_floor": 4090,
-      "new_chapter_prose_han": 3980,
+      "new_chapter_prose_han": 4678,
       "original_readable_units": 4163,
-      "new_readable_units": 4163,
-      "opening_prose_han": 238,
+      "new_readable_units": 4712,
+      "opening_prose_han": 251,
       "sections": [
         {
-          "title": "对称性公理：拓扑共轭与莫比乌斯流形",
-          "prose_han": 448
+          "title": "边界映射：内部目标与外部控制不是同一种对象",
+          "prose_han": 1017
         },
         {
-          "title": "TECI 循环详解：意志的辐射与波阻抗匹配",
-          "prose_han": 876
+          "title": "TECI 四阶段：发起、传播、作用与回执",
+          "prose_han": 1161
         },
         {
-          "title": "双纽线的呼吸",
-          "prose_han": 1261
+          "title": "双循环耦合：从一次事务到持续适应",
+          "prose_han": 1135
         },
         {
-          "title": "TECI 交互的拓扑动力学特征：双重几何扭曲与共形共生",
-          "prose_han": 1157
+          "title": "双向重构：环境改变、模型更新与任务相关共生",
+          "prose_han": 1114
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

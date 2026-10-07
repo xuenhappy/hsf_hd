@@ -754,9 +754,15 @@
       "source_start_line": 14068,
       "source_end_line": 14395,
       "source_sha256": "e0cc5ae20d1f2e33d85493492746b68684cade5ce1a4d9b4ac8a803d696c6b34",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "交互总线：从内部决策到环境反馈的闭环动力学",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-040-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-lemniscate_ch.tex",

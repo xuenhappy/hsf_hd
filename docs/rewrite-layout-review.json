@@ -1,9 +1,9 @@
 {
-  "pages": 258,
-  "bytes": 31121151,
+  "pages": 262,
+  "bytes": 31146001,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 220,
+  "numbered_sections": 224,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1546,7 +1546,35 @@
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "40.1 边界映射：内部目标与外部控制不是同一种对象",
+      "start_pdf_page": 259,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "40.2 TECI 四阶段：发起、传播、作用与回执",
+      "start_pdf_page": 260,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "40.3 双循环耦合：从一次事务到持续适应",
+      "start_pdf_page": 261,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "40.4 双向重构：环境改变、模型更新与任务相关共生",
+      "start_pdf_page": 262,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 39 chapters; does not validate the full book."
+  "scope": "Review subset: 40 chapters; does not validate the full book."
 }
