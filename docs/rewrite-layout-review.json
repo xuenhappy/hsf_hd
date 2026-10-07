@@ -1,9 +1,9 @@
 {
-  "pages": 254,
-  "bytes": 31094148,
+  "pages": 258,
+  "bytes": 31121151,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 216,
+  "numbered_sections": 220,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -1518,7 +1518,35 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "39.1 TDCI 循环：从类型转换到闭环更新",
+      "start_pdf_page": 255,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "39.2 循环代价：信息损失、计算预算与物理能耗分账",
+      "start_pdf_page": 256,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "39.3 工作区相态：刚性、拥塞与自适应区间",
+      "start_pdf_page": 257,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "39.4 确定性计算的结构收益与观察者边界",
+      "start_pdf_page": 257,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 38 chapters; does not validate the full book."
+  "scope": "Review subset: 39 chapters; does not validate the full book."
 }

@@ -735,9 +735,15 @@
       "source_start_line": 13852,
       "source_end_line": 14068,
       "source_sha256": "c76ddc03a39668e07b080111c339252d1f905ae1c05c8f7cd14a3d4849bb3f82",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "交互总线：离散事件与连续状态之间的可验证循环",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-039-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-interaction_bus_ch.tex",

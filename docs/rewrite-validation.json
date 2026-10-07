@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 38,
-  "pending_chapters": 79,
+  "rewritten_chapters": 39,
+  "pending_chapters": 78,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1484,33 +1484,33 @@
     {
       "order": 39,
       "path": "chapters/part-08/chp-interaction_bus_ch1.tex",
-      "title": "交互总线 — TDCI 循环的物理实现",
-      "status": "queued-for-full-rewrite",
+      "title": "交互总线：离散事件与连续状态之间的可验证循环",
+      "status": "rewritten-reviewed",
       "original_han_floor": 2746,
-      "new_chapter_prose_han": 2679,
+      "new_chapter_prose_han": 4748,
       "original_readable_units": 2777,
-      "new_readable_units": 2777,
-      "opening_prose_han": 228,
+      "new_readable_units": 4784,
+      "opening_prose_han": 316,
       "sections": [
         {
-          "title": "TDCI 过程详解：波粒二象性的热力学循环",
-          "prose_han": 1284
+          "title": "TDCI 循环：从类型转换到闭环更新",
+          "prose_han": 1117
         },
         {
-          "title": "热力学循环：认知的卡诺循环",
-          "prose_han": 384
+          "title": "循环代价：信息损失、计算预算与物理能耗分账",
+          "prose_han": 1093
         },
         {
-          "title": "相变动力学：智能的三种物态",
-          "prose_han": 374
+          "title": "工作区相态：刚性、拥塞与自适应区间",
+          "prose_han": 1193
         },
         {
-          "title": "计算的本体论：确定性变换中的几何涌现",
-          "prose_han": 409
+          "title": "确定性计算的结构收益与观察者边界",
+          "prose_han": 1029
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
