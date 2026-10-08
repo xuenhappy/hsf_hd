@@ -1,9 +1,9 @@
 {
-  "pages": 382,
-  "bytes": 31988108,
+  "pages": 387,
+  "bytes": 32018497,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 346,
+  "numbered_sections": 351,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2428,7 +2428,42 @@
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "60.1 弹塑性自我：从流变意象到双时间尺度更新",
+      "start_pdf_page": 383,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "60.2 历史积分与元控制：开放、防御和结构学习的调度",
+      "start_pdf_page": 384,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "60.3 社会化共变：他者模型、共情推断与责任边界",
+      "start_pdf_page": 385,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "60.4 动力学病理：僵化、漂移、解离与误耦合",
+      "start_pdf_page": 385,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "60.5 总结：连续可塑性的条件、实现与验证边界",
+      "start_pdf_page": 386,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 59 chapters; does not validate the full book."
+  "scope": "Review subset: 60 chapters; does not validate the full book."
 }

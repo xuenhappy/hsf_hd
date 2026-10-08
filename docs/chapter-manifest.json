@@ -1134,9 +1134,15 @@
       "source_start_line": 21139,
       "source_end_line": 21262,
       "source_sha256": "7191f838ccebc7a3b3af4c6e0d8c2327ff2da3dedf2a5770ad9c2a7f3e182d91",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "可塑自我的动力学：弹性响应、结构提交与社会耦合",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-060-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-09/chp-holomorphic_isomorphism_ch.tex",

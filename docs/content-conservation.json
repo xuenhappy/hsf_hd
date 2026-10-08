@@ -1,9 +1,9 @@
 {
   "checks_passed": true,
-  "original_complete_chapters_verified": 58,
-  "fully_rewritten_chapters_length_verified": 59,
+  "original_complete_chapters_verified": 57,
+  "fully_rewritten_chapters_length_verified": 60,
   "baseline_chapter_chinese_characters": 568727,
-  "current_chapter_chinese_characters": 702584,
+  "current_chapter_chinese_characters": 707284,
   "scope": "Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.",
   "chapters": [
     {
@@ -480,11 +480,11 @@
     },
     {
       "path": "chapters/part-09/chp-fluid_self.tex",
-      "original_exposition_preserved": true,
-      "validation_mode": "original-exposition-conservation",
+      "original_exposition_preserved": false,
+      "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 1261,
-      "current_chinese_characters": 1261
+      "current_chinese_characters": 5961
     },
     {
       "path": "chapters/part-09/chp-holomorphic_isomorphism_ch.tex",
