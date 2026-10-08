@@ -58,7 +58,7 @@
 | 2 | 8 | [chp-cognitive_elliptic_resonator](../chapters/part-08/chp-cognitive_elliptic_resonator.tex) | 椭圆回路与双环网络：几何传播、耗散学习和路由控制 | 已独立全文重写并完成排版复核 |
 | 2 | 8 | [chp-physics_of_conservation_and_dissipation](../chapters/part-08/chp-physics_of_conservation_and_dissipation.tex) | 开放智能系统的守恒与耗散：状态账本、不变量和失效诊断 | 已独立全文重写并完成排版复核 |
 | 2 | 8 | [chp-manifold_genesis_trinity_evolution](../chapters/part-08/chp-manifold_genesis_trinity_evolution.tex) | 计算底空间的发生：位置、度量与方向的联合动力学 | 已独立全文重写并完成排版复核 |
-| 2 | 8 | [chp-dynamical_reconstruction](../chapters/part-08/chp-dynamical_reconstruction.tex) | 认知时空的动力学关联：从拉格朗日量到深度学习的梯度流 | 队列中；原文仍保留 |
+| 2 | 8 | [chp-dynamical_reconstruction](../chapters/part-08/chp-dynamical_reconstruction.tex) | 学习动力学的重建：从变分目标到受约束随机更新 | 已独立全文重写并完成排版复核 |
 | 2 | 8 | [chp-life_manifold_dynamics](../chapters/part-08/chp-life_manifold_dynamics.tex) | 生命流形的几何动力学：从突触可塑性到物种演化的统一场论 | 队列中；原文仍保留 |
 | 2 | 8 | [chp-intelligence_lifecycle](../chapters/part-08/chp-intelligence_lifecycle.tex) | 智能系统生命周期动力学——熵、时钟、轮回与发育 | 队列中；原文仍保留 |
 | 2 | 9 | [chp-purpose_geometric_origin](../chapters/part-09/chp-purpose_geometric_origin.tex) | 目的的几何起源 — 规范场与对称性破缺 | 队列中；原文仍保留 |

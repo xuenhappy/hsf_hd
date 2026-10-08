@@ -1,9 +1,9 @@
 {
-  "pages": 348,
-  "bytes": 31767030,
+  "pages": 356,
+  "bytes": 31820427,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 309,
+  "numbered_sections": 318,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2169,7 +2169,70 @@
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "55.1 从变分目标到状态—结构耦合，而非严格同构",
+      "start_pdf_page": 349,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "55.2 信息几何只度量分布可辨识性",
+      "start_pdf_page": 350,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "55.3 从随机梯度到有条件的朗之万模型",
+      "start_pdf_page": 351,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "55.4 受约束二阶近似的离散优化器",
+      "start_pdf_page": 351,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "55.5 代价、信息与实际耗散的分账",
+      "start_pdf_page": 352,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "55.6 梯度流的条件、完整导数与离散保持",
+      "start_pdf_page": 353,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "55.7 分布内未来风险的条件命题",
+      "start_pdf_page": 354,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "55.8 训练投入、部署收益与直觉形成",
+      "start_pdf_page": 355,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "55.9 双重下降的谱机制、反例与系统边界",
+      "start_pdf_page": 356,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 54 chapters; does not validate the full book."
+  "scope": "Review subset: 55 chapters; does not validate the full book."
 }

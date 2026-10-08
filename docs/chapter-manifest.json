@@ -1039,9 +1039,15 @@
       "source_start_line": 19001,
       "source_end_line": 19577,
       "source_sha256": "4761178b8e983189694ed8456543b87e1c3edac60b9b8a120a07736aafcfb23c",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "学习动力学的重建：从变分目标到受约束随机更新",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-055-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-life_manifold_dynamics.tex",

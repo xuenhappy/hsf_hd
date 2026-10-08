@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 54,
-  "pending_chapters": 63,
+  "rewritten_chapters": 55,
+  "pending_chapters": 62,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2112,53 +2112,53 @@
     {
       "order": 55,
       "path": "chapters/part-08/chp-dynamical_reconstruction.tex",
-      "title": "认知时空的动力学关联：从拉格朗日量到深度学习的梯度流",
-      "status": "queued-for-full-rewrite",
+      "title": "学习动力学的重建：从变分目标到受约束随机更新",
+      "status": "rewritten-reviewed",
       "original_han_floor": 7346,
-      "new_chapter_prose_han": 6206,
+      "new_chapter_prose_han": 9619,
       "original_readable_units": 8070,
-      "new_readable_units": 8070,
-      "opening_prose_han": 322,
+      "new_readable_units": 9679,
+      "opening_prose_han": 259,
       "sections": [
         {
-          "title": "自由能原理与 HSF-HD 作用量的同构映射",
-          "prose_han": 283
+          "title": "从变分目标到状态—结构耦合，而非严格同构",
+          "prose_han": 1022
         },
         {
-          "title": "认知爱因斯坦方程与信息几何的对偶",
-          "prose_han": 306
+          "title": "信息几何只度量分布可辨识性",
+          "prose_han": 1007
         },
         {
-          "title": "统计物理视界：从梯度下降到朗之万动力学",
-          "prose_han": 333
+          "title": "从随机梯度到有条件的朗之万模型",
+          "prose_han": 1052
         },
         {
-          "title": "工程映射：从连续几何流到离散动力学优化器(Sophia-HSF)",
-          "prose_han": 2300
+          "title": "受约束二阶近似的离散优化器",
+          "prose_han": 1069
         },
         {
-          "title": "熵产最小化定理：存在的终极热力学代价",
-          "prose_han": 842
+          "title": "代价、信息与实际耗散的分账",
+          "prose_han": 1020
         },
         {
-          "title": "认知爱因斯坦方程作为自由能梯度流",
-          "prose_han": 437
+          "title": "梯度流的条件、完整导数与离散保持",
+          "prose_han": 1013
         },
         {
-          "title": "核心证明：未来熵产最小化定理",
-          "prose_han": 513
+          "title": "分布内未来风险的条件命题",
+          "prose_han": 1103
         },
         {
-          "title": "物理推论：智能的“预付”代价与绝热飞升",
-          "prose_han": 353
+          "title": "训练投入、部署收益与直觉形成",
+          "prose_han": 1041
         },
         {
-          "title": "相变与双重下降 (Double Descent) 的拓扑解构",
-          "prose_han": 517
+          "title": "双重下降的谱机制、反例与系统边界",
+          "prose_han": 1033
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
