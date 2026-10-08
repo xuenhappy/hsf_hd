@@ -963,9 +963,15 @@
       "source_start_line": 17569,
       "source_end_line": 17967,
       "source_sha256": "70deb14079ede64bcb0ecc46d2e811fbf2e19612ee5679d32885ba889ac75336",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "伯努利流形上的可解动力学：坐标、边界与目标势",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-051-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-cognitive_elliptic_resonator.tex",

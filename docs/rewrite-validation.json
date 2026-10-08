@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 50,
-  "pending_chapters": 67,
+  "rewritten_chapters": 51,
+  "pending_chapters": 66,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1952,45 +1952,45 @@
     {
       "order": 51,
       "path": "chapters/part-08/chp-analytical_solution_bernoulli.tex",
-      "title": "Fisher 流形上的可解析特解 — 一维伯努利流形与认知量子单摆",
-      "status": "queued-for-full-rewrite",
+      "title": "伯努利流形上的可解动力学：坐标、边界与目标势",
+      "status": "rewritten-reviewed",
       "original_han_floor": 6989,
-      "new_chapter_prose_han": 6819,
+      "new_chapter_prose_han": 7663,
       "original_readable_units": 7069,
-      "new_readable_units": 7069,
-      "opening_prose_han": 478,
+      "new_readable_units": 7731,
+      "opening_prose_han": 229,
       "sections": [
         {
-          "title": "降维映射：从高维认知场到一维伯努利流形",
-          "prose_han": 484
+          "title": "从二元信念到 Fisher 坐标",
+          "prose_han": 1097
         },
         {
-          "title": "认知惯性与物理量纲的补全：引入“Nert”质量",
-          "prose_han": 685
+          "title": "作用量、惯性参数与量纲闭合",
+          "prose_han": 1075
         },
         {
-          "title": "认知的等效原理 — 动态时间阻力与静态网络拓扑的绝对同构",
-          "prose_han": 1817
+          "title": "结构耦合、编辑传播与有限延迟",
+          "prose_han": 1082
         },
         {
-          "title": "拓扑边界与语义子的绝对量子化",
-          "prose_han": 883
+          "title": "边界条件、谱与离散模式",
+          "prose_han": 1005
         },
         {
-          "title": "动量的非自伴性与反思盲区",
-          "prose_han": 724
+          "title": "一阶生成元、自伴定义域与可观测性",
+          "prose_han": 1156
         },
         {
-          "title": "目的论势能的注入 — 认知量子单摆 (The Cognitive Quantum Pendulum)",
-          "prose_han": 1401
+          "title": "目标势、局部近似与 Mathieu 方程",
+          "prose_han": 1016
         },
         {
-          "title": "结语：宇宙演化的第一解析解",
-          "prose_han": 347
+          "title": "可解析基准的验证边界",
+          "prose_han": 1003
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

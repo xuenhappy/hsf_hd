@@ -1,2007 +1,2056 @@
 {
-  "pages": 324,
-  "bytes": 31618030,
+  "pages": 331,
+  "bytes": 31660359,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 285,
+  "numbered_sections": 292,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
     {
       "title": "1.1 从对象属性到关系结构：表示问题的起点",
-      "start_pdf_page": 21,
+      "start_pdf_page": 22,
       "prose_lines": 26,
       "calibrated_prose_page_equivalents": 0.579,
       "half_page_prose_pass": true
     },
     {
       "title": "1.2 结构与内容的绑定：从符号到分布式表示",
-      "start_pdf_page": 22,
+      "start_pdf_page": 23,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "1.3 从静态表示到状态更新：耦合与尺度",
-      "start_pdf_page": 22,
+      "start_pdf_page": 23,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "1.4 模型的解释边界与可验证要求",
-      "start_pdf_page": 23,
+      "start_pdf_page": 24,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "2.1 关系的类型、方向与身份",
-      "start_pdf_page": 25,
+      "start_pdf_page": 26,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "2.2 结构操作与可达路径",
-      "start_pdf_page": 26,
+      "start_pdf_page": 27,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "2.3 在关系图上运行：传播、约束与局部性",
-      "start_pdf_page": 26,
+      "start_pdf_page": 27,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "2.4 杯子的结构模型：构造、修订与诊断",
-      "start_pdf_page": 27,
+      "start_pdf_page": 28,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "3.1 属性的类型、尺度与来源",
-      "start_pdf_page": 29,
+      "start_pdf_page": 30,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "3.2 编码空间与概率空间的区分",
-      "start_pdf_page": 30,
+      "start_pdf_page": 31,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "3.3 激活机制、选择权重与持续更新",
-      "start_pdf_page": 30,
+      "start_pdf_page": 31,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "3.4 内容读出、属性干预与记忆接口",
-      "start_pdf_page": 31,
+      "start_pdf_page": 32,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "4.1 由位置记录构造联合状态空间",
-      "start_pdf_page": 35,
+      "start_pdf_page": 36,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "4.2 局部属性空间与离散纤维的含义",
-      "start_pdf_page": 36,
+      "start_pdf_page": 37,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "4.3 张量绑定、角色区分与可辨识性",
-      "start_pdf_page": 36,
+      "start_pdf_page": 37,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "4.4 约束、离散编辑与运行时实现",
-      "start_pdf_page": 37,
+      "start_pdf_page": 38,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "5.1 静态构成：绑定映射与可用表示",
-      "start_pdf_page": 39,
+      "start_pdf_page": 40,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "5.2 动态构成：更新规则与目标变化",
-      "start_pdf_page": 39,
+      "start_pdf_page": 40,
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
     },
     {
       "title": "5.3 状态维持：身份连续性与运行资格",
-      "start_pdf_page": 40,
-      "prose_lines": 28,
-      "calibrated_prose_page_equivalents": 0.624,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "5.4 构造流程：从输入到可修订的联合状态",
       "start_pdf_page": 41,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
+      "title": "5.4 构造流程：从输入到可修订的联合状态",
+      "start_pdf_page": 42,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
       "title": "6.1 从环境状态到观测记录：测量不是复制",
-      "start_pdf_page": 45,
+      "start_pdf_page": 46,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "6.2 从观测到联合估计：关系与属性共同消歧",
-      "start_pdf_page": 46,
+      "start_pdf_page": 47,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "6.3 预测、尺度与粗粒化：模型只保留任务所需信息",
-      "start_pdf_page": 46,
+      "start_pdf_page": 47,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "6.4 领域规律、约束验证与行动闭环",
-      "start_pdf_page": 48,
-      "prose_lines": 28,
-      "calibrated_prose_page_equivalents": 0.624,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "7.1 语言表示：表达顺序、事件角色与语境消歧",
       "start_pdf_page": 49,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
+      "title": "7.1 语言表示：表达顺序、事件角色与语境消歧",
+      "start_pdf_page": 50,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
       "title": "7.2 视觉表示：区域、对象身份与场景关系",
-      "start_pdf_page": 50,
-      "prose_lines": 28,
-      "calibrated_prose_page_equivalents": 0.624,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "7.3 推理表示：证明依赖、可信程度与因果条件",
-      "start_pdf_page": 50,
-      "prose_lines": 28,
-      "calibrated_prose_page_equivalents": 0.624,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "7.4 跨模态协作：共同身份、接口契约与可修订理解",
       "start_pdf_page": 51,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
+      "title": "7.3 推理表示：证明依赖、可信程度与因果条件",
+      "start_pdf_page": 51,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "7.4 跨模态协作：共同身份、接口契约与可修订理解",
+      "start_pdf_page": 52,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
       "title": "8.1 语言与形式推理：候选生成和条件验证",
-      "start_pdf_page": 53,
+      "start_pdf_page": 54,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "8.2 具身与制造：对象动力学、工艺条件与执行状态",
-      "start_pdf_page": 54,
-      "prose_lines": 28,
-      "calibrated_prose_page_equivalents": 0.624,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "8.3 生命过程与实验：隐变量、模型尺度和证据更新",
-      "start_pdf_page": 54,
-      "prose_lines": 28,
-      "calibrated_prose_page_equivalents": 0.624,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "8.4 社会协作：多主体状态、承诺与信息差异",
       "start_pdf_page": 55,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
-      "title": "8.5 跨域调度：保持契约、控制损失与修订依赖",
+      "title": "8.3 生命过程与实验：隐变量、模型尺度和证据更新",
+      "start_pdf_page": 55,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "8.4 社会协作：多主体状态、承诺与信息差异",
       "start_pdf_page": 56,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
-      "title": "9.1 观测可区分性：模型究竟需要区别哪些状态",
+      "title": "8.5 跨域调度：保持契约、控制损失与修订依赖",
       "start_pdf_page": 57,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
-      "title": "9.2 状态压缩与转移保持：何时可以定义商模型",
+      "title": "9.1 观测可区分性：模型究竟需要区别哪些状态",
       "start_pdf_page": 58,
-      "prose_lines": 30,
-      "calibrated_prose_page_equivalents": 0.668,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
-      "title": "9.3 近似对应与误差传播：一步准确不等于长期可靠",
+      "title": "9.2 状态压缩与转移保持：何时可以定义商模型",
       "start_pdf_page": 59,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
-      "title": "9.4 模型边界与理解能力：压缩、检验和可修订性",
+      "title": "9.3 近似对应与误差传播：一步准确不等于长期可靠",
       "start_pdf_page": 60,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "9.4 模型边界与理解能力：压缩、检验和可修订性",
+      "start_pdf_page": 61,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "10.1 双通道编码：对象身份、关系类型与对齐契约",
-      "start_pdf_page": 63,
+      "start_pdf_page": 64,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "10.2 联合注意力：合法支持、归一化与置换等变性",
-      "start_pdf_page": 64,
+      "start_pdf_page": 65,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "10.3 混合解码：类别读出、连续参数与关系编辑",
-      "start_pdf_page": 64,
+      "start_pdf_page": 65,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "10.4 完整计算流程：参考核、状态版本与资源条件",
-      "start_pdf_page": 65,
+      "start_pdf_page": 66,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "10.5 训练与检验：目标尺度、合法负样本与组合泛化",
-      "start_pdf_page": 67,
+      "start_pdf_page": 68,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "11.1 条件生成：从描述解析到结构化读出",
-      "start_pdf_page": 69,
+      "start_pdf_page": 70,
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
     },
     {
       "title": "11.2 逆向生成：从观测分解到有依据的描述",
-      "start_pdf_page": 70,
+      "start_pdf_page": 71,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "11.3 时序生成：身份、属性与结构事件的联合演化",
-      "start_pdf_page": 71,
-      "prose_lines": 29,
-      "calibrated_prose_page_equivalents": 0.646,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "11.4 表示先验与认识边界：从历史隐喻到可检验命题",
-      "start_pdf_page": 71,
-      "prose_lines": 32,
-      "calibrated_prose_page_equivalents": 0.713,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "11.5 闭环交付：执行接口、误差回流与一般状态动力学",
       "start_pdf_page": 72,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
+      "title": "11.4 表示先验与认识边界：从历史隐喻到可检验命题",
+      "start_pdf_page": 72,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "11.5 闭环交付：执行接口、误差回流与一般状态动力学",
+      "start_pdf_page": 73,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
       "title": "12.1 跨越表征与行动的裂痕",
-      "start_pdf_page": 78,
+      "start_pdf_page": 79,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "12.2 四类计算约束的协同状态场",
-      "start_pdf_page": 79,
+      "start_pdf_page": 80,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "12.3 智能的呼吸：观测、展开、提交与沉淀",
-      "start_pdf_page": 80,
+      "start_pdf_page": 81,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "12.4 内外边界：模型状态与环境过程的非对称耦合",
-      "start_pdf_page": 80,
+      "start_pdf_page": 81,
       "prose_lines": 26,
       "calibrated_prose_page_equivalents": 0.579,
       "half_page_prose_pass": true
     },
     {
       "title": "12.5 使命与初衷：智能一般动力学及其工程落点",
-      "start_pdf_page": 81,
+      "start_pdf_page": 82,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "13.1 范式困境：层级还原与功能抽象的解释边界",
-      "start_pdf_page": 83,
+      "start_pdf_page": 84,
       "prose_lines": 36,
       "calibrated_prose_page_equivalents": 0.802,
       "half_page_prose_pass": true
     },
     {
       "title": "13.2 核心命题：目标条件下的交互轨迹构成智能过程",
-      "start_pdf_page": 84,
+      "start_pdf_page": 85,
       "prose_lines": 38,
       "calibrated_prose_page_equivalents": 0.846,
       "half_page_prose_pass": true
     },
     {
       "title": "13.3 目的的生成：内源先验、外源反馈与社会协商",
-      "start_pdf_page": 85,
+      "start_pdf_page": 86,
       "prose_lines": 43,
       "calibrated_prose_page_equivalents": 0.958,
       "half_page_prose_pass": true
     },
     {
       "title": "13.4 双层约束：规范说明、可执行细化与工程验证",
-      "start_pdf_page": 86,
+      "start_pdf_page": 87,
       "prose_lines": 44,
       "calibrated_prose_page_equivalents": 0.98,
       "half_page_prose_pass": true
     },
     {
       "title": "14.1 双目视角：任务分辨率与资源预算的共同约束",
-      "start_pdf_page": 88,
+      "start_pdf_page": 89,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "14.2 目标泛函：由观测、结构与目标构造更新方向",
-      "start_pdf_page": 89,
+      "start_pdf_page": 90,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "14.3 连续更新：完整导数、历史延续与扰动边界",
-      "start_pdf_page": 90,
+      "start_pdf_page": 91,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "14.4 离散实现与轨迹变分：两类问题的推导条件",
-      "start_pdf_page": 91,
+      "start_pdf_page": 92,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "14.5 多尺度控制：局部观测、运行状态与目标协调",
-      "start_pdf_page": 92,
+      "start_pdf_page": 93,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "14.6 实现约束：传播时延、保留机制与探索尺度",
-      "start_pdf_page": 93,
+      "start_pdf_page": 94,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "14.7 状态空间几何：绑定、可辨识度量与操作次序",
-      "start_pdf_page": 94,
+      "start_pdf_page": 95,
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
     },
     {
       "title": "15.1 从输入索引到具有身份的联合记录",
-      "start_pdf_page": 98,
-      "prose_lines": 35,
-      "calibrated_prose_page_equivalents": 0.779,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "15.2 形质绑定：关系兼容、候选竞争与提交条件",
       "start_pdf_page": 99,
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
     },
     {
-      "title": "15.3 迁移与近似不变量：从传播直觉到可核验约束",
+      "title": "15.2 形质绑定：关系兼容、候选竞争与提交条件",
       "start_pdf_page": 100,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "15.3 迁移与近似不变量：从传播直觉到可核验约束",
+      "start_pdf_page": 101,
       "prose_lines": 36,
       "calibrated_prose_page_equivalents": 0.802,
       "half_page_prose_pass": true
     },
     {
       "title": "15.4 有限分辨率编码与语义单元的属性谱系",
-      "start_pdf_page": 101,
+      "start_pdf_page": 102,
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
     },
     {
       "title": "15.5 跨系统比较与 AgentOS 中的工程落点",
-      "start_pdf_page": 102,
+      "start_pdf_page": 103,
       "prose_lines": 42,
       "calibrated_prose_page_equivalents": 0.935,
       "half_page_prose_pass": true
     },
     {
       "title": "16.1 高阶关系的构造：图、超边与单纯复形",
-      "start_pdf_page": 104,
+      "start_pdf_page": 105,
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
     },
     {
       "title": "16.2 世界结构与体验记录：关联、控制和路径依赖",
-      "start_pdf_page": 105,
+      "start_pdf_page": 106,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "16.3 局部属性空间与统计区分度的条件",
-      "start_pdf_page": 106,
+      "start_pdf_page": 107,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "16.4 网络结构的资源取舍与受限编辑",
-      "start_pdf_page": 106,
+      "start_pdf_page": 107,
       "prose_lines": 38,
       "calibrated_prose_page_equivalents": 0.846,
       "half_page_prose_pass": true
     },
     {
       "title": "16.5 拓扑诊断、有效维数与能力边界",
-      "start_pdf_page": 107,
+      "start_pdf_page": 108,
       "prose_lines": 40,
       "calibrated_prose_page_equivalents": 0.891,
       "half_page_prose_pass": true
     },
     {
       "title": "17.1 比较对象与距离公理：对称性不提供因果方向",
-      "start_pdf_page": 109,
+      "start_pdf_page": 110,
       "prose_lines": 38,
       "calibrated_prose_page_equivalents": 0.846,
       "half_page_prose_pass": true
     },
     {
       "title": "17.2 统计距离：互信息、变异信息与局部参数几何",
-      "start_pdf_page": 110,
+      "start_pdf_page": 111,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "17.3 世界结构快照：证据约束、相似网络与版本更新",
-      "start_pdf_page": 111,
+      "start_pdf_page": 112,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "17.4 路径优化与测地模型：驻值、最短与有效推理",
-      "start_pdf_page": 111,
-      "prose_lines": 28,
-      "calibrated_prose_page_equivalents": 0.624,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "17.5 抽象计算与载体实现：内在规则、嵌入接口和资源预算",
       "start_pdf_page": 112,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
-      "title": "17.6 变换与更新：保范数条件、尺度变化和路由验证",
+      "title": "17.5 抽象计算与载体实现：内在规则、嵌入接口和资源预算",
       "start_pdf_page": 113,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "17.6 变换与更新：保范数条件、尺度变化和路由验证",
+      "start_pdf_page": 114,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "18.1 从任务观测到统计模型：世界不等于分布族",
-      "start_pdf_page": 115,
-      "prose_lines": 33,
-      "calibrated_prose_page_equivalents": 0.735,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "18.2 Fisher 信息：局部可辨识度及其成立条件",
       "start_pdf_page": 116,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
-      "title": "18.3 估计精度：Cramér–Rao 界不是普遍不确定性原理",
+      "title": "18.2 Fisher 信息：局部可辨识度及其成立条件",
       "start_pdf_page": 117,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
-      "title": "18.4 分布式语义状态：参数、期望与身份绑定",
+      "title": "18.3 估计精度：Cramér–Rao 界不是普遍不确定性原理",
       "start_pdf_page": 118,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "18.4 分布式语义状态：参数、期望与身份绑定",
+      "start_pdf_page": 119,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "18.5 对偶坐标与学习路径：从散度投影到可验证更新",
-      "start_pdf_page": 118,
+      "start_pdf_page": 119,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "19.1 从事实状态到规范状态：方向来自目标与约束",
-      "start_pdf_page": 120,
+      "start_pdf_page": 121,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "19.2 价值分解：目标、风险、语境与资源耦合",
-      "start_pdf_page": 121,
+      "start_pdf_page": 122,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "19.3 复合规范结构：冲突、优先序与可修订承诺",
-      "start_pdf_page": 121,
+      "start_pdf_page": 122,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "19.4 方向相关路径代价：连续模型、离散实现与适用边界",
-      "start_pdf_page": 122,
+      "start_pdf_page": 123,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "20.1 整体状态的定义：结构、内容与任务条件的联合记录",
-      "start_pdf_page": 124,
+      "start_pdf_page": 125,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "20.2 内部动力学：双向耦合、绑定稳定与结构可塑性",
-      "start_pdf_page": 125,
-      "prose_lines": 32,
-      "calibrated_prose_page_equivalents": 0.713,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "20.3 状态显化：激活、可观测读出与决策提交",
-      "start_pdf_page": 125,
-      "prose_lines": 29,
-      "calibrated_prose_page_equivalents": 0.646,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "20.4 整体状态的参数化：可辨识分量与本构接口",
       "start_pdf_page": 126,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
-      "title": "20.5 语义量的计算定义：丰富度、一致性与惊奇",
+      "title": "20.3 状态显化：激活、可观测读出与决策提交",
+      "start_pdf_page": 126,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "20.4 整体状态的参数化：可辨识分量与本构接口",
       "start_pdf_page": 127,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "20.5 语义量的计算定义：丰富度、一致性与惊奇",
+      "start_pdf_page": 128,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "20.6 语义迁移：跨语境对齐、接口补偿与路径依赖",
-      "start_pdf_page": 128,
+      "start_pdf_page": 129,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "20.7 不变量与学习：身份连续、资源收支和受控重构",
-      "start_pdf_page": 129,
+      "start_pdf_page": 130,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "21.1 局部更新与网络传播：状态变化而非能量搬运",
-      "start_pdf_page": 131,
+      "start_pdf_page": 132,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "21.2 语义消息的同一性：结构包络、版本与任务不变量",
-      "start_pdf_page": 132,
+      "start_pdf_page": 133,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "21.3 受约束路由：结构通道、目标偏置与主动探索",
-      "start_pdf_page": 132,
+      "start_pdf_page": 133,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "21.4 运行相态：阻尼、探索、心流与结构学习",
-      "start_pdf_page": 133,
+      "start_pdf_page": 134,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "22.1 事实不对称：正向映射、逆问题与可辨识度",
-      "start_pdf_page": 135,
+      "start_pdf_page": 136,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "22.2 主体不对称：规范状态、行动资格与控制投入",
-      "start_pdf_page": 136,
+      "start_pdf_page": 137,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "22.3 联合代价与四类运行区间",
-      "start_pdf_page": 137,
+      "start_pdf_page": 138,
       "prose_lines": 36,
       "calibrated_prose_page_equivalents": 0.802,
       "half_page_prose_pass": true
     },
     {
       "title": "22.4 诊断闭环、干预边界与理论位置",
-      "start_pdf_page": 138,
+      "start_pdf_page": 139,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "23.1 外部时钟与内部事件序：两类时间变量的操作定义",
-      "start_pdf_page": 139,
+      "start_pdf_page": 140,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "23.2 在线切片与历史状态包：互补接口而非智能等级",
-      "start_pdf_page": 140,
+      "start_pdf_page": 141,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "23.3 切片序列与历史表示：可重建条件、规划路径和误差界",
-      "start_pdf_page": 141,
+      "start_pdf_page": 142,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "23.4 历史状态的元更新：过去重估、当下提交与未来修订",
-      "start_pdf_page": 141,
+      "start_pdf_page": 142,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "23.5 事件线程、依赖约束与查询保持压缩",
-      "start_pdf_page": 144,
+      "start_pdf_page": 145,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "23.6 混合历史架构、AgentOS 实例与能力边界",
-      "start_pdf_page": 144,
+      "start_pdf_page": 145,
       "prose_lines": 36,
       "calibrated_prose_page_equivalents": 0.802,
       "half_page_prose_pass": true
     },
     {
       "title": "24.1 观测编码接口：从原始信号到同源绑定记录",
-      "start_pdf_page": 149,
-      "prose_lines": 29,
-      "calibrated_prose_page_equivalents": 0.646,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "24.2 现实校准：观测似然、边界置信与失锚诊断",
       "start_pdf_page": 150,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
-      "title": "24.3 预测残差与复杂度门控：从“激波”到任务相关更新",
+      "title": "24.2 现实校准：观测似然、边界置信与失锚诊断",
       "start_pdf_page": 151,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "24.3 预测残差与复杂度门控：从“激波”到任务相关更新",
+      "start_pdf_page": 152,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "24.4 换能与采样：连续耦合、离散记录和多模态对齐",
-      "start_pdf_page": 151,
+      "start_pdf_page": 152,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "24.5 观测事件到语义状态：瞬态输入、持续表示与身份保持",
-      "start_pdf_page": 152,
+      "start_pdf_page": 153,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "24.6 效应器接口：目标细化、顺应控制与安全执行",
-      "start_pdf_page": 153,
+      "start_pdf_page": 154,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "24.7 双向具身接口：上行证据、下行约束与闭环握手",
-      "start_pdf_page": 154,
+      "start_pdf_page": 155,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "24.8 具身微观动力学总论：混合状态、稳定条件与理论位置",
-      "start_pdf_page": 155,
+      "start_pdf_page": 156,
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
     },
     {
       "title": "25.1 计算载体谱系：生物网络、电子系统与环境介质",
-      "start_pdf_page": 156,
+      "start_pdf_page": 157,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "25.2 载体约束参数：时延、吞吐、保持与探索强度",
-      "start_pdf_page": 157,
+      "start_pdf_page": 158,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "25.3 编码契约：载体状态如何支持任务语义",
-      "start_pdf_page": 157,
+      "start_pdf_page": 158,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "25.4 载体故障动力学：饱和、分区、漂移与恢复",
-      "start_pdf_page": 158,
-      "prose_lines": 28,
-      "calibrated_prose_page_equivalents": 0.624,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "25.5 载体与语义的对应：学习、选择与可验证等价",
       "start_pdf_page": 159,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
-      "title": "25.6 跨尺度分工：局部结构网络与全局分布表示",
+      "title": "25.5 载体与语义的对应：学习、选择与可验证等价",
       "start_pdf_page": 160,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
-      "title": "25.7 跨系统实现比较：人脑、语言模型与群体系统",
-      "start_pdf_page": 160,
-      "prose_lines": 27,
-      "calibrated_prose_page_equivalents": 0.601,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "25.8 运行机制分类：泄漏、回返、路由与内容寻址",
+      "title": "25.6 跨尺度分工：局部结构网络与全局分布表示",
       "start_pdf_page": 161,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
-      "title": "25.9 混合载体架构：一般状态动力学与AgentOS落点",
+      "title": "25.7 跨系统实现比较：人脑、语言模型与群体系统",
+      "start_pdf_page": 161,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "25.8 运行机制分类：泄漏、回返、路由与内容寻址",
       "start_pdf_page": 162,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "25.9 混合载体架构：一般状态动力学与AgentOS落点",
+      "start_pdf_page": 163,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "26.1 双时间尺度更新：活动响应与结构可塑性",
-      "start_pdf_page": 164,
-      "prose_lines": 32,
-      "calibrated_prose_page_equivalents": 0.713,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "26.2 历史依赖：稳定性—可塑性权衡与结构僵化",
       "start_pdf_page": 165,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
-      "title": "26.3 跨载体案例：蚁群、人脑与语言模型的更新机制",
+      "title": "26.2 历史依赖：稳定性—可塑性权衡与结构僵化",
       "start_pdf_page": 166,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "26.3 跨载体案例：蚁群、人脑与语言模型的更新机制",
+      "start_pdf_page": 167,
       "prose_lines": 38,
       "calibrated_prose_page_equivalents": 0.846,
       "half_page_prose_pass": true
     },
     {
       "title": "27.1 价值来源：从“价值荷”到可审计规范状态",
-      "start_pdf_page": 168,
+      "start_pdf_page": 169,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "27.2 生物调节：神经调质证据与多尺度控制边界",
-      "start_pdf_page": 169,
+      "start_pdf_page": 170,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "27.3 人工系统：奖励、提示与采样接口的分层作用",
-      "start_pdf_page": 170,
+      "start_pdf_page": 171,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "27.4 社会调节：制度、激励与分布式规范传播",
-      "start_pdf_page": 170,
+      "start_pdf_page": 171,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "27.5 主体模型：自我相关调节而非规范奇点",
-      "start_pdf_page": 171,
+      "start_pdf_page": 172,
       "prose_lines": 38,
       "calibrated_prose_page_equivalents": 0.846,
       "half_page_prose_pass": true
     },
     {
       "title": "27.6 多源协调：背景先验、主体目标与冲突恢复",
-      "start_pdf_page": 172,
+      "start_pdf_page": 173,
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
     },
     {
       "title": "28.1 控制来源：目标偏差、干预资格与资源预算",
-      "start_pdf_page": 174,
+      "start_pdf_page": 175,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "28.2 宏观观测：分布式状态的压缩、校准与不确定性",
-      "start_pdf_page": 175,
+      "start_pdf_page": 176,
       "prose_lines": 39,
       "calibrated_prose_page_equivalents": 0.869,
       "half_page_prose_pass": true
     },
     {
       "title": "28.3 快速回路：增益、抑制与方向偏置的受限控制",
-      "start_pdf_page": 176,
+      "start_pdf_page": 177,
       "prose_lines": 36,
       "calibrated_prose_page_equivalents": 0.802,
       "half_page_prose_pass": true
     },
     {
       "title": "28.4 缓慢回路：六类结构操作与可回滚编辑",
-      "start_pdf_page": 177,
-      "prose_lines": 37,
-      "calibrated_prose_page_equivalents": 0.824,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "28.5 TCE控制方程：受限最优控制而非目的论场方程",
       "start_pdf_page": 178,
       "prose_lines": 37,
       "calibrated_prose_page_equivalents": 0.824,
       "half_page_prose_pass": true
     },
     {
-      "title": "28.6 快速控制的推导：局部响应、投影更新与闭环校验",
+      "title": "28.5 TCE控制方程：受限最优控制而非目的论场方程",
       "start_pdf_page": 179,
+      "prose_lines": 37,
+      "calibrated_prose_page_equivalents": 0.824,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "28.6 快速控制的推导：局部响应、投影更新与闭环校验",
+      "start_pdf_page": 180,
       "prose_lines": 38,
       "calibrated_prose_page_equivalents": 0.846,
       "half_page_prose_pass": true
     },
     {
       "title": "28.7 缓慢控制的推导：结构学习、离散编辑与稳定保留",
-      "start_pdf_page": 180,
+      "start_pdf_page": 181,
       "prose_lines": 43,
       "calibrated_prose_page_equivalents": 0.958,
       "half_page_prose_pass": true
     },
     {
       "title": "29.1 统计控制模型：状态、目标与对偶坐标",
-      "start_pdf_page": 182,
-      "prose_lines": 30,
-      "calibrated_prose_page_equivalents": 0.668,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "29.2 凸性与稳定性：从局部下降到闭环性质",
       "start_pdf_page": 183,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
-      "title": "29.3 Bregman投影：可行集、三点关系与误差边界",
+      "title": "29.2 凸性与稳定性：从局部下降到闭环性质",
       "start_pdf_page": 184,
-      "prose_lines": 29,
-      "calibrated_prose_page_equivalents": 0.646,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
-      "title": "29.4 推断代价与载体能耗：相关而不等同的两套量",
+      "title": "29.3 Bregman投影：可行集、三点关系与误差边界",
       "start_pdf_page": 185,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
-      "title": "29.5 自然梯度闭环：连续流、离散实现与鲁棒性",
+      "title": "29.4 推断代价与载体能耗：相关而不等同的两套量",
       "start_pdf_page": 186,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "29.5 自然梯度闭环：连续流、离散实现与鲁棒性",
+      "start_pdf_page": 187,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "29.6 内外行动仲裁：改变模型、改变环境与暂缓提交",
-      "start_pdf_page": 187,
+      "start_pdf_page": 188,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "29.7 多主体协商：协议、承诺与非一致目标",
-      "start_pdf_page": 187,
-      "prose_lines": 28,
-      "calibrated_prose_page_equivalents": 0.624,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "29.8 外部控制方程：因果响应、风险预算与验证反馈",
       "start_pdf_page": 188,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
-      "title": "29.9 宏观控制架构：内嵌、外置与联邦拓扑",
+      "title": "29.8 外部控制方程：因果响应、风险预算与验证反馈",
       "start_pdf_page": 189,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "29.9 宏观控制架构：内嵌、外置与联邦拓扑",
+      "start_pdf_page": 190,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "30.1 从轨迹原则到带类型的状态演化方程",
-      "start_pdf_page": 193,
-      "prose_lines": 30,
-      "calibrated_prose_page_equivalents": 0.668,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "30.2 固定结构上的传播：网络耦合、衰减与有界响应",
       "start_pdf_page": 194,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
-      "title": "30.3 输入与控制：观测校正、目标反馈和资源约束",
+      "title": "30.2 固定结构上的传播：网络耦合、衰减与有界响应",
       "start_pdf_page": 195,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "30.3 输入与控制：观测校正、目标反馈和资源约束",
+      "start_pdf_page": 196,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "30.4 结构—内容耦合：身份绑定、协变更新与事件重置",
-      "start_pdf_page": 196,
+      "start_pdf_page": 197,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "30.5 多时间尺度激发：频谱分解、非线性耦合与状态包形成",
-      "start_pdf_page": 197,
+      "start_pdf_page": 198,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "30.6 语法、语义与语用：从物理相变改写为接口组合",
-      "start_pdf_page": 197,
+      "start_pdf_page": 198,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "30.7 连续模型的严格推导：目标函数、梯度流与专门传播形式",
-      "start_pdf_page": 198,
+      "start_pdf_page": 199,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "30.8 离散实现、混合事件与数值稳定条件",
-      "start_pdf_page": 199,
+      "start_pdf_page": 200,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "30.9 模型验证与理论边界：从状态下降到任务成功",
-      "start_pdf_page": 200,
+      "start_pdf_page": 201,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "31.1 结构几何的计算定义与耦合对象",
-      "start_pdf_page": 202,
+      "start_pdf_page": 203,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "31.2 更新驱动的分解：活动负荷、重要性与保持证据",
-      "start_pdf_page": 203,
+      "start_pdf_page": 204,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "31.3 状态—结构耦合方程与稳定性推导",
-      "start_pdf_page": 204,
+      "start_pdf_page": 205,
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
     },
     {
       "title": "31.4 学习案例、提交协议与一般理论边界",
-      "start_pdf_page": 205,
+      "start_pdf_page": 206,
       "prose_lines": 40,
       "calibrated_prose_page_equivalents": 0.891,
       "half_page_prose_pass": true
     },
     {
       "title": "32.1 带类型状态空间、接口与可辨识对象",
-      "start_pdf_page": 207,
+      "start_pdf_page": 208,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "32.2 从“总作用量”到有限时域目标与约束账本",
-      "start_pdf_page": 208,
+      "start_pdf_page": 209,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "32.3 快速状态算子：推理、传播与现实校正",
-      "start_pdf_page": 209,
+      "start_pdf_page": 210,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "32.4 慢速结构算子：学习、记忆与可回滚编辑",
-      "start_pdf_page": 210,
+      "start_pdf_page": 211,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "32.5 规范更新算子：偏好、承诺与冲突恢复",
-      "start_pdf_page": 210,
+      "start_pdf_page": 211,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "32.6 主动控制算子：快慢回路、预算与行动资格",
-      "start_pdf_page": 211,
+      "start_pdf_page": 212,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "32.7 混合闭环：联合算子、全耦合拓扑与验收边界",
-      "start_pdf_page": 212,
+      "start_pdf_page": 213,
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
     },
     {
       "title": "33.1 从局部单元到整体变量：影响源、耦合图与尺度压缩",
-      "start_pdf_page": 214,
-      "prose_lines": 32,
-      "calibrated_prose_page_equivalents": 0.713,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "33.2 排斥的计算含义：身份保持、约束冲突与认知失调",
       "start_pdf_page": 215,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
-      "title": "33.3 记忆级联：匹配、门控、阈值与正反馈边界",
+      "title": "33.2 排斥的计算含义：身份保持、约束冲突与认知失调",
       "start_pdf_page": 216,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "33.3 记忆级联：匹配、门控、阈值与正反馈边界",
+      "start_pdf_page": 217,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "33.4 统一非线性状态方程：相互作用、离散实现与稳定条件",
-      "start_pdf_page": 216,
-      "prose_lines": 33,
-      "calibrated_prose_page_equivalents": 0.735,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "33.5 交互分类与因果判别：绑定、同步和触发激活",
       "start_pdf_page": 217,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
+      "title": "33.5 交互分类与因果判别：绑定、同步和触发激活",
+      "start_pdf_page": 218,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
       "title": "34.1 正定矩阵状态：对象、度量与可计算更新",
-      "start_pdf_page": 219,
+      "start_pdf_page": 220,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "34.2 对偶联络与投影：预测、校准及其成立条件",
-      "start_pdf_page": 220,
+      "start_pdf_page": 221,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "34.3 自然梯度动力学：不变方向、离散条件与计算代价",
-      "start_pdf_page": 221,
+      "start_pdf_page": 222,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "34.4 泛化与迁移：结构保持、吸引域和反例检验",
-      "start_pdf_page": 221,
+      "start_pdf_page": 222,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "35.1 离散 Hodge 基础：对象、复形与可识别分解",
-      "start_pdf_page": 223,
+      "start_pdf_page": 224,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "35.2 势差分量：任务推进、推理链与提交条件",
-      "start_pdf_page": 224,
+      "start_pdf_page": 225,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "35.3 循环分量：工作集维持、复核回路与失效反刍",
-      "start_pdf_page": 224,
+      "start_pdf_page": 225,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "35.4 调和分量：全局循环、结构缺口与重组边界",
-      "start_pdf_page": 225,
+      "start_pdf_page": 226,
       "prose_lines": 26,
       "calibrated_prose_page_equivalents": 0.579,
       "half_page_prose_pass": true
     },
     {
       "title": "35.5 运行剖面与诊断：模式占比、迁移质量和干预闭环",
-      "start_pdf_page": 226,
+      "start_pdf_page": 227,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "36.1 局部耦合：同步证据、对象身份与绑定提交",
-      "start_pdf_page": 228,
+      "start_pdf_page": 229,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "36.2 全域粗粒化：任务序参量与快慢变量约化",
-      "start_pdf_page": 229,
+      "start_pdf_page": 230,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "36.3 全局约束：循环空间、结构冗余与意义保持",
-      "start_pdf_page": 229,
+      "start_pdf_page": 230,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "36.4 无中心协同：自组织阈值、伪相干与调控边界",
-      "start_pdf_page": 230,
+      "start_pdf_page": 231,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "37.1 资源账本：信息处理、耗散与物理能耗",
-      "start_pdf_page": 232,
+      "start_pdf_page": 233,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "37.2 时间尺度分离：快速响应、工作态与结构更新",
-      "start_pdf_page": 233,
-      "prose_lines": 29,
-      "calibrated_prose_page_equivalents": 0.646,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "37.3 有限实现域：容量、带宽、时延与可达性",
-      "start_pdf_page": 233,
-      "prose_lines": 28,
-      "calibrated_prose_page_equivalents": 0.624,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "37.4 生成模型的运行边界：算子、状态与上下文",
       "start_pdf_page": 234,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
-      "title": "37.5 谱约束案例：残差混合与 mHC 的验证方式",
+      "title": "37.3 有限实现域：容量、带宽、时延与可达性",
+      "start_pdf_page": 234,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.4 生成模型的运行边界：算子、状态与上下文",
       "start_pdf_page": 235,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.5 谱约束案例：残差混合与 mHC 的验证方式",
+      "start_pdf_page": 236,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "37.6 边界条件：输入开放、记忆保持与交换调节",
-      "start_pdf_page": 236,
+      "start_pdf_page": 237,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "37.7 存在条件：闭环可行性而非拓扑充分性",
-      "start_pdf_page": 236,
+      "start_pdf_page": 237,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "37.8 双层稳定：状态收敛、结构保持与切换鲁棒性",
-      "start_pdf_page": 237,
+      "start_pdf_page": 238,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "37.9 运行循环：观测、压缩、控制与沉淀",
-      "start_pdf_page": 238,
+      "start_pdf_page": 239,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "37.10 计算不可约性：信息依赖、验证成本与时间资源",
-      "start_pdf_page": 239,
-      "prose_lines": 27,
-      "calibrated_prose_page_equivalents": 0.601,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "37.11 增长上限：扩展、学习与现实交互的瓶颈",
-      "start_pdf_page": 239,
-      "prose_lines": 28,
-      "calibrated_prose_page_equivalents": 0.624,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "37.12 能力包络：多目标权衡、分时调度与异构协作",
       "start_pdf_page": 240,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
+      "title": "37.11 增长上限：扩展、学习与现实交互的瓶颈",
+      "start_pdf_page": 240,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "37.12 能力包络：多目标权衡、分时调度与异构协作",
+      "start_pdf_page": 241,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
       "title": "38.1 有限表示：任务距离、压缩与可实现性",
-      "start_pdf_page": 242,
+      "start_pdf_page": 243,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "38.2 容量边界：遗忘、干扰与运行资格",
-      "start_pdf_page": 243,
+      "start_pdf_page": 244,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "38.3 层级表征：粗粒化、查询保持与结构摘要",
-      "start_pdf_page": 243,
+      "start_pdf_page": 244,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "38.4 双向更新：证据聚合、目标约束与结构修订",
-      "start_pdf_page": 244,
+      "start_pdf_page": 245,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "38.5 多尺度流动：非线性、拥塞与语义级联",
-      "start_pdf_page": 245,
+      "start_pdf_page": 246,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "38.6 内化与外化：压缩、卸载与跨期连续",
-      "start_pdf_page": 246,
+      "start_pdf_page": 247,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "38.7 元控制的形成：从瞬态响应到自我模型",
-      "start_pdf_page": 247,
+      "start_pdf_page": 248,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "38.8 载体协同：表示、网络与组织结构",
-      "start_pdf_page": 248,
+      "start_pdf_page": 249,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "38.9 计算介质：存储墙、互连与异构加速",
-      "start_pdf_page": 249,
+      "start_pdf_page": 250,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "38.10 HRF计算模型：编码、解码与跨尺度误差",
-      "start_pdf_page": 249,
+      "start_pdf_page": 250,
       "prose_lines": 36,
       "calibrated_prose_page_equivalents": 0.802,
       "half_page_prose_pass": true
     },
     {
       "title": "38.11 跨层耦合：上行创新、下行约束与闭环稳定",
-      "start_pdf_page": 251,
+      "start_pdf_page": 252,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "38.12 全局联合状态：分层算子、读出与可观测性",
-      "start_pdf_page": 252,
-      "prose_lines": 28,
-      "calibrated_prose_page_equivalents": 0.624,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "38.13 跨尺度涌现：快捷联络、不变量与快速推断",
-      "start_pdf_page": 252,
-      "prose_lines": 27,
-      "calibrated_prose_page_equivalents": 0.601,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "38.14 结构发生：学习阶段、尺度约化与递归边界",
       "start_pdf_page": 253,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
-      "title": "38.15 能力极限：维度、因果保持与开放问题",
+      "title": "38.13 跨尺度涌现：快捷联络、不变量与快速推断",
+      "start_pdf_page": 253,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "38.14 结构发生：学习阶段、尺度约化与递归边界",
       "start_pdf_page": 254,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "38.15 能力极限：维度、因果保持与开放问题",
+      "start_pdf_page": 255,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "39.1 TDCI 循环：从类型转换到闭环更新",
-      "start_pdf_page": 256,
+      "start_pdf_page": 257,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "39.2 循环代价：信息损失、计算预算与物理能耗分账",
-      "start_pdf_page": 257,
+      "start_pdf_page": 258,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "39.3 工作区相态：刚性、拥塞与自适应区间",
-      "start_pdf_page": 258,
+      "start_pdf_page": 259,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "39.4 确定性计算的结构收益与观察者边界",
-      "start_pdf_page": 258,
+      "start_pdf_page": 259,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "40.1 边界映射：内部目标与外部控制不是同一种对象",
-      "start_pdf_page": 260,
+      "start_pdf_page": 261,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "40.2 TECI 四阶段：发起、传播、作用与回执",
-      "start_pdf_page": 261,
+      "start_pdf_page": 262,
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
     },
     {
       "title": "40.3 双循环耦合：从一次事务到持续适应",
-      "start_pdf_page": 262,
+      "start_pdf_page": 263,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "40.4 双向重构：环境改变、模型更新与任务相关共生",
-      "start_pdf_page": 263,
+      "start_pdf_page": 264,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "41.1 双域系统：内部状态、环境过程与边界接口",
-      "start_pdf_page": 264,
+      "start_pdf_page": 265,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "41.2 任务对齐：结构对应、信号校准与失配分解",
-      "start_pdf_page": 265,
+      "start_pdf_page": 266,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "41.3 行动回路：计划细化、受限执行与环境回执",
-      "start_pdf_page": 265,
+      "start_pdf_page": 266,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "41.4 感知回路：观测绑定、模型校正与结构重整",
-      "start_pdf_page": 266,
+      "start_pdf_page": 267,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "41.5 社会交互：消息、共同知识与制度约束",
-      "start_pdf_page": 267,
+      "start_pdf_page": 268,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "41.6 层级控制：目标压缩、执行自由度与残差上报",
-      "start_pdf_page": 268,
-      "prose_lines": 29,
-      "calibrated_prose_page_equivalents": 0.646,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "41.7 能力不对称：可观测性、影响力与治理边界",
-      "start_pdf_page": 268,
-      "prose_lines": 27,
-      "calibrated_prose_page_equivalents": 0.601,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "41.8 整体双循环：快慢耦合、外部记忆与持续适应",
       "start_pdf_page": 269,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
-      "title": "41.9 稳定性与验证：从局部收敛到闭环可靠性",
+      "title": "41.7 能力不对称：可观测性、影响力与治理边界",
+      "start_pdf_page": 269,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "41.8 整体双循环：快慢耦合、外部记忆与持续适应",
       "start_pdf_page": 270,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "41.9 稳定性与验证：从局部收敛到闭环可靠性",
+      "start_pdf_page": 271,
       "prose_lines": 26,
       "calibrated_prose_page_equivalents": 0.579,
       "half_page_prose_pass": true
     },
     {
       "title": "42.1 任务商空间：从高维活动到可验证宏观状态",
-      "start_pdf_page": 272,
+      "start_pdf_page": 273,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "42.2 受限几何：方向、幅度与资源状态的分账",
-      "start_pdf_page": 273,
-      "prose_lines": 30,
-      "calibrated_prose_page_equivalents": 0.668,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "42.3 非交换更新：历史顺序、算子组合与经验保持",
-      "start_pdf_page": 273,
-      "prose_lines": 32,
-      "calibrated_prose_page_equivalents": 0.713,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "42.4 切空间动力学：约束梯度、离散回缩与安全边界",
       "start_pdf_page": 274,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
-      "title": "42.5 快慢分离：窗口聚合、随机逼近与漂移跟踪",
+      "title": "42.3 非交换更新：历史顺序、算子组合与经验保持",
+      "start_pdf_page": 274,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "42.4 切空间动力学：约束梯度、离散回缩与安全边界",
       "start_pdf_page": 275,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "42.5 快慢分离：窗口聚合、随机逼近与漂移跟踪",
+      "start_pdf_page": 276,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "42.6 自指闭环：固定点、极限环与身份连续性",
-      "start_pdf_page": 276,
+      "start_pdf_page": 277,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "42.7 向下控制：宏观策略接口、探索调节与外部验收",
-      "start_pdf_page": 277,
+      "start_pdf_page": 278,
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
     },
     {
       "title": "43.1 自指对象：身份状态、自我模型与四类功能",
-      "start_pdf_page": 279,
+      "start_pdf_page": 280,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "43.2 元观察：从内部测量到带置信度的自我读出",
-      "start_pdf_page": 280,
+      "start_pdf_page": 281,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "43.3 历史重入：事件绑定、语义沉淀与正反馈阻断",
-      "start_pdf_page": 280,
+      "start_pdf_page": 281,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "43.4 宏观控制：从策略方向到可执行控制包",
-      "start_pdf_page": 281,
+      "start_pdf_page": 282,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "43.5 闭环动力学：固定点、极限环与切换稳定性",
-      "start_pdf_page": 282,
+      "start_pdf_page": 283,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "43.6 双向耦合：局部结构、全局分布与身份可生存域",
-      "start_pdf_page": 283,
+      "start_pdf_page": 284,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "43.7 神经科学约束：PFC、DMN与分布式协同边界",
-      "start_pdf_page": 284,
+      "start_pdf_page": 285,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "43.8 内生元控制：复杂度管理、行动资格与外部验收",
-      "start_pdf_page": 284,
+      "start_pdf_page": 285,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "43.9 理论边界：一般状态动力学与AgentOS实例",
-      "start_pdf_page": 285,
+      "start_pdf_page": 286,
       "prose_lines": 26,
       "calibrated_prose_page_equivalents": 0.579,
       "half_page_prose_pass": true
     },
     {
       "title": "44.1 键合条件：接口耦合、身份边界与联合更新",
-      "start_pdf_page": 287,
+      "start_pdf_page": 288,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "44.2 群体重整化：从微观轨迹到社会语义状态",
-      "start_pdf_page": 288,
+      "start_pdf_page": 289,
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
     },
     {
       "title": "44.3 涌现判据：慢变量、下行约束与误差边界",
-      "start_pdf_page": 289,
+      "start_pdf_page": 290,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "44.4 高阶网络：子图封装、超边与可展开节点",
-      "start_pdf_page": 290,
+      "start_pdf_page": 291,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "44.5 组织异构体：四类拓扑及其任务适配",
-      "start_pdf_page": 290,
-      "prose_lines": 33,
-      "calibrated_prose_page_equivalents": 0.735,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "44.6 分形递归：跨尺度接口与有限自相似",
       "start_pdf_page": 291,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
-      "title": "44.7 组织演化：重构、分裂、合并与退出",
+      "title": "44.6 分形递归：跨尺度接口与有限自相似",
       "start_pdf_page": 292,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "44.7 组织演化：重构、分裂、合并与退出",
+      "start_pdf_page": 293,
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
     },
     {
       "title": "44.8 病理相态：退相干、约束挫折与成核风险",
-      "start_pdf_page": 293,
+      "start_pdf_page": 294,
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
     },
     {
       "title": "45.1 从误差信号到任务相关的几何张力",
-      "start_pdf_page": 295,
+      "start_pdf_page": 296,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "45.2 目的、约束与控制律：从价值场到可审计优化",
-      "start_pdf_page": 296,
+      "start_pdf_page": 297,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "45.3 延迟、摩擦与PID型多时间尺度更新",
-      "start_pdf_page": 296,
+      "start_pdf_page": 297,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "45.4 从负反馈到主动推断：信念与环境的双向校正",
-      "start_pdf_page": 297,
+      "start_pdf_page": 298,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "45.5 阶层控制与协同约化：宏观序参量的权限边界",
-      "start_pdf_page": 298,
+      "start_pdf_page": 299,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "46.1 任务相关序参量：结构复杂度、传播范围与目标对齐",
-      "start_pdf_page": 300,
+      "start_pdf_page": 301,
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
     },
     {
       "title": "46.2 运行相态：稳定执行、无序搜索与自适应临界区间",
-      "start_pdf_page": 301,
+      "start_pdf_page": 302,
       "prose_lines": 39,
       "calibrated_prose_page_equivalents": 0.869,
       "half_page_prose_pass": true
     },
     {
       "title": "46.3 相变控制机制：从探索退火到结构提交",
-      "start_pdf_page": 302,
+      "start_pdf_page": 303,
       "prose_lines": 48,
       "calibrated_prose_page_equivalents": 1.069,
       "half_page_prose_pass": true
     },
     {
       "title": "46.4 LLM温度诊断：输出采样不等于系统退火",
-      "start_pdf_page": 304,
+      "start_pdf_page": 305,
       "prose_lines": 52,
       "calibrated_prose_page_equivalents": 1.158,
       "half_page_prose_pass": true
     },
     {
       "title": "46.5 涌现的操作定义：跨尺度闭合、稳健与可干预性",
-      "start_pdf_page": 305,
+      "start_pdf_page": 306,
       "prose_lines": 53,
       "calibrated_prose_page_equivalents": 1.18,
       "half_page_prose_pass": true
     },
     {
       "title": "47.1 任务读出与不相容性：互补关系的计算定义",
-      "start_pdf_page": 307,
+      "start_pdf_page": 308,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "47.2 分布式展开：候选生成、耦合传播与可逆近似",
-      "start_pdf_page": 308,
+      "start_pdf_page": 309,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "47.3 离散提交：从概率候选到可执行动作",
-      "start_pdf_page": 308,
+      "start_pdf_page": 309,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "47.4 误差下界：精确读出与关联覆盖的条件性权衡",
-      "start_pdf_page": 309,
-      "prose_lines": 29,
-      "calibrated_prose_page_equivalents": 0.646,
-      "half_page_prose_pass": true
-    },
-    {
-      "title": "47.5 顺序效应：基底改变、状态写入与迟滞",
       "start_pdf_page": 310,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
-      "title": "47.6 TDCI闭环：展开—验证—提交的协同调度",
+      "title": "47.5 顺序效应：基底改变、状态写入与迟滞",
       "start_pdf_page": 311,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "47.6 TDCI闭环：展开—验证—提交的协同调度",
+      "start_pdf_page": 312,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "48.1 两类效应的对象、空间与局部分解",
-      "start_pdf_page": 313,
+      "start_pdf_page": 314,
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
     },
     {
       "title": "48.2 方向性任务代价：生成、逆推与证据预算",
-      "start_pdf_page": 314,
+      "start_pdf_page": 315,
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
     },
     {
       "title": "48.3 非交换更新：学习顺序、绑定与历史残留",
-      "start_pdf_page": 315,
+      "start_pdf_page": 316,
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     },
     {
       "title": "48.4 耦合控制、离散实现与工程验收",
-      "start_pdf_page": 315,
+      "start_pdf_page": 316,
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
     },
     {
       "title": "49.1 双路径模型：表示距离与方向任务成本",
-      "start_pdf_page": 317,
+      "start_pdf_page": 318,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "49.2 正向路径：条件生成、默认转移与约束验收",
-      "start_pdf_page": 318,
+      "start_pdf_page": 319,
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
     },
     {
       "title": "49.3 逆向路径：可辨识性、搜索验证与学习更新",
-      "start_pdf_page": 319,
+      "start_pdf_page": 320,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
     },
     {
       "title": "49.4 回路差异：不可逆记录、绕行策略与闭环验收",
-      "start_pdf_page": 319,
+      "start_pdf_page": 320,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "50.1 双时间尺度：快状态、慢结构与可观测分离",
-      "start_pdf_page": 321,
+      "start_pdf_page": 322,
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
     },
     {
       "title": "50.2 推理动力学：受约束快态响应与可撤销工作态",
-      "start_pdf_page": 322,
+      "start_pdf_page": 323,
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     },
     {
       "title": "50.3 学习动力学：证据聚合、结构提案与受控保留",
-      "start_pdf_page": 322,
+      "start_pdf_page": 323,
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
     },
     {
       "title": "50.4 宏观调控：学习资格、提交阀门与闭环验收",
-      "start_pdf_page": 323,
+      "start_pdf_page": 324,
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "51.1 从二元信念到 Fisher 坐标",
+      "start_pdf_page": 326,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "51.2 作用量、惯性参数与量纲闭合",
+      "start_pdf_page": 327,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "51.3 结构耦合、编辑传播与有限延迟",
+      "start_pdf_page": 328,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "51.4 边界条件、谱与离散模式",
+      "start_pdf_page": 328,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "51.5 一阶生成元、自伴定义域与可观测性",
+      "start_pdf_page": 329,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "51.6 目标势、局部近似与 Mathieu 方程",
+      "start_pdf_page": 330,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "51.7 可解析基准的验证边界",
+      "start_pdf_page": 331,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 50 chapters; does not validate the full book."
+  "scope": "Review subset: 51 chapters; does not validate the full book."
 }

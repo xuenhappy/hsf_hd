@@ -10,10 +10,10 @@
     "original_visual_assets_byte_verified": 26,
     "figure_blocks": 28,
     "labels": 840,
-    "reference_targets": 18,
+    "reference_targets": 17,
     "chapter_status": {
-      "rewritten-reviewed": 50,
-      "queued-for-full-rewrite": 67
+      "rewritten-reviewed": 51,
+      "queued-for-full-rewrite": 66
     }
   },
   "errors": []
