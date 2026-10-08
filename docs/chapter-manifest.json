@@ -1115,9 +1115,15 @@
       "source_start_line": 20786,
       "source_end_line": 21139,
       "source_sha256": "65434624064a28cd9fc5ce71001c48c760d6da625b25a1c76cefa6906774b86a",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "自我的计算形态：身份闭环、全局偏置与可塑连续性",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-059-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-09/chp-fluid_self.tex",
