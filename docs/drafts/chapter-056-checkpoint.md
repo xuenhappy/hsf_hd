@@ -4,10 +4,11 @@
 - 分段草稿：`docs/drafts/chapter-056-draft.tex`
 - 拟用标题：生命系统的多尺度适应动力学：从局部可塑性到种群演化
 - 固定基线：源码汉字7223、可读单位6935、九个原编号小节
-- 当前状态：章首语及前五节已实写且各自达到1000汉字门槛；正式章未替换，仍为 `queued-for-full-rewrite`
-- 已迁移标签：章标签、`sec:breaking_scale_barriers`、`sec:unified_action_across_scales`、`sec:micro_neural_field_dynamics`、`sec:meso_cefe_and_stdp`、`sec:macro_cortical_metric_flow_and_consolidation`、`sec:population_evolution_information_geometry`
+- 当前状态：章首语及九个编号小节已完成，正式章已替换并通过编译、布局脚本与逐页视觉复核，状态为 `rewritten-reviewed`
+- 已迁移标签：章标签、十个旧节标签及两张旧表标签全部迁移
 - 核心修订：把严格物理同构重建为带对象类型、时钟、统计接口和因果检验的多尺度模型族；将目的论狄拉克方程重建为受约束随机延迟神经状态模型；分离活动强度、信息、计算资源与焦耳能耗
-- 精确续写点：`sec:hierarchical_coupling_rg_flow`，随后完成经验检验、STDP与梯度比较及结论
+- 排版验收：365页审阅本编译成功；第56章位于物理页358—365，九节校准正文页当量依次为0.601、0.668、0.713、0.646、0.646、0.646、0.624、0.713、0.690，全部通过半页门槛；逐页渲染确认正文、公式、两张表、跨页衔接与页眉页脚清晰，无裁切、重叠或越界
+- 下一章：order=57，`chapters/part-08/chp-intelligence_lifecycle.tex`
 - 原章无 `figure`；两张表将在完整章中以机制—证据—反例形式保留
 
-本检查点不计入完成章数，也不具备排版复核资格。
+本章正文与排版验收已完成；全书仍有61章待写与复核。

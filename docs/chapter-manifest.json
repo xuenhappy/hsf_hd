@@ -1058,9 +1058,15 @@
       "source_start_line": 19577,
       "source_end_line": 20013,
       "source_sha256": "a62aecd79367f135cd32d392d2f741818609e275543c5186da39a3cc487344ad",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "生命系统的多尺度适应动力学：从局部可塑性到种群演化",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-056-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-intelligence_lifecycle.tex",

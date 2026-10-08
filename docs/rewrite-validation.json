@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 55,
-  "pending_chapters": 62,
+  "rewritten_chapters": 56,
+  "pending_chapters": 61,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2164,53 +2164,53 @@
     {
       "order": 56,
       "path": "chapters/part-08/chp-life_manifold_dynamics.tex",
-      "title": "生命流形的几何动力学：从突触可塑性到物种演化的统一场论",
-      "status": "queued-for-full-rewrite",
+      "title": "生命系统的多尺度适应动力学：从局部可塑性到种群演化",
+      "status": "rewritten-reviewed",
       "original_han_floor": 7223,
-      "new_chapter_prose_han": 6718,
+      "new_chapter_prose_han": 10133,
       "original_readable_units": 6935,
-      "new_readable_units": 6935,
-      "opening_prose_han": 653,
+      "new_readable_units": 10196,
+      "opening_prose_han": 244,
       "sections": [
         {
-          "title": "跨尺度的统一作用量与变分原理",
-          "prose_han": 323
+          "title": "跨尺度模型族：对象、时钟与接口",
+          "prose_han": 1014
         },
         {
-          "title": "微观层：目的论狄拉克方程与神经场动力学",
-          "prose_han": 485
+          "title": "微观层：受约束神经状态传播",
+          "prose_han": 1052
         },
         {
-          "title": "中观层：认知爱因斯坦方程与 STDP 的几何推导",
-          "prose_han": 728
+          "title": "中观层：局部可塑性、资格迹与STDP",
+          "prose_han": 1103
         },
         {
-          "title": "宏观层：皮层度量流与记忆的拓扑雕刻",
-          "prose_han": 702
+          "title": "宏观层：系统巩固、回放与结构重组",
+          "prose_han": 1109
         },
         {
-          "title": "种群层级：自然梯度选择与演化的信息几何",
-          "prose_han": 933
+          "title": "种群层：选择、漂变与分布动力学",
+          "prose_han": 1067
         },
         {
-          "title": "层级耦合：重整化群流与自组织临界性",
-          "prose_han": 384
+          "title": "跨尺度耦合：统计接口、因果方向与临界边界",
+          "prose_han": 1121
         },
         {
-          "title": "统一框架的生物学实证一致性",
-          "prose_han": 107
+          "title": "经验验证：机制、证据与可证伪预测",
+          "prose_han": 1066
         },
         {
-          "title": "介质的欺骗与几何的统一：STDP 与梯度下降的同构性反演",
-          "prose_han": 2095
+          "title": "STDP与梯度学习：条件关系而非算法同构",
+          "prose_han": 1163
         },
         {
-          "title": "结论：生命演化的几何大一统",
-          "prose_han": 308
+          "title": "结论：多尺度适应的一般状态动力学",
+          "prose_han": 1194
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
