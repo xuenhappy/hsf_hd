@@ -56,7 +56,7 @@
 | 2 | 8 | [chp-cognitive_mechanics](../chapters/part-08/chp-cognitive_mechanics.tex) | 快慢认知力学：瞬态适应、结构学习与稳定—可塑平衡 | 已独立全文重写并完成排版复核 |
 | 2 | 8 | [chp-analytical_solution_bernoulli](../chapters/part-08/chp-analytical_solution_bernoulli.tex) | 伯努利流形上的可解动力学：坐标、边界与目标势 | 已独立全文重写并完成排版复核 |
 | 2 | 8 | [chp-cognitive_elliptic_resonator](../chapters/part-08/chp-cognitive_elliptic_resonator.tex) | 椭圆回路与双环网络：几何传播、耗散学习和路由控制 | 已独立全文重写并完成排版复核 |
-| 2 | 8 | [chp-physics_of_conservation_and_dissipation](../chapters/part-08/chp-physics_of_conservation_and_dissipation.tex) | 守恒与耗散的物理学 — 认知场的能量退相干与拓扑不变量 | 队列中；原文仍保留 |
+| 2 | 8 | [chp-physics_of_conservation_and_dissipation](../chapters/part-08/chp-physics_of_conservation_and_dissipation.tex) | 开放智能系统的守恒与耗散：状态账本、不变量和失效诊断 | 已独立全文重写并完成排版复核 |
 | 2 | 8 | [chp-manifold_genesis_trinity_evolution](../chapters/part-08/chp-manifold_genesis_trinity_evolution.tex) | 底流形的几何发生学与动力学演化 — 位置、网格与方向的三位一体 | 队列中；原文仍保留 |
 | 2 | 8 | [chp-dynamical_reconstruction](../chapters/part-08/chp-dynamical_reconstruction.tex) | 认知时空的动力学关联：从拉格朗日量到深度学习的梯度流 | 队列中；原文仍保留 |
 | 2 | 8 | [chp-life_manifold_dynamics](../chapters/part-08/chp-life_manifold_dynamics.tex) | 生命流形的几何动力学：从突触可塑性到物种演化的统一场论 | 队列中；原文仍保留 |

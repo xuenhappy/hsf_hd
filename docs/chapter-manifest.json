@@ -1001,9 +1001,15 @@
       "source_start_line": 18315,
       "source_end_line": 18656,
       "source_sha256": "23283948192087fbb03191bbfc38bf03a93d7fccfaae5787fcce47643bf54d22",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "开放智能系统的守恒与耗散：状态账本、不变量和失效诊断",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-053-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-manifold_genesis_trinity_evolution.tex",

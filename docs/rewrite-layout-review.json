@@ -1,9 +1,9 @@
 {
-  "pages": 336,
-  "bytes": 31689552,
+  "pages": 342,
+  "bytes": 31725956,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 297,
+  "numbered_sections": 303,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2085,7 +2085,49 @@
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "53.1 开放系统的状态收支：活动、信息、资源与能耗分账",
+      "start_pdf_page": 337,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "53.2 任务相关不变量：身份、关系与结构保持",
+      "start_pdf_page": 338,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "53.3 跨时间稳定：快态耗散、慢态学习与外部记忆",
+      "start_pdf_page": 338,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "53.4 经验现象的可检验映射：从概念不变到对象文件",
+      "start_pdf_page": 339,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "53.5 Transformer 的代数稳定与幻觉诊断",
+      "start_pdf_page": 340,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "53.6 工程验收：守恒契约、故障注入与理论边界",
+      "start_pdf_page": 341,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 52 chapters; does not validate the full book."
+  "scope": "Review subset: 53 chapters; does not validate the full book."
 }
