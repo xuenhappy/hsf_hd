@@ -399,4 +399,7 @@
 | --- | --- | --- |
 | `sec:breaking_scale_barriers`、`sec:unified_action_across_scales`：神经、突触、脑区与种群被宣称为严格物理同构 | 定义四类状态空间、时钟与有损统计接口；统一状态—结构—环境闭环，但保持对象与单位差异 | 已实写 |
 | `sec:micro_neural_field_dynamics`：目的论狄拉克方程被称为Hodgkin--Huxley的严格推广 | 改为可辨识的随机延迟状态模型，给出稳定条件、调质边界、离散步长与反例 | 已实写 |
-| `sec:meso_cefe_and_stdp`及后续七节 | 资格迹与STDP、回放巩固、复制子动力学、跨尺度因果检验及STDP/梯度的条件比较 | 待续写 |
+| 后续四节 | 跨尺度因果检验、经验验证、STDP与梯度的条件比较及结论 | 待续写 |
+| `sec:meso_cefe_and_stdp`：由相位差宣称绝对证明STDP | 以经验时序核、资格迹、调制信号、稳态约束与条件性策略梯度关系重建 | 已实写 |
+| `sec:macro_cortical_metric_flow_and_consolidation`：睡眠回放被称为几何雕刻与零能耗直觉 | 以回放分布、版本化结构提交、保持测试、回滚及迁移反例重建 | 已实写 |
+| `sec:population_evolution_information_geometry`：进化被称为全局信息几何最速下降 | 以复制子方程、突变、迁移、有限种群漂变和变化环境全导数限定 | 已实写 |
