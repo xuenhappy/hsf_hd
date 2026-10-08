@@ -1,9 +1,9 @@
 {
   "checks_passed": true,
-  "original_complete_chapters_verified": 64,
-  "fully_rewritten_chapters_length_verified": 53,
+  "original_complete_chapters_verified": 63,
+  "fully_rewritten_chapters_length_verified": 54,
   "baseline_chapter_chinese_characters": 568727,
-  "current_chapter_chinese_characters": 688490,
+  "current_chapter_chinese_characters": 688786,
   "scope": "Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.",
   "chapters": [
     {
@@ -432,11 +432,11 @@
     },
     {
       "path": "chapters/part-08/chp-manifold_genesis_trinity_evolution.tex",
-      "original_exposition_preserved": true,
-      "validation_mode": "original-exposition-conservation",
+      "original_exposition_preserved": false,
+      "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 7519,
-      "current_chinese_characters": 7519
+      "current_chinese_characters": 7815
     },
     {
       "path": "chapters/part-08/chp-dynamical_reconstruction.tex",

@@ -1,9 +1,9 @@
 {
-  "pages": 342,
-  "bytes": 31725956,
+  "pages": 348,
+  "bytes": 31767030,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 303,
+  "numbered_sections": 309,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2127,7 +2127,49 @@
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "54.1 计算底空间：位置、度量与方向的类型分工",
+      "start_pdf_page": 343,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "54.2 固定结构上的快态传播：源项、度量与传送接口",
+      "start_pdf_page": 344,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "54.3 慢速结构学习：度量修订、方向更新与对象编辑",
+      "start_pdf_page": 345,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "54.4 介质与高阶结构：容量、顺序和实现约束",
+      "start_pdf_page": 346,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "54.5 为何显式维护方向：可辨识性、缓存与非对称关系",
+      "start_pdf_page": 346,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "54.6 LLM与专用硬件诊断：从几何隐喻到对照实验",
+      "start_pdf_page": 347,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 53 chapters; does not validate the full book."
+  "scope": "Review subset: 54 chapters; does not validate the full book."
 }

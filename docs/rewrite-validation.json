@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 53,
-  "pending_chapters": 64,
+  "rewritten_chapters": 54,
+  "pending_chapters": 63,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2072,41 +2072,41 @@
     {
       "order": 54,
       "path": "chapters/part-08/chp-manifold_genesis_trinity_evolution.tex",
-      "title": "底流形的几何发生学与动力学演化 — 位置、网格与方向的三位一体",
-      "status": "queued-for-full-rewrite",
+      "title": "计算底空间的发生：位置、度量与方向的联合动力学",
+      "status": "rewritten-reviewed",
       "original_han_floor": 7519,
-      "new_chapter_prose_han": 7350,
+      "new_chapter_prose_han": 7686,
       "original_readable_units": 7677,
-      "new_readable_units": 7677,
-      "opening_prose_han": 428,
+      "new_readable_units": 7712,
+      "opening_prose_han": 301,
       "sections": [
         {
-          "title": "本体论奠基：丈量虚空的几何三位一体",
-          "prose_han": 1463
+          "title": "计算底空间：位置、度量与方向的类型分工",
+          "prose_han": 1278
         },
         {
-          "title": "瞬态约束：TDE 方程中的几何导流",
-          "prose_han": 1183
+          "title": "固定结构上的快态传播：源项、度量与传送接口",
+          "prose_han": 1071
         },
         {
-          "title": "塑性刻蚀：CEFE 方程中的几何学习",
-          "prose_han": 1281
+          "title": "慢速结构学习：度量修订、方向更新与对象编辑",
+          "prose_han": 1240
         },
         {
-          "title": "介质的独裁与流形的高阶延展",
-          "prose_han": 1150
+          "title": "介质与高阶结构：容量、顺序和实现约束",
+          "prose_han": 1265
         },
         {
-          "title": "黎曼定理的幻觉：决不可被舍弃的“方向”",
-          "prose_han": 939
+          "title": "为何显式维护方向：可辨识性、缓存与非对称关系",
+          "prose_han": 1274
         },
         {
-          "title": "工程诊断：LLM 的先天几何残疾与 TPU-G 的救赎",
-          "prose_han": 906
+          "title": "LLM与专用硬件诊断：从几何隐喻到对照实验",
+          "prose_han": 1257
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

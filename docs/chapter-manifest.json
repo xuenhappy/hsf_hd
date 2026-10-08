@@ -1020,9 +1020,15 @@
       "source_start_line": 18656,
       "source_end_line": 19001,
       "source_sha256": "3f927f159611f91b25b7f2373ca625e2e6aa458e1c6ab6557e64647c60e15d77",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "计算底空间的发生：位置、度量与方向的联合动力学",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-054-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-08/chp-dynamical_reconstruction.tex",
