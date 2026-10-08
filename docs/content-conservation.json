@@ -1,9 +1,9 @@
 {
   "checks_passed": true,
-  "original_complete_chapters_verified": 66,
-  "fully_rewritten_chapters_length_verified": 51,
+  "original_complete_chapters_verified": 65,
+  "fully_rewritten_chapters_length_verified": 52,
   "baseline_chapter_chinese_characters": 568727,
-  "current_chapter_chinese_characters": 687896,
+  "current_chapter_chinese_characters": 688256,
   "scope": "Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.",
   "chapters": [
     {
@@ -416,11 +416,11 @@
     },
     {
       "path": "chapters/part-08/chp-cognitive_elliptic_resonator.tex",
-      "original_exposition_preserved": true,
-      "validation_mode": "original-exposition-conservation",
+      "original_exposition_preserved": false,
+      "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 5802,
-      "current_chinese_characters": 5802
+      "current_chinese_characters": 6162
     },
     {
       "path": "chapters/part-08/chp-physics_of_conservation_and_dissipation.tex",

@@ -50,7 +50,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 49,chapters/part-08/chap-path_integration_asymmetry.tex,rewritten-reviewed,1544,4532,1458,4551,4,1041
 50,chapters/part-08/chp-cognitive_mechanics.tex,rewritten-reviewed,1328,4635,1291,4656,4,1028
 51,chapters/part-08/chp-analytical_solution_bernoulli.tex,rewritten-reviewed,6989,7663,7069,7731,7,1003
-52,chapters/part-08/chp-cognitive_elliptic_resonator.tex,queued-for-full-rewrite,5802,5609,5775,5775,8,331
+52,chapters/part-08/chp-cognitive_elliptic_resonator.tex,rewritten-reviewed,5802,6074,5775,6130,5,1016
 53,chapters/part-08/chp-physics_of_conservation_and_dissipation.tex,queued-for-full-rewrite,7399,7258,7485,7485,4,1183
 54,chapters/part-08/chp-manifold_genesis_trinity_evolution.tex,queued-for-full-rewrite,7519,7350,7677,7677,6,906
 55,chapters/part-08/chp-dynamical_reconstruction.tex,queued-for-full-rewrite,7346,6206,8070,8070,9,283

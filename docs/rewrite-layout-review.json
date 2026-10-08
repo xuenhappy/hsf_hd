@@ -1,9 +1,9 @@
 {
-  "pages": 331,
-  "bytes": 31660359,
+  "pages": 336,
+  "bytes": 31689552,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 292,
+  "numbered_sections": 297,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2050,7 +2050,42 @@
       "prose_lines": 26,
       "calibrated_prose_page_equivalents": 0.579,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "52.1 椭圆回路的状态空间、度量与传播",
+      "start_pdf_page": 332,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "52.2 双路径、环路偏置与顺序依赖",
+      "start_pdf_page": 333,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "52.3 耗散、保持时间与慢结构学习",
+      "start_pdf_page": 334,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "52.4 从单环到双环：拓扑编辑、路由与自我模型",
+      "start_pdf_page": 335,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "52.5 验证协议、反例与理论边界",
+      "start_pdf_page": 335,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 51 chapters; does not validate the full book."
+  "scope": "Review subset: 52 chapters; does not validate the full book."
 }
