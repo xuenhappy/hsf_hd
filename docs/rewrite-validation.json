@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 57,
-  "pending_chapters": 60,
+  "rewritten_chapters": 58,
+  "pending_chapters": 59,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2260,37 +2260,37 @@
     {
       "order": 58,
       "path": "chapters/part-09/chp-purpose_geometric_origin.tex",
-      "title": "目的的几何起源 — 规范场与对称性破缺",
-      "status": "queued-for-full-rewrite",
+      "title": "目的的计算起源：约束、偏好与控制几何",
+      "status": "rewritten-reviewed",
       "original_han_floor": 3327,
-      "new_chapter_prose_han": 3237,
+      "new_chapter_prose_han": 5478,
       "original_readable_units": 3328,
-      "new_readable_units": 3328,
-      "opening_prose_han": 147,
+      "new_readable_units": 5498,
+      "opening_prose_han": 214,
       "sections": [
         {
-          "title": "定义升级：目的即规范场 (Purpose as Gauge Field)",
-          "prose_han": 521
+          "title": "目的作为任务条件化的控制几何",
+          "prose_han": 1074
         },
         {
-          "title": "起源机制：对称性破缺与几何重塑",
-          "prose_han": 569
+          "title": "方向性的形成：经验更新、约束生成与对称性破缺",
+          "prose_han": 1050
         },
         {
-          "title": "信息生态：纤维丛的同调对齐与规范耦合",
-          "prose_han": 646
+          "title": "信息生态：内部模型与环境过程的校准耦合",
+          "prose_han": 1031
         },
         {
-          "title": "动力学推论：从“势阱”到“拓扑洞”的升维",
-          "prose_han": 625
+          "title": "从生存约束到求知目标：势阱、结构缺口与目标切换",
+          "prose_han": 1015
         },
         {
-          "title": "理论统合：目的在拉格朗日量中的几何地位",
-          "prose_han": 729
+          "title": "目的进入一般状态动力学的方式与工程验收",
+          "prose_han": 1094
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

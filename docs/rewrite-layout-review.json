@@ -1,9 +1,9 @@
 {
-  "pages": 371,
-  "bytes": 31910656,
+  "pages": 376,
+  "bytes": 31950990,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 334,
+  "numbered_sections": 339,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2341,10 +2341,45 @@
     {
       "title": "57.7 发育而非简单组装：历史依赖与可验证集成",
       "start_pdf_page": 370,
-      "prose_lines": 32,
-      "calibrated_prose_page_equivalents": 0.713,
+      "prose_lines": 51,
+      "calibrated_prose_page_equivalents": 1.136,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "58.1 目的作为任务条件化的控制几何",
+      "start_pdf_page": 372,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "58.2 方向性的形成：经验更新、约束生成与对称性破缺",
+      "start_pdf_page": 373,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "58.3 信息生态：内部模型与环境过程的校准耦合",
+      "start_pdf_page": 373,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "58.4 从生存约束到求知目标：势阱、结构缺口与目标切换",
+      "start_pdf_page": 374,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "58.5 目的进入一般状态动力学的方式与工程验收",
+      "start_pdf_page": 375,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 57 chapters; does not validate the full book."
+  "scope": "Review subset: 58 chapters; does not validate the full book."
 }
