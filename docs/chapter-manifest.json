@@ -1077,9 +1077,15 @@
       "source_start_line": 20013,
       "source_end_line": 20477,
       "source_sha256": "2cdfd79b84fa609a9802d02cdc34c9b750587e742589787e1d88a00a5f9dc25c",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "智能系统的生命周期动力学：形成、维持、衰退与跨代继承",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-057-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-09/chp-purpose_geometric_origin.tex",

@@ -1,9 +1,9 @@
 {
-  "pages": 365,
-  "bytes": 31869738,
+  "pages": 371,
+  "bytes": 31910656,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 327,
+  "numbered_sections": 334,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2295,7 +2295,56 @@
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "57.1 形成：边界、身份与闭环能力的共同建立",
+      "start_pdf_page": 366,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "57.2 维持：能力收支、适应区间与动态稳态",
+      "start_pdf_page": 367,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "57.3 衰退：可塑性损失、累积债务与环境失配",
+      "start_pdf_page": 367,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "57.4 解体：边界失效、协同丧失与可恢复停机",
+      "start_pdf_page": 368,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "57.5 继承：残留结构、选择接口与跨代变异",
+      "start_pdf_page": 369,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "57.6 比较时钟：事件率、更新尺度与寿命不能相互替代",
+      "start_pdf_page": 369,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "57.7 发育而非简单组装：历史依赖与可验证集成",
+      "start_pdf_page": 370,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 56 chapters; does not validate the full book."
+  "scope": "Review subset: 57 chapters; does not validate the full book."
 }
