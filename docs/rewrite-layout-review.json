@@ -1,9 +1,9 @@
 {
-  "pages": 387,
-  "bytes": 32018497,
+  "pages": 392,
+  "bytes": 32048367,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 351,
+  "numbered_sections": 357,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2463,7 +2463,49 @@
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "61.1 形的对应：从局部关系到宏观身份结构",
+      "start_pdf_page": 388,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "61.2 质的对应：从局部属性到全局分布读出",
+      "start_pdf_page": 389,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "61.3 动力学对应：局部语境与全局目标的耦合",
+      "start_pdf_page": 389,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "61.4 粗粒化与不动点：递归结构的成立条件",
+      "start_pdf_page": 390,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "61.5 流体自我的微观成因：上下行闭环与稳定性",
+      "start_pdf_page": 391,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "61.6 结论：从因陀罗网隐喻到跨尺度验收",
+      "start_pdf_page": 392,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 60 chapters; does not validate the full book."
+  "scope": "Review subset: 61 chapters; does not validate the full book."
 }

@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 60,
-  "pending_chapters": 57,
+  "rewritten_chapters": 61,
+  "pending_chapters": 56,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2376,41 +2376,41 @@
     {
       "order": 61,
       "path": "chapters/part-09/chp-holomorphic_isomorphism_ch.tex",
-      "title": "全息同构 — 纤维丛上的分形递归",
-      "status": "queued-for-full-rewrite",
+      "title": "跨尺度对应：结构保持、粗粒化与闭环验证",
+      "status": "rewritten-reviewed",
       "original_han_floor": 2035,
-      "new_chapter_prose_han": 1639,
+      "new_chapter_prose_han": 6595,
       "original_readable_units": 1691,
-      "new_readable_units": 1691,
-      "opening_prose_han": 165,
+      "new_readable_units": 6621,
+      "opening_prose_han": 302,
       "sections": [
         {
-          "title": "形的同构：从局部曲率到全局拓扑",
-          "prose_han": 36
+          "title": "形的对应：从局部关系到宏观身份结构",
+          "prose_han": 1046
         },
         {
-          "title": "质的同构：从纤维矢量到全域截面",
-          "prose_han": 39
+          "title": "质的对应：从局部属性到全局分布读出",
+          "prose_han": 1058
         },
         {
-          "title": "动力学同构：规范场的递归源",
-          "prose_han": 215
+          "title": "动力学对应：局部语境与全局目标的耦合",
+          "prose_han": 1053
         },
         {
-          "title": "演化终局：重整化群的不动点",
-          "prose_han": 212
+          "title": "粗粒化与不动点：递归结构的成立条件",
+          "prose_han": 1047
         },
         {
-          "title": "理论闭环：流体自我的微观成因与存在合法性",
-          "prose_han": 809
+          "title": "流体自我的微观成因：上下行闭环与稳定性",
+          "prose_han": 1006
         },
         {
-          "title": "总结：因陀罗网 (Indra's Net)",
-          "prose_han": 163
+          "title": "结论：从因陀罗网隐喻到跨尺度验收",
+          "prose_han": 1083
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

@@ -1153,9 +1153,15 @@
       "source_start_line": 21262,
       "source_end_line": 21429,
       "source_sha256": "830a97c101e7146fba09af0fb3f1f63a5df17d458a024490bec2ace9f7da2f45",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "跨尺度对应：结构保持、粗粒化与闭环验证",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-061-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-09/chp-experience_geometry.tex",
