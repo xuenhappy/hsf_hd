@@ -1234,7 +1234,10 @@
       "preserved_figure_count": 1,
       "formatting_normalized": true,
       "previous_status": "full-content-restored-with-computational-analysis",
-      "draft_checkpoint": "docs/drafts/chapter-065-checkpoint.md"
+      "draft_checkpoint": "docs/drafts/chapter-065-checkpoint.md",
+      "draft_completed_section_count": 12,
+      "draft_prose_han": 14910,
+      "draft_next_label": "sec:geometric_illusion_of_time_flow"
     },
     {
       "path": "chapters/part-09/chp-pathology_did.tex",
