@@ -1210,9 +1210,15 @@
       "source_start_line": 21806,
       "source_end_line": 21960,
       "source_sha256": "5850a3ef87ae91bfdfbc842abbf0070450e821dbcb4f8880a28e36aec769ceba",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "长期规划：滚动承诺、模型修订与目标治理",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-064-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-09/chp-phenomenological_physics.tex",
@@ -1227,7 +1233,8 @@
       "new_title": "记忆与时间：活动维持、历史积累与结构学习",
       "preserved_figure_count": 1,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-with-computational-analysis"
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "draft_checkpoint": "docs/drafts/chapter-065-checkpoint.md"
     },
     {
       "path": "chapters/part-09/chp-pathology_did.tex",

@@ -1,9 +1,9 @@
 {
-  "pages": 404,
-  "bytes": 32107839,
+  "pages": 409,
+  "bytes": 32137176,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 368,
+  "numbered_sections": 372,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2582,7 +2582,35 @@
       "prose_lines": 48,
       "calibrated_prose_page_equivalents": 1.069,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "64.1 长期规划的对象：从未来约束到滚动时域承诺",
+      "start_pdf_page": 405,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "64.2 过程学习：障碍证据、模型版本与受控重规划",
+      "start_pdf_page": 406,
+      "prose_lines": 36,
+      "calibrated_prose_page_equivalents": 0.802,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "64.3 目标动态修订：不可行证书、授权与承诺迁移",
+      "start_pdf_page": 407,
+      "prose_lines": 40,
+      "calibrated_prose_page_equivalents": 0.891,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "64.4 控制论图景：战术、模型与规范三环的分时协调",
+      "start_pdf_page": 408,
+      "prose_lines": 36,
+      "calibrated_prose_page_equivalents": 0.802,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 63 chapters; does not validate the full book."
+  "scope": "Review subset: 64 chapters; does not validate the full book."
 }

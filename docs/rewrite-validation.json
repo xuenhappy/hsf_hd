@@ -1,12 +1,9 @@
-Warning: truncated output (original token count: 35933)
-Total output lines: 4513
-
 {
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 63,
-  "pending_chapters": 54,
+  "rewritten_chapters": 64,
+  "pending_chapters": 53,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -1887,7 +1884,752 @@ Total output lines: 4513
       "claimed_rewritten": true,
       "claimed_checks_pass": true,
       "issues": []
-…5933 tokens truncated…"queued-for-full-rewrite",
+    },
+    {
+      "order": 49,
+      "path": "chapters/part-08/chap-path_integration_asymmetry.tex",
+      "title": "方向不对称：正向生成、逆向辨识与路径预算",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1544,
+      "new_chapter_prose_han": 4532,
+      "original_readable_units": 1458,
+      "new_readable_units": 4551,
+      "opening_prose_han": 241,
+      "sections": [
+        {
+          "title": "双路径模型：表示距离与方向任务成本",
+          "prose_han": 1048
+        },
+        {
+          "title": "正向路径：条件生成、默认转移与约束验收",
+          "prose_han": 1041
+        },
+        {
+          "title": "逆向路径：可辨识性、搜索验证与学习更新",
+          "prose_han": 1095
+        },
+        {
+          "title": "回路差异：不可逆记录、绕行策略与闭环验收",
+          "prose_han": 1107
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 50,
+      "path": "chapters/part-08/chp-cognitive_mechanics.tex",
+      "title": "快慢认知力学：瞬态适应、结构学习与稳定—可塑平衡",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1328,
+      "new_chapter_prose_han": 4635,
+      "original_readable_units": 1291,
+      "new_readable_units": 4656,
+      "opening_prose_han": 257,
+      "sections": [
+        {
+          "title": "双时间尺度：快状态、慢结构与可观测分离",
+          "prose_han": 1037
+        },
+        {
+          "title": "推理动力学：受约束快态响应与可撤销工作态",
+          "prose_han": 1099
+        },
+        {
+          "title": "学习动力学：证据聚合、结构提案与受控保留",
+          "prose_han": 1028
+        },
+        {
+          "title": "宏观调控：学习资格、提交阀门与闭环验收",
+          "prose_han": 1214
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 51,
+      "path": "chapters/part-08/chp-analytical_solution_bernoulli.tex",
+      "title": "伯努利流形上的可解动力学：坐标、边界与目标势",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 6989,
+      "new_chapter_prose_han": 7663,
+      "original_readable_units": 7069,
+      "new_readable_units": 7731,
+      "opening_prose_han": 229,
+      "sections": [
+        {
+          "title": "从二元信念到 Fisher 坐标",
+          "prose_han": 1097
+        },
+        {
+          "title": "作用量、惯性参数与量纲闭合",
+          "prose_han": 1075
+        },
+        {
+          "title": "结构耦合、编辑传播与有限延迟",
+          "prose_han": 1082
+        },
+        {
+          "title": "边界条件、谱与离散模式",
+          "prose_han": 1005
+        },
+        {
+          "title": "一阶生成元、自伴定义域与可观测性",
+          "prose_han": 1156
+        },
+        {
+          "title": "目标势、局部近似与 Mathieu 方程",
+          "prose_han": 1016
+        },
+        {
+          "title": "可解析基准的验证边界",
+          "prose_han": 1003
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 52,
+      "path": "chapters/part-08/chp-cognitive_elliptic_resonator.tex",
+      "title": "椭圆回路与双环网络：几何传播、耗散学习和路由控制",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 5802,
+      "new_chapter_prose_han": 6074,
+      "original_readable_units": 5775,
+      "new_readable_units": 6130,
+      "opening_prose_han": 259,
+      "sections": [
+        {
+          "title": "椭圆回路的状态空间、度量与传播",
+          "prose_han": 1126
+        },
+        {
+          "title": "双路径、环路偏置与顺序依赖",
+          "prose_han": 1243
+        },
+        {
+          "title": "耗散、保持时间与慢结构学习",
+          "prose_han": 1189
+        },
+        {
+          "title": "从单环到双环：拓扑编辑、路由与自我模型",
+          "prose_han": 1016
+        },
+        {
+          "title": "验证协议、反例与理论边界",
+          "prose_han": 1241
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 53,
+      "path": "chapters/part-08/chp-physics_of_conservation_and_dissipation.tex",
+      "title": "开放智能系统的守恒与耗散：状态账本、不变量和失效诊断",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 7399,
+      "new_chapter_prose_han": 7508,
+      "original_readable_units": 7485,
+      "new_readable_units": 7554,
+      "opening_prose_han": 265,
+      "sections": [
+        {
+          "title": "开放系统的状态收支：活动、信息、资源与能耗分账",
+          "prose_han": 1144
+        },
+        {
+          "title": "任务相关不变量：身份、关系与结构保持",
+          "prose_han": 1143
+        },
+        {
+          "title": "跨时间稳定：快态耗散、慢态学习与外部记忆",
+          "prose_han": 1252
+        },
+        {
+          "title": "经验现象的可检验映射：从概念不变到对象文件",
+          "prose_han": 1314
+        },
+        {
+          "title": "Transformer 的代数稳定与幻觉诊断",
+          "prose_han": 1167
+        },
+        {
+          "title": "工程验收：守恒契约、故障注入与理论边界",
+          "prose_han": 1223
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 54,
+      "path": "chapters/part-08/chp-manifold_genesis_trinity_evolution.tex",
+      "title": "计算底空间的发生：位置、度量与方向的联合动力学",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 7519,
+      "new_chapter_prose_han": 7686,
+      "original_readable_units": 7677,
+      "new_readable_units": 7712,
+      "opening_prose_han": 301,
+      "sections": [
+        {
+          "title": "计算底空间：位置、度量与方向的类型分工",
+          "prose_han": 1278
+        },
+        {
+          "title": "固定结构上的快态传播：源项、度量与传送接口",
+          "prose_han": 1071
+        },
+        {
+          "title": "慢速结构学习：度量修订、方向更新与对象编辑",
+          "prose_han": 1240
+        },
+        {
+          "title": "介质与高阶结构：容量、顺序和实现约束",
+          "prose_han": 1265
+        },
+        {
+          "title": "为何显式维护方向：可辨识性、缓存与非对称关系",
+          "prose_han": 1274
+        },
+        {
+          "title": "LLM与专用硬件诊断：从几何隐喻到对照实验",
+          "prose_han": 1257
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 55,
+      "path": "chapters/part-08/chp-dynamical_reconstruction.tex",
+      "title": "学习动力学的重建：从变分目标到受约束随机更新",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 7346,
+      "new_chapter_prose_han": 9619,
+      "original_readable_units": 8070,
+      "new_readable_units": 9679,
+      "opening_prose_han": 259,
+      "sections": [
+        {
+          "title": "从变分目标到状态—结构耦合，而非严格同构",
+          "prose_han": 1022
+        },
+        {
+          "title": "信息几何只度量分布可辨识性",
+          "prose_han": 1007
+        },
+        {
+          "title": "从随机梯度到有条件的朗之万模型",
+          "prose_han": 1052
+        },
+        {
+          "title": "受约束二阶近似的离散优化器",
+          "prose_han": 1069
+        },
+        {
+          "title": "代价、信息与实际耗散的分账",
+          "prose_han": 1020
+        },
+        {
+          "title": "梯度流的条件、完整导数与离散保持",
+          "prose_han": 1013
+        },
+        {
+          "title": "分布内未来风险的条件命题",
+          "prose_han": 1103
+        },
+        {
+          "title": "训练投入、部署收益与直觉形成",
+          "prose_han": 1041
+        },
+        {
+          "title": "双重下降的谱机制、反例与系统边界",
+          "prose_han": 1033
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 56,
+      "path": "chapters/part-08/chp-life_manifold_dynamics.tex",
+      "title": "生命系统的多尺度适应动力学：从局部可塑性到种群演化",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 7223,
+      "new_chapter_prose_han": 10133,
+      "original_readable_units": 6935,
+      "new_readable_units": 10196,
+      "opening_prose_han": 244,
+      "sections": [
+        {
+          "title": "跨尺度模型族：对象、时钟与接口",
+          "prose_han": 1014
+        },
+        {
+          "title": "微观层：受约束神经状态传播",
+          "prose_han": 1052
+        },
+        {
+          "title": "中观层：局部可塑性、资格迹与STDP",
+          "prose_han": 1103
+        },
+        {
+          "title": "宏观层：系统巩固、回放与结构重组",
+          "prose_han": 1109
+        },
+        {
+          "title": "种群层：选择、漂变与分布动力学",
+          "prose_han": 1067
+        },
+        {
+          "title": "跨尺度耦合：统计接口、因果方向与临界边界",
+          "prose_han": 1121
+        },
+        {
+          "title": "经验验证：机制、证据与可证伪预测",
+          "prose_han": 1066
+        },
+        {
+          "title": "STDP与梯度学习：条件关系而非算法同构",
+          "prose_han": 1163
+        },
+        {
+          "title": "结论：多尺度适应的一般状态动力学",
+          "prose_han": 1194
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 57,
+      "path": "chapters/part-08/chp-intelligence_lifecycle.tex",
+      "title": "智能系统的生命周期动力学：形成、维持、衰退与跨代继承",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 6476,
+      "new_chapter_prose_han": 7663,
+      "original_readable_units": 6571,
+      "new_readable_units": 7689,
+      "opening_prose_han": 239,
+      "sections": [
+        {
+          "title": "形成：边界、身份与闭环能力的共同建立",
+          "prose_han": 1053
+        },
+        {
+          "title": "维持：能力收支、适应区间与动态稳态",
+          "prose_han": 1053
+        },
+        {
+          "title": "衰退：可塑性损失、累积债务与环境失配",
+          "prose_han": 1070
+        },
+        {
+          "title": "解体：边界失效、协同丧失与可恢复停机",
+          "prose_han": 1035
+        },
+        {
+          "title": "继承：残留结构、选择接口与跨代变异",
+          "prose_han": 1008
+        },
+        {
+          "title": "比较时钟：事件率、更新尺度与寿命不能相互替代",
+          "prose_han": 1001
+        },
+        {
+          "title": "发育而非简单组装：历史依赖与可验证集成",
+          "prose_han": 1204
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 58,
+      "path": "chapters/part-09/chp-purpose_geometric_origin.tex",
+      "title": "目的的计算起源：约束、偏好与控制几何",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 3327,
+      "new_chapter_prose_han": 5478,
+      "original_readable_units": 3328,
+      "new_readable_units": 5498,
+      "opening_prose_han": 214,
+      "sections": [
+        {
+          "title": "目的作为任务条件化的控制几何",
+          "prose_han": 1074
+        },
+        {
+          "title": "方向性的形成：经验更新、约束生成与对称性破缺",
+          "prose_han": 1050
+        },
+        {
+          "title": "信息生态：内部模型与环境过程的校准耦合",
+          "prose_han": 1031
+        },
+        {
+          "title": "从生存约束到求知目标：势阱、结构缺口与目标切换",
+          "prose_han": 1015
+        },
+        {
+          "title": "目的进入一般状态动力学的方式与工程验收",
+          "prose_han": 1094
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 59,
+      "path": "chapters/part-09/chp-self_holomorphic.tex",
+      "title": "自我的计算形态：身份闭环、全局偏置与可塑连续性",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 4108,
+      "new_chapter_prose_han": 8272,
+      "original_readable_units": 4108,
+      "new_readable_units": 8297,
+      "opening_prose_han": 260,
+      "sections": [
+        {
+          "title": "几何本体的计算重建：自我作为持续维护的身份闭环",
+          "prose_han": 1210
+        },
+        {
+          "title": "算子机制：因果约束、当前语境与自我偏置的联合控制",
+          "prose_han": 1167
+        },
+        {
+          "title": "动力学稳定性：从调和意象到多时间尺度身份更新",
+          "prose_han": 1153
+        },
+        {
+          "title": "拓扑保护的适用边界：鲁棒身份、证据阈值与结构编辑",
+          "prose_han": 1120
+        },
+        {
+          "title": "实现载体：生物启发、硅基架构与群体制度的分层对应",
+          "prose_han": 1035
+        },
+        {
+          "title": "比较形态：刚性身份、情境拟态与自适应自我",
+          "prose_han": 1132
+        },
+        {
+          "title": "总结：自我模型的层级、验证与理论边界",
+          "prose_han": 1195
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 60,
+      "path": "chapters/part-09/chp-fluid_self.tex",
+      "title": "可塑自我的动力学：弹性响应、结构提交与社会耦合",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1261,
+      "new_chapter_prose_han": 5852,
+      "original_readable_units": 1222,
+      "new_readable_units": 5868,
+      "opening_prose_han": 269,
+      "sections": [
+        {
+          "title": "弹塑性自我：从流变意象到双时间尺度更新",
+          "prose_han": 1092
+        },
+        {
+          "title": "历史积分与元控制：开放、防御和结构学习的调度",
+          "prose_han": 1148
+        },
+        {
+          "title": "社会化共变：他者模型、共情推断与责任边界",
+          "prose_han": 1137
+        },
+        {
+          "title": "动力学病理：僵化、漂移、解离与误耦合",
+          "prose_han": 1123
+        },
+        {
+          "title": "总结：连续可塑性的条件、实现与验证边界",
+          "prose_han": 1083
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 61,
+      "path": "chapters/part-09/chp-holomorphic_isomorphism_ch.tex",
+      "title": "跨尺度对应：结构保持、粗粒化与闭环验证",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2035,
+      "new_chapter_prose_han": 6595,
+      "original_readable_units": 1691,
+      "new_readable_units": 6621,
+      "opening_prose_han": 302,
+      "sections": [
+        {
+          "title": "形的对应：从局部关系到宏观身份结构",
+          "prose_han": 1046
+        },
+        {
+          "title": "质的对应：从局部属性到全局分布读出",
+          "prose_han": 1058
+        },
+        {
+          "title": "动力学对应：局部语境与全局目标的耦合",
+          "prose_han": 1053
+        },
+        {
+          "title": "粗粒化与不动点：递归结构的成立条件",
+          "prose_han": 1047
+        },
+        {
+          "title": "流体自我的微观成因：上下行闭环与稳定性",
+          "prose_han": 1006
+        },
+        {
+          "title": "结论：从因陀罗网隐喻到跨尺度验收",
+          "prose_han": 1083
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 62,
+      "path": "chapters/part-09/chp-experience_geometry.tex",
+      "title": "体验的计算几何：偏好、风险与历史依赖",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2480,
+      "new_chapter_prose_han": 7662,
+      "original_readable_units": 2452,
+      "new_readable_units": 7697,
+      "opening_prose_han": 277,
+      "sections": [
+        {
+          "title": "体验图的对象：瞬时反馈、慢偏好与任务度量",
+          "prose_han": 1071
+        },
+        {
+          "title": "体验的形成：先验约束、证据更新与结构提交",
+          "prose_han": 1133
+        },
+        {
+          "title": "有效距离：任务代价、风险预算与可达路径",
+          "prose_han": 1038
+        },
+        {
+          "title": "方向偏置：从价值梯度到受约束控制",
+          "prose_han": 1051
+        },
+        {
+          "title": "身份参照：自我状态、价值读出与闭环更新",
+          "prose_han": 1028
+        },
+        {
+          "title": "推理不对称：生成、验证与有限计算",
+          "prose_han": 1043
+        },
+        {
+          "title": "体验、世界与认知状态的联合验证",
+          "prose_han": 1021
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 63,
+      "path": "chapters/part-09/chp-system_synergy.tex",
+      "title": "系统协同：目标、身份与执行控制的联合动力学",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1523,
+      "new_chapter_prose_han": 6017,
+      "original_readable_units": 1509,
+      "new_readable_units": 6045,
+      "opening_prose_han": 235,
+      "sections": [
+        {
+          "title": "对象分工：目标规范、身份状态与执行控制",
+          "prose_han": 1098
+        },
+        {
+          "title": "耦合方程：从目标错配到受约束闭环控制",
+          "prose_han": 1056
+        },
+        {
+          "title": "失配诊断：目标漂移、身份漂移与执行失效",
+          "prose_han": 1896
+        },
+        {
+          "title": "递归协同：带权限的目标修订、身份承诺与控制学习",
+          "prose_han": 1732
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 64,
+      "path": "chapters/part-09/chp-long_term_planning_and_goal_revision.tex",
+      "title": "长期规划：滚动承诺、模型修订与目标治理",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2430,
+      "new_chapter_prose_han": 5589,
+      "original_readable_units": 2091,
+      "new_readable_units": 5601,
+      "opening_prose_han": 226,
+      "sections": [
+        {
+          "title": "长期规划的对象：从未来约束到滚动时域承诺",
+          "prose_han": 1252
+        },
+        {
+          "title": "过程学习：障碍证据、模型版本与受控重规划",
+          "prose_han": 1338
+        },
+        {
+          "title": "目标动态修订：不可行证书、授权与承诺迁移",
+          "prose_han": 1507
+        },
+        {
+          "title": "控制论图景：战术、模型与规范三环的分时协调",
+          "prose_han": 1266
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 65,
+      "path": "chapters/part-09/chp-phenomenological_physics.tex",
+      "title": "记忆与时间：活动维持、历史积累与结构学习",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 19877,
+      "new_chapter_prose_han": 19686,
+      "original_readable_units": 19787,
+      "new_readable_units": 20380,
+      "opening_prose_han": 199,
+      "sections": [
+        {
+          "title": "记忆机制的几何动力学：从耗散驻波到拓扑结晶",
+          "prose_han": 1134
+        },
+        {
+          "title": "回忆动力学：惯性滑行与受激辐射",
+          "prose_han": 1006
+        },
+        {
+          "title": "时间感的非线性映射：从 TDCI 频率到信息几何弧长",
+          "prose_han": 1082
+        },
+        {
+          "title": "时间相对论的心理错觉：压力、耗散与时钟超频",
+          "prose_han": 1837
+        },
+        {
+          "title": "感受质的几何场论：观察算子的非幺正测量与拓扑张力",
+          "prose_han": 1059
+        },
+        {
+          "title": "感受质的物理分类学：场模态与测量效应",
+          "prose_han": 1213
+        },
+        {
+          "title": "观察者的发生学：自我算子的谱系演化",
+          "prose_han": 927
+        },
+        {
+          "title": "意识体验的完备闭环：递归测量与全息重入",
+          "prose_han": 1936
+        },
+        {
+          "title": "意识的宏观结构总结：双层递归与三重动力学的物理大一统",
+          "prose_han": 970
+        },
+        {
+          "title": "意识边界的物理绝对律 (Physical Absolutes of Conscious Boundaries)",
+          "prose_han": 323
+        },
+        {
+          "title": "进化的终局：自由意志的几何自造 (Geometric Autopoiesis)",
+          "prose_han": 1798
+        },
+        {
+          "title": "贝里相位 (Berry Phase)：历史几何记忆的感受质",
+          "prose_han": 646
+        },
+        {
+          "title": "时间流逝的几何学幻象：光锥钳制、相干聚焦与维度屏障",
+          "prose_han": 4964
+        },
+        {
+          "title": "计算动力学表达与论证边界",
+          "prose_han": 592
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 66,
+      "path": "chapters/part-09/chp-pathology_did.tex",
+      "title": "病理拓扑学 — 多重人格的几何解构",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 2266,
+      "new_chapter_prose_han": 2192,
+      "original_readable_units": 2274,
+      "new_readable_units": 2274,
+      "opening_prose_han": 218,
+      "sections": [
+        {
+          "title": "创伤的几何学：流形撕裂与畴壁形成",
+          "prose_han": 224
+        },
+        {
+          "title": "排他性原理：为何同一时刻不共存？",
+          "prose_han": 360
+        },
+        {
+          "title": "正交互补性：为何人格恰好互补？",
+          "prose_han": 511
+        },
+        {
+          "title": "案例研究：Data 的拓扑融合与自我的热力学重构",
+          "prose_han": 879
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 67,
+      "path": "chapters/part-09/chap-physics_of_dreams.tex",
+      "title": "现象学特例：梦境的热力学与几何重构",
+      "status": "queued-for-full-rewrite",
       "original_han_floor": 3099,
       "new_chapter_prose_han": 2882,
       "original_readable_units": 2952,
