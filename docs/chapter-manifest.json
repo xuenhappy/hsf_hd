@@ -1172,9 +1172,15 @@
       "source_start_line": 21429,
       "source_end_line": 21653,
       "source_sha256": "e34a6b2abb9bf5b018eed82d652fbf3a617b6c5fe9cd4a265fa12d6ef76f4848",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "体验的计算几何：偏好、风险与历史依赖",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-062-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-09/chp-system_synergy.tex",

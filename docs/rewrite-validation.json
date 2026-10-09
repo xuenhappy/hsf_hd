@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 61,
-  "pending_chapters": 56,
+  "rewritten_chapters": 62,
+  "pending_chapters": 55,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2416,45 +2416,45 @@
     {
       "order": 62,
       "path": "chapters/part-09/chp-experience_geometry.tex",
-      "title": "体验几何学 — 质料的沉积与度量的扭曲",
-      "status": "queued-for-full-rewrite",
+      "title": "体验的计算几何：偏好、风险与历史依赖",
+      "status": "rewritten-reviewed",
       "original_han_floor": 2480,
-      "new_chapter_prose_han": 2378,
+      "new_chapter_prose_han": 7662,
       "original_readable_units": 2452,
-      "new_readable_units": 2452,
-      "opening_prose_han": 106,
+      "new_readable_units": 7697,
+      "opening_prose_han": 277,
       "sections": [
         {
-          "title": "几何定义：从标量势到规范场",
-          "prose_han": 203
+          "title": "体验图的对象：瞬时反馈、慢偏好与任务度量",
+          "prose_han": 1071
         },
         {
-          "title": "起源论：质向形的相变",
-          "prose_han": 278
+          "title": "体验的形成：先验约束、证据更新与结构提交",
+          "prose_han": 1133
         },
         {
-          "title": "作用机制 I：共形扭曲与有效度量",
-          "prose_han": 180
+          "title": "有效距离：任务代价、风险预算与可达路径",
+          "prose_han": 1038
         },
         {
-          "title": "作用机制 II：规范力与贝里相位",
-          "prose_han": 137
+          "title": "方向偏置：从价值梯度到受约束控制",
+          "prose_han": 1051
         },
         {
-          "title": "自我的对偶奇点：作为规度源与参考系",
-          "prose_han": 1078
+          "title": "身份参照：自我状态、价值读出与闭环更新",
+          "prose_han": 1028
         },
         {
-          "title": "推理的不对称性：贝里相位与因式分解",
-          "prose_han": 259
+          "title": "推理不对称：生成、验证与有限计算",
+          "prose_han": 1043
         },
         {
-          "title": "总结：智能的三重奏 (The Trio of Intelligence)",
-          "prose_han": 137
+          "title": "体验、世界与认知状态的联合验证",
+          "prose_han": 1021
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
