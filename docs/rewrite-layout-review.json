@@ -1,9 +1,9 @@
 {
-  "pages": 441,
-  "bytes": 35228500,
+  "pages": 447,
+  "bytes": 35265897,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 402,
+  "numbered_sections": 408,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2820,7 +2820,49 @@
       "prose_lines": 26,
       "calibrated_prose_page_equivalents": 0.579,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "69.1 消除对象的本体：记录、结构、索引与派生副本",
+      "start_pdf_page": 442,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "69.2 软擦除：可达性抑制、线索恢复与版本回退",
+      "start_pdf_page": 443,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "69.3 硬擦除：影响移除、共享参数与能力保持",
+      "start_pdf_page": 444,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "69.4 成瘾动力学：线索、价值更新与复发控制",
+      "start_pdf_page": 444,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "69.5 工程启示：机器遗忘、安全策略与对齐边界",
+      "start_pdf_page": 445,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "69.6 结语：从“抹平过去”到可审计变更",
+      "start_pdf_page": 446,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 68 chapters; does not validate the full book."
+  "scope": "Review subset: 69 chapters; does not validate the full book."
 }

@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 68,
-  "pending_chapters": 49,
+  "rewritten_chapters": 69,
+  "pending_chapters": 48,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2708,41 +2708,41 @@
     {
       "order": 69,
       "path": "chapters/part-09/chap-geometry_of_oblivion1.tex",
-      "title": "记忆消除术的几何学 — 拓扑驻留与擦除的代价",
-      "status": "queued-for-full-rewrite",
+      "title": "记忆消除的计算边界：可达性、可逆性与能力保持",
+      "status": "rewritten-reviewed",
       "original_han_floor": 4293,
-      "new_chapter_prose_han": 4170,
+      "new_chapter_prose_han": 7029,
       "original_readable_units": 4313,
-      "new_readable_units": 4313,
-      "opening_prose_han": 144,
+      "new_readable_units": 7051,
+      "opening_prose_han": 221,
       "sections": [
         {
-          "title": "记忆的本体论：作为几何刻痕的负熵",
-          "prose_han": 738
+          "title": "消除对象的本体：记录、结构、索引与派生副本",
+          "prose_han": 1235
         },
         {
-          "title": "软擦除 (Soft Wipe)：质的耗散与测地线复活",
-          "prose_han": 1051
+          "title": "软擦除：可达性抑制、线索恢复与版本回退",
+          "prose_han": 1054
         },
         {
-          "title": "硬擦除 (Hard Wipe)：形的重置与拓扑灾难",
-          "prose_han": 773
+          "title": "硬擦除：影响移除、共享参数与能力保持",
+          "prose_han": 1107
         },
         {
-          "title": "成瘾动力学：深渊吸引子与意志的溃败",
-          "prose_han": 709
+          "title": "成瘾动力学：线索、价值更新与复发控制",
+          "prose_han": 1132
         },
         {
-          "title": "工程启示：AGI 的灾难性遗忘与对齐",
-          "prose_han": 435
+          "title": "工程启示：机器遗忘、安全策略与对齐边界",
+          "prose_han": 1165
         },
         {
-          "title": "结语：和解的物理学",
-          "prose_han": 320
+          "title": "结语：从“抹平过去”到可审计变更",
+          "prose_han": 1115
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

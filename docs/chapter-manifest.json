@@ -1311,12 +1311,17 @@
       "source_start_line": 23834,
       "source_end_line": 24162,
       "source_sha256": "82182cd4486594a63751562d9e7d717065d99e283bb50ba6afca7914a9da1f28",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
       "previous_status": "full-content-restored-awaiting-sectionwise-revision",
       "draft_checkpoint": "docs/drafts/chapter-069-checkpoint.md",
-      "draft_completed_section_count": 1,
-      "draft_next_label": "sec:soft_wipe"
+      "draft_completed_section_count": 6,
+      "draft_prose_han": 7029,
+      "new_title": "记忆消除的计算边界：可达性、可逆性与能力保持",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-09/chp-duality_potentiality_actuality.tex",
@@ -1329,7 +1334,10 @@
       "source_sha256": "cdbbddd90dbf0c4653be812e737b116ffdeb292943c445cb87eb2fc6d23832ad",
       "status": "queued-for-full-rewrite",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-070-checkpoint.md",
+      "draft_completed_section_count": 1,
+      "draft_next_label": "sec:section_6452"
     },
     {
       "path": "chapters/part-09/chp-vacuum_physics.tex",
