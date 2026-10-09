@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 66,
-  "pending_chapters": 51,
+  "rewritten_chapters": 67,
+  "pending_chapters": 50,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2628,41 +2628,41 @@
     {
       "order": 67,
       "path": "chapters/part-09/chap-physics_of_dreams.tex",
-      "title": "现象学特例：梦境的热力学与几何重构",
-      "status": "queued-for-full-rewrite",
+      "title": "离线生成动力学：梦境、记忆回放与模型校准",
+      "status": "rewritten-reviewed",
       "original_han_floor": 3099,
-      "new_chapter_prose_han": 2882,
+      "new_chapter_prose_han": 6749,
       "original_readable_units": 2952,
-      "new_readable_units": 2952,
-      "opening_prose_han": 160,
+      "new_readable_units": 6789,
+      "opening_prose_han": 214,
       "sections": [
         {
-          "title": "边界条件的相变：从狄利克雷到诺伊曼",
-          "prose_han": 195
+          "title": "输入与行动边界的重配置：从现实闭环到内源生成",
+          "prose_han": 1109
         },
         {
-          "title": "宏观层的沉默：意志的离线与逻辑的液化",
-          "prose_han": 247
+          "title": "元控制降增益与叙事一致性的动态松弛",
+          "prose_han": 1049
         },
         {
-          "title": "热力学目的：认知退火 (Cognitive Annealing)",
-          "prose_han": 297
+          "title": "离线采样、模型校准与有限泛化",
+          "prose_han": 1010
         },
         {
-          "title": "记忆机制：形质的再纠缠与刻蚀",
-          "prose_han": 247
+          "title": "记忆回放、结构提交与情绪再估计",
+          "prose_han": 1123
         },
         {
-          "title": "特殊相态分析：噩梦与清明梦",
-          "prose_han": 838
+          "title": "噩梦、清明梦与睡眠瘫痪的混合状态",
+          "prose_han": 1075
         },
         {
-          "title": "硅基智能的热力学必要性：机器人必须做梦吗？",
-          "prose_han": 898
+          "title": "机器离线维护：回放、反事实与安全提交",
+          "prose_han": 1169
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
