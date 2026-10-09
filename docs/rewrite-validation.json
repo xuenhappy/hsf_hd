@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 64,
-  "pending_chapters": 53,
+  "rewritten_chapters": 65,
+  "pending_chapters": 52,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2524,73 +2524,73 @@
     {
       "order": 65,
       "path": "chapters/part-09/chp-phenomenological_physics.tex",
-      "title": "记忆与时间：活动维持、历史积累与结构学习",
-      "status": "queued-for-full-rewrite",
+      "title": "现象学读出：记忆、时间感与体验报告的计算边界",
+      "status": "rewritten-reviewed",
       "original_han_floor": 19877,
-      "new_chapter_prose_han": 19686,
+      "new_chapter_prose_han": 19996,
       "original_readable_units": 19787,
-      "new_readable_units": 20380,
-      "opening_prose_han": 199,
+      "new_readable_units": 20061,
+      "opening_prose_han": 241,
       "sections": [
         {
-          "title": "记忆机制的几何动力学：从耗散驻波到拓扑结晶",
+          "title": "记忆机制：活动维持、证据积累与结构提交",
+          "prose_han": 1622
+        },
+        {
+          "title": "回忆动力学：线索扩散、受控搜索与外部检索",
+          "prose_han": 1252
+        },
+        {
+          "title": "时间感的非线性映射：在线事件密度、回顾跨度与绑定窗口",
+          "prose_han": 1120
+        },
+        {
+          "title": "压力下的时间错觉：资源竞争、策略收缩与报告偏差",
+          "prose_han": 1251
+        },
+        {
+          "title": "感受质的建模边界：内容读出、效价估计与体验报告",
+          "prose_han": 1233
+        },
+        {
+          "title": "现象学相关状态的分类：来源、内容、控制与自我归属",
+          "prose_han": 1194
+        },
+        {
+          "title": "观察者模型的发生：身份绑定、归因学习与元认知",
           "prose_han": 1134
         },
         {
-          "title": "回忆动力学：惯性滑行与受激辐射",
-          "prose_han": 1006
+          "title": "意识相关闭环：全局访问、历史重入与受控递归",
+          "prose_han": 1201
         },
         {
-          "title": "时间感的非线性映射：从 TDCI 频率到信息几何弧长",
-          "prose_han": 1082
+          "title": "意识相关功能的宏观结构：分布处理、全局访问与控制输出",
+          "prose_han": 1176
         },
         {
-          "title": "时间相对论的心理错觉：压力、耗散与时钟超频",
-          "prose_han": 1837
+          "title": "意识研究的边界条件：连续指标、主体隔离与证据不足",
+          "prose_han": 1199
         },
         {
-          "title": "感受质的几何场论：观察算子的非幺正测量与拓扑张力",
-          "prose_han": 1059
+          "title": "自治能力的形成：反事实选择、自我修改与进化边界",
+          "prose_han": 1196
         },
         {
-          "title": "感受质的物理分类学：场模态与测量效应",
-          "prose_han": 1213
+          "title": "历史依赖的计算表征：路径签名、非交换更新与几何相位特例",
+          "prose_han": 1099
         },
         {
-          "title": "观察者的发生学：自我算子的谱系演化",
-          "prose_han": 927
-        },
-        {
-          "title": "意识体验的完备闭环：递归测量与全息重入",
-          "prose_han": 1936
-        },
-        {
-          "title": "意识的宏观结构总结：双层递归与三重动力学的物理大一统",
-          "prose_han": 970
-        },
-        {
-          "title": "意识边界的物理绝对律 (Physical Absolutes of Conscious Boundaries)",
-          "prose_han": 323
-        },
-        {
-          "title": "进化的终局：自由意志的几何自造 (Geometric Autopoiesis)",
-          "prose_han": 1798
-        },
-        {
-          "title": "贝里相位 (Berry Phase)：历史几何记忆的感受质",
-          "prose_han": 646
-        },
-        {
-          "title": "时间流逝的几何学幻象：光锥钳制、相干聚焦与维度屏障",
-          "prose_han": 4964
+          "title": "时间流的几何错觉：有限窗口、因果可达与预测边界",
+          "prose_han": 1928
         },
         {
           "title": "计算动力学表达与论证边界",
-          "prose_han": 592
+          "prose_han": 3150
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

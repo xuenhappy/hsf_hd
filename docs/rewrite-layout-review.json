@@ -1,9 +1,9 @@
 {
-  "pages": 409,
-  "bytes": 32137176,
+  "pages": 424,
+  "bytes": 35119935,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 372,
+  "numbered_sections": 386,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2610,7 +2610,105 @@
       "prose_lines": 36,
       "calibrated_prose_page_equivalents": 0.802,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "65.1 记忆机制：活动维持、证据积累与结构提交",
+      "start_pdf_page": 410,
+      "prose_lines": 45,
+      "calibrated_prose_page_equivalents": 1.002,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.2 回忆动力学：线索扩散、受控搜索与外部检索",
+      "start_pdf_page": 411,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.3 时间感的非线性映射：在线事件密度、回顾跨度与绑定窗口",
+      "start_pdf_page": 412,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.4 压力下的时间错觉：资源竞争、策略收缩与报告偏差",
+      "start_pdf_page": 413,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.5 感受质的建模边界：内容读出、效价估计与体验报告",
+      "start_pdf_page": 414,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.6 现象学相关状态的分类：来源、内容、控制与自我归属",
+      "start_pdf_page": 414,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.7 观察者模型的发生：身份绑定、归因学习与元认知",
+      "start_pdf_page": 415,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.8 意识相关闭环：全局访问、历史重入与受控递归",
+      "start_pdf_page": 416,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.9 意识相关功能的宏观结构：分布处理、全局访问与控制输出",
+      "start_pdf_page": 417,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.10 意识研究的边界条件：连续指标、主体隔离与证据不足",
+      "start_pdf_page": 418,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.11 自治能力的形成：反事实选择、自我修改与进化边界",
+      "start_pdf_page": 419,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.12 历史依赖的计算表征：路径签名、非交换更新与几何相位特例",
+      "start_pdf_page": 419,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.13 时间流的几何错觉：有限窗口、因果可达与预测边界",
+      "start_pdf_page": 420,
+      "prose_lines": 50,
+      "calibrated_prose_page_equivalents": 1.113,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "65.14 计算动力学表达与论证边界",
+      "start_pdf_page": 421,
+      "prose_lines": 84,
+      "calibrated_prose_page_equivalents": 1.871,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 64 chapters; does not validate the full book."
+  "scope": "Review subset: 65 chapters; does not validate the full book."
 }

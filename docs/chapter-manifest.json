@@ -1229,15 +1229,18 @@
       "source_start_line": 21960,
       "source_end_line": 23174,
       "source_sha256": "8570736ee08e09c94059b5a251d86be82493ee2817fb1e94da8299c6fc9d7e27",
-      "status": "queued-for-full-rewrite",
-      "new_title": "记忆与时间：活动维持、历史积累与结构学习",
+      "status": "rewritten-reviewed",
+      "new_title": "现象学读出：记忆、时间感与体验报告的计算边界",
       "preserved_figure_count": 1,
       "formatting_normalized": true,
       "previous_status": "full-content-restored-with-computational-analysis",
       "draft_checkpoint": "docs/drafts/chapter-065-checkpoint.md",
-      "draft_completed_section_count": 12,
-      "draft_prose_han": 14910,
-      "draft_next_label": "sec:geometric_illusion_of_time_flow"
+      "draft_completed_section_count": 14,
+      "draft_prose_han": 19996,
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-09/chp-pathology_did.tex",
