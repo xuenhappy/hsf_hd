@@ -1,9 +1,9 @@
 {
-  "pages": 435,
-  "bytes": 35191391,
+  "pages": 441,
+  "bytes": 35228500,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 396,
+  "numbered_sections": 402,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2778,7 +2778,49 @@
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "68.1 记忆对象与遗忘操作的类型化分解",
+      "start_pdf_page": 436,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "68.2 解绑定与访问失败：从舌尖现象到来源错配",
+      "start_pdf_page": 437,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "68.3 价值再估计与细节压缩：情绪淡化不是能量耗散",
+      "start_pdf_page": 437,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "68.4 结构回收：从图剪枝到可逆的慢结构修订",
+      "start_pdf_page": 438,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "68.5 竞争、抑制与授权删除：有限资源下的遗忘治理",
+      "start_pdf_page": 439,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "68.6 结语：可验证的遗忘生命周期与工程协议",
+      "start_pdf_page": 440,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 67 chapters; does not validate the full book."
+  "scope": "Review subset: 68 chapters; does not validate the full book."
 }

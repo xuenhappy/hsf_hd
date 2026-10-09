@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 67,
-  "pending_chapters": 50,
+  "rewritten_chapters": 68,
+  "pending_chapters": 49,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2668,41 +2668,41 @@
     {
       "order": 68,
       "path": "chapters/part-09/chap-geometry_of_oblivion.tex",
-      "title": "遗忘的几何物理学 — 解耦、耗散与平滑",
-      "status": "queued-for-full-rewrite",
+      "title": "遗忘的计算动力学：解绑定、降权与结构回收",
+      "status": "rewritten-reviewed",
       "original_han_floor": 2841,
-      "new_chapter_prose_han": 2712,
+      "new_chapter_prose_han": 6864,
       "original_readable_units": 2790,
-      "new_readable_units": 2790,
-      "opening_prose_han": 215,
+      "new_readable_units": 6889,
+      "opening_prose_han": 223,
       "sections": [
         {
-          "title": "记忆的张量定义与遗忘的三重奏",
-          "prose_han": 419
+          "title": "记忆对象与遗忘操作的类型化分解",
+          "prose_han": 1188
         },
         {
-          "title": "第一阶段：解耦性遗忘 — “舌尖现象”的物理学",
-          "prose_han": 468
+          "title": "解绑定与访问失败：从舌尖现象到来源错配",
+          "prose_han": 1061
         },
         {
-          "title": "第二阶段：耗散性遗忘 — 情感的退火",
-          "prose_han": 364
+          "title": "价值再估计与细节压缩：情绪淡化不是能量耗散",
+          "prose_han": 1083
         },
         {
-          "title": "第三阶段：自然干涸 — 逆里奇流与几何恢复",
-          "prose_han": 489
+          "title": "结构回收：从图剪枝到可逆的慢结构修订",
+          "prose_han": 1146
         },
         {
-          "title": "竞争与主动遗忘：动力学的挤压",
-          "prose_han": 482
+          "title": "竞争、抑制与授权删除：有限资源下的遗忘治理",
+          "prose_han": 1159
         },
         {
-          "title": "结语：遗忘是时间的雕刻刀",
-          "prose_han": 275
+          "title": "结语：可验证的遗忘生命周期与工程协议",
+          "prose_han": 1004
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
