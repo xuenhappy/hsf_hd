@@ -1191,9 +1191,15 @@
       "source_start_line": 21653,
       "source_end_line": 21806,
       "source_sha256": "f06f0e398306a98ce5b9e696cc459a4d26de39645e850aa0e4dfeb4d5805d20f",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "系统协同：目标、身份与执行控制的联合动力学",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-063-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-09/chp-long_term_planning_and_goal_revision.tex",

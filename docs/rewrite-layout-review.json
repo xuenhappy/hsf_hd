@@ -1,9 +1,9 @@
 {
-  "pages": 399,
-  "bytes": 32084250,
+  "pages": 404,
+  "bytes": 32107839,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 364,
+  "numbered_sections": 368,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2554,7 +2554,35 @@
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "63.1 对象分工：目标规范、身份状态与执行控制",
+      "start_pdf_page": 400,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "63.2 耦合方程：从目标错配到受约束闭环控制",
+      "start_pdf_page": 401,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "63.3 失配诊断：目标漂移、身份漂移与执行失效",
+      "start_pdf_page": 401,
+      "prose_lines": 47,
+      "calibrated_prose_page_equivalents": 1.047,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "63.4 递归协同：带权限的目标修订、身份承诺与控制学习",
+      "start_pdf_page": 403,
+      "prose_lines": 48,
+      "calibrated_prose_page_equivalents": 1.069,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 62 chapters; does not validate the full book."
+  "scope": "Review subset: 63 chapters; does not validate the full book."
 }
