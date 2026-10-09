@@ -1,9 +1,9 @@
 {
-  "pages": 424,
-  "bytes": 35119935,
+  "pages": 429,
+  "bytes": 35146096,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 386,
+  "numbered_sections": 390,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2708,7 +2708,35 @@
       "prose_lines": 84,
       "calibrated_prose_page_equivalents": 1.871,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "66.1 高影响事件与身份分区：从“流形撕裂”到受控访问",
+      "start_pdf_page": 425,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "66.2 执行排他与状态切换：共享身体中的控制仲裁",
+      "start_pdf_page": 426,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "66.3 功能分化与互补：角色学习而非应力守恒",
+      "start_pdf_page": 427,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "66.4 Data案例：冲突记忆整合、身份连续与工程验收",
+      "start_pdf_page": 428,
+      "prose_lines": 41,
+      "calibrated_prose_page_equivalents": 0.913,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 65 chapters; does not validate the full book."
+  "scope": "Review subset: 66 chapters; does not validate the full book."
 }

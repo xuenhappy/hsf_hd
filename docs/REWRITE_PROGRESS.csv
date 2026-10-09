@@ -64,7 +64,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 63,chapters/part-09/chp-system_synergy.tex,rewritten-reviewed,1523,6017,1509,6045,4,1056
 64,chapters/part-09/chp-long_term_planning_and_goal_revision.tex,rewritten-reviewed,2430,5589,2091,5601,4,1252
 65,chapters/part-09/chp-phenomenological_physics.tex,rewritten-reviewed,19877,19996,19787,20061,14,1099
-66,chapters/part-09/chp-pathology_did.tex,queued-for-full-rewrite,2266,2192,2274,2274,4,224
+66,chapters/part-09/chp-pathology_did.tex,rewritten-reviewed,2266,5238,2274,5266,4,1159
 67,chapters/part-09/chap-physics_of_dreams.tex,queued-for-full-rewrite,3099,2882,2952,2952,6,195
 68,chapters/part-09/chap-geometry_of_oblivion.tex,queued-for-full-rewrite,2841,2712,2790,2790,6,275
 69,chapters/part-09/chap-geometry_of_oblivion1.tex,queued-for-full-rewrite,4293,4170,4313,4313,6,320

@@ -1251,9 +1251,14 @@
       "source_start_line": 23174,
       "source_end_line": 23345,
       "source_sha256": "b807a18d8e7aad9f4710ed626c63e8f0bf34a37da3b57b2e3a36b7e02b5b5776",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "身份分区的计算动力学：记忆隔离、控制切换与整合边界",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-09/chap-physics_of_dreams.tex",
@@ -1266,7 +1271,10 @@
       "source_sha256": "f4ddc079a835da8b9962e84eabafc5a6fc052b4bd90650d4b894fb2eda2bce20",
       "status": "queued-for-full-rewrite",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-067-checkpoint.md",
+      "draft_completed_section_count": 1,
+      "draft_next_label": "sec:section_4656"
     },
     {
       "path": "chapters/part-09/chap-geometry_of_oblivion.tex",
