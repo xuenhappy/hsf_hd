@@ -1,6 +1,6 @@
 # 章节目录与全章改写进度
 
-73 章已完整实写并完成篇幅与排版检查，44 章待写。增补分析和恢复原文不计为完成重写。
+74 章已完整实写并完成篇幅与排版检查，43 章待写。增补分析和恢复原文不计为完成重写。
 
 | 卷 | 篇 | 章文件 | 标题 | 状态 |
 | --- | --- | --- | --- | --- |
@@ -77,7 +77,7 @@
 | 2 | 9 | [chp-vacuum_physics](../chapters/part-09/chp-vacuum_physics.tex) | 有效空态：基线活动、检测阈值与现实校准 | 已重写并完成排版复核 |
 | 2 | 9 | [chp-atmosphere_geometric_dynamics](../chapters/part-09/chp-atmosphere_geometric_dynamics.tex) | 氛围动力学：社会信号、环境线索与适应轨迹 | 已重写并完成排版复核 |
 | 2 | 9 | [chp-organizational_geometric_dynamics](../chapters/part-09/chp-organizational_geometric_dynamics.tex) | 组织动力学：分布式观测、授权接口与多尺度协调 | 已重写并完成排版复核 |
-| 3 | 10 | [chp-evolutionary_taxonomy](../chapters/part-10/chp-evolutionary_taxonomy.tex) | 演化分类学 — 智能的拓扑相空间 | 队列中；原文仍保留 |
+| 3 | 10 | [chp-evolutionary_taxonomy](../chapters/part-10/chp-evolutionary_taxonomy.tex) | 智能系统分类：能力剖面、耦合方式与演化路径 | 已重写并完成排版复核 |
 | 3 | 10 | [chp-empirical_geometric_dynamics](../chapters/part-10/chp-empirical_geometric_dynamics.tex) | 实证几何动力学 — 跨越映射的卢比孔河 | 队列中；原文仍保留 |
 | 3 | 10 | [chp-biological_intelligence](../chapters/part-10/chp-biological_intelligence.tex) | 生物智能解剖 — 湿件的策略 | 队列中；原文仍保留 |
 | 3 | 10 | [chp-collective_intelligence](../chapters/part-10/chp-collective_intelligence.tex) | 群体智能 (Swarm Intelligence) — 肯尼迪的粒子与无头流体力学 | 队列中；原文仍保留 |

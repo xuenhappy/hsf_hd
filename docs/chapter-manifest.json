@@ -1416,9 +1416,17 @@
       "source_start_line": 25473,
       "source_end_line": 25597,
       "source_sha256": "9867ecb4ea9ae0aa9a9d24b72a87f41cefa3cfe603ea9984408b1ec62e4f9800",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-074-checkpoint.md",
+      "draft_completed_section_count": 2,
+      "draft_prose_han": 2545,
+      "new_title": "智能系统分类：能力剖面、耦合方式与演化路径",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-10/chp-empirical_geometric_dynamics.tex",

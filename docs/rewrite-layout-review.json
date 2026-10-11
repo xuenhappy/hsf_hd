@@ -1,9 +1,9 @@
 {
-  "pages": 470,
-  "bytes": 35419403,
+  "pages": 472,
+  "bytes": 35430003,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 429,
+  "numbered_sections": 431,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3009,7 +3009,21 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "74.1 分类度量：从单一等级到条件化能力剖面",
+      "start_pdf_page": 471,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "74.2 演化向量图：多路径迁移与受约束验收",
+      "start_pdf_page": 472,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 73 chapters; does not validate the full book."
+  "scope": "Review subset: 74 chapters; does not validate the full book."
 }
