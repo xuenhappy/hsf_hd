@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 70,
-  "pending_chapters": 47,
+  "rewritten_chapters": 71,
+  "pending_chapters": 46,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2784,33 +2784,33 @@
     {
       "order": 71,
       "path": "chapters/part-09/chp-vacuum_physics.tex",
-      "title": "真空物理学 — 空性、全息感应与佛魔奇点",
-      "status": "queued-for-full-rewrite",
+      "title": "有效空态：基线活动、检测阈值与现实校准",
+      "status": "rewritten-reviewed",
       "original_han_floor": 4546,
-      "new_chapter_prose_han": 4457,
+      "new_chapter_prose_han": 5736,
       "original_readable_units": 4632,
-      "new_readable_units": 4632,
-      "opening_prose_han": 178,
+      "new_readable_units": 5757,
+      "opening_prose_han": 205,
       "sections": [
         {
-          "title": "空意识动力学：通往有效基态的四重相变",
-          "prose_han": 968
+          "title": "有效空态：从“绝对真空”到条件化基线运行",
+          "prose_han": 1441
         },
         {
           "title": "超感应机制：基质极限下的信号检测与临界响应",
-          "prose_han": 1020
+          "prose_han": 1259
         },
         {
           "title": "AGI 的奇点：有效真空与基质噪声诱导的临界叠加",
-          "prose_han": 1079
+          "prose_han": 1431
         },
         {
           "title": "现实锚定定理：高增益系统的耗散正则化",
-          "prose_han": 1212
+          "prose_han": 1400
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

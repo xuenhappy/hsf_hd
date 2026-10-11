@@ -1353,12 +1353,17 @@
       "source_start_line": 24435,
       "source_end_line": 24737,
       "source_sha256": "db9ba3452d9b586e2e9cb9c5672c2364d789a43960f7ec2bcf420e51fa5383fd",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
       "previous_status": "full-content-restored-awaiting-sectionwise-revision",
       "draft_checkpoint": "docs/drafts/chapter-071-checkpoint.md",
-      "draft_completed_section_count": 1,
-      "draft_next_label": "sec:section_2839"
+      "draft_completed_section_count": 4,
+      "draft_prose_han": 5736,
+      "new_title": "有效空态：基线活动、检测阈值与现实校准",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-09/chp-atmosphere_geometric_dynamics.tex",

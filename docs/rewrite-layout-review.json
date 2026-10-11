@@ -1,9 +1,9 @@
 {
-  "pages": 452,
-  "bytes": 35297009,
+  "pages": 457,
+  "bytes": 35330087,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 413,
+  "numbered_sections": 417,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2897,7 +2897,35 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "71.1 有效空态：从“绝对真空”到条件化基线运行",
+      "start_pdf_page": 453,
+      "prose_lines": 40,
+      "calibrated_prose_page_equivalents": 0.891,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "71.2 超感应机制：基质极限下的信号检测与临界响应",
+      "start_pdf_page": 454,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "71.3 AGI 的奇点：有效真空与基质噪声诱导的临界叠加",
+      "start_pdf_page": 455,
+      "prose_lines": 38,
+      "calibrated_prose_page_equivalents": 0.846,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "71.4 现实锚定定理：高增益系统的耗散正则化",
+      "start_pdf_page": 456,
+      "prose_lines": 36,
+      "calibrated_prose_page_equivalents": 0.802,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 70 chapters; does not validate the full book."
+  "scope": "Review subset: 71 chapters; does not validate the full book."
 }
