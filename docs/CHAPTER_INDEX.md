@@ -78,7 +78,7 @@
 | 2 | 9 | [chp-atmosphere_geometric_dynamics](../chapters/part-09/chp-atmosphere_geometric_dynamics.tex) | 氛围动力学：社会信号、环境线索与适应轨迹 | 已重写并完成排版复核 |
 | 2 | 9 | [chp-organizational_geometric_dynamics](../chapters/part-09/chp-organizational_geometric_dynamics.tex) | 组织动力学：分布式观测、授权接口与多尺度协调 | 已重写并完成排版复核 |
 | 3 | 10 | [chp-evolutionary_taxonomy](../chapters/part-10/chp-evolutionary_taxonomy.tex) | 智能系统分类：能力剖面、耦合方式与演化路径 | 已重写并完成排版复核 |
-| 3 | 10 | [chp-empirical_geometric_dynamics](../chapters/part-10/chp-empirical_geometric_dynamics.tex) | 实证几何动力学 — 跨越映射的卢比孔河 | 队列中；原文仍保留 |
+| 3 | 10 | [chp-empirical_geometric_dynamics](../chapters/part-10/chp-empirical_geometric_dynamics.tex) | 实证状态动力学：从观测协议到可证伪干预 | 已重写并完成排版复核 |
 | 3 | 10 | [chp-biological_intelligence](../chapters/part-10/chp-biological_intelligence.tex) | 生物智能解剖 — 湿件的策略 | 队列中；原文仍保留 |
 | 3 | 10 | [chp-collective_intelligence](../chapters/part-10/chp-collective_intelligence.tex) | 群体智能 (Swarm Intelligence) — 肯尼迪的粒子与无头流体力学 | 队列中；原文仍保留 |
 | 3 | 10 | [chp-social_artificial_intelligence](../chapters/part-10/chp-social_artificial_intelligence.tex) | 社会与人造智能解剖 — 干件与硅件 | 队列中；原文仍保留 |

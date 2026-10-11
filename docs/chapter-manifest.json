@@ -1437,9 +1437,17 @@
       "source_start_line": 25597,
       "source_end_line": 25901,
       "source_sha256": "e4214b192bc29ed88f09ddc07ce074600029268971337e3a3133138e7c95e2e7",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-075-checkpoint.md",
+      "draft_completed_section_count": 5,
+      "draft_prose_han": 6020,
+      "new_title": "实证状态动力学：从观测协议到可证伪干预",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-10/chp-biological_intelligence.tex",

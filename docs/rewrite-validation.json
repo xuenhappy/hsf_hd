@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 74,
-  "pending_chapters": 43,
+  "rewritten_chapters": 75,
+  "pending_chapters": 42,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2920,37 +2920,37 @@
     {
       "order": 75,
       "path": "chapters/part-10/chp-empirical_geometric_dynamics.tex",
-      "title": "实证几何动力学 — 跨越映射的卢比孔河",
-      "status": "queued-for-full-rewrite",
+      "title": "实证状态动力学：从观测协议到可证伪干预",
+      "status": "rewritten-reviewed",
       "original_han_floor": 5977,
-      "new_chapter_prose_han": 5838,
+      "new_chapter_prose_han": 6020,
       "original_readable_units": 6040,
-      "new_readable_units": 6040,
-      "opening_prose_han": 292,
+      "new_readable_units": 6049,
+      "opening_prose_han": 314,
       "sections": [
         {
-          "title": "结构映射的物理深渊 — 三大根源性挑战",
-          "prose_han": 1214
+          "title": "映射不是命名：结构辨识的三重困难",
+          "prose_han": 1132
         },
         {
-          "title": "破局之道：四步实证映射框架",
-          "prose_han": 1637
+          "title": "四步证据链：边界、表示、辨识与干预",
+          "prose_han": 1132
         },
         {
-          "title": "方法论的物理与代数增强：三重理论约束锁",
-          "prose_han": 1316
+          "title": "约束与探针：怎样缩小模型而不伪造确定性",
+          "prose_han": 1108
         },
         {
-          "title": "实体系统的映射全息解剖 (Holographic Anatomy of Physical Systems)",
-          "prose_han": 1024
+          "title": "两类实体案例：单细胞与语言模型的可执行方案",
+          "prose_han": 1232
         },
         {
-          "title": "结语：走向实证几何计算学",
-          "prose_han": 355
+          "title": "结语：实证状态动力学的交付标准",
+          "prose_han": 1102
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

@@ -1,9 +1,9 @@
 {
-  "pages": 472,
-  "bytes": 35430003,
+  "pages": 477,
+  "bytes": 35458070,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 431,
+  "numbered_sections": 436,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3023,7 +3023,42 @@
       "prose_lines": 35,
       "calibrated_prose_page_equivalents": 0.779,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "75.1 映射不是命名：结构辨识的三重困难",
+      "start_pdf_page": 473,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "75.2 四步证据链：边界、表示、辨识与干预",
+      "start_pdf_page": 474,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "75.3 约束与探针：怎样缩小模型而不伪造确定性",
+      "start_pdf_page": 475,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "75.4 两类实体案例：单细胞与语言模型的可执行方案",
+      "start_pdf_page": 475,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "75.5 结语：实证状态动力学的交付标准",
+      "start_pdf_page": 476,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 74 chapters; does not validate the full book."
+  "scope": "Review subset: 75 chapters; does not validate the full book."
 }
