@@ -1376,7 +1376,10 @@
       "source_sha256": "7001b1e8bde45900ddaaa486a8c3573a704431eb89133b182db310640161a4ab",
       "status": "queued-for-full-rewrite",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-072-checkpoint.md",
+      "draft_completed_section_count": 1,
+      "draft_next_label": "sec:environmental_manifold"
     },
     {
       "path": "chapters/part-09/chp-organizational_geometric_dynamics.tex",
