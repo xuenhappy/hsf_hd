@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 72,
-  "pending_chapters": 45,
+  "rewritten_chapters": 73,
+  "pending_chapters": 44,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2849,48 +2849,48 @@
       "order": 73,
       "path": "chapters/part-09/chp-organizational_geometric_dynamics.tex",
       "title": "组织动力学：分布式观测、授权接口与多尺度协调",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "original_han_floor": 8933,
-      "new_chapter_prose_han": 8770,
+      "new_chapter_prose_han": 9110,
       "original_readable_units": 9018,
-      "new_readable_units": 9018,
-      "opening_prose_han": 321,
+      "new_readable_units": 9134,
+      "opening_prose_han": 253,
       "sections": [
         {
-          "title": "组织的物理切面：分布式 VTE 阵列与边界感知",
-          "prose_han": 673
+          "title": "边界观测网络：角色、证据与现实校准",
+          "prose_han": 1252
         },
         {
-          "title": "跨流形交互：交叉双纽线回路与信息能量交换",
-          "prose_han": 1027
+          "title": "跨主体接口：承诺、制品与双向状态更新",
+          "prose_han": 1166
         },
         {
-          "title": "组织捕获：阻抗匹配与形质共形互锁",
-          "prose_han": 1071
+          "title": "成员—组织适配：双向约束、学习与退出权",
+          "prose_han": 1102
         },
         {
-          "title": "组织意志的涌现：哈肯-伺服原理与度量塌缩",
-          "prose_han": 868
+          "title": "集体决策的形成：聚合、授权与制度记忆",
+          "prose_han": 1034
         },
         {
-          "title": "企业拓扑化学：职能部门的形-质-场正交分解",
-          "prose_han": 1148
+          "title": "职能分工：算子分解、接口契约与交叉校验",
+          "prose_han": 1019
         },
         {
-          "title": "组织的感知与演化：自底向上的重整化群流",
-          "prose_han": 943
+          "title": "层级压缩：查询保持、尾部风险与反馈旁路",
+          "prose_han": 1114
         },
         {
-          "title": "组织病理拓扑学：个体自我与宏观覆盖流形的内禀冲突",
-          "prose_han": 1295
+          "title": "组织病理：目标冲突、脱耦与结构迟滞",
+          "prose_han": 1086
         },
         {
-          "title": "组织的治理策略：相变控制与拓扑释放",
-          "prose_han": 1424
+          "title": "可回滚治理：局部试验、边界保护与持续可塑性",
+          "prose_han": 1084
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

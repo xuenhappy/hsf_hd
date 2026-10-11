@@ -1395,13 +1395,17 @@
       "source_start_line": 24996,
       "source_end_line": 25420,
       "source_sha256": "e3fed36a1df244e470089742744349fa7a256a6b3e684f08347e37ba091a4a1b",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
       "previous_status": "full-content-restored-awaiting-sectionwise-revision",
       "draft_checkpoint": "docs/drafts/chapter-073-checkpoint.md",
-      "draft_completed_section_count": 1,
-      "draft_prose_han": 1505,
-      "new_title": "组织动力学：分布式观测、授权接口与多尺度协调"
+      "draft_completed_section_count": 8,
+      "draft_prose_han": 9110,
+      "new_title": "组织动力学：分布式观测、授权接口与多尺度协调",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-10/chp-evolutionary_taxonomy.tex",
