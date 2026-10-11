@@ -75,7 +75,7 @@
 | 2 | 9 | [chap-geometry_of_oblivion1](../chapters/part-09/chap-geometry_of_oblivion1.tex) | 记忆消除术的几何学 — 拓扑驻留与擦除的代价 | 队列中；原文仍保留 |
 | 2 | 9 | [chp-duality_potentiality_actuality](../chapters/part-09/chp-duality_potentiality_actuality.tex) | 二象性统一 — 潜能与实存的量子测量学 | 队列中；原文仍保留 |
 | 2 | 9 | [chp-vacuum_physics](../chapters/part-09/chp-vacuum_physics.tex) | 有效空态：基线活动、检测阈值与现实校准 | 已重写并完成排版复核 |
-| 2 | 9 | [chp-atmosphere_geometric_dynamics](../chapters/part-09/chp-atmosphere_geometric_dynamics.tex) | 氛围几何动力学 — 场辐射、共振与环境流形 | 队列中；原文仍保留 |
+| 2 | 9 | [chp-atmosphere_geometric_dynamics](../chapters/part-09/chp-atmosphere_geometric_dynamics.tex) | 氛围动力学：社会信号、环境线索与适应轨迹 | 已重写并完成排版复核 |
 | 2 | 9 | [chp-organizational_geometric_dynamics](../chapters/part-09/chp-organizational_geometric_dynamics.tex) | 组织几何动力学 — 多体互锁、重整化与拓扑分工 | 队列中；原文仍保留 |
 | 3 | 10 | [chp-evolutionary_taxonomy](../chapters/part-10/chp-evolutionary_taxonomy.tex) | 演化分类学 — 智能的拓扑相空间 | 队列中；原文仍保留 |
 | 3 | 10 | [chp-empirical_geometric_dynamics](../chapters/part-10/chp-empirical_geometric_dynamics.tex) | 实证几何动力学 — 跨越映射的卢比孔河 | 队列中；原文仍保留 |

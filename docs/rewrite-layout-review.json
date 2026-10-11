@@ -1,9 +1,9 @@
 {
-  "pages": 457,
-  "bytes": 35330087,
+  "pages": 462,
+  "bytes": 35369641,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 417,
+  "numbered_sections": 421,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2925,7 +2925,35 @@
       "prose_lines": 36,
       "calibrated_prose_page_equivalents": 0.802,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "72.1 气场的可观测发生学：社会信号、通道与接收者更新",
+      "start_pdf_page": 458,
+      "prose_lines": 38,
+      "calibrated_prose_page_equivalents": 0.846,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "72.2 环境线索的条件化作用：空间、制度与适应更新",
+      "start_pdf_page": 459,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "72.3 人际耦合的代价分解：协调、边界与冲突修复",
+      "start_pdf_page": 460,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "72.4 发展中的可塑性：暴露历史、保护因素与可逆轨迹",
+      "start_pdf_page": 461,
+      "prose_lines": 41,
+      "calibrated_prose_page_equivalents": 0.913,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 71 chapters; does not validate the full book."
+  "scope": "Review subset: 72 chapters; does not validate the full book."
 }
