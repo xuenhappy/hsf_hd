@@ -1460,7 +1460,14 @@
       "source_sha256": "ea884dd2879bb526b7737280737ce899f9039f83ef8bbe27a550102a1be4649f",
       "status": "queued-for-full-rewrite",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_path": "docs/drafts/chapter-076-draft.tex",
+      "draft_checkpoint": "docs/drafts/chapter-076-checkpoint.md",
+      "draft_completed_section_count": 2,
+      "draft_total_section_count": 14,
+      "draft_opening_han": 234,
+      "draft_prose_han": 3220,
+      "draft_next_section": "sec:embryonic_development"
     },
     {
       "path": "chapters/part-10/chp-collective_intelligence.tex",
