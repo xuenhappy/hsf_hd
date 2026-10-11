@@ -2848,7 +2848,7 @@
     {
       "order": 73,
       "path": "chapters/part-09/chp-organizational_geometric_dynamics.tex",
-      "title": "组织几何动力学 — 多体互锁、重整化与拓扑分工",
+      "title": "组织动力学：分布式观测、授权接口与多尺度协调",
       "status": "queued-for-full-rewrite",
       "original_han_floor": 8933,
       "new_chapter_prose_han": 8770,
