@@ -1332,12 +1332,17 @@
       "source_start_line": 24162,
       "source_end_line": 24435,
       "source_sha256": "cdbbddd90dbf0c4653be812e737b116ffdeb292943c445cb87eb2fc6d23832ad",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
       "previous_status": "full-content-restored-awaiting-sectionwise-revision",
       "draft_checkpoint": "docs/drafts/chapter-070-checkpoint.md",
-      "draft_completed_section_count": 1,
-      "draft_next_label": "sec:section_6452"
+      "draft_completed_section_count": 5,
+      "draft_prose_han": 6054,
+      "new_title": "潜能与实绩：能力包络、运行激活与闭环证据",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-09/chp-vacuum_physics.tex",
@@ -1350,7 +1355,10 @@
       "source_sha256": "db9ba3452d9b586e2e9cb9c5672c2364d789a43960f7ec2bcf420e51fa5383fd",
       "status": "queued-for-full-rewrite",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-071-checkpoint.md",
+      "draft_completed_section_count": 1,
+      "draft_next_label": "sec:section_2839"
     },
     {
       "path": "chapters/part-09/chp-atmosphere_geometric_dynamics.tex",

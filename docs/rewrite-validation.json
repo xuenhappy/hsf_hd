@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 69,
-  "pending_chapters": 48,
+  "rewritten_chapters": 70,
+  "pending_chapters": 47,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2748,37 +2748,37 @@
     {
       "order": 70,
       "path": "chapters/part-09/chp-duality_potentiality_actuality.tex",
-      "title": "二象性统一 — 潜能与实存的量子测量学",
-      "status": "queued-for-full-rewrite",
+      "title": "潜能与实绩：能力包络、运行激活与闭环证据",
+      "status": "rewritten-reviewed",
       "original_han_floor": 3905,
-      "new_chapter_prose_han": 3715,
+      "new_chapter_prose_han": 6054,
       "original_readable_units": 3816,
-      "new_readable_units": 3816,
-      "opening_prose_han": 281,
+      "new_readable_units": 6078,
+      "opening_prose_han": 238,
       "sections": [
         {
-          "title": "本体论定义：从结构到容量 (From Structure to Capacity)",
-          "prose_han": 621
+          "title": "本体论定义：从结构容量到任务相关能力包络",
+          "prose_han": 1205
         },
         {
-          "title": "意识的实存：观察算子的内测量 (The Actuality of Consciousness)",
-          "prose_han": 849
+          "title": "意识相关功能的实绩：内部访问、元表征与可报告读出",
+          "prose_han": 1282
         },
         {
-          "title": "智能的实存：微观边界的斯托克斯投影 (The Actuality of Intelligence)",
-          "prose_han": 764
+          "title": "智能实绩：边界接口、闭环因果贡献与任务保持",
+          "prose_han": 1119
         },
         {
-          "title": "相空间图谱：潜力与实存的四重博弈",
-          "prose_han": 493
+          "title": "能力—实绩相图：四类运行区与可逆迁移",
+          "prose_han": 1126
         },
         {
-          "title": "结论：现实是坍缩的产物",
-          "prose_han": 707
+          "title": "结语：从坍缩隐喻到可审计的能力兑现",
+          "prose_han": 1084
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

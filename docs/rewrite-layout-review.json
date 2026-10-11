@@ -1,9 +1,9 @@
 {
-  "pages": 447,
-  "bytes": 35265897,
+  "pages": 452,
+  "bytes": 35297009,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 408,
+  "numbered_sections": 413,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -2862,7 +2862,42 @@
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "70.1 本体论定义：从结构容量到任务相关能力包络",
+      "start_pdf_page": 448,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "70.2 意识相关功能的实绩：内部访问、元表征与可报告读出",
+      "start_pdf_page": 449,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "70.3 智能实绩：边界接口、闭环因果贡献与任务保持",
+      "start_pdf_page": 450,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "70.4 能力—实绩相图：四类运行区与可逆迁移",
+      "start_pdf_page": 450,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "70.5 结语：从坍缩隐喻到可审计的能力兑现",
+      "start_pdf_page": 451,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 69 chapters; does not validate the full book."
+  "scope": "Review subset: 70 chapters; does not validate the full book."
 }
