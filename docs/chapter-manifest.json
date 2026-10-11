@@ -1374,12 +1374,16 @@
       "source_start_line": 24737,
       "source_end_line": 24996,
       "source_sha256": "7001b1e8bde45900ddaaa486a8c3573a704431eb89133b182db310640161a4ab",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-awaiting-layout-review",
       "formatting_normalized": true,
       "previous_status": "full-content-restored-awaiting-sectionwise-revision",
       "draft_checkpoint": "docs/drafts/chapter-072-checkpoint.md",
-      "draft_completed_section_count": 1,
-      "draft_next_label": "sec:environmental_manifold"
+      "draft_completed_section_count": 4,
+      "draft_prose_han": 5721,
+      "new_title": "氛围动力学：社会信号、环境线索与适应轨迹",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000
     },
     {
       "path": "chapters/part-09/chp-organizational_geometric_dynamics.tex",

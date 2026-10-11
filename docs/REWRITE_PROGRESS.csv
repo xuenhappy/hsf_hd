@@ -70,7 +70,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 69,chapters/part-09/chap-geometry_of_oblivion1.tex,rewritten-reviewed,4293,7029,4313,7051,6,1054
 70,chapters/part-09/chp-duality_potentiality_actuality.tex,rewritten-reviewed,3905,6054,3816,6078,5,1084
 71,chapters/part-09/chp-vacuum_physics.tex,rewritten-reviewed,4546,5736,4632,5757,4,1259
-72,chapters/part-09/chp-atmosphere_geometric_dynamics.tex,queued-for-full-rewrite,4618,4502,4637,4637,4,890
+72,chapters/part-09/chp-atmosphere_geometric_dynamics.tex,rewritten-awaiting-layout-review,4618,5721,4637,5761,4,1265
 73,chapters/part-09/chp-organizational_geometric_dynamics.tex,queued-for-full-rewrite,8933,8770,9018,9018,8,673
 74,chapters/part-10/chp-evolutionary_taxonomy.tex,queued-for-full-rewrite,1150,1038,1098,1098,2,54
 75,chapters/part-10/chp-empirical_geometric_dynamics.tex,queued-for-full-rewrite,5977,5838,6040,6040,5,355

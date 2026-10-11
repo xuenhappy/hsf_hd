@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 71,
-  "pending_chapters": 46,
+  "rewritten_chapters": 72,
+  "pending_chapters": 45,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2816,33 +2816,33 @@
     {
       "order": 72,
       "path": "chapters/part-09/chp-atmosphere_geometric_dynamics.tex",
-      "title": "氛围几何动力学 — 场辐射、共振与环境流形",
-      "status": "queued-for-full-rewrite",
+      "title": "氛围动力学：社会信号、环境线索与适应轨迹",
+      "status": "rewritten-awaiting-layout-review",
       "original_han_floor": 4618,
-      "new_chapter_prose_han": 4502,
+      "new_chapter_prose_han": 5721,
       "original_readable_units": 4637,
-      "new_readable_units": 4637,
-      "opening_prose_han": 340,
+      "new_readable_units": 5761,
+      "opening_prose_han": 204,
       "sections": [
         {
-          "title": "气场的物理发生学：规范场的非定域辐射",
-          "prose_han": 1134
+          "title": "气场的可观测发生学：社会信号、通道与接收者更新",
+          "prose_han": 1414
         },
         {
-          "title": "环境氛围的场论解剖：物理空间作为背景流形",
-          "prose_han": 982
+          "title": "环境线索的条件化作用：空间、制度与适应更新",
+          "prose_han": 1281
         },
         {
-          "title": "人际拓扑学：双纽线上的干涉与认知洛伦兹力",
-          "prose_han": 890
+          "title": "人际耦合的代价分解：协调、边界与冲突修复",
+          "prose_han": 1265
         },
         {
-          "title": "流形发育学：环境应力与个体可塑性的相变",
-          "prose_han": 1156
+          "title": "发展中的可塑性：暴露历史、保护因素与可逆轨迹",
+          "prose_han": 1557
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

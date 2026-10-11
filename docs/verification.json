@@ -13,7 +13,8 @@
     "reference_targets": 15,
     "chapter_status": {
       "rewritten-reviewed": 71,
-      "queued-for-full-rewrite": 46
+      "rewritten-awaiting-layout-review": 1,
+      "queued-for-full-rewrite": 45
     }
   },
   "errors": []
