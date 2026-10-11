@@ -1,0 +1,19 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{hsfhd}[2026/10/05 HSF-HD manuscript conventions]
+\newtcolorbox{bquote}{colback=gray!10,grow to left by=-5mm,boxrule=0pt,
+ leftrule=3pt,colframe=green!50,sharp corners,breakable,enhanced,
+ borderline west={2pt}{0pt}{gray!50},before skip=10pt,after skip=10pt}
+\newcommand{\smalltitle}[1]{\vspace{1em}\noindent\textbf{\textcolor{structurecolor}{#1}}}
+\newcommand{\redtext}[1]{{\textcolor{red}{#1}}}
+\newcommand{\bluetext}[1]{{\textcolor{blue}{#1}}}
+\newcommand{\purpletext}[1]{{\textcolor{purple}{#1}}}
+\newcommand{\bookvolume}[1]{\cleardoublepage\phantomsection
+ \addcontentsline{toc}{part}{#1}\markboth{#1}{#1}
+ \thispagestyle{empty}\vspace*{0.28\textheight}
+ \begin{center}\Huge\bfseries #1\end{center}\cleardoublepage}
+\newcommand{\hsfstate}{\mathbf{x}}
+\newcommand{\hsfstructure}{\mathbf{S}}
+\newcommand{\hsfmemory}{\mathbf{m}}
+\newcommand{\hsfvalue}{\mathbf{v}}
+\newenvironment{modelassumption}[1]{\begin{bquote}\textbf{建模假设：#1}\par}{\end{bquote}}
+\newenvironment{auxiliaryexplanation}[1]{\begin{bquote}\textbf{辅助解释：#1}\par}{\end{bquote}}

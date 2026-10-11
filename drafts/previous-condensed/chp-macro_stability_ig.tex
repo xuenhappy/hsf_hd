@@ -1,0 +1,34 @@
+\chapter{控制稳定性：目标函数、反馈与投影条件}
+\label{chp:macro_stability_ig}
+% Compatibility anchors: old section references resolve to this chapter.
+\label{sec:section_5895}
+\label{sec:section_2277}
+\label{sec:section_1708}
+\label{sec:cognitive_impedance_least_action}
+\label{sec:section_6743}
+\label{sec:section_8007}
+\label{sec:section_8643}
+\label{sec:section_7154}
+\label{sec:section_9649}
+
+我们区分状态有界、平衡点稳定、目标函数下降和任务成功。不同性质需要不同条件，不能通过“宏观控制”这一名称统一保证。
+\section{梯度流与下降性质}
+设 $J:\mathbb R^d\to\mathbb R$ 为可微固定目标，$M(x)$ 为对称正定矩阵，采用 $\dot x=-M(x)\nabla J(x)$。链式法则给出
+\begin{equation}\dot J=-\nabla J(x)^\top M(x)\nabla J(x)\le0.\end{equation}
+若目标具有唯一极小点、轨迹有界且正定性和连续性满足所需条件，可进一步证明收敛。若目标随时间变化，则 $\dot J$ 还包含 $\partial_tJ$；若存在外部输入，也需要加入相应交叉项。
+\section{凸性与离散步长}
+设 $J$ 的梯度为 $L$-Lipschitz，对 $x^+=x-\eta\nabla J(x)$ 使用下降引理，得到
+\begin{equation}J(x^+)\le J(x)-\eta(1-L\eta/2)\|\nabla J(x)\|^2.\end{equation}
+因此 $0<\eta<2/L$ 保证该次更新不增加目标。严格凸性可保证极小点至多一个，但极小点的存在仍需另外条件。任意控制输入不由凸性自动获得稳定性。
+\section{Bregman 投影与精确条件}
+对严格凸可微函数 $\psi$，定义
+\begin{equation}D_\psi(r,p)=\psi(r)-\psi(p)-\langle\nabla\psi(p),r-p\rangle.\end{equation}
+设 $C$ 为闭凸集合，$q$ 是 $D_\psi(z,p)$ 在 $C$ 内存在的极小点。最优性给出 $\langle\nabla\psi(q)-\nabla\psi(p),r-q\rangle\ge0$。结合三点恒等式可得
+\begin{equation}D_\psi(r,p)\ge D_\psi(r,q)+D_\psi(q,p),\qquad r\in C.\end{equation}
+只有交叉项为零时取得等式。$\psi(p)=\sum_i p_i\log p_i$ 在正概率单纯形上产生 KL 散度；此时还需处理归一化约束和边界。该投影保证特定散度的关系，不保证任意任务指标改善。
+\section{不完整观测与控制验证}
+实际控制器从 $y=O(x)$ 估计状态，观测误差、执行延迟和模型偏差可以破坏理想下降性质。我们通过扰动上界和实际反馈轨迹评估鲁棒性，不将低维观察者视为全状态的无损副本。
+
+\section{表示与示意图}
+我们保留以下示意图以展示原有结构关系。图中历史物理术语遵循阅读约定中的计算解释；图的形式相似性不代替本章的假设、推导和验证。
+\input{figures/preserved/chp-macro_stability_ig.tex}

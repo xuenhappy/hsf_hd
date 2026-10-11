@@ -1,0 +1,19 @@
+\chapter{领域表示的异构性：任务尺度与跨域接口}
+\label{chp:domain_manifolds_heterogeneity}
+% Legacy section labels temporarily resolve to the chapter.
+\label{sec:manifold_of_language}
+\label{sec:manifold_of_logic}
+\label{sec:manifold_of_physics}
+\label{sec:manifold_of_biochem}
+\label{sec:manifold_of_society}
+\label{sec:manifold_of_industry}
+\label{sec:topological_shapeshifter}
+我们将不同领域视为具有不同变量、关系、时间尺度和观测限制的模型空间。通用性来自可组合接口与适应机制，不来自强行采用同一表示。
+\section{领域状态与局部适用性}
+令领域 $d$ 的状态为 $x_d\in\mathcal X_d$，更新为 $x_d^+=F_d(x_d,u_d)$。文本、场景图、程序状态和运动控制可能分别采用序列、图、离散状态机与连续向量。每种空间具有自己的合法操作和约束。
+\section{跨域映射与误差}
+映射 $E_{ab}:\mathcal X_a\to\mathcal X_b$ 应声明任务相关的保真量。我们可以检验转移的一致性误差
+\begin{equation}\delta_{ab}(x,u)=d_b\left(E_{ab}(F_a(x,u)),F_b(E_{ab}(x),U_{ab}(u))\right),\end{equation}
+其中 $U_{ab}$ 转换输入，$d_b$ 是目标域的指定距离。两域操作维度不同或信息不足时，误差可能无法消除。任务相关的近似对应不等同于整个领域之间的严格同构。
+\section{多尺度接口与调度}
+局部控制、语义推演和长期规划具有不同截止时间。接口需要规定采样率、最大延迟、误差预算和失败后的处理方式。低频过程可以施加持久约束，但其影响范围必须由架构和耦合通道确定，不能由低频本身推出。

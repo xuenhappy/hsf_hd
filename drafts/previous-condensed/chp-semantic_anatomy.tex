@@ -1,0 +1,21 @@
+\chapter{认知对象的结构化表示：语言、视觉与关系}
+\label{chp:semantic_anatomy}
+% Legacy section labels temporarily resolve to the chapter.
+\label{sec:language_structure}
+\label{sec:vision_structure}
+\label{sec:logic_structure}
+我们将认知表示理解为系统为任务建立的关系与内容组织。语言、视觉和推理可以共享某些操作，但不必具有相同的几何结构。
+\section{语言与视觉的关系类型}
+语言表示包含词项、依赖关系、语境和事件角色。线性序列保存表达顺序，依赖图补充跨位置关系。视觉表示包含区域、对象、相对位置和外观属性。两类表示都可以使用节点与关系，但各自的节点身份和关系含义需要独立定义。
+
+结构与内容不是预先独立的两组信息。词义会影响句法消歧，对象识别会影响关系判断。我们采用联合编码 $(S,X)=e(o)$，并通过任务损失检验分解是否有用。
+\section{消息传递与关系绑定}
+在固定位置集合上，设关系类型为 $r$，可以定义
+\begin{equation}x_i^{k+1}=f\left(x_i^k,\sum_r\sum_{j\in\mathcal N_r(i)}A_r x_j^k,u_i\right).\end{equation}
+映射 $A_r$ 将关系类型转化为内容变换。加和要求各消息属于同一空间，函数 $f$ 则规定更新的非线性形式。该表达只是机制接口；是否能完成推理必须通过组合泛化、关系干预和错误分析检查。
+\section{语义一致性与可验证范围}
+两个表示产生相同输出，不代表内部机制相同。我们需要分别检查对象身份、关系保真、上下文变化和读出一致性。对于主观体验，本章只讨论可编码内容，不能以向量相似度判定体验相同。
+
+\section{结构示意图}
+我们保留以下原图说明结构与内容的组织关系；图中的物理措辞只在指定领域或辅助解释中适用。
+\input{figures/preserved/chp-semantic_anatomy.tex}

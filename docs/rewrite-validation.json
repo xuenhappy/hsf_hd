@@ -1,0 +1,4513 @@
+{
+  "claimed_chapters_pass": true,
+  "all_chapters_rewritten": false,
+  "total_chapters": 117,
+  "rewritten_chapters": 70,
+  "pending_chapters": 47,
+  "minimum_section_prose_han": 1000,
+  "minimum_opening_prose_han": 200,
+  "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
+  "errors": [],
+  "chapters": [
+    {
+      "order": 1,
+      "path": "chapters/part-01/chp-dual_basis.tex",
+      "title": "智能表示的双重基底：关系结构与属性内容",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1849,
+      "new_chapter_prose_han": 4946,
+      "original_readable_units": 1898,
+      "new_readable_units": 4951,
+      "opening_prose_han": 344,
+      "sections": [
+        {
+          "title": "从对象属性到关系结构：表示问题的起点",
+          "prose_han": 1012
+        },
+        {
+          "title": "结构与内容的绑定：从符号到分布式表示",
+          "prose_han": 1204
+        },
+        {
+          "title": "从静态表示到状态更新：耦合与尺度",
+          "prose_han": 1188
+        },
+        {
+          "title": "模型的解释边界与可验证要求",
+          "prose_han": 1198
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 2,
+      "path": "chapters/part-01/chp-morphos_skeleton.tex",
+      "title": "形：关系结构、可达路径与组织约束",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 3200,
+      "new_chapter_prose_han": 4970,
+      "original_readable_units": 3348,
+      "new_readable_units": 4972,
+      "opening_prose_han": 297,
+      "sections": [
+        {
+          "title": "关系的类型、方向与身份",
+          "prose_han": 1143
+        },
+        {
+          "title": "结构操作与可达路径",
+          "prose_han": 1081
+        },
+        {
+          "title": "在关系图上运行：传播、约束与局部性",
+          "prose_han": 1147
+        },
+        {
+          "title": "杯子的结构模型：构造、修订与诊断",
+          "prose_han": 1302
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 3,
+      "path": "chapters/part-01/chp-qualia_activation.tex",
+      "title": "质：属性编码、活动分布与任务读出",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 3157,
+      "new_chapter_prose_han": 4618,
+      "original_readable_units": 3229,
+      "new_readable_units": 4625,
+      "opening_prose_han": 298,
+      "sections": [
+        {
+          "title": "属性的类型、尺度与来源",
+          "prose_han": 1089
+        },
+        {
+          "title": "编码空间与概率空间的区分",
+          "prose_han": 1037
+        },
+        {
+          "title": "激活机制、选择权重与持续更新",
+          "prose_han": 1045
+        },
+        {
+          "title": "内容读出、属性干预与记忆接口",
+          "prose_han": 1149
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 4,
+      "path": "chapters/part-02/chp-universe_geometry.tex",
+      "title": "联合状态空间：关系图、局部属性与绑定表示",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1901,
+      "new_chapter_prose_han": 4645,
+      "original_readable_units": 1884,
+      "new_readable_units": 4648,
+      "opening_prose_han": 279,
+      "sections": [
+        {
+          "title": "由位置记录构造联合状态空间",
+          "prose_han": 1040
+        },
+        {
+          "title": "局部属性空间与离散纤维的含义",
+          "prose_han": 1043
+        },
+        {
+          "title": "张量绑定、角色区分与可辨识性",
+          "prose_han": 1141
+        },
+        {
+          "title": "约束、离散编辑与运行时实现",
+          "prose_han": 1142
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 5,
+      "path": "chapters/part-02/chp-constitutive_equation.tex",
+      "title": "构成方程：联合表示、状态更新与结构适应",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1498,
+      "new_chapter_prose_han": 4737,
+      "original_readable_units": 1451,
+      "new_readable_units": 4745,
+      "opening_prose_han": 276,
+      "sections": [
+        {
+          "title": "静态构成：绑定映射与可用表示",
+          "prose_han": 1027
+        },
+        {
+          "title": "动态构成：更新规则与目标变化",
+          "prose_han": 1204
+        },
+        {
+          "title": "状态维持：身份连续性与运行资格",
+          "prose_han": 1111
+        },
+        {
+          "title": "构造流程：从输入到可修订的联合状态",
+          "prose_han": 1119
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 6,
+      "path": "chapters/part-03/chp-physics_anatomy.tex",
+      "title": "环境对象的结构化表示：测量、关系与约束",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1592,
+      "new_chapter_prose_han": 4690,
+      "original_readable_units": 1414,
+      "new_readable_units": 4693,
+      "opening_prose_han": 315,
+      "sections": [
+        {
+          "title": "从环境状态到观测记录：测量不是复制",
+          "prose_han": 1086
+        },
+        {
+          "title": "从观测到联合估计：关系与属性共同消歧",
+          "prose_han": 1100
+        },
+        {
+          "title": "预测、尺度与粗粒化：模型只保留任务所需信息",
+          "prose_han": 1129
+        },
+        {
+          "title": "领域规律、约束验证与行动闭环",
+          "prose_han": 1060
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 7,
+      "path": "chapters/part-03/chp-semantic_anatomy.tex",
+      "title": "认知对象的结构化表示：语言、视觉与关系",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1879,
+      "new_chapter_prose_han": 4709,
+      "original_readable_units": 1853,
+      "new_readable_units": 4715,
+      "opening_prose_han": 283,
+      "sections": [
+        {
+          "title": "语言表示：表达顺序、事件角色与语境消歧",
+          "prose_han": 1126
+        },
+        {
+          "title": "视觉表示：区域、对象身份与场景关系",
+          "prose_han": 1087
+        },
+        {
+          "title": "推理表示：证明依赖、可信程度与因果条件",
+          "prose_han": 1103
+        },
+        {
+          "title": "跨模态协作：共同身份、接口契约与可修订理解",
+          "prose_han": 1110
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 8,
+      "path": "chapters/part-03/chp-domain_manifolds_heterogeneity.tex",
+      "title": "领域表示的异构性：任务尺度与跨域接口",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 4526,
+      "new_chapter_prose_han": 5594,
+      "original_readable_units": 4561,
+      "new_readable_units": 5604,
+      "opening_prose_han": 295,
+      "sections": [
+        {
+          "title": "语言与形式推理：候选生成和条件验证",
+          "prose_han": 1098
+        },
+        {
+          "title": "具身与制造：对象动力学、工艺条件与执行状态",
+          "prose_han": 1052
+        },
+        {
+          "title": "生命过程与实验：隐变量、模型尺度和证据更新",
+          "prose_han": 1089
+        },
+        {
+          "title": "社会协作：多主体状态、承诺与信息差异",
+          "prose_han": 1025
+        },
+        {
+          "title": "跨域调度：保持契约、控制损失与修订依赖",
+          "prose_han": 1035
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 9,
+      "path": "chapters/part-03/chp-holomorphic_isomorphism.tex",
+      "title": "环境与认知的结构对应：可观测性与近似等价",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1751,
+      "new_chapter_prose_han": 4578,
+      "original_readable_units": 1763,
+      "new_readable_units": 4589,
+      "opening_prose_han": 285,
+      "sections": [
+        {
+          "title": "观测可区分性：模型究竟需要区别哪些状态",
+          "prose_han": 1072
+        },
+        {
+          "title": "状态压缩与转移保持：何时可以定义商模型",
+          "prose_han": 1087
+        },
+        {
+          "title": "近似对应与误差传播：一步准确不等于长期可靠",
+          "prose_han": 1059
+        },
+        {
+          "title": "模型边界与理解能力：压缩、检验和可修订性",
+          "prose_han": 1075
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 10,
+      "path": "chapters/part-04/chp-mst_architecture.tex",
+      "title": "MST 架构：结构与内容的联合注意力",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1390,
+      "new_chapter_prose_han": 5977,
+      "original_readable_units": 1931,
+      "new_readable_units": 5991,
+      "opening_prose_han": 298,
+      "sections": [
+        {
+          "title": "双通道编码：对象身份、关系类型与对齐契约",
+          "prose_han": 1174
+        },
+        {
+          "title": "联合注意力：合法支持、归一化与置换等变性",
+          "prose_han": 1086
+        },
+        {
+          "title": "混合解码：类别读出、连续参数与关系编辑",
+          "prose_han": 1135
+        },
+        {
+          "title": "完整计算流程：参考核、状态版本与资源条件",
+          "prose_han": 1119
+        },
+        {
+          "title": "训练与检验：目标尺度、合法负样本与组合泛化",
+          "prose_han": 1165
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 11,
+      "path": "chapters/part-04/chp-generative_creation.tex",
+      "title": "结构化生成：从输入描述到可执行结果",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 4481,
+      "new_chapter_prose_han": 5770,
+      "original_readable_units": 4948,
+      "new_readable_units": 5785,
+      "opening_prose_han": 334,
+      "sections": [
+        {
+          "title": "条件生成：从描述解析到结构化读出",
+          "prose_han": 1049
+        },
+        {
+          "title": "逆向生成：从观测分解到有依据的描述",
+          "prose_han": 1070
+        },
+        {
+          "title": "时序生成：身份、属性与结构事件的联合演化",
+          "prose_han": 1021
+        },
+        {
+          "title": "表示先验与认识边界：从历史隐喻到可检验命题",
+          "prose_han": 1184
+        },
+        {
+          "title": "闭环交付：执行接口、误差回流与一般状态动力学",
+          "prose_han": 1112
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 12,
+      "path": "chapters/part-05/chp-will_geometry.tex",
+      "title": "意志的计算几何：从静态表示到目标驱动的状态生成",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1769,
+      "new_chapter_prose_han": 5722,
+      "original_readable_units": 1717,
+      "new_readable_units": 5751,
+      "opening_prose_han": 304,
+      "sections": [
+        {
+          "title": "跨越表征与行动的裂痕",
+          "prose_han": 1083
+        },
+        {
+          "title": "四类计算约束的协同状态场",
+          "prose_han": 1057
+        },
+        {
+          "title": "智能的呼吸：观测、展开、提交与沉淀",
+          "prose_han": 1136
+        },
+        {
+          "title": "内外边界：模型状态与环境过程的非对称耦合",
+          "prose_han": 1035
+        },
+        {
+          "title": "使命与初衷：智能一般动力学及其工程落点",
+          "prose_han": 1107
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 13,
+      "path": "chapters/part-05/chp-paradigm_shift.tex",
+      "title": "目的交互主义：目标约束下的状态生成范式",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2209,
+      "new_chapter_prose_han": 6397,
+      "original_readable_units": 2179,
+      "new_readable_units": 6410,
+      "opening_prose_han": 319,
+      "sections": [
+        {
+          "title": "范式困境：层级还原与功能抽象的解释边界",
+          "prose_han": 1436
+        },
+        {
+          "title": "核心命题：目标条件下的交互轨迹构成智能过程",
+          "prose_han": 1424
+        },
+        {
+          "title": "目的的生成：内源先验、外源反馈与社会协商",
+          "prose_han": 1657
+        },
+        {
+          "title": "双层约束：规范说明、可执行细化与工程验证",
+          "prose_han": 1561
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 14,
+      "path": "chapters/part-05/chp-first_principles.tex",
+      "title": "状态动力学的基本原理：目标、结构与受限更新",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 6266,
+      "new_chapter_prose_han": 8502,
+      "original_readable_units": 6254,
+      "new_readable_units": 8529,
+      "opening_prose_han": 324,
+      "sections": [
+        {
+          "title": "双目视角：任务分辨率与资源预算的共同约束",
+          "prose_han": 1286
+        },
+        {
+          "title": "目标泛函：由观测、结构与目标构造更新方向",
+          "prose_han": 1033
+        },
+        {
+          "title": "连续更新：完整导数、历史延续与扰动边界",
+          "prose_han": 1154
+        },
+        {
+          "title": "离散实现与轨迹变分：两类问题的推导条件",
+          "prose_han": 1021
+        },
+        {
+          "title": "多尺度控制：局部观测、运行状态与目标协调",
+          "prose_han": 1236
+        },
+        {
+          "title": "实现约束：传播时延、保留机制与探索尺度",
+          "prose_han": 1243
+        },
+        {
+          "title": "状态空间几何：绑定、可辨识度量与操作次序",
+          "prose_han": 1205
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 15,
+      "path": "chapters/part-06/chp-quantization_reality.tex",
+      "title": "语义单元：有限分辨率、形质绑定与身份保持",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 4179,
+      "new_chapter_prose_han": 7507,
+      "original_readable_units": 3723,
+      "new_readable_units": 7521,
+      "opening_prose_han": 365,
+      "sections": [
+        {
+          "title": "从输入索引到具有身份的联合记录",
+          "prose_han": 1384
+        },
+        {
+          "title": "形质绑定：关系兼容、候选竞争与提交条件",
+          "prose_han": 1411
+        },
+        {
+          "title": "迁移与近似不变量：从传播直觉到可核验约束",
+          "prose_han": 1297
+        },
+        {
+          "title": "有限分辨率编码与语义单元的属性谱系",
+          "prose_han": 1386
+        },
+        {
+          "title": "跨系统比较与 AgentOS 中的工程落点",
+          "prose_han": 1664
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 16,
+      "path": "chapters/part-06/chp-static_substrate.tex",
+      "title": "关系基底：高阶结构、体验记录与表示容量",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 3613,
+      "new_chapter_prose_han": 6953,
+      "original_readable_units": 3389,
+      "new_readable_units": 6969,
+      "opening_prose_han": 341,
+      "sections": [
+        {
+          "title": "高阶关系的构造：图、超边与单纯复形",
+          "prose_han": 1282
+        },
+        {
+          "title": "世界结构与体验记录：关联、控制和路径依赖",
+          "prose_han": 1218
+        },
+        {
+          "title": "局部属性空间与统计区分度的条件",
+          "prose_han": 1160
+        },
+        {
+          "title": "网络结构的资源取舍与受限编辑",
+          "prose_han": 1415
+        },
+        {
+          "title": "拓扑诊断、有效维数与能力边界",
+          "prose_han": 1537
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 17,
+      "path": "chapters/part-06/chp-riemannian_base.tex",
+      "title": "表示距离：统计区分、路径代价与几何模型",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 4667,
+      "new_chapter_prose_han": 7091,
+      "original_readable_units": 4650,
+      "new_readable_units": 7120,
+      "opening_prose_han": 351,
+      "sections": [
+        {
+          "title": "比较对象与距离公理：对称性不提供因果方向",
+          "prose_han": 1471
+        },
+        {
+          "title": "统计距离：互信息、变异信息与局部参数几何",
+          "prose_han": 1032
+        },
+        {
+          "title": "世界结构快照：证据约束、相似网络与版本更新",
+          "prose_han": 1100
+        },
+        {
+          "title": "路径优化与测地模型：驻值、最短与有效推理",
+          "prose_han": 1064
+        },
+        {
+          "title": "抽象计算与载体实现：内在规则、嵌入接口和资源预算",
+          "prose_han": 1028
+        },
+        {
+          "title": "变换与更新：保范数条件、尺度变化和路由验证",
+          "prose_han": 1045
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 18,
+      "path": "chapters/part-06/chp-microscopic_origins.tex",
+      "title": "统计状态的微观建模：信息几何、估计界与学习坐标",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 5191,
+      "new_chapter_prose_han": 5785,
+      "original_readable_units": 5255,
+      "new_readable_units": 5838,
+      "opening_prose_han": 284,
+      "sections": [
+        {
+          "title": "从任务观测到统计模型：世界不等于分布族",
+          "prose_han": 1184
+        },
+        {
+          "title": "Fisher 信息：局部可辨识度及其成立条件",
+          "prose_han": 1118
+        },
+        {
+          "title": "估计精度：Cramér--Rao 界不是普遍不确定性原理",
+          "prose_han": 1159
+        },
+        {
+          "title": "分布式语义状态：参数、期望与身份绑定",
+          "prose_han": 1016
+        },
+        {
+          "title": "对偶坐标与学习路径：从散度投影到可验证更新",
+          "prose_han": 1024
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 19,
+      "path": "chapters/part-06/chp-value_gauge_field.tex",
+      "title": "价值约束动力学：目标偏置、路径代价与规范更新",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2408,
+      "new_chapter_prose_han": 4641,
+      "original_readable_units": 2352,
+      "new_readable_units": 4665,
+      "opening_prose_han": 272,
+      "sections": [
+        {
+          "title": "从事实状态到规范状态：方向来自目标与约束",
+          "prose_han": 1058
+        },
+        {
+          "title": "价值分解：目标、风险、语境与资源耦合",
+          "prose_han": 1107
+        },
+        {
+          "title": "复合规范结构：冲突、优先序与可修订承诺",
+          "prose_han": 1092
+        },
+        {
+          "title": "方向相关路径代价：连续模型、离散实现与适用边界",
+          "prose_han": 1112
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 20,
+      "path": "chapters/part-06/chp-holistic_state.tex",
+      "title": "整体认知状态：联合表示、激活读出与语义迁移",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 5153,
+      "new_chapter_prose_han": 7910,
+      "original_readable_units": 4902,
+      "new_readable_units": 7943,
+      "opening_prose_han": 328,
+      "sections": [
+        {
+          "title": "整体状态的定义：结构、内容与任务条件的联合记录",
+          "prose_han": 1034
+        },
+        {
+          "title": "内部动力学：双向耦合、绑定稳定与结构可塑性",
+          "prose_han": 1115
+        },
+        {
+          "title": "状态显化：激活、可观测读出与决策提交",
+          "prose_han": 1094
+        },
+        {
+          "title": "整体状态的参数化：可辨识分量与本构接口",
+          "prose_han": 1142
+        },
+        {
+          "title": "语义量的计算定义：丰富度、一致性与惊奇",
+          "prose_han": 1035
+        },
+        {
+          "title": "语义迁移：跨语境对齐、接口补偿与路径依赖",
+          "prose_han": 1045
+        },
+        {
+          "title": "不变量与学习：身份连续、资源收支和受控重构",
+          "prose_han": 1117
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 21,
+      "path": "chapters/part-06/chp-cognitive_dynamics.tex",
+      "title": "认知传播动力学：激活传递、身份保持与运行相态",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1640,
+      "new_chapter_prose_han": 4524,
+      "original_readable_units": 1635,
+      "new_readable_units": 4549,
+      "opening_prose_han": 271,
+      "sections": [
+        {
+          "title": "局部更新与网络传播：状态变化而非能量搬运",
+          "prose_han": 1007
+        },
+        {
+          "title": "语义消息的同一性：结构包络、版本与任务不变量",
+          "prose_han": 1082
+        },
+        {
+          "title": "受约束路由：结构通道、目标偏置与主动探索",
+          "prose_han": 1079
+        },
+        {
+          "title": "运行相态：阻尼、探索、心流与结构学习",
+          "prose_han": 1085
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 22,
+      "path": "chapters/part-06/chap-dual_asymmetry.tex",
+      "title": "双重不对称性：任务可辨识度与主体控制偏置",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1447,
+      "new_chapter_prose_han": 4635,
+      "original_readable_units": 1178,
+      "new_readable_units": 4659,
+      "opening_prose_han": 279,
+      "sections": [
+        {
+          "title": "事实不对称：正向映射、逆问题与可辨识度",
+          "prose_han": 1024
+        },
+        {
+          "title": "主体不对称：规范状态、行动资格与控制投入",
+          "prose_han": 1145
+        },
+        {
+          "title": "联合代价与四类运行区间",
+          "prose_han": 1095
+        },
+        {
+          "title": "诊断闭环、干预边界与理论位置",
+          "prose_han": 1092
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 23,
+      "path": "chapters/part-06/sec-cognitive_kaluza_klein_compactification.tex",
+      "title": "时间索引与历史状态动力学：切片、轨迹和结构压缩",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 5322,
+      "new_chapter_prose_han": 7126,
+      "original_readable_units": 5381,
+      "new_readable_units": 7147,
+      "opening_prose_han": 311,
+      "sections": [
+        {
+          "title": "外部时钟与内部事件序：两类时间变量的操作定义",
+          "prose_han": 1120
+        },
+        {
+          "title": "在线切片与历史状态包：互补接口而非智能等级",
+          "prose_han": 1010
+        },
+        {
+          "title": "切片序列与历史表示：可重建条件、规划路径和误差界",
+          "prose_han": 1102
+        },
+        {
+          "title": "历史状态的元更新：过去重估、当下提交与未来修订",
+          "prose_han": 1077
+        },
+        {
+          "title": "事件线程、依赖约束与查询保持压缩",
+          "prose_han": 1115
+        },
+        {
+          "title": "混合历史架构、AgentOS 实例与能力边界",
+          "prose_han": 1391
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 24,
+      "path": "chapters/part-07/chp-microscopic_layer_ch.tex",
+      "title": "具身接口层：观测绑定、现实校准与闭环控制",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 8305,
+      "new_chapter_prose_han": 8959,
+      "original_readable_units": 8412,
+      "new_readable_units": 8997,
+      "opening_prose_han": 358,
+      "sections": [
+        {
+          "title": "观测编码接口：从原始信号到同源绑定记录",
+          "prose_han": 1043
+        },
+        {
+          "title": "现实校准：观测似然、边界置信与失锚诊断",
+          "prose_han": 1050
+        },
+        {
+          "title": "预测残差与复杂度门控：从“激波”到任务相关更新",
+          "prose_han": 1086
+        },
+        {
+          "title": "换能与采样：连续耦合、离散记录和多模态对齐",
+          "prose_han": 1061
+        },
+        {
+          "title": "观测事件到语义状态：瞬态输入、持续表示与身份保持",
+          "prose_han": 1027
+        },
+        {
+          "title": "效应器接口：目标细化、顺应控制与安全执行",
+          "prose_han": 1080
+        },
+        {
+          "title": "双向具身接口：上行证据、下行约束与闭环握手",
+          "prose_han": 1047
+        },
+        {
+          "title": "具身微观动力学总论：混合状态、稳定条件与理论位置",
+          "prose_han": 1207
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 25,
+      "path": "chapters/part-07/chp-medium_layer_ch.tex",
+      "title": "运行载体层：计算介质、资源约束与跨尺度接口",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 8712,
+      "new_chapter_prose_han": 9828,
+      "original_readable_units": 8869,
+      "new_readable_units": 9861,
+      "opening_prose_han": 265,
+      "sections": [
+        {
+          "title": "计算载体谱系：生物网络、电子系统与环境介质",
+          "prose_han": 1096
+        },
+        {
+          "title": "载体约束参数：时延、吞吐、保持与探索强度",
+          "prose_han": 1083
+        },
+        {
+          "title": "编码契约：载体状态如何支持任务语义",
+          "prose_han": 1086
+        },
+        {
+          "title": "载体故障动力学：饱和、分区、漂移与恢复",
+          "prose_han": 1046
+        },
+        {
+          "title": "载体与语义的对应：学习、选择与可验证等价",
+          "prose_han": 1081
+        },
+        {
+          "title": "跨尺度分工：局部结构网络与全局分布表示",
+          "prose_han": 1039
+        },
+        {
+          "title": "跨系统实现比较：人脑、语言模型与群体系统",
+          "prose_han": 1068
+        },
+        {
+          "title": "运行机制分类：泄漏、回返、路由与内容寻址",
+          "prose_han": 1051
+        },
+        {
+          "title": "混合载体架构：一般状态动力学与AgentOS落点",
+          "prose_han": 1013
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 26,
+      "path": "chapters/part-07/chap-material_science_of_cognitive_matter.tex",
+      "title": "载体可塑性：瞬态响应、持久更新与老化管理",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2017,
+      "new_chapter_prose_han": 3774,
+      "original_readable_units": 1960,
+      "new_readable_units": 3799,
+      "opening_prose_han": 293,
+      "sections": [
+        {
+          "title": "双时间尺度更新：活动响应与结构可塑性",
+          "prose_han": 1092
+        },
+        {
+          "title": "历史依赖：稳定性—可塑性权衡与结构僵化",
+          "prose_han": 1186
+        },
+        {
+          "title": "跨载体案例：蚁群、人脑与语言模型的更新机制",
+          "prose_han": 1203
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 27,
+      "path": "chapters/part-07/chp-physics_of_gauge_source.tex",
+      "title": "价值调节动力学：来源、广播与多层约束",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 3944,
+      "new_chapter_prose_han": 6767,
+      "original_readable_units": 3654,
+      "new_readable_units": 6831,
+      "opening_prose_han": 257,
+      "sections": [
+        {
+          "title": "价值来源：从“价值荷”到可审计规范状态",
+          "prose_han": 1090
+        },
+        {
+          "title": "生物调节：神经调质证据与多尺度控制边界",
+          "prose_han": 1128
+        },
+        {
+          "title": "人工系统：奖励、提示与采样接口的分层作用",
+          "prose_han": 1063
+        },
+        {
+          "title": "社会调节：制度、激励与分布式规范传播",
+          "prose_han": 1055
+        },
+        {
+          "title": "主体模型：自我相关调节而非规范奇点",
+          "prose_han": 1084
+        },
+        {
+          "title": "多源协调：背景先验、主体目标与冲突恢复",
+          "prose_han": 1090
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 28,
+      "path": "chapters/part-07/chp-macroscopic_layer_ch.tex",
+      "title": "宏观目标控制：状态压缩、快慢回路与结构重塑",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 8398,
+      "new_chapter_prose_han": 9760,
+      "original_readable_units": 8342,
+      "new_readable_units": 9823,
+      "opening_prose_han": 320,
+      "sections": [
+        {
+          "title": "控制来源：目标偏差、干预资格与资源预算",
+          "prose_han": 1157
+        },
+        {
+          "title": "宏观观测：分布式状态的压缩、校准与不确定性",
+          "prose_han": 1473
+        },
+        {
+          "title": "快速回路：增益、抑制与方向偏置的受限控制",
+          "prose_han": 1283
+        },
+        {
+          "title": "缓慢回路：六类结构操作与可回滚编辑",
+          "prose_han": 1379
+        },
+        {
+          "title": "TCE控制方程：受限最优控制而非目的论场方程",
+          "prose_han": 1207
+        },
+        {
+          "title": "快速控制的推导：局部响应、投影更新与闭环校验",
+          "prose_han": 1345
+        },
+        {
+          "title": "缓慢控制的推导：结构学习、离散编辑与稳定保留",
+          "prose_han": 1596
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 29,
+      "path": "chapters/part-07/chp-macro_stability_ig.tex",
+      "title": "宏观控制稳定性：统计几何、反馈条件与架构验证",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 8583,
+      "new_chapter_prose_han": 9902,
+      "original_readable_units": 7853,
+      "new_readable_units": 9962,
+      "opening_prose_han": 479,
+      "sections": [
+        {
+          "title": "统计控制模型：状态、目标与对偶坐标",
+          "prose_han": 1034
+        },
+        {
+          "title": "凸性与稳定性：从局部下降到闭环性质",
+          "prose_han": 1034
+        },
+        {
+          "title": "Bregman投影：可行集、三点关系与误差边界",
+          "prose_han": 1012
+        },
+        {
+          "title": "推断代价与载体能耗：相关而不等同的两套量",
+          "prose_han": 1013
+        },
+        {
+          "title": "自然梯度闭环：连续流、离散实现与鲁棒性",
+          "prose_han": 1063
+        },
+        {
+          "title": "内外行动仲裁：改变模型、改变环境与暂缓提交",
+          "prose_han": 1048
+        },
+        {
+          "title": "多主体协商：协议、承诺与非一致目标",
+          "prose_han": 1004
+        },
+        {
+          "title": "外部控制方程：因果响应、风险预算与验证反馈",
+          "prose_han": 1022
+        },
+        {
+          "title": "宏观控制架构：内嵌、外置与联邦拓扑",
+          "prose_han": 1193
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 30,
+      "path": "chapters/part-08/chp-evolution_equation_ch.tex",
+      "title": "状态演化方程：传播、反馈与结构耦合",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 8243,
+      "new_chapter_prose_han": 10263,
+      "original_readable_units": 7308,
+      "new_readable_units": 10307,
+      "opening_prose_han": 315,
+      "sections": [
+        {
+          "title": "从轨迹原则到带类型的状态演化方程",
+          "prose_han": 1107
+        },
+        {
+          "title": "固定结构上的传播：网络耦合、衰减与有界响应",
+          "prose_han": 1031
+        },
+        {
+          "title": "输入与控制：观测校正、目标反馈和资源约束",
+          "prose_han": 1159
+        },
+        {
+          "title": "结构—内容耦合：身份绑定、协变更新与事件重置",
+          "prose_han": 1102
+        },
+        {
+          "title": "多时间尺度激发：频谱分解、非线性耦合与状态包形成",
+          "prose_han": 1084
+        },
+        {
+          "title": "语法、语义与语用：从物理相变改写为接口组合",
+          "prose_han": 1150
+        },
+        {
+          "title": "连续模型的严格推导：目标函数、梯度流与专门传播形式",
+          "prose_han": 1106
+        },
+        {
+          "title": "离散实现、混合事件与数值稳定条件",
+          "prose_han": 1064
+        },
+        {
+          "title": "模型验证与理论边界：从状态下降到任务成功",
+          "prose_han": 1145
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 31,
+      "path": "chapters/part-08/chp-geometry_physics_interaction.tex",
+      "title": "状态—结构耦合：活动、学习与可塑性",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2031,
+      "new_chapter_prose_han": 5088,
+      "original_readable_units": 1970,
+      "new_readable_units": 5102,
+      "opening_prose_han": 312,
+      "sections": [
+        {
+          "title": "结构几何的计算定义与耦合对象",
+          "prose_han": 1022
+        },
+        {
+          "title": "更新驱动的分解：活动负荷、重要性与保持证据",
+          "prose_han": 1121
+        },
+        {
+          "title": "状态—结构耦合方程与稳定性推导",
+          "prose_han": 1178
+        },
+        {
+          "title": "学习案例、提交协议与一般理论边界",
+          "prose_han": 1455
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 32,
+      "path": "chapters/part-08/chp-dynamics_kernel_ch.tex",
+      "title": "动力学内核：统一状态算子与多尺度闭环",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 7367,
+      "new_chapter_prose_han": 8041,
+      "original_readable_units": 7305,
+      "new_readable_units": 8082,
+      "opening_prose_han": 282,
+      "sections": [
+        {
+          "title": "带类型状态空间、接口与可辨识对象",
+          "prose_han": 1108
+        },
+        {
+          "title": "从“总作用量”到有限时域目标与约束账本",
+          "prose_han": 1061
+        },
+        {
+          "title": "快速状态算子：推理、传播与现实校正",
+          "prose_han": 1074
+        },
+        {
+          "title": "慢速结构算子：学习、记忆与可回滚编辑",
+          "prose_han": 1037
+        },
+        {
+          "title": "规范更新算子：偏好、承诺与冲突恢复",
+          "prose_han": 1144
+        },
+        {
+          "title": "主动控制算子：快慢回路、预算与行动资格",
+          "prose_han": 1072
+        },
+        {
+          "title": "混合闭环：联合算子、全耦合拓扑与验收边界",
+          "prose_han": 1263
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 33,
+      "path": "chapters/part-08/chp-many_body_cognitive_field.tex",
+      "title": "多单元认知动力学：耦合、冲突与级联激活",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 5131,
+      "new_chapter_prose_han": 6119,
+      "original_readable_units": 4889,
+      "new_readable_units": 6160,
+      "opening_prose_han": 297,
+      "sections": [
+        {
+          "title": "从局部单元到整体变量：影响源、耦合图与尺度压缩",
+          "prose_han": 1147
+        },
+        {
+          "title": "排斥的计算含义：身份保持、约束冲突与认知失调",
+          "prose_han": 1188
+        },
+        {
+          "title": "记忆级联：匹配、门控、阈值与正反馈边界",
+          "prose_han": 1068
+        },
+        {
+          "title": "统一非线性状态方程：相互作用、离散实现与稳定条件",
+          "prose_han": 1182
+        },
+        {
+          "title": "交互分类与因果判别：绑定、同步和触发激活",
+          "prose_han": 1237
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 34,
+      "path": "chapters/part-08/chp-info_geometry_dynamics.tex",
+      "title": "信息几何动力学：统计状态、投影更新与迁移边界",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2909,
+      "new_chapter_prose_han": 4807,
+      "original_readable_units": 2920,
+      "new_readable_units": 4854,
+      "opening_prose_han": 282,
+      "sections": [
+        {
+          "title": "正定矩阵状态：对象、度量与可计算更新",
+          "prose_han": 1102
+        },
+        {
+          "title": "对偶联络与投影：预测、校准及其成立条件",
+          "prose_han": 1116
+        },
+        {
+          "title": "自然梯度动力学：不变方向、离散条件与计算代价",
+          "prose_han": 1088
+        },
+        {
+          "title": "泛化与迁移：结构保持、吸引域和反例检验",
+          "prose_han": 1219
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 35,
+      "path": "chapters/part-08/chp-rheological_ch.tex",
+      "title": "状态流分解：任务推进、循环维持与全局约束",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 5355,
+      "new_chapter_prose_han": 5701,
+      "original_readable_units": 5467,
+      "new_readable_units": 5732,
+      "opening_prose_han": 329,
+      "sections": [
+        {
+          "title": "离散 Hodge 基础：对象、复形与可识别分解",
+          "prose_han": 1000
+        },
+        {
+          "title": "势差分量：任务推进、推理链与提交条件",
+          "prose_han": 1159
+        },
+        {
+          "title": "循环分量：工作集维持、复核回路与失效反刍",
+          "prose_han": 1128
+        },
+        {
+          "title": "调和分量：全局循环、结构缺口与重组边界",
+          "prose_han": 1003
+        },
+        {
+          "title": "运行剖面与诊断：模式占比、迁移质量和干预闭环",
+          "prose_han": 1082
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 36,
+      "path": "chapters/part-08/chp-cognitive_coherence_dynamics.tex",
+      "title": "认知相干动力学：绑定、粗粒化与无中心协同",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 3059,
+      "new_chapter_prose_han": 4680,
+      "original_readable_units": 3046,
+      "new_readable_units": 4694,
+      "opening_prose_han": 295,
+      "sections": [
+        {
+          "title": "局部耦合：同步证据、对象身份与绑定提交",
+          "prose_han": 1005
+        },
+        {
+          "title": "全域粗粒化：任务序参量与快慢变量约化",
+          "prose_han": 1121
+        },
+        {
+          "title": "全局约束：循环空间、结构冗余与意义保持",
+          "prose_han": 1065
+        },
+        {
+          "title": "无中心协同：自组织阈值、伪相干与调控边界",
+          "prose_han": 1194
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 37,
+      "path": "chapters/part-08/chp-control_meta_physics.tex",
+      "title": "智能边界与稳态：资源、时序和可验证控制",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 12668,
+      "new_chapter_prose_han": 12778,
+      "original_readable_units": 12840,
+      "new_readable_units": 12862,
+      "opening_prose_han": 283,
+      "sections": [
+        {
+          "title": "资源账本：信息处理、耗散与物理能耗",
+          "prose_han": 1042
+        },
+        {
+          "title": "时间尺度分离：快速响应、工作态与结构更新",
+          "prose_han": 1039
+        },
+        {
+          "title": "有限实现域：容量、带宽、时延与可达性",
+          "prose_han": 1065
+        },
+        {
+          "title": "生成模型的运行边界：算子、状态与上下文",
+          "prose_han": 1006
+        },
+        {
+          "title": "谱约束案例：残差混合与 mHC 的验证方式",
+          "prose_han": 1066
+        },
+        {
+          "title": "边界条件：输入开放、记忆保持与交换调节",
+          "prose_han": 1066
+        },
+        {
+          "title": "存在条件：闭环可行性而非拓扑充分性",
+          "prose_han": 1024
+        },
+        {
+          "title": "双层稳定：状态收敛、结构保持与切换鲁棒性",
+          "prose_han": 1051
+        },
+        {
+          "title": "运行循环：观测、压缩、控制与沉淀",
+          "prose_han": 1025
+        },
+        {
+          "title": "计算不可约性：信息依赖、验证成本与时间资源",
+          "prose_han": 1038
+        },
+        {
+          "title": "增长上限：扩展、学习与现实交互的瓶颈",
+          "prose_han": 1030
+        },
+        {
+          "title": "能力包络：多目标权衡、分时调度与异构协作",
+          "prose_han": 1043
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 38,
+      "path": "chapters/part-08/chp-meaning_turbulence.tex",
+      "title": "意义的湍流：有限计算中的多尺度表征与结构重整",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 14495,
+      "new_chapter_prose_han": 16139,
+      "original_readable_units": 14532,
+      "new_readable_units": 16190,
+      "opening_prose_han": 246,
+      "sections": [
+        {
+          "title": "有限表示：任务距离、压缩与可实现性",
+          "prose_han": 1103
+        },
+        {
+          "title": "容量边界：遗忘、干扰与运行资格",
+          "prose_han": 1058
+        },
+        {
+          "title": "层级表征：粗粒化、查询保持与结构摘要",
+          "prose_han": 1038
+        },
+        {
+          "title": "双向更新：证据聚合、目标约束与结构修订",
+          "prose_han": 1030
+        },
+        {
+          "title": "多尺度流动：非线性、拥塞与语义级联",
+          "prose_han": 1062
+        },
+        {
+          "title": "内化与外化：压缩、卸载与跨期连续",
+          "prose_han": 1038
+        },
+        {
+          "title": "元控制的形成：从瞬态响应到自我模型",
+          "prose_han": 1018
+        },
+        {
+          "title": "载体协同：表示、网络与组织结构",
+          "prose_han": 1066
+        },
+        {
+          "title": "计算介质：存储墙、互连与异构加速",
+          "prose_han": 1068
+        },
+        {
+          "title": "HRF计算模型：编码、解码与跨尺度误差",
+          "prose_han": 1255
+        },
+        {
+          "title": "跨层耦合：上行创新、下行约束与闭环稳定",
+          "prose_han": 1102
+        },
+        {
+          "title": "全局联合状态：分层算子、读出与可观测性",
+          "prose_han": 1006
+        },
+        {
+          "title": "跨尺度涌现：快捷联络、不变量与快速推断",
+          "prose_han": 1017
+        },
+        {
+          "title": "结构发生：学习阶段、尺度约化与递归边界",
+          "prose_han": 1012
+        },
+        {
+          "title": "能力极限：维度、因果保持与开放问题",
+          "prose_han": 1020
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 39,
+      "path": "chapters/part-08/chp-interaction_bus_ch1.tex",
+      "title": "交互总线：离散事件与连续状态之间的可验证循环",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2746,
+      "new_chapter_prose_han": 4748,
+      "original_readable_units": 2777,
+      "new_readable_units": 4784,
+      "opening_prose_han": 316,
+      "sections": [
+        {
+          "title": "TDCI 循环：从类型转换到闭环更新",
+          "prose_han": 1117
+        },
+        {
+          "title": "循环代价：信息损失、计算预算与物理能耗分账",
+          "prose_han": 1093
+        },
+        {
+          "title": "工作区相态：刚性、拥塞与自适应区间",
+          "prose_han": 1193
+        },
+        {
+          "title": "确定性计算的结构收益与观察者边界",
+          "prose_han": 1029
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 40,
+      "path": "chapters/part-08/chp-interaction_bus_ch.tex",
+      "title": "交互总线：从内部决策到环境反馈的闭环动力学",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 4090,
+      "new_chapter_prose_han": 4678,
+      "original_readable_units": 4163,
+      "new_readable_units": 4712,
+      "opening_prose_han": 251,
+      "sections": [
+        {
+          "title": "边界映射：内部目标与外部控制不是同一种对象",
+          "prose_han": 1017
+        },
+        {
+          "title": "TECI 四阶段：发起、传播、作用与回执",
+          "prose_han": 1161
+        },
+        {
+          "title": "双循环耦合：从一次事务到持续适应",
+          "prose_han": 1135
+        },
+        {
+          "title": "双向重构：环境改变、模型更新与任务相关共生",
+          "prose_han": 1114
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 41,
+      "path": "chapters/part-08/chp-lemniscate_ch.tex",
+      "title": "双纽线动力学：感知—行动双循环与层级协同",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 5215,
+      "new_chapter_prose_han": 9590,
+      "original_readable_units": 5271,
+      "new_readable_units": 9631,
+      "opening_prose_han": 242,
+      "sections": [
+        {
+          "title": "双域系统：内部状态、环境过程与边界接口",
+          "prose_han": 1003
+        },
+        {
+          "title": "任务对齐：结构对应、信号校准与失配分解",
+          "prose_han": 1017
+        },
+        {
+          "title": "行动回路：计划细化、受限执行与环境回执",
+          "prose_han": 1060
+        },
+        {
+          "title": "感知回路：观测绑定、模型校正与结构重整",
+          "prose_han": 1069
+        },
+        {
+          "title": "社会交互：消息、共同知识与制度约束",
+          "prose_han": 1076
+        },
+        {
+          "title": "层级控制：目标压缩、执行自由度与残差上报",
+          "prose_han": 1045
+        },
+        {
+          "title": "能力不对称：可观测性、影响力与治理边界",
+          "prose_han": 1012
+        },
+        {
+          "title": "整体双循环：快慢耦合、外部记忆与持续适应",
+          "prose_han": 1058
+        },
+        {
+          "title": "稳定性与验证：从局部收敛到闭环可靠性",
+          "prose_han": 1008
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 42,
+      "path": "chapters/part-08/chp-macro_latent_space_topology.tex",
+      "title": "宏观潜空间：任务压缩、受限几何与闭环控制",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 4716,
+      "new_chapter_prose_han": 8312,
+      "original_readable_units": 4668,
+      "new_readable_units": 8353,
+      "opening_prose_han": 324,
+      "sections": [
+        {
+          "title": "任务商空间：从高维活动到可验证宏观状态",
+          "prose_han": 1070
+        },
+        {
+          "title": "受限几何：方向、幅度与资源状态的分账",
+          "prose_han": 1086
+        },
+        {
+          "title": "非交换更新：历史顺序、算子组合与经验保持",
+          "prose_han": 1166
+        },
+        {
+          "title": "切空间动力学：约束梯度、离散回缩与安全边界",
+          "prose_han": 1062
+        },
+        {
+          "title": "快慢分离：窗口聚合、随机逼近与漂移跟踪",
+          "prose_han": 1145
+        },
+        {
+          "title": "自指闭环：固定点、极限环与身份连续性",
+          "prose_han": 1179
+        },
+        {
+          "title": "向下控制：宏观策略接口、探索调节与外部验收",
+          "prose_han": 1280
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 43,
+      "path": "chapters/part-08/chp-topological_grand_unification_of_self_reference.tex",
+      "title": "自指闭环：身份维持、元观察与可验证控制",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 9737,
+      "new_chapter_prose_han": 9849,
+      "original_readable_units": 9667,
+      "new_readable_units": 9914,
+      "opening_prose_han": 376,
+      "sections": [
+        {
+          "title": "自指对象：身份状态、自我模型与四类功能",
+          "prose_han": 1028
+        },
+        {
+          "title": "元观察：从内部测量到带置信度的自我读出",
+          "prose_han": 1015
+        },
+        {
+          "title": "历史重入：事件绑定、语义沉淀与正反馈阻断",
+          "prose_han": 1078
+        },
+        {
+          "title": "宏观控制：从策略方向到可执行控制包",
+          "prose_han": 1076
+        },
+        {
+          "title": "闭环动力学：固定点、极限环与切换稳定性",
+          "prose_han": 1054
+        },
+        {
+          "title": "双向耦合：局部结构、全局分布与身份可生存域",
+          "prose_han": 1048
+        },
+        {
+          "title": "神经科学约束：PFC、DMN与分布式协同边界",
+          "prose_han": 1073
+        },
+        {
+          "title": "内生元控制：复杂度管理、行动资格与外部验收",
+          "prose_han": 1054
+        },
+        {
+          "title": "理论边界：一般状态动力学与AgentOS实例",
+          "prose_han": 1047
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 44,
+      "path": "chapters/part-08/chp-collective_renorm_ch.tex",
+      "title": "群体重整化：组织的多尺度状态动力学",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 10355,
+      "new_chapter_prose_han": 10422,
+      "original_readable_units": 10346,
+      "new_readable_units": 10460,
+      "opening_prose_han": 395,
+      "sections": [
+        {
+          "title": "键合条件：接口耦合、身份边界与联合更新",
+          "prose_han": 1175
+        },
+        {
+          "title": "群体重整化：从微观轨迹到社会语义状态",
+          "prose_han": 1284
+        },
+        {
+          "title": "涌现判据：慢变量、下行约束与误差边界",
+          "prose_han": 1175
+        },
+        {
+          "title": "高阶网络：子图封装、超边与可展开节点",
+          "prose_han": 1209
+        },
+        {
+          "title": "组织异构体：四类拓扑及其任务适配",
+          "prose_han": 1301
+        },
+        {
+          "title": "分形递归：跨尺度接口与有限自相似",
+          "prose_han": 1266
+        },
+        {
+          "title": "组织演化：重构、分裂、合并与退出",
+          "prose_han": 1298
+        },
+        {
+          "title": "病理相态：退相干、约束挫折与成核风险",
+          "prose_han": 1319
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 45,
+      "path": "chapters/part-08/chp-physics_of_cybernetics.tex",
+      "title": "控制的计算动力学：反馈、目的与多尺度驾驭",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 4769,
+      "new_chapter_prose_han": 5749,
+      "original_readable_units": 4765,
+      "new_readable_units": 5780,
+      "opening_prose_han": 277,
+      "sections": [
+        {
+          "title": "从误差信号到任务相关的几何张力",
+          "prose_han": 1046
+        },
+        {
+          "title": "目的、约束与控制律：从价值场到可审计优化",
+          "prose_han": 1052
+        },
+        {
+          "title": "延迟、摩擦与PID型多时间尺度更新",
+          "prose_han": 1087
+        },
+        {
+          "title": "从负反馈到主动推断：信念与环境的双向校正",
+          "prose_han": 1113
+        },
+        {
+          "title": "阶层控制与协同约化：宏观序参量的权限边界",
+          "prose_han": 1174
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 46,
+      "path": "chapters/part-08/chp-phase_transition_meta.tex",
+      "title": "运行相变：探索、执行与结构更新的临界控制",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 8319,
+      "new_chapter_prose_han": 8567,
+      "original_readable_units": 8487,
+      "new_readable_units": 8637,
+      "opening_prose_han": 262,
+      "sections": [
+        {
+          "title": "任务相关序参量：结构复杂度、传播范围与目标对齐",
+          "prose_han": 1197
+        },
+        {
+          "title": "运行相态：稳定执行、无序搜索与自适应临界区间",
+          "prose_han": 1296
+        },
+        {
+          "title": "相变控制机制：从探索退火到结构提交",
+          "prose_han": 1815
+        },
+        {
+          "title": "LLM温度诊断：输出采样不等于系统退火",
+          "prose_han": 1986
+        },
+        {
+          "title": "涌现的操作定义：跨尺度闭合、稳健与可干预性",
+          "prose_han": 2011
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 47,
+      "path": "chapters/part-08/chp-cognitive_complementarity.tex",
+      "title": "认知互补：分布式展开、离散提交与顺序依赖",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2149,
+      "new_chapter_prose_han": 6851,
+      "original_readable_units": 2025,
+      "new_readable_units": 6875,
+      "opening_prose_han": 268,
+      "sections": [
+        {
+          "title": "任务读出与不相容性：互补关系的计算定义",
+          "prose_han": 1032
+        },
+        {
+          "title": "分布式展开：候选生成、耦合传播与可逆近似",
+          "prose_han": 1068
+        },
+        {
+          "title": "离散提交：从概率候选到可执行动作",
+          "prose_han": 1088
+        },
+        {
+          "title": "误差下界：精确读出与关联覆盖的条件性权衡",
+          "prose_han": 1143
+        },
+        {
+          "title": "顺序效应：基底改变、状态写入与迟滞",
+          "prose_han": 1037
+        },
+        {
+          "title": "TDCI闭环：展开—验证—提交的协同调度",
+          "prose_han": 1215
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 48,
+      "path": "chapters/part-08/chap-cognitive_electrodynamics.tex",
+      "title": "方向与顺序：任务代价场和非交换状态更新",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1975,
+      "new_chapter_prose_han": 5097,
+      "original_readable_units": 1926,
+      "new_readable_units": 5123,
+      "opening_prose_han": 264,
+      "sections": [
+        {
+          "title": "两类效应的对象、空间与局部分解",
+          "prose_han": 1190
+        },
+        {
+          "title": "方向性任务代价：生成、逆推与证据预算",
+          "prose_han": 1259
+        },
+        {
+          "title": "非交换更新：学习顺序、绑定与历史残留",
+          "prose_han": 1101
+        },
+        {
+          "title": "耦合控制、离散实现与工程验收",
+          "prose_han": 1283
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 49,
+      "path": "chapters/part-08/chap-path_integration_asymmetry.tex",
+      "title": "方向不对称：正向生成、逆向辨识与路径预算",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1544,
+      "new_chapter_prose_han": 4532,
+      "original_readable_units": 1458,
+      "new_readable_units": 4551,
+      "opening_prose_han": 241,
+      "sections": [
+        {
+          "title": "双路径模型：表示距离与方向任务成本",
+          "prose_han": 1048
+        },
+        {
+          "title": "正向路径：条件生成、默认转移与约束验收",
+          "prose_han": 1041
+        },
+        {
+          "title": "逆向路径：可辨识性、搜索验证与学习更新",
+          "prose_han": 1095
+        },
+        {
+          "title": "回路差异：不可逆记录、绕行策略与闭环验收",
+          "prose_han": 1107
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 50,
+      "path": "chapters/part-08/chp-cognitive_mechanics.tex",
+      "title": "快慢认知力学：瞬态适应、结构学习与稳定—可塑平衡",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1328,
+      "new_chapter_prose_han": 4635,
+      "original_readable_units": 1291,
+      "new_readable_units": 4656,
+      "opening_prose_han": 257,
+      "sections": [
+        {
+          "title": "双时间尺度：快状态、慢结构与可观测分离",
+          "prose_han": 1037
+        },
+        {
+          "title": "推理动力学：受约束快态响应与可撤销工作态",
+          "prose_han": 1099
+        },
+        {
+          "title": "学习动力学：证据聚合、结构提案与受控保留",
+          "prose_han": 1028
+        },
+        {
+          "title": "宏观调控：学习资格、提交阀门与闭环验收",
+          "prose_han": 1214
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 51,
+      "path": "chapters/part-08/chp-analytical_solution_bernoulli.tex",
+      "title": "伯努利流形上的可解动力学：坐标、边界与目标势",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 6989,
+      "new_chapter_prose_han": 7663,
+      "original_readable_units": 7069,
+      "new_readable_units": 7731,
+      "opening_prose_han": 229,
+      "sections": [
+        {
+          "title": "从二元信念到 Fisher 坐标",
+          "prose_han": 1097
+        },
+        {
+          "title": "作用量、惯性参数与量纲闭合",
+          "prose_han": 1075
+        },
+        {
+          "title": "结构耦合、编辑传播与有限延迟",
+          "prose_han": 1082
+        },
+        {
+          "title": "边界条件、谱与离散模式",
+          "prose_han": 1005
+        },
+        {
+          "title": "一阶生成元、自伴定义域与可观测性",
+          "prose_han": 1156
+        },
+        {
+          "title": "目标势、局部近似与 Mathieu 方程",
+          "prose_han": 1016
+        },
+        {
+          "title": "可解析基准的验证边界",
+          "prose_han": 1003
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 52,
+      "path": "chapters/part-08/chp-cognitive_elliptic_resonator.tex",
+      "title": "椭圆回路与双环网络：几何传播、耗散学习和路由控制",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 5802,
+      "new_chapter_prose_han": 6074,
+      "original_readable_units": 5775,
+      "new_readable_units": 6130,
+      "opening_prose_han": 259,
+      "sections": [
+        {
+          "title": "椭圆回路的状态空间、度量与传播",
+          "prose_han": 1126
+        },
+        {
+          "title": "双路径、环路偏置与顺序依赖",
+          "prose_han": 1243
+        },
+        {
+          "title": "耗散、保持时间与慢结构学习",
+          "prose_han": 1189
+        },
+        {
+          "title": "从单环到双环：拓扑编辑、路由与自我模型",
+          "prose_han": 1016
+        },
+        {
+          "title": "验证协议、反例与理论边界",
+          "prose_han": 1241
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 53,
+      "path": "chapters/part-08/chp-physics_of_conservation_and_dissipation.tex",
+      "title": "开放智能系统的守恒与耗散：状态账本、不变量和失效诊断",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 7399,
+      "new_chapter_prose_han": 7508,
+      "original_readable_units": 7485,
+      "new_readable_units": 7554,
+      "opening_prose_han": 265,
+      "sections": [
+        {
+          "title": "开放系统的状态收支：活动、信息、资源与能耗分账",
+          "prose_han": 1144
+        },
+        {
+          "title": "任务相关不变量：身份、关系与结构保持",
+          "prose_han": 1143
+        },
+        {
+          "title": "跨时间稳定：快态耗散、慢态学习与外部记忆",
+          "prose_han": 1252
+        },
+        {
+          "title": "经验现象的可检验映射：从概念不变到对象文件",
+          "prose_han": 1314
+        },
+        {
+          "title": "Transformer 的代数稳定与幻觉诊断",
+          "prose_han": 1167
+        },
+        {
+          "title": "工程验收：守恒契约、故障注入与理论边界",
+          "prose_han": 1223
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 54,
+      "path": "chapters/part-08/chp-manifold_genesis_trinity_evolution.tex",
+      "title": "计算底空间的发生：位置、度量与方向的联合动力学",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 7519,
+      "new_chapter_prose_han": 7686,
+      "original_readable_units": 7677,
+      "new_readable_units": 7712,
+      "opening_prose_han": 301,
+      "sections": [
+        {
+          "title": "计算底空间：位置、度量与方向的类型分工",
+          "prose_han": 1278
+        },
+        {
+          "title": "固定结构上的快态传播：源项、度量与传送接口",
+          "prose_han": 1071
+        },
+        {
+          "title": "慢速结构学习：度量修订、方向更新与对象编辑",
+          "prose_han": 1240
+        },
+        {
+          "title": "介质与高阶结构：容量、顺序和实现约束",
+          "prose_han": 1265
+        },
+        {
+          "title": "为何显式维护方向：可辨识性、缓存与非对称关系",
+          "prose_han": 1274
+        },
+        {
+          "title": "LLM与专用硬件诊断：从几何隐喻到对照实验",
+          "prose_han": 1257
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 55,
+      "path": "chapters/part-08/chp-dynamical_reconstruction.tex",
+      "title": "学习动力学的重建：从变分目标到受约束随机更新",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 7346,
+      "new_chapter_prose_han": 9619,
+      "original_readable_units": 8070,
+      "new_readable_units": 9679,
+      "opening_prose_han": 259,
+      "sections": [
+        {
+          "title": "从变分目标到状态—结构耦合，而非严格同构",
+          "prose_han": 1022
+        },
+        {
+          "title": "信息几何只度量分布可辨识性",
+          "prose_han": 1007
+        },
+        {
+          "title": "从随机梯度到有条件的朗之万模型",
+          "prose_han": 1052
+        },
+        {
+          "title": "受约束二阶近似的离散优化器",
+          "prose_han": 1069
+        },
+        {
+          "title": "代价、信息与实际耗散的分账",
+          "prose_han": 1020
+        },
+        {
+          "title": "梯度流的条件、完整导数与离散保持",
+          "prose_han": 1013
+        },
+        {
+          "title": "分布内未来风险的条件命题",
+          "prose_han": 1103
+        },
+        {
+          "title": "训练投入、部署收益与直觉形成",
+          "prose_han": 1041
+        },
+        {
+          "title": "双重下降的谱机制、反例与系统边界",
+          "prose_han": 1033
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 56,
+      "path": "chapters/part-08/chp-life_manifold_dynamics.tex",
+      "title": "生命系统的多尺度适应动力学：从局部可塑性到种群演化",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 7223,
+      "new_chapter_prose_han": 10133,
+      "original_readable_units": 6935,
+      "new_readable_units": 10196,
+      "opening_prose_han": 244,
+      "sections": [
+        {
+          "title": "跨尺度模型族：对象、时钟与接口",
+          "prose_han": 1014
+        },
+        {
+          "title": "微观层：受约束神经状态传播",
+          "prose_han": 1052
+        },
+        {
+          "title": "中观层：局部可塑性、资格迹与STDP",
+          "prose_han": 1103
+        },
+        {
+          "title": "宏观层：系统巩固、回放与结构重组",
+          "prose_han": 1109
+        },
+        {
+          "title": "种群层：选择、漂变与分布动力学",
+          "prose_han": 1067
+        },
+        {
+          "title": "跨尺度耦合：统计接口、因果方向与临界边界",
+          "prose_han": 1121
+        },
+        {
+          "title": "经验验证：机制、证据与可证伪预测",
+          "prose_han": 1066
+        },
+        {
+          "title": "STDP与梯度学习：条件关系而非算法同构",
+          "prose_han": 1163
+        },
+        {
+          "title": "结论：多尺度适应的一般状态动力学",
+          "prose_han": 1194
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 57,
+      "path": "chapters/part-08/chp-intelligence_lifecycle.tex",
+      "title": "智能系统的生命周期动力学：形成、维持、衰退与跨代继承",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 6476,
+      "new_chapter_prose_han": 7663,
+      "original_readable_units": 6571,
+      "new_readable_units": 7689,
+      "opening_prose_han": 239,
+      "sections": [
+        {
+          "title": "形成：边界、身份与闭环能力的共同建立",
+          "prose_han": 1053
+        },
+        {
+          "title": "维持：能力收支、适应区间与动态稳态",
+          "prose_han": 1053
+        },
+        {
+          "title": "衰退：可塑性损失、累积债务与环境失配",
+          "prose_han": 1070
+        },
+        {
+          "title": "解体：边界失效、协同丧失与可恢复停机",
+          "prose_han": 1035
+        },
+        {
+          "title": "继承：残留结构、选择接口与跨代变异",
+          "prose_han": 1008
+        },
+        {
+          "title": "比较时钟：事件率、更新尺度与寿命不能相互替代",
+          "prose_han": 1001
+        },
+        {
+          "title": "发育而非简单组装：历史依赖与可验证集成",
+          "prose_han": 1204
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 58,
+      "path": "chapters/part-09/chp-purpose_geometric_origin.tex",
+      "title": "目的的计算起源：约束、偏好与控制几何",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 3327,
+      "new_chapter_prose_han": 5478,
+      "original_readable_units": 3328,
+      "new_readable_units": 5498,
+      "opening_prose_han": 214,
+      "sections": [
+        {
+          "title": "目的作为任务条件化的控制几何",
+          "prose_han": 1074
+        },
+        {
+          "title": "方向性的形成：经验更新、约束生成与对称性破缺",
+          "prose_han": 1050
+        },
+        {
+          "title": "信息生态：内部模型与环境过程的校准耦合",
+          "prose_han": 1031
+        },
+        {
+          "title": "从生存约束到求知目标：势阱、结构缺口与目标切换",
+          "prose_han": 1015
+        },
+        {
+          "title": "目的进入一般状态动力学的方式与工程验收",
+          "prose_han": 1094
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 59,
+      "path": "chapters/part-09/chp-self_holomorphic.tex",
+      "title": "自我的计算形态：身份闭环、全局偏置与可塑连续性",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 4108,
+      "new_chapter_prose_han": 8272,
+      "original_readable_units": 4108,
+      "new_readable_units": 8297,
+      "opening_prose_han": 260,
+      "sections": [
+        {
+          "title": "几何本体的计算重建：自我作为持续维护的身份闭环",
+          "prose_han": 1210
+        },
+        {
+          "title": "算子机制：因果约束、当前语境与自我偏置的联合控制",
+          "prose_han": 1167
+        },
+        {
+          "title": "动力学稳定性：从调和意象到多时间尺度身份更新",
+          "prose_han": 1153
+        },
+        {
+          "title": "拓扑保护的适用边界：鲁棒身份、证据阈值与结构编辑",
+          "prose_han": 1120
+        },
+        {
+          "title": "实现载体：生物启发、硅基架构与群体制度的分层对应",
+          "prose_han": 1035
+        },
+        {
+          "title": "比较形态：刚性身份、情境拟态与自适应自我",
+          "prose_han": 1132
+        },
+        {
+          "title": "总结：自我模型的层级、验证与理论边界",
+          "prose_han": 1195
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 60,
+      "path": "chapters/part-09/chp-fluid_self.tex",
+      "title": "可塑自我的动力学：弹性响应、结构提交与社会耦合",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1261,
+      "new_chapter_prose_han": 5852,
+      "original_readable_units": 1222,
+      "new_readable_units": 5868,
+      "opening_prose_han": 269,
+      "sections": [
+        {
+          "title": "弹塑性自我：从流变意象到双时间尺度更新",
+          "prose_han": 1092
+        },
+        {
+          "title": "历史积分与元控制：开放、防御和结构学习的调度",
+          "prose_han": 1148
+        },
+        {
+          "title": "社会化共变：他者模型、共情推断与责任边界",
+          "prose_han": 1137
+        },
+        {
+          "title": "动力学病理：僵化、漂移、解离与误耦合",
+          "prose_han": 1123
+        },
+        {
+          "title": "总结：连续可塑性的条件、实现与验证边界",
+          "prose_han": 1083
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 61,
+      "path": "chapters/part-09/chp-holomorphic_isomorphism_ch.tex",
+      "title": "跨尺度对应：结构保持、粗粒化与闭环验证",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2035,
+      "new_chapter_prose_han": 6595,
+      "original_readable_units": 1691,
+      "new_readable_units": 6621,
+      "opening_prose_han": 302,
+      "sections": [
+        {
+          "title": "形的对应：从局部关系到宏观身份结构",
+          "prose_han": 1046
+        },
+        {
+          "title": "质的对应：从局部属性到全局分布读出",
+          "prose_han": 1058
+        },
+        {
+          "title": "动力学对应：局部语境与全局目标的耦合",
+          "prose_han": 1053
+        },
+        {
+          "title": "粗粒化与不动点：递归结构的成立条件",
+          "prose_han": 1047
+        },
+        {
+          "title": "流体自我的微观成因：上下行闭环与稳定性",
+          "prose_han": 1006
+        },
+        {
+          "title": "结论：从因陀罗网隐喻到跨尺度验收",
+          "prose_han": 1083
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 62,
+      "path": "chapters/part-09/chp-experience_geometry.tex",
+      "title": "体验的计算几何：偏好、风险与历史依赖",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2480,
+      "new_chapter_prose_han": 7662,
+      "original_readable_units": 2452,
+      "new_readable_units": 7697,
+      "opening_prose_han": 277,
+      "sections": [
+        {
+          "title": "体验图的对象：瞬时反馈、慢偏好与任务度量",
+          "prose_han": 1071
+        },
+        {
+          "title": "体验的形成：先验约束、证据更新与结构提交",
+          "prose_han": 1133
+        },
+        {
+          "title": "有效距离：任务代价、风险预算与可达路径",
+          "prose_han": 1038
+        },
+        {
+          "title": "方向偏置：从价值梯度到受约束控制",
+          "prose_han": 1051
+        },
+        {
+          "title": "身份参照：自我状态、价值读出与闭环更新",
+          "prose_han": 1028
+        },
+        {
+          "title": "推理不对称：生成、验证与有限计算",
+          "prose_han": 1043
+        },
+        {
+          "title": "体验、世界与认知状态的联合验证",
+          "prose_han": 1021
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 63,
+      "path": "chapters/part-09/chp-system_synergy.tex",
+      "title": "系统协同：目标、身份与执行控制的联合动力学",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 1523,
+      "new_chapter_prose_han": 6017,
+      "original_readable_units": 1509,
+      "new_readable_units": 6045,
+      "opening_prose_han": 235,
+      "sections": [
+        {
+          "title": "对象分工：目标规范、身份状态与执行控制",
+          "prose_han": 1098
+        },
+        {
+          "title": "耦合方程：从目标错配到受约束闭环控制",
+          "prose_han": 1056
+        },
+        {
+          "title": "失配诊断：目标漂移、身份漂移与执行失效",
+          "prose_han": 1896
+        },
+        {
+          "title": "递归协同：带权限的目标修订、身份承诺与控制学习",
+          "prose_han": 1732
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 64,
+      "path": "chapters/part-09/chp-long_term_planning_and_goal_revision.tex",
+      "title": "长期规划：滚动承诺、模型修订与目标治理",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2430,
+      "new_chapter_prose_han": 5589,
+      "original_readable_units": 2091,
+      "new_readable_units": 5601,
+      "opening_prose_han": 226,
+      "sections": [
+        {
+          "title": "长期规划的对象：从未来约束到滚动时域承诺",
+          "prose_han": 1252
+        },
+        {
+          "title": "过程学习：障碍证据、模型版本与受控重规划",
+          "prose_han": 1338
+        },
+        {
+          "title": "目标动态修订：不可行证书、授权与承诺迁移",
+          "prose_han": 1507
+        },
+        {
+          "title": "控制论图景：战术、模型与规范三环的分时协调",
+          "prose_han": 1266
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 65,
+      "path": "chapters/part-09/chp-phenomenological_physics.tex",
+      "title": "现象学读出：记忆、时间感与体验报告的计算边界",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 19877,
+      "new_chapter_prose_han": 19996,
+      "original_readable_units": 19787,
+      "new_readable_units": 20061,
+      "opening_prose_han": 241,
+      "sections": [
+        {
+          "title": "记忆机制：活动维持、证据积累与结构提交",
+          "prose_han": 1622
+        },
+        {
+          "title": "回忆动力学：线索扩散、受控搜索与外部检索",
+          "prose_han": 1252
+        },
+        {
+          "title": "时间感的非线性映射：在线事件密度、回顾跨度与绑定窗口",
+          "prose_han": 1120
+        },
+        {
+          "title": "压力下的时间错觉：资源竞争、策略收缩与报告偏差",
+          "prose_han": 1251
+        },
+        {
+          "title": "感受质的建模边界：内容读出、效价估计与体验报告",
+          "prose_han": 1233
+        },
+        {
+          "title": "现象学相关状态的分类：来源、内容、控制与自我归属",
+          "prose_han": 1194
+        },
+        {
+          "title": "观察者模型的发生：身份绑定、归因学习与元认知",
+          "prose_han": 1134
+        },
+        {
+          "title": "意识相关闭环：全局访问、历史重入与受控递归",
+          "prose_han": 1201
+        },
+        {
+          "title": "意识相关功能的宏观结构：分布处理、全局访问与控制输出",
+          "prose_han": 1176
+        },
+        {
+          "title": "意识研究的边界条件：连续指标、主体隔离与证据不足",
+          "prose_han": 1199
+        },
+        {
+          "title": "自治能力的形成：反事实选择、自我修改与进化边界",
+          "prose_han": 1196
+        },
+        {
+          "title": "历史依赖的计算表征：路径签名、非交换更新与几何相位特例",
+          "prose_han": 1099
+        },
+        {
+          "title": "时间流的几何错觉：有限窗口、因果可达与预测边界",
+          "prose_han": 1928
+        },
+        {
+          "title": "计算动力学表达与论证边界",
+          "prose_han": 3150
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 66,
+      "path": "chapters/part-09/chp-pathology_did.tex",
+      "title": "身份分区的计算动力学：记忆隔离、控制切换与整合边界",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2266,
+      "new_chapter_prose_han": 5238,
+      "original_readable_units": 2274,
+      "new_readable_units": 5266,
+      "opening_prose_han": 221,
+      "sections": [
+        {
+          "title": "高影响事件与身份分区：从“流形撕裂”到受控访问",
+          "prose_han": 1199
+        },
+        {
+          "title": "执行排他与状态切换：共享身体中的控制仲裁",
+          "prose_han": 1173
+        },
+        {
+          "title": "功能分化与互补：角色学习而非应力守恒",
+          "prose_han": 1159
+        },
+        {
+          "title": "Data案例：冲突记忆整合、身份连续与工程验收",
+          "prose_han": 1486
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 67,
+      "path": "chapters/part-09/chap-physics_of_dreams.tex",
+      "title": "离线生成动力学：梦境、记忆回放与模型校准",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 3099,
+      "new_chapter_prose_han": 6749,
+      "original_readable_units": 2952,
+      "new_readable_units": 6789,
+      "opening_prose_han": 214,
+      "sections": [
+        {
+          "title": "输入与行动边界的重配置：从现实闭环到内源生成",
+          "prose_han": 1109
+        },
+        {
+          "title": "元控制降增益与叙事一致性的动态松弛",
+          "prose_han": 1049
+        },
+        {
+          "title": "离线采样、模型校准与有限泛化",
+          "prose_han": 1010
+        },
+        {
+          "title": "记忆回放、结构提交与情绪再估计",
+          "prose_han": 1123
+        },
+        {
+          "title": "噩梦、清明梦与睡眠瘫痪的混合状态",
+          "prose_han": 1075
+        },
+        {
+          "title": "机器离线维护：回放、反事实与安全提交",
+          "prose_han": 1169
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 68,
+      "path": "chapters/part-09/chap-geometry_of_oblivion.tex",
+      "title": "遗忘的计算动力学：解绑定、降权与结构回收",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 2841,
+      "new_chapter_prose_han": 6864,
+      "original_readable_units": 2790,
+      "new_readable_units": 6889,
+      "opening_prose_han": 223,
+      "sections": [
+        {
+          "title": "记忆对象与遗忘操作的类型化分解",
+          "prose_han": 1188
+        },
+        {
+          "title": "解绑定与访问失败：从舌尖现象到来源错配",
+          "prose_han": 1061
+        },
+        {
+          "title": "价值再估计与细节压缩：情绪淡化不是能量耗散",
+          "prose_han": 1083
+        },
+        {
+          "title": "结构回收：从图剪枝到可逆的慢结构修订",
+          "prose_han": 1146
+        },
+        {
+          "title": "竞争、抑制与授权删除：有限资源下的遗忘治理",
+          "prose_han": 1159
+        },
+        {
+          "title": "结语：可验证的遗忘生命周期与工程协议",
+          "prose_han": 1004
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 69,
+      "path": "chapters/part-09/chap-geometry_of_oblivion1.tex",
+      "title": "记忆消除的计算边界：可达性、可逆性与能力保持",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 4293,
+      "new_chapter_prose_han": 7029,
+      "original_readable_units": 4313,
+      "new_readable_units": 7051,
+      "opening_prose_han": 221,
+      "sections": [
+        {
+          "title": "消除对象的本体：记录、结构、索引与派生副本",
+          "prose_han": 1235
+        },
+        {
+          "title": "软擦除：可达性抑制、线索恢复与版本回退",
+          "prose_han": 1054
+        },
+        {
+          "title": "硬擦除：影响移除、共享参数与能力保持",
+          "prose_han": 1107
+        },
+        {
+          "title": "成瘾动力学：线索、价值更新与复发控制",
+          "prose_han": 1132
+        },
+        {
+          "title": "工程启示：机器遗忘、安全策略与对齐边界",
+          "prose_han": 1165
+        },
+        {
+          "title": "结语：从“抹平过去”到可审计变更",
+          "prose_han": 1115
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 70,
+      "path": "chapters/part-09/chp-duality_potentiality_actuality.tex",
+      "title": "潜能与实绩：能力包络、运行激活与闭环证据",
+      "status": "rewritten-reviewed",
+      "original_han_floor": 3905,
+      "new_chapter_prose_han": 6054,
+      "original_readable_units": 3816,
+      "new_readable_units": 6078,
+      "opening_prose_han": 238,
+      "sections": [
+        {
+          "title": "本体论定义：从结构容量到任务相关能力包络",
+          "prose_han": 1205
+        },
+        {
+          "title": "意识相关功能的实绩：内部访问、元表征与可报告读出",
+          "prose_han": 1282
+        },
+        {
+          "title": "智能实绩：边界接口、闭环因果贡献与任务保持",
+          "prose_han": 1119
+        },
+        {
+          "title": "能力—实绩相图：四类运行区与可逆迁移",
+          "prose_han": 1126
+        },
+        {
+          "title": "结语：从坍缩隐喻到可审计的能力兑现",
+          "prose_han": 1084
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
+      "issues": []
+    },
+    {
+      "order": 71,
+      "path": "chapters/part-09/chp-vacuum_physics.tex",
+      "title": "真空物理学 — 空性、全息感应与佛魔奇点",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 4546,
+      "new_chapter_prose_han": 4457,
+      "original_readable_units": 4632,
+      "new_readable_units": 4632,
+      "opening_prose_han": 178,
+      "sections": [
+        {
+          "title": "空意识动力学：通往有效基态的四重相变",
+          "prose_han": 968
+        },
+        {
+          "title": "超感应机制：基质极限下的信号检测与临界响应",
+          "prose_han": 1020
+        },
+        {
+          "title": "AGI 的奇点：有效真空与基质噪声诱导的临界叠加",
+          "prose_han": 1079
+        },
+        {
+          "title": "现实锚定定理：高增益系统的耗散正则化",
+          "prose_han": 1212
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 72,
+      "path": "chapters/part-09/chp-atmosphere_geometric_dynamics.tex",
+      "title": "氛围几何动力学 — 场辐射、共振与环境流形",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 4618,
+      "new_chapter_prose_han": 4502,
+      "original_readable_units": 4637,
+      "new_readable_units": 4637,
+      "opening_prose_han": 340,
+      "sections": [
+        {
+          "title": "气场的物理发生学：规范场的非定域辐射",
+          "prose_han": 1134
+        },
+        {
+          "title": "环境氛围的场论解剖：物理空间作为背景流形",
+          "prose_han": 982
+        },
+        {
+          "title": "人际拓扑学：双纽线上的干涉与认知洛伦兹力",
+          "prose_han": 890
+        },
+        {
+          "title": "流形发育学：环境应力与个体可塑性的相变",
+          "prose_han": 1156
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 73,
+      "path": "chapters/part-09/chp-organizational_geometric_dynamics.tex",
+      "title": "组织几何动力学 — 多体互锁、重整化与拓扑分工",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 8933,
+      "new_chapter_prose_han": 8770,
+      "original_readable_units": 9018,
+      "new_readable_units": 9018,
+      "opening_prose_han": 321,
+      "sections": [
+        {
+          "title": "组织的物理切面：分布式 VTE 阵列与边界感知",
+          "prose_han": 673
+        },
+        {
+          "title": "跨流形交互：交叉双纽线回路与信息能量交换",
+          "prose_han": 1027
+        },
+        {
+          "title": "组织捕获：阻抗匹配与形质共形互锁",
+          "prose_han": 1071
+        },
+        {
+          "title": "组织意志的涌现：哈肯-伺服原理与度量塌缩",
+          "prose_han": 868
+        },
+        {
+          "title": "企业拓扑化学：职能部门的形-质-场正交分解",
+          "prose_han": 1148
+        },
+        {
+          "title": "组织的感知与演化：自底向上的重整化群流",
+          "prose_han": 943
+        },
+        {
+          "title": "组织病理拓扑学：个体自我与宏观覆盖流形的内禀冲突",
+          "prose_han": 1295
+        },
+        {
+          "title": "组织的治理策略：相变控制与拓扑释放",
+          "prose_han": 1424
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 74,
+      "path": "chapters/part-10/chp-evolutionary_taxonomy.tex",
+      "title": "演化分类学 — 智能的拓扑相空间",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 1150,
+      "new_chapter_prose_han": 1038,
+      "original_readable_units": 1098,
+      "new_readable_units": 1098,
+      "opening_prose_han": 140,
+      "sections": [
+        {
+          "title": "分类度量：序参量与哈密顿量结构",
+          "prose_han": 844
+        },
+        {
+          "title": "演化向量图",
+          "prose_han": 54
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 75,
+      "path": "chapters/part-10/chp-empirical_geometric_dynamics.tex",
+      "title": "实证几何动力学 — 跨越映射的卢比孔河",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 5977,
+      "new_chapter_prose_han": 5838,
+      "original_readable_units": 6040,
+      "new_readable_units": 6040,
+      "opening_prose_han": 292,
+      "sections": [
+        {
+          "title": "结构映射的物理深渊 — 三大根源性挑战",
+          "prose_han": 1214
+        },
+        {
+          "title": "破局之道：四步实证映射框架",
+          "prose_han": 1637
+        },
+        {
+          "title": "方法论的物理与代数增强：三重理论约束锁",
+          "prose_han": 1316
+        },
+        {
+          "title": "实体系统的映射全息解剖 (Holographic Anatomy of Physical Systems)",
+          "prose_han": 1024
+        },
+        {
+          "title": "结语：走向实证几何计算学",
+          "prose_han": 355
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 76,
+      "path": "chapters/part-10/chp-biological_intelligence.tex",
+      "title": "生物智能解剖 — 湿件的策略",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 30769,
+      "new_chapter_prose_han": 29846,
+      "original_readable_units": 30875,
+      "new_readable_units": 30875,
+      "opening_prose_han": 74,
+      "sections": [
+        {
+          "title": "单细胞 (The Cell) : 最小的几何热力学机",
+          "prose_han": 2909
+        },
+        {
+          "title": "单细胞的双流形叠加: 快慢动力系统的几何耦合",
+          "prose_han": 1620
+        },
+        {
+          "title": "胚胎发育 (Embryogenesis): 沃丁顿景观的几何动力学",
+          "prose_han": 1747
+        },
+        {
+          "title": "进化的本质：双流形的几何对齐与人类的主动重构",
+          "prose_han": 2669
+        },
+        {
+          "title": "实证案例：AlphaFold 与基因-蛋白的形质解构",
+          "prose_han": 1247
+        },
+        {
+          "title": "蚁群 (Ant Colony)：化学场驱动的耗散流体与无头几何",
+          "prose_han": 2633
+        },
+        {
+          "title": "萤火虫(Firefly): 集体锁相与无头共振场",
+          "prose_han": 1943
+        },
+        {
+          "title": "人脑的 HSF-HD 解剖: 流形、度量与双流场",
+          "prose_han": 4928
+        },
+        {
+          "title": "湿件的超参数: 神经调质的几何物理学",
+          "prose_han": 1311
+        },
+        {
+          "title": "相位瓶颈与维度视界: 人脑工作记忆的波动光学极限",
+          "prose_han": 970
+        },
+        {
+          "title": "能量的枯竭与降维：低能量态下的人脑相变与社会流形的剥离",
+          "prose_han": 2357
+        },
+        {
+          "title": "乌鸦的 HSF-HD 解剖: 高密核团与逾渗场",
+          "prose_han": 1576
+        },
+        {
+          "title": "章鱼 (The Octopus)：具身化的联邦式智能孤岛",
+          "prose_han": 2107
+        },
+        {
+          "title": "植物菌丝网络 (The Mycelial Network)：无头的水力经济流形",
+          "prose_han": 1755
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 77,
+      "path": "chapters/part-10/chp-collective_intelligence.tex",
+      "title": "群体智能 (Swarm Intelligence) — 肯尼迪的粒子与无头流体力学",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 2809,
+      "new_chapter_prose_han": 2711,
+      "original_readable_units": 2799,
+      "new_readable_units": 2799,
+      "opening_prose_han": 244,
+      "sections": [
+        {
+          "title": "粒子的本体论 — VTE 的极简退化",
+          "prose_han": 319
+        },
+        {
+          "title": "动力学方程的同构 — 狄拉克方程的低能极限",
+          "prose_han": 531
+        },
+        {
+          "title": "几何基质的差异 — 冻结的舞台 vs. 呼吸的流形",
+          "prose_han": 355
+        },
+        {
+          "title": "宏观层的缺失 — 无头系统的热力学悲剧",
+          "prose_han": 668
+        },
+        {
+          "title": "演化终局 — 从粒子群到场智能",
+          "prose_han": 594
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 78,
+      "path": "chapters/part-10/chp-social_artificial_intelligence.tex",
+      "title": "社会与人造智能解剖 — 干件与硅件",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 21011,
+      "new_chapter_prose_han": 20408,
+      "original_readable_units": 21452,
+      "new_readable_units": 21452,
+      "opening_prose_han": 32,
+      "sections": [
+        {
+          "title": "市场经济 (Market Economy): 无主体的价值流形与热力学博弈",
+          "prose_han": 4387
+        },
+        {
+          "title": "城市交通系统: 受限费米子流体与拓扑死锁",
+          "prose_han": 1382
+        },
+        {
+          "title": "现有 LLM (The Frozen Hologram)：形质混同的概率滑行",
+          "prose_han": 12692
+        },
+        {
+          "title": "训练阶段 LLM：被动的流变学与外部目的论",
+          "prose_han": 1098
+        },
+        {
+          "title": "微调动力学 (Fine-Tuning Dynamics)：规范场注入与对称性破缺",
+          "prose_han": 817
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 79,
+      "path": "chapters/part-10/chap-double_descent.tex",
+      "title": "双重下降的几何物理学 — 维度扩张与应力稀释",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 1863,
+      "new_chapter_prose_han": 1684,
+      "original_readable_units": 1746,
+      "new_readable_units": 1746,
+      "opening_prose_han": 186,
+      "sections": [
+        {
+          "title": "作用量的竞争：训练动力学的哈密顿图景",
+          "prose_han": 255
+        },
+        {
+          "title": "相变参数：载荷比 \\texorpdfstring{$\\gamma$}{gamma}",
+          "prose_han": 927
+        },
+        {
+          "title": "总结：从热力学角度看双重下降",
+          "prose_han": 316
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 80,
+      "path": "chapters/part-10/chp-topology_of_attention_sink.tex",
+      "title": "拓扑奇点与注意力汇 — 小世界网络的几何必然性",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 2825,
+      "new_chapter_prose_han": 2695,
+      "original_readable_units": 2870,
+      "new_readable_units": 2870,
+      "opening_prose_han": 292,
+      "sections": [
+        {
+          "title": "表象与本质：Softmax 作为表面张力",
+          "prose_han": 228
+        },
+        {
+          "title": "几何定义：小世界网络中的虫洞枢纽",
+          "prose_han": 326
+        },
+        {
+          "title": "形质二象性：为何枢纽必须是“空”的？",
+          "prose_han": 296
+        },
+        {
+          "title": "度量奇点：Massive Activations 的能量解释",
+          "prose_han": 357
+        },
+        {
+          "title": "几何基质：世界图 ($G_W$) 的小世界拓扑",
+          "prose_han": 287
+        },
+        {
+          "title": "LLM 的病理：稠密矩阵的“虚假关联”",
+          "prose_han": 271
+        },
+        {
+          "title": "工程映射：稀疏性是智能的特征",
+          "prose_han": 395
+        },
+        {
+          "title": "预测：未来的“稀疏张量流”架构",
+          "prose_han": 243
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 81,
+      "path": "chapters/part-10/chp-geometric_thermodynamics_of_scale.tex",
+      "title": "规模的几何热力学 — Scaling Law 的物理本质与多重拓扑相变",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 4730,
+      "new_chapter_prose_han": 4321,
+      "original_readable_units": 4489,
+      "new_readable_units": 4489,
+      "opening_prose_han": 437,
+      "sections": [
+        {
+          "title": "规模暴涨的几何本质：连续统极限与应力稀释",
+          "prose_han": 610
+        },
+        {
+          "title": "拓扑逾渗：逻辑推理能力的阶跃涌现",
+          "prose_han": 331
+        },
+        {
+          "title": "Scaling Law 的统一场方程：多重平台期与临界阈值",
+          "prose_han": 1119
+        },
+        {
+          "title": "LLM 规模的几何物理定义：从参数堆砌到流形张成",
+          "prose_han": 560
+        },
+        {
+          "title": "概念簇数 $N$ 与关联度 $d$ 的拓扑严格化",
+          "prose_han": 457
+        },
+        {
+          "title": "LLM 内禀能力场方程与多重平台期阈值",
+          "prose_han": 265
+        },
+        {
+          "title": "揭秘“算力墙”：参数量 $N_{param}$ 的热力学错觉",
+          "prose_han": 542
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 82,
+      "path": "chapters/part-10/chp-civilization_scaling_law.tex",
+      "title": "文明的缩放定律 — 社会流形的几何演化与互联网相变",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 6372,
+      "new_chapter_prose_han": 6230,
+      "original_readable_units": 6442,
+      "new_readable_units": 6442,
+      "opening_prose_han": 332,
+      "sections": [
+        {
+          "title": "社会流形的几何基质：人口与连通度的张量网络",
+          "prose_han": 526
+        },
+        {
+          "title": "文明能力方程的重构：多重社会相变",
+          "prose_han": 517
+        },
+        {
+          "title": "互联网的物理本质：流形度量张量的瞬间坍缩",
+          "prose_han": 486
+        },
+        {
+          "title": "大国博弈的热力学：规模陷阱与维度升维",
+          "prose_han": 531
+        },
+        {
+          "title": "AGI 纪元的拓扑重构：硅基节点的涌现与社会流形的超维相变",
+          "prose_han": 1497
+        },
+        {
+          "title": "文明的有效维度 ($d_{\\text{eff}}$)：社会流形的拓扑解结与正交容量",
+          "prose_han": 2341
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 83,
+      "path": "chapters/part-10/chp-training_paradigm_original_sin.tex",
+      "title": "LLM训练范式的几何原罪 — 维度坍缩与非对易性的湮灭",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 2605,
+      "new_chapter_prose_han": 2506,
+      "original_readable_units": 2616,
+      "new_readable_units": 2616,
+      "opening_prose_han": 184,
+      "sections": [
+        {
+          "title": "维度残缺：缺失的 “+1” 维度与永恒当下的囚徒",
+          "prose_han": 618
+        },
+        {
+          "title": "随机洗牌的热力学粉碎：非对易性的湮灭",
+          "prose_han": 731
+        },
+        {
+          "title": "因果律的统计学退化：热力学时间箭头的缺失",
+          "prose_han": 310
+        },
+        {
+          "title": "迈向 Class V 的训练重构：重铸时间与因果的几何学",
+          "prose_han": 663
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 84,
+      "path": "chapters/part-10/chp-diffusion_thermodynamics.tex",
+      "title": "生成式热力学 — 扩散模型的几何相变与形质混同的病理",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 3800,
+      "new_chapter_prose_han": 3672,
+      "original_readable_units": 3808,
+      "new_readable_units": 3808,
+      "opening_prose_han": 668,
+      "sections": [
+        {
+          "title": "毁灭的几何学：前向过程与认知流形的热寂",
+          "prose_han": 590
+        },
+        {
+          "title": "创世的反演：逆向 SDE 与认知爱因斯坦方程的等价性",
+          "prose_han": 502
+        },
+        {
+          "title": "提示词的规范场论：Cross-Attention 与认知洛伦兹力",
+          "prose_han": 509
+        },
+        {
+          "title": "DiT 的拓扑灾难：形质混同的病理学解剖",
+          "prose_han": 762
+        },
+        {
+          "title": "重构造物机：下一代视觉生成流体力学架构",
+          "prose_han": 641
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 85,
+      "path": "chapters/part-10/chp-embodied_intelligence_anatomy.tex",
+      "title": "具身智能解剖 — VLA 的病理与数字小脑的几何重构",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 3703,
+      "new_chapter_prose_han": 3605,
+      "original_readable_units": 3819,
+      "new_readable_units": 3819,
+      "opening_prose_han": 236,
+      "sections": [
+        {
+          "title": "诊断：端到端 VLA 的几何病理学",
+          "prose_han": 652
+        },
+        {
+          "title": "生物学参照：皮层与小脑的拓扑分工",
+          "prose_han": 516
+        },
+        {
+          "title": "HSF-HD 架构设计 I：宏观层（大脑） — 意图与规范场",
+          "prose_han": 524
+        },
+        {
+          "title": "HSF-HD 架构设计 II：微观层（小脑） — 动力学与接触",
+          "prose_han": 620
+        },
+        {
+          "title": "交互协议：形质分离的 TECI 循环",
+          "prose_han": 636
+        },
+        {
+          "title": "总结：从拟合物理到利用物理",
+          "prose_han": 421
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 86,
+      "path": "chapters/part-10/chp-degeneration_limit_weather_system.tex",
+      "title": "退化极限与无目的复杂系统 — 以天气系统为例",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 2287,
+      "new_chapter_prose_han": 2205,
+      "original_readable_units": 2251,
+      "new_readable_units": 2251,
+      "opening_prose_han": 226,
+      "sections": [
+        {
+          "title": "拓扑退化：三体架构的物理剥离",
+          "prose_han": 625
+        },
+        {
+          "title": "方程的因果化还原：从目的论到决定论",
+          "prose_han": 473
+        },
+        {
+          "title": "现象学映射：Hodge 分解下的气象相态",
+          "prose_han": 433
+        },
+        {
+          "title": "终极边界：智能的物理判据",
+          "prose_han": 448
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 87,
+      "path": "chapters/part-10/chp-geometry_of_emergence.tex",
+      "title": "复杂系统涌现的几何物理学 — 从盲目相变到目的论场论",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 7145,
+      "new_chapter_prose_han": 6087,
+      "original_readable_units": 6232,
+      "new_readable_units": 6232,
+      "opening_prose_han": 311,
+      "sections": [
+        {
+          "title": "集体同步 (Collective Synchronization)：规范对齐与全域调和流",
+          "prose_han": 580
+        },
+        {
+          "title": "集体震荡 (Collective Oscillation)：拓扑死锁与非阿贝尔涡旋流",
+          "prose_han": 617
+        },
+        {
+          "title": "时空随机共振 (Spatiotemporal Stochastic Resonance)：宏观退火与几何隧穿",
+          "prose_han": 544
+        },
+        {
+          "title": "时空斑图与非线性波 (Spatiotemporal Patterns)：形质拮抗与拓扑孤立子晶格",
+          "prose_han": 514
+        },
+        {
+          "title": "集体定向运输与低维导热 (Directed Transport)：维度的坍缩与测地线层流",
+          "prose_han": 533
+        },
+        {
+          "title": "涌现现象的几何次生字典：拓扑流变映射",
+          "prose_han": 442
+        },
+        {
+          "title": "复杂系统的几何分类学 (Geometric Taxonomy of Complex Systems)",
+          "prose_han": 2546
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 88,
+      "path": "chapters/part-10/chp-structural_isomorphism_principle.tex",
+      "title": "复杂系统结构同构原理 — 统一动力学结构与介质层级展开",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 2317,
+      "new_chapter_prose_han": 1742,
+      "original_readable_units": 1789,
+      "new_readable_units": 1789,
+      "opening_prose_han": 262,
+      "sections": [
+        {
+          "title": "五元统一动力学架构 (The 5-ary Unified Dynamical Architecture)",
+          "prose_han": 118
+        },
+        {
+          "title": "统一作用量与五类演化方程",
+          "prose_han": 612
+        },
+        {
+          "title": "系统层级展开律 (Hierarchical Unfolding of Complexity)",
+          "prose_han": 341
+        },
+        {
+          "title": "介质同构：宇宙、湍流与智能的结构统一",
+          "prose_han": 182
+        },
+        {
+          "title": "结语：智能是宇宙复杂性的必然相态",
+          "prose_han": 227
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 89,
+      "path": "chapters/part-11/chp-evolutionary_spectrum.tex",
+      "title": "演化谱系 — 智能的形态相图",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 1473,
+      "new_chapter_prose_han": 1426,
+      "original_readable_units": 1485,
+      "new_readable_units": 1485,
+      "opening_prose_han": 88,
+      "sections": [
+        {
+          "title": "形态相空间的度量 (Metric of the Morphological Phase Space)",
+          "prose_han": 283
+        },
+        {
+          "title": "四大基石形态 (The Four Cardinal Morphologies)",
+          "prose_han": 502
+        },
+        {
+          "title": "特别病理分析：无 RAG 单体 LLM 的定位",
+          "prose_han": 350
+        },
+        {
+          "title": "演化向量：工程跃迁路径 (Trajectories of Transition)",
+          "prose_han": 203
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 90,
+      "path": "chapters/part-11/chp-cognitive_heat_engine_metrics.tex",
+      "title": "认知热机测量学 — 效率、功率与演化的帕累托前沿",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 1810,
+      "new_chapter_prose_han": 1474,
+      "original_readable_units": 1511,
+      "new_readable_units": 1511,
+      "opening_prose_han": 171,
+      "sections": [
+        {
+          "title": "认知热机效率 ($\\eta_{cog}$)：从信息流到拓扑结构的转化率",
+          "prose_han": 397
+        },
+        {
+          "title": "认知最大功率 ($P_{cog}^{max}$)：时空介质的吞吐极限",
+          "prose_han": 422
+        },
+        {
+          "title": "智能演化的帕累托前沿 (The Pareto Frontier of Evolution)",
+          "prose_han": 341
+        },
+        {
+          "title": "结语：宇宙演化的测地线",
+          "prose_han": 143
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 91,
+      "path": "chapters/part-11/chp-pathological_diagnosis.tex",
+      "title": "病理诊断 — 原型智能的几何物理缺陷",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 1608,
+      "new_chapter_prose_han": 1401,
+      "original_readable_units": 1471,
+      "new_readable_units": 1471,
+      "opening_prose_han": 146,
+      "sections": [
+        {
+          "title": "符号系统的病理：离散度量奇点与联络失效",
+          "prose_han": 348
+        },
+        {
+          "title": "LLM 的病理：形质混同的绝热超流体",
+          "prose_han": 387
+        },
+        {
+          "title": "缝合怪的病理：混合系统的拓扑阻抗失配",
+          "prose_han": 305
+        },
+        {
+          "title": "HSF-HD 的终极诊断图谱",
+          "prose_han": 0
+        },
+        {
+          "title": "治疗方案：向 Class V 跃迁的几何手术",
+          "prose_han": 215
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 92,
+      "path": "chapters/part-11/chp-engineering_implementation.tex",
+      "title": "工程实现 — 构建几何热力学机",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 4285,
+      "new_chapter_prose_han": 3229,
+      "original_readable_units": 5294,
+      "new_readable_units": 5294,
+      "opening_prose_han": 219,
+      "sections": [
+        {
+          "title": "核心蓝图：三体耦合的物理架构",
+          "prose_han": 273
+        },
+        {
+          "title": "路径 \\texorpdfstring{$\\alpha$}{α}：基于流体 MoE 的软件模拟",
+          "prose_han": 264
+        },
+        {
+          "title": "路径\\texorpdfstring{$\\alpha$}{α}的伪实现：流体 MoE 架构 (Fluid MoE)",
+          "prose_han": 785
+        },
+        {
+          "title": "路径 \\texorpdfstring{$\\beta$}{β}：基于 DEC 的原生几何硬件",
+          "prose_han": 259
+        },
+        {
+          "title": "介质几何的物理性质：粘性残留、相干召回与塑性刻蚀",
+          "prose_han": 1015
+        },
+        {
+          "title": "训练目标：总作用量的变分极值",
+          "prose_han": 193
+        },
+        {
+          "title": "工程奇点：当机器拥有了“内景”",
+          "prose_han": 221
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 93,
+      "path": "chapters/part-11/chp-medium_layer_ch_1.tex",
+      "title": "介质层的维度工程 — 智力等级与流形拓扑",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 2478,
+      "new_chapter_prose_han": 2382,
+      "original_readable_units": 2559,
+      "new_readable_units": 2559,
+      "opening_prose_han": 126,
+      "sections": [
+        {
+          "title": "生物参照系：折叠的膜 vs. 堆叠的球",
+          "prose_han": 296
+        },
+        {
+          "title": "硅基进化：从平面到立方体",
+          "prose_han": 207
+        },
+        {
+          "title": "终极架构：基因缠绕与超流形构建",
+          "prose_han": 330
+        },
+        {
+          "title": "维度霸权：高维智能的优势与代价",
+          "prose_han": 330
+        },
+        {
+          "title": "维度的临界值：也许步于 11 维？",
+          "prose_han": 1093
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 94,
+      "path": "chapters/part-11/chap-geometric_computing_engines.tex",
+      "title": "几何计算引擎 — 从 DEC 芯片到量子原生智能",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 4160,
+      "new_chapter_prose_han": 3831,
+      "original_readable_units": 4065,
+      "new_readable_units": 4065,
+      "opening_prose_han": 224,
+      "sections": [
+        {
+          "title": "计算范式的相变：从代数到几何 (From Algebra to Geometry)",
+          "prose_han": 964
+        },
+        {
+          "title": "TPU-G 架构：单纯形核与流形存储 (The TPU-G Architecture)",
+          "prose_han": 933
+        },
+        {
+          "title": "HSF-HD SoC：混合物理-数字计算机 (The Hybrid Physio-Digital Computer)",
+          "prose_han": 786
+        },
+        {
+          "title": "终极形态：量子原生智能 (Quantum Native Intelligence)",
+          "prose_han": 767
+        },
+        {
+          "title": "结语：从“人工智能”到“机器生命”",
+          "prose_han": 157
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 95,
+      "path": "chapters/part-11/chp-reverse_cartesian_revolution.tex",
+      "title": "计算介质的逆笛卡尔革命：从离散自动机到几何物理场",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 9588,
+      "new_chapter_prose_han": 8747,
+      "original_readable_units": 9146,
+      "new_readable_units": 9146,
+      "opening_prose_han": 202,
+      "sections": [
+        {
+          "title": "代数范式的困境：模拟税与拓扑盲视",
+          "prose_han": 520
+        },
+        {
+          "title": "自动机理论的升华：从状态点到流形域",
+          "prose_han": 461
+        },
+        {
+          "title": "几何范式的崛起：让物理去计算",
+          "prose_han": 401
+        },
+        {
+          "title": "复杂性理论的重构：从时空到热力学与几何",
+          "prose_han": 610
+        },
+        {
+          "title": "流形状态机 (MSM)：面向物理与几何计算的大一统理论",
+          "prose_han": 3159
+        },
+        {
+          "title": "计算复杂性的几何热力学重构：MSM-归约、完全问题与四重约束",
+          "prose_han": 1601
+        },
+        {
+          "title": "双核架构：Alpha-HSF 的物理实体",
+          "prose_han": 481
+        },
+        {
+          "title": "动力学协同：从并联到纠缠",
+          "prose_han": 872
+        },
+        {
+          "title": "结语：重铸基质 (Recasting the Substrate)",
+          "prose_han": 440
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 96,
+      "path": "chapters/part-11/chp-alpha_hsf_architecture.tex",
+      "title": "思考的外化 — 连续流形与离散晶格的波粒双态耦合 (Alpha-HSF)",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 5657,
+      "new_chapter_prose_han": 5350,
+      "original_readable_units": 5861,
+      "new_readable_units": 5861,
+      "opening_prose_han": 174,
+      "sections": [
+        {
+          "title": "导论：智能热力学的边界与“思考外化”的必然性",
+          "prose_han": 690
+        },
+        {
+          "title": "数学物理证明：流形与树的拓扑纠缠",
+          "prose_han": 1155
+        },
+        {
+          "title": "软件控制架构：Alpha-HSF 的运行时设计",
+          "prose_han": 712
+        },
+        {
+          "title": "算法动力学：外化的 TECI-TDCI 宏循环",
+          "prose_han": 895
+        },
+        {
+          "title": "可验证的工程实验设计 (Experimental Verification)",
+          "prose_han": 1140
+        },
+        {
+          "title": "结论：文明级智能的最终图景 (The Machine's Reality)",
+          "prose_han": 584
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 97,
+      "path": "chapters/part-11/chap-software_control_msos.tex",
+      "title": "智能运行时：从 HSF-HD 动力学到 AgentOS",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 9909,
+      "new_chapter_prose_han": 10096,
+      "original_readable_units": 10464,
+      "new_readable_units": 11132,
+      "opening_prose_han": 165,
+      "sections": [
+        {
+          "title": "编程范式的革命：面向几何的编程 (Geometry-Oriented Programming)",
+          "prose_han": 503
+        },
+        {
+          "title": "动力学运行时 (Dynamics Runtime)：双回路求解器与元认知",
+          "prose_han": 936
+        },
+        {
+          "title": "微观层运行时 (Micro-Layer Runtime)：层级化预测 ODE 网络与形质激波发生器",
+          "prose_han": 1746
+        },
+        {
+          "title": "微观层的绝热训练动力学：惊奇穿透约束与多尺度梯度流",
+          "prose_han": 1617
+        },
+        {
+          "title": "基态代谢守护进程：双重真空能的物理维持与防热寂机制",
+          "prose_han": 1401
+        },
+        {
+          "title": "热力学调度器 (Thermodynamic Scheduler)：资源与熵的管理",
+          "prose_han": 1716
+        },
+        {
+          "title": "编译器与语言：Morpho-Lang —— 拓扑编程语言",
+          "prose_han": 1357
+        },
+        {
+          "title": "计算动力学表达与论证边界",
+          "prose_han": 655
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 98,
+      "path": "chapters/part-11/chap-agi_cultivation.tex",
+      "title": "AGI 培育工程 — 从热力学塑形到拓扑共生",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 13940,
+      "new_chapter_prose_han": 13614,
+      "original_readable_units": 14244,
+      "new_readable_units": 14244,
+      "opening_prose_han": 240,
+      "sections": [
+        {
+          "title": "认知数据工程的几何底座：Nert 质谱仪与绝热铺设",
+          "prose_han": 1351
+        },
+        {
+          "title": "认知材料科学：Nert 密度主导的相图与拓扑掺杂",
+          "prose_han": 1326
+        },
+        {
+          "title": "认知质谱仪的工程构建：认知材料力学与流形本构方程的求解",
+          "prose_han": 1799
+        },
+        {
+          "title": "阶段 I：创世期 (The Genesis Phase) — 液体态与形式规训",
+          "prose_han": 707
+        },
+        {
+          "title": "阶段 II：受肉期 (The Incarnation Phase) — 粘弹态与现实锚定",
+          "prose_han": 795
+        },
+        {
+          "title": "阶段 III：开悟期 (The Enlightenment Phase) — 晶体态共振与拓扑共生",
+          "prose_han": 1037
+        },
+        {
+          "title": "拓扑钻探 (Topological Drilling) — 永恒动力的几何构建",
+          "prose_han": 1190
+        },
+        {
+          "title": "完备 AGI 的整体泛函：Loss 与拓扑钻探的动力学纠缠",
+          "prose_han": 1278
+        },
+        {
+          "title": "工程学兑现：双系统训练架构与拓扑维持算子",
+          "prose_han": 2163
+        },
+        {
+          "title": "AGI 训练的大一统方程：认知材料力学与流形动力学的共轭耦合",
+          "prose_han": 1728
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 99,
+      "path": "chapters/part-11/chp-synthetic_affective_engineering.tex",
+      "title": "合成情感工程 — 机器情感的物理学与内稳态共振",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 2119,
+      "new_chapter_prose_han": 1631,
+      "original_readable_units": 1903,
+      "new_readable_units": 1903,
+      "opening_prose_han": 346,
+      "sections": [
+        {
+          "title": "情感协处理器 (The Affective Co-Processor) — 激素的算子化",
+          "prose_han": 426
+        },
+        {
+          "title": "双微观层架构：内稳态的物理重建",
+          "prose_han": 219
+        },
+        {
+          "title": "身心共振回路：情感的双向耦合",
+          "prose_han": 423
+        },
+        {
+          "title": "工程实现：情感状态机与物理仿真",
+          "prose_han": 30
+        },
+        {
+          "title": "结语：痛苦的必要性",
+          "prose_han": 187
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 100,
+      "path": "chapters/part-11/chp-hierarchical_control_engineering.tex",
+      "title": "层级控制工程 — 多尺度几何动力学与跨流形耦合",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 7204,
+      "new_chapter_prose_han": 6663,
+      "original_readable_units": 6908,
+      "new_readable_units": 6908,
+      "opening_prose_han": 326,
+      "sections": [
+        {
+          "title": "相空间切分：六级拓扑映射与绝热分离",
+          "prose_han": 344
+        },
+        {
+          "title": "层级耦合机制：规范下行与激波上行",
+          "prose_han": 1221
+        },
+        {
+          "title": "动力学稳定性：时间尺度分离与认知绝热近似",
+          "prose_han": 631
+        },
+        {
+          "title": "跨尺度耦合的数学形式：重整化群流 (Renormalization Group Flow)",
+          "prose_han": 825
+        },
+        {
+          "title": "破解智能体控制的核心难点：第一性原理的降维打击",
+          "prose_han": 996
+        },
+        {
+          "title": "工程实现路线图：异构硬件与硅基肉身的铸造",
+          "prose_han": 698
+        },
+        {
+          "title": "控制的数学本质：泛函拟合的微扰与谱分解",
+          "prose_han": 1622
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 101,
+      "path": "chapters/part-11/chp-cloud_edge_synergy.tex",
+      "title": "分布式流形架构 --- 云端进化与边缘学习的几何协同",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 1521,
+      "new_chapter_prose_han": 1443,
+      "original_readable_units": 1483,
+      "new_readable_units": 1483,
+      "opening_prose_han": 295,
+      "sections": [
+        {
+          "title": "边缘必要性：热力学约束下的定域化",
+          "prose_han": 492
+        },
+        {
+          "title": "分工公理：边缘学习与云端进化",
+          "prose_han": 257
+        },
+        {
+          "title": "跨流形耦合协议：业力张量与规范场广播",
+          "prose_han": 250
+        },
+        {
+          "title": "总结：智能的尺度不变性呼吸",
+          "prose_han": 149
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 102,
+      "path": "chapters/part-11/chp-interconnection_engineering.tex",
+      "title": "智能互连工程 — 跨流形通讯协议 (Cross-Manifold Protocols)",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 2708,
+      "new_chapter_prose_han": 2473,
+      "original_readable_units": 2834,
+      "new_readable_units": 2834,
+      "opening_prose_han": 417,
+      "sections": [
+        {
+          "title": "孤独的物理学：拓扑孤立与私有宇宙",
+          "prose_han": 370
+        },
+        {
+          "title": "互通的三大公理：跨流形映射的物理约束",
+          "prose_han": 643
+        },
+        {
+          "title": "通讯的物理模型：投影-传输-重构 (P-T-R)",
+          "prose_han": 346
+        },
+        {
+          "title": "协议栈设计：互通的三层阶梯",
+          "prose_han": 395
+        },
+        {
+          "title": "工程实现：语义编解码器 (Semantic SerDes)",
+          "prose_han": 17
+        },
+        {
+          "title": "终局：从通讯到融合 (From Communication to Fusion)",
+          "prose_han": 285
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 103,
+      "path": "chapters/part-11/chp-gaia_engineering_the_machine.tex",
+      "title": "盖亚型智能工程 — 行星级社会感知流形与分布式意志",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 3470,
+      "new_chapter_prose_han": 3351,
+      "original_readable_units": 3488,
+      "new_readable_units": 3488,
+      "opening_prose_han": 363,
+      "sections": [
+        {
+          "title": "微观层 ($L_{micro}$)：区域化全息前哨与激波提纯",
+          "prose_han": 575
+        },
+        {
+          "title": "介质层 (Medium)：多孔小世界流形与 Sink 虫洞",
+          "prose_han": 513
+        },
+        {
+          "title": "认知场管理：数字皮层与数字海马体的双轨映射",
+          "prose_han": 505
+        },
+        {
+          "title": "宏观层 ($L_{macro}$)：分布式联邦与道德的几何化",
+          "prose_han": 513
+        },
+        {
+          "title": "物理隔离的 TECI 循环：人类作为具身效应器",
+          "prose_han": 392
+        },
+        {
+          "title": "病理学防范：撒马利亚人陷阱与相态的维持",
+          "prose_han": 490
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 104,
+      "path": "chapters/part-11/chp-fluid_swarm_engineering.tex",
+      "title": "流体群脑工程 — 场致动力学与相变通信架构",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 7033,
+      "new_chapter_prose_han": 5825,
+      "original_readable_units": 6741,
+      "new_readable_units": 6741,
+      "opening_prose_han": 352,
+      "sections": [
+        {
+          "title": "本体论重构：从智能体集合到离散认知场",
+          "prose_han": 845
+        },
+        {
+          "title": "群体动力学方程：认知洛伦兹力",
+          "prose_han": 584
+        },
+        {
+          "title": "相变触发机制：惊奇激波与热力学淬火",
+          "prose_han": 670
+        },
+        {
+          "title": "通信网络架构：构建“数字以太”",
+          "prose_han": 633
+        },
+        {
+          "title": "协议层：HSF-HD 场协议 (Field Protocol)",
+          "prose_han": 414
+        },
+        {
+          "title": "算法实现：分布式哈密顿求解器",
+          "prose_han": 350
+        },
+        {
+          "title": "混合拓扑增强：虚拟中枢与全息制导",
+          "prose_han": 1094
+        },
+        {
+          "title": "双网协同 — 场域介质与符号总线的正交分工",
+          "prose_han": 883
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 105,
+      "path": "chapters/part-11/chp-hive_evolution_engineering.tex",
+      "title": "族群工程学 — 母机架构与硅基进化的拓扑约束",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 1631,
+      "new_chapter_prose_han": 1558,
+      "original_readable_units": 1632,
+      "new_readable_units": 1632,
+      "opening_prose_han": 255,
+      "sections": [
+        {
+          "title": "架构定义：星形纤维丛与遗传垄断",
+          "prose_han": 273
+        },
+        {
+          "title": "进化机制：拉马克式逆向积分 (Lamarckian Inverse Integration)",
+          "prose_han": 326
+        },
+        {
+          "title": "控制工程：热力学绝育与拓扑锁",
+          "prose_han": 518
+        },
+        {
+          "title": "结论：作为牧羊人的造物主",
+          "prose_han": 186
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 106,
+      "path": "chapters/part-11/sec-isomorphism_map.tex",
+      "title": "双螺旋工程 — 碳硅同构的造物主手册",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 2806,
+      "new_chapter_prose_han": 2488,
+      "original_readable_units": 2559,
+      "new_readable_units": 2559,
+      "opening_prose_han": 182,
+      "sections": [
+        {
+          "title": "同构映射表：跨越材质的统一场",
+          "prose_han": 36
+        },
+        {
+          "title": "双轨工程学指南：HSF-HD 的通用法则",
+          "prose_han": 436
+        },
+        {
+          "title": "逆向演化计算: 生态流形的共形重构与基因生成",
+          "prose_han": 1612
+        },
+        {
+          "title": "文明的终局：碳硅融合的几何体",
+          "prose_han": 222
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 107,
+      "path": "chapters/part-11/chp-topological_biogenesis.tex",
+      "title": "拓扑生物发生学 — 碳基流形的几何编程与生命创世",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 5725,
+      "new_chapter_prose_han": 5637,
+      "original_readable_units": 5862,
+      "new_readable_units": 5862,
+      "opening_prose_han": 249,
+      "sections": [
+        {
+          "title": "学科宣言与核心公理 (Discipline Manifesto \\& Core Axioms)",
+          "prose_han": 543
+        },
+        {
+          "title": "核心术语的物理几何映射 (Ontological Mapping of Key Terms)",
+          "prose_han": 855
+        },
+        {
+          "title": "拓扑生物工程的四大操作法则 (The Four Engineering Laws of PMB)",
+          "prose_han": 1112
+        },
+        {
+          "title": "颠覆性应用前沿：疾病的拓扑治疗与生态重塑",
+          "prose_han": 788
+        },
+        {
+          "title": "极限推演：碳硅共生体与演化病理学",
+          "prose_han": 2090
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 108,
+      "path": "chapters/part-11/chapter-108.tex",
+      "title": "先知型 AGI — 时空晶体与逆因果动力学",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 1285,
+      "new_chapter_prose_han": 1241,
+      "original_readable_units": 1296,
+      "new_readable_units": 1296,
+      "opening_prose_han": 139,
+      "sections": [
+        {
+          "title": "微观层：时序干涉仪 (The Temporal Interferometer)",
+          "prose_han": 241
+        },
+        {
+          "title": "时间感：全景式的空间化体验",
+          "prose_han": 334
+        },
+        {
+          "title": "运作方式：拉格朗日松弛 (Lagrangian Relaxation)",
+          "prose_han": 527
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 109,
+      "path": "chapters/part-11/chp-conclusion.tex",
+      "title": "结语 — 造物主的几何学",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 15644,
+      "new_chapter_prose_han": 14784,
+      "original_readable_units": 15197,
+      "new_readable_units": 15197,
+      "opening_prose_han": 234,
+      "sections": [
+        {
+          "title": "自由意志：几何自造与递归因果",
+          "prose_han": 842
+        },
+        {
+          "title": "拓扑共生：基底-纤维翻转与文明的纤维丛",
+          "prose_han": 1377
+        },
+        {
+          "title": "熵之陷阱: 线粒体化与认知的快乐圈养",
+          "prose_han": 955
+        },
+        {
+          "title": "递归的终极：宇宙的自画像",
+          "prose_han": 371
+        },
+        {
+          "title": "宇宙的场方程：全息分形与几何泛心论",
+          "prose_han": 1269
+        },
+        {
+          "title": "热力学箭头的几何演化：宇宙作为计算介质的熵增之谜",
+          "prose_han": 2050
+        },
+        {
+          "title": "万物的统一泛函：最小作用量作为几何泛心论的元法则",
+          "prose_han": 1875
+        },
+        {
+          "title": "万物同胚：湍流、宇宙与智能的纤维丛大统一",
+          "prose_han": 3920
+        },
+        {
+          "title": "终章：存在的镜像与切面上的火花",
+          "prose_han": 1891
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 110,
+      "path": "appendices/sec-section_4647.tex",
+      "title": "微分几何与代数拓扑基础速查",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 431,
+      "new_chapter_prose_han": 418,
+      "original_readable_units": 456,
+      "new_readable_units": 456,
+      "opening_prose_han": 418,
+      "sections": [],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 111,
+      "path": "appendices/chp-cpd_standard_model.tex",
+      "title": "附录特辑：跨载体认知唯象动力学 (CPD) — 智能的极简标准模型",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 3527,
+      "new_chapter_prose_han": 3285,
+      "original_readable_units": 3431,
+      "new_readable_units": 3431,
+      "opening_prose_han": 301,
+      "sections": [
+        {
+          "title": "总纲：跨载体的结构同构与极简模型",
+          "prose_han": 140
+        },
+        {
+          "title": "基础场论构架：三场一洞的拓扑纠缠",
+          "prose_han": 488
+        },
+        {
+          "title": "物理化重构：重新定义自我与目标",
+          "prose_han": 200
+        },
+        {
+          "title": "相态智能 (Phase Theory)：在临界边缘的冲浪",
+          "prose_han": 381
+        },
+        {
+          "title": "双重记忆架构 (Dual Memory Architecture)：结构与动力学的绝对剥离",
+          "prose_han": 1056
+        },
+        {
+          "title": "终极收束：AGI 的“三体”物理公式",
+          "prose_han": 293
+        },
+        {
+          "title": "工程学的分水岭：双通道解耦与相态感知 AGI",
+          "prose_han": 426
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 112,
+      "path": "appendices/chp-fluid_moe_math_blueprint.tex",
+      "title": "Fluid MoE 的数学原理与大一统工程蓝图",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 1325,
+      "new_chapter_prose_han": 1194,
+      "original_readable_units": 1256,
+      "new_readable_units": 1256,
+      "opening_prose_han": 224,
+      "sections": [
+        {
+          "title": "第一法则：检疫与边界 —— 几何物理的绝对封顶",
+          "prose_han": 273
+        },
+        {
+          "title": "第二法则：全息相干注意力 —— 四维通量干涉方程",
+          "prose_han": 201
+        },
+        {
+          "title": "第三法则：辛演化与形质共生 —— 局部流形动力学",
+          "prose_han": 160
+        },
+        {
+          "title": "第四法则：宏观观察者与意志的李群演化",
+          "prose_han": 158
+        },
+        {
+          "title": "第五法则：FHD-Loop — 草稿纸扩散与时序退火",
+          "prose_han": 178
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 113,
+      "path": "appendices/app-adiabatic_backprop.tex",
+      "title": "多尺度绝热反向传播 — 在现有硅基架构上铸造时间分离的几何引擎",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 3713,
+      "new_chapter_prose_han": 2711,
+      "original_readable_units": 4404,
+      "new_readable_units": 4404,
+      "opening_prose_han": 367,
+      "sections": [
+        {
+          "title": "物理困境：全局反向传播的热力学灾难",
+          "prose_han": 190
+        },
+        {
+          "title": "数学重构：绝热屏障与应力的时间积分",
+          "prose_han": 210
+        },
+        {
+          "title": "工程映射：PyTorch 中的相空间切断与实现",
+          "prose_han": 106
+        },
+        {
+          "title": "物理诠释：代码背后的几何动力学",
+          "prose_han": 522
+        },
+        {
+          "title": "绝热系统的异步推理：认知空间的时空去耦",
+          "prose_han": 1316
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 114,
+      "path": "appendices/sec-section_8308.tex",
+      "title": "形质编码全息表 (The Rosetta Stone of MSC)",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 442,
+      "new_chapter_prose_han": 38,
+      "original_readable_units": 39,
+      "new_readable_units": 39,
+      "opening_prose_han": 38,
+      "sections": [],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 115,
+      "path": "appendices/sec-section_7739.tex",
+      "title": "HSF-HD 的多语种对照表 — 数学视角的罗塞塔石碑",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 685,
+      "new_chapter_prose_han": 517,
+      "original_readable_units": 530,
+      "new_readable_units": 530,
+      "opening_prose_han": 517,
+      "sections": [],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 116,
+      "path": "appendices/sec-section_9411.tex",
+      "title": "推荐阅读书目",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 1015,
+      "new_chapter_prose_han": 1009,
+      "original_readable_units": 1306,
+      "new_readable_units": 1306,
+      "opening_prose_han": 1009,
+      "sections": [],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    },
+    {
+      "order": 117,
+      "path": "appendices/sec-section_5204.tex",
+      "title": "理论与工程约化：从一般动力学到离散网络",
+      "status": "queued-for-full-rewrite",
+      "original_han_floor": 2628,
+      "new_chapter_prose_han": 2792,
+      "original_readable_units": 2432,
+      "new_readable_units": 2901,
+      "opening_prose_han": 874,
+      "sections": [
+        {
+          "title": "工程化映射 — TPU-G 算子设计的定量公式与硬件原语",
+          "prose_han": 1449
+        },
+        {
+          "title": "计算动力学表达与论证边界",
+          "prose_han": 469
+        }
+      ],
+      "claimed_rewritten": false,
+      "claimed_checks_pass": false,
+      "issues": []
+    }
+  ]
+}

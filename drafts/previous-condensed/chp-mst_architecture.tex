@@ -1,0 +1,21 @@
+\chapter{MST 架构：结构与内容的联合注意力}
+\label{chp:mst_architecture}
+% Legacy section labels temporarily resolve to the chapter.
+\label{sec:dual_encoder}
+\label{sec:fusion_attention}
+\label{sec:hybrid_decoder}
+\label{sec:mst_complete}
+\label{sec:training_paradigm}
+我们提出形质联合 Transformer（MST）作为结构与属性分解的一种工程实例。架构假设必须通过实验检验，它不是 HSF-HD 唯一可能的实现。
+\section{双通道与类型约束}
+设输入包含 $n$ 个对齐位置，结构通道为 $T\in\mathbb R^{n\times d_s}$，内容通道为 $X\in\mathbb R^{n\times d_x}$。两通道可以使用不同编码器，但位置对应关系必须由数据或对齐模块定义。未经对齐的两个序列不能直接按同一节点索引融合。
+\section{结构引导的内容聚合}
+取 $Q=TW_Q$、$K=XW_K$、$V=XW_V$，其中 $Q,K\in\mathbb R^{n\times d_k}$，$V\in\mathbb R^{n\times d_v}$。定义
+\begin{equation}A=\operatorname{softmax}_{row}\left(\frac{QK^\top}{\sqrt{d_k}}+M(S)\right),\qquad Z=AV.\end{equation}
+掩码 $M(S)$ 表示允许关系，不允许的边可设为负无穷。每一行至少有一个合法位置，才能避免归一化未定义。$A$ 是聚合权重，不是结构与内容在物理意义上的纠缠。
+\section{目标与训练}
+给定结构目标 $S^*$、属性目标 $X^*$ 和任务目标 $y$，可以定义
+\begin{equation}\mathcal L=\lambda_s\ell_s(\widehat S,S^*)+\lambda_x\ell_x(\widehat X,X^*)+\lambda_y\ell_y(r(Z),y)+\lambda_b\ell_b(T,X).\end{equation}
+绑定损失 $\ell_b$ 的正负样本需要符合任务语义；错误的负样本会惩罚合法组合。不同损失项应按尺度设置权重，训练损失下降不保证分解可辨识或域外泛化。
+\section{复杂度与对照实验}
+稠密 $QK^\top$ 仍具有二次交互成本。稀疏关系可以减少实际交互数量，但必须说明稀疏模式和实现。我们以单通道基线、双通道无绑定、关系扰动和跨域测试区分结构分解带来的收益与参数增加带来的收益。

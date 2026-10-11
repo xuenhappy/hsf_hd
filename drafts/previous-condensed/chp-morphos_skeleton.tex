@@ -1,0 +1,19 @@
+\chapter{形：关系结构与语义组织}
+\label{chp:morphos_skeleton}
+% Compatibility anchors: old section references resolve to this chapter.
+\label{sec:morphos_definition}
+\label{sec:s_elements}
+\label{sec:base_manifold}
+\label{sec:cup_example}
+
+我们用“形”描述信息之间的组织关系，包括邻接、顺序、层级和约束。不同任务需要不同结构，不要求统一为一种连续流形。
+\section{离散结构与连续参数}
+在图模型中，结构由节点集合与边集合定义；在固定图上，非负权重 $w_{ij}$ 可以连续更新。对无向图令 $W=W^\top$，$D_{ii}=\sum_jw_{ij}$，图拉普拉斯为 $L=D-W$。由展开平方可得
+\begin{equation}z^\top Lz=\frac12\sum_{i,j}w_{ij}(z_i-z_j)^2\ge0.\end{equation}
+因此 $L$ 半正定，常量向量属于其零空间。若图连通，零空间仅由常量方向构成。这些结论依赖无向和非负权重；有向或带符号关系需要另外分析。
+\section{传播规则由结构约束}
+对于节点活动 $x$，模型 $\dot x=-Lx$ 的差异量逐渐减少。在连通固定图上，它趋于初始状态的均值。这个结果描述一种一致化机制，不自动构成语义推理，因为任务相关的差异可能恰恰需要保留。
+
+推理需要加入内容变换、关系类型和目标偏置。例如 $\dot X=-LX+f_S(X,u,c)$，其中 $f_S$ 可以区分因果、包含和时间关系。结构的表达能力与动力学的任务功能必须分别验证。
+\section{几何作为可选表示}
+当位置存在可微坐标并指定度量时，我们可以使用流形与联络。图距离、嵌入距离和语义距离并非同一对象。只有给出映射和误差约束后，才能以一种距离近似另一种距离。
