@@ -1463,11 +1463,11 @@
       "previous_status": "full-content-restored-awaiting-sectionwise-revision",
       "draft_path": "docs/drafts/chapter-076-draft.tex",
       "draft_checkpoint": "docs/drafts/chapter-076-checkpoint.md",
-      "draft_completed_section_count": 2,
+      "draft_completed_section_count": 5,
       "draft_total_section_count": 14,
       "draft_opening_han": 234,
-      "draft_prose_han": 3220,
-      "draft_next_section": "sec:embryonic_development"
+      "draft_prose_han": 7127,
+      "draft_next_section": "sec:section_8455"
     },
     {
       "path": "chapters/part-10/chp-collective_intelligence.tex",
