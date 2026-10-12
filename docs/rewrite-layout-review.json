@@ -1,9 +1,9 @@
 {
-  "pages": 521,
-  "bytes": 47642942,
+  "pages": 524,
+  "bytes": 47661527,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 460,
+  "numbered_sections": 463,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3226,7 +3226,28 @@
       "prose_lines": 192,
       "calibrated_prose_page_equivalents": 4.276,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "79.1 从容量路径到风险分解：双重下降的可检验对象",
+      "start_pdf_page": 522,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "79.2 插值阈值两侧：谱、信号与优化选择的联合演化",
+      "start_pdf_page": 523,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "79.3 反例、干预与工程闭环：从风险曲线到可部署判断",
+      "start_pdf_page": 524,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 78 chapters; does not validate the full book."
+  "scope": "Review subset: 79 chapters; does not validate the full book."
 }

@@ -1529,9 +1529,19 @@
       "source_start_line": 29418,
       "source_end_line": 29559,
       "source_sha256": "eed1a9a2b33d84cd570f917661300f3be43bd147687ee987b95a466fa18237ab",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-079-checkpoint.md",
+      "draft_path": "docs/drafts/chapter-079-draft.tex",
+      "draft_completed_section_count": 3,
+      "draft_total_section_count": 3,
+      "new_title": "双重下降的计算动力学：谱退化、隐式偏置与风险再下降",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_heading_depth": "chapter-opening-and-numbered-sections",
+      "draft_minimum_section_prose_han": 1000
     },
     {
       "path": "chapters/part-10/chp-topology_of_attention_sink.tex",
