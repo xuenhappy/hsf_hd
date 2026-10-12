@@ -1552,7 +1552,7 @@
       "source_start_line": 29559,
       "source_end_line": 29772,
       "source_sha256": "8071a3cb80e0fbdd5fe91004f598c0d3417a1944fb9cfcf24658e8bec37b4a19",
-      "status": "rewritten-awaiting-layout-review",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
       "previous_status": "full-content-restored-awaiting-sectionwise-revision",
       "draft_checkpoint": "docs/drafts/chapter-080-checkpoint.md",
