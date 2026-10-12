@@ -3,6 +3,7 @@
 - 正式文件：`chapters/part-10/chp-topology_of_attention_sink.tex`
 - 草稿文件：`docs/drafts/chapter-080-draft.tex`（与正式章同步）
 - 已完成：章首语与4个编号小节，4/4
+- 近似汉字计数：章首290；四节分别1106、1074、1053、1133（最终以仓库检查脚本为准）
 - 已迁移全部旧标签：章标签及4个旧节标签
 - 原章无figure
 - 当前状态：`rewritten-awaiting-layout-review`
