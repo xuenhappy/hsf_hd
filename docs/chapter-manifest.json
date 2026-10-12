@@ -1420,7 +1420,7 @@
       "formatting_normalized": true,
       "previous_status": "full-content-restored-awaiting-sectionwise-revision",
       "draft_checkpoint": "docs/drafts/chapter-074-checkpoint.md",
-      "draft_completed_section_count": 2,
+      "draft_completed_section_count": 3,
       "draft_prose_han": 2545,
       "new_title": "智能系统分类：能力剖面、耦合方式与演化路径",
       "rewrite_method": "individually-authored-complete-body",
@@ -1510,7 +1510,7 @@
       "draft_path": "docs/drafts/chapter-078-draft.tex",
       "draft_completed_section_count": 2,
       "draft_total_section_count": 5,
-      "draft_next_label": "sec:section_4389",
+      "draft_next_label": "sec:section_4089",
       "draft_heading_depth": "chapter-opening-and-numbered-sections",
       "draft_minimum_section_prose_han": 1000
     },
