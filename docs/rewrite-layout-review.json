@@ -1,9 +1,9 @@
 {
-  "pages": 502,
-  "bytes": 47531031,
+  "pages": 506,
+  "bytes": 47555560,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 450,
+  "numbered_sections": 455,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3156,7 +3156,42 @@
       "prose_lines": 165,
       "calibrated_prose_page_equivalents": 3.675,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "77.1 粒子作为带状态的搜索代理：对象、信息与观测边界",
+      "start_pdf_page": 503,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "77.2 PSO离散动力学：记忆、社会信息与稳定条件",
+      "start_pdf_page": 504,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "77.3 搜索几何：固定坐标、约束结构与可学习表示",
+      "start_pdf_page": 504,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "77.4 无中心协调的能力与故障：停滞、欺骗与恢复",
+      "start_pdf_page": 505,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "77.5 从群体优化到受治理的多主体搜索",
+      "start_pdf_page": 506,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 76 chapters; does not validate the full book."
+  "scope": "Review subset: 77 chapters; does not validate the full book."
 }

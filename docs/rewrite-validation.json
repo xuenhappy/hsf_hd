@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 76,
-  "pending_chapters": 41,
+  "rewritten_chapters": 77,
+  "pending_chapters": 40,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3028,37 +3028,37 @@
     {
       "order": 77,
       "path": "chapters/part-10/chp-collective_intelligence.tex",
-      "title": "群体智能 (Swarm Intelligence) — 肯尼迪的粒子与无头流体力学",
-      "status": "queued-for-full-rewrite",
+      "title": "群体搜索的计算动力学：局部更新、信息共享与元控制",
+      "status": "rewritten-reviewed",
       "original_han_floor": 2809,
-      "new_chapter_prose_han": 2711,
+      "new_chapter_prose_han": 5449,
       "original_readable_units": 2799,
-      "new_readable_units": 2799,
-      "opening_prose_han": 244,
+      "new_readable_units": 5476,
+      "opening_prose_han": 219,
       "sections": [
         {
-          "title": "粒子的本体论 — VTE 的极简退化",
-          "prose_han": 319
+          "title": "粒子作为带状态的搜索代理：对象、信息与观测边界",
+          "prose_han": 1020
         },
         {
-          "title": "动力学方程的同构 — 狄拉克方程的低能极限",
-          "prose_han": 531
+          "title": "PSO离散动力学：记忆、社会信息与稳定条件",
+          "prose_han": 1021
         },
         {
-          "title": "几何基质的差异 — 冻结的舞台 vs. 呼吸的流形",
-          "prose_han": 355
+          "title": "搜索几何：固定坐标、约束结构与可学习表示",
+          "prose_han": 1094
         },
         {
-          "title": "宏观层的缺失 — 无头系统的热力学悲剧",
-          "prose_han": 668
+          "title": "无中心协调的能力与故障：停滞、欺骗与恢复",
+          "prose_han": 1025
         },
         {
-          "title": "演化终局 — 从粒子群到场智能",
-          "prose_han": 594
+          "title": "从群体优化到受治理的多主体搜索",
+          "prose_han": 1070
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

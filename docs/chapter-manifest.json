@@ -1482,9 +1482,17 @@
       "source_start_line": 27984,
       "source_end_line": 28183,
       "source_sha256": "38df8af6b143b4884676813766c1c9050f5e163ee9c3134eb835844064f58f98",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-077-checkpoint.md",
+      "draft_completed_section_count": 5,
+      "draft_total_section_count": 5,
+      "new_title": "群体搜索的计算动力学：局部更新、信息共享与元控制",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-10/chp-social_artificial_intelligence.tex",
