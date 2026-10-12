@@ -1505,7 +1505,14 @@
       "source_sha256": "4b4f9c623b58ff51043480f521d55b575d5d818b7b3718ffc237a03cc92ebfa1",
       "status": "queued-for-full-rewrite",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-078-checkpoint.md",
+      "draft_path": "docs/drafts/chapter-078-draft.tex",
+      "draft_completed_section_count": 2,
+      "draft_total_section_count": 5,
+      "draft_next_label": "sec:section_4389",
+      "draft_heading_depth": "chapter-opening-and-numbered-sections",
+      "draft_minimum_section_prose_han": 1000
     },
     {
       "path": "chapters/part-10/chap-double_descent.tex",
