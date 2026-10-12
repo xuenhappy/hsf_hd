@@ -76,7 +76,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 75,chapters/part-10/chp-empirical_geometric_dynamics.tex,rewritten-reviewed,5977,6020,6040,6049,5,1102
 76,chapters/part-10/chp-biological_intelligence.tex,rewritten-reviewed,30769,30896,30875,31006,14,1041
 77,chapters/part-10/chp-collective_intelligence.tex,rewritten-reviewed,2809,5449,2799,5476,5,1020
-78,chapters/part-10/chp-social_artificial_intelligence.tex,queued-for-full-rewrite,21011,20408,21452,21452,5,817
+78,chapters/part-10/chp-social_artificial_intelligence.tex,rewritten-reviewed,21011,21407,21452,21473,5,2098
 79,chapters/part-10/chap-double_descent.tex,queued-for-full-rewrite,1863,1684,1746,1746,3,255
 80,chapters/part-10/chp-topology_of_attention_sink.tex,queued-for-full-rewrite,2825,2695,2870,2870,8,228
 81,chapters/part-10/chp-geometric_thermodynamics_of_scale.tex,queued-for-full-rewrite,4730,4321,4489,4489,7,265

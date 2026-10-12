@@ -1,9 +1,9 @@
 {
-  "pages": 506,
-  "bytes": 47555560,
+  "pages": 521,
+  "bytes": 47642942,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 455,
+  "numbered_sections": 460,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3191,7 +3191,42 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "78.1 市场作为制度约束下的分布式估计与资源配置系统",
+      "start_pdf_page": 507,
+      "prose_lines": 68,
+      "calibrated_prose_page_equivalents": 1.514,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "78.2 城市交通作为图上守恒流、意图路由与多时间尺度控制",
+      "start_pdf_page": 509,
+      "prose_lines": 55,
+      "calibrated_prose_page_equivalents": 1.225,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "78.3 现有语言模型：冻结参数上的条件状态传播与证据边界",
+      "start_pdf_page": 510,
+      "prose_lines": 115,
+      "calibrated_prose_page_equivalents": 2.561,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "78.4 训练阶段：数据采样、参数更新与外部闭环",
+      "start_pdf_page": 513,
+      "prose_lines": 136,
+      "calibrated_prose_page_equivalents": 3.029,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "78.5 微调与对齐：受限参数编辑、偏好塑形和部署验证",
+      "start_pdf_page": 517,
+      "prose_lines": 192,
+      "calibrated_prose_page_equivalents": 4.276,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 77 chapters; does not validate the full book."
+  "scope": "Review subset: 78 chapters; does not validate the full book."
 }

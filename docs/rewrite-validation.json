@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 77,
-  "pending_chapters": 40,
+  "rewritten_chapters": 78,
+  "pending_chapters": 39,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3064,37 +3064,37 @@
     {
       "order": 78,
       "path": "chapters/part-10/chp-social_artificial_intelligence.tex",
-      "title": "社会与人造智能解剖 — 干件与硅件",
-      "status": "queued-for-full-rewrite",
+      "title": "社会与人造智能的计算动力学：制度网络、交通流与语言模型",
+      "status": "rewritten-reviewed",
       "original_han_floor": 21011,
-      "new_chapter_prose_han": 20408,
+      "new_chapter_prose_han": 21407,
       "original_readable_units": 21452,
-      "new_readable_units": 21452,
-      "opening_prose_han": 32,
+      "new_readable_units": 21473,
+      "opening_prose_han": 286,
       "sections": [
         {
-          "title": "市场经济 (Market Economy): 无主体的价值流形与热力学博弈",
-          "prose_han": 4387
+          "title": "市场作为制度约束下的分布式估计与资源配置系统",
+          "prose_han": 2455
         },
         {
-          "title": "城市交通系统: 受限费米子流体与拓扑死锁",
-          "prose_han": 1382
+          "title": "城市交通作为图上守恒流、意图路由与多时间尺度控制",
+          "prose_han": 2098
         },
         {
-          "title": "现有 LLM (The Frozen Hologram)：形质混同的概率滑行",
-          "prose_han": 12692
+          "title": "现有语言模型：冻结参数上的条件状态传播与证据边界",
+          "prose_han": 4327
         },
         {
-          "title": "训练阶段 LLM：被动的流变学与外部目的论",
-          "prose_han": 1098
+          "title": "训练阶段：数据采样、参数更新与外部闭环",
+          "prose_han": 5069
         },
         {
-          "title": "微调动力学 (Fine-Tuning Dynamics)：规范场注入与对称性破缺",
-          "prose_han": 817
+          "title": "微调与对齐：受限参数编辑、偏好塑形和部署验证",
+          "prose_han": 7172
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
