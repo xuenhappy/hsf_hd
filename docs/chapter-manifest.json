@@ -1463,11 +1463,11 @@
       "previous_status": "full-content-restored-awaiting-sectionwise-revision",
       "draft_path": "docs/drafts/chapter-076-draft.tex",
       "draft_checkpoint": "docs/drafts/chapter-076-checkpoint.md",
-      "draft_completed_section_count": 8,
+      "draft_completed_section_count": 11,
       "draft_total_section_count": 14,
       "draft_opening_han": 234,
-      "draft_prose_han": 10810,
-      "draft_next_section": "sec:neuromodulator_physics"
+      "draft_prose_han": 14239,
+      "draft_next_section": "sec:section_8427"
     },
     {
       "path": "chapters/part-10/chp-collective_intelligence.tex",
