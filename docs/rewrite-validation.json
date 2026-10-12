@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 75,
-  "pending_chapters": 42,
+  "rewritten_chapters": 76,
+  "pending_chapters": 41,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -2956,73 +2956,73 @@
     {
       "order": 76,
       "path": "chapters/part-10/chp-biological_intelligence.tex",
-      "title": "生物智能解剖 — 湿件的策略",
-      "status": "queued-for-full-rewrite",
+      "title": "生物智能的计算动力学：从细胞闭环到分布式适应",
+      "status": "rewritten-reviewed",
       "original_han_floor": 30769,
-      "new_chapter_prose_han": 29846,
+      "new_chapter_prose_han": 30896,
       "original_readable_units": 30875,
-      "new_readable_units": 30875,
-      "opening_prose_han": 74,
+      "new_readable_units": 31006,
+      "opening_prose_han": 234,
       "sections": [
         {
-          "title": "单细胞 (The Cell) : 最小的几何热力学机",
-          "prose_han": 2909
+          "title": "单细胞：有界反应网络中的感知、控制与结构更新",
+          "prose_han": 1833
         },
         {
-          "title": "单细胞的双流形叠加: 快慢动力系统的几何耦合",
-          "prose_han": 1620
+          "title": "单细胞的快慢耦合：时间尺度、反馈与可辨识边界",
+          "prose_han": 1387
         },
         {
-          "title": "胚胎发育 (Embryogenesis): 沃丁顿景观的几何动力学",
-          "prose_han": 1747
+          "title": "胚胎发育：状态可达域、位置信号与命运提交",
+          "prose_han": 1316
         },
         {
-          "title": "进化的本质：双流形的几何对齐与人类的主动重构",
-          "prose_han": 2669
+          "title": "进化动力学：种群更新、生态位建构与人机共适应",
+          "prose_han": 1203
         },
         {
-          "title": "实证案例：AlphaFold 与基因-蛋白的形质解构",
-          "prose_han": 1247
+          "title": "AlphaFold案例：序列、成对关系与三维结构读出",
+          "prose_han": 1154
         },
         {
-          "title": "蚁群 (Ant Colony)：化学场驱动的耗散流体与无头几何",
-          "prose_han": 2633
+          "title": "蚁群：外化记忆、场耦合与群体容量",
+          "prose_han": 1076
         },
         {
-          "title": "萤火虫(Firefly): 集体锁相与无头共振场",
-          "prose_han": 1943
+          "title": "萤火虫：局部相位响应与群体同步边界",
+          "prose_han": 1072
         },
         {
-          "title": "人脑的 HSF-HD 解剖: 流形、度量与双流场",
-          "prose_han": 4928
+          "title": "人脑：局部结构网络、分布状态与分层控制",
+          "prose_han": 1491
         },
         {
-          "title": "湿件的超参数: 神经调质的几何物理学",
-          "prose_han": 1311
+          "title": "神经调质：状态依赖的增益、门控与学习率",
+          "prose_han": 1172
         },
         {
-          "title": "相位瓶颈与维度视界: 人脑工作记忆的波动光学极限",
-          "prose_han": 970
+          "title": "工作记忆：任务相关绑定、干扰与容量边界",
+          "prose_han": 1041
         },
         {
-          "title": "能量的枯竭与降维：低能量态下的人脑相变与社会流形的剥离",
-          "prose_han": 2357
+          "title": "低资源状态：生理约束、控制重分配与恢复",
+          "prose_han": 1260
         },
         {
-          "title": "乌鸦的 HSF-HD 解剖: 高密核团与逾渗场",
-          "prose_han": 1576
+          "title": "乌鸦：核团网络、事件传播与紧凑认知",
+          "prose_han": 5794
         },
         {
-          "title": "章鱼 (The Octopus)：具身化的联邦式智能孤岛",
-          "prose_han": 2107
+          "title": "章鱼：中央意图、腕足自治与形态计算",
+          "prose_han": 5081
         },
         {
-          "title": "植物菌丝网络 (The Mycelial Network)：无头的水力经济流形",
-          "prose_han": 1755
+          "title": "菌丝—植物网络：生长图、物质输运与生态反馈",
+          "prose_han": 5782
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

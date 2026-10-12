@@ -1,9 +1,9 @@
 {
-  "pages": 477,
-  "bytes": 35458070,
+  "pages": 502,
+  "bytes": 47531031,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 436,
+  "numbered_sections": 450,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3058,7 +3058,105 @@
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "76.1 单细胞：有界反应网络中的感知、控制与结构更新",
+      "start_pdf_page": 478,
+      "prose_lines": 48,
+      "calibrated_prose_page_equivalents": 1.069,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.2 单细胞的快慢耦合：时间尺度、反馈与可辨识边界",
+      "start_pdf_page": 479,
+      "prose_lines": 37,
+      "calibrated_prose_page_equivalents": 0.824,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.3 胚胎发育：状态可达域、位置信号与命运提交",
+      "start_pdf_page": 480,
+      "prose_lines": 35,
+      "calibrated_prose_page_equivalents": 0.779,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.4 进化动力学：种群更新、生态位建构与人机共适应",
+      "start_pdf_page": 481,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.5 AlphaFold案例：序列、成对关系与三维结构读出",
+      "start_pdf_page": 482,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.6 蚁群：外化记忆、场耦合与群体容量",
+      "start_pdf_page": 483,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.7 萤火虫：局部相位响应与群体同步边界",
+      "start_pdf_page": 484,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.8 人脑：局部结构网络、分布状态与分层控制",
+      "start_pdf_page": 485,
+      "prose_lines": 41,
+      "calibrated_prose_page_equivalents": 0.913,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.9 神经调质：状态依赖的增益、门控与学习率",
+      "start_pdf_page": 486,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.10 工作记忆：任务相关绑定、干扰与容量边界",
+      "start_pdf_page": 487,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.11 低资源状态：生理约束、控制重分配与恢复",
+      "start_pdf_page": 488,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.12 乌鸦：核团网络、事件传播与紧凑认知",
+      "start_pdf_page": 489,
+      "prose_lines": 160,
+      "calibrated_prose_page_equivalents": 3.563,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.13 章鱼：中央意图、腕足自治与形态计算",
+      "start_pdf_page": 493,
+      "prose_lines": 147,
+      "calibrated_prose_page_equivalents": 3.274,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "76.14 菌丝—植物网络：生长图、物质输运与生态反馈",
+      "start_pdf_page": 497,
+      "prose_lines": 165,
+      "calibrated_prose_page_equivalents": 3.675,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 75 chapters; does not validate the full book."
+  "scope": "Review subset: 76 chapters; does not validate the full book."
 }
