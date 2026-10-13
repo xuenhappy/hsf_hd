@@ -84,7 +84,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 83,chapters/part-10/chp-training_paradigm_original_sin.tex,rewritten-reviewed,2605,5726,2616,5746,4,1284
 84,chapters/part-10/chp-diffusion_thermodynamics.tex,rewritten-reviewed,3800,6005,3808,6053,5,1015
 85,chapters/part-10/chp-embodied_intelligence_anatomy.tex,rewritten-reviewed,3703,6775,3819,6824,6,1041
-86,chapters/part-10/chp-degeneration_limit_weather_system.tex,queued-for-full-rewrite,2287,2205,2251,2251,4,433
+86,chapters/part-10/chp-degeneration_limit_weather_system.tex,rewritten-reviewed,2287,4944,2251,4973,4,1107
 87,chapters/part-10/chp-geometry_of_emergence.tex,queued-for-full-rewrite,7145,6087,6232,6232,7,442
 88,chapters/part-10/chp-structural_isomorphism_principle.tex,queued-for-full-rewrite,2317,1742,1789,1789,5,118
 89,chapters/part-11/chp-evolutionary_spectrum.tex,queued-for-full-rewrite,1473,1426,1485,1485,4,203
