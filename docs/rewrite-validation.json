@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 82,
-  "pending_chapters": 35,
+  "rewritten_chapters": 83,
+  "pending_chapters": 34,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3236,33 +3236,33 @@
     {
       "order": 83,
       "path": "chapters/part-10/chp-training_paradigm_original_sin.tex",
-      "title": "LLM训练范式的几何原罪 — 维度坍缩与非对易性的湮灭",
-      "status": "queued-for-full-rewrite",
+      "title": "训练顺序的计算动力学：时间索引、路径依赖与持续学习",
+      "status": "rewritten-reviewed",
       "original_han_floor": 2605,
-      "new_chapter_prose_han": 2506,
+      "new_chapter_prose_han": 5726,
       "original_readable_units": 2616,
-      "new_readable_units": 2616,
-      "opening_prose_han": 184,
+      "new_readable_units": 5746,
+      "opening_prose_han": 240,
       "sections": [
         {
-          "title": "维度残缺：缺失的 “+1” 维度与永恒当下的囚徒",
-          "prose_han": 618
+          "title": "时间不是额外坐标：事件索引、版本状态与可查询历史",
+          "prose_han": 1460
         },
         {
-          "title": "随机洗牌的热力学粉碎：非对易性的湮灭",
-          "prose_han": 731
+          "title": "样本排序与非对易更新：何时顺序会留下可测差异",
+          "prose_han": 1284
         },
         {
-          "title": "因果律的统计学退化：热力学时间箭头的缺失",
-          "prose_han": 310
+          "title": "从时间相关到因果证据：观测、干预与反事实的分层训练",
+          "prose_han": 1296
         },
         {
-          "title": "迈向 Class V 的训练重构：重铸时间与因果的几何学",
-          "prose_han": 663
+          "title": "持续学习的训练重构：课程、记忆、可塑性与安全提交",
+          "prose_han": 1446
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

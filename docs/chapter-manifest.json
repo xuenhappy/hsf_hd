@@ -1621,9 +1621,19 @@
       "source_start_line": 30397,
       "source_end_line": 30545,
       "source_sha256": "92ca458c1605f012e85da6eb968420f26f733d98c4f7eebbec3020bce8834091",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-083-checkpoint.md",
+      "draft_path": "docs/drafts/chapter-083-draft.tex",
+      "draft_completed_section_count": 4,
+      "draft_total_section_count": 4,
+      "new_title": "训练顺序的计算动力学：时间索引、路径依赖与持续学习",
+      "draft_heading_depth": "chapter-opening-and-numbered-sections",
+      "draft_minimum_section_prose_han": 1000,
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000
     },
     {
       "path": "chapters/part-10/chp-diffusion_thermodynamics.tex",

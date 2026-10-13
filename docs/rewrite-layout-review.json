@@ -1,9 +1,9 @@
 {
-  "pages": 539,
-  "bytes": 47758397,
+  "pages": 543,
+  "bytes": 47783762,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 478,
+  "numbered_sections": 482,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3352,7 +3352,35 @@
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "83.1 时间不是额外坐标：事件索引、版本状态与可查询历史",
+      "start_pdf_page": 540,
+      "prose_lines": 39,
+      "calibrated_prose_page_equivalents": 0.869,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "83.2 样本排序与非对易更新：何时顺序会留下可测差异",
+      "start_pdf_page": 541,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "83.3 从时间相关到因果证据：观测、干预与反事实的分层训练",
+      "start_pdf_page": 542,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "83.4 持续学习的训练重构：课程、记忆、可塑性与安全提交",
+      "start_pdf_page": 542,
+      "prose_lines": 38,
+      "calibrated_prose_page_equivalents": 0.846,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 82 chapters; does not validate the full book."
+  "scope": "Review subset: 83 chapters; does not validate the full book."
 }

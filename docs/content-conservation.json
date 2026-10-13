@@ -1,9 +1,9 @@
 {
   "checks_passed": true,
-  "original_complete_chapters_verified": 35,
-  "fully_rewritten_chapters_length_verified": 82,
+  "original_complete_chapters_verified": 34,
+  "fully_rewritten_chapters_length_verified": 83,
   "baseline_chapter_chinese_characters": 568727,
-  "current_chapter_chinese_characters": 755899,
+  "current_chapter_chinese_characters": 759130,
   "scope": "Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.",
   "chapters": [
     {
@@ -664,11 +664,11 @@
     },
     {
       "path": "chapters/part-10/chp-training_paradigm_original_sin.tex",
-      "original_exposition_preserved": true,
-      "validation_mode": "original-exposition-conservation",
+      "original_exposition_preserved": false,
+      "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 2605,
-      "current_chinese_characters": 2605
+      "current_chinese_characters": 5836
     },
     {
       "path": "chapters/part-10/chp-diffusion_thermodynamics.tex",

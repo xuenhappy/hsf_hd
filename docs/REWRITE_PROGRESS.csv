@@ -81,7 +81,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 80,chapters/part-10/chp-topology_of_attention_sink.tex,rewritten-reviewed,2825,4653,2870,4674,4,1050
 81,chapters/part-10/chp-geometric_thermodynamics_of_scale.tex,rewritten-reviewed,4730,5411,4489,5435,5,1008
 82,chapters/part-10/chp-civilization_scaling_law.tex,rewritten-reviewed,6372,7115,6442,7122,6,1049
-83,chapters/part-10/chp-training_paradigm_original_sin.tex,queued-for-full-rewrite,2605,2506,2616,2616,4,310
+83,chapters/part-10/chp-training_paradigm_original_sin.tex,rewritten-reviewed,2605,5726,2616,5746,4,1284
 84,chapters/part-10/chp-diffusion_thermodynamics.tex,queued-for-full-rewrite,3800,3672,3808,3808,5,502
 85,chapters/part-10/chp-embodied_intelligence_anatomy.tex,queued-for-full-rewrite,3703,3605,3819,3819,6,421
 86,chapters/part-10/chp-degeneration_limit_weather_system.tex,queued-for-full-rewrite,2287,2205,2251,2251,4,433
