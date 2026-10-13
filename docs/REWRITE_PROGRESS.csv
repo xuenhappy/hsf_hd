@@ -79,7 +79,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 78,chapters/part-10/chp-social_artificial_intelligence.tex,rewritten-reviewed,21011,21407,21452,21473,5,2098
 79,chapters/part-10/chap-double_descent.tex,rewritten-reviewed,1863,3622,1746,3634,3,1068
 80,chapters/part-10/chp-topology_of_attention_sink.tex,rewritten-reviewed,2825,4653,2870,4674,4,1050
-81,chapters/part-10/chp-geometric_thermodynamics_of_scale.tex,queued-for-full-rewrite,4730,4321,4489,4489,7,265
+81,chapters/part-10/chp-geometric_thermodynamics_of_scale.tex,rewritten-reviewed,4730,5411,4489,5435,5,1008
 82,chapters/part-10/chp-civilization_scaling_law.tex,queued-for-full-rewrite,6372,6230,6442,6442,6,486
 83,chapters/part-10/chp-training_paradigm_original_sin.tex,queued-for-full-rewrite,2605,2506,2616,2616,4,310
 84,chapters/part-10/chp-diffusion_thermodynamics.tex,queued-for-full-rewrite,3800,3672,3808,3808,5,502

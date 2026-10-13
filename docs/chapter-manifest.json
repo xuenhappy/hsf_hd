@@ -1575,9 +1575,19 @@
       "source_start_line": 29772,
       "source_end_line": 30087,
       "source_sha256": "02aee152202010f29502f34881b003c299831050bdbc711cd61d98d970d725d7",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-081-checkpoint.md",
+      "draft_path": "docs/drafts/chapter-081-draft.tex",
+      "draft_completed_section_count": 5,
+      "draft_total_section_count": 5,
+      "new_title": "规模的计算动力学：资源缩放、结构转变与能力边界",
+      "draft_heading_depth": "chapter-opening-and-numbered-sections",
+      "draft_minimum_section_prose_han": 1000,
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000
     },
     {
       "path": "chapters/part-10/chp-civilization_scaling_law.tex",

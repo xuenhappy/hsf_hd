@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 80,
-  "pending_chapters": 37,
+  "rewritten_chapters": 81,
+  "pending_chapters": 36,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3160,45 +3160,37 @@
     {
       "order": 81,
       "path": "chapters/part-10/chp-geometric_thermodynamics_of_scale.tex",
-      "title": "规模的几何热力学 — Scaling Law 的物理本质与多重拓扑相变",
-      "status": "queued-for-full-rewrite",
+      "title": "规模的计算动力学：资源缩放、结构转变与能力边界",
+      "status": "rewritten-reviewed",
       "original_han_floor": 4730,
-      "new_chapter_prose_han": 4321,
+      "new_chapter_prose_han": 5411,
       "original_readable_units": 4489,
-      "new_readable_units": 4489,
-      "opening_prose_han": 437,
+      "new_readable_units": 5435,
+      "opening_prose_han": 252,
       "sections": [
         {
-          "title": "规模暴涨的几何本质：连续统极限与应力稀释",
-          "prose_han": 610
+          "title": "规模对象：资源向量、训练轨迹与有效自由度",
+          "prose_han": 1042
         },
         {
-          "title": "拓扑逾渗：逻辑推理能力的阶跃涌现",
-          "prose_han": 331
+          "title": "结构转变与能力涌现：从逾渗假说到干预证据",
+          "prose_han": 1047
         },
         {
-          "title": "Scaling Law 的统一场方程：多重平台期与临界阈值",
-          "prose_han": 1119
+          "title": "LLM内禀尺度：深度、宽度、上下文与概念结构",
+          "prose_han": 1015
         },
         {
-          "title": "LLM 规模的几何物理定义：从参数堆砌到流形张成",
-          "prose_han": 560
+          "title": "能力曲面：多任务前沿、门槛与可反驳预测",
+          "prose_han": 1047
         },
         {
-          "title": "概念簇数 $N$ 与关联度 $d$ 的拓扑严格化",
-          "prose_han": 457
-        },
-        {
-          "title": "LLM 内禀能力场方程与多重平台期阈值",
-          "prose_han": 265
-        },
-        {
-          "title": "揭秘“算力墙”：参数量 $N_{param}$ 的热力学错觉",
-          "prose_han": 542
+          "title": "算力墙与工程选择：从参数堆砌到受约束扩展",
+          "prose_han": 1008
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

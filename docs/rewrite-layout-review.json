@@ -1,9 +1,9 @@
 {
-  "pages": 529,
-  "bytes": 47691229,
+  "pages": 534,
+  "bytes": 47725251,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 467,
+  "numbered_sections": 472,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3275,7 +3275,42 @@
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "81.1 规模对象：资源向量、训练轨迹与有效自由度",
+      "start_pdf_page": 530,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "81.2 结构转变与能力涌现：从逾渗假说到干预证据",
+      "start_pdf_page": 531,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "81.3 LLM内禀尺度：深度、宽度、上下文与概念结构",
+      "start_pdf_page": 531,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "81.4 能力曲面：多任务前沿、门槛与可反驳预测",
+      "start_pdf_page": 532,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "81.5 算力墙与工程选择：从参数堆砌到受约束扩展",
+      "start_pdf_page": 533,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 80 chapters; does not validate the full book."
+  "scope": "Review subset: 81 chapters; does not validate the full book."
 }
