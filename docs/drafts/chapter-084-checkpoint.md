@@ -1,9 +1,8 @@
 # 第84章分段重写检查点
 
-- 正式文件：`chapters/part-10/chp-diffusion_thermodynamics.tex`（保持完整恢复稿）
+- 正式文件：`chapters/part-10/chp-diffusion_thermodynamics.tex`（已由完整草稿替换）
 - 草稿文件：`docs/drafts/chapter-084-draft.tex`
-- 已完成：章首语238汉字与第1个编号小节`sec:forward_process_heat_death`的1283汉字实质正文；草稿合计1521汉字
-- 已迁移标签：章标签`chp:diffusion_thermodynamics`、节标签`sec:forward_process_heat_death`
-- 本节重建：把“热寂、拓扑孤立子、正向里奇流”改写为有明确空间、维度、步长和近似条件的离散高斯核与连续SDE；区分算法时间、场景时间和记录时间，并区分微分熵、可辨识信息、方差及实际能耗
-- 当前状态：分段草稿，正式章继续标记`queued-for-full-rewrite`，不计入完成累计
-- 精确续写点：第2节`sec:reverse_sde_cefe`，重建反向SDE、得分估计及其识别边界
+- 已完成：章首语与5个编号小节，全部旧节标签已迁移
+- 全章重建：把热寂、恢复力、提示词规范场、DiT拓扑灾难与绝对形质解耦，改写为前向核、反向得分估计、条件引导、联合失效归因与结构—内容绑定
+- 当前状态：全文、编译、布局脚本与物理页544—548逐页复核均通过，标记`rewritten-reviewed`
+- 下一章：order=85，`chapters/part-10/chp-embodied_intelligence_anatomy.tex`
