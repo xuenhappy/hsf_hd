@@ -1,9 +1,9 @@
 {
-  "pages": 534,
-  "bytes": 47725251,
+  "pages": 539,
+  "bytes": 47758397,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 472,
+  "numbered_sections": 478,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3310,7 +3310,49 @@
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "82.1 社会系统的状态基质：人口、关系与制度接口",
+      "start_pdf_page": 535,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "82.2 文明能力方程：从单一总量到条件化能力组合",
+      "start_pdf_page": 536,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "82.3 互联网的双重动力学：距离压缩、注意瓶颈与平台控制",
+      "start_pdf_page": 536,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "82.4 规模陷阱与治理能力：拥堵、集中和可恢复性",
+      "start_pdf_page": 537,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "82.5 人机协作的结构重构：异质节点、权限与独立性",
+      "start_pdf_page": 538,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "82.6 有效多样性与文明韧性：互补、冗余和持续学习",
+      "start_pdf_page": 539,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 81 chapters; does not validate the full book."
+  "scope": "Review subset: 82 chapters; does not validate the full book."
 }

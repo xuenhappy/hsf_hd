@@ -1598,9 +1598,19 @@
       "source_start_line": 30087,
       "source_end_line": 30397,
       "source_sha256": "767a8be39da49632e24650dac3366fd559791cc7b33edf733e86cc49abd15e40",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-082-checkpoint.md",
+      "draft_path": "docs/drafts/chapter-082-draft.tex",
+      "draft_completed_section_count": 6,
+      "draft_total_section_count": 6,
+      "new_title": "文明规模的计算动力学：人口、网络与制度能力",
+      "draft_heading_depth": "chapter-opening-and-numbered-sections",
+      "draft_minimum_section_prose_han": 1000,
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000
     },
     {
       "path": "chapters/part-10/chp-training_paradigm_original_sin.tex",

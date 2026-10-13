@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 81,
-  "pending_chapters": 36,
+  "rewritten_chapters": 82,
+  "pending_chapters": 35,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3196,41 +3196,41 @@
     {
       "order": 82,
       "path": "chapters/part-10/chp-civilization_scaling_law.tex",
-      "title": "文明的缩放定律 — 社会流形的几何演化与互联网相变",
-      "status": "queued-for-full-rewrite",
+      "title": "文明规模的计算动力学：人口、网络与制度能力",
+      "status": "rewritten-reviewed",
       "original_han_floor": 6372,
-      "new_chapter_prose_han": 6230,
+      "new_chapter_prose_han": 7115,
       "original_readable_units": 6442,
-      "new_readable_units": 6442,
-      "opening_prose_han": 332,
+      "new_readable_units": 7122,
+      "opening_prose_han": 229,
       "sections": [
         {
-          "title": "社会流形的几何基质：人口与连通度的张量网络",
-          "prose_han": 526
+          "title": "社会系统的状态基质：人口、关系与制度接口",
+          "prose_han": 1204
         },
         {
-          "title": "文明能力方程的重构：多重社会相变",
-          "prose_han": 517
+          "title": "文明能力方程：从单一总量到条件化能力组合",
+          "prose_han": 1118
         },
         {
-          "title": "互联网的物理本质：流形度量张量的瞬间坍缩",
-          "prose_han": 486
+          "title": "互联网的双重动力学：距离压缩、注意瓶颈与平台控制",
+          "prose_han": 1137
         },
         {
-          "title": "大国博弈的热力学：规模陷阱与维度升维",
-          "prose_han": 531
+          "title": "规模陷阱与治理能力：拥堵、集中和可恢复性",
+          "prose_han": 1049
         },
         {
-          "title": "AGI 纪元的拓扑重构：硅基节点的涌现与社会流形的超维相变",
-          "prose_han": 1497
+          "title": "人机协作的结构重构：异质节点、权限与独立性",
+          "prose_han": 1090
         },
         {
-          "title": "文明的有效维度 ($d_{\\text{eff}}$)：社会流形的拓扑解结与正交容量",
-          "prose_han": 2341
+          "title": "有效多样性与文明韧性：互补、冗余和持续学习",
+          "prose_han": 1288
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
