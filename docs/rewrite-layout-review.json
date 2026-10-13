@@ -1,9 +1,9 @@
 {
-  "pages": 548,
-  "bytes": 47813504,
+  "pages": 553,
+  "bytes": 47844303,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 487,
+  "numbered_sections": 493,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3415,7 +3415,49 @@
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "85.1 端到端 VLA 的适用范围与失效诊断",
+      "start_pdf_page": 549,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "85.2 生物功能分工的启发与类比边界",
+      "start_pdf_page": 550,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "85.3 宏观层：意图约束与任务状态更新",
+      "start_pdf_page": 550,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "85.4 微观层：身体模型、约束优化与接触闭环",
+      "start_pdf_page": 551,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "85.5 层间协议：约束下发、异常上报与因果闭环",
+      "start_pdf_page": 552,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "85.6 从拟合动作到利用身体：边界、实现与结论",
+      "start_pdf_page": 553,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 84 chapters; does not validate the full book."
+  "scope": "Review subset: 85 chapters; does not validate the full book."
 }

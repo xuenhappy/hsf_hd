@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 84,
-  "pending_chapters": 33,
+  "rewritten_chapters": 85,
+  "pending_chapters": 32,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3304,41 +3304,41 @@
     {
       "order": 85,
       "path": "chapters/part-10/chp-embodied_intelligence_anatomy.tex",
-      "title": "具身智能解剖 — VLA 的病理与数字小脑的几何重构",
-      "status": "queued-for-full-rewrite",
+      "title": "具身智能的分层计算动力学：意图、身体模型与闭环控制",
+      "status": "rewritten-reviewed",
       "original_han_floor": 3703,
-      "new_chapter_prose_han": 3605,
+      "new_chapter_prose_han": 6775,
       "original_readable_units": 3819,
-      "new_readable_units": 3819,
-      "opening_prose_han": 236,
+      "new_readable_units": 6824,
+      "opening_prose_han": 244,
       "sections": [
         {
-          "title": "诊断：端到端 VLA 的几何病理学",
-          "prose_han": 652
+          "title": "端到端 VLA 的适用范围与失效诊断",
+          "prose_han": 1159
         },
         {
-          "title": "生物学参照：皮层与小脑的拓扑分工",
-          "prose_han": 516
+          "title": "生物功能分工的启发与类比边界",
+          "prose_han": 1063
         },
         {
-          "title": "HSF-HD 架构设计 I：宏观层（大脑） — 意图与规范场",
-          "prose_han": 524
+          "title": "宏观层：意图约束与任务状态更新",
+          "prose_han": 1062
         },
         {
-          "title": "HSF-HD 架构设计 II：微观层（小脑） — 动力学与接触",
-          "prose_han": 620
+          "title": "微观层：身体模型、约束优化与接触闭环",
+          "prose_han": 1042
         },
         {
-          "title": "交互协议：形质分离的 TECI 循环",
-          "prose_han": 636
+          "title": "层间协议：约束下发、异常上报与因果闭环",
+          "prose_han": 1164
         },
         {
-          "title": "总结：从拟合物理到利用物理",
-          "prose_han": 421
+          "title": "从拟合动作到利用身体：边界、实现与结论",
+          "prose_han": 1041
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
