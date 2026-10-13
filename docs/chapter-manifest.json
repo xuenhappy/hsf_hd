@@ -1646,7 +1646,13 @@
       "source_sha256": "4ece0db4142a198e91148e0b4e7181f0619f6534c7fd57f936631927803c56e7",
       "status": "queued-for-full-rewrite",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "draft_checkpoint": "docs/drafts/chapter-084-checkpoint.md",
+      "draft_path": "docs/drafts/chapter-084-draft.tex",
+      "draft_completed_section_count": 1,
+      "draft_total_section_count": 5,
+      "draft_heading_depth": "chapter-opening-and-numbered-sections",
+      "draft_minimum_section_prose_han": 1000
     },
     {
       "path": "chapters/part-10/chp-embodied_intelligence_anatomy.tex",
