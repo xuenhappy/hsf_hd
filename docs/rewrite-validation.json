@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 90,
-  "pending_chapters": 27,
+  "rewritten_chapters": 91,
+  "pending_chapters": 26,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3520,37 +3520,37 @@
     {
       "order": 91,
       "path": "chapters/part-11/chp-pathological_diagnosis.tex",
-      "title": "病理诊断 — 原型智能的几何物理缺陷",
-      "status": "queued-for-full-rewrite",
+      "title": "智能系统的计算病理学：失效表型、因果定位与结构修复",
+      "status": "rewritten-reviewed",
       "original_han_floor": 1608,
-      "new_chapter_prose_han": 1401,
+      "new_chapter_prose_han": 5844,
       "original_readable_units": 1471,
-      "new_readable_units": 1471,
-      "opening_prose_han": 146,
+      "new_readable_units": 5882,
+      "opening_prose_han": 308,
       "sections": [
         {
-          "title": "符号系统的病理：离散度量奇点与联络失效",
-          "prose_han": 348
+          "title": "符号系统的病理：从离散表示到邻域失配",
+          "prose_han": 1111
         },
         {
-          "title": "LLM 的病理：形质混同的绝热超流体",
-          "prose_han": 387
+          "title": "语言模型的病理：分布预测、约束读出与记忆错位",
+          "prose_han": 1113
         },
         {
-          "title": "缝合怪的病理：混合系统的拓扑阻抗失配",
-          "prose_han": 305
+          "title": "混合智能体的病理：接口压缩、时序竞争与闭环振荡",
+          "prose_han": 1039
         },
         {
-          "title": "HSF-HD 的终极诊断图谱",
-          "prose_han": 0
+          "title": "HSF-HD诊断图谱：从表型矩阵到因果证据",
+          "prose_han": 1113
         },
         {
-          "title": "治疗方案：向 Class V 跃迁的几何手术",
-          "prose_han": 215
+          "title": "治疗方案：分阶段修复、验证与安全回退",
+          "prose_han": 1160
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

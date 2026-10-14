@@ -1783,9 +1783,15 @@
       "source_start_line": 32102,
       "source_end_line": 32232,
       "source_sha256": "9387301073eb74a811351793304920782c62c1989b9c926b8ae08873bc12b6d8",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "智能系统的计算病理学：失效表型、因果定位与结构修复",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-091-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-engineering_implementation.tex",
@@ -2133,3 +2139,4 @@
   "recovery_note": "All 117 complete baseline chapter bodies restored; 16 computational analyses are additions, not replacements. Original prefaces and 14 volume/part lead-ins restored.",
   "rewrite_protocol": "2026-10-05 full chapter rewrite; no original chapter length decrease; two-level chapter/section headings; substantive half-page sections."
 }
+

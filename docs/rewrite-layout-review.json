@@ -1,9 +1,9 @@
 {
-  "pages": 579,
-  "bytes": 49983212,
+  "pages": 584,
+  "bytes": 50010914,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 517,
+  "numbered_sections": 522,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3625,7 +3625,42 @@
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "91.1 符号系统的病理：从离散表示到邻域失配",
+      "start_pdf_page": 580,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "91.2 语言模型的病理：分布预测、约束读出与记忆错位",
+      "start_pdf_page": 581,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "91.3 混合智能体的病理：接口压缩、时序竞争与闭环振荡",
+      "start_pdf_page": 581,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "91.4 HSF-HD诊断图谱：从表型矩阵到因果证据",
+      "start_pdf_page": 582,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "91.5 治疗方案：分阶段修复、验证与安全回退",
+      "start_pdf_page": 583,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 90 chapters; does not validate the full book."
+  "scope": "Review subset: 91 chapters; does not validate the full book."
 }
