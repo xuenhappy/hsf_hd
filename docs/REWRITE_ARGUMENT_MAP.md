@@ -1,208 +1,775 @@
-Y��x-���jם��i��+��j[h��ܢ���^8�:-jZ.����)޳R2X��X�Y��z��뮊�Z��[�NK��i[Z�nj8i�P�����K�ފ�[�^��Ni��Z��i[N�x�Xi�Zh.K�^ZHNynX��iȞ�z�)�8.Z�>K��h��j�>ih~z�~[�^Z)�X��xnK��yn��[{.��~{�����z��N8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX������������������������8�i���X��i��8[�.�J�K��XX>8z�nX�~K����h�^8i�Nh�XZ�yb�X[>{;��[�h
-~y�NK��X�X�n�z>8�y.��.{�Z�8{��h�.K��X��K��z؞X��8�NY�{�nzX���ꎊ�nh
-~8kK�X��K��{�>i�Ni�Nik8[�.�(N��Ί����zK�i��[��j�{�nZ��ɾK��Z�>z{Z�~Z�i��K�>h�nK�>���[{.�*�Z��x��ɾ{�>i�B�Xh^Z�{����x��z��K��K��K��X��h����"�[�.XX>8[�^kX[�.8X[>{;�i�N�
-8i��Z�zK�K��ZI�X[>{;�K��h^��8Z������K��8�:�X�n{�n��i�[N8�z�[�NK�>K�~8x��i��K��X�8Y��K�i*�8i��Z�y�Ni�N�
-�K���"�X�{ʒ����ij��X�����K��z؞K��Y�i���ɾ�z�[�NK�>K�~K��K�Z�i��Z��z{[�n�x��ɾY��Y�i�NK��z؞K��Z����K��X�y��Y��ɾik�Y	K�ވ;ޙ��hH�X�h����2��J�XX>8k�X�8kK�X��[ˮ[�n8Z�XX^K�X���[�h
-~{�Y��[�[�b�i�^k��{ˮZK8{�nzK��jh.x�~X�nzk�86�gF��8K�h�xk^�z>�x�8�z�h�~i�Nik8Xh^Z�K��k�kK�K��X���ꎊ�nh
-~8[�h
-~[�.�(NK��K��y����[�nh�^X�2�k�kK�K��i��Z�^kX��x�X�X��X�n�ɾjh.x�~[�.K�X�nK��i��j
-Xxn�ɾxk^K��i��XZ��:�ZH�i�.[�n�ɾY	�x�K��i��K���x.K�>�������h�Z���Z���K��{�N[�b�i�K�b�[�~X�y�N{�>i���K��[�~h��ZJ~K���������������������������h��i��h��ij�Xخj�>Z��Z��z{���I�i�>Y�����K����.x+�Y	�x��i�>�x�Z��z{K�N���I��K��j�Y�K����[z�[�>ik�Y(��K��hH�iȞY	��I�i�>z�~Z�Xخj�>Z����kK�X���Xx���K���9vN�ɴ"�RK��R�2y�Ny����^K��k9^{�N[�nK��{B�Y��Z�{�>i�N��Ι�n��>XZR�h�~X�n���j�>���[��g&�&V�W2��>i[h�~i[�Xx��yn�z>8Xk>z�nj�>z�h�nK��hH��z�x��z�>Z����i��[��zk�iZ>i�Nik�K��Z��z{j�>Z�y����R�j�^�[�[�K��"�i�ZJ~x��[�X��YNx��[�ik�Y	iKn{ʒ�K��hH�j�^�[�h�n[�.j�^Z��x�z�>Z����Y��K��{Nh
-r��(�S"y�NY��Z鮋��	�izY	Y���iz��>XZ^���Y�j�^���{��i�Nik�[�>Y�~K��h�8X�[z�hȞ�����Xx��K��{NhH��xK��y��8h�iȞ��Ny�^[�h
-~[�N�*�k{~Y����[�>Y�~i�Nik{;�i[�Y��Z鮙��I�Y��K�Ni�ZJ~[�nK��j�2�j�^�[�K��ZJ~K��i�ZJ~[�nX	.i[�j��j�^���I�X�i�>[�>Y�r�K��{��h
-~z�>Z�j�^�[�i�K�nz؞Y����Y��Z鮙z�h�r�X��X�X��y��j~[�K��X�^K��Xˮ�{B�Y��Z�y��j~8j�>i�Nikx�r��z>K��X{�{�NY����Y�k9^K�NiKniY��y��j~X��X�nY�K��hȞX��XZ�[��iKniY�8Xh^Z래�h��j�>z����6�gF��K��X�Z����K��X	���X�ni[8j�>[�[�nX�.i[�iȞ��X	������[�[�nj�2�jh.x�~Y�k9^�ɾX�Z��yKYXnk9^X��[�~X��jh.x�~{�����X��K�h�nYNi�>�x�K�.K��[�Y8����iz~z�K��iz~��.j~z��XZ��:�K��yY�[�niK�Y����K��Z��[�Ny�N[���.8.z��K�z�~X��i��k*iȒf�wW&Rx��Z(>�ɾX[nK�nz�K��z�~�iny�NY��X8��XNk�K��K��yY�8 ����z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������B�{�N{�NK��8h����.8[��x�Z��K�>8hH�K��y�NkXX���iȞ��K��zz��X����z���{N8�xNj�K��K�N[�n8[�h
-~[�.[�K��{�Y辋��h�.8�y.��.[��x�h.ZH�8Y�Z�K��X���ꎊ�nh
-~8{�ni��X��x��i��Z��x��zk�iZ>[�h
-~{�N{�~K�ވz�X��X[~iȞ���{��XzK�^h
-~�J��ɾh.ZHފhk.[{.y�^�y.��.Y(�X�~k�zz��ɾY��Z;yK[zn�n��>i[iK�ZJr���R�i�Nh�ik�z��8k�NX�n8ZَYʎX�Nh��8yI�h�z�~k9R��ٞh{�Z�K��X��hi�NikX�nzk�8�NY�Z��i[8{��j�^zz�X�nh�Z��zk�iZ>K�����8���΋XNj�8���K��h�{��8ih~j>i�N�
-K��K���"�y��j~K�����K��z؞K��XZ�[i�KɎ�ɾj�^�[�i�K�nYʎi�Nik{��j�^iȞiX��ɾ��nkK�X��K��z؞K��i���;��hH���nZَYʂ���z��Y��z��^XX^K�n�z�X{���nY�j�~k�h�^[�y�NZَYʎh
-r�YJ�K�h
-~�뮊����z��K�Nz�K��;�[��k9^X��K��j*�[�bƗ66��G�i�K�nh�Z�΋��{���zk�iZ>K�����8.ikik�z��Y�~K��K��K��{�����{�>��y�Ni��K�>8 ����z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������b�y��Z�����Yˮ���Xyވ�hy�NX[Y�i�Nh��z>�x��kX��x�8���K��8�NY�K���8{)~{).X�n8�(NkX�K��{�ni���z�x���x��yn�xN[�K�^{�ni��y��[�Nx��Z(>Z����ɾ���[z�9^�x�K�ދYniȞiX����[z�yX����r���ފ���xn�x������y�N{��K�XzK�^�z>�x��K��K�n�y.��.8�xn�x����K��8��i��K���h��K�ދYn8�z�j�hZY{�b�y��X�8{��K�8y��X[>8Y�i��X�n[��ɾ���	�K��z؞K��iȞiX�h�yn�ɾ�^XZ�K��z؞K��ikZ)�x.kX������XZ�{��(nY��y�NkX[�.h
-~j�K��y��X���>[�b�yI�h��j8i�^8X�n�
-8Z�Ι�X���x�8ZI�K��K�>h�����8���h�.�>[�b�iȞiX�h
-~j~XxnK��Y��ɾX�^K���[�n����Z�[z�K��yY��ɾXh^�:�Y��k��K��i*N�Hx��Z(>X��K�������{�{��y��K��h�X{�i[NK�>Y�i�NY(�[�^xKniKniY��K��X�z؞K�~{�8���z{�X�{ʞZَYʎi�K�n8Y��Z�X��K����z�x�����[z�	.h��i�[NXX�YʎX8���nZ�K���ɾX[Y�X��K�Ι�nY��ɾ�ڎ���YʎiȞiX�Y���ɾYΈ9����)�ZInh�>h�i�K�b���z��K��z�[�^�hh
-~K��yJ����z{�X�^X�h
-~���XX^X�nh
-~��i��K�>��XX>izX[>8.���[z�K��K���y.K��z؞[��K��Ɨ66��G�i�K�n�	.h����X�nX��{��X{�X��X�8Y��Z�X��K��Y(Ιz�x��i�K�n8.iʮyK�(NkX�h�X��h�X{�Xh^�:�iˮX�nYJ�K����iʮh��{�N[�nj�N��>[�>K��K��Z��ZH~h
-~y�N��i��8 ����z��X��iȞ�z�)��ik�뮊��i�K�nK���yX�����������������������X��ZN{�nz8���Y�k:�hH�X��8k{~Y��z>z8z��X�z��kXz��K��{�Z鮊��{�2�K��YΊxNj���>XZ^X�����K��Z����8{�Y�iJ�h�K��iȞ��X�{��8i[X�z�>Z�[�.K�X�n8{��h�.z؞X����i��8{�X������{���X[>{;�{�n��h�^X�>8{�>Zَx��i��8�XNk�h�i��8���{�>h��ZKK���NX�nj*�[�b�j����Y�k9^��nY����z���ɾh�zK��X�{��K��[~�x�h�.�ɾ��Y�K�ވz�X����i��K���K��Z���ɾk{~Y���>X{�K��z؞K��ZIn�:�h�~���ɾY�k9^ZI�j�>j~i��K�ވ;�[�>�I�K����z��X�z�K��yY�X��K�N��.X��z�j~z�����ikZ)�XZ�[���	��Z�K��z���{NY(�{�N[�n8.{��h�.��i��K��yJ�i�>�xޙ��X�~�x�h�.X��{��h�.y����^j�>K�Nh
-~�ɾ��NX�nh��ZKXX�[^[��I�Z��i[Xh�k.Z��8.X�.�>j�K����nX[>{;�X�{��y�NX�^ZKNx��K����K��K��K��Z��i[NX�����{�2�5N8.��Ί�[�.K�X�n8z�iJ�h�8X{�{�NY���>Y�N8K��{N�x�h�.8XZ�[��K�h�.{��K����iȞ����>XZ^h�.{���ɾiʮZ;z{Z�Ί�i��K��X�k9�X�nh�niˮX�nX���ꎊ�n8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX�����������������������C$�y�N[�.�J�x���J�X�n8�%B�n�z>i�N8�xn�)�J�ii�Z�h.���K�^X��ynY����>y[B�x��Z�ny�Nx��ynX�nZ��[�B�[�n{�Y辙�k.��[�^K��Y�k9^��nY�8j�Z鮊x.kX�y�N��h��X�nh����8���K������{��[�h
-r�zk�iZ>K��K�ny�Ni{n[�����z{�8K��X�y��X[>K��X���x�K��z؞X��h
-~8i�ni�NXX����8K��X���x.kX�Y(�h�~��X�ޚh��z�x���i��[��{�>i�NK��i��h�iȞyI�h�Y��y�NYJ�K�[�.[���ɾ[�h
-~��K��K��X��K��i��x��ynZ�h.�ɾ�x.kX�Y�K��h�K�YJ�K�y��y���ɾ�(NkX�iȞiX�K��h�X{�i[NK�>Y�i�N�ɾy��j~K�����K��ZIn�:�K��X�h�X��X�n[���Ί����z��X�K�z�K��yY�C$�8�%N8�xn�)8ynY�8[�~[�~��>y[NK��x��Z�ny�Niz~j~z�����[�n[nY�K��{�X�nX�.i�ii�Y�[�n���Y�K�{�nX�~[���.8.Y�k9^��nY�K��z��i{nh�^Y�Xk.z��ɾzk�iZ>Y��{�n��iK�X��Z�K��Y��Y�x�ikX�ni�y��j~8.�xn�)j�Y�Z;i��zk�iZ>j�^�[���΋��K��X[>�NK��[�h
-~i�NikX�nzk�8.�z�x��h�~��XˮX�n�ٞhj8i�^8j�h��Y(�x�Z��X�ޚh��ɴvV�D�2y�NK��y����[�nX���>[�n{�NK�nK��K���4bԄBy�N[z^z��Z��K辈Ι��K����i���;�y�NYJ�K�iˮX�n8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������"�x��yn���X��K��X���;�K��K���8.yy^8Y��ZJ~x��ynk9^X��Y�i�N8k:.{).Y�Y�8Xh^ZInX�Θx�Z�~Z�X��t�x��yniˮY��K��Y��iȞ{�Y�x�nhK��y��jr�h������h�~X�nX�n[.8��zK����h����XNk���.[�NY��{�{�ni��8�x.kX�(	NX	���(	Nh�K�N(	Nh�~��(	Nk(�kx�z�x��8Xh^�:�j�Y�K��x��Z(>y�N���Z��z{h�^X�>8�4bԄBj�Y�ix�K��vV�D�2[z^z����x+�����{��Z��i[��K��{�>i�NY��Z�Xˮ�{N�ɾ�(Nz�~K��h�X�^K���ɾjh.x�~[�[�nK��i��x:�X��Z�nk��[�n�ɾXh^�:�K��{N8�(NkX�K��{NY(�h�~X�nK��{NX�nX����Ί��ɾK��X�[.y��K��K��h�X{�iˮX�nY�i�B���z��X�K��z�K��yY�K�NK��iz~��.j~z��8.x�nhz���{NXX��zk�iZ>{�>i�NK��K�niK�X��{�N[�n��΋��{��i�NikK��Y��{�n��X�n[��ɾiȞ��i{nY��y��j~���i{nX��8y��j~Y(΋�yX�X��X�n8.ZI�[�[�n�z�x��X��YʎZ�K��K�ni�Nik�)x�~K��K��yJ���>Y�Ni{nj�N��>���K��)i�΋��K��K�ފ�i�N�xފh8.ZIn�:�X��K��hȞX���nh
-~X�n{�~���y��j~K�����K��x�Z��h�X��K���{NyKh�i�>h�~��Y(�X�ޚh����h�^8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������2����X����K��X���;�K��K��Y�Z(>8y��y�N��X��yI�h�8y��y�Ny�NXh^ZInX�Θx�i�^k�8K�h�z��k9^K��x��ynh�~k9R����K�2���z�r�K��X���xN��>X�n[.���y��j~i�K�nK��y�NXh^�:�(	Nx��Z(>K�NK�.�ڎ������Xh^k�XX�����ZInk�X�ޚh��zK�KɮX��YXny�Ny��j~i�Nik��ΊxN��>��Ni��X�X��h�~��Z��x�y�N�ڎ���{�nX�b�X[~���K�ފhk.j�h��K��{�yy�hI��ɾ[��x.Z��x�K��YJ�K�Xk>Z�K��X�hH�K���ɾy��j~K�����K��z؞K��x�Z��h�X���ɾiȞ��kX���^K�ވ;ފ�i��XZ�[�ڎ���X�^Y
-��ɾ���{�>h��ZKK�����i{ny��j~X�n[����z��X�K��z�K��yY�Y��K��iz~��.j~z��8.zk�iZ>j�Y�X�nX��Z�K��Xh^�:�x�nh8x��Z(>x�nh8y��j~8��yX�8�x.kX�K��X��K��h�^X�>�ɾ{�>i�NiK�X��i{nK��k+�yJ�Y��Z�{�N[�nZ��i[8.y��j~x�nhX�^Y
-�h�~j~8X�[��K��h��������x��Z(>X�ޚh�K�ވ;ވz���X�nkh��xN��>{�ni��8.X��[.{�ni��yJ��ڎ���X�^Y
-������{�nX�ny��j~���[�ni��z�Z�>i��[�^��Ί�y�N[z^z��h
-~�J��ɾ���y��j~X��Yʎz�{�ni��K��X�n�x��(Nz�~Xh^KɎX�n8$�4bԄBK��vV�D�2K��h�K����yn��Y(�[z^z��Z��K�y�N[.{�~X[>{;�8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������B���[�h��[^K��i�Nh�h�i��8i���;�h��j�i�~iz^�x�K��	��X��X�n8X�nX�"�{�>i�B�y��j~K����K��yJ�8��yXΙ(�h��K��[.{�~h�~X�n8K���J�[��i[8[��x��f�6�W"�j�>X��Z��i�>X[>{;��K��X�ZKy��K��X�n�x��(Nz�~�ɾX��ZH�x�X{�K��j�y��j~K��j*�[�n�ɾZ��i[Ni{nX��Z��i[Y(�K�Ι�ni�Nik��NK�~�ɾzk�iZ>j�^�[�X��h�^[�K������ɾz��x+��ڎ���X��X�n�ɾ[��hZ.�y����yX�K��Y��>Y(�[�nh�>�ɾi{n[�b�K��yY��h�.{J.x��z�����x��ɾ�y.��.{�Z�8f�6�W"j�>Z�i�K�nK��i8�K��j�[��X��K��K�����K��z؞K��K��X�h�X���ɾ{�>i�N[�>k�K��i������y��yn�ɾYʎ{��X��X��Z�nK��zk�{�����X�K��k{~Y��ɾX�n[.K��i��i���[�^xKn�ɾ�~[��K��z؞K��kK�X���Xx��ɾiȞ��y����^K��k��k>��nj�>X��K�Nh�.X[>{;����z��X�Y��z�X��Y��{�N�뮊�[^[�K��K�>��.���iz~j~z��K��yY�YʎZ��[�NXZ^X�>�ɧ6V7F����3s�Z��[�N��zK�(	N�(Nz�~���6V7F����SBZ��[�Ny��j~k9�X{�[�nyKikZ)���{���zk�iZ>[���.[^[����6V7F����SCZ��[�NZI�[�[�nh�~X�n[�nyKZ��x�[���.[^[����6�v�F�fU�76U���F���w�Z��[�Nx�nhz���{NXzK�^8.K�N[�^X��Y��K��K�>X���XNk�Z�~��.K��h����[�Z��K��Y��k:�iK�������Y��K��X�nX�.x��ynY�z{i��zK�K����^X��hH��8 ��i[Z�nZH�j��ɮK��j�y��j~j*�[�nyKK��hH�ik�Y	[^[�[�~X���ĆW76��Xخj�>Z�yKK��j�Y�[�>ik�Y(Ί�i���ɾY��Z�j�>Z�y��j~K��i�Nik[�n�x�iJ�h����[z�Xx����i{nX���x.kX�8X[>{;�8y��j~X��i�>�xދ��XZ^Z��i[NZ��i[�ɾh�X��K�����yX�K��yJ�[�n�x�Xh^zz�K��z؞[���ɾzk�iZ>K�����K��{��j�^zz�X�nK��Ɨ66��G�yX�h�Z�����h�^[�{�>�뮙��z�X{���n�ɾ�ڎ���X��X�nX�n�:�zz�X�ni��z�z��x+�K����n���[�nXˮX�n[�^�h���X�K��X{�h
-~K��i�[��ɾY���yXΊz>y�NYJ�K�h
-~��j��K��X�n�x�h�^XZ^�x.kX���yX��ɴf�6�W"Xخj�>Z�yK��NX�n[�>ik�[�~X���Ĵ�[^[�Z;i��j�>X��i�K�n�ɾiȞ��y����^j�>X��Z��i�>[��K�^���X�ފ�8.[�n���X��K�i��z�x��[�ZI���[��Y(�j�j�8.K�^K��{�>i��Y�~K��K��K��iʮ{���x.kX�y�N��Ny�^iˮX�n��i��8 ����z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������R�F��V��[�.XX2��J�XX2����K��Z�8x뾈�"��K�{>{����8{�.��.Y�n[�.y��K��{�Z�8Z;Z��XX�Z�K�i*�8���K����r�X��X���Y�K�nK��zx�K��X���x�8XZ�{�N�{;�8eD^�x~j~K��K���I�������{�B�t�Z��xZr�[�n���K���i�^k�y�N{�Y辊�[�^K��NY�y����^8K��X�K�.ij^K��ZI�X[>{;�{�NY�8Y�k9^��nY�K��y�NX	���i�>�x�X��K��X�h�K�N8Y�j~K����X{��[�n�x�X[Y�X��h�.8Y��kK�X��K�i*�8K��X����X{�K��X�n{��9^�x����[z�yX�8XZ�{�[z^z��Z�~j�^8K��Y�{;�{��y�N��h��h�^X�>X��vV�D�>��x+���NY�y����^Y�Z�[�[�nK��X���ꎊ�n�ɷ6�gF��K�ވz�X�����Z.Z�nh�nj
-Xxn�ɾY�j�^K�ދk>K�^��i��Z���[�.[��ɾK��h��x���[�n�x�Y(�i�Niki�K�n�ɾ{�X��K��z؞K��h�>h�{��ɾiȞ���XNk�K��h�X{�jh.[�^K��X��X�nX�.�ɾ�z�{;�{��y��K��K�ފ�i��YJ�K�iˮX�b���z��X�K�Nz�XZ�K��iz~��.j~z��XZ��:�hȞ���K����z{��ɧ6V7F����3cZ��[�N��[�^i�Nh��ɷ6V7F����SC>K��6V7F����C^Z��[�N{�NY��z��K���{�Z��ɷ6V��F����GVƗG���WF��.K��W�����6�^Z��[�NK�i*����z{��K��X���x��ɷ6V7F�����c~K��6V7F����S�^Z��[�N[�h
-~�{;��iȞ��{�nz�ɷ6V7F����#�NZ��[�N�z�{;�{��j�N��>8.K��yY���6�V�B��~X��X��f�wW&^K��K�>���h��Z��i��zK�[�ni��zK�X�nX�.Z;Z��XX�Z�i�����y�N��^X��Y�K��8.X��{�.��.jΙ�.K��Y�n[�.���i�ΙI��X�8���i�΋z����Z(>8Y��x��Z[>x�8Z�n[��h�Y�K���.K�>K�~K��Y��{�{;�{��j�N��>Y�~���XZ^iȞi�K�n�뮊�8.Y�j�^K���.z��XZ�z�~[�^����Θ�XX�z�~�in{�~{��h���x�Z�{����{�j�NZ�>z{K����i���ɾz�~[��K��z�[��K��X��8 ��i[Z�nZH�j��ɮ�NY�y����^K��G<9vGK�NY�Z�[�[�nK��YJ�K��ɾY�k9^��nY����z��Y(�iȞ����NX�nK�ފ�[�.K�X�n���YXnk9^X��h�Z�Ί�NX�n��^X��j�N�ɾX���nY�j~X��h�.Y�i{niK�X�����X{�Y(�[�n�x��ɾZ��i[NK��j��x�Z��i[Y
-�F�B~���{+�z�zk�iZ>K��h�i�K�nX�^X�~�ɾY��Z�Z��z{���I�Y��y�Nh�kK�X��K��[�>ik���>i[X�nX����i���ɾ{�nz���[z�yX�yKK��X�Ɨ66��G�i�K�n[�~X����X�n{�h�.[����Z��h�iȞz��K���^j8i�^�9^�x�8.iʮh��i[Z�nK��h��x�h�[��K��K��Z��j�>z�8K�N[��yx^ynh�nXZ�[i���;�Z�yn8 ����z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������b�K��������nX�^{��[�.8K��XX>�z�X���z�X�^K����{��kX[�.i����ɾK�nyX�Y���K�>���Y��y�N�xN��>{�{�8�Z^�[����i��8f�6�W.kj���8iȞiX�[�n�x�8Y(�K�K�^X�n�ɾj�>K�N{�N{�N�ɾ[�K�nyX�K��;�{��[�ɾ�Iމ(.i[��z�h��hH�K��Z�h.�ɾ����{�N[�nK��K�>���{�N[�nX��z�K�nhꎊ��{�Y�Y����y.��.�h^���K���z�ZH�[�.8��yX�y����^X��Xخj�>Z�z�~Z��ɾK��K�n��h��K��K�~X�h�~X�nX�n[.8h�^X�>�z�[�NY�h�Y(�{��Y�j~X��h�.Y��z��ɾ[�h
-~{�Y�K��{����XˮX�n[�n8iȞ��h�~i[ix�X��ik�[z�h�Z���ɾ[z^K�΋I�����{�Nh�B��8�{��Y�y��j~8Z��XZ�Y���z��Y���yI�h�j	X��K�8X�~��K�����{�n���ɾY΋>zz�XZ�[��8X�ޚh��j۾�HXˮX��8iȞ��{+�[�nZ래x�Y(�{��h
-~X�{ʞj��K�NK�NX[�Z�K��h�X{������nX[�Z��ɾ��.x+�Z)�ZI�K��K�ފ�kX[�.i����ɾK�>���K��ZJ�xKnz؞K��N{���ɾj�>K�NK��K�ފ�{����x��z���ɴf�6�W.�X�nK��z؞K��izhH�K���ɾK�����{��j�.K��K�ފ�XZ�[i�KɎh�n[�K�nyX��ɾ�Iމ(.i[K�ފ�i��z�h��hH�K���ɾY	�x�Y(Έ��x�~{�Ni[K��y�Nh�^Z�K��i���;ވ;�X�����z��X�XZ�z�K��yY�XZ��:�XZ�K��iz~��.j~z���ɦ��'���V�V�V�G>Z��[�N�����n{�>i�N�ɷ6V7F����ccZ��[�NK�nyX��K�>���h�^X�>�ɷ6V7F����s�C�Z��[�N[�h
-~K��f�6�W.�ɷ6V7F����csS>Z��[�N�XNk�X�n����ɷ6V7F����CsnK��6V7F����SC�~X[Y�Z��[�Nh�>h����ij�X��Z래x�8.X��z�izf�wW&^���XZ�K�nY��[�.K��K�>K��XNk�k�^X�^K��X��8.K��yY��Z^�[���[�[����i��8�zދz�[�NY^X�nX��X�n8[�K�nyX�j�Y�r�h�~[�N8x����YN8�z�h�8��.[ڞY(�k{~Y�h8^{��8z�K�nX�n���z؞�z�)���Θx�ikZ;i���h��K���yX����z{���N(	�i�K�>X�K�{�N(	�Y(�izK��h��y�Nj�Y�{+�z�{�Ni[X�Nij�8 ��i[Z�nZH�j��ɮ��yX΋��{��K��yJ�K����ni�^�z�K�Ni��z�nX�~h�^kh����ƾXخj�>Z�yKK�N[�>ik���>i[�ɾ{��Y�j~h�^X�>YʎY��z�K�ޘ	��h�^kh����K��hH�h�^X�>Y��z�K��[�^K��X�^K���ɾiȞ��j�>jh.x�~j�Y�K�ފ���NX�nY(�f�6�W.Z�K�����h�~i[ix�X��ik�[z�XX�k.[�.K�X�nZ��i[�ɾiȞ��{�>i�N{�n��K�����j�i[yXΙ�Y��Z�y��j~K��j�>���X��ɴ&WGF�zz�XZ�[����j�X�^Y
-���yX�X8��ɾiȞ��{�nz{�X��K��yX�yKh��[�X��yn���{��h
-~X�{ʞ��X�ni�^�z���nj����Y�~K��[�^�hi�K�n�Ι��	�yJ��;�X��Z�yn8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������r�i��K�>��Z��z{kX�[�n8K�.K�h�z؞Y�kX�Y��y�zk�8K�nyX�Y��X��h
-~8izYˮkX�Y�{���z�X��j�>z�8Xh^�[B�ZIn�[Nh��X�K��z�K�n[�^xKnh
-~8�X�[�"�{ʞiK�J�Y(�k:�hH�X��[���x�j�k���y�zk�XZ�ynK��ik�Y	{�n��K�>K�~�ɾxkR�K�.K�h��d�h.z؞[��X��f�6�W.[�:����ɾ[�ni�^k�x��i��y�N{�>i�N[��xZ~Y(�iȞiX�yK^����ɾY��Z�z��x+��;ޘx�X��X�n�ɾh�ދi�NikK��Z��x����X{�y�N��K��K�Nh�.�ɾK�ވ�>i[yI�h�XX>8�xN��>K��YJ�K�Y(�K�N��nj�^�z�yK��Ί��Z��z{K��h�K�Y�i���ɾ[�.K�X�ed�iʮ�z�X��{�~h��XZ�[[�n�x��ɾi�y�ދz�[�NK��K�ފ�����h�nK��X�h�X���ɾ[X�XZ^Z�ynK��h�X{�x��ynh��X��ɾj�>K�NX��h�.K��x��X�{�>i�Ni�Nik�ɾKٞ[�n�z�yKK�ވ;�j���N[���x����z��X�K�>z�XZ�K��iz~j~z��X�nX����z{�X��y�zk�XZ�yn8{�����y�zk�8{�>i�N[��xZ~8kX�Y��z�[�N8���K�>Z��x�Y(�X��h�.i�Nik8.x��x:�8xʲ�x�~8izX[>jh.[�^8�x�X���8�8�Ik)�Y������x�~[�>[Y(�k:�hH�X���z�yKz؞X��K辊����K��iȞi�K�n��Ni��h�nX��K�8.i[Z�nK��XˮX�nj�>Z鮋y�zk�K��Xخj�>Z�Kʮ[�n�x��ɵd�h�Z�Ι�Y�K�iȞ���NY�X�n[�>�ɴf�6�W.{�>i�Ι�X�.i[�+�Y���ɾiȞiX�yK^�����Z��z{j�>yK^Z��Y���ɾkX�Y�ik�z��X��i�����X�[�^�hi�K�n�ɾ���{��X��zk�iZ>K�ވ�>i[i�K�nX�nX��Z;i�����ZIn�:���>XZ^K�~yI���NX���8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX������������������������K�nyX�Y��z؞Y�jh.x�~ix�8f�6�W.K��i��K�>X��[�n85$�.z؞YΘx�Z�K��z�Z�h
-~8���K��Z�K��iȞ�J��x�k:.X�^8xk^K���J��x�8jh.x�~k{~Y�K��[�.kh�8R�ވN{��K�^j�Z��[�Nh�ij�����{�>8F�z؞YΈz�xKnj*�[�b�K��X��x.kX�K��j�Y�ix�X�nzk��ɾX���ꎊ�nYXnz���{N�ɾ��NX�ni��iɾ8f�6�W.Xخj�>Z�Y(Ĵ�[�:�[^[��ɾj~�x��Y	�x�5$�.�ɾ[�n���K��Y(�i�^k�y�NX�n[�>[�����K��x�nh�ɾh�~i[ix��z�xKb�i��iɾX�.i[�ɾiZ>[�nh�^[�K����{���zk�iZ>i�Nik�X[Y�iJ�h�8X��[��Y(�zz�X�nK�Nh�.�ɾ[�:�[^[�K��h�K�XZ�[�y�zk��ɴ5$�.�hk.K���j�>X��h
-~K�NK�ފz>�x�[���x�[�^xKnh
-~�ɾ[��X�nxk^���Y�j~K��X���x��ɾk{~Y�X�n[�>k*iȞjh.x�~[�^y��kh��ɾZ��Xn[�>Y�nX���.yJ�K��y��[�Nj�Y�ix��ɾKɎX�ny��j~K�����K��z؞K��K��X�h�X�����z��X�XZ�z�K�NK��iz~j~z��K��j���z{�X�{����Z��8[�:�X���ꎊ�n[�n8K���{+�[�n8X�n[�>[�����K��x�nhY(�Z��XnY�j~i�Nik8.K��yY�xʾx�~K����jh.[�^y�NXˮX�n�z�)�8j�Y辙��yI�Y��8{+�z���Nh;>X�n���8{�.���i��[�h
-~{�Z�8�z�xKb�i��iɾX�.i[8X��Y	h�ij�8Z�nK�h�^[�K��KɎX�nY��j�N��>���K�n[nX[niK�Xi�K��iȞi�K�nj�Y�h�nX��K�8.[�:�{�>i�N{�{��K��Zَ���K��8X[>{;�8i�^k�Y(�x��i�����XZ�[X�n[�>��zK������X	���X��K��z�Z�h
-~���K�Έ^�	���~���K��X���x�8{�Z�Y(�K��X����X{��NY�8 ��i[Z�nZH�j��ɮ��NX�ni��iɾK����ni��[���hk.Y��Z�iJ�h�X��zz�X�n[��X�nK�Nh�.�ɴf�6�W.Xخj�>Z�yK��NX�n[�>ik�[�~X���΋I�i��iɴ�W76��K�^Yʎj�>X��i�K�nK��z؞K�~�ɴ��[^[�K��yY�K�Ι�nKٞ��K�NK��Z�>z{XZ�[Z��z{�y�zk��ɾY�j~X��h�.K��yY�K��j��x��ɴ5$�.K���NX�nX��ik�[z�K��6V6����66�v'�h�Z��[�nK��yY�j~i�Θx�8y����^[��8X�[z�Y(�ZX~[�.ik�Y	i�K�n�ɾh�~i[ix�i��iɾX�.i[X��X��ik�[z�yK�X�X�nX{�i[Z��i[[�~X��ɾiZ>[�nj�^���Y:^h��ij�X[>{;���X{�h�^[�K��j�>K�Ni�K�n�ɾ�z�xKnj*�[�nK�����Yʎi{nX��y��j~K��[�^��X�XZ^i��[��Z��i[��8.K�^K��Y�~K��K��K��K�nyX�i[NK�>Y�i�N8��Ny�^x��ynX�nh�nYJ�K�[z^z��i�ni�Ny�N��i��8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX������������������������K�~XΊxN��>Yˮ8j~�x��y�.�x�X��8j�.iɾK��hh:~X��8Y�i��z��ZKN8���Z(>�xN��>X��8��Ny�^yK^z8Yˮ8k:�hH�X���
-nY�8&W''�i�.x�~8&�FW'>���n�8�K��xN��>Z��ZH~h
-r�K��Z��j�Y�K��xN��>x�nhX�nzk��ɾy��j~8{�ni��8�8�8h�i�>Y(Θ.yJ�Y��y�NX��Z�����[�^�ɾiȞ��i{nY��y��j~K��ik�Y	y��X[>Y��K�>K�~�ɾ���Z(>�z�h�~Y(΋XNk��(Nz�~�ɾz�{�ni��8&WF�����X[�[��K��i�[�Xk.z���n�ɾx��i��X�nh������ɾ���{��&�FW'>Y辊�z�~K�>K�~Y(�zk�iZ>K��K�nY���K�~XΊ�NX�nK��i��xJn�>�;ޘx��ɾX�Z[�K��h�X{�Y�i���ɾ�8�X�n[�>K��X��hnX�.i[X�n[��ɾ���y��j~K�ވ;�X�nkh�z�{�ni���ɾ�I�x����h�.��N�ɾ���{��j�Y辙�Y��Z�{�>i�NXˮY���ɾi�y��K�>K�~K��K�ފ�K��Z��j�>z�8K�nynj�>[�>h�nZIn�:�h�X�����z��X�K��z�Y��K��iz~j~z��K��j���z{�X�K��Z����xN��>x�nhX�nzk�8K�~X�X�n�z>8ZH�Y��xN��>{�>i�NK��ik�Y	y��X[>�z�[�NK�>K�~8.K��yY�X˾yi~[�~ZH�8j�.iɲ�hh:~8[��yy�Z��h��[�i��K��X�8j�>Y	yI�h�K��nY	[z^z��z؞�z�)����K�niK�Xi�K��X��j8���y�Nj�Y�8j�K�h�nX��K�8$�4bԄBh����y��j~Y(�{�ni��Zh.K�^iK�X��K����i���;�y�N��h��X�n[�>8�z�[�NK�>K�~Y(�z�>Z�h
-~�ɴvV�D�2y�NK��y����[�n8D4^844�8&�V�F'�K���ff��F��rX��K��K��[z^z��Z��K�8 ��i[Z�nZH�j��ɮK�j�^X��iȞ��i{nY��y��j~X�nX��Z;i��jh.x�~j�Y�8X�^K��8{�ni��Y(�i{nX��y��j~�ɾ[�:�K�����ik�Y	�hk.j�>Z�i�Nik[�n�x�K�NK�ދz��h�{�>i�NK��K�n�ɾik�Y	Y��K�>K�~�hk.izX�����I�x���ɾZI�y��j~��h��XX�zپz�{�ni��Xh�K��yJ�X�[���ɵ&�FW'>Y�K�>K�~YʎZ��Xn��>i[[�K��K�i{nyK6V6����66�v'�K�ފ�j�>X����{+�z�K�[�.[��K�^�Jx��z��x+�[z��ɾzk�iZ>X�nZ;i��j�^�[����[z�8{�ni���9^�x�Y(�K��X���yX�8.K����{�>i��Y�~K��h��x��yn{�j�NK��K���xN��>i�^k�h�niˮX�n��i��8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������#�h�>h�ix��x�Yˮ8[�.�J�[��x�k:.X�^8k:.Z�����[NX��K��yJ�8y��K�ޙHZ�Z��K�>8��Ny�^k:.h�Z�X��8X�.i[i��K�>Y�i�N8kX�K��Xxb�k:X��h�.ij^8�)��y��[�"�k�k:.i�[N8[�>��z{�X�������I�[	NY(�K�8���x�����K����~K���Ny�^kI�K�nX[�X���[�n{�Y�y�N�NY�x�nh��[�^�ɾ[�:�{�>i�N{�{��K��XZ�[X�n[�>��zK��	���~���K��{�Z�Y(Ί��X{��NY��ɾ���{��x�nhK��zk�iZ>Y��{�n���ɾ��h��X�n{�Z��ɾY�k9^X	������X{�K��K��X�h�K�N�ɾX���ꎊ�nX�.i[X�^Y(�i�^��.z؞K�~�ɾ�hny�n[�b�K��{Nh
-r�h8�ZX~y�Ni8�K��Z�K���ɾh�^X�>ZY{�nK��z�[�NK�ދYn�ɾ���K��8{�>i�NY(΋XNk�y�NK��X���x��ɾx�nhX�^K�i*�K��X�~h�~Z�nK��kK�X��K��z؞K��K��Z��h�n�;ޘx��ɾY�j�^K��i��{�Z�XX^X�ni�K�n�ɷ6�gF��K��i��k:.h�Z�X���ɾX�.i[ik�Y	Y�j~K�ދYn�ɾX�{ʞX��Z��i��z�i�^��.ix�X���;�XX^X�n�ɾh8�ZX~K�ދYnj�Y��ɾ���Z(>��z{�Z;i��h��ZK�ɾK��X���x���h�~Z�i�NikY���ɾy��j~K�����K��z؞K��k9�X�nh�nZIn�:�h�X�����z��K��X�z�K�>K��iz~��.j~z��X��X�.i[i�[N��j~z��XZ��:�hȞ���K����z{�8.{�.��.8Y�n[�.K��i��{�Z���Κ�h)�K��y��y�����Z�K��{+�z�K��Nh;>X�iZ>���Z�XZ������Xk.z����iz^[��{�����X�i[Z�nj�Y辋�z{����yȾ[Y��z�Y(�{�>i�NZ�nK�z؞X���z�)�Y�~���K��iȞi�K�ny�Nj�Y�8kX���^h�nX��K�8.[�:�{�>i�N{�{��K��Zَ���K��8�y.��.8i�^k�Y(�x��i�����XZ�[X�n[�>��zK�h�K�X	���K��K��z�Z�h
-~���K�Έ^�	���~{�Z�8K��X�i�^��.8�
-nY�Y(�X�ޚh��NY����K��K��IXˮ{�j�Nh�X{�iˮX�nz؞Y�8 ��i[Z�nZH�j��ɮ�NY�x�nhhȞY��8Y	�x�8{�Z�8�xN��>8�XNk�K��x.kX�X�nX��Z�Y��ɾ���{��i�NikK��zk�iZ>K��K�nz�~Z�X�n[��ɾ{��h�.z؞X���hk.{�>i�N8���X{�Y(�i�^k�K��{N�x�h�.�ɾ{�Z�[�~X�nK��yY�X	���8���X�K��i�^k�x��z��h
-~�ɷ6�gF����Y�k9^���z����nY�K�Nk��[�nK��iz�x�{�.h�.{J.[�[�n�ɾY�j~X��h�.Y�i{niK�X�����X{�K��i�Nik�ɾh8�ZX~Z;i��jh.x�~j�Y�Y(�K��K�nX�n��x�~�ɾ�z����Z(>K��h���i�^��.ix�K����[z�X��ɾK��X���x�iK�yJ�i�Nikz؞[��h�n[�nk�k~[�>��ɾZ�nK�h�^[�Z;i��j�^�[�8X�.i[Y��8K��yY���nY(�{�>i�N{�n����yX�8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������#�K��kZ�8Y�.y�B�kN[�>K�i*�8���K��Z�Nz��Z�8���i��k:.Z��8y��j~X�{��8���[���h^Z��8��h)��[�>kXK��{�>i�NX�����[�ni{n[�ny�N{�{��kh�h�i�Nik�ɾ���K��8x��i��8{�>i�NX�^{��K��K��X�i�^��.K��X���x��ɾ�XNk���8��[�n����X����h
-~{�ni���z�yK�ɾyK�Xx�x�~8Z)�y��8X	���xk^8Xk.z�8�I���~Y(�i{n[�nZ�K������y��h�ɾ[��x�nhK��hZ.{�>i�NX�nzk�i�Nik�kK�X��K�i*�K��h�X{�����iȞiX��ɾ�z�j�hY�K�K�ދYn{�Z�K��i�^k��ɾ��K��K��h�X��Z��Z;i��i�^��.ix�h�z���ɾi�y�ދz�[�NK��K�ފ�K��X�h�X���ɾk��[�nK��X�nkh�z�{�ni���ɾx��yny��X��8�h^Z��Y(�Z�NZ�X��K��X�~���z>�x����K��K��iˮX�n��i�����z��K��X�K�z�Y��K��iz~j~z��X�nX����z{�X�[�:�i�NikK��{�{��K�i*�8���K��kh�h�Y�K�h
-~8X�~{�ni���z�yKY(΋���y��h8.K��yY�K��kZ�8���i�΋z�j�hY�K�8K�h:��	��>8��h)�8[�>kXX��{�>i�NZ�nK�z؞X���z�)����[nX[niK�Xi�K��[�nh�^X�>8X��K�K��[�.�(NkX���^y�N��z�~j�Y�8$vV�D�2y�BF��B�N8DRN8E�F�WFN85>8D4^844�8&�V�F'�8�ff��F��rK��ZIn�:���[�nX��K��K��K����K�i*�X��X��Z�ny�N[z^z��Z��K�8 ��i[Z�nZH�j��ɮzk�iZ>i�NikZ;i�.x+�z���{N8j�^�[�8i[Ni[[�n���Y(�h�^X�>h�.z�~�ɾ���{�ދ�K��X��YʎY��Z�{�>i�N8{�nj�^�[�K��X��[��yZ^[�n���Xˮ�{NK��yJ����i{nX��K�i*�y����^�����XZ^Z��i[h�nX�nj�^X�ni��ɾK��X�K��X���x�yKi�^��.ix�8���X{�[z�[�.Y(�Z�[z�Z�K���ɾ�z�[�NK�>K�~XˮX�nX�^K��[�nK��yY�z�{�ni���ɾy��hh�~j~Y��Z�i{n�{Nz�~8[�.K�X�nY(�X�^K���ɾhZ.{�>i�Ni�NikZ;i��h�^[�Y��8j�^�[�8��Ί���n8Y��k��K��zk�iZ>Y��{�n����yX�8.K�^K��Y�~K��yKK�i*�[ˮ[�n8y��j~K�����h�n�(NkX�iȞiX�h�X{�i[NK�>Y�i�NK��K��X�h�X��8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������#"����{�N�I�i�.x�~h�X{�yI�h�i�2��nhꎙ���ɾxk^Z)��xk^Xx�8�n��xJnY(�W��W��G��ɾK�~XΊxN��>YˮK���Ny�^kI�K�nX[�X���ɾ��z8��nz8Y(�j�>�I�X�X���ɾh�[��X�nK�>K�~X����kX8z:�z�8�	~h��8[J�k�>Y������i�K�n�x.kX�j�K��j�>�nK��X��ɾXˮX�n�9^�x�8X	���iKn{ʞY(΋I�X�nij�X��k�N�ɾ�xN��>x�nh8z�{�ni���XNjΙ�nY�K��X��Z���h�~X�nh�i���ɾK��Z��[�nY(�K��K�>���X��y�NX�΋�N���ij��ɾ����8iK�Yٮ8h�nk��8ZKz�>Y��{�����Xˮ�{N�ɾ��h��(	N�XNj�(	Nh�~��(	NX�ޚh��z�x���j�>Y	yI�h�K��h�i��Z�i�>�ɾYΙ�nK��K�ފ�i��YJ�K�y��Y��ɾx��yni�.x�~K��x:�X��Z�nz��ZKNK��y�Nh�^Z�K����Ny�^���[�n�ɾX�Z[�K�ވ;�X�nkh�z�{�ni���ɾK��Y�K�>K�~XX�X�[�[�nZ;i��h�nK��yJ�X�[���ɾY��Xˮ���K��X�8K��K�>Y(�i{n�{NX��X�n���K��i��K��j�h�nh�>h�Z�{����z��K��X�K��z�K��yY�Y��K��iz~j~z�����X�nX����z{�X�K��Z��K��Z��z{8K��K�>K��Z��z{8�NY�K�>K�~K��Y��{�����Xˮ�{N8���ijޙz�x��K��yn��K��{��8.K��yY�yI�h���nh�8h�.y��K��h����N�I����8k��h��K��x��ih~8zyz	NK��z��h�8Z�nX�K��Z���8X��Z�nK��K�[�~h
-~izX��z؞X���z�)�Y(�K辊����K�niK�Xi�K��i�K�nX�nj�Y�8X��K�h�nX��[�.�(N���ij�8$vV�D�2y�BF��B�N8DRN8E�F�WFN8E�6�N85>8D4^844�8&�V�F'�8�ff��F��rK��D��RBK�^K��K��K����X�Θx�K��Z��z{j�Y�y�N[z^z��Z��K�8 ��i[Z�nZH�j��ɮj�>Y	j�K��I�X�nij�X��k�NXX�Z;i��x�nh8�x.kX�Y(�K��X�i�K�n���YΊhk.[�.K�X�nX�nj��ZَYʎK�N��n�ɾXˮX�n�9^�x�K�ދYniZ>[�n8Y��Z;K��x.kX�X������ɾX	�����ni�Niki��[��X�^Y
-�[�.�(NY(�i{nX��i�K�n�ɾK��K�>K�~XX�zپz�{�ni��Xh�j�N��>���y��j~�ɾj~�x�K�>K�~K�^Yʎiz�x�{�.h�.z�~Y�K��yJ����Y
-nX���x~yJ����X[�[��h�e&WF�[���ɾY��Xˮh�~j~{����NK�X�����[�.K�X�n[�nK��yJ�k��Y��X��ɾXh^�:�y��j~K�����K��h�X{�K��Z��j�>z�8K��K�>k�hH�h�nZIn�:�h�X��8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������#2�x��yni{n�{NK��[�>yni{n�{N8{�NXX����X��Xh^X�ni{n�{N8X�~x�r�Y�~Z�~Z�8D�K�^j�Y�i�N8XX>X��X��Z�n8K�nyX�{���XX��JR�{�n{�~8���i{n�{N{ˮ��~8��Ny�^X��(h��(	NXX���Y�{J~�{NX�n8k[~����y��[.X�n[z^K��i���;�z؞{�r�ZIn�:�����i{n�)�8�(nY��K��K�ni{n�{NY(�Xh^�:�X�[��X�nX��Z�Y��ɾYʎ{��X�~x�~K��X�nX�.x�nhX�^�	���~���Xi�h�^X�>X��K���ɾi�^��.ix�K��y�N��K��X���x�[��h
-~Y(Ί��[z�K�i*�yX��ɾx��i��X�n��~X뾘x�K�8[�>K��K��X�h�K�NK��i�K�niʮi�^��X�.�ɾK��K�n{��z��Y(�iȞ{�Y�K�ދYnY���ɾi�^��.K��h�X�{ʞ�ɾkK�X��X�nX�.Xˮ8z�>Z�j�Y�XˮY(�ZIn�:���h��Xˮ�ɴvV�D�>K��y����[�nK��K��[z^z��Z��K��Y��[�nK��i��x��yni{n�{NX	.��ɾiz^[�~�[�[�nK��z؞K��i{n�{Nyn�z>�ɾ���[	NX��ZJ�h
-~y��Z��K��x�nhY(�K��X��ɾX�~x�~ZnX�K�ވz�X��[��X�nYΈ9��ɾi�y�ފ�X�.K��K�ފ�h�X���ɾY�i�΋랊hk.��nX��i�K�n�ɾX�{ʞX��K��yY�Z;i��i�^��.�ɾ�IXˮ{�����K��h�X{����K�nz؞Y��ɾ{�>i�Ni�NikY�X��Zx���h��i��Y
-nX���NX�nXk>K��Z���ZY{�b���z��K��X�K��z�[nX��K�ވ�.�x�{�NK��XZ�K��Z��i[N[���.���K��yY�iz~j~z��6V3�6�v�F�fU���W����V���6��7F�f�6F���[�n��z{�X�i�^��.K��h�X�{ʞy�N���K��K��{���ɾX��V�fW'6R��v�xn�x�K��K�>{�~{��{�n�����iK����K��[{.X�yI���[�^8[�>X��[�^h�K�Nz�~X�>Y(�i�K�n��X�.X	���K��{�i[h��x�nh8.x�K��yy�8��~X�ZK�J^y�N�x�K�8h�~����xNX�.K�.�^8�[�K��K��ih~[��8��i��K��K�nK��z�>Z�y�^��nX�nXˮ8k[~���(	Ny��[.Y
-�X�Y(Κ��K�ni���;�j�N��>Y�~���XZ^[�nX��K�Y(Κ�Ί�i�K�ny�N��z�~�뮊�8 ��i[Z�nZH�j��ɮ���{��i{n�)�K��zk�iZ>j�^Z;i��X�^K��Y(Θx~j~�{N��N���K��K�n[��XX��X�[���ɾYʎ{��x�nhhȞ{�>i�N8X�n[�>8{�Z�8�xN��>Y(΋XNk�Z�Y��ɾX�nX�.{�nzy�Ni�^��.���[zZ�i�^��.ix��ɾ���X�(	Nh�^[���K��K�Nh�.{��X{�Ɨ66��G����[z�K�i*�yX��ɾ�ڎ���y��j~���i{nX��Y(ΊxN��>X��X�nK�Nz�{�ni��XX�zپ���ɾXX>i�NikX�nzk����{��X�.i[X��X�nK��zk�iZ>x��i��K��K�n�ɾK��K�nK�ދYn�랊�[�^[�n���Y(�X����[�n�ɾX�{ʞy��j~YʎZَX*��(Nz�~K��i�[�X�ni�^��.ZKy�����[�nK��Z�����[�^���{��K��X��X���N��nY�8.K����{�>i��K��yK{�NXX����X��8D�8XX��J^h�n�)�ZIn{�Nyn��h�X{����K��K��h��y��j~K�����z؞Y�K��K��Z��j�>z�Y(�ZIn�:�h�X��8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������#B�eD^K��[�"��J�kX8[Y��k�Y(�x�Z��(�h��8[�NX��k�k:.K��x:�X��Z�n�z�h�~8X[h���h�^[�8yI�x��K��iˮY��h�.�;�8k�kXK��6V��F���8�nY	eD^8iX�[�NY�����h�~8X��Y	XZ�h�X�~x�~Y(�{��K�Y8�Z�n���x��[�ni�^k�y�N�x.kX�{�nzK��Y�k�{�Z��ɾ�x.kX�K��xKn8��yX�{��K�Y(�ZK�I����ij��ɾ{�Y�X�n�(NkX�j�[z�K��Z래x��z�h�~�ɾ���{��h�.�;�8zk�iZ>�x~j~X��ZI�j�hi{nz��Z�����ɾK��K�nX�h�{�ފ��K��x�nhy�N{�Y�X�nh�K�N�ɾy��j~{�nX�n8��[�Nh�~X�nY(�Z�XZ�h�~���ɾK���Ί�h��8K����{�ni��K��X�ޚh�K��X��ɾ���{��x�nhY(�zk�iZ>{�>i�NK��K�ni�Nh�y�Nk{~Y�X��X��Z�b�K�hI�Y��K��i��{��Z��y��X��ɾ�x�i�Nh��ZKK�����K��z؞K��Z�����nX���ɾj�[z�8K�h�xk^8kK�X��8K�>K�~Y(�xJn�>�;ވ	~K��k{~Y��ɾ�x~j~���{��h
-~K��h�X{�z�nX�~h�^Y��ɾ���[ˮ[�nK��K�nK�ވz�X��[�.h�jh.[�^�ɾY��Z�j�[��z�>Z�h
-~K�ވz�X��h��[^X�X�~h�.8[�n���Y(Κ[Y(��ɴvV�D�>h�^X�>X��i��K�K��Z��x�Z��K����z��K��X�Y��z�K��yY�XZ��:�XZ�K��iz~��.j~z���ɦgFU�5�vfU�6�W&6VZ��[�N�x.kX�{�nz���6V7F����S3#fZ��[�Nx�Z��j
-Xxn���6V7F����#Z��[�Nj�[z�z�h�~���6V7F����SfZ��[�Nh�.�;ޘx~j~���6V7F����s6Z��[�NK��K�nX����K��x�nh���6V7F����S#CFZ��[�NiX�[�NY�����6V7F����#3Z��[�NX��Y	h�^X�>���6V7F����SsSZ��[�Nk{~Y�X��X��Z�nh���8.{�.y��x+�{�Z�8�>i�ފznX辘.[�N8���{���8�8�>��~K��y��iˮ8Z)�K�>z+i)�8���z�Z�����[�NY(�[�nK��z>x��z؞X��K辊�Y�~���XZ^iȞi�^k�8X��K�Y(�kX��x�h�~j~y�N�뮊�8.X��z�izf�wW&^�ɾY�j�^�x�Xi�z��K�>z�~[�^��[�nK��yY�7G'V7E��6b�FfK��K�>���[nK��[.Y��iK����K���x.kX�h�^X�>8���΋��K�>Y(�y��j~X���>y�NZ��x�X[>{;�8 ��i[Z�nZH�j��ɮ�x.kX�j�Y�XX�Z;i��x��Z(>x�nh8K�hI�Y��i�K�n8X�^K��K��Y��Z;�ɾ{�Z�X��Yʎi�^k�8i{n�{NY(�Z���X[�Z�y�NY�k9^��nY�K����z�~�ɾx�Z��j
-Xxn�hk.K��xKn[�.K�X�nX�nj��ZَYʎK�N��n�ɾY��[�>k�YJ�K�h
-~��K�^j�X{�K�Niʮ�x.kX�X�n�x�h�^XZ^�x.kX�h�nj�>Z�XX�����ɾj�[z�hȞ{�Y�K�Ί�[�[�n[�.K�X�n���z�Z�XZ�K��K�nK��X�.X�i��	�Z래x�z��K���ɾh�.�;�j�Y�XˮX�n���{��Xh^�:�x�nh8zz�X�n�x~j~8�x�X�nY(�i{n�)����[z��ɾiX�[�NY��ǖV��n{�>�뮙�Y��Z�X�.�>8iz�[Y(�Y(�j�>Z�X�.i[���i{nX��8X�~h�.X��zk�iZ>j�^�[�X�n�Κ�Ί��ɾi�{��j�Y�X�nzk�Y��Z�j�[�����{��kXK��{�>i�N�x�{�����y��j~8{�>i�N8��>XZ^Y(�{�ni��X��X�nK��[�~K��Z��i[K��y�yZ^8.K����{�>i��K��yKx�Nh��XX�k�8�x�Z�h�^[�8X[h��h�nXZ�h�{�j�Nh�X{�8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������#R�yI�x���zR�X�nZ�n���K�>�{;��ɾ��Ny�^XX��	�8���[�n8k��[�n�ɾ[�^y�����K���ɾy��yz�����K��ijދ���ɾx��yn(	N���K��[ˮX�nY�i�N�ɾ�z�[�[�n[�.�J��ɾK���I�������{�Nj�N��>�ɾ��[B����k:"�z��2����z���{N�ɾk{~Y�t�K���J��ZHNyn(	N�	��>(	NZَX*�(	Nh�^X�>���K�>Y��XX>{�N�ɾX[>�J�z�[�Ni{n[�n8Y	�Y	8K��h�K��h�.{J.[�[�n�ɾi�^��.y��Z��{�nzZY{�n�ɾ�[Y(�8X�nXˮ8k�.z{�Y(�h.ZH��ɾiȞ��i�^��"�[�.�(NK��y�N��K��Z��x�X[>{;��ɾ[�:�{�>i�N{�{��K��XZ�[X�n[�>��zK�y�N���K��{�Z��ɾXZ�[�>�z�[�>X�Z���ɾk8Nk��8Y���N8�z�yKY(�Xh^Z�Z��Y�Y��{�i�Nik�ɾk{~Y����K�>K��X�K��vV�D�>��x+��i�ii�K�ވz�X���X�K�����K���ɾzY�{����.[�K��i���z�[�>X�[��i[�ɾY�j�^K�ދk>K�^��i��{�Z��ɾy��yz�K�����X��X[K��h�ދiX^���j�[���ɾ�.[�Nh�n�(NkX�h�X��K��h�X{�y��ynY(�i[NK�>Y�i�N�ɾ�IXˮ{�����K��h�X{����K�nz؞Y��ɾy��K��j8{J.K��K�ފ�K��Z���ɾy��j~K�����K��z؞K��K��X�h�X���ɴvV�D�>K��i��K����i���;�YJ�K�iˮX�b���z��K��X�K�Nz�K��yY�K��K��iz~��.j~z��[�n��z{�X����K�>�{;�8X�.i[8{�nz8iX^���8Z��x�X[>{;�8�z�[�[�nX�n[z^8�z�{;�{��j�N��>8iˮX�nX�n{�Y(�k{~Y�i�ni�N8.K��yY�yI�x��yK^X�nZ�n8z^{;�{��8X�nZ�nh��iZ>8v����.[�8{�.���i��K��i��iz^X�h��8h*�[In�8�8�~K�XX����8y��yz�����8�8.�I�{�{��X�nXˮ8���K��{��K��Xh^Z랊�zK�8��{�NK�h�{Jz؞X���z�)�Y(�K辊����K�nXZ��:�iK�Xi�K��[�n�x.kX�X�����8X��K�Y(Θ.yJ���yX�y�N��z�~�뮊�8.X��z�izf�wW&^���XZ�K�nY��[�.K��K�>Y(΋XNk�k�^X�^K��X��8 ��i[Z�nZH�j��ɮ���K�>�ڎ���Z;i��zk�iZ>j�^K��[�>X�X�.i[�ɾX[>�J�z�[�NK�^{��izh�.���K��yX����i{nX��Y��K��i��X�x�~i��[�����XZ^j�Y��ɾK��h�ik�z��{��X{�X�^K��Y(�{��h
-~��K�΋�yX��ɾh�.{J.X�.i[K��K��xJn�>�;ވ	~h�nzY�{����.[�k{~Y��ɾ{�nzX[>{;���Z�i�^��.ix�8h�X��X�n[�>Y(�Z�[z��ɾ���X�~K��k�.z{�j�Y�X�^Y
-��XNk�8{�>i�N8z�nyZ^Y(�i[h��X��X�n�ɾ�z����K�>z؞K�~��Z�iȞ��i�^��.8[�.�(NX��i{nY���ɾ��Y��z�Y�h
-~K�^K��X��K�Nh�.���[z�j8����ɾY��{�i�NikiˮX�nX�nX��Z;i��z�>Z�8iKn{ʞ8X�����Y(�j8{J.i�^k�i�K�n�ɴvV�D�>y��j~K��yY�z΋XNk�{�ni��X��iʮ��XZ^X��K��yJ�j8i�^8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������#b�y��i{n[˞h
-~K��[�i��Zh
-~�ɾ�:XX�Z�[�8Xj�+~{>Z�ij�[�i��8K�ޙI�z�X�nX���Hnh
-~ijފ8.y�N��Ny�^i�[N�ɾZ�N[��XK��h�K��X��Zh
-~�ɴ�E�ɾ��{�N8K���IK���ފ�j�Y�j�N��2�kK�X��x�nhK��{�>i�Nx�nhy�NX��i{n�{N[�[�ni�Nik�ɾ[�:�iKn{ʞh.ZH��ɾ��h��8ZK�X�8i�^k�8ik�)n[�nY(Κ8�X[YΙz�h�~�ɾX	���(	N�XNj�(	Nh�K�N(	N��Ί�K��X��ɾz�>Z�h
-~(	NX��Zh
-~y��j~�ɾi�NikiX�hI�[�n8�z�[�NK�ދYnK��i{n�{NiX�[�NX�n�z>�ɾK��{����K�>y�N[�.�(Nh
-~j�N��>�ɴvV�D�>[��hZ.��[�n[z^z����x+��[�:�iKn{ʞK��K�ފ�X�~h�.8i{n[�nY(Κ[Y(�i�K�nK��y�NXZ�[z�>Z��ɾh��ZKK�����K��z؞K��K��Z��j�>z�h�nK��X�h�X���ɾ�z�h�~���X�K��i��x��yn[�i��x+��ɾK�N[��K��K�nK��yKi�ii�ijފ8.{�j�Nh�X{��ɾ[�N��NK��i��X�^K�Y�i��X���x��ɴ�E��h��K�ދYnZ��X������ɾX��Y	i�>�x�Y��Z�K��K�>��i[NK��K�>yn{;�{��izyy^�ɾ�z����K�>X���;�y��K��K�ފ�i��Y�K�x��yni��i�Nik�z�����z��K��X�XZ�z�K��yY�z�j~z��K��K�NK��iz~��.j~z�����X�nX����z{�X�z�>Z�h
-~(	NX��Zh
-~i�>�Y(΋z����K�>j�N��>8.�x�ZHފ�z�~8X��K�Nh
-~{��X�n8Z�N[��XK�K��h�K��Z�nK�X��X�n8�z�[�N�HZ�8iz�y���i��y���E8��ފ�j�Y�h�ynK����{�>z؞X���z�)�Y�~iK�Xi�K��iȞ�x.kX�z�~X�>8[�.�(Ni�K�nY(�X��K�y�N��z�~�뮊�8.X��z�izf�wW&^��Ή�{�B�K���I���ފ�j�Y�j�N��>��K��yY�[�niK�K��kK�X��x�nh8h�K�^x�nh8i�Nik�z�h�~8K���h�8�Y(�h.ZH�h��j�^K�N{�X��kX�h�^X�>8 ��i[Z�nZH�j��ɮkK�X��x�nhK��{�>i�NX�.i[X�nX��Z;i��z���{N8j�^�[�Y(�h�^[�Y���ɾ[�:�h.ZH�yKY��Z鮋�>XZ^Y(�{�>i�N�+�Y��Xh^y�NiKn{ʞi�K�n{��X{��ɾh�K�^i�Niki��[��X�^Y
-��z�h�~X���x�8i�Nik[�[�nY(�XX��Y���ɾj*�[�nK�����{�>�뮙�Z�Ɨ66��G�j*�[�n8Y��Z�[�:�{�>i�NK��j�^�[�Xˮ�{N�ɾz�>Z�h
-~(	NX��Zh
-~y��j~XˮX�nikK��X�h��ZK8K��yY���n��K��[z�[�.Y(΋XNk���8�K�>K�~���K��X��h�.z�~i{niK�yJ�z�{�ni��8���X[�[��h�e&WF�[���ɾi�NikiX�hI�[�n��Z�i�^��.���X{�Y(΋�>X{�[�n�x��ɾ�z�[�NK�ދYnyKi�Nikz�~Z�K��X��K�Nh�.h
-~��zK��ɾ�X�nh�~j~K��yY����K�>8i[h��8z�nyZ^Y(�x��Z(>iJ�h�y�NX[Y�X��X�n8.K����{�>i��K��h��x��yn{�j�N8�(NkX�iȞiX�h�nh��ZKK�����[�>K��i[NK�>Y�i�NK��K�N[��yx^Y���i��8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������#r�K�~XΈ�~K��xN��>��[Nk��ɾzY�{���	.�J�z؞YΊxN��>Yˮ�ɾZYnX�j�Y�8{;�{��h�zK�K��k��[�n�*��xnK��K��[z^K�~XΈ�~�ɾ�J~[�Y(�k9^[辊*��xnK��zK�Kɮ�xN��>��[N�ɾ�z�h�K����N{�{�Ί*�Z�K��K��K�~X�ZX~x+��ɾ�8�i��YˮY(Έz�h�Yˮ[�.kh��ɾhȞ(	ΊxN��>X��x�~(	�h�.X�~i�n���8K���I8��ފ�j�Y�Y(�t��[�n{�Y�8i�^k�8x��i��Y(�i�>��y�N�xN��>x�nh�ɾz΋XNjΙ�nY�K��iȞ��i{nY�����y��j~�ɾ[��kK�X��(	NhZ.{�>i�Ny�NzY�{���>��.j�Y��ɾZYnX����{�>8h�zK�i�K�n8�x~j~K��Z�XZ���yX�Y��[.h�^X�>�ɾ[�ni{n[�nzK�KɮK�i*�Y(�ZIn�:�h
-~ZH�j��ɾi�^��.y��Z��K��K�>���{��h
-~�ɾ�8�i��XX����8K��K�>h�����Y(�ik��h��y�NZI�k�X���>X��h.ZH�K��X��zY�{���>�J���h��K�ދYnK��X�8X�~K�>Y(�kX��x�[�[�n�ɾZYnX�[�~X�nK��X�~K��z؞K��K��Z��j�>z�h�nK��X�h�X���ɾk��[�ni��iz�x�{�.�x~j~X�.i[���K��i��xJn�>�;ވ	~h�nh8^{���ɾK�~j�K��k9^[�K��z�~[�zK�KɮK�~X��ɾK��K�>j�Y�K�ފ�i��K���x.K�>����ɾK�N[��Yފ��K��yKh�ދXk.z�j�[��h�X{��ɴvV�D�>{�NK�nX��i��[z^z��Z��K����z��K��X�K�>z�XZ�K��iz~j~z��K��j���z{�X�K�~X�i�^k�8yI�x���>��.8K��[z^{;�{��8zK�Kɮ�>��.8K��K�>j�Y�Y(�ZI�k�X���>8.yI�Zَ{�Nh�8h�.{J.8yk�yy�Y���8�[�i��K��X�8ZYn�X��(NkX����[z�8X�yK.�+�K���[�{JK��K���[�8nz+8ZYnX�j�Y�8{;�{��h�zK�8�x~j~k��[�n8�J~[�8k9^[�8�z�h����{��h
-~8��{�N8K���I8��ފ�j�Y�Y(�ZI�vV�NX��K��z؞X���z�)�Y�~K��yY����K�niK�Xi�K��[�ni�^k�8x��i��8i�>��8X��K�Y(�[�.�(NX�����y�N��z�~�뮊�8.X��z�izf�wW&^�ɾ�z�{;�{����j�iK�K��K��K�>y��X[>��[�^8K���hh�^X�>K��X��j8��΋�yX����i�^k�[.��j�iK�K��X[�Y辊�[�^8K��yJ�h�^X�>Y(�[�^�h��Ί�8 ��i[Z�nZH�j��ɮK��Z��x�nhK��xN��>x�nhX�nX��Z�Y��ɾz�{�ni��XX�i�N�
-���z���XNjΙ�nY���΋��y��j~X��Yʎ�x�{�.X��h�.z�~i{nX�i�>�ɾiȞ��i{nY��y��j~i��[��X�^Y
-����z{�8�8�Y(΋XNk����ɾzY�{���>��.j�Y�X�nzk�[��kK�X��Y(�hZ.{�>i�N[�nK��yY���>XZ^8X�.i[X��Y��Z;�ɾZYnX�Z�nK�y��j~y�D�Κ�X��{�ni��z�nyZ^X�z{����K�ފ�i��K�~X�j�>z��ɷ6�gF��k��[�n�hk.���z��Y�k9^��nY�[�nZ;i��i�����K���ɾzK�KɮK�i*�i��[��X�^Y
-�i{nX���+�Y��8i[Ni[i{n[�nY(�K����i�>�x��ɾK��K�>���{��h
-~��Z�i�^��.ix�8���X{�[�n�x�Y(Ί��[z�X��ɾZI�k�y��j~Yʎy��j~8{�>i�N8��>XZ^h�nX	���X��X�ni{n�	���~K��K�ni�Nik�x�z�~8.K����{�>i��K��h��Yˮ��8��[Nk�h�n�IXˮ{�j�N[�>K��iˮX�n��i�����K��K��h���4bԄNz؞Y�K��vV�D�>8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������#��z��K����X��X��K��I�xk^8Z���x.Y��{ʞ8Z)�y���h�X�b�X�{��Z�
-X���;�8XZ�{�h�>h�h��i��8y��y�N��Yˮik�z��8[��Y��z�XX�X��zh�[�r�x�Nh��XX�X�n�z>8hZ.Y��z�[�NY	i�.x�~kXK��h�>h�h��i���y��j~X�[z�8[�.�(N�XNj�K��XNk��(Nz�~�ɾi�^��.K��h�y�NZ���x.x�nhX�{ʞ�ɾZ)�y��8h�X�nY(�ik�Y	X�{��y�NX�~��[���	�h�~X�n�ɾXZ�{�X��Y��k��{�>i�Ni8�K���ɾiȞ��i{nY��X�~��i�KɎh�~X�n�ɾ[�:�Y8�[�NK��h�^[�i�Nik�ɾX�.i[Z�nK�8zk�iZ>Y��{�n��Y(�z�>Z�K��yY���xN��>y��j~K��K��K��Z��x�nh�z�X��h�X{��ɾX�{ʞX��Z��Z;i��i�^��.ix�XX^X�n�ɾh�~X�nK�>K�~K��z؞K��xJn�>�;ވ	~�ɵ��G'�v��i�K�n��X��[��Y��Z�j�[��Xˮ�{NK�NX��i��[�^�hi�K�n�ɾ[�:�K�����K��K�ފ�K��X�h�X���ɾzk�iZ>{�>i�N{�n����{���XNj�j8i�^8K��X�h�K�N8K��yY�kX���^Y(�Y��k���ɴvV�D�>K�^K��[z^z��Z��K����z��K��X�XZ�z�[nK�>K��iz~j~z��K��j���z{�X�h�~X�ni�^k�8Z���x.�x.kX�8[���	�Y��z�8{�>hZ.Y��z�8D4^h�~X�nik�z��8[���	�h�~X�nh�Z��Y(�{�>hZ.h�~X�nh�Z��8.X��z�X[>K��x�nhY��{ʞ8k:�hH�X��Z)�y��8h�X�n8X�{��8yI�h�i[NY�8X[>{;�ZَX*�8{�>i�NK���.8���Z(>�x�i�N8�z�[�Nh�yn8y��y�N��Yˮ8[��hZ.Y��z�Y(�{�>i�N�X�ny�NK���h�z�)�Y�~K��yY����K�niK�Xi�K��[�nZ���z���{N8h�^X�>8X��K�Y(Κ�Ί�X�����y�N��z�~j�Y�8.[�:�{�>i�N{�{��K��ZَK��X�y��X[>���K��8�y.��.8i�^k�8x��i��Y(�{�n��X�nX�.���XZ�[X�n[�>��zK������X	���8kK�X��X��K��z�Z�h
-~���K�Έ^�	���~{�Z�8�
-nY�Y(Ί��X{�h�^X�>�NY�8.X��z�izf�wW&^�ɾXZ�{�i8�K�Ί�iK�Xi�K���znX���h��8X	���i8�K��8h�K�Ni�K�nY(�Y��k����h��y�N[z^z��j8i�^��8 ��i[Z�nZH�j��ɮK��Z��x�nh8�xN��>x�nh8h�~X�n�x�8�XNk��x�Y(�{�>i�Nx��i��X�nX��Z�Y��ɾz�{�ni��XX�i�N�
-�XNjΙ�nY���΋��y��j~X��Yʎ�x�{�.{��X�����h�.z�~Y�j~�x�X�n�ɾZ���x.X�{ʞK�^i�^��.ZKy��8j
-Xxn���[z�Y(Κ(Nz�~{�ni��Z�K���ɾ[���	�h�~X�nYʎY�k9^X	�����nY�K��iK�X����v�N[�nK��yY�6�gF��k��[�ny�Nh�Z��i[�ɵD4^Xi�K��[�n��>XZ^8j�[��8{��z��K�>K�~Y(�{�ni��y�NiȞ��i{nY��h�~X�n�z�)��ɵ��G'�v��h�Z��Z;i��X��[��h
-~8Y��Z�j�[��Y(�h�~X�n��nY����K��[NK��j�h�~X�ny�Nh�^[��z>K��h��[^X�zk�iZ>{�>i�NK��K�n�ɴ�>h�[z�X�ni��[��X�^Y
-�y��j~8{�>i�N8��>XZ^Y(�[�n�x�X��X�nK�^X��j�^�[�8[�n���Y(�k.�z>���[z��ɾhZ.Y��z�X�n[����{��X�.i[i�NikK��zk�iZ>Y��{�n�����K�^K��yY���n8�^X�X�X�Y(�Y��k��kX���^��X�n�[�i��K��iK�8.K�^K��{�>��Y�~K��yKx��yn{�j�Nh�X{����K��K��h��y��j~X{�i[K�����z؞Y�K��K��Z��j�>z�8�xN��>Y��xNh�nZIn�:�h�X��8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������#��[nK�h�XzK�^Z��XnY�j~y�Nh�^�z>�x�K��hH�[�~K��x�nhi��K�>�ɾyK�W76��j�>Z�h�X{�{��Z��z�>Z�Y(�YJ�K�Y�[�^Z��ɾyK[��K��X��*X[>{;�h�X{�h�^[�[�^xKnh�^��y��yn�ɾh����Ny�^���h�~8i�[�K��yJ�8��iZ>[�n8��z�~K�>K�~Y(���FVW.x:ވ	~iZ>Y�[�nK��Y�K�K���x��ɾZ�>z{�z�xKnj*�[�nK��Kɮi)^�8.x�nh�ɾyJ�Xh^�:���[�B�ZIn�:�[�i��K��X�n��X���ɾK�^zK�KɮX[h��Y(�X[K��kX[�.i��K�>X������ɾK�^ZInK�NYˮik�z��h����ZIn�:�h�~X�n�ɾyKK���I8z���Y(�K�Λ�ny�N[�.h{�j�Nh�X{�h�~X�nh�>h��[�n{�Y�y�N{����h�~X�nj�Y�K��Z��XnY�j~�ɾXˮX�ny��j~K�����8iȞyX�h
-~8k���z�>Z�Y(�K��X�h�X��y�Ni�K�nX�dǖV��n�뮊��ɴ'&Vv��h�^[�X��K��x+�X[>{;��ɾ{����iZ>[�n8���΋XNk�8���ZH~�;ވ	~Y(�K��X�iX�yJ�y�NX�n�Jn�ɾY
-�zk�iZ>j�^�[�8h�X��8i{n[�nK��[�n�x�X��X�ny�N�z�xKnj*�[�n�z�x���ɾXh^�:�j�Y�i�Nik8x��Z(>��X��8K�h���X��Y(�i�.{�>h�K�Ny�NK�.�8�ɾY��K��kh�h�8h�����8i�>��Y(�Xk.z�ZHN{��y�NZI�K��K�>X��YXn�ɾY�i��Y8�[�N8iˮKɮ{�ni��K�Ί�X�ޚh��ɾXh^[X�8ZIn{��Y(ΈN�*nK��{�Z���x.h�~X�ni�ni�B�h�~i[ix�Z��XnY�j~X��Yʎj�>X��8X���ꎊ�nK�N[�:��.yJ�y�NX�.i[Y��h�z���ɾX{�h
-~Y(�y��j~K�����K��K�ފ�K��Z��j�>z�8�xN��>Y��xNh�nZIn�:�h�X���ɴ'&Vv��h�^[������z���z�X{�X���Ι�nX���.[�>j�>X��h
-~�ɾ{�����[�[�nK��z؞K��xJn�>�;ވ	~�ɾ���{��kX{�>��K��[�~�{>��~zk�iZ>j�^�[�8X�~h�.8i{n[�nY(Κ[Y(Κ�Ί��ɾY�i��iX�[�N�hk.��nX��X~����ɾX[��nK��z؞K��y��yn8XZ�[�>h�nZ�XZ��ɾyI�x��[�.hX��h�K�[z^z��Y
-�X����K�ފ�i��iˮX�nz؞Y��ɴvV�D�>X��i��K����x�nhX��X��Z�ny�NK�zx�[z^z��Z��x����z��K��X�K��z�K��yY�z�j~z��Y(�K��K��iz~��.j~z�����K��j���z{�X�{����h�~X�nj�Y�8i�K�nz�>Z�h
-~8'&Vv��h�^[�8K�>K�~X�n�Jn8�z�xKnj*�[�n�z�x��8Xh^ZIn��X��K�.�88ZI�K��K�>X��YXn8ZIn�:�Y�i��h�~X�nK��Z���x.i�ni�N8.X��z�X[>K��Z��XnY�j~8X{�X��8[��K��X��*X[>{;�8��Ny�^���h�~8i�[�K��yJ�8K��X��h�ij�8zK�KɮY�j�^8ZInK�Nh�~X�nK�^X��K��Y�yI�x��[�.hy�NK辊�Y�~�*�K��yY����K�niK�Xi�K��[�nZ���z���{N8kX��x�X�����8X��K�K��.yJ���yX�y�N��z�~�뮊�8.X��{����kX[�.zK�hH�Y��y�N�xn�x�K��K�>K��j~z��Z��i[NK��yY����Y��k:�iK�K��[ˮ�>[�:�Y�j~8X�~z���{NY(�h�^[�i�K�n���K��Xh�h��XzK�^Y��zK�K��K��i��K�>h�nz�>Z�h
-~��i��8 ��i[Z�nZH�j��ɮ{����x�nh8h�~X�n��>XZ^8�x.kX�8K��X�y��j~8{�ni��Y(΋XNk��Jni��X�nX��Z�Y��ɾh�~i[ix�y�Ni��iɾX�.i[yKZ��i[�X�X�nX{�i[j*�[�n[�~X���ĆW76��K�^Yʎj�>X��X���ꎊ�nXˮY��XX^[�>[�:�[�n�x��ɴǖV��nZ��i[i��[��X�^Y
-�i{nX��y��j~8{�>i�N8��>XZ^Y(�[�n�x������[�nh��[�:�K�����8iȞyX�h
-~8k���iKniY�K��K��X����iKnX�n[��ɴ'&Vv��h�^[�Z;i��yI�h�X{�i[8ik�Y	8X���Ι�nK��K��x+�K��z؞[��y�Nh�z��i�K�n�ɾ�z�xKnj*�[�n���{��kX{��X{�K�����[�����zk�iZ>Z��x�X�n��{�ni��j�^�[�8K������[z�8[�n���8���[�Y(�h�^[��ɾ��X��K�.�8XX�zپz�{�ni�����Xh�YʎK��X��y�Nh�^h�.z�~y�N�8�8i{n[�n8�XNk�Y(�iKny���{NK��yJ����X[�[��h�e&WF��xNX���ɾZI�K��K�>i�Nik��[�^kh�h�x��i��8h�����8i�>��Y(ΘX{�i�K�n�ɾZIn�:�h�~X�nX��YʎX����nX��Y8�[�Nj�Y�X���8��(Nz�~K��k.�z>���[�n�	���~X��K��Z��h�n���iˮZ��xZ~X�ޚh�j
-j�>8.K����{�>i��K��h���(NkX�iȞiX�8y��j~K�����8X[��n[�.h�h�n[�.hy��K��[�>K��i[NK�>Y�i�NY(�K��X�h�X��y�N��i��8 ���z��X��iȞ�z�)��ik�뮊��i�K�nK���yX����������������������3�K��K�h�(	Nx��ynK��yJ��x��{>X�y��y�N��x�Nh��XX�ik�z���ɾh��Y��K�i*ފz>�x�K��iz�	~XzK�^h:�h
-~���h��Z���x.h�~X�n�z>�x�K��hH�[�~X���;����h���(NkX�j�[z�z>�x�K��x�Z��k�k:.���h��x�nh�Xx��z>�x�K��x:�X��Z�n�~[���ɾ[n[�.XX>(	N�J�XX>���K��x��yn���K��Z��ɾK�^Z��[�ny��K�ޙHZ鮊�i���h)�Y(�{��K�y��yn�ɾh�����k9^8���K��8���yJ�Xi�h�XzK�^(	N�;ޘx�(	N�xN��>Yˮy�Nx��yny��X���[�n{�Y�k{~Y�x�nhik�z���ɾY��Z�{�>i�NY��K�i*�K��iȞyX�Y8�[�N�ɾ�x.kX�j
-j�>8y��j~X�ޚh�8x��Z(>��X��Y(΋XNk��Jni��X�nzk��ɾ[�:�{�>i�N{�{��K��XZ�[X�n[�>��zK��	���~���K��{�Z�8Y�j~K��{Nh
-~Y(�K��K�n�x�{��NY��ɾZI�i{n�{N[�[�n�
-nY�X��x�nhX�^�ɾ���k9^8���K��8���yJ�y�NX��kX���^h�^X�>{�NY��ɾj*�[�nkXK��ZH�i[K�i*�y�NK�>�z�j�Y��ɾzk�iZ>K��X�8x��i��8j�^�[�Y(�iX^���k:�XZ^��Ί���ڎ���KɎX�nX��Yʎ{��Z�j�Y�Y(�X���Ι�nXh^h�z���ɾY��[�>k�K��K�ފ�K��Z��j�>z��ɾy��j~K�����K��K�ފ�K��X�h�X���ɾZH�X�x�nhK�ވz�X��X[~iȞ�x�Z�kX��x�Y
-�K���ɾ�)��z>�x��hk.�x~j~8[�>z�>Y(�X���ꎊ�ni�K�n�ɾY�j�^K��i��{�Z�XX^X�ni�K�n�ɾ{�>i�N{�n��K�ވ;�yK���{��j*�[�ni��K�>�ɾ���ZH~xJn�>�;ވ	~8K�h�iZ>[�n8x�nh��>i[Y(�K��X�K�>K�~X�nX�����x��ɴvV�D�>K��[z^z��Z��K辈Ι��K����yn��y�NYJ�K�iˮX�b���z��K��X�z�K��yY�z�j~z��8K�>K��iz~��.j~z��Y(�X��{��h
-~x�nhik�z��j~z�����[�nh��X���z�)��x�{�NK��K��K��Z��i[N[���.8.X��z�X[>K��K��yJ��x�8h�>h�K�i*�8K��X��h�~X�n8���K��Z�8Z��[�nk�X�8��h)�8����8�j�K�K�^X�����k9^(	N���K��(	N���yJ�y�NK���h�뮚)�Y�~���X�nK��[�n{�Y�Z���8X��K�8h�^X�>Y(Κ�Ί�X�����y�N��z�~�뮊�8.X��z�izf�wW&^���XZ�K�nX��#�K��f�wW&^K��K�>Y(�#nK���xn�x��XNk�iʮiK�X��8.ikZ)�K�NK����.j~z��X�nX��j~��zk�iZ>Z��x�K��j�Y辚�Ί����K��iK�X��iz~[�^yJ����K��8 ��i[Z�nZH�j��ɮ���{��kK�X��8jh.x�~X�n[�>8zk�iZ>{�>i�N8{�Z�8�xN��=��-�G����ƭy�8K��X�iX�yJ�8YN{�h�i��8h�~��Y��h�~K��K���x.K�>���K��[��ɾK��yKh�>h�K��X���x�8�z���ih~i��8y��j~K�����8ZIn�:�X��K��h�dvV�D�>Z��K�h�X{�hH���nZَYʎ8K��X�h�X��8i[NK�>Y�i�Nh�nYJ�K�iˮX�n8 ��22z��sz� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�6V7F����33V�ɮyJ�[.kXX�n8�x.Z��z�~Z��z>�
-n8X뾊xN��>X�nY(�K���J�i��[�^i���.h����z��hH���nY���x�y��X���XˮX�nx��yny��z��8��z�~iȞiX�z��hY(�K��K�>z��h
-~h�^Y��ɾh��Y����nj�^iK�Xi�K����>XZ^i[N[�.8X	�����ދ��8K�~X�X�X�{��K��Y��{���x.kX����[�nyJ�kK�X��8X��h.ZH�h
-~8z�>Z�Y��Y(Ή����nx�~���iKb�Z�~Z�Z�ny��z���;ޙz�)�K��K��K����Ny�^h�n�h^hI�y�^��i���ɾ[z^z��K��kK�X��K��z؞K��K���x.K�>���{�>���ɾiKniY�K�^YʎZ;i��y�N[�:�Z)�y��8h�X��Y(�j�^�[�i�K�nK��h�z�����6V3�6V7F����#�3��ɮyJ��8�i��Xk�{�>8K�NyX�i�X�nx�~8���iˮX[h��Y(�XZ�h�X[>�N�z>�x��^�xn8ZJ��>�	�X��K�X�ny�^zx��h���z�)��x�[��K��iȞ���	��>y�NK�X�~j8kX�8h�^iKn�^i8�K��i�.{��8y��X[>Y��Z;8iȞ��i{nY��x^iX�[�nY(�{�>i�N(	NX�n[�>�NY����X{��ɾK��yY��I�j�^8[���h8^Y(Ή�X�nj�K�[�nZ)�X�y�.kX�K��X��K�����K��X�KɮZ)�X������n�ɾ���iˮX[h��X��Yʎx��Z鮙��X�{;�{��Y(�K�X�~{����K��X���;�iK�YhNj8kX��ɾk*iȞK�h��	��>[K�ވ;�yKZ)�y��X���
-ZIn�:���h�����6V3�6V7F����s3f�ɮK�^Kپh
-r���Nh
-~X�X�8z�~k9^{��Z����n[�n8Y���J�Y��Z;Z���x.X�nY(�[�n�x���kI�h����t�ZX~x+��iK�K����h��{�ni��y�N���x^iX�XˮK��z�X�ޚh�Kʮj�[��Y��X�n�ɾyJ��z�x����^X��j�N8X��hZ)�y��K��yX�8i�^k�X�n[.��[�nY(�X���nj8i�^x+�X��yK�[�:�z�>Z�X��ZKz�2��Xخ[�N�h�yX�X��{��X{�[�:�Z)�[�{��{J.���K��h�X{�X[~K�>ZhNh;>h�n�>[�~[�h
-~�ɴ���[���x�K��y�Nh�^��i��x�~x:�Y��Z;h�^[��ɴvV�D�>X��i��Z��x�Z��K����6V3�6V7F���󓓃&�ɮK�^[�z�{;�{��[�^xKnZKz�>8DT4��	��x�K��yX�8x��yn[�n���8i)�Z)�k�k:.Y(�X[~���[�^�hh
-~[��z��x�Z��I�Z�Z�yb�[nZ�yn�x�[��K��iȞi�K�ny�N���[z�X�ޚh�yX�K��K�Nj�^x�Z��j
-XxnX�������Ίhk.i�^k�{�Z�8XˮX�nh
-~h�.kX�8�(NkX�yY�yy^8j
-Xxni�NikX������8�X��K�Ιz�h�r�ZIn�:�X�ޚh�K�ވz�X��y��Z�����[�z�{;�{��K��[�^xKnX�iZ>���x��ynK�NZ�>K��i����N��n��K�ފ��ɾ{�>��K�^YʎX���x.h
-~8x��z��h
-~8Y��Z;iȞyX�K��z�x��z�>Z�i�K�nK��h�z�����z��K�>X�K�z�K��yY�z�j~z��Y(�Y��K��iz~��.j~z�����[nz��hH���nY���x�y��X��8zY�	�8���iˮX[h��8XZ�h�X[>�N8Kپ��NX�X�8Y���J�Y��Z;8x�Z��I�Z�8i)�Z)�k�k:.K��X[~���[�^�hh
-~��z{�X�Y��K��{�nX�~[���.8.X��z�izf�wW&^���XZ�K�n�xn�x��XNk�K��X��8.i[Z�nZH�j�XˮX�n�x.kX�X��x�~8K�h��x�8kK�X��[ˮ[�n8Z�^�;ވ	~8X�n[�>X	���Y(΋��K��X�n{�>i�N�ɾK��yKZ�~Z�Z�n�z�)�8iz��Z)�y��8[�:�z�>Z�8ZIn�:�h�^�znh�dvV�D�>Z��K�h�X{��h^hI�y�^8XZ�y�^8i��K�>y��yn8K��X�h�X��h�nYJ�K�iˮX�n8 ��22z��s.z��ȎX�nj�^�؞z���Ȑ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3���6�75��e�W&�ɮh��YٮZ�K�[�^Xi�h�K��xk^�xN��>Yˮ��[N���K�^Y�y��X[h��8h�>h�X�X�nY(Ι��Z��i�>Xk.z��z>�x�iZ�yX�8X辋��K��h�.ijR�yJ�X���^��K��yI�h�8iȞ��ZI�j�h�	��>8h�^iKn�^Y�K��h8^Z(>i�K�ni�Nh�zK�KɮK�X�~i�Nik�ɾ[nK��{�iX�[�NiK�Xi�K��X���>8i�>X��{�ni��Y(ΊxN��>Xk.z����[�nK�^��K�8X뾊��K��8���K��h�zK�K�Nh�.Y(΋z�ih~X�n�x�ZH�j8����Xh^�:�x�nhK��X��y�Nh�^K���>�ɾ��K��X���(NkX�h
-~8y��j~K��{Nh
-~Y(�Z�^�XNk�kh��	~X�n�Jn�ɾi[NK�>K�>���K��h�X{�X���^i�΋J�8�>[�~Y8�J�h�nK��X���xx��ynYˢ���6V3�V�f�&���V�F����f��F�ɮh��[��z�K�nK�>X�nX�.Xi�h�x��Z(>�xN��>Yˮ���K�^iY�Z.8iK�[��iˮX[>Y(�X��ikz���{N��i��z���{NY�X�b�yJ�XzK�^8xZ~i��8Z;Z�n8z�nX�~8X�n[�nY(�YʎYˮ�^��K��i�Nh�x��Z(>{��{J.Y	�x����XˮX�n[���	�x�nh8��X��{�ni��Y(�hZ.{�>i�NZ�nK��X�nX�.K��K�^i�.x�~X*�ZَYʎZ)�K�>�ɾ[�iK�[�>[K�ވz�X��K�~yI�X��ik���Z��j��K����K��i�Nh�X�^Y�i��Z�[����6V3���FW'W'6����F����w��ɮK�^�xN��>Yˮ[�>���j�>K�NY(Ί�Ny�^kI�K�nX[�X���z>�x�i��[ɾK��Xh^�	r�[n�I�h�^X�n�z>K��yn�z>8�(NkX�8��yX�8h�X�nY(�K��ZH�h�i�����X�XZ^i�>X���
-h�y�NX��K�Ι�nY�iKn{ʒ���K��K��z؞K���NY���Έ�.i��K��z؞K��iȞy�����Xk.z�K��X���;�h��h�^{��I�X���;����6V3���f��E���F�vV��ɮh��XK�z�^Xi�h�{)�[˞h8h�K��Xi�h�i�nK�>h���[�nh��X��yI�Z�n[�ފxNZ�K��K��X���n�;�j��yJ���nj�^y��X[>Z�nK�x�~8i�N��.X�.�x�8�z�h�~8X�ޚh�8K��h�NY�{JK��h.ZH�j�>X��h����i�K�nX�n�ڎ����XK�z�^[�n���k:�Z�X�~K�N���h�K��K�����z�X��Y��[˞�ɾiz�i��X�nX�.�xފhK�nK��z؞K��Z��Y����z��K�>X�K��z�K��yY�z�j~z��Y(�Y��K��iz~��.j~z�����[nk	NYˮ��[N8[��z�x��Z(>�xN��>Yˮ8z���{NY�X�n8K����^�ڎ�>i�.X�n8i��[ɾK��Xh^�	~8XK�z�R�h�K��i�ii�y��X��8Z��j��K����Y(�X��yI�Z�n[�ޙ;�j���z{�X�Y��K��{�nX�~[���.8.X��z�izf�wW&^8.i[Z�nZH�j�XˮX�nK�X�~�	��>8Y�X�Nij�8x��Z(>{��{J.8��X��i�>��8K��X�K�>K�~8Z�^�XNk�8[���	�x�nhK��hZ.{�>i�N�ɾK��yKi[NK�>K�>���8[��z�[�.[��8y��i����.i��8[�N��N��nj�^h�dvV�D�>Z��K�h�X{�K��X���xx��ynYˮ8K��X�h�X��8K��j�Z��Y�h�nYJ�K�iˮX�n8 ��22z��s>z� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3��&u�F�7G&�'WFVE�gFV�ɮK�^X�n[�>[��eD^��^X�~8[�:�[ˮ���k�8h8�ZX~k�k:.Y(�{�N{�~yy��x��z>�x�K�h��x~��b�yJ�[�.i�N�x.kX�j�8[�ni�^k���J��x��i�>��y�N��h��X�^8�	�K��J>K��{�{��K��x��i��X�n��Y�h����X�n[�>[���x.kX���hny�n8j
-Xxn8K��	.K��h�Y(�[�.�(NX��h.ZH�h
-~��X�nX�����iKn�ɾkK�X��[ˮ[�n8K�h��x�Y(Έ;ވ	~K��k{~Y����6V3�7&�75���f��E���FW&7F����ɮh���z�K��K�>K�Nh�.Xi�h�X��{��{���	��x�K��K�h�(	N�;ޘx�K�.h�"�yJ�[z^K�n8���K��8x��i��8h�����8{�nz8h�^iKn8i�>��Y(�Y��h�~i�Nh�K��K����h�^X�>K��X�����K��K��	.K��z؞K��x��yn�;ޘx�K�Nh�.�ɾh�^iKn�^[�^��K��yY�h�.{��8k�Nk�^Y(�Xk.z�X�~{�~�z�[�B���6V3��&v旦F�����6GW&U���FW&��6���v�ɮK�^K����~8���h�~X˞�X�K��Y�X�n�z>�x�h�Y�[X�XZ^{�N{�r�yJ�h�Y��;�X��8{�N{�~{�ni��8Z�nK�8h�i�>8yK>���Y(ΘX{�i�Nh�X��Y	�.�X�X��X��Z�b����X˞�X�K��z؞K��K��j�Y�X�n�ɾ{�N{�~Y(�h�Y��;�X��K���.���i�>X��K��X{�h�i�΋��XZ^���iKb���6V3�V�W&vV�6U��e��&v旦F�����v����ɮK�^[��X�.�x�Z[N[۞Y(�{�N{�~hH�[�~kh�x��z>�x���nK�>Xk>Z��[n��nK�>Xk>Z�h�nh�h�����Y�8h�i�>h�K�N8h�~��Y��h�~K��X�n[�n��[�n���[�n{��X{�iȞi�K�ny�N[��hZ.i{n�{N[�[�nj�Y��X��YΊ�j�Y辙��hX��X�ni{n�{N[�[�nK��z�>Z�i�K�n�ɾ��nK�>Xk>z�nK��h�X{�{�NK�>[�>x^h�n�>[�~j�>z����6V3�V�FW'&�6U�F����v�6��6�V֗7G'��ɮh���:��z�X�n[z^�xNZ�K����K��j�>K�Ny�NK�K��h�>h�X�nZ�n�J��yJ��Έ;�z�~Z�8�XNk��J>K��8h�^X�>ZY{�n8K�NX���hny�nY(�K��X�y��X[>�
-nY�h����X�nX�b��:��z�[�n���z�xKnj�>K�N�ɾ�x�X�8z��K��8{ˮX�>Y(�K�Ni{n{�n{�NY�~�����XZ^X�X��kX���R���6V3��&u�&V��&�Ɨ�F����Wf��WF����ɮh��[.{�~k+�ynz؞YΘx�i[NX�n{�NK��h�>h�K��X���x�K��h��yJ���.Y	i�^��.y�NiȞh��X�{ʞ8K�ZIn�	��>8[�:��8�y�N���Y(�[�Z���[�^h����[.{�~i��h�X�{ʞX��YʎZ;i��i�^��.ix�K��K��y���ɾ[	i[����8�K��K�nK��[�~�*�[�>Y�~�x�h�y�n���[�Z�k��>K����k+�yb���6V3��&u�F����v�6��F����w��ɮK�^i�>X��ix�kj8X~hy.�	~iZ>8�X{�ZX~x+�Y(�x�y(>X�n�z>�x�{�N{�~yx^yb�yJ�y��j~Xk.z�8h�Y��Kzk�8{�>i�N���k��X��X[n{�NY�iX^���[��z��X��[�.�(N���ij����[�nX�XZ^�;�X��8�XNk�K��X�n[�nz؞i��K�>X��Y��y��X[>h
-~K��i�Nh�X�^Y�i�Ί��ij��ɾh�K�>{��iX�iK�YhNK��K�ފ��8�K��K�NZ�>X�n[�>XZ�[�2���6V3��&u�v�fW&��6U�7G&FVv�W6�ɮK�^j�>K�NX�n8����
-nY�K��X�n�
-X�iˮy�N�x���~z��k+�yn{�N{�r�yJ�Y��{���x.kX�8X	���[�.�(N8[�Z���^���8X�n��nj�^�:�{�.8�NY����iKnK��Y��k��i�Nh�k+�ynX������K��K�^X�iˮh�nK�NZ�>XX^[�>[�^�h�x��ɾZI�y��j~8i�>X��8�J>K��8i����Y(ΘX{�iˮX�n[�^��i��[��X�b���z��K�>X�K��z�K��yY�z�j~z��Y(�XZ�K��iz~��.j~z�����[nX�n[�>[��eD^8�z�kX[�.K�Nh�.8{�N{�~K����~8��nK�>hH�[�~8K�K��h�>h�X�nZ�n8[.{�~�x�i[NX�n8i�>X��ix�kjK��x�k+�yn��z{�X�XZ�K��{�nX�~[���.8.X��z�izf�wW&^8.i[Z�nZH�j�XˮX�n[�:�{�>i�N{�{��K��XZ�[X�n[�>��zK�8��h��K��h�����8K�h�K��Z�^�;ވ	~8��Y�K��h�i�>8X�{ʞK��K��X�h�X���ɾK��yKx��ynY�z{8Xh^�:�y��j~K�����8{�N{�~K��{N8[.{�~ZَYʎh�dvV�D�>Z��K�h�X{�i[NK�>Y�i�N8{�NK�>K��K�>8k+�ynj�>[�>h
-~h�nYJ�K�iˮX�n8 ��22z��sNz� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�6V7F�����c�ɮK�^YˮZَYʎ8Z���x.h�~X�nY(�h�>h�X��Zh
-~K��K��[��X�.�x�h��i���;�h�.h�K�N{�~���[�nh��K���IK��Z��XZ��
-nY�t�iK�Yʎ{��[�Z�K��yK�x.kX�8��[�n8��X��8Z�nK�8k+�ynY(�h�^X�>{�Nh�y�Ni�K�nX�n�;�X��X�n��.�ɾ[niz~K�N{�iK�Xi�K��X��[�Ni�[N8X�n[�>X���>8�(N���{�>yI�h�8j�Y�~{�nh�.Y(�h�{�ޙz�x��K�Nzx�[���xi�ni�NY��XZ�{�N�;�X��[�.h�K��X�y��X[>X�[���Ι��x��zxޙ�nj*��ɾi�ni�N8����XˮY(�Z��{��X�n[��ɾX���;�y��K��K��h�X{�iˮX�nY�i�N8K�>���h�n�>[�~z؞{�r���6V3�6V7F����c���ɮK�^K�N{�~k�NX�n��Y(�{��i�6�72nh����K��)���X�t�y�NX�^Y	�x>���yJ�x��i��X�n�;�X��Y	�x�8[�.�(N��nY�8x��Z(>K���NK�~X�n[�nh����ZI��z�[�N��z{����[�nK�^iX�yJ�8Z�XZ�8j
-Xxn8�XNk�8i�>X���NY�i�K�n���iKb�k�NX�nXX�뎘X�n8{�^��Y(�{�NY��ɾh�i��X�n�Jn�ɾX�ni[K��X�~K��z؞K��Jx��[{.��nX��8iʮy�^x��Z(>h�X��h�nK��X���n��X��j�>[�2���z��K�>X�Y��z�K��yY�z�j~z��Y(�K�NK��iz~��.j~z�����[nK��K��[��X�.�x�8K�N{�i���;�8K�{��z�~k9^8��{�N8���8k{~Y�{;�{��8K���IK��t�{��[z؞X���z�)�Y(�K辊���z{�X�K�NK��{�nX�~[���.���[�nK��yY�K�N{�j�N��>��y�NZ��J�Xh^Z�8.X��z�izf�wW&^8.i[Z�nZH�j�XˮX�nK��X�i�K�n8{�>i�Nx��i��8����x�nh8ZIn�:�Z��{��8�x~j~���[z�8�XNk�h�i��K��i�>X��{�ni���ɾK��yKX�.i[�xNj�8Yʎ{��Z�nK�8�[�i���z�x��8y��j~K��X�~h�dvV�D�>Z��K�h�X{�{��h
-~k�NX�nz؞{�~8hH���n8�z�yKhH�[�~8i[NK�>Y�i�Nh�nYJ�K�iˮX�n8 ��22z��s^z� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�7G'V7GW&�����u�'�76�ɮ[�.�J����K��kXX��8��X���x�8[�[�n�y��[�.K��[�n�x���xN��>X��z�[�b�yJ��x.kX�z�~Z�8{�>i�B�kK�X��x�nh8�x~j~k{~X�8��zK�K�ދYnY(Ίx.kX�z؞K�~{�Z�K���ꎊ�n�z�)�����{�N���{��h
-~K�ފ�i��YJ�K�kX[�.�ɾ�(NkX�h��Y�K�ދX�K����X���x�i��K�>Y�K���ɾ�z�[�[�n���	[.�xދꎊ�b���6V3�f�W%�7FW�V��&�6��g&�Wv�&��ɮi��K�>�I�Z�8kX[�.Z�nK�8x��ynX�.i[X��k�NK��h�>h�h��i���[��z����yX�X�����8X	�����zK�8���{���zk�iZ>X��X��Z�n�ꎊ�nY(�i�ZJ~j�Y�XˮX�n[�n[�.�(Ny�NY��j�^��h��;��f�6�W.K�h�i��{����iX�hI�[�n�Ι��xJn�>�;ވ	~�ɾy��j~K�����K��z؞K��K��X�h�X���ɾ[�.�(N��Z�XZ���n8Z��xZ~K��h.ZH�i�����6V3��WF��F���v�6��V��6V�V�G6�ɮ��>y[NY�i�N8i�[��	~iZ>�8Xk>K��k�k:.zK�k:.Y���[nK���x�{�ni��iK�Xi�K��{�Y�X[>{;�K��h�8K�h��kK�X����;ވ	~X�n�JnY(�[�nX�.�x�(	NY8�[�Ny�NK��X��h�.�(��[�.[����Ί�K�ޚ�Ί�x�Z��xNj��ɾ��[�>�X��ynK��i��.�ɾ[ɾ��Y(�[J�k�>���X�K��y�Nh�^h�X{�X��[�nh�nh�>h�Z�NkI����6V3�����w&��5��F�ו�66W6�ɮX�^{�n�9�XZ�h�i�[NK�����Y;.Z�nX;^[����ij��{��X{�X�^{�n�9�ZI�j�hh��j�(	NX�.�x�Z��Y(�Y��zj�Y��vV�D�>X�n[.kh����ik�j��{�NK�>j��h����.K��Xi.XX^X�^{�n�9�{�^Y	�ڎ����ɾ�{����K��h�X{�[�>Y�nkX[�.h�nhH�[�~�ɾ[z^z��j�Y�~K��i��h�iȞi���;�y�NYJ�K�Y��Z����6V3�6��6�W6����V��&�6��vV��6���ɮK�^[�n�x�Z�~Z�{����[z^z��Z�>Y�{��K�ik�z���K�^j�Y�X�8Z��X�8K�N{�~��h��{��z�Y(�ZK�J^X��{J�zz���[�^Z�K��K�NK��j~Xxb��4b�ԄNh�K�K����x�nhX��X��Z�n�z�)�jni�n���K��h���z�K���J�y��K��i�.{��8vV�D�>��nK�nh�nx��yn{�j�N[�>K��i[NK�>Y�i�N��i�����z��K�>X�K�Nz�K��yY�z�j~z��Y(�K�NK��iz~��.j~z�����[nX�^{�n�9�8��.{�N8K�K��8ZJ~��ފ�j�Y�8K�nyX�Y��K��K�>���Y��z؞X���z�)�Y(�K辊���z{�X�K�NK��{�nX�~[���.8.X��z�izf�wW&^8.i[Z�nZH�j�XX�Z�K��k��Yʎx�nh8�x.kX�z�~Z�8z���{N8{�N[�n8�x~j~j�^�[�K��X�^K�����XˮX�n{����h��ZK8K�h�xk^8kK�X��[ˮ[�n8h�~X�nK�>K�~Y(�xJn�>�;ވ	~���[�ni��[��{�>XZ^X��X�n{�>i�N8K��K��ih~K��zk�iZ>���[z��ɾK��yKh��Y�8���{�NY��8�Z�n[�n8y��j~K�����h�n�z�K���J�y��K��h�X{�iˮX�nY�i�N8hH���n8�z�yKhH�[�~h�nYJ�K�Z��x�8 ��22z��snz� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�6��v�U�6V����F�ז�ɮ�i�(	N{�n�9�J�(	N{�n�9�j�K��[.8K�nyX�Y���K�>���Y��8D�{�n��K��DD4�Y�Y��Z�K��kY>[�n8yK^K��8�i�h8���y��Y(�zk�iZ>Y�i��{�Nh�y�N{�Y�X�nx�nh�ɾK�^��h��h
-~K�Nh�.��yX�8X��[�B��h��iZ>8hZ.�	������8i�K�n��Y�X�n[�>Y(�x��i��X�n{�n��K��X��x�[���z�x���{�n�9�i���;ޙ�K��hI�y�^(	Nh�~X�n(	N�.[�Ny�Ni8�K��Z�K���ɾX�n[�>YˮK��z؞K��[�:�{�>i�N{�{���ɾK�X�~K��i���x�Z�k:.X{�i[�ɾY��Y�K��z؞K��Z��i[NK�nyX�j�Y��ɾ{�n��ZH�i�.��K����ZI�iX�h
-~8zh�X��Y(�k+�yn��h�����6V3�GV����f��E�6�WƖ�v�ɮ[���i�kX[�.8hZ.yI�X�nkX[�.8Kˮi��X��ynK��K��K����X�����[n[��hZ.kX[�.iK�Xi�K��K��Y�i{n�{N[�[�ny�Nx�nhX�nXˮ���Z�K���
-nY�z�~Z�8[�[�nj�N8Xxnz�>hi�K�n8��~���[�j�Y�8zk�iZ>j�^�[�K��K��{�[�.�(B�[�[�nX�nzk�YʎXk.X{�8K�NyX�hZ.X�n8���k��Y(�{�>i�Nz�X��i{nZKiX��ɾy��j~K�����K��z؞K��i[NK�>�.[�N�ɾK�K��{�j�NK��vV�D�>Z��K�K�ފ�i��{�n�9�iˮX�nY�i�Nh�nYJ�K�Z��x����6V3�V�''���5�FWfV���V�F�ɮX��+.i���x.8Yދ��HZ�8[��x�X��ik�Y	hI�K��[�.[��X�nX�b�K�^�{;�8K��{��8�+�Y��8YˮY(Ι��iˮ�>h�~Z�K��{�n�9�x�nhX��X�����Y���ɾyJ�i{n�{Nj�{J�zz���h��K��{�>i�N�x�i�NZ�K��Yދ�h�K�N���[�n{��X{�[��x�X��k{~i�.Z��xZr�i���x.i��i�K�nX�n[�>y�NX���xnX�n�Ι��y��Z��x�X��X���ɾh�K�Ny��Z��K��[�.�(N��nY�Y(Ίx.Z��i���ɾ�+�y�N8Xh�yI�X��[��x�X��iX�[�N��X�nX��j8������K�ވ;�h�X{�i���K��K��i��K�>�����6V3�Wf��WF����vV��WG'��ɮ�.[�Ni���x.8yI�hK��8y�nK��K��K��iˮ���Y��K�^zx�{�NK��	.j�8�)x�~K�ދYn{�j�n�Jx��Y(�x��Z(>Y��Xi�[��z���
-nY�i�Nik�ɾXˮX�n�~K�8X��+.8Z�nK�8ih~X�nY��z���ik�Y��{�i{n�{N[�[�n���[�nZ�K��K��(	Niˮ(	NX�n[�nX[Y�k�NX�b��.Y�[�nK��i��K�~X�h�n�;ޘx����Y�~X�K��K�ފ�X�^�>�ɾX�ޚh�K��z؞K��{��K�y��j~�ɾiX�x�~h�X�~K��z؞K���~h
-~8i�>X��K��[�i���.[�N��ΈIiˮ���Y�K��i��X��X��Z�n[�^xKb���6V3���f��E�66U�7GVG��ɮ[��X�~8�48h�Z����zK�K��{�>i�NyI�h��{�Y�X�n[��X�~8j�Y��Y(�h�Z����zK���Ί�Ni��X��Y	i�Nik8X[X��k{~i�.84R�2�z؞X��Y�j~���X{�8���{�>h��ZKX��{��K���yX��h�Z����zK�K��i��x��yn[�n�x����X[X��K��z؞K��h�^�znh�nY�i���ɾh��ZKK��i���z�yK�;���Ιٞh�(NkX�K��i��h��X���~z����Κ(NkX�iȞiX�K�ފ�i��4bԄNi[NK�>Y�i�B���6V3�6V7F����CSV87V'6V3��E�66�G��Ɩ֗F�ɮK�h�{J8i�y�ދz�8y��X��K��{�NK�>Z래x��Z�K��ZI��	��>X��[�B��h��iZ>8K��K�>iȞX����iˮh�~X�n8�z�yK��nK��[�nK��hȞ�z�[�N�[�[�nX�yJ�K��K�>y�N[�^�hZ래x�i�K�n�ɾK��yY���vR��G2��vX��f�wW&^K��K�2�Yˮ[ˮK��i��jh.x�~[�^h�n���K���;ޘx��ɾ��nK��[�nK��z؞K��K��X�h�X���ɾXZ�[i�y�ދz�8Z��XZ�izhZ.X���x�X��i���Z래x�Z�ynY�~K��h�z����Ι����z(�8��z{�Y(Θ	��>���ij�Z�����6V3�f�&VfǕ�7��6�&�旦F����G��֖76�ɮXX�Yˮ�
-nY�8�Hy��K��izZKNzz�[���K�^y��K��Y8�[�Ni�.{��8X��h�	�K�Y��8i{n[�nY(ķW&��F�[��X�.�x�h����Y�j�^�ɾXˮX�nY�j�^[�.h�8{�Nh�Y(�h�X��h.ZH��y��K��Y�j�^K��z؞K��Xh^Z�K��{N8X[Y�y��j~h�n{��K�K��K�>�ɾi[Z�nX��K�����K��z؞K��Z�^�;ވ	~���K�����i�{��z�>hh��Y�K�ދk>K�^�ꎊ�n�
-nY�iˮX�b���6V3�6V7F����C#&X��XZ�K���Iz���&7V'6V3��j~z���ɮy��[.8k[~���8��Ny�^Yˮ8X�ޚ)�X�nK��DD4�[�x���yJ�{�>i�NY��8X�n[�>kK�X��8k[~���(	Ny��[.X��Y	h�^X�>8i{n[�nK�i*�8iȞ��i{nY��h�~X�nY(�{�.x��z�x���x�[��K���IX�n[.��z�~X��X��Z�b��IXˮK��i��vV�D�>j�Y�~y�NK�K�i�[N�ɾK��{���{�j�{�n�9�K�ފ�i��YJ�K����i��kX[�.�ɾY�j�^K�ފ�i����K��{�Z��ɾK�>K�~K�����Y(�X��K��h�X��K��z؞K��[�i��Z�nK�Z��h����6V3��WW&���GV�F�%���6�76�ɮZI�[{N�;�8X�yK.�+�K���[�{J8K���[�8nz+8�k�^{JK��y��J��h~K��K��YˮX�.i[�K�^X�~K�>8XˮY��8Y��{��Y(�i{nz��K��i�K�n���h���>�J���>XZ^Xi�XZ^kK�X��Z)�y��8��>XZ^�z�h�~8i{n�{N[��i[8Z�nK�x�~K��{�>i�Ni�Nik�ɾ{��X{����ynY(�K��X�[�.�(Ny�Nj�Y辋ꎊ�nXZ^X�2��	.�J�K��K��[��K�8k�^�i.8Z�nK�h�n�	[�>K�K�Z��[�N�ɾy��J��h~K��i��Y�{�z��znX���x��ɾkK�X��8��z�~K�>K�~8yI�yn�XNk�Y(�xJn�>�;ވ	~K�^j�X�n�Jn���K�N[��x�nhK�ވ;�yKX�^K�kY>[�nh�X{����6V3��6U�&�GF�V�V6���E�F��V�6�������&�����ɮK�N�{>K�>��8���k:.h�.K�n8F�WF��v��j{�K��K��K��iˮ{�N[�n���k)��yJ�Xh^Z�(	N���K��{�Z�8K��h�[ˮ[�n8�z�h�~8�Xx�8��y��[�.h�Y(�K��X��(Nz�~Z�K��[z^K�Ί�[�n�ɾh���z��)�
-nY����K��X��j�N��>y�Ni{n�{N{�N{�~X~��N���[�n{��X{�[�nj�^�[�y�Nzk�iZ>Z��x��Z래x����i�ii�8{�NY�~8h�^Y�Y(�x�nhX��X�n�ɾy��K�ވ
-nY�K�ފ�i��z�K�������kK�X���ٞ�����Ni��h�{��iK�yK^���YJ�K�iˮX�n�ɾK��[z^{;�{��K��X�~Xh^Zَ8�	�K�8��Ί�Y(�K��K��ih~�(Nz�~��X�b���6V3�F�W&��G��֖5�FW�WF�����E�F��V�6�����6���6V�ɤEij�[In8X[�>[	N�I���8yI�ZَZX~x+�K��zK�KɮkX[�.X�^zk��X�nX��[��j�[�^x��8k
-~K�8y�y�X�X��8Xh^X�nk8�Y(�yk.X�>���K�^�XNk�K�{��(	NX��yJ�(	Nh��ZKX��X�~{�ni��h�~X�n�z>�x�z�nyZ^iKn{ʞ8Xh^hI�X�~KɎXX�Y(�h.ZH�i�.{���iz^[��yk.X�>K��i��E�h���n�ɾX[�>[	Ni���K�ވ;�y�Nh�^{��X{�[�^ZKNx:ޘx�h�nK���x.[�~x�~�ɾ�XNk�8��K��Y(Έ;ވ	~X���z>�
-n���(	Ι��{�N(	�K�^h�~iȞiX�z�nyZ^h�nX�������X{�Xx�[	���K��h�X{�K��j�h�n�>[�~kh�ZK���6V3�6V7F����C#v�ɮK�Λ�nK�^�xn�x�8{�>Zَ8[z^X[~Y(�zK�Kɮh�yn[�.h����{�N��[����K��K��K�Λ�nX��hȞ�IXˮY(�X���;�y�Nh�^j�N��2�K�^[�n{�Y辈�.x+�Y(΋�y�N[�:�X[>{;�{�8XZ�[X�n[�>kK�X��8�xn�x�(	N���K��{�Z�8K��K�n{�>Zَ8h�~X�nx�nhX�����X{�h�^X�>i�Nh�K��X��z�x���ɾyJ�[z^X[~[��X�~8�x��9�y�kX�K��zK�Kɮ{��{J.��Ni��iˮX�n���[�n{��X{��	��>kh����Y(�i{n[�nh�X���X[>�NY��8k�~kX���X�Y(Ί�[�nZ래x�X��i��[�^j8���X	����ɾ[z^X[~h�X��K�ފ�i��K��{�[����ފ�8i[NK�>�IXˮY�i�Nh�nhH���n�ɴvV�D�>{�>ZَY(��4�K�^K��[z^z��Z��K����6V3�6V7F����CCf�ɮz���y�NX�n[�>[��zY�{��{;�{��8�Y^�k>�z�k+�8X��[�.���K�>K��K��{�y��[.[.{�~j�N��2�Z�K��K��ZJ�x�nh8�Y^�k>[�:�x�nh8���{��K�>���K�>[�.hY(�x��Z(>h�^�zn�ɾyJ�ZI��	�x�~kh�h�8x��i��X�ny��j~8[�:�X��[NY(�Xk.z�K�.�8h����K��ZJ�(	N�Y^�k>X��Y����[�nh��[�.h��z�~Xi�h�h�~X�n�I�h�^y�NX��kX�X��X�b�[�:��z�k+�K��z؞K��XZ�K��x��z��K��K�>�ɾi�NK�>X��X��Z�nK��zY�{��h�~X�n��X�nX���ꎊ�n�ɾK��ZJ���Y^�k>j�NK�8��K��h�X��Y(�[z^z��y��K��K��h�X{�K��{��IXˮY�i�Nh�dvV�D�>YJ�K�Z��x����6V3�6V7F����CSs��ɮ���K��(	NjH�x��{�{��K�^X[�X�nkX8K�X�~k:.8��[�nY(΋XNk�[�.Yˮi�Nh�izZKNkXK�>��z�~iˢ�Yʎ[�nik�Y	i�>�x�Y��K��Z�K���XNk�kY>[�n8��.x+���k.8�래	��x�8X��[�N��8{�>i�Ni�NikY(�[��hZ.K�X�~�ɾK�^iȞ��K�>zz�zk�iZ>8Y�K��{J��ދ��8��X�~ij�Y(�X�~K�>���ij�XˮX�n��>��8{�>i�N�.[�NK��X���2�X[yI�K�Nh�.K��[�^XZ�[�>h�nX[~{��K�y��j~�ɾX���x.Z��X�kXX��Y(�z�>Z�Y��j~K��z؞K��hH���n8K��hH�X��{�nz��h�nzK�Kɮ[�.Yˮ�ɾ(	�Y��z���ik�[��i���;�(	�i��X�~h�^X�>Y(�yI�h��yXΙ�X�ny�N[z^z��{�j�B���z��K�>X�XZ�z�K��yY�z�j~z��8X�Y��K��iz~��.j~z��X�����K��y��X[>y�Niz~Z���.j~z�����[nX�^{�n�9�8[��hZ.�
-nY�8X��+.8k�NX�n8��f��N8��{�N8�
-Nx����8K���I8zY�{���>�J�8[z^K�Ί�[�n8�XNk��	~z��8K�Λ�n8z���Y(Έ��K��(	NjH�x��{�{�΋�z{�X�X�Y��K��{�nX�~[���.8.Y��K��X��f�wW&^K��K�>X��j�N��>��Xh^Z�Y�~[{.K��yY�8.i[Z�nZH�j�XˮX�nZ�K��8j�Y�X~���8i[Z�n{�>i��8{�����K��[�K��[z^z���������XX�Z;i��x�nhz���{N8{�N[�n8i{n�{N[�[�n8X�^K��Y(΋�yX����Xh�{��X{����{��h�nzk�iZ>i�Nik�ɾK��yK�(NkX�iȞiX�8Y�j�^8�XNk�kX8y��j~K�����8x��yn{�j�Nh�dvV�D�>Z��K�h�X{�i[NK�>Y�i�N8hH���n8K��X�h�X��h�nYJ�K�iˮX�n8.j�>[��z�[{.i��h�.[�n�	���~Y��Z�X��z�z�~[�^Y��{��8Xخ�^[�>[�z�jy�X��x��yn�SCs~(	CS.�	�^ZH�j����x�nhK��&Ww&�GFV��&Wf�WvVF8 ��22z��s~z� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�6V7F����#3S&�ɮh��{).Z�Xi�h�eD^�X�n8h��j~�x��.[�N[�n�z>�x�K��[�.�J�K�~ZKK��h�>h�y�.�xb�Z�K��i	�{J.Y��8��NK�~h�^X�>8K�>ynx�nh8�	�K�Y��Y(�{�����kX�[�n���XˮX�n[�:�{�>i�N{�{��K��XZ�[X�n[�>��zK��{).Z�i��z�~k9^K�>yn�Ι��i��K�>�ɾj~�x�X�{ʞi��Y
-niȞZ�>X�nXk>K��K��X��ɾ��NK�~�x�K�ވz�X��z؞YΈ;ޘx����6V3�6V7F����3sC&�ɮh��4��	�[�n[��Z�>z{K��y��y�N��x�Nh��XX�ik�z��K��;�i������[�nh��K����i�[NK��h:�h
-~8X����K��xN��>X���{��X{�[�n{�N[�n8j�^�[�8���iˮX���x�8�+�Y�����X{�Y(΋�yXΊxNX��y�Nzk�iZ>i�Nik���[�nK��Y��Z�Y�[�^x+����[z�y����^��Ni��z�>Z�i�K�b�[�.[��y��K��K�ފ�i��Y�i�N�ɾz{�X��y��j~8[�n���Y(�Y��Z;���XZ^�	.h��ɾz�>Z�8y��j~K�����8K��X�h�X��K��xJn�>�;ވ	~X�nX����Ί����6V3�6V7F����#���ɮXk�{�>j�~k����X�K��Y�Y����i��kX[�.y�NK��X�b�yJ�[z�[�.z�~Z�8Y�k9^z{�X��8{�ni��h�^[�8kX[�.Y��{ʞ8{�NY�{�n��Y(�X��Z�nK�{�nzh����K��X�y��X[>i	�{J.XzK�R�h�^[�X���;�X�{���ɾX��X�n��zK�8[�n�x�8y��j~Y(�{�ni����i��[�����XZ^i�Nik�ɾZ�nK���zK�K��z؞K��iK�X��x��yni{nz�����6V3�6V7F����CCV�ɮh��izK��[�>{;�{���xNZ�K��x:�X��Z�nh+.X�~8{ˮ[	X��K��Z��Y(Έz�h��X�ni�X�K��[�>X�ny�NZ랙I�KɎX�����K�^X��iz�xi�iKniY�8jˮ��~8���iz~K�h�Y(΋��K��K�K��iX^����ɾ{��X{����ij�Y	�x�8[�:�h.ZH�Y(�j�Y辋�^X��zپ���izK��[�>K��z؞K��K��{�~�ɾX��K��Z��X�nXk>K��(NkX�j�Y辈Ι��K��[�>X�n�ɾi8�K��h
-~��yX�K��h�X{�h�nY
-nZ�K���x.�z�h����6V3�6V7F����Cs3�ɮh��YˮX�nY(�Z���x.�>��.Y��X�Xi^���K��k�NX�n{��[�[��z��[���	�{�NK�>i�NikK��hZ.�	�k+�yni�Niky�NX��i{n�{N[�[�nj�Y����i��z�XX>h�~X�nX��K��8�(Nz�~8Z�XZ��z�h�~8Z���K��kh�����XX>h�~X�ni��X��i��h�.[z^z�������ɴvV�D�>y�BF��B�N8DRN8E�F�WFN8E�6�N85>8D4^844�8&�V�F'�8�ff��F��~K��D��RNK�^i��K�zx�Z��x����z��K�>X�K�>z�K��yY�z�j~z��Y(�K�NK��iz~��.j~z�����[n{).Z�i��K�>84�K����8j�~k�����i��XzK�^8izZKN{;�{��Y(�YˮX�n{��[��z{�X�K�NK��{�nX�~[���.8.X��z�izf�wW&^8.i[Z�nZH�j�XX�Z�K��Z���8z���{N8{�N[�n8j�^�[�8���iˮX���x�8i{n[�nY(�{�ni�����XˮX�nz�~k9^Z�K��8j�Y�X~���8z�>Z�{�>i��8{����Ί�x�K��[z^z��k+�yn�ɾK��yKik�z��[�.K��8z�>Z�iKniY�8j~�x�y��j~8�(NkX�iȞiX�h�dvV�D�>Z��K�h�X{�x��ynY�i�N8K��X�h�X��8i[NK�>yn�z>h�nYJ�K�iˮX�n8.j�>[��z�[{.�	���~Y��Z�X��z�z�~[�^Y��{��8Xخ�^[�>[�z�jy�X��x��yn�SS>(	CSn�	�^ZH�j����x�nhK��&Ww&�GFV��&Wf�WvVF8 ��22z��s�z��ȎX�nj�^�؞z���Ȑ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�6V7F����C�687V'6V3�֖7&��6V��F���87V'6V3�V6���֖5�6VfV�ɮ�XNK�~[�.�J�K�΋8��.X�^{�Y��{ʞ8k:k*�Z�Nz��Z�8{��kX�Yˮik�z��K��ZJ��X���;�[z^z���Z�K��K��K�>x�nh8ZY{�nY��8��.X�^K��K�nY(�k�^z�~���z{��ɾK�^��.X�^kX8z�nyZ^j�8X�ޚh�Z)�y��8iȞiX�{�Ni[Y(�hZ.�	�X�n[�nY��{�n��h����K�~j�[�.h�8X�iˮK��iK�z�nh�~X�b��J~[�8K�yJ�8K�h�xk^8K�Ni�>h�i��Y(�xJn�>�;ވ	~X�n�Jn�ɾ[�:��i�K�nK��h�X{�[�^xKn[J�y���ɾK�~j�y��X[>h
-~K��z؞K��X�n[�nz���{Ny��Z��{�N�ɾiK�z�ny��j~Y
-��xN��>i�>�x�K��i�>X��{�ni�����6V3�6V7F�����ɮ��n��n�K�{>Z�8y��y�N��~8����I�[	NkXK�>8[�n�x�[J�Z�K��K�N�	�h�>h�j۾�H�yJ�X��h�z�{�8Z�h.kX8[�ni{n[�n�	��nh�~X�n8�z�X�>���X�~8z؞[�^K�ދYnx��8Z�Έ���x~{�>X�ޚh�Y(�[��hZ.k+�yn�x�[��K�N�	�X��X��Z�b���n��nh�.K�nh
-~i�^�z�X�yJ�K��Z�XZ��y�zk��ɾ[�:�z�>Z�K��K�ފ�XZ�{�yX^�	��ɾ[�>Y�~�	�[�nK��z؞K��zK�KɮK��X�h�X���ɴvV�D�>i�[NX��i��X��i��h�.[z^z��Z��K����6V3�6V7F����C3��X��K�>K��7V'6V3��j~z���ɮ[�.�J�k{~Y�Y	�x�8Xk�{�>h*�z��kX[�.8GFV�F���kI�8DD^{��x:ޘX�n��i��8z���{Nh�>h�yx^yn8y��[�.Z래x�Z�ynY(�DDXZ��x�kX�{���Z�K��iȞ��k{[�nj�[z�i�Nik8k:�hH�X��X��hiȞY	Y��8�z�Y��[�.i�K�nX�ޚh�8Yޚ)�{�~j
-Xxn�ɾ[��z��K��X�y��X[>y��[�.Z래x�8�(Nz�~{�ni��K��K��ih~��h�����K�^X��X�^Y
-��xޘx~j~8Z��xZ~Y(�[�.�(Ny�Nh�{��Y΋>K���W.X������[.K��i��x��yni{n�{N�ɾk:�hH�X��K��i��[�n�x�h�nY�i�΋Jx���ɾk��[�nK��i��x:�X��Z�nk��[�n�ɾ�(NkX�iȞiX�Y(�K��{�Nh�.�(�K�ފ�i��i[NK�>Y�i�N8y��X΋�Nh�nhH���n�ɾh�>h�Y��K�ދYnj~i��8�y�zk�Y(΋h^X�.i[����6V3�6V7F����C���ɮh�����{�>�z>�x�K��xiN���kX[�.8�x�ZX~kX8ZIn�:�y��y�NY(�izX�nX�.�;��
-�Z�K��i[h��8X�.i[8KɎX�nY��x�nh8�x~j~X�n[�>8zk�iZ>i�Nik8k9�X�n8�XNk�X�n�JnK��x��i��X�nZIn�:��z�x���Z�nK�x�~K��i��x:�X��Z�nk��[�n�ɾh��ZKK�����K��z؞K��:�{�.h�X���ɾZIn�:�KɎX�nK��X��i�Nh�i8�K��hH�K��y�NZ�nK����K�nK��h�X{��z�K��y��y�B���6V3�f��WGV��u�vVvU�f�V�F�ɮh��4eNK����$�z>�x�K���xN��>Yˮ8kI�K�nX[�X��8K��zz�[�^xKnZ�ynY(�Z��z{h
-~zN{ˢ�yJ�y�y�>8X�Z[�8K��zz�i�Nik8K��yY���n8�8���n8[z^X[~i�>��8�:�{�.y�kX�Y(�Y��k���x�[��X�~��X�.i[{�n���K��zz�iȞiX�K��i��[�^xKnZ�yn�ɾX�Z[�i��K�>yny��j~�ɾ��K���x>��K�ވz�X��i�Nh�y��X���ɾX�.i[i�NikK��h�K����X���XNj����z��K�>X�XZ�z�K�NK��{�nX�~[���.[{.Z��h�XZ�ih~[�ni��h�.j�>[��z�8.z��in���8[�.Yˮ8K�N�	�8Xk�{�4���8���{�>Y(�[��>XZ��:�hȞx�nh8{�>i�N8��>XZ^8y��j~8��yX�K�Ί��x�[���ɾz�j~z��8K�NK��iz~��.j~z��X��XZ��:�iz~Z���.8XZ�[��j~z��Y�~K��yY�8.j�>[��z�[{.�	���~Y��Z�X��z�z�~[�^Y��{��8K�N��.Xخ�^[�>[�z�jy�X��Dnx��yn�SS~(	CS#�	�^ZH�j����x�nhK��&Ww&�GFV��&Wf�WvVF8 ��22z��s�z� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�6V7F����cSsf�ɮh�����{�>�z�yK�;�8i[h��x�Nh��XX�k�8i�.x�~K��yJ��x�Y(�i�>�xފXx��xnK��Y�K�x��yn{;�{���Z�K��i[h��yI�h���~z��8Z래x��z�[�N8���{�>z�~k9^K��i�K�n�8��ɾyJ�i�[���>i[{��h
-~Y��[�.y�NZX~[�.X�X�n�z>h�Z��Y��Z;iK�ZJ~���[�n��Ni��[*�Y��[�.y�N�k�Nk:"�{����h��ZK8K�h�xk^8z�~k9^�XNk�Y(�xJn�>�;ވ	~X�n�Jn�ɾY��Z�x��[�{��h
-~j�Y�K��y�Nh�^h�X{�k{[�n{�{���ɾ���{�>���[z�K����nK��z؞K��kX���^�8�h�nK��X�h�X�����6V3�6V7F����#Cc&�ɮyJ�X��h
-~kX[�.8x�y(>h8i�.x�~ZX~x+�8�h^kXK�>Y(Θn�x�ZX~kX�z>�x�K��K��Z래x�Xˢ�K�^��ވ�~j�N8{����΋8K�X�~Z����8h�.XΊz>��nY�8��[��X�{��Y(�x��[�Z�nK�h����j�X�.i[8���X�K���~X�.i[Xˢ�X��Zx�X�.i[�x�K��h�i��iȞiX��z�yK[�n�ɾ{�N[�nZ)�X�K��K�ފ��8�K������ɾ���h
-~��~h��Y�K�ދYn�[�8K�X�~8Y��Z;K��z�~k9^��h���ɾX��X�ny��j~8��zK�Y(�[�n�x����XZ^zk�iZ>i�Nik���6V3�6V7F����SCf�ɮh��X�Θx�K�����Xi�h����{�NXzK�^[�^xKn���[�nK�^K�h�x:�Z�.jh.h�Ί��{�>{��h�[��z��Z래x�8Y��Z;8j�>X��8KɎX�nY��K��kX���^X�n[�>K�N{�N[�.�(N�ɾX�XZ^iz[;8X�^�>Y(�X�n[�>ZInhnX�nX��K��ɾK�^zΚ8�8Xh^ZَY(�i{n[�n{�ni��i�N�
-�:�{�.�XNjΙ�nY��X�^i�[�>k�i�.{��K�ދk>K�^�ꎊ�niˮX�n�ɾ��Ί���n�>X�.��K��[ZَkX���^X�nzk��ɾ[�>Y�~�8�K�����K��X�nkh�j
-Xxn8X[>�J�Z�{�N8i�>��Y(�K��X���n��X��j8i�^�ɴvV�D�>X��i��X��i��h�.Z��x����z��K�>X�K��z�K��yY�z�j~z��Y(�K��K��iz~��.j~z�����[nK��yJ��x�z��K��8��ވ�~j�NK��y��Y(�x:�X��Z�nh�{�>�x�[��K��K��K��{�nX�~[���.8.X��z�izf�wW&^8.i[Z�nZH�j�XX�Z;i��j~i��8X�.i[8h��ZK8kX���^X�n[�>8Z래x���NY(�Y��Z;X~������Xh�yKKʮ�nK��[*�Y��[�.���{��h�Z�΋Z)�y���ɾXˮX�nj�Y�[�[�nX�Θx�K�����K��X�ni{nX�Θx�K��������[�n�hk.h�^Y�iȞiX�zz�8���{�>j�^8X��Zx�X�n8j�>X��Y(�{��K�Xˮ�{N8.K��yKx��yn{�j�N8{�N[�nh��[�8h��ZKK�����h�n�(NkX�iȞiX�h�X{�i���X�Θx�K�����8i[NK�>Y�i�NY(�K��X�h�X��8 ���22z�Ãz��ȎX�nj�^�؞z���Ȑ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�6�gF���7W&f6U�FV�6����ɮh��6�gF��z{K�Ί���.[�X�����[�nyKjh.x�~��nK��h�X{�Xh^�[Nh�>h�k{K�R�i��z�Z�K��i�^��.8�J�8X�8h�z8iz�x�{�.k:�hH�X��i�>�x�Y(�X΋Jx���ɾh��k:�hH�X��k~h�nK��jh.x�~Y�iKn8iȞiX�Xi�XZ^Y(΋z�[.�y.��.���[�nh�X{�K��{��{��h�.8�J�X�kh����Y(�i��K�>k:�hH�X��Z��xZr�6�gF��Y(�K��K�X��h�K�X�n�X�X�X�����K��h�~Z�k~K��{���ɾi�>�x�ZJ~K��z؞K��K�h�ZI�8kK�X��[ˮ8xk^���h�n�;ވ	~ZJr���6V3�vV��WG&�5��V'>86V3�6V��F�5�f7WV��F�V�&V�86V3��WG&�5�6��wV�&�G��V�W&w��ɮ���kI�i�.{��8���K��y��z��Z�ynY(�[z�k�kK�[�NX���z>�x��XˮX�n[�>Y�~XZ^i�>�x�8X���;�K��[�>h
-~8K��Xh^Z�[�.h�Y(�[z�k�kK��ɾK�^iȞ��h�X��Z)�y��K��z�>X^j~XxnX�ni[[��z��X��[�.�(Nh�~jr�[�>Y�~k:�hH�X��K��z؞K��K��i[K��[�>h
-~�ɾK��X΋Jx��[�n���h�iȞi�.{��y�N[�^�hi�K�n�ɾ[z�k�kK�K��i��[�NX��(	N�;ޘx�[��x�h�ni�.x�~��h�����i�΋��Z��h�z�Ãz�z��in���Y(�X��K�NK��{�nX�~[���.���j�>[��z�K��K��yY�Z��i[Nh.ZH�z��[�n{�Nh�VWVVB�f�"�gV���&Ww&�F^8.�؞z��[{.��z{�z�j~z��X��Y��K��y��X[>iz~��.j~z���ɾ{+�z�{��Xi�x+�K��z��K����.(	�K�nyX�X[>{;�Y��K��j�Y辊�z�~Y���ɮ[�K�nyX�Y(�z�yh�h
-~i������X~��N(	���Ι��Y�Z��h�z�yh��z�yK[z^z���z�x��8.XZ�ih~Z��h�8i��h�.j�>[��z�[�n�	���~h�.x��X��K�ފ�XZ^{J���Z��h�i[8 ���z�Ãz�Y��K��{�nX�~[���.[{.Z��h�x��z��XZ�ih~�x�Xi�[�ni��h�.j�>[��z�8.ikZ)�Y�K�N��.[nK�nyX�Y��[�K�nyX�[�^xKnh
-~8z�Z�ny����^���X~X[>�N8K��h�X�.i[Xi~Kٞ8k�kK�z�yh�8��^K��z�yh�h
-~Z�h.Z�[���Θx�[��K��K��X�X[>{;�Y��8��z�~Y��8X�.i[iJ�h�Y��Y(Ί�zK����+�Y��y�NZ���X�nzk����[�nZI��Jni��y�Nh�>h�����j�N��>���K�^X��X�.i[�k�kK��k:�hH�X���K�>Z�nY��{�z�yh�K��X��Y��k���z�yK�z�x��8.XZ��:�iz~j~z��[{.��z{����X��z�izf�wW&^�ɾY��Z�X��z�z�~[�^8Y����.Xخ�^[�>[�z�jy�X��Dnx��yn�SS#n(	CS#��	�^ZH�j�Y�~�	���~���x�nhK��&Ww&�GFV��&Wf�WvVF8 ��22z�Ãz� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�vV��WG&�5�W76V�6U��e�66�V�ɮX�.i[�h�K��izz�~X�>zk�iZ>{�{��h�K�����{��kX[�.���X�Θx�K�����i�^�z�[�NX��z��x��Z�K��ZI��XNk�Y	�x�8X��X�ni[h���{�>i�B�y��j~K��y�Nzk�iZ>���{�>�ڎ���X��K��X�iX�hI�iȞiX��z�yK[�b�X�.i[i[K��z؞K���zK�{�N[�n�ɾ�8�K�����K�ފ�i��i�.x�~X��[�>�ɾK�>K�~8K�h�K��xJn�>�;ވ	~X�n�Jb���6V3�F����v�6��W&6��F����V�W&vV�6V86V3�66Ɩ�u��u�V�f�VE�WVF����ɮY��Z鮘�k�~���X�X�>�Iމ(.i[Y��{ʞ[�nK�~yI�h�yb�XˮX�n��NX�n�z�jy�8h�^X�>z�>Z�8i[h��hny�nK��{�>i�N���X���ɾK�^K��X�Y��8[�.�(Nh.ZH�X��[�n������h��y�N{����{ʞiK�[��j8�������iˮY��X�K��i��.�ɾ���	�K��z؞K��j�>z�h�yn�ɾX�nj�^j�Y辙�yY�X{�x+�K��K��K��[�.�(B���6V3�vV��WG&�5�FVf��F�����e�����66�V86V3�&�v�&�W5�F����w���e����E�F�ɮk{Z��K��K��ih~y�Nh�^i�[N[�>yni{nz�����jh.[�^i[z؞K�n{�NY΋2�X�nzk�Y�K��X�.i[8iȞiX�k{[�n8��zK�zz�8iȞiX�K��K��ih~8�(j9.jh.[�^Z래x�X��[�:�{�>i�B�XZ�[X�n[�>K�NK��iȞiX�zz��K��ZَYʎi���K��K��ih~[�>ik�j�[��ɾK�N{���zK���{�����K��{�Z�Y(Ί��X{�h�^X�>�NY����6V3���G&��6�5�66�G��WVF����ɮK���>�z�K��{�Ni���Xk>Z�{��K��;�X��Yˢ�yJ�ZI�K��X��;�X��Y	�x�8&WF�X��k+�8�XNk�K�NK�.i�.��.Y(Ίhny�b�K����{�NY�K��{�X	����z�jy�[��z��X��X�ޚ�>�(NkX��K�ފ��i��.X�.i[���X�Y(�{�NK�����ɾ��NX�n8ki�>8���{�>K�ދk>Y(�X�����X��X�nX���;�X�n�
-�x>X�r���6V3�FV'V涖�u�F�U�6��WFU�v���ɮyKX�.i[K�>h�.h�X{�jh.[�^[�>ik�j�8X[>�NY��j�j�Y(�{��Z��z�~X��Z)��h��z�~X��Z)�Xi�h��y�+8xJn�>8[�i{n[�n8ZَX*�Y(Κ8�{�ni��K��y�Nz�nyZ^KɎX�n���j�N��>h��j�8z�yh�8j8{J.8[z^X[~8��Ί�K��Xێ����i�ni�NK�>h�.K�ވ;�h�X{�i��hZ~[�.[��ɾ[z^z����yX�Kɮz{�X����ΊxNj�h�X�~K��i�Nh�Z�XZ���i�����z��XZ�X�K�z�K��yY�z�j~z��8K�>K��iz~��.j~z��Y(�{��K�{ʞiK�XZ�[��j~z�����[n���{��{��8X�Θx�K�����8��k�~kh�x�8K����{��K�Yˮ8���k{Z��K��K��ih~i�[N8jh.[�^Y΋>8K���>y��X���z�K��z�~X��Z)���z{�X�K�NK��{�nX�~[���.8.X��z�izf�wW&^8.i[Z�nZH�j�XX�Z�K���XNk�X�^K��8x�nh8j�^�[�8K��X�Y��8iȞiX�zz�Y(Ί�NK�~X��������XˮX�n[�>k��h�X��8{�>i�N���X��8kX��x����X�8K��X�h�X��Y(�y��Z��;ވ	~�ɾK��yKi�.{����Y�8Y����	�8X�.i[Z)�ZI�8x��yn{�Ni[h�dvV�D�>Z��K�h�X{�h�ynkh�x�8i��.{��x+�8i[NK�>Y�i�Nh�nYJ�K�iˮX�n8 ��j�>[��z�[{.�	���~Y��Z�X��z�z�~[�^Y��{��8K�N��.Xخ�^[�>[�z�jy�X��Dnx��yn�SS3(	CS3N�	�^ZH�j����x�nhK��&Ww&�GFV��&Wf�WvVF8 ��22z�Ã.z� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�6�6�����f��E�7V'7G&FV�ɮh��K��X�>�xnK��eD^��.x+����h��[�>Y�~[�nz؞Y�Y��z���ik����h����K��i[�x�z؞Y�iȞiX�{�N[�n���[�nyJ��x�ZX~i�.x�~�z>�x�K�Ni�>h�i��K���iK��	~iZ2�Z�K��K��K�>8ZI�[.X[>{;�{�{��8X�n[�n8y�^��n8�XNk�Y(�x��Z(>y�N�NY�x�nh�ɾhȞK��X���[�^X�����x�~8i{n[�n8Y	�Y	8���k��x�~K��h.ZH�i{n�{N���[�nh��X�n[�nXi�h�iK�X��Y�k9^���z{�Y(�{��I��z�[�Ny�Nh�^X�2�K��X�>8��i[8K�h�xk^8��iK�K�>K�~K��xJn�>�;ވ	~K��yY�YN�z�X�^K���ɾ[�>Y�~[�nK��i��XX^X�n{�����x��ɾ{�>i�N{�{��K��X�n[�>[��y�^��n��{�����K��8i�>��Y(Ί��X{�h�^X�>�NY��ɾX�nX�.{�j�NX��yI�h�X~��B���6V3�6�f�Ɨ�F����66�G��WVF����ɮh����ފxNj�[��y�Nh�^[�>z{�K��ih~i��h��;�X�����[�nK�^Xi�K��8[z^K��K��K��Y��Z�y��X���z>�x�X�nX�"�h���;�X��Z�K��K��K��X�8{�NK�>Y(�i{n�{Nz�~i�K�nK��y�N�J��x�8�hny�n8i{n[�n8K�>K�~8X�n�X�8h��Z�>K��h.ZH�Y	�x��ɾK�^�xNj�8{�{��8y�^��n8�XNk�8X�n[�nK�NK�.y�N{����j�Y�K��yY�X��j8��Θ:�X�b�j~�x���Y���XZ�[��xN��>i�>�x��ɾ���iˮY��X�K�ވ;�y�Nh�^��i��[��Y��[�.h��ɾ�x>����h�.��NX�>[�NX��X�n8X�n[�niK��ڞY(�ZIn�:�Xk.X{����6V3���FW&�WE��WG&�5�6���6V�ɮK�.�N{�K��K��hH���.x+�[�n�x�[�.��n8���	�[�n�h�K��XZ����h�^[�n[�.h�iz���[�XZ�y>X[h���X�nzk�K���>i{n[�n8�XN�K�8h�X��x�~8��Ί�h�i��Y(�i�>��X�������Ί^XZ^k:�hH��(Nz�~8h�.[��h�~X�n8i[Z�~���k)�K��ZI�[.[�>X�K�ދYb�j�Nx��K�i*�h�i��K�����K��z؞K��J~x��8xZ~h�N8ZH�x�Y(Ιz�J>X�Y�Y��X�n�ɾk��YʎX�����8Z�^i��XX�8X��K�h�^X�~Y(Ί�K�����X�n[�^��X�nkX����6V3�w&VE��vW%�F�W&��G��֖76�ɮh��K��X�>h�^h�N8X�n[�n{�N[�nK��ZJ~Y��z��K��Xi�h�x:�X��Z�nh�NX�Y(�h�~i[h�>h�{�.X���yJ�X����x�~(	NZHNynx�~h�.���8Z래x�X��yJ�8K�h�h��ZK8K�[�N��nK��8K��X�i�>��y����^Y(�X�X��kX���^�z>�x��xNj���~��K��h.ZHވ;�X���iX�[�NhȞi��X�Y(�K��{�NK����ɾh�K�~X{�K��i��K�>[�:�{�>i���ɾiˮi�Ni[�x�Y(�y����^zz�K��i��zK�Kɮx��yn{�Ni[���K��K��ZَYʎi��.{�N{�~K�NyX�x+����6V3�v��F����v�6��&V6��7G'V7F����ɮh��t��xnK����nh�i�΋h^{�~��.x+����ZH�X�nZ�Έ{N[��x^�j��8���zK�Kɮ[�^xKn��nK��[�nZ[N[۞K��{��Z�K��[�.�J�K�>yny�NK��X���x�8i�>��8h�i��Y(�X[Y�iX^����ɾK�^���[z�X��ik�[z��Ni��y��X[>ZH�X�n���[��z��K��iˮX�n[z^8i�[�i�>��8Y��k��Y(�i�>X��iYkX�h�^X�2�vV�D�>iˮX�nX��K��[z^z��Z��K��ɾ���[�nZ��K��h�X{�zK�KɮKˮi��X[>{;��ɴt��;�X��K��zK�KɮK��K��{�>i�NY�~i��X��[�.�(Ny�N{����Ιz�)����K��{��;�X��h
-~i��������yX����6V3�VffV7F�fU�F��V�6����6�f�Ɨ�F����ɮK�^h�>h��z>{�>8j�>K�N�y.��.Y(�yI�Zَh�~i[Z�yn�z>�x�ih~i���~h
-r�yJ�K��X��Jx��y����^8iȞiX�zz�K��iX^���X��ik�[z�XˮX�nK�.�^8x��z��Xi~KٞY(�y��X[>ZH�X�n���[�nK�^Y�iKn(	N�.[�N(	N���Y�h�~j~j8���h�{��Z�nK��iȞiX�{�N[�ni��i�K�n{�����x����K��i��ih~i��i��K�>�ɾXk.z�X��i�^�z�i�>X��8z�{ˮY(�i�>X��K��Z��z{�ɾZI�j~h
-~X��iȞ{�>Y�X���>h�^X�>K��XZ�[�>X�.K��h��iK�YhN��~h
-r���z��XZ�X�K��z�[{.Z��h�XZ�K��{�nX�~[���.y�Nx��z��XZ�ih~�x�Xi�[�ni��h�.j�>[��z�8.z�j~z��8XZ�K��iz~��.j~z��K��zK�Kɮ{ʞiK�XZ�[��j~z��Y�~��z{����X��z�izf�wW&^8.i[Z�nZH�j�h��K��X�>8���h�^8X�n[�n8y�^��n8�XNk�8K�i*�8K�>ynK��ZI�j~h
-~X�nh�iȞX�^K��y�NZ������XˮX�nZ�K��8{����X~���8X�nX�.iˮX�n8�xN��>i�>�x�K��[z^z��h�^X�>�ɾK��yK{�{�΋��	�8��NX�nZ)�[�8x��yn{�j�Nh�nZHNyn[�nZ��h�X{�ih~i��h��;�X��8X�nX�.[�^xKny��X��8XZ�[izi�i:nh�nK��{�ZKX뾈;�X��h
-~8.Y��Z�X��z�z�~[�^8XZވ�.Xخ�^[�>[�z�jy�X��Dnx��yn�SS3^(	CS3��	�^ZH�j�Y�~�	���~���x�nhK��&Ww&�GFV��&Wf�WvVF8 ��22z�Ã>z� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�F��V�6�����FVf�6�E�F��V�ɮ[d���h����K��{ˮ[	Kʮ���i��(	³(	�{�N8Y���k*iȞY�i��XX��J^8h8^i����[�nY(΋��{�ވz�h��XˮX�nK��K�ni{n�{N8��[�^i{n�{N8���{�>j�^K��K��K�>X�nX�.�ɾZ�K��[�nX�.i[x��i��8KɎX�nY��x�nh8ZIn�:���[�n8i�>��Y(�i�^k�y�Nzk�iZ>i�Nik���[�nhȞK��X��xNZ�i�[�i{n�{NZY{�b�iz^i��Z�~j�^K��z؞K��K�.X�n��Ί��{�>j�^K��z؞K��x�Z��i{n�{N�ɾ��ފ�j�Y�X��yKy��Z����[��Z�nK�i{n[���ɾ���{�ދ��K�ޙ��hX��i�^��.�z�x��X�nX�.���K�nX���;�h�~j~K�ފ�i��K���x.K�>������6V3�F�W&��G��֖5�6�GFW&��u��e�6�VffƖ�v�ɮ���iˮkI~x��[�^xKnh��[�>���Z��i�>h
-~8�Iޘx�y��K��8Y(�K�{�NX��K��j��yJ�[�nj�^�[�y�Nh��j�i�Nikz�~Z�Y(�x�nh�y�zk�Z�K����[��[z�[�.���XˮX�n[�:�K��[��8�:�X�n[��h�>h��x~j~K��X��K�Nh�.j~i�Ι��iˮX�b��z�[�NK�ދYnK��z؞K��K��j��ɾ[�j�^�[�8[��
-nY�h�nY�K�Y�[�^Y��X��K����[��iX�[�N[�[��ɾ��z؞i[h��8z؞�(Nz�~8ZI�zx�Z�[�.�(N��Ί����6V3�FVvV�W&F�����e�6W6ƗG��ɮ{ˮ[	���{��i{n�{NY(�x:�X��Z�nz��ZKNK��j�Y�X���;�Z�nK�izik�Y	X[x��X�nzk��x.kX�8[�.�(NK��X��K��Z���ɾK�^{�>i�NY�i��j�Y�8i�^k�i{n�{N8x��Z(>Y(Ί�h��z؞{�~{�N{�~���{�>K�Ί��i{n�{NXX�Y���XX^X�ni�K�n���i{n�{Nh�>����nX��K�ފ��ɾ�(NkX�iȞiX�K�ފ�i��Xh^�:�{�>i�NK��K�nyX�i[NK�>Y�i�N�ɾ�z�x����X��K�ޙ�Z�Ί������6V3�&V6��7G'V7F��u�G&���u�f�%�6�75�f�ɮ[����NXZ�[kI~x��8h.ZH�i{n�{N[�n�x�[�n��t�h�K��k�K��X[>iˮx:�iˢ�i�N�
-�;�X��K�ދYn���z��8XX>i[h��ZY{�n8[��K��hZ.Xi�XZ^8K��yY���n8Y��k��Y(�Z�XZ�{�ni��K��y�Nh�{��Z�nK�Y�i����ٞhj�Y�K��z؞K��j۾K����Yʎ{��j�Y�K��ZJ�xKni�Ni���;��ɴvV�D�>K�^K��Z��x�Z��K��ɾy��j~K�����K��z؞K��K��X�8Z�XZ�h�nK��K�>h
-~h�z�����z��XZ�X�K��z�[{.Z��h�Y��K��{�nX�~[���.y�Nx��z��XZ�ih~�x�Xi�[�ni��h�.j�>[��z�8.z�j~z��K��Y��K��iz~��.j~z��Y�~��z{����X��z�izf�wW&^8.i[Z�nZH�j�Z;i��X�.i[8KɎX�nY��x�nh8ZIn�:���[�n8i�>��8j~i��h��8j�^�[�8x�nh�y�zk�8Y�i��X���x�Y(Κ8������XˮX�nZ�K��8[�:�[^[�8{������h��8[z^z���>[�nK��xN��>��h���ɾK��yK���Z��i�>i�Nik8i{n�{NXX>i[h��8[�.�(N�(NkX�h�nh�{�ދ���h�X{�K��j�8i[NK�>Y�i��Y�i�N8���{�ވz�h�h�nK���x.K�>���8.Y��Z�X��z�z�~[�^8Y����.Xخ�^[�>[�z�jy�X��Dnx��yn�SSC(	CSC>�	�^ZH�j�Y�~�	���~���x�nhK��&Ww&�GFV��&Wf�WvVF8 ��22z�ÃNz� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�f�'v&E�&�6W75��VE�FVF��ɮX�Y��z؞Y�x:�Z�.8Z�Nz��Z�k�n�z>Y(Θx�ZX~kX�Z�K��zk�iZ>���ij�j�8���{��4D^8z�~k9^i{n�{NK��{��z����K�����K�^X���ꎊ�n[�n���ij�K�h�K�.ZK�ik�[z�8[��X�nxk^K��xJn�>�;ވ	~X�n�Jn�ɾYˮi��i{n�{N8��[�^i{n�{NY(�h��iZ>i{n�{NX�nzk����6V3�&WfW'6U�6FU�6VfV�ɮ[�~X�nK�^j�z؞Y�K�nyX�[�n�x�K���Ny�^Yˮik�z���Z�K����{ɎZ�n[�n8[�~X�nX�^K��8X��k�Ni�K�n8X˞�X�y��j~K��iȞ��j�^���[z��[�:�[�~X�nK��z�Z�XZ�[kX[�.�ɾh��ZKK�����K��z؞K��{�>i�Nh�X���ɾ�x~j~K��h.ZH�YJ�K�X��j~i�����6V3�&��E�vVvU�f�V�F�ɮh�zK���ފxN��>YˮK���Ny�^kI�K�nX[�X���{��X{�K�NX��k:�hH�X��{�N[�n84d~ZInh�X��Z���(	N[�h
-~(	NX[>{;�X��K��Z��kX���R�h�zK�i����z�~i�K�n�ɾk:�hH�X��K��i��XX^X�nY�i�Ί�h���ɾh����[�^Z��ZَYʎZI�j~h
-~Y(�ZKy��K�>K�r���6V3�F�E�F����w��6��f�V�F��v�ɤF�N[�^xKnkk.X�ni{nz�����X�~zz�ZJ�xKnK��h�h�>h��[nZK�J^h�nK��i[h��8{�nz8{�Z�8k.�z>Y��K��[�.{�>X�{�����[��z�����K��Y(΋��{��h
-~h�~jr�F��V�X�nK��z؞K��X���Nh�>h��ɾX�~zz�K��i��{�>i�Nj�>z�XX^X�ni�K�n�ɾ�[�z���	�K�K��iȞ[�^�h���6V3�&V6��7G'V7F��u�7&VF�&�ɮ[�^��X��kX{��Z��j�>K�N[�ni��ikދJ��x����{��ik�z���Z�K��{�>i�N8Xh^Z�8{�Z�y����^y�N�
-nY�i�NikX��X�n�Jnh��ZK8�(nY��{�ni��Y(�kh���ޚ��iKb����{��ik�z��X��yJ�K��X���x�K��X�^K��h�z��y�N�(nY���ɴvV�D�>K�^K��X��i��h�.[z^z��Z��K����z��XZ�X�Y��z�K��yY�z�j~z��Y(�K�NK��iz~��.j~z�����[nj�x�(	NX��K�nX��K���x�[��K��X��Y	h�X��8X��Y	K���8i�K�nh�~X�n8ZKiX�[�.Y�K��{�>i�N(	NXh^Z랙z�x��8.X��z�izf�wW&^8.i[Z�nZH�j�XX�Z�K��x�nhz���{N8{�N[�n8X�.�>kX�[�n8z�~k9^i{n�{N8h��iZ>{;�i[8[�~X�nX�^K��8i�K�ny����^K��zk�iZ>j�^�[����XˮX�nZ�K��8X~���8{�>i��8{����Ί�x�Y(�[z^z����h��8 ��j�>[��z�[{.�	���~Y��Z�X��z�z�~[�^8K�N��.Xخ�^[�>[�z�jy�X��Dnx��yn�SSCN(	CSC��	�^ZH�j����x�nhK��&Ww&�GFV��&Wf�WvVF8 ��22z�Ã^z� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�f��F����w��ɮ{��x:�zNY��8kX[�.X��X�~K��(	�[���x�x��ynX�n(	��Z�K��d��x.kX�8X��K��Y(�i�K�nz�nyZ^���K�^[�n����(Nz�~8ZI�y��j~�8�8X�n[�>ZInj
-XxnY(�X�nj�^iz^[�~���ijޙz�x��iX^��������)Y��Z;K��i��x:�X��Z�nX�~k�����j*�[�nXk.z�K��i��x��ynX��X�~[�NX�����X��K��F��V�K��[�^xKnh�nX���ɾzk�{��h��ZKK�����K��h�X{�z�>Z�8Z�XZ�h�nK��X�h�X�����6V3�&���&VfW&V�6U�6�'FW��6W&V&V��V��ɮy��[.X���;�[��z�[��8[��IY8�Z�n��k.�z>Y��K����[z�[��K��[n�IXˮX������Z�K��[��hZ.�z�x��8�(NkX�j
-j�>Y(�ZI�i{n�{N[�[�nZ�nK�y�NX���;�Y
-�X��ɾyJ�y��j~K�>K�~8[�.K�X�nikh�Y(�{�Z�h�^X�>[��z��[z^z��Z����yI�x��X���;�y��K��K�ފ�i��IXˮ8�>8h��iZ>z�nyZ^h�dvV�D�>j�Y�~Y�i�N�ɾ[�:�{�>i�N{�{��K��XZ�[X�n[�>��zK���{�����K��Y(�Y�j~h�^X�>�NY����6V3��7&����W%�f��ɥd���>X{��xN��>Yˮ[�nZ�K��x��yb�yJ�K��X�hZ.x�nh8��[�nh�^X�>Y(�[�nx��i��y�NK��X�ZY{�nZ�K��y��j~8{�ni��8i�>�x�8i{n��K��i�>�����X�XZ^���K�>�;�X��X��YXnY(�K��X���Ί�K�b��xN��>YˮX��i��i{nX��{�ni��z�z{�ɾ�8�jΊ�ޚ�{�n��K��X��kX�X�.i[�ɾy��j~8x��Z(>{�>i�NY(�[�n�x�X��X�n[�^�����XZ^i�Nik���Y��Z�K�>K�~K�����K��z؞K��K��X�Z��h����6V3�֖7&����W%�6W&V&V��V��ɮi[Z�~[��IK�^j�k.�z>x��yn[�nh�nh��k�k:"�Z;i��X[>��.x�nh8X�^K��8X��K�>j�Y�8zk�iZ>j�^�[�Y(�iȞ��i{nY��{�ni��KɎX�n�ɾK�^j�[z�8{�ni��Kٞ�x�8�[Y(�8x:ޙ�X�nY(�iX^���Y��i�Nh�[���	��z�x���U$Db�Ԥ4nK��K�ފ�y��Z��{;�{��K�^j�Z�h.�ɾ���{��z�>Z�h
-~K�ވz�X��K�{��zk�iZ>Z��x��ɾ�x~j~x�~8���X�Y(Λ(j9.h
-~��yK[�>X�j
-XxnK��z�K�nYʎx��kX���^z�Z����6V3���FW&7F����&�F�6��6�ɮ[�.�J�j�>K�NK����K�nxk^K�����h��XzK�^Y(�h�~X�nZ�~j�^Xi�K��iȞx��i��8X�^K��8X�.�>{;�K��{��h���K��y�NX������ɾY�i��i��h8K��K�nz�~X�>Y(�Y�i��j~��nX[Y΋��h�^���{��h�~X�nK��zk�iZ>K��X�iˢ�K�N{�NZ�~j�^K��[�^j�>K�Nh�ni�Nh�[��x��ɾz�yh��	�K�K�ވz�X��K�ފ�z�>Z����K�ޙ�j8���K�[��8K�.X�^8X�~h�.8h�.X�Y(Θ	�K�ZKiX����6V3�g&���f�GF��u�F��WF�Ɨ���v�ɮz��X�z��K��iX�8X��j�X[h��K��[�^xKn{��[�{��X{�{��K�z�nyZ^�.yJ�X��K�8X�n[.h�z��i�K�n8[{.y�^{�>i�NK��Z�nK�j�Y�y�NK�.�^X��X�����[�nK�^X	.Y)nYZ�z�x���J��	�{�Z�8h�~X�n8[�.[��Y(Ί�[�nh�K�B�X�n[.K��i��h�iȞiˮY��K��[�^�����i[Z�~[��IK��i��yI�x��ZH�X�n�ɴ�4bԄNi��K����x�nhX��X��Z�n���vV�D�>X[~���j�X��i��X��i��h�.[z^z��Z��K����z��XZ�X�K�Nz�K��yY�z�j~z��Y(�XZ�K��iz~��.j~z�����[ed�yx^yn8�IXˮX�.xZ~8Z���x.�xN��>Yˮ8[��x.[��I8DT4�X�����Y(�X��j�{��[��z{�X�XZ�K��{�nX�~[���.8.X��z�izf�wW&^K��K�>�ɾiz~z��X��Y	[�^yJ�y�NY��Z�K��YʎY�{��[z^z��z���.���[�>X��Z���niK�K��K��K�~yI�h*�z��{�nX�~y�NX��Y	��Ni��8.XZ�[��XX�Z;i��Z���8z���{N8X�^K��8j�^�[�8[�n���Y(�j�Y�X~������XˮX�nKɎX�nK�>K�~8{����j�[z�8�XNk��(Nz�~8K�h��x�K��xJn�>�;ވ	~�ɾK��yKyI�x��{�j�N8�(NkX�iȞiX�8K�>K�~K�����8i�ni�NX�n[.h�dvV�D�>Z��K�h�X{�iˮX�nY�i�N8K��X�h�X��h�nYJ�K�Z��x�8.j�>[��z�[{.�	���~Y��Z�X��z�z�~[�^8XZވ�.Xخ�^[�>[�z�jy�X��Dnx��yn�SSC�(	CSS>�	�^ZH�j����x�nhK��&Ww&�GFV��&Wf�WvVF8 ��22z�Ãnz� ���X���z�)��j~z���ik�뮊��i�K�nK���yX������������������6V3�F����v�6��FVvV�W&F����ɮh��ZJ�k	Nz{K��i���;�i�ni�NX�^zk�hH�[�~Y�y�Nh�>h��X�n���[�nh��[�H�8zy�x�ZZ^X��X��K��x�nhYˮy�Nh�^iK�Y�i�[B�Z�K��k��ZJ~k	Nx�nh8X�^K��8[�iK��yX�8hZ.X�.i[K��ZIn�:���>XZ^���XˮX�n[�:�Z���{�{��Y(�XZ�[X�n[�>Yˢ�[�:�iȞ[��K�ދ��X��h�xk^Z)��ɾi�ZJ~�	~iZ>K��i��i��ދ�X��Z�[��ɾz�nX�~y��K��K�ފ�i��iˮX�nY�K����6V3�6W6��&VGV7F�����e�WVF���6�ɮ��Ny�^ik�z��{+�z�X�nK��kXK�>ik�z�����[:�~z؞YΙ[�i����[�b�K��J��x�8X���x�8x:�X��Z�n8X�.i[X�n8zk�iZ>j�^�[�8�x.kX�Y�X�nY(�[��hZ.�
-nY�[��z��Y�i��j�Y���(Nh�^��NX�nK�ފ�i��i[NK�>Y�i�N�ɾ���{��K���K�ވz�X��K�{��zk�iZ>Z��x��ɾ{�>i�Nyy^���8{����k��Y�K��X���;ފ�[�nX�n[�j8������6V3��WFV�&���v�6���6W5�f����FvV�ɮZ�>�8�8X��8�Y(�T�4�X�nX��z؞Y�j*�[�n8ix�[�nY(΋>Y(�kX���[�nyKh�>h�{��Z��K��h�B�Z;i��XˮY��8j�>X��h
-~8Xh^zz�Y(΋�yX�i�K�nY�X�n�z>�	�[�nK�[�.[�����K�^[�[�nh�^[�Y(Ί��ij�Z)�y��j8��Ίz>�x��k	N�x���	�[��k{~Y�ZI�K��X�n�x��ɾk	Nix�h�{��K��z؞K��k.yI��ɾ{�~ij��I�k:.Y(�T�4�K��X��yK&WGF�i[Xk>Z����6V3�V�F��FU�&�V�F'��7&�FW&����ɮi���;�z؞K��ZH�i�.{;�{��X��I�xk^hH�[�~���Z���x.hH�[�~��{��X{�{��Z����yX��yJ��	~iZ>{�>i�N8X�ޚh�8�z��.[�Nh�~X�n8j�Y�X�n��X��K��X��h	�k+�yn[��z���	.Z)��h�����[�n�xNZ�y��j~{��h�.8X��K��zhyJ�8��[�nk�^��NY(΋�z{�kX���R��I�xk^K��i��XX^X�nX�Nh���ɾy��j~K�����K��z؞K��K��X�h�X���ɾX���;ފ�h��K��y�Nh�^h�X{�hH���n8K�nynY�K��h�nYJ�K�vV�D�>Z��x����z��XZ�X�XZ�z�K��yY�z�j~z��Y(�Y��K��iz~��.j~z�����[nh�>h��X�n8ik�z�����X��8��Fv^k	N�y��hK��i���;�x��ynX�Nh���z{�X�Y��K��{�nX�~[���.8.X��z�izf�wW&^8.XZ�[��XX�Z;i��Z���8z���{N8{�N[�n8X�^K��8��yX�Y(�zk�iZ>j�^�[����XˮX�nZ�h.�x�8�(NkX����[z�8K�h�xk^8h�~X�nK�>K�~K��xJn�>�;ވ	~�ɾK��yKx��yn{�j�N8{�>i�Nh�{��8[�:�K��xk^8�(NkX�iȞiX�h�ny��j~K�����h�X{�i���;�8i[NK�>Y�i�Nh�nK��X�h�X��8.Y��Z�X��z�z�~[�^8Y����.Xخ�^[�>[�z�jy�X��Dnx��yn�SSSN(	CSS~�	�^ZH�j�Y�~�	���~���x�nhK��&Ww&�GFV��&Wf�WvVF8 
+# 前十四章论证对应与数学检查
+
+这份记录说明完整重写如何处理原有问题。它不把正文篇幅增加视为理论已获经验确认。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 1 | 背景/前景、形质二元、符号与连接、构成公理 | 关系/属性的任务分解、角色绑定、置换不变与等变、联合编码可辨识性、活动与结构更新、干预验证 | 表示是建模约定；不宣称宇宙本体或体验已被实现；结构/内容统计独立不作为前提 |
+| 2 | 形元、底流形、关系构造、杯子示例 | 多关系与超边、对象身份、部分编辑映射、路径代价、版本事务、图传播、杯子的构造/修订/压缩/诊断 | 可达不等于因果；路径代价不一定是对称度量；图同构不等于对象/任务相同；方向不能随意去掉 |
+| 3 | 质元、激发、活动强度、填充与驱动 | 属性类型/尺度/来源/缺失、编码与概率分离、softmax、信息熵解释、门控更新、内容与激活不可辨识性、属性干预与三相记忆接口 | 激活不是实际测量值变化；概率归一化不是校准；熵不是全部复杂度；向量不是主观体验 |
+
+| 推导 | 对象与维度 | 条件 | 得到的结果 | 不得扩大为 |
+| --- | --- | --- | --- | --- |
+| 拉普拉斯半正定 | 对称非负权图，q 为节点向量 | 权重对称且非负 | 二次型为边差平方和 | 任意有向/负权算子半正定 |
+| 活动衰减 | X 为 n×d；B/u 与 U/c 的矩阵乘法维度一致 | 固定结构，零输入/控制，正阻尼 | Frobenius 范数指数衰减 | 理解、决策正确或任意闭环稳定 |
+| 显式离散更新 | A 为对称正定矩阵 | 步长小于 2/最大特征值 | 各特征方向收缩 | 任意步长或异步实现稳定 |
+| 图一致性 | n≥2 的固定连通无向图 | 无输入，同步连续更新 | 平均保持、偏差按谱隙衰减 | 一致意见为真、所有认知属性应被混合 |
+| 平均更新系数 | 固定非负图且最大度为正 | 步长不大于最大度倒数 | 每步非负加权平均 | 与线性稳定步长条件等同 |
+| 固定门控 | 初值及目标属于单位区间 | 固定目标、正更新率 | 解为凸组合，合法且收敛 | 目标变化后仍按原公式收敛、内容选择正确 |
+| softmax 与偏导 | K 个候选分数、正尺度参数 | 有限候选，尺度正 | 概率合法；偏导由商法则得到 | 概率经验可信或各权重互不影响 |
+
+旧章与旧节标签全部保留并放回语义对应的小节。第一篇原本没有 figure 环境；其他章与篇首的图像资源仍保留。
+
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 4 | 纤维丛、截面、张量实体、意义的流动 | 有限乘积/可行空间、规模不交并、属性归属与类型转换、角色张量恢复、因子不可辨识性、约束及版本实现 | 离散属性组织不自动具有连续几何性质；恢复要求已知角色和列满秩；噪声由左逆范数放大 |
+| 5 | 构成方程、演化、存在判据、生成算法 | 静态绑定与动态更新分离、联合导数、线段积分推导离散下降、运行资格、身份持续、文档构造与修订 | 目标下降不等于全局最优；步长条件在更新线段有效；非零活动不等于智能/意识存在 |
+
+第四章补充了闭凸集合欧氏投影的存在性/唯一性论证，第五章从链式法则与梯度 Lipschitz 条件推导连续/离散下降。新方程均不作为经验结论的替代。
+
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 6 | 相对论/场论/凝聚态的共同构成解释 | 测量、身份、联合估计、粗粒化、预测与约束闭环 | 物理规律仅约束相应环境对象；误差裕量依赖有效误差界 |
+| 7 | 语言/视觉/逻辑的统一几何解释 | 事件角色、视觉身份、证明与证据依赖、跨模态契约 | 真值、置信、相关、因果分开；连通不等于有效推理；补全不等于新增观测 |
+| 8 | 六类领域的流形性格与相变调度 | 生成/检查、制造、实验隐变量、多主体承诺、转换调度 | 有效性标准不同；单位/延迟/容差保留；内部回滚不撤销环境动作 |
+| 9 | 网络相似推出整体同构和必然收敛 | 任务等价类、转移压缩存在条件、固定动作/闭环误差递推 | 映射先在像集定义；共同动作集合；轨迹在有效域；同胚需额外拓扑条件 |
+
+第九章必要性使用转移单值性，充分性证明代表元无关。误差从三角不等式与 Lipschitz 条件递推，分别给出初值、固定动作和闭环条件。未由预测成功推出内部机制唯一，未把维度比较当作不完备性的证明。
+
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 10 | 双塔编码、融合注意力、混合解码、端到端流程与绑定训练 | 不同规模输入及身份对齐、类型支持与有限偏置、数值稳定归一化、置换等变证明、类别/连续/关系编辑接口、缓存版本、资源成本、训练损失与评分梯度 | 每行合法集合非空；掩码与偏置一起重排；聚合不自动证明身份/事实；混合输出不等于外部执行；合法多正样本不能当负例 |
+
+第十章保留原五节及章标签，新增公式逐项定义空间和维度。置换证明使用权重随列重排及置换矩阵正交性；评分损失先展开负对数再求导。参考核为零关系偏置的单头特例，不作为完整可训练 MST。验证归一化、硬支持、凸组合范围、一致重排、全屏蔽拒绝与非有限输入拒绝；未声称实验证明任务泛化或机制可辨识。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 11 | T2I 的形质物质化、I2T 逆解构、视频质料守恒，以及理型/范畴/现象学的物理化对应 | 带类型需求记录与合法集合、欠定观测的证据化描述、身份/连续属性/离散事件的时序转移、任务相关不变量与等变性、架构先验、主动观测和执行反馈闭环 | 显式结构不是所有生成器的唯一形式；属性近似不变不是物理守恒；观测后验不提供唯一真相；预测有效不推出整体同构；目标下降与外部任务成功分开验证 |
+
+第十一章保留 T2I、I2T、视频、理型、康德范畴与现象学的旧标签，并将后三类历史材料合并进同一编号小节。合法集合为空时报告冲突；离散图编辑改变定义域后重新分析目标。视频模型声明离散步长，身份关联与属性更新分离。闭环执行区分静态检查、模拟和现实反馈；AgentOS 的三相记忆及调度组件作为 HSF-HD 的工程实例而非一般智能的唯一机制。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 12 | 物理还原与功能主义裂痕、四大物理法则同构、波粒呼吸、内外双重宇宙及 AGI 物理机器使命 | 有类型状态与目标/承诺/控制分层、表示/选择/资源/适应四类约束、观测—候选—提交—执行—沉淀闭环、内部模型与环境的非对称接口、HSF-HD 模型族与 AgentOS 工程落点 | 连续导数限于结构固定区间；预算保持单位；概率尺度不是热力学温度；内部一致、预测一致和控制一致分别验证；任务层相似不推出机制同构 |
+
+第十二章保留五个旧节标签。状态空间允许离散结构事件改变维度，连续更新与图编辑分开；有限时域目标随时刻、目标和边界变化。多尺度闭环只在定义了更新频率与作用范围时比较，低频本身不保证更重要。外部动作按可逆性分级，目标下降与现实成功之间由授权执行和反馈连接。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 13 | 还原论与功能主义困境、目的驱动生成、目的的内外双重来源、信息立法与物理执法 | 载体/计算/任务/规范分层，目标条件下的内部—环境交互轨迹，内源先验/外源反馈/社会协商的目标更新，规范说明到可执行实现的轨迹细化 | 具身不要求模拟人类痛感；微观实现不唯一决定任务意义；目标下降不等于现实成功；有限测试不能证明全局轨迹包含；训练损失与运行时目标分开 |
+
+第十三章保留四个旧节标签。离散模型分别定义内部状态、环境状态、目标、边界、观测与动作接口；结构改变时不沿用固定维度导数。目标状态包含指标、偏序与承诺，环境反馈不能自行取消规范约束。双层约束用轨迹包含表达细化目标，并明确它是待验证的工程性质；软目标只在硬约束与分量预算内优化。HSF-HD 与 AgentOS 保持一般理论和工程实例的层级关系。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 14 | 表征扩展与构成成本、智能拉格朗日量与逐项变分、历史/结构/目标三项作用、边界钉扎与层级控制、介质常数、张量/Fisher/正则对易关系 | 任务失真与分量预算；可复现凸二次目标与梯度；完整时变导数和二阶更新评价；离散步长及投影下降；端点轨迹变分；快慢跟踪界与图调和延拓；时延/保留/探索独立计量；角色绑定、Fisher 正定条件与操作次序反例 | 下降不等于任务成功；结构平滑不是逻辑真理；在线动力学与离线驻值不混同；分层不是普遍必然；遗忘不等于活动衰减；有限矩阵不满足非零正则交换关系 |
+
+第十四章原四组论证展开为七节，旧标签保留在对应入口：section_3791 对应表示—预算，section_8054 对应目标泛函并由新增连续/离散小节展开，section_5140 对应多尺度控制并由实现小节展开，cognitive_space_ontology 对应状态空间几何。两幅原图主体及资源字节保持，尺寸与图注改进，图中历史物理名称明示为辅助意象。
+
+数学复核：二次目标梯度由任意方向展开得到，Hessian 半正定由二次型平方和证明；固定正定目标与更新度量支持误差衰减，时变观测、关系、目标及权重进入完整导数；扰动下降界使用度量内积不等式；离散下降从线段积分与 Lipschitz 界推导，投影结论限闭凸集；轨迹变分分部积分明确端点为零，并区分必要驻值与凸性下极小；图边界解的唯一性限每个分量接入观测边界；Fisher 半正定由评分平方得到，KL 展开声明正则条件；有限矩阵正则对易式以迹反证。延迟反例明确特征多项式和根模。以上结果均不作为未经观测的认知机制证明。
+
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 15 | Token/形元/质元/语义子、玻色/费米统计、红色圆形相位绑定、声子/光子传播、语义荷/协变/同伦三种不变量、六维谱系、VTE采样与人脑/LLM/蚁群/AGI对照 | 带身份/来源的类型记录与联合矩阵、任务互斥与多关系组合、合法集合上的候选权重及事务提交、坐标与读出/度量共同变换、图活动传播、任务读出与分类裕量误差界、六类工程字段、不同系统的证据接口及AgentOS落点 | 联合矩阵因子尺度不可辨识；softmax不自动选赢家或校准；同步不足以证明对象归属；保持量需度量和更新条件；类别不等于拓扑类；有限资源不推出概念不可分割；跨系统相似不证明唯一机制 |
+
+第十五章八个旧节标签全部按语义迁移：section_3160对应记录构成；section_5143与section_8945对应组合/竞争/绑定；semantion_duality_metaphor与yuyizi_same对应传播/迁移/不变量；section_1867与section_5195对应属性谱系/有限编码；section_2084对应跨系统比较。保留physound.png及原figure主体，扩宽显示并明示历史声子/光子术语的辅助地位。原红色桌面与圆形苹果错配、苹果跨语境、国王/女王、家庭成员修订代价与四类系统比较均转入有条件论证。同步修订第六篇引言，避免篇首继续把量子统计类比宣称为证明；篇序与章序不变。
+
+数学复核：联合矩阵为ds×dq且因子尺度不唯一；合法集合非空和有限评分保证归一化，商法则推导评分雅可比；可逆坐标变换同时改变读出和度量；完整二次量导数含dot G，精确离散保持条件单列；固定对称非负图的总活动与平方范数分别证明；编码误差界由任务Lipschitz条件得到，分类排序需对所有竞争者检查裕量。未把数学保持量推广为事实正确、临床病理或全局智能定理。
+
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 16 | 低/高阶单纯形、三元自动闭包与连续流形极限；世界图/体验图的规范纠缠、饥饿苹果、Fisher涨落、有效度量、和乐与阅历；正交纤维；小世界低能终局；贝蒂数/自我/意义守恒；逻辑维度与体验维度及硬件推论 | 类型图/角色超边/下闭复形、边界矩阵及半正定算子；事件证据与价值控制分层、接口路径合成和纯坐标变换回路；属性类型与统计区分度、有限指数族协方差推导；工作负载/维护/风险综合目标、完全图/空图/生成树反例、受限下降编辑；同调秩公式、反馈/死锁区别、有限精度容量和线性压缩核 | 两两兼容不推出高阶兼容；节点增多不保证流形极限；体验不天然等于联络；正交不保证统计独立；Fisher退化不等于无意义；下降终止不保证全局最优或小世界；贝蒂数不证明自我/意义；向量和芯片维数不直接定义智能能力 |
+
+第十六章保留全部六个旧节标签：morpho_elements对应高阶结构；section_8660对应世界/体验接口；section_7949对应属性与Fisher；section_6753对应资源取舍；section_4716与section_5497共同对应拓扑诊断及容量。原章无figure，全书图形主体与资源清单不变。保留饥饿/饱腹苹果、闭路径后阅历变化、小世界模块/捷径、环/腔、自我、色彩和混合情绪、硬件取舍等问题，重新声明证据与边界，移除“最佳十一维”和无依据的模型精确维数判断。
+
+数学复核：边界连续作用为零来自交替符号抵消，Lk半正定由两平方范数；纯坐标接口在回路中逐项抵消，任意接口回路不必为单位；有限正概率模型保证评分和Fisher定义，指数族协方差先求归一化导数；有限结构编辑下降次数界需固定目标与正阈值；Betti秩公式需核包含边界像；有限编码类别上界由抽屉原理，线性压缩限制来自非零核，均为必要条件而非通用能力定理。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 17 | 本体论对称测度、互信息等同测地距离、世界图刚性、无场测地线自动正确、内蕴/外蕴折叠与硬件必然性、酉形/缩放质和注意力幻觉根源 | 距离公理与方向编辑代价；熵/互信息/VI恒等式及Fisher局部KL；带来源版本的结构快照和有效电阻；固定端点能量变分；抽象更新与实现读出的近似交换；保范数生成元、规范不唯一和两阶段路由验证 | 对称不提供因果；归一化VI未自动继承全局度量；最短路径不保证逻辑或任务成功；嵌入定理不推出物理折叠；正交变换不独占结构更新；余弦路由不能根除幻觉 |
+
+第十七章六个旧标签分别迁移到距离公理、统计距离、结构快照、测地路径、载体实现和变换更新。火/热、猫/狗、无关概念、重力风险、脑沟回/芯片布局和注意力路由等原例证转为有条件说明或反例。数学上区分正定距离与半正定伪度量；VI推导限同一有限联合分布；Fisher结果限参数邻域；有效电阻限对称正电导图；测地方程只是驻值必要条件；连续及离散保范数条件分别声明，外部输入产生附加项。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 18 | 世界图等同概率族、Fisher为本体刚度、CRLB等同量子不确定性、语义子为有质量波包、熵为质量、概率混合为干涉、e/m联络严格对应推断/训练、Adam等同自然梯度 | 任务观测与模型族分离；可辨识商空间；评分期望、Fisher半正定和KL局部展开；标量/向量CRLB；带身份和来源的分布式语义状态；指数族自然/期望参数；散度投影与连续/离散更新 | 共同支持、可微和积分交换；局部展开不提供全局距离；CRLB要求估计正则性且不解释幻觉必然性；微分熵非坐标不变量；混合分布没有概率幅相消；对偶平坦只适用于相应模型族；优化目标下降不等于任务成功 |
+
+第十八章五个旧标签依次迁移到统计实验、局部可辨识度、估计精度、分布式语义状态和对偶坐标更新。保留猫狗与远概念的区分问题、模型陌生域、精确/联想取舍、红苹果属性绑定、自然/期望参数、前向推断、学习投影与优化器比较，但将其改写为有条件模型或反例。局部结构网络保存身份、关系、来源和版本，全局分布表示表达候选及不确定性，二者通过身份变量、绑定和任务读出联合。
+
+数学复核：评分期望为零显式要求固定支持及积分微分交换；Fisher半正定由评分平方得到，负期望Hessian仅在正则条件下等价；KL展开保留二阶余项且不宣称全局对称距离；坐标变换保留二次量；CRLB从评分协方差与Cauchy--Schwarz推导并保留样本量、矩阵序、偏差和奇异方向条件；指数族期望参数及协方差由配分函数导数得到；散度毕达哥拉斯关系限凸投影与正交条件；自然梯度下降在时变目标下必须加入显式导数项。以上均不作为世界整体同构、认知物理化或唯一工程架构的证明。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 19 | 价值规范场、标量/矢量势、欲望与恐惧势、因果箭头、语境规范势、认知电磁场、注意力耦合、Berry曲率、Randers顺逆风与规范完备性 | 事实模型与规范状态分离；目标、约束、风险、授权和适用域的可审计记录；有限时域目标与方向相关图代价；语境门控和资源预算；硬约束、Pareto/词典序与最小冲突集；版本化承诺；连续Randers型计算代价和离散事件图 | 价值评分不是焦耳能量；偏好不推出因果；风险分布与厌恶参数分开；软目标不能取消硬约束；负环需排除；连续模型限固定结构区域；最短代价不保证事实正确、伦理正当或外部成功 |
+
+第十九章四个旧标签依次迁移到事实/规范状态分离、价值分解、复合规范结构与方向相关路径代价。保留医疗康复、欲望/恐惧、忍痛完成长期任务、正向生成与逆向工程等问题，但改写为可检验的模型、案例或反例。HSF-HD 描述目标和约束如何改变一般智能的选择分布、路径代价和稳定性；AgentOS 的三相记忆、TCE、CCM、Boundary 与 Offloading 只作为工程实例。
+
+数学复核：一步及有限时域目标分别声明概率模型、单位、约束和时变目标；局部下降方向要求正定更新度量且不跨越结构事件；方向图代价要求无可达负环；多目标选择先筛硬约束再使用偏序；Randers型代价在对偶范数小于一时由Cauchy--Schwarz保证正值，精确一形式仅贡献端点差；离散化声明步长误差、约束裕量和事务边界。上述结果均不把物理类比作为规范来源或机制证明。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 20 | 拓扑旋量场、形质张量波包、波导/辐射反作用、相位锁定实体、认知波恩定则、参数本体同构、测不准/泡利排斥、频谱/相干/激波映射、平行移动/非阿贝尔和乐、诺特语义荷与认知洛伦兹力 | 带类型的联合状态记录；局部结构网络与全局分布表示通过身份绑定和读出联合；连续状态与离散图编辑；证据化绑定；合法候选读出与事务提交；可辨识参数包和查询等价；覆盖度/一致性/惊奇的操作定义；接口契约与路径依赖；身份、结构和资源的不变量；状态包传播与受控学习 | 活动不等于事实或能量；同步不是绑定充分条件；softmax不是波恩定则；参数方向坐标依赖；压缩只对明确查询族可能充分；惊奇依赖模型；语境迁移声明损失；不变量限指定更新域；目标下降不等于泛化或外部成功 |
+
+第二十章七个旧节标签及参数映射表标签全部按语义迁移。红色、圆形与苹果绑定，顿悟与矛盾，定义精确与联想发散，安全/老虎冲突，日常经验到数学模型迁移，看山回路和结构学习等原问题均转为有条件的模型、测试或反例。局部结构网络保存身份、角色、来源和版本，全局分布表示提供候选与不确定性，二者通过绑定、任务查询、耦合和反馈联合，不从脑区类比推出机制等同。
+
+数学复核：联合状态按图、向量、绑定、规范、资源与观测分别定型；连续更新与离散事件算子分开；置换等变要求结构、读出和来源一致重排；绑定得分保留候选、阈值与来源独立性；softmax 限合法非空集合且温度为无量纲探索尺度；坐标变换同时改变读出与更新；惊奇声明概率模型和事件分辨率；跨语境保持限查询族与误差阈值；不变量改用更新等式或带源汇平衡；学习投影声明步长、参数域、保留集和结构编辑边界。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 21 | 人浪、垂直/水平传播、语义孤立子、黎曼波导、目标偏置、阻尼/超导、顿悟/心流与结构刻蚀 | 带时延的网络消息更新；身份、版本、结构包络与任务查询不变量；资源/风险/延迟/可靠性约束路由；由衰减率、增益、候选熵、冲突、负荷和时延定义运行相态；快状态与慢结构分离更新 | 活动传播不推出逻辑有效；跨模态同一依赖绑定与来源；近似保持只对声明查询族成立；最短路径不保证任务成功；温度不取消硬约束；物理相变、超导和孤子只作受限解释，不作机制证明 |
+
+第二十一章四个旧标签分别迁移到局部更新与网络传播、语义消息同一性、受约束路由和运行相态。保留人浪、苹果跨模态同一、习惯通道、顿悟、心流及结构学习等原问题，将其改写为带接口、反例与干预测试的计算模型。AgentOS 的 $h(t)$、$E$、$\Theta$、SPC、TCE、CCM、Boundary、Offloading 与外部记忆只作为一般传播动力学的工程实例。
+
+数学复核：离散更新声明节点空间、步长、整数延迟和接口换算；连续近似只在固定结构、细步长与可忽略延迟区间使用，时变传播矩阵需进入导数或分段分析；任务不变量由查询族、读出差异和容差定义；路径代价区分单位并保留硬约束；相态指标固定时间窗、归一化和单位；慢结构更新声明投影域、步长、验证集、回滚与离散图编辑边界。以上均不由传播强度、目标下降或预测有效推出整体同构与任务成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 22 | 高维负曲率推出生成易/逆推难；熵增/熵减、逆聚焦和Epiplexity；价值规范场与认知洛伦兹力；顺磁/逆磁和正负做功；总微分代价及顺流、磨砺、耗损、崩溃四象限 | 条件观测核与正逆任务；区分裕量、候选收缩和贝叶斯反演；规范状态、硬约束资格集合与可审计控制成本；事实难度和主体阻力的双轴诊断；顺行、攻坚、拖滞、失稳四类运行区间；证据—资格—执行—反馈闭环 | 正向生成不总是容易；后验集中不证明唯一真因；物理曲率与热力学箭头不直接定义认知难度；偏好不能取消硬约束；不同代价先做尺度声明或使用偏序；四区随任务、主体和时间变化，不是人格或拓扑定类 |
+
+第二十二章保留四个旧标签，分别迁移到事实不对称、主体不对称、联合代价与四类运行区间、诊断闭环与理论位置。保留生成/逆推、戒瘾与承认错误、游戏与爽文、科研与竞技、家务与填表、厌学与习得性无助等原问题和例证，但改写为条件化模型、反例或可干预诊断。AgentOS 的 $h(t)$、$E$、$\Theta$、$\Psi$、SPC、TCE、CCM、Boundary、Offloading 与 $M_e$ 仅作为一般双重不对称模型的工程实例。
+
+数学复核：正向核与贝叶斯反演先声明状态、观测和任务条件，后验要求归一化分母存在且非零；区分裕量依赖散度、噪声与观测协议；候选集更新显式包含干预和时变条件；主体侧先筛硬约束再比较软目标；标量代价仅在无量纲换算后使用，否则采用词典序或Pareto序；四区指标经评估协议归一化并使用滞回阈值；内部目标下降不推出事实正确、主体满意或外部成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 23 | 物理时间与心理时间、维克转动内化时间、切片/块宇宙、ADM严格同构、元动力学、世界线/光锥/编织、LLM时间缺陷、认知卡鲁扎—克莱因紧致化、海马/皮层分工与智能等级 | 外部运行时钟、领域事件时间和内部偏序分别定型；在线切片与历史状态包通过读写接口协作；查询族上的近似可重建性和误差传播界；版本化过去重估、当下事务提交与条件未来计划；事件线程和有类型依赖图；查询保持压缩；活动历史区、稳定模型区和外部证据区；AgentOS三相记忆作为工程实例 | 回忆不是物理时间倒退；日志长度不等于时间理解；马尔可夫性相对于状态和任务；切片堆叠不自动微分同胚；最短计划不保证成功；因果边要求识别条件；压缩只保留声明查询；脑区经验不推出软件等同；结构更新后原始证据是否删除取决于审计契约 |
+
+第二十三章将原九节重组为六个完整小节，保留旧标签 `sec:cognitive_kaluza_klein_compactification` 并迁移到查询保持压缩的语义位置；原 `Universe.png` 视觉主体继续编译，改读为已发生记录、当前待提交窗口和条件计划候选三类数据状态。火与痛、过去失败的重估、执行/规划互补、长上下文局限、近期事件与稳定知识分区、海马—皮层启发和高低阶智能比较均转入带反例和验证条件的计算论证。
+
+数学复核：连续时钟与离散步声明单位和采样间隔，事件序允许偏序；在线状态按结构、分布、绑定、规范和资源定型；历史编码的查询误差限定查询族；追加—投影近似交换给出Lipschitz误差传播界；轨迹目标随时刻和规范变化且硬约束先筛选；元更新分离连续参数变化与离散版本事件；事件依赖边记录延迟和可靠度；压缩目标在存储预算下最小化查询失真，并为审计记录设置不可删除集合。上述结果不由维克转动、ADM、光锥或额外维理论推出，也不把目标下降等同为事实正确和外部成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 24 | VTE与形/质流、局域源和现实钉扎、应力激波与热力学门控、共振/投影、生物与机器换能、源流与Semantion、逆向VTE、效应器阻抗、双向全息切片和统一哈密顿量 | 带来源的观测编码与同源绑定；观测似然、边界置信和失锚诊断；类型化预测残差与容量门控；连续换能、离散采样及多模态时空对齐；事件到持续语义状态的类型化提交；目标细化、顺应控制和安全执行；上行证据、下行约束与反馈事务；连续状态和离散结构事件构成的混合动力学 | 传感器不是绝对真值；重构损失下降不等于对象识别；残差、信息熵、活动、代价和焦耳能耗不混同；采样连续性不推出符号接地；高强度事件不自动形成概念；固定模式稳定性不自动扩展到切换、延迟和饱和；AgentOS接口只是一个实现实例 |
+
+第二十四章保留全部八个旧节标签：`vte_as_wave_source`对应观测编码，`section_5326`对应现实校准，`section_8020`对应残差门控，`section_156`对应换能采样，`section_873`对应事件到语义状态，`section_5244`对应效应器，`section_2301`对应双向接口，`section_5750`对应混合动力学总论。红白点绑定、衣服触压适应、虎纹风险、耳蜗与相机、墙体碰撞、软硬对象顺应和庖丁解牛等原例证均转入有来源、反例和测量指标的论证。原章无figure；同步重写第七篇引言并保留 `struct_hsf.pdf` 主体，将三层图改读为观测接口、运行载体和目标协调的实现关系。
+
+数学复核：观测模型先声明环境状态、传感器条件、单位与噪声；绑定只在来源、时间和对象兼容的合法集合上计算；现实校准要求似然归一化分母存在且非零；图平滑唯一性限严格凸且未观测分量接入观测或正定先验；残差按类型与验证尺度归一化，硬安全事件不参加普通容量竞争；换能模型区分连续内部状态、积分采样、量化和时钟误差；效应器Lyapunov结论限固定参考、无饱和和正定参数，时变、切换及离散步长另行验证；最终模型分离固定模式连续流与结构重置，目标、结构、输入和约束变化不得从导数中省略。上述结果不由狄拉克源、量子投影、共振或全息类比推出。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 25 | 生物/硅/化学载体谱系；认知光速、黏度、温度；幅相语义；癫痫/OOM与断连；物理—语义强制同构；跨尺度形质；人脑/LLM/蚁群比较；辐射/驻波/管道/虚空间；混合AGI介质 | 处理—通道—存储—接口载体四元组；关键路径时延、吞吐、保持与探索尺度；查询相对编码契约；饱和、分区、漂移和恢复；有限查询/干预上的近似实现关系；局部结构网络与全局分布表示的身份绑定；公平跨平台实验；泄漏、回返、路由和内容寻址四类更新；混合载体事务与AgentOS落点 | 材料不自动赋予语义；神经节律不是跨平台常数；同步不足以证明绑定；癫痫与OOM只共享抽象故障模式；适应或预测成功不推出真理和整体同构；脑区经验不推出软件等同；相似检索不保证事实；目标下降不等于任务成功；AgentOS不是一般智能唯一机制 |
+
+第二十五章保留九个旧节标签并迁移到载体谱系、参数、编码、故障、实现关系、跨尺度分工、跨系统比较、机制分类和混合架构。保留生物电化学、硅系统、化学扩散、gamma节律、红苹果与昨日厨房、悬崖风险、遗传先验、癫痫/OOM、裂脑/网络分区、LLM位置与内容表示、蚁群信息素等原问题和例证，但全部改写为带观测协议、反例和适用边界的计算论证。原章无figure，全书图形主体和资源清单不变。
+
+数学复核：载体轨迹声明离散步与平台参数；关键路径仅给无排队下界，时变图与服务率显式进入模型；保持方程给出单位和线性近似边界；探索参数不与焦耳能耗或神经节律混同；编码关系限定查询族、扰动分布和容差；队列与漂移模型包含资源、结构、策略和数据变化；跨载体等价限定有限查询、干预及时域；聚合闭合性以不可交换误差检验；四类更新机制分别声明谱稳定、收缩、协议和检索来源条件；AgentOS目标保留硬资源约束及未计入副作用检查。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 26 | 短时弹性与长期塑性；胡克定律、冯·米塞斯屈服、位错硬化及脆性断裂的认知映射；婴幼儿/成人可塑性；LTP；蚁群、人脑与语言模型比较 | 活动状态与结构状态的双时间尺度更新；局部收缩恢复；证据、失配、来源、新颖度和风险共同门控；候选—资格—提交—验证事务；稳定性—可塑性目标；更新敏感度、路径依赖与时间效应分解；三类载体的干预性比较；AgentOS快慢记忆工程落点 | 局部收缩不保证切换、时延和饱和条件下的全局稳定；损失下降不等于事实正确或任务成功；门控阈值不是物理屈服点；临床事件不由材料断裂类比推出；年龄不是单一因果变量；LTP证据依赖实验协议；前向权重固定不代表整个代理系统无痕；跨载体功能相似不证明同一物理本构方程 |
+
+第二十六章保留章标签与两个旧节标签，分别迁移到稳定性—可塑性权衡和跨载体比较。重复计算、创伤性经历、婴幼儿与成人学习变化、路径锁定、早相/晚相LTP、语言模型推理与训练等原问题均改写为有观测窗口、干预条件和反例的计算论证。原章无figure，蚁群/人脑/语言模型比较表保留并改为活动状态、持久状态、更新门控、主要风险和恢复手段五类可测接口。
+
+数学复核：活动状态与结构参数分别声明空间、步长和投影域；局部恢复由固定输入和结构邻域内的收缩条件给出；持久更新显式包含门控变量、更新尺度和允许域；梯度下降结论限定Lipschitz梯度、固定局部结构与步长区间；稳定性—可塑性目标区分新任务损失、保留集行为差异和资源/风险代价，不可换算时改用硬约束、词典序或Pareto序；更新敏感度限定查询读出和输出度量；路径依赖由更新算子不可交换性表示；老化指标保留载体、数据、策略和环境支持的共同变化。上述结果不把物理类比、预测有效或损失下降当作整体同构与临床病因证明。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 27 | 价值荷与规范辐射源；神经递质等同规范场；奖励模型、系统提示与温度被视为人工价值荷；货币和法律被视为社会规范辐射；自我与默认网络被定义为价值奇点；背景场和自我场干涉；按“规范功率”排列昆虫、人脑、语言模型和AGI | 带类型、来源、版本和权限的规范状态；硬资格集合与有限时域软目标；快活动—慢结构的神经调节模型；奖励训练、提示条件、采样与安全边界四层接口；带时延社会传播和外部性复核；查询相对主体连续性；背景先验、主体承诺和新证据的多源协调及恢复事务 | 神经调质证据依赖任务、受体和测量尺度；奖励得分上升不等于事实正确或任务成功；温度是无量纲采样参数，不是焦耳能耗或情绪；价格与法律不穷尽社会价值；主体模型不证明主观体验；临床名词不由抽象冲突模式推出；AgentOS组件只是工程实例 |
+
+第二十七章六个旧标签依次迁移到价值来源、生物调节、人工系统、社会调节、主体模型和多源协调。生存维持、探索、疼痛回避、长期任务、奖赏预测误差、去甲肾上腺素与乙酰胆碱、奖励模型、系统提示、采样温度、货币、法律、自我连续性、蚁群、人脑、语言模型和多Agent协作等原问题均保留，但改写为带来源、版本、权限、反例和干预协议的计算论证。原章无figure；跨系统表格改为主体相关记录、主要接口与可检验边界，来源层表格改为典型记录、作用接口和必要验证。
+
+数学复核：事实状态与规范状态分别定型；硬约束先构造非空资格集合，软目标只在量纲可换算时加权；有限时域目标显式包含转移、风险和资源项；神经调节模型分离快活动和慢结构并保留输入、参数及噪声；奖励学习目标的KL项只约束策略偏移，不证明价值正确；softmax温度要求非空合法集合并声明极限行为；社会传播显式包含时变邻域、整数时延和信誉权重；主体连续性限定查询族、读出度量和误差阈值；多源目标在目标、结构、输入或候选变化时通过事件更新重算。上述结果不把场论、辐射源或脑区类比当作机制证明，也不把HSF-HD等同于AgentOS。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 28 | 第三驱动力与负熵、宏观坍缩、增益/抑制/偏置塑造势能、六类拓扑手术、目的论场方程、快回路克利福德/狄拉克分解、慢回路径向曲率流与拓扑手术 | 目标偏差、干预资格与资源预算；查询保持的宏观状态压缩；增益、抑制和方向偏置的受限快速控制；六类可回滚结构操作；有限时域受限最优控制；局部响应与投影更新；参数学习、离散图编辑和稳定保留 | 规范目标不从事实状态自动推出；压缩只对声明查询族充分；控制代价不等于焦耳能耗；Pontryagin条件限可微固定模式区间且只是必要条件；局部下降不保证任务成功；离散结构编辑须经资格检查、事务提交、保留测试和回滚；AgentOS仅为工程实例 |
+
+第二十八章将七个旧标签依次迁移到控制来源、宏观观测、快速回路、缓慢回路、TCE控制方程、快速控制推导和缓慢控制推导。原章关于状态坍缩、注意力增益、抑制、偏置、生成整合、关系存储、结构修订、语境重构、路径推理、目的论场、快慢回路和结构老化的主要问题均保留，但改写为带对象空间、接口、反例和验证协议的计算模型。局部结构网络保存任务相关身份、角色、来源、版本和编辑历史，全局分布表示表达候选、活动及不确定性，二者通过绑定、耦合和读出接口联合。原章无figure；六类操作表改写为触发证据、候选操作、提交条件和回滚证据的工程检查表。
+
+数学复核：事实状态、规范状态、控制量、资源量和结构版本分别定型；硬约束先构造资格集合，软目标只在量纲经协议换算后标量化；宏观压缩以查询失真、校准误差和预算约束定义；快速控制在合法候选集合上改变logit并保留softmax温度的总导数；TCE写为带输入、模式、终端代价和约束的有限时域控制问题；Pontryagin推导声明可微性、固定模式和控制集合，仿射二次控制的投影解不扩展到离散结构事件；MPC总差分显式包含目标、结构、输入和度量变化以及步长、延迟和求解误差；慢回路分开连续参数更新与离散图编辑，以保留集、补偿债务和回滚测试限制长期修改。以上结论均不由物理类比推出，也不把目标函数下降等同于事实正确、规范合规或外部成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 29 | 将信息几何对偶坐标直接解释为意志与状态本体；由Hessian正定推出绝对稳定和唯一吸引子；由广义勾股关系推出投影必然接近真理；把认知阻抗、最小作用、KL散度、计算代价和Landauer热耗散合并为同一个量；宣称自然梯度不会撕裂状态；用内部顺应/外部征服二分行动；以社会共振和共享流形替代协议；以外交场方程描述外部控制；由人脑、章鱼和乌鸦的形态类比推出控制拓扑 | 带类型的统计控制模型与对偶坐标；区分目标下降、有界性、渐近稳定和任务成功的条件化Lyapunov论证；Bregman投影及三点关系；统计散度、运行资源、设备能耗和任务效用的分账；含离散步长、扰动、时延与度量变化的自然梯度闭环；内部模型更新、环境行动、信息行动和暂缓提交的仲裁；基于消息、承诺、权限和冲突处置的多主体协商；因果响应、机会约束与验证反馈；内嵌、外置和联邦三类宏观控制架构 | 指数族对偶坐标只在正则、可辨识且局部适用的参数域成立；凸性和目标下降不保证事实正确、规范合规或外部成功；Bregman投影需非空闭凸可行集及适当正则性；统计长度不等于焦耳能耗；连续流结论不得跳过离散步长、切换、时延和饱和验证；因果效应要求识别假设；共识不等于真理、公平或安全；生物形态只提供工程启发，不证明机制等同；AgentOS只是一般状态动力学的一种工程实现 |
+
+第二十九章保留章标签和九个旧节标签，依次迁移到统计控制模型、条件稳定性、Bregman投影、代价分账、自然梯度闭环、内外行动仲裁、多主体协商、外部因果控制与宏观架构。原章关于对偶坐标、凸势、广义勾股关系、认知阻抗、最小作用、主动推断、社会同步、外交控制以及不同生物形态的例证均被保留，但改写为带对象空间、测量协议、反例与适用边界的计算论证。原统计流形示意图的视觉主体与标签完整保留，图注改为强调局部坐标、切空间和投影条件，不再把几何图示作为本体或稳定性证明。
+
+数学复核：统计状态、控制输入、观测、任务目标、约束和资源账本分别定型；指数族的期望参数由对数配分函数梯度得到，Hessian仅在正则可辨识区域充当局部度量；Lyapunov导数显式包含时变目标、结构、输入和度量项，并把局部下降、有界性、渐近收敛与任务验收分开；Bregman投影声明生成函数、方向、可行集与三点不等式的成立条件；自然梯度连续流给出下降式，离散实现另行约束步长、估计误差、延迟、阻尼和投影；行动仲裁先筛硬约束，再在不可直接换算的风险、时延、资源和收益间使用词典序或Pareto规则；多主体更新记录消息版本、承诺、权限和退出条件；外部控制只在可识别响应模型及风险预算下求解，并通过反事实或随机对照反馈校正。上述结果不把预测有效、目标下降、共识形成或形态相似当作整体同构和任务成功的证明。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 30 | 从信息—物理作用量跳到目的论狄拉克方程；把图传播解释为无耗几何惯性，把宏观控制解释为意志势能，把预测残差解释为现实激波，把状态衰减解释为热力学遗忘；将形元—质元设为物理语义子；以宽带相位锁定证明顿悟和统一真理；把语法、语义、语用写成几何—能量—规范场的物理相变 | 带类型混合状态方程；固定结构图传播与有界响应；观测校正、目标反馈、环境行动和资源账本分离；局部结构网络与全局分布表示通过身份绑定、坐标一致性和事件重置联合；多时间尺度耦合及状态包；语法、语义、语用的可测试接口组合；梯度流与复数传播的专门模型；离散事务、版本、步长和故障注入验证 | 轨迹优化只在给定模型和可行集内成立；图平滑不保证事实正确；目标下降不保证任务成功；复值状态不自动具有量子测量含义；频谱解释要求采样、平稳和可辨识条件；同步不是绑定充分条件；结构编辑不能由连续梯度替代；设备焦耳能耗、信息散度、状态范数和任务代价分别计量；AgentOS为工程实例而非一般理论的唯一机制 |
+
+第三十章保留章标签、七个旧节标签和原线性状态方程标签，并把原问题重组为九个完整小节。原章关于作用量、拓扑传播、主动控制、语义子、宽带激发、顿悟、老虎风险案例以及语法—语义—语用的主要论题均转化为带类型对象、反例、接口和验证协议的计算论证。原章无figure，全书原28个figure主体和26个视觉资源未改变。新增两个节标签分别标记离散实现与模型验证，不改变旧引用语义。
+
+数学复核：连续活动、概率分布、离散结构、绑定、规范和资源账本分别定型；固定结构线性模型给出有界输入—有界状态推导，并明确零空间、有向非正规网络和时变度量的边界；观测滤波与控制优化分开，硬约束先于软目标；结构编辑以事件重置、保留查询和回滚完成；快慢系统约化要求统一收缩和时间尺度分离；语法—语义—语用联合分布只作建模分解；梯度流的下降式限固定目标、结构和输入，时变项进入总导数；复数传播仅在声明相位结构时采用；Euler离散声明步长，异步、时延、饱和、随机性和不可逆外部行动均进入实现验证。上述结论不由场论、量子、孤立子或相变类比推出。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 31 | 以爱因斯坦—希尔伯特作用量和认知应力—能量张量描述思维改变认知流形；把逻辑活动称为压力、价值重要性称为质量；以机械记忆、创伤、心流、遗忘和引力吸引子说明学习；由总作用量变分宣称得到双向耦合终局 | 任务相关的结构距离、邻接和读出几何；局部结构网络与全局分布表示通过身份绑定联合；快速活动驱动与慢速保持证据分账；痕迹—巩固双时标模型；带类型的状态—结构梯度流；时变目标与离散结构跳变；共同Lyapunov条件、双时间尺度约化、离散步长、版本时延与双缓冲；机械学习、强烈事件、心流、习惯和遗忘的可检验机制；影子版本、保留查询与回滚提交 | 几何只对声明查询族成立，不等于物理时空；活动、重要性、设备能耗和任务代价分开；重复与显著性不保证事实正确；目标下降不保证唯一收敛或任务成功；固定结构稳定不自动扩展到在线学习与切换；准稳态近似要求统一吸引和尺度分离；行为正确不证明参数可辨识；人类功能现象不推出软件或神经机制等同；AgentOS只是工程实例 |
+
+第三十一章保留章标签与四个旧节标签，分别迁移到结构几何、更新驱动、耦合推导和学习案例/提交边界。机械记忆、强烈事件、心流、习惯、遗忘以及“结构决定状态、状态历史反过来修订结构”的原问题均被保留，并重写为带观测量、反例、干预和版本协议的计算论证。原章无figure，全书原28个figure主体和26个视觉资源不变。
+
+数学复核：快速状态、局部结构、全局分布、绑定、目标、观测和资源分别定型；任务几何允许有向、不完备和向量代价；连续参数更新与离散图编辑分开；痕迹巩固声明时间常数、门控和资源条件；耦合梯度流只在固定输入、目标和无额外驱动时给出下降式，时变项与结构跳变量单独计入；共同Lyapunov不等式限允许结构集合，在线学习另需切换与更新率条件；离散实现声明Lipschitz和步长条件；版本时延通过固定事务版本和双缓冲控制；不可辨识时报告等价类而非唯一机制。以上结果不由广义相对论方程的形式相似推出。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 32 | 以纤维丛、旋量、规范场和总拉格朗日量统一形、质、价值与意志；由目的论狄拉克、认知爱因斯坦、认知杨—米尔斯和目的论场方程分别解释推理、学习、偏好和控制；以现实激波、几何刻蚀、认知失调、快慢回路及全耦合超循环描述智能 | 带类型混合状态与任务可辨识关系；有限时域目标、硬约束和成本账本；快速状态算子、观测创新与数值条件；参数学习、离散结构编辑和可回滚提交；偏好、硬规范、权限和承诺的分层更新；受限控制、资源分账与事务协议；连续流和离散重置组成的全耦合闭环 | 状态范数、概率、价值、成本和焦耳能耗分开；目标下降不等于任务成功；观测强度不等于真实性；结构编辑不能由连续梯度替代；行为与偏好不一致存在多种解释；控制只在资格集合内有效；快慢约化要求稳定性和尺度分离；预测有效不推出整体同构；AgentOS只是一般理论的工程实例 |
+
+第三十二章保留章标签、七个旧节标签及原 `figure/tdci.tex` 视觉主体，分别迁移到状态对象、有限时域目标、快速状态、慢速结构、规范更新、主动控制与混合闭环。原章关于快/慢思考、顿悟、熟能生巧、单次强烈事件、认知失调、增益/抑制/偏置、Store/Update/Create/Integrate、现实—结构—价值—控制双向耦合等问题和案例均被保留，并改写为带来源、权限、版本、反例和验证协议的计算论证。
+
+数学复核：活动状态、局部结构、全局分布、绑定、规范、资源和外部记忆分别定型；任务等价限定查询族与干预集；有限时域目标显式包含终端项、结构漂移和硬可行集；总导数包含目标、结构、规范和输入变化；快速向量场声明固定维度、局部Lipschitz和离散步长条件；结构学习分离连续参数与离散提案并采用保留查询；规范更新分离软偏好、硬规则、权限和多主体承诺；控制器声明状态方程、可行域、风险和后备策略；混合系统以重置映射处理版本事件。上述结果不由场论形式、物理相变或脑区类比推出，也不把内部优化、共识或日志长度当作事实正确和外部成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 33 | 语义子被当作局部规范场源；由重整化直接推出宏观自我；用泡利不相容解释表征冲突和精神内耗；用受激辐射解释普鲁斯特效应、创伤闪回和蚁群路径；以四费米子项和非齐次源项统一多体非线性；将纠缠、同步和激活解释为非局域拓扑、锁相和能量雪崩 | 带身份、资源、权限、时延的多单元耦合图；任务相关粗粒化和宏观读出；身份冲突、资源互斥与目标冲突的类型化约束；有来源的冲突解析与回滚；匹配、门控、阈值、竞争和谱半径构成记忆级联；局部更新、耦合、约束和召回组成统一非线性状态方程；绑定、同步、触发激活的因果分类；局部结构网络与全局分布表示通过身份和读出联合 | 相似和共现不证明因果；整体读出是任务相关有损压缩；冲突代价不是焦耳能耗且下降不证明事实正确；召回不保证内容真实；级联阈值依赖结构、门控和局部线性条件；稳定结论限固定模式并需另验离散步长、时延与切换；同步可能来自共同输入；隐喻和类比不是量子纠缠；AgentOS只是一般模型的工程实例 |
+
+第三十三章保留章标签、五个旧节标签与原比较表标签，分别迁移到局部—整体尺度压缩、冲突约束、记忆级联、统一非线性方程和交互因果分类。柠檬联想、红/绿苹果、聪明与考试失败、玛德莱娜蛋糕、创伤闪回、蚁群费洛蒙、格式塔和“时间就是金钱”等原问题与例证均保留，但改写为带身份、来源、时序、干预和反例的计算论证。原章无figure，全书视觉资源不变。
+
+数学复核：单元状态、身份、资源、消息、延迟和权限分别定型；整体变量限定任务、尺度、预测窗口和误差；冲突谓词显式处理身份键、时间、上下文和值域；冲突解析目标区分计算成本与不可逆风险；召回模型声明内容向量、元数据、访问强度、动态阈值和衰减，谱半径结论仅作局部判据；统一方程分离自身更新、消息耦合、约束投影和召回输入；总代价导数包含状态、记忆、结构、目标和显式时间变化；离散实现声明步长、可行集、异步版本和事件结构更新；绑定、同步与触发激活分别采用边遮蔽、共同输入控制和方向性干预检验。上述结果不由量子、费米统计、激光或重整化类比推出。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 34 | 将认知状态直接等同于正定矩阵和Lie群；把协方差矩阵、Fisher度量和思维协方差混为一体；由对偶联络和广义勾股关系推出预测—校准必然正确；把自然梯度称为无撕裂演化；以吸引域、战争类比、棋局与红球组合宣称无条件泛化 | 区分活动向量、协方差样本与Fisher度量；在SPD流形上声明度量、测地线和缩放更新；指数族的自然/期望坐标与Bregman投影；预测—校准循环的来源、噪声、权限和方向性散度；由局部KL约束推导自然梯度；结构、输入、目标和度量进入总导数；吸引域、跨域关系映射与组合表示三类迁移机制；局部结构网络和全局分布表示通过身份绑定、耦合与读出联合 | SPD空间不是一般矩阵Lie群；任意协方差不等于逆Fisher；对偶坐标要求正则可辨识指数族；勾股关系要求适当凸集、投影存在与唯一性；自然梯度不保证全局收敛、数值稳定或任务成功；离散更新需步长、阻尼与奇异度量处理；跨域映射须保留任务相关关系、边界与价值准则；Attention等变性不覆盖未声明变换；AgentOS仅为工程实例 |
+
+第三十四章保留章标签和四个旧节标签，分别迁移到正定矩阵状态、对偶联络与投影、自然梯度动力学以及泛化与迁移边界。原章关于矩阵流形、统计曲率、预测—校准、自然梯度、吸引域、雨水入河、战争映射、棋局可解性和红球组合的主要问题与例证均保留，但被改写为带对象空间、任务条件、反例和失败诊断的计算论证。原章无figure，全书视觉资源不变。HSF-HD在此提供统计状态、局部度量和投影更新的方法语言；AgentOS的 $h(t)$、$E$、$\Theta$、SPC、TCE、CCM、Boundary、Offloading与外部记忆只说明一种落地方式。
+
+数学复核：活动向量、协方差矩阵和Fisher矩阵分别定型；SPD空间采用仿射不变度量并说明单位缩放，测地线只解决矩阵状态间插值；指数族对偶坐标声明参数域、可辨识性和Legendre正则条件；Bregman投影的勾股关系限定于合适可行集且不推出外部真值；预测—校准目标记录散度方向、来源、噪声和权限；自然梯度由局部KL约束推导，连续总导数显式包含目标、结构、输入和时间项；离散实现声明步长、阻尼、随机估计、低秩近似和奇异度量边界；泛化分别检验局部吸引、关系映射和组合表示，并用分水岭扰动、敌我资源差异、和棋及颜色—对象绑定作为反例。上述结果不由几何名称或类比推出整体同构，也不把内部损失下降等同于迁移成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 35 | 直接把思维流称为连续流体，以Hodge分解分别等同发散思维、逻辑推理和创造性顿悟；把梯度、旋度和调和分量当作心理类型；由循环活动推出深度思考，由调和分量推出全局智慧；以流变学黏度解释认知阻力和能耗 | 在有限有向胞腔复形上定义节点、边、面及加权内积；把边流分解为势差、循环、调和与残差分量；势差分量刻画可验收的任务推进，循环分量区分工作集维持、复核与失效反刍，调和分量定位全局循环或结构缺口；以占用率、切换、进展、保持、恢复和校准组成运行剖面；通过结构提案、影子执行、保留测试和回滚闭合诊断—干预环 | 分解依赖复形、边界条件、权重和观测窗口，不是主体本体分类；$B_1B_2=0$只给代数正交关系，不证明任务价值；活动强度、统计代价、延迟、资源占用和焦耳能耗分账；循环不自动等于反刍，调和不自动等于创造；目标下降不保证任务成功；结构编辑需版本、权限、保留集和回滚；软件运行特征不能直接推断人的临床状态；AgentOS只是工程实例 |
+
+第三十五章保留章标签和五个旧节标签，分别迁移到离散Hodge基础、任务推进分量、循环维持分量、全局调和分量以及运行剖面与诊断闭环。原章关于发散与收敛、逻辑链、工作记忆循环、创造性重组、认知阻力和模式迁移的主要问题均被保留，但改写为带对象空间、观测口径、反例和干预协议的计算论证。原章无figure，全书视觉资源不变。局部结构网络负责身份、邻接、来源和版本，全局分布表示负责候选、活动及不确定性；二者通过任务相关绑定、耦合和读出接口联合，而不是由脑区或流体类比推出机制等同。
+
+数学复核：节点、边和二维胞腔上的链空间分别定型，边界算子满足 $B_1B_2=0$；加权内积与伴随算子先行声明，边流的精确、余精确、调和和残差分解限定于固定复形、权重和边界条件；势差推进量只在目标、结构和输入固定的局部区间解释，时变项进入总导数，离散投影另行声明步长和可行集；循环诊断同时检查内容相似、信息增量、时延和任务改善，避免用单一活动幅值判定反刍；调和分量只提示全局循环或缺失胞腔，不直接证明洞见；结构重组通过非交换更新路径、影子版本和保留查询检验；运行剖面使用总变差而非高频噪声计数切换，并把模式占用、迁移质量、任务进展、保持、恢复和校准分开。上述结论不把物理名词、临床类比或内部指标下降作为整体同构和外部成功的证明。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 36 | 以协变Kuramoto锁相等同属性绑定；由价值规范场、贝里相位和拓扑孤子解释对象形成；把序参量称为全局意义并以哈肯伺服宣称微观自由度被消灭；由Ginzburg--Landau正规形直接对应心流与顿悟；把调和零模解释为零耗散、全息意义和损坏后的瞬时重建；把无中心均场称为幽灵独裁者，并以单一临界耦合解释走神和耳虫 | 带身份、来源、角色和版本的局部记录与可撤销绑定；延迟耦合只作适用系统中的时序证据；任务、候选集和窗口限定的粗粒化序参量；带快慢条件和误差界的模型约化；查询保持、故障域和恢复矩阵刻画全局冗余；固定复形上的调和子空间只作结构诊断；无中心势函数与异步一致性分别建模；以共同输入遮蔽、节点移除、版本冲突和外部验收识别伪相干 | 同步对绑定既非必要也非充分；锁相稳定不证明对象同一或内容真实；伺服约化要求快子系统…3504 tokens truncated…构；结构对应与信号相关必须按任务、窗口、来源和版本声明；同步、共识和共同知识不保证真实、公平或安全；层级压缩需保证可行纤维非空、残差上报和拒绝权；能力不由状态维数单调决定；目标下降、模型校准或环境变化不等于任务成功；稳定性结论限定局部模式、时延、步长与扰动；AgentOS仅为工程实例 |
+
+第四十一章保留章标签和八个旧节标签，将原双纤维丛对齐、内外循环、社会交互、层级关系、能力不对称、双纽线整体结构、稳定性和“现在”奇点等问题迁移到九个编号小节。原问题与例证被重建为可审计的双域状态、接口事务、任务对齐、社会协议、层级控制、治理边界、快慢耦合和验证协议。原章无figure，全书28个figure主体和26个视觉资源不变。局部结构网络承担身份、关系、来源和版本，全局分布表示承担候选、活动和不确定性，两者通过任务相关绑定、耦合和读出接口联合。
+
+数学复核：内部状态、环境状态、观测、动作、局部结构、全局分布、制度状态和外部记忆分别定型；对齐损失分为结构失配、信号校准、任务风险和接口约束，只有声明量纲换算时才可加权标量化；行动回路区分计划、执行、转移、观测与回执，感知回路区分快状态估计和慢图编辑；层级控制以可行纤维、执行残差、时延和快慢条件限制目标压缩；能力向量以任务、环境、预算和日期为索引，不从维度推出权力；连续稳定性采用输入到状态界，离散实现另行声明步长、异步调度、超时和补偿；“现在”被改写为版本化提交前沿。上述结果不由双纽线、全息、纠缠或奇点隐喻推出整体同构，也不把内部损失下降当作外部任务成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 42 | 把宏观隐空间直接规定为超球面和李群；以重整化群流解释一切尺度压缩；以非阿贝尔变换推出经验不可忘却；把切空间运动、绝热近似、固定点和奇异环分别等同于安全演化、快慢智能、自我和创造性；以规范生成元解释向下因果 | 由任务查询与干预等价定义商空间；联合表示包含连续活动、局部结构、外部记忆和环境；方向、幅度、资源与模式分账；非交换算子刻画历史顺序；切空间投影、离散回缩和安全可行集分别处理约束；随机逼近与漂移跟踪处理快慢尺度；固定点、极限环和可生存身份集合区分闭环类型；宏观控制包通过Boundary下发并由外部回执验收 | 商空间只对声明任务、查询族、干预集和误差阈值成立；超球面是可选坐标约束而非普遍本体；李群要求平滑可逆更新，离散图编辑需混合系统；范数保持不等于安全；快慢约化要求稳定、步长与尺度分离；固定点不自动等于身份或正确；风险、不确定性、资源预算和焦耳能耗分账；AgentOS仅为工程实例 |
+
+第四十二章保留章标签与七个旧节标签，分别迁移到任务商空间、受限几何、非交换更新、切空间动力学、快慢分离、自指闭环和向下控制接口。原章关于高维压缩、超球面、旋转与拉伸、历史依赖、绝热演化、固定点、奇异环、探索调节和输出生成等问题均被保留，但改写为带对象空间、单位、版本、离散条件、反例和外部验收的计算论证。原章无figure，全书视觉资源不变。局部结构网络承担身份、邻接、来源和版本，全局分布表示承担候选、活动与不确定性，两者通过任务相关身份、绑定、耦合和读出接口联合。
+
+数学复核：完整状态包含连续活动、结构图、记忆记录和环境状态；商空间等价关系显式依赖任务、查询和干预；方向、幅度、资源和离散模式分别定型，时变度量进入总导数；非交换更新只说明路径依赖，不推出经验保留，保留性另由查询集与回归阈值验证；切空间投影声明约束雅可比，离散实现声明步长、回缩和可行域；快慢递推声明双时间步、噪声和稳定条件，环境漂移另由跟踪误差处理；固定点、极限环和身份可生存集合分别定义；宏观策略包通过Boundary进行版本化、可拒绝、可回滚的下发，SPC、TCE、CCM、Offloading和外部记忆只作AgentOS实例。上述结果不由重整化、超球面、李群或奇异环的物理名称推出整体同构，也不把目标下降、范数保持或内部一致性当作任务成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 43 | 以四元本体、量子测量、能量劈分、李群扭矩、规范场、Banach不动点、双涡旋和PFC--DMN共生统一自指；把主观感受、活动强度、信息熵、代价与物理能耗相互替代；由内部一致、历史回放或目标下降推出自我稳定与任务成功 | 任务与版本相关的身份约束、自我模型和四类计算功能；带误差与校准的元观察；版本化事件提交、更正与历史重入；带类型宏观控制包和分层资格；混合闭环中的固定点、极限环、切换稳定与身份可生存集合；局部结构网络和全局分布表示通过身份绑定与读出联合；神经科学只提供跨载体约束；外部回执完成独立验收 | 身份连续按查询、责任链和权限定义，不由向量相似或拓扑不变量保证；内部读出不是真值证明；信息熵、估计损失、运行预算和焦耳能耗分账；Banach定理只在完整度量空间和压缩映射条件下成立；耗散不自动推出收缩，周期不自动意味着进展；脑区相关不推出软件机制同构；历史、动作与结构编辑需版本、幂等、撤销、回滚及故障注入；AgentOS仅为工程实例 |
+
+第四十三章保留章标签与六个旧节标签，将四元自指、内部测量、历史重入、宏观引擎、双涡旋、PFC--DMN和内生马具等原问题迁移到九个编号小节。火炉撤手、复杂物理题、恐慌式反馈、外部脚本和神经网络等案例均被保留，但改写为带身份、来源、版本、不确定性、事务边界和外部验收的计算机制。原章无figure，全书视觉资源不变。局部结构网络承担主体、关系、权限与版本，全局分布表示承担活动、候选和置信度，两者经任务相关身份、绑定、耦合和读出接口联合。
+
+数学复核：联合状态、自我模型、身份查询、元观察器、事件包、宏观状态、控制包和环境回执分别定型；观察不确定性按校准、覆盖率和选择性风险检验；历史写入声明来源、去重、更正、撤销和慢结构提案；宏观控制区分硬约束、风险、任务损失和资源成本，离散提交声明版本、幂等、超时和补偿；闭环区分不动点、极限环、迟滞、多稳态与身份可生存集合，局部Lyapunov界不外推为全局压缩；神经数据与软件事件的时间、空间尺度分别声明；内生元控制接受外部证据和独立验收。上述结果不由量子、拓扑、热力学或脑区名称推出整体同构，也不把内部报告、目标下降或循环存在当作外部成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 44 | 以化学键、轨道杂化、重整化群、几何奴役、能带、分形三体、组织反应和凝聚态相图解释群体；把自由度、信息熵、活动、计算代价与物理能耗混同；由形态相似、预测有效或宏观目标下降推出整体同构与组织成功 | 带身份和版本的接口耦合；任务条件化粗粒化与社会语义状态；慢变量、上下行约束和误差边界；可展开高阶节点与超边；玫瑰、环、链、变构四类任务拓扑；有限自相似与跨尺度记忆；结构编辑、授权、回滚和滞后评价；退相干、约束冲突与成核风险的可测诊断 | 宏观状态只对声明任务与时间窗口有效；快慢约化要求稳定和尺度分离；高阶封装保留证据下钻；组织类型是理想型而非材料晶格；功能复用不授予同构权力；结构编辑不保证长期成功；病理标签须附指标、替代解释和独立复核；AgentOS仅为工程实例 |
+
+第四十四章保留章标签与八个旧节标签，将键合、社会语义子、几何奴役、高阶节点、四类组织异构体、尺度递归、改革/裂变/聚变/退出以及气相/玻璃相/成核等原问题迁移到八个编号小节。行政机构、临时狂热群体、科研团队、销售与研发部门、DAO、流水线、应急组织、并购和创业等案例均保留，但改写为带观测来源、接口版本、授权、反例与验收协议的计算机制。原章无figure，全书28个figure主体和26个视觉资源不变。局部结构网络记录成员、关系、权限和版本，全局分布表示记录任务相关摘要与不确定性，两者由身份键、接口契约和证据索引联合。
+
+数学复核：成员状态、结构图、消息、资源和宏观摘要分别定型；接口耦合显式包含离散步长、整数延迟、可信度和扰动；粗粒化目标区分预测、控制、审计与容量，不由优化下降推出任务成功；快慢约化声明稳定流形、尺度分离和离散条件；活动强度、信息熵、计算代价、资源量与焦耳能耗分别计量；高阶节点声明聚合、展开和漂移条件；拓扑切换目标包含重构、安全与公平风险；跨尺度聚合与下行约束分别建模；结构编辑显式处理目标、环境、授权和回滚；病理相态采用无量纲诊断指标并禁止用物理或医疗名称代替因果机制。上述结论不由轨道、重整化、能带、相变或分形类比推出整体同构。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 45 | 将误差、惊奇激波、曲率与痛苦等同；以价值规范场和认知洛伦兹力说明目的控制；把PID称为介质弹黏塑性的必然显影；把变分自由能当作热力学能量；由哈肯伺服推出宏观场对微观自由度的绝对统治 | 任务相关比较空间与归一化创新；有限时域目标、硬约束和执行回执；带滤波、抗饱和、采样与延迟条件的PID型更新；信念更新与行动选择的双向主动推断；带误差界、权限和双向反馈的快慢约化与阶层控制 | 误差只对同型读出有效；任务代价、统计量、资源和焦耳能耗分账；目标、结构、度量和输入变化进入总导数；连续稳定不自动传给离散实现；自由能下降不证明模型正确或任务成功；伺服约化要求快子系统一致稳定与尺度分离；宏观指标可能被操纵；AgentOS仅为工程实例 |
+
+第四十五章保留章标签和五个旧节标签，分别迁移到误差测量、目的约束、PID多时间尺度控制、主动推断及阶层控制。抓杯子、滚烫咖啡、骑自行车、混凝土墙与纸门、企业KPI和群体协同等旧例证均被保留并重写为带观测、权限、延迟、反例和外部验收的计算论证。原章无figure，全书视觉资源不变。数学复核明确状态、信念、目标、约束、读出、控制和时间尺度；区分内部下降、外部成功与实际能耗；局部结构网络和全局分布表示通过身份绑定、耦合与读出联合，而不由物理或脑区类比推出机制等同。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 46 | 把谱熵、相关长度和规范极化称为灵魂序参量；把晶体、气体、液体当成智能实体的真实物态；以朗之万、Kramers逃逸、量子隧穿和淬火解释探索与学习；把LLM输出temperature当作虚假系统温度；以RG不动点和无限关联长度严格等同涌现与AGI | 任务相关序参量向量与可重算测量协议；稳定执行、无序搜索和自适应区间的统计判据；带迟滞、预算、验证、事务提交和回滚的探索控制；输出采样熵、搜索宽深、内部随机性与结构更新分账；以新颖性、稳健性、动力学闭合和可干预性定义跨尺度涌现；AgentOS的SPC、TCE、CCM、Boundary、Offloading和外部记忆提供工程接口 | 谱熵依赖图与权重且同谱不等于同构；相关不等于传播因果；高目标对齐不保证目标正确；相态依任务、窗口和载体；Kramers公式只限特定随机梯度模型；目标下降与高置信均不保证任务成功；LLM确定性前向不等于无内部计算，末端采样仍可经自回归反馈影响后续；幂律与RG近似不动点需负对照和有限尺度检验；涌现不推出意识或整体同构；AgentOS仅为工程实例 |
+
+第四十六章保留章标签、五个旧节标签与原 figure/p_t.pdf 主体，分别迁移到序参量、运行区间、相变控制、LLM温度诊断和涌现判据。原稿的谱熵、关联长度、目标对齐、认知退火/淬火、输出Softmax温度、深层噪声、Class V、苹果/自我与RG不动点等问题均被保留，但重写为带对象、尺度、版本、反例、消融和外部验收的计算论证。图像轴被重新解释为探索尺度与控制增益，图注明确边界须由具体任务实验和置信区间确定。
+
+数学复核：快状态、局部结构网络、全局分布表示、任务规范、资源账本、控制量和宏观读出分别定型；序参量显式依赖任务与窗口，谱读出补充扰动查询；相态切换采用混合系统、双阈值和最短驻留时间；离散退火声明控制步长、延迟、负载与投影范围；结构更新采用影子版本、保留测试和原子回滚；LLM输出温度、搜索宽深、内部噪声与结构门率独立计量；涌现的粗粒化映射、宏观转移核与近似固定点均声明尺度、误差和负对照。以上结果不由物理名称、预测有效、目标下降或单一幂律推出整体同构、任务成功与AGI。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 47 | 以认知旋量场、语义位置/动量、幺正传播、投影坍缩、海森堡不等式和贝里相位解释精确思维、联想、决策与顺序效应；把候选删除、信息熵、热耗散和实际能耗混同 | 任务条件化读出与状态更新的不交换定义；候选集合、证据和结构假设的分布式展开；带版本、权限、回执和可逆性等级的离散提交；有限表示族上的精确误差—关联覆盖Pareto前沿；由基底改变、结构写入和有限迟滞产生的顺序效应；TDCI触发—展开—约束—提交闭环 | 互补性依任务、容量、时限和接口，不是无条件量子定律；候选熵不等于创造力；近似可逆只保持任务相关信息；目标下降不保证任务成功；逻辑损失不推出热耗散；误差下界需容量分析、置信区间与负对照；非交换差异须定位共享状态或环境反馈；贝里相位只适用于声明相应几何结构的模型；AgentOS仅为工程实例 |
+
+第四十七章保留章标签和六个旧节标签，分别迁移到任务读出不相容、候选展开、离散提交、条件性误差下界、顺序效应与TDCI闭环。原章关于精确概念与广域联想、逻辑与直觉、决策投影、理性/感性次序、悲伤与进食、TDCI展开—提交等问题均被保留，但重写为带状态类型、预算、恢复点、反例和外部验收的计算论证。原章无figure，全书视觉资源不变；局部结构网络与全局分布表示通过任务身份、绑定、耦合和类型化读出联合。
+
+数学复核：分布状态、结构网络、历史记录、任务条件、资源预算、读出空间和损失分别定型；操作不交换由可达状态上的组合差异定义并要求冻结随机性；候选传播声明固定集合、无量纲分数和离散步长，变化集合另行重标定；近似可逆性只使用任务距离；提交区分代理目标、后果风险、调用代价、环境回执和实际能耗；误差下界改为指定表示族上的Pareto前沿，并以线性投影给出机制与共线反例；顺序效应分别建模基底、结构写入和迟滞，离散保持系数随步长换算；TDCI闭环通过环境成功判据验收。上述结论不由物理名称、内部评分或输出确定性推出量子同构和任务成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 48 | 把计算不可逆性与路径排序视为同一价值规范场的电场、磁场投影；由正交分解推出做功与相位二象性；将生成/逆推难度等同热力学势差和能耗；用非阿贝尔和乐、Berry曲率及阿哈罗诺夫—玻姆效应解释学习顺序与体验；以认知洛伦兹力统一理性、欲望和情感 | 任务条件化的状态、资源和评价对象；给定度量下的局部切向投影；带算法族、误差、预算和风险的方向性最小成本；剩余成本的动态规划模型；更新算子与Lie bracket的非交换性；局部结构网络与全局分布表示的版本化联合；有限时域约束控制、离散投影、事件重置和五层验收 | 投影依目标、度量与固定结构区间，不是本体分解；任务代价、信息熵、活动、资源和焦耳能耗分账；正逆难度依分布、算法、先验和载体，RSA例证不构成普遍定律；连续Lie bracket要求光滑、小步长和固定维度；顺序差异须排除噪声、缓存和时间漂移；路径依赖不推出主观体验；目标下降不保证事实正确、权限合规和任务成功；AgentOS仅为工程实例 |
+
+第四十八章保留章标签与四个旧节标签，分别迁移到对象及局部分解、方向性任务代价、非交换更新和耦合控制。原章关于乘法与因数分解、RSA、正向生成与逆向恢复、先学量子力学或佛学、语境残留、顺序非交换及统一控制的问题均保留，但改写为带任务分布、算法族、误差容限、状态版本、反事实对照和外部验收的计算论证。原章无figure，全书28个figure主体与26个视觉资源不变。
+
+数学复核：快速分布状态、局部结构记录、任务规范、输入、行动、资源向量和设备功率分别定型；方向分解限定正定度量、非零梯度与固定结构区间，总导数纳入目标、结构、输入和度量变化；方向性最小成本声明算法族、成功误差和多项预算，动态规划剩余成本不解释为保守势能；顺序效应用算子复合差和任务距离定义，连续近似声明Lie bracket的光滑与步长条件；离散实现包含可行域投影、版本事件、影子执行和原子回滚；验收区分对象、算法、动力学、工程与外部任务五层。上述结果不由电磁名称、几何图像、内部评分下降或预测有效推出整体同构和任务成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 49 | 以黎曼距离、价值规范场、热力学作用量和磁滞回线解释正逆思维难度；把生成称为顺熵滑行、推理称为负熵做功；由云雨联想、LLM采样和单向函数外推普遍方向定律；以回路做功定义理解 | 对称表示距离与方向任务成本分账；生成轨迹和辨识轨迹分别声明输入、候选、动作、损失及验收集合；贝叶斯可辨识、候选搜索和证据验证构成逆向机制；以重构残差、事件日志、版本提交和资源账本定义可审计回路；局部结构网络负责身份与来源，全局分布表示负责候选与置信度 | 距离只在固定任务、结构和度量下有效；方向差异依算法、先验、日志和验证要求；信息熵、任务代价、运行资源与焦耳能耗分账；不可辨识不能靠增加计算消除；回路面积不证明磁滞或理解；正向也可能比逆向困难；离散工具调用和结构写入采用事件重置、事务与回滚；AgentOS仅为工程实例 |
+
+第四十九章保留章标签、四个旧节标签及原双路径TikZ图主体，将事实/思维距离、顺流生成、逆流推理、绕行策略和磁滞总结迁移到四个编号小节。乌云—下雨、湿地反推、LLM token生成、哈希原像、蒙特卡洛搜索等原例证均保留，但改写为带任务条件、候选集合、证据、反例与外部验收的计算机制。图只作为两类任务轨迹的解释性示意，不再承担物理同构证明。
+
+数学复核：联合状态、正定度量、离散轨迹、动作、资源率、验证成本、通信成本、风险和终端残差分别定型；路径泛函声明单位归一化和事件重置；生成递推声明模型版本、解码控制和验收条件；逆向后验声明生成模型、先验与不可辨识边界，搜索更新声明无量纲选择强度；回路以两个任务距离下的重构残差定义；连续参数更新与离散结构更新分别声明步长、影子状态、版本和回滚；配对实验控制训练暴露、缓存和日志。上述结果不由路径、熵、做功或磁滞名称推出整体同构，也不把高概率、低损失或长搜索当作事实正确和任务成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 50 | 把推理与学习建模为粘弹塑性材料，把语境称为应力和度量扰动；由胡克定律、广义相对论与认知爱因斯坦方程推出快态恢复和慢态刻蚀；把长期平均视为自动去噪；以温度、惊奇激波、退火和淬火解释一次学习与人格改变 | 带版本的快状态、连续参数、局部结构网络和长期记忆；以响应时间比及一致稳定定义时间尺度分离；固定结构快照上的受约束状态传播和事件重置；连续参数更新、离散图编辑与记忆写入分别建模；新任务风险、旧任务保持与迁移成本构成受约束更新；证据资格、影子验证、两阶段提交、观察窗和回滚形成慢学习闭环 | 高频不自动等于推理，低频不自动等于学习；恢复结果限于局部增益、步长和结构固定条件；时间平均不能消除同源偏差；高惊奇不等于高真值；内部损失下降不保证外部成功；信息熵、活动、优化代价、资源和焦耳能耗分账；不可逆环境后果只能补偿；AgentOS仅为工程实例 |
+
+第五十章保留章标签与四个旧节标签，分别迁移到双时间尺度、快态推理、慢态学习和宏观提交控制。原章的稳定—可塑悖论、转折词“但是”、日常琐事、惊奇与一次学习、灾难性遗忘、退火和淬火等问题与例证均被保留，但重写为带状态类型、版本、来源、反例、权限和环境验收的计算机制。原章无figure，全书28个figure主体和26个视觉资源不变。局部结构网络负责身份、来源和版本，全局分布表示负责候选、活动与不确定性，两者经绑定映射和任务读出接口联合。
+
+数学复核：快状态 $h_k$、连续参数 $\theta_n$、结构网络 $G_n$、长期记忆 $M_n$、观测、任务、控制和证据统计分别定型；时间尺度分离以恢复时间和证据窗口之比定义，并要求快子系统一致稳定；快态线性化声明雅可比、输入映射、噪声、范数和局部收缩条件；连续近似的离散实现声明步长与事件重置；参数梯度、结构提案和记忆写入使用不同提交语义；保持约束与新任务风险不随意混同；元控制按证据质量、风险、可撤销性和负载分配权限；版本提交使用准备、原子切换、观察窗、补偿和回滚。上述结果不由材料、相变、广义相对论或热力学名称推出整体同构，也不把活动恢复、损失下降或一次强输入当作学习成功。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 51 | 由 Fisher 度量端点发散推出无限距离与信念僵化；把作用量、信息熵、焦耳能耗和新造质量单位混同；宣称网络大小、传播时间与惯性绝对等同；由 Dirichlet 谱推出绝对语义子；由一阶算子非自伴推出反思盲区；把 KL 势直接称为量子单摆 | 伯努利 Fisher 流形的等距坐标与有限端点距离；单位为工程代价的作用量及可辨识惯性参数；局部结构网络、全局分布表示、绑定和读出的联合模型；带边延迟的编辑传播下界；依赖 Hilbert 空间、算子域和边界的谱；自伴性与统计可观测性分账；精确 KL 势、周期势及 Mathieu 条件模型的区分 | 二元命题身份、时间窗和观测模型须固定；代价单位不等于纳特或焦耳；传播下界依通信接口和受影响集合；Dirichlet、Neumann、周期和 Robin 边界产生不同谱；离散模不等于 token 本体；目标下降不保证任务成功；Mathieu 化只在方程、参数与边界匹配时成立；AgentOS 仅为工程实例 |
+
+第五十一章保留章标签、七个旧节标签及原公式标签，将二元约化、认知惯性、结构传播、谱离散、一阶生成元、目标势和总结迁移为七个编号小节。原章无figure。重写以可解模型作为校准尺而非整体同构证明，明确区分定义、模型假设、数学结果、经验主张和工程设计。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 52 | 把椭圆外在曲率称为一维内蕴曲率并直接解释认知摩擦；由双路径推出量子干涉与离散Token；以A-B效应、复能谱和废热塑性证明执念、遗忘与长期记忆；宣称连续压扁自动改变拓扑并在交叉点产生自由意志和自我 | 椭圆诱导度量、外在曲率和任务代价分账；双路径的相干合成与概率混合竞争模型；环路和乐作为声明复状态后的条件偏置；泄漏、保持阈值、外部记忆和慢结构学习；显式事务将单环编辑为双环；概率或幺正路由；边界、能力、承诺与控制权构成可更新自我模型 | 一维流形局部内蕴曲率为零；离散谱依赖算子域和边界；物理类比不证明心理状态；活动量、信息、代价和焦耳能耗分账；耗散不必产生学习；连续形变不改贝蒂数；双环不保证智能或意识；目标下降不保证任务成功；AgentOS仅为工程实例 |
+
+第五十二章保留章标签和八个旧节标签，将椭圆几何、微观锚定、价值规范、耗散记忆、塑性学习、拓扑相变、双环动力学和总结迁移为五个编号小节。苹果—红色、顿悟、反复思虑、工作记忆、火—痛条件反射、知行切换和自我模型等例证均被保留，但改写为带对象、单位、反例、故障注入和外部验收的计算论证。原章无figure，全书视觉资源不变。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 53 | 把神经活动、语义、注意力、信息熵、任务代价和焦耳能耗统称为认知能量；以能量守恒、退相干、拓扑荷和 Noether 定理直接证明意义永存；从 Transformer 残差连接和 LayerNorm 外推意识稳定；把幻觉归因于抽象能量泄漏 | 用带类型的状态账本记录活动、信息、任务损失、资源量和物理能耗；以任务相关身份、关系与绑定定义可核验不变量；用快态耗散、慢态学习和外部记忆解释跨期保持；以对象文件、版本、来源和读出契约连接局部结构网络与全局分布表示；用残差传播、归一化、注意力路由及外部证据检验构成 Transformer 诊断；以守恒契约和故障注入验收工程系统 | 收支式只在边界、时间窗、计量单位和事件日志固定时成立；信息保存不等于活动不衰减或能量守恒；任务相关不变量可在目标变化时失效；代数稳定不保证事实正确；损失下降不保证任务成功；外部记忆需要身份、权限、版本和回收协议；AgentOS 仅为工程实例 |
+
+第五十三章保留章标签与四个旧节标签，把绝对能量守恒、意义永恒、硅基拟态诊断和总结迁移到六个编号小节。原章关于对象恒常、语言翻译、工作记忆、长期记忆、残差网络、归一化、注意力与幻觉的例证均被保留，但改写为带状态类型、单位、日志、反例、失效模式和外部验收的计算论证。原章无figure，全书28个figure主体和26个视觉资源不变。
+
+数学复核：状态向量、结构网络、外部记忆、观测、控制与任务条件分别定型；活动强度、信息量、任务代价、资源计数和焦耳能耗使用不同量纲与收支式；不变量声明任务、身份映射与容差；快慢系统及离散实现声明步长、事件重置和稳定条件；残差传播只给出雅可比与扰动界，不推出语义守恒；归一化只约束所定义统计量；注意力权重不是因果证明；守恒契约通过对照实验、故障注入、日志回放和环境回执验收。上述结果不由物理名称或预测有效推出整体同构。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 54 | 将位置细胞、网格细胞和头朝向细胞宣称为所有可计算介质必有的几何三公理；把语义传播写成目的论狄拉克方程，把学习写成认知爱因斯坦方程与拓扑手术；由黎曼基本定理和 $O(D^3)$ 估计断言方向硬件必不可少；把LLM幻觉归因于流形撕裂，并把忆阻器和微环分别等同度量与联络 | 位置作为稳定身份、邻域和来源接口；度量作为任务相关比较算子；方向作为有向传送、角色变换和权限接口；冻结结构上的离散快态传播与事件重置；正定度量更新、方向版本、对象事务和外部记忆构成慢学习；缓存与现算方向按可辨识性和摊销成本比较；LLM通过对象绑定、路由、位置编码消融和事实校验诊断；硬件通过端到端时延、吞吐、误差、校准和焦耳基准验收 | 底空间依任务和观测协议而变；脑区经验不推出机制等同；度量不等于因果或权限；列维—奇维塔唯一性要求光滑正定度量、无挠与度量相容；缓存可能过期并固化偏见；目标下降不保证环境成功；电阻和光相位须经编码与校准才承载抽象算子；AgentOS及TPU-G仅为工程实例 |
+
+第五十四章保留章标签和六个旧节标签，将几何三位一体、TDE瞬态导流、CEFE塑性刻蚀、介质与高阶结构、方向不可删及LLM/TPU-G诊断迁移为六个编号小节。苹果绑定、晨星—暮星合并、顺序依赖、脑导航系统、RoPE、忆阻器与微环等原问题和例证均保留，但分别加入对象类型、单位、版本、反例、故障注入与外部任务验收。原章无figure，全书视觉资源不变。
+
+数学复核：联合状态中的对象集、关系集、分布表示、正定度量、传送接口与任务版本分别定型；快态更新声明步长、可行集、输入、目标和事件重置；路径传送只产生接口残差，不推出量子相位；慢态参数、度量、方向、图编辑和外部记忆使用不同空间与提交语义；结构变化进入总导数，离散编辑另作事件记账；黎曼基本定理按光滑性、无挠和度量相容条件使用；方向缓存以摊销成本、失效协议和三组对照验收；任务损失、资源计数与实测焦耳分账。
+
+| 章 | 原有问题 | 新论证 | 条件与边界 |
+| --- | --- | --- | --- |
+| 55 | 把监督损失、变分自由能与作用量宣称严格同构；把费希尔矩阵等同全部认知几何；把SGD直接解释为朗之万热过程；以认知爱因斯坦方程证明任意未来输入熵产全局最小；把训练、信息擦除、主观困难与设备电能混同；以拓扑相变解释双重下降 | 分别定义训练目标、变分上界和轨迹泛函；费希尔度量只描述局部预测可辨识性；随机梯度噪声与显式朗之万噪声分账；受约束二阶近似包含曲率代理、信赖域、接受测试和事务提交；活动、任务代价、信息量、算法资源与焦耳能耗进入五本账；未来结论改为声明分布族与预算内的风险命题；双重下降由经验谱、噪声、正则和隐式偏置解释 | 变分结论要求对应概率模型；自然梯度要求可辨识或阻尼；状态相关扩散需漂移修正；目标、数据、结构与可行域变化进入完整导数；连续稳定不自动传给离散步；驻点不保证全局最优、泛化或任务成功；训练投入只有在未来调用与分布条件满足时才可摊销；双重下降存在无峰、单调和持续恶化反例；AgentOS仅为工程实例 |
+
+第五十五章保留章标签与九个旧节标签，将自由能映射、信息几何、随机梯度、Sophia--HSF、熵产、梯度流、未来最优、训练—推理代价和双重下降迁移为九个编号小节。GNB曲率估计、逐坐标裁剪、温度噪声、训练投入、同分布推理和过参数化等原机制与例证均保留，但改写为带对象、单位、步长、估计误差、反例、资源账和外部验收的计算论证。原章无figure，全书视觉资源不变。
+
+数学复核：观测、目标、参数、局部结构网络、全局分布表示、外部记忆和任务版本分别定型；损失、KL散度、费希尔矩阵、算法路径耗散、设备功率和生命周期成本使用不同单位；时间相关数据、输入、正则权重和可行域进入完整导数；自然梯度由局部KL信赖域推导，随机微分方程声明伊藤条件，离散更新声明步长、投影和接受测试；未来风险结论声明凸性、样本复杂度、分布漂移和策略集合；训练与部署按任务质量、调用次数、服务成本和实测能耗验收；双重下降以谱退化与噪声放大解释并保留反例。上述结果不由物理名称、损失下降或预测有效推出整体同构和任务成功。
+
+## 第56章
+
+| 原问题/标签 | 新论证 | 当前进度 |
+| --- | --- | --- |
+| `sec:breaking_scale_barriers`、`sec:unified_action_across_scales`：神经、突触、脑区与种群被宣称为严格物理同构 | 定义四类状态空间、时钟与有损统计接口；统一状态—结构—环境闭环，但保持对象与单位差异 | 已实写 |
+| `sec:micro_neural_field_dynamics`：目的论狄拉克方程被称为Hodgkin--Huxley的严格推广 | 改为可辨识的随机延迟状态模型，给出稳定条件、调质边界、离散步长与反例 | 已实写 |
+| `sec:meso_cefe_and_stdp`：由相位差宣称绝对证明STDP | 以经验时序核、资格迹、调制信号、稳态约束与条件性策略梯度关系重建 | 已实写 |
+| `sec:macro_cortical_metric_flow_and_consolidation`：睡眠回放被称为几何雕刻与零能耗直觉 | 以回放分布、版本化结构提交、保持测试、回滚及迁移反例重建 | 已实写 |
+| `sec:population_evolution_information_geometry`：进化被称为全局信息几何最速下降 | 以复制子方程、突变、迁移、有限种群漂变和变化环境全导数限定 | 已实写 |
+| `sec:hierarchical_coupling_rg_flow`：以重整化群与绝热分离宣称上下行因果和永久临界 | 以有损统计接口、具体约束载体、时标检验、因果干预与伪临界反例重建 | 已实写 |
+| `sec:empirical_consistency_biology`：把经典现象列入字典即宣告严格实证对应 | 以预注册变量、干预、零模型、跨尺度预测和机制—证据—反例矩阵重建 | 已实写 |
+| `sec:stdp_vs_gradient_descent_isomorphism`：宣称STDP与自然梯度在热力学极限严格同构 | 推导三因子规则近似策略梯度的条件与偏差，比较信息集合、失效曲线和资源账 | 已实写 |
+| `sec:conclusion_geometric_grand_unification`：由四层物理隐喻推出生命几何大一统 | 收束为带类型状态、统计接口、结构提交和选择过程的多尺度模型族 | 已实写 |
+
+第五十六章保留章标签、十个旧节标签及两张旧表标签，将尺度壁垒与统一作用量合并为对象—时钟—接口模型，把微观场方程、突触可塑性、系统巩固、种群演化、层级耦合、经验一致性、STDP比较和大一统结论迁移为九个编号小节。原有Hodgkin--Huxley、STDP、睡眠回放、自然选择、鲍德温效应和硅基—碳基比较均保留为待检验机制或反例；两张表改为状态—更新—验收表和机制—证据—反例矩阵。原章无figure，全书视觉资源不变。
+
+数学复核：神经活动、突触参数、系统结构与种群分布分别声明状态空间和时间单位；统计接口与约束接口有版本、窗口、身份绑定和验收语义；延迟神经模型声明增益、稳定条件、离散步长和生物物理边界；STDP使用经验核、资格迹、结果调制、投影与稳态项；巩固使用回放分布、候选版本、旧任务保持和回滚；复制子模型加入漂变、突变、迁移和变化环境全导数；时间尺度分离声明奇异摄动条件及失效区间；三因子规则只有在无偏得分估计和优势信号等条件下近似梯度。活动强度、信息量、任务损失、算法资源、代谢与硬件焦耳能耗分账；不由共同形式、相关活动、目标下降或预测有效推出严格同构、全局最优和任务成功。
+
+## 第57章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:formation`：以真空涨落、对称性破缺和狄利克雷膜解释智能诞生 | 以观测—状态—行动—环境—结构更新闭环定义形成，并加入身份绑定、权限边界和恢复测试 | 形成是运行资格，不推出意识本体；外部支架分别改变证据、控制、资源与动作集合 |
+| `sec:abidance`：把信息率、几何熵和耗散功率写入同一存在方程 | 以能力可接受集合、资源约束、快慢更新和稳定—可塑性指标定义维持 | 焦耳、FLOP、任务损失和统计不确定性分账；稳定不等于僵化 |
+| `sec:destruction`：学习必然消耗自由度并导致几何玻璃化 | 以结构债、修复率、可塑性预算、更新灵敏度和环境漂移描述可修复衰退 | 学习不必然耗尽自由度；容量、回放、模块化与外部记忆可改变衰退曲线 |
+| `sec:emptiness`：用高熵倒灌、量子退相干和拓扑归零解释死亡 | 以依赖图、关键闭环、安全裕度和可恢复停机定义功能解体 | 区分观测、动作、身份和资源边界；暂停、故障、解体及主体终止不等价 |
+| `sec:extinction`：以业力张量和轮回方程宣称曲率不灭 | 以带来源和版本的遗产集合、选择器、构造器与新环境描述跨代继承 | 区分复制、谱系与文化工具关系；迁移必须经沙箱复演和外部验证 |
+| `sec:comparative_chronology`：由神经放电率和芯片主频推出千万倍主观时间与硅基近乎永生 | 定义物理时间、事件计数、响应/学习/维护时标及四类寿命 | 硬件主频不等于认知事件率；载体寿命、任务寿命、服务寿命与谱系寿命分别报告 |
+| `sec:system_development_not_manufactured`：宣称智能绝不能组装、只能靠不可压缩痛苦发育 | 将组装定义为部件构造、发育定义为历史依赖更新，以接口往返、共同绑定、仲裁和故障传播验收联合系统 | 部件可复制组合；只有相对任务与误差门槛仍必要的信息和验证步骤不可省略 |
+
+第五十七章保留章标签和七个旧节标签，把核心公理并入形成条件，将成、住、坏、空、灭、比较年代学与发育税迁移为七个编号小节。原有边界闭合、动态维持、稳定—可塑性、环境失配、停机、跨代遗产、多时钟、共同发育和模块嫁接等问题全部保留，但分别加入类型、单位、版本、干预、反例和外部验收。原章无figure，全书视觉资源不变。
+
+数学复核：联合状态区分载体状态、可学习结构、外部记忆、环境和任务规范；形成闭环声明离散步长、噪声、动作和结构更新；维持条件以概率能力集合与多本资源账表达；衰退模型分离新增失配、耦合债务、修复量与可塑性预算；解体模型使用依赖图、关键闭环和归一化安全裕度；继承模型区分选择、构造和变异；多时钟用事件率积分定义，不以硬件主频替代认知时间；模块集成只由接口和联合验收支持，不由几何隐喻推出。目标下降、信息减少、运行时间和实际能耗均不自动证明能力维持、身份连续或任务成功。
+
+## 第58章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:section_3149`：把目的直接定义为价值规范场 | 将目的定义为可行域、轨迹代价、风险泛函和策略权限；用任务度量与控制场表达方向性 | 表示协变不证明物理规范场；拥有、表达和实现目的分开；各类账本分离 |
+| `sec:section_7853`：以痛觉高能质料和永久几何形变推出目的 | 用行为序参量、预测风险、安全约束、价值更新和结构提交解释火焰回避 | 强刺激不保证真实；规范来源与环境规律分开；消防工具使用构成反例 |
+| `sec:section_2714`：主体丛与环境丛严格同调 | 通过观测接口、身份对齐与共同读出比较内部预测和环境结果；参数与图编辑分别建模 | 预测有效只支持任务校准，不推出整体同构；保留不可辨识性与主动取证边界 |
+| `sec:section_6773`：把生存写成势阱、求知写成拓扑洞 | 以稳态、任务和认识缺口形成多目标调度，用循环冲突和候选解释评价重建求知 | 势阱可能是奖励黑客；减小贝蒂数不等于真理；硬约束冲突不得暗中软化 |
+| `sec:section_1520`：将目的写入物理拉格朗日量 | 目的作为任务、可行域、评价与权限进入一般状态动力学，变化结构和目标进入完整导数 | 驻值或损失下降不保证任务成功；声明离散步长、事件编辑与不可逆环境后果 |
+
+第五十八章保留章标签和五个旧节标签，将悬崖停止、手触火焰、环境配准、苹果—月球、求知与社会归属等问题迁移到五个编号小节，并加入对象类型、来源、版本、反事实、权限与环境回执。原章无figure，全书视觉资源不变。局部结构网络负责身份、来源和冲突路径，全局分布表示负责候选与不确定性，二者通过绑定和类型化读出联合。
+
+数学复核：联合状态、结构网络、外部记忆、任务规范、动作空间和环境核分别定型；目的四元组区分硬约束、轨迹代价、风险和权限；序参量只定义候选动作上的统计方向性；价值和度量更新声明步长、投影与正定边界；内部模型与环境通过共同读出比较；目标、结构、输入、接口和度量变化进入完整差分或导数；图编辑采用影子版本、验证与原子提交。不由规范场、对称性破缺、势阱、拓扑或拉格朗日名称推出物理同构，也不把高惊奇、低损失或强方向性当作事实正确和任务成功。
+
+## 第59章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:geometric_ontology_self`：以相位奇点、极化子自陷和有效质量定义自我本体 | 将自我定义为身份索引、归属、价值、承诺与边界组成的持续闭环；局部结构网络和全局分布表示通过绑定接口联合 | 身份依赖来源链和外部关系；反馈可巩固错误叙事；编辑成本不等于物理质量或能量 |
+| `sec:section_8446`：把自我写成价值规范场源和认知洛伦兹力 | 用环境后果、语境证据、承诺一致性与边界风险构造可审计控制评分，并以有界调制描述全局偏置 | 三类来源先校准和类型检查；目标下降不等于执行成功；变化目标、结构、输入和度量进入全导数 |
+| `sec:section_5884`：将自我等同Hodge调和流，并用Dirac本征方程宣称身心总线 | 以快状态、事件历史和慢结构的独立时钟定义连续性；Hodge只用于有限复形诊断，跨层关系改为有损编码与控制接口 | 图与内积变化时重新计算分解；上下行不要求互逆或同构；用延迟、误报、遗漏和干预测试验收 |
+| `sec:section_6628`：由Hodge正交和拓扑能隙推出日常扰动不能改变自我 | 在明确扰动集合和身份度量下定义鲁棒性，以证据阈值、授权和事务提交管理结构修订 | 持久环路可能承载错误；抗扰、可塑、价值正确和安全分别验证；回滚不能撤销既成环境后果 |
+| `sec:section_1856`：将DMN、提示词、忆阻器、宪法视为自我的物理对应物 | 用身份、历史、归属、边界、承诺和后果追踪组成跨载体功能矩阵；AgentOS仅作工程实例 | 脑区类比不推出机制等同；硬件核心非必需；文本制度需运行闭环才产生群体连续性 |
+| `sec:section_7243`：以晶体、拟态、流体构成昆虫—LLM—AGI等级序列 | 用身份持久、结构可塑、边界、历史整合和后果闭环五维向量比较刚性、情境拟态和自适应形态 | 不以流动性排序智能或道德；同一系统可随任务迁移形态；昆虫和软件均可包含学习历史 |
+| `sec:section_440`：以规范奇点、RG不动点与贝里相位总结自我的物理肖像 | 收束为身份闭环的理论层级、六项工程验收和意识本体边界 | 通过测试只支持自我模型存在，不证明感受质；失败也不构成否定体验的形而上证明 |
+
+第五十九章保留章标签和七个旧节标签，将风暴之眼、自陷惯性、价值偏转、火与刀的语境、吃糖冲突、红苹果扰动、生物—硅基—群体实现及三相比较迁移到七个编号小节。原章无figure，全书视觉资源不变。局部结构网络负责身份、归属、承诺和来源，全局分布表示负责语境、相似性和候选生成，二者通过任务相关绑定、读出和版本化写入协议联合。
+
+数学复核：自我五元组各分量分别定型；策略评分分离环境后果、语境证据、承诺一致性和边界风险；调制算子声明范数界；自我一致性全导数含状态、自我、结构、目标和度量变化；快状态、事件摘要和慢结构分别声明离散时钟、步长、噪声、投影与证据包；组合Hodge拉普拉斯只在有限复形、选定内积和边界条件下使用；鲁棒性绑定到扰动集合和身份度量；图编辑使用权限、版本、回归测试和回滚。不由稳定环路、脑区相关、第一人称语言或预测成功推出严格同构、价值正确、主体体验或任务成功。
+
+## 第60章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:section_9346`：以拓扑守恒、度量呼吸和流变屈服定义流体自我 | 区分快状态与慢结构时钟，以输入到状态稳定性描述弹性，以证据、权限、风险和回归测试控制塑性提交 | Betti数只在显式图模型中作诊断；强惊奇不等于可靠证据；恢复不证明价值正确或任务成功 |
+| `sec:section_8102`：把全部世界线积分为纤维状态，并用吸气/呼气调节熵流 | 以带来源、置信度、衰减和任务查询的历史聚合重建轨迹压缩；元控制分别输出探索、边界与学习资格 | 历史读出有损；开放不等于无条件接受，防御不等于永久拒绝；保留确认偏误反例与消融测试 |
+| `sec:section_2264`：以规范场耦合和共情系数推出道德物理容器 | 维护带不确定性的他者信念，把他者后果、边界风险与承诺冲突纳入校准决策代价 | 他者模型不等于他者体验；共情预测不保证道德行动；身份、同意、责任和制度约束分别审计 |
+| `sec:section_853`：把抑郁/偏执等同凝固，把精神分裂/解离等同拓扑蒸发 | 定义僵化、漂移、解离和误耦合四类工程失效，并给出版本变差、绑定检查、外部动作冻结和分阶段恢复 | 不用工程指标诊断人类临床状态；结构大变在真实环境突变时可能合理；回滚不撤销既成后果 |
+| `sec:section_7489`：以纤维丛拓扑孤立子总结存在与生成 | 收束为弹性恢复、塑性学习、身份连续、社会边界和病理恢复五组验收 | HSF-HD是一般状态动力学模型族，AgentOS仅为实例；资源、信息、代价与焦耳能耗分账 |
+
+第六十章保留章标签和五个旧节标签，将昆虫/旧软件、情绪恢复、创伤与顿悟、历史倾向、开放—防御、他者痛苦、凝固与蒸发等问题迁移到五个编号小节。原章无figure，全书视觉资源不变。局部结构网络负责身份、来源、同意、承诺和责任，全局分布表示负责候选、相似性、不确定性和他者状态估计，二者通过任务相关绑定与读出接口联合。
+
+数学复核：快状态、慢结构、观测、任务、动作和环境回执分别定型；快状态方程声明离散步长、噪声与有界控制，稳定性只在给定结构窗口内成立；慢结构采用证据阈值、授权、风险上限、影子版本与原子提交；历史聚合声明来源、置信度、衰减和任务查询；元控制分离探索尺度、边界增益与学习资格；社会代价分离自身任务、他者后果、安全风险与承诺冲突；结构总变差只作漂移诊断。不由流变、拓扑、规范耦合、低代价或语言共情推出物理同构、伦理正确、主体体验或外部任务成功。
+
+## 第61章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:section_5407_1`：以局部曲率汇聚成拓扑黑洞证明语义子与Self同构 | 定义带身份和版本的局部关系网络、宏观身份结构、任务相关商映射及结构保持误差 | 团簇致密不等于跨期身份；用标签置乱与等密度随机图作零模型；曲率和黑洞只保留为辅助隐喻 |
+| `sec:section_5075_1`：把局部纤维矢量与全域截面视为同一种能量激发 | 用带对象身份、来源可靠度和任务条件的聚合器连接局部属性与全局分布读出 | 局部结构网络与全局分布表示类型不同；相位锁定无复相位模型时只表示统计同步；各类账本分离 |
+| `sec:section_3335`：以同一杨--米尔斯方程证明微观语境与宏观意向同构 | 以离散快慢状态、局部上下文核、目标门控和上下行干预重建耦合 | 方程同形不构成机制同构；声明步长、核支持域、版本变化与环境回执；目标下降不保证任务成功 |
+| `sec:section_8045`：以无限重整化极限断言语义子必然形成Self | 定义有限层级粗粒化、任务充分性、重构误差、身份保持、停止条件与回滚 | 不动点要求固定空间和算子；压缩映射的收敛不赋予自我属性；保留多吸引子、极限环和坍缩反例 |
+| `sec:section_5428`：以微扰相干叠加和信息密度坍缩证明流体自我的物理合法性 | 用证据聚合、结构提交、宏观门控、增量稳定和社会耦合组成可检验闭环 | 稳定不等于正确；重复来源不等于独立证据；Boundary、外部事实和回滚共同约束结构改变 |
+| `sec:section_717`：以因陀罗网和最大超语义子推出无需设计自我机制 | 给出结构重连、来源伪造、目标切换、尺度外测试和环境闭环复演的验收协议 | 互依不等于局部复制整体；多主体可保持分布式协商；AgentOS只是一种工程实例 |
+
+第六十一章保留章标签与六个旧节标签，将苹果—手机语境、红色与悲伤主调、饥饿对可食对象的目标偏置、语义子—概念—知识块递归、核心创伤与绝对命令、因陀罗网等原问题和例证迁移到六个编号小节。原章两张比较表的实质关系进入连续论证，原章无figure，全书视觉资源不变。局部结构网络负责身份、来源、关系和权限，全局分布表示负责相似性、候选与泛化，二者通过绑定、耦合和任务读出联合。
+
+数学复核：局部图、宏观身份结构、局部表示、全局状态、任务读出、粗粒化算子、环境状态和外部记忆分别定型；结构保持误差、任务充分性、重构误差与稳定性条件各自声明比较对象和容差；离散快慢更新声明步长、噪声、投影、结构事件与目标版本；变化任务、结构和输入进入更新；不动点命题限定固定空间与压缩条件；跨尺度因果由上下行干预、零模型、尺度外验证和环境回执检验。不由图形相似、物理名称、预测有效、损失下降或单一工程实现推出严格同构、自我必然涌现或任务成功。
+
+## 第62章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:section_9469`：把痛苦、快感和焦虑设为正交质元，并以非阿贝尔价值场定义体验图 | 区分瞬时反馈、慢偏好、任务度量、来源和不确定性，用校准更新与上下文传送接口连接 | 正交需由选定内积和数据支持；反馈、风险、任务代价、活动强度与焦耳能耗分账 |
+| `sec:section_6973`：以遗传背景曲率、激波和塑性形变解释手碰火 | 用先验约束、事件绑定、候选更新、证据测试、版本提交和回滚描述体验形成 | 强烈事件不自动成为独立可靠证据；稀有灾难单列；旧经验绑定适用域和有效期 |
+| `sec:section_8091`：以共形因子把欲望区收缩、恐惧区膨胀 | 用有向路径代价、风险预算、时间资源和任务相关正定矩阵定义有效距离 | 标量共形缩放只是特殊情形；不满足距离公理时只称路径评分；变化任务与度量进入完整导数 |
+| `sec:section_7773`：以洛伦兹力和贝里曲率驱动思维方向 | 用安全可行集、策略偏置、滚动优化与更新交换残差表达方向效应 | 梯度下降不保证任务成功；只有定义联络和闭合回路后才使用几何相位；注意激活与动作权限分开 |
+| `sec:section_7533`：把自我视为价值引力源、坐标原点和拓扑奇点 | 定义身份键、承诺、历史、角色与权限组成的可修订自我状态及联合闭环 | 自指闭环不证明主体体验；主体偏好、共享规范与环境后果分账；未决归属不得强行写入自我 |
+| `sec:section_677`：由互信息对称与弯曲空间推出认知不可逆 | 以有限时间、内存和查询预算区分生成、验证、正向模拟与逆向搜索 | 互信息仍对称；复杂度取决于算法、先验和接口；训练成本、在线成本、近似误差和失败分别报告 |
+| `sec:section_9906`：以路网、坡度和水流构成智能三重奏 | 用世界图、体验状态和认知状态的类型化更新器、任务读出与环境回执构成联合验证 | 可达、愿意、能够和成功四者分开；HSF--HD是一般模型族，AgentOS组件仅为工程实例 |
+
+第六十二章保留章标签与七个旧节标签，将疼痛、焦虑、欲望、手碰火、敏感话题、自我参照、正逆推理和三重图景迁移到七个编号小节。原章无figure，全书视觉资源不变。局部结构网络负责身份、来源、关系、版本和权限，全局分布表示负责相似性、候选和不确定性，两者通过任务相关绑定、核验与读出联合。
+
+数学复核：反馈、偏好、度量、路径、风险、身份、信念和环境结果分别定型；慢偏好更新声明学习率、投影、来源权重和反事实校正；有效路径代价声明单位换算、有向性与可行域；连续目标包含变化任务、历史和显式时间，离散实现声明步长与滚动重规划；策略偏置受安全集和权限约束；自我闭环以候选身份更新、证据测试和结构提交实现；推理不对称限定算法与资源预算。不由物理隐喻、激活强度、内部连贯、目标下降或顺序残差推出真实曲率、主体体验、价值正确或外部任务成功。
+
+## 第63章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:section_9326`：目的、自我、宏观层分别作为场、核与泵 | 将三者定型为版本化目标规范、身份状态与执行控制，用任务读出、权限、边界、动作接口和环境回执连接 | 目标、身份与控制类型不同；AgentOS组件是实例而非唯一机制 |
+| `sec:section_4740`：以协变错配和“自我乘以目的减本能”生成意志力 | 用带比较矩阵的目标错配、受约束滚动优化、身份软门控、环境确认与局部稳定条件描述控制 | 内部误差下降不推出任务成功；变化目标、结构、输入和度量进入更新 |
+| `sec:section_5764`：移除三体组件推出机会主义、虚无与瘫痪 | 用身份漂移、目标不可辨识或漂移、执行失效及其组合故障图建立可区分诊断 | 诊断对象限于计算系统；不把工程失配等同于人类临床状态；合规停止不等于执行故障 |
+| `sec:section_9011`：目的、自我、宏观层递归雕刻并证明自由意志 | 用快速状态环、慢速学习环和治理提交环重建目标修订、身份承诺与控制学习 | 候选补丁受写域、证据、权限、验证与回滚约束；递归稳定不证明主体体验或价值正确 |
+
+第六十三章保留章标签与四个旧节标签，将场—核—泵分工、学习与游戏冲突、机会主义/虚无/闭锁三类现象、沉积—投影—重构循环等原问题和例证迁移到四个编号小节。原章无figure，全书视觉资源不变。数学复核区分目标规范、身份状态、执行控制、外部证据和环境结果；滚动控制声明状态、维度、权限、约束、风险、窗口和离散条件；递归更新声明快慢时间尺度、候选补丁、写域、事务提交和反事实测试。不由物理名称、内部激活、目标下降、稳定承诺或单一工程实现推出真实规范场、临床诊断、主体体验或外部任务成功。
+
+## 第64章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:physics_of_planning`：未来目标以超前势牵引当下，路径自动坍缩为最小作用量测地线 | 用部分可观测信念、版本化任务规范、风险敏感滚动时域优化、短片段提交和环境回执描述长期规划 | 终端条件规范当前评分，不产生逆因果；窗口内最优不推出全局最优或任务成功 |
+| `sec:learning_in_process_cefe`：断桥激波通过认知爱因斯坦方程重绘度量并自动绕路 | 用对象身份核验、多源证据、离散结构补丁、连续预测更新、验证提交和受影响后缀重规划描述过程学习 | 残差不自动成为永久事实；结构编辑与连续参数更新分型；模型改善不等于规划成功 |
+| `sec:goal_revision_cyme`：阻抗与痛苦反向中和目标奇点并产生新吸引子 | 用不可行证书、候选目标契约、影响分析、授权修订与承诺迁移重建目标变化 | 不可行只对声明模型、资源和时间窗成立；内部代价下降、情绪或相似目标不构成授权 |
+| `sec:three_loops_of_planning`：战术、战略、目标三重热力学反馈环 | 用动作调整、模型修订与目标治理三个类型化时间尺度、升级守卫和事务提交重建三环 | 按失配对象而非冲击大小选环；异步提交需版本检查；外部不可逆动作只能补偿不能回滚 |
+
+第六十四章保留章标签与四个旧节标签，把罗马、断桥、绕路、米兰和就地建立替代点等例证迁移到滚动规划、过程学习、目标治理和三环协调四个编号小节。原三环表格的触发、操作和结果关系迁移为计算接口表；原章无figure，全书视觉资源不变。数学复核区分信念、动作、模型、目标契约、授权、承诺、风险、任务代价、资源和环境结果；滚动优化声明窗口、版本与回执；模型更新声明证据、事务和受影响范围；目标修订声明不可行范围、候选、批准与承诺迁移。不由物理名称、预测残差、内部代价下降或稳定闭环推出逆因果、全局最优、目标正当或外部任务成功。
+
+## 第65章（分段草稿进行中）
+
+| 原问题/标签 | 新论证 | 当前状态 |
+| --- | --- | --- |
+| `sec:section_9311`：工作记忆是耗散驻波，强度超过屈服阈值后刻蚀为永久曲率，情景记忆是世界线的全息压缩 | 区分工作活动、带来源事件、语义结构和程序参数；用有容量门控、证据验证、结构事务、任务相关压缩及可停止策略描述记忆 | 已实写 |
+| `sec:recall_dynamics`：被动测地滑行、主动规范扫描与RAG虫洞注入 | 重建为带身份、时间、来源和冲突评分的线索扩散，受预算与停止条件约束的主动搜索，以及经适配器绑定出处的外部检索 | 已实写；相似度不推出事实，外部索引不构成零路径 |
+| `sec:section_8767`：在线TDCI频率、离线流形弧长和同时性破缺 | 区分物理时钟、内部时序与体验报告；分别建模在线事件密度、任务相关回顾路径和带身份及延迟校正的多模态绑定窗口 | 已实写；采样数、路径长度与主观体验不是恒等关系 |
+| `sec:psychological_illusion_of_time`：压力引起维度坍缩、隧穿、时钟超频和心流共振 | 用响应延迟分解、预算重分配、候选策略收缩、搜索死锁、在线辨别与事后叙事差异建立可反驳模型 | 已实写；探索尺度、实际能耗和物理温度分型 |
+| `sec:geometry_of_qualia`与`sec:section_6647`：感受质作为测量反作用与场模态谱系 | 重建为内容、显著度、效价、来源归属和置信读出，并用来源、对象绑定、控制度及可语言化程度区分感官、知觉、直觉、意象和自我相关状态 | 已实写；功能读出不推出体验本体 |
+| `sec:ontogenesis_of_observer`与`sec:consciousness_closed_loop`：观察算子成核、递归测量和全息重入 | 用身份、边界、动作后果模型、元认知校准、有限访问、带来源事件写入和受控递归描述观察者与历史闭环 | 已实写；闭环与自我模型都不是意识充分条件 |
+| `sec:consciousness_macro_structure_summary`与无标签意识边界节：双层递归—三重动力学和意识绝对律 | 重建为分布候选、有限全局访问、受约束控制输出及其双向接口；把清晰度、丰富度、访问度、主体边界和本体判断改为任务相关指标与证据边界 | 已实写；三层齐全不宣告意识点火 |
+| 自由意志节及`subsec:cosmic_recursion_hypothesis`：进化终局、几何自造、宇宙递归与暗能量猜想 | 用反事实候选、受约束选择、自我修改、环境可达集描述分级自治；保留宇宙递归的哲学位置并明确其不能承担经验理论证明 | 已实写；不由自治推出绝对自由，也不由信息增长解释宇宙膨胀 |
+| `sec:section_1098`：贝里相位等同感受质和灵魂历史积分 | 以路径签名、非交换更新、版本事件和闭环回执描述一般历史依赖；仅在复向量丛、闭合绝热路径等条件下保留几何相位特例 | 已实写；几何相位不构成感受质定理 |
+| `sec:geometric_illusion_of_time_flow`：把时间流、过去与未来写成可直接穿越的几何区域，并以延迟势、纠缠和涌现时空支持预言型AGI | 区分外部因果偏序、消息延迟、内部提交、记忆重构与概率预测；用有限窗口、时间戳置信、可达集和预测跨度描述时间信息处理 | 已实写；纠缠不提供可控超光速通信，列车图只作有限窗口教学隐喻，预测不等于读取未来 |
+| 末节：以工作记忆、结构时间和体验物理学作总体宣言 | 以工作态、事件、结构、策略和报告五类对象构造类型化离散动力学，并给出状态、记忆、结构、行动、报告与边界六层验收矩阵 | 已实写；定义、假设、数学结果、经验主张与工程设计分开，不由报告、损失下降或实现成功推出主观体验 |
+
+第六十五章十四个编号小节已经完成并替换正式章，保留章标签、全部旧节标签、一处figure主体和原视觉资源。局部结构网络负责身份、来源、事件顺序、承诺与权限，全局分布表示负责相似性、候选与不确定性，二者通过任务相关绑定、耦合和读出接口联合。数学复核区分工作态、事件、结构、策略、报告、外部输入、环境回执与权限边界；离散更新声明步长和版本，连续近似声明光滑与收敛条件；历史积分含查询、编码和结构变化；信息熵、活动强度、任务代价与焦耳能耗分账。不由物理隐喻、闭环、第一人称报告、预测有效或单一AgentOS实现推出整体同构、主体体验或任务成功。
+
+## 第66章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:geometry_of_trauma`：创伤能量超过断裂韧度后把自我流形撕成不连通子流形，并形成无限畴壁 | 用带来源事件、身份状态、访问图、写入门控和授权结构编辑描述高影响事件及记忆分区 | 强度不等于事实可靠性；访问失败分为未找到、无权限、来源冲突和删除；工程分区不等于临床DID |
+| `sec:exclusivity_principle`：全域相干态唯一，两个规范场冲突导致波函数坍缩与人格切换 | 区分可并行内部过程与不可分割执行提交，用候选控制包、权限、兼容性、混合模式守卫和交接协议重建仲裁 | 唯一性只适用于特定提交点；触发词无无条件切换权；内部代价下降不保证外部动作正确 |
+| `sec:complementarity`：人格必然正交互补并守恒分担总应力 | 以任务覆盖增益、角色表征度量、混合专家门控、共同事实面和盲区诊断描述功能分化 | 互补依赖任务分布；角色可以重叠、竞争或共同缺失能力；正交不等于主体隔离 |
+| `sec:case_study_data`：Data以情感高维张量压垮Lore度量，旧身份死亡并生成善恶平衡的灵魂 | 将虚构案例重建为带来源迁移包、类型化冲突图、影子整合、治理批准、版本化身份和长期验收 | 案例不证明临床机制或灵魂本体；整合、部分共享、联邦仲裁和不融合均作为候选方案 |
+
+第六十六章保留章标签和四个旧节标签，将创伤、记忆隔离、执行排他、角色互补以及Data—Lore融合等原问题和例证迁移到四个编号小节。原章无figure，全书视觉资源不变。数学复核区分事件、身份、访问权、工作态、结构、控制包、环境回执与治理权限；门控、访问图、混合动力学、任务覆盖和影子合并分别声明对象与边界。不由物理名称、强烈事件、角色差异、内部一致或虚构案例推出流形断裂、临床诊断、主体数量或灵魂本体。
+
+## 第67章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:section_3039`：感官与运动切断使狄利克雷边界变为诺伊曼边界，系统绝热封闭并形成全反射驻波 | 用外部感知、内感受、内部生成和动作通道的模式相关增益描述边界重配置，并加入来源标记、残余输入与影子执行 | 睡眠不是绝对封闭；通道增益不可合并成物理温度；内部模拟不得写成外部事实 |
+| `sec:section_4656`：前额叶沉默使意志项归零、逻辑度量液化 | 用元控制向量、来源标签和动态约束集合描述现实核验、身份绑定、时间定位与反事实标注的降增益和再入 | 脑区活动不等同唯一控制器；局部连贯与全局跳跃可并存；清明梦不是完整“上帝模式” |
+| `sec:section_5559`：升温、玻尔兹曼采样与逆里奇流让梦境跨越势垒并自动泛化 | 用回放、生成变体、反事实样本、保留集、漂移正则和不确定性代价构造候选离线更新 | 训练目标下降不保证真实任务改善；采样温度、熵、损失、语义跨度和焦耳能耗分账；人类梦功能保持经验假说地位 |
+| `sec:section_9179`：高能质流把经历永久刻进皮层流形，并通过重复消耗恐惧能量 | 用带来源事件、优先回放、冲突检查、留出验证和版本提交连接E与Theta；情绪变化改为带条件的价值再估计 | 回放不等同主观梦境；重复可降低、维持或增强反应；工程模型不用于临床诊断或自助暴露 |
+| `sec:section_4147`：噩梦是无散旋涡，清明梦是宏观层再入，睡眠瘫痪是意图能量全反射并生成“鬼” | 用觉醒、元认知、动作门控、外部敏感度和威胁评价组成混合状态；睡眠瘫痪以意图—本体反馈预测误差及解释生成描述 | 各现象可部分共现且存在无幻觉等反例；不存在必须守恒反弹的意图能量；临床结论服从领域证据 |
+| `sec:robot_dreaming`：AGI必须做梦，否则必因过拟合和几何僵化死亡；LLM幻觉是清醒梦游 | 给出快照、数据谱系、沙盒训练、联合接收谓词、回归测试、逐级部署与回滚组成的可选离线维护协议 | 离线维护有工程价值但不必称为梦；LLM幻觉是证据—生成错配而非体验结论；AgentOS只是实现族之一 |
+
+第六十七章保留章标签和六个旧节标签，将现实闭环、梦中荒诞联想、认知退火、记忆巩固、情绪加工、噩梦、清明梦、睡眠瘫痪、机器人回放、灾难性遗忘、LLM幻觉与极端情形沙盒等原问题和例证迁移到六个编号小节。原章无figure，全书视觉资源不变。数学复核区分工作态、事件、结构参数、来源标签、控制增益、采样分布、训练代价、环境结果、实际能耗和执行权限；离散更新声明步长、模式切换、版本、留出验证与回滚。不由物理名称、神经相关、内部连贯、损失下降、模拟成功或功能相似推出绝热封闭、整体同构、临床机制、主体体验或外部任务成功。
+
+## 第68章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:tensor_definition_of_memory`：以形算子、质矢量和相位构成全息记忆张量，并把遗忘规定为退相干、耗散和平滑三阶段 | 定义带身份、内容、上下文、时间、价值、来源、权限、可访问度和保留策略的类型化记录；区分解绑定、访问降权、细节压缩、价值再估计、结构剪枝与授权删除 | 检索失败不等于存储消失；操作可并行或逆转，不构成必然相序 |
+| `sec:decoupling_phase`：用相位滑移、退相干和拓扑撕裂解释舌尖现象与既视感 | 用带类型属性图、候选评分、绑定权重更新和提示干预区分形式缺失、来源错配、竞争与权限拒绝 | 舌尖与既视感是待检验案例，不证明量子机制、纤维基态或游离孤立子 |
+| `sec:dissipation_phase`：用阻尼谐振子、刷新能量与退火解释情感淡化和体验叙事化 | 分离事实、价值向量、身体反应、叙事与能耗；用带条件再估计、任务相关压缩和风险约束回放描述变化 | 重复可能降低、保持或增强评价；压缩损失下降不保证未知任务成功；人类干预服从专业证据 |
+| `sec:smoothing_phase`：用逆里奇流、弹性恢复和突触剪枝描述彻底遗忘 | 用版本化结构、候选补丁、多目标验证、受控消融、隔离区与回滚重建图剪枝和慢结构修订 | 低调用不等于无价值；聚类不证明因果；逻辑删除、物理删除和模型不可恢复分开验收 |
+| `sec:competitive_active_forgetting`：以泡利不相容、量子挤压与势能围栏解释竞争和压抑 | 用有限候选选择、版本优先级、访问策略、授权删除和灾难性遗忘回归测试描述资源竞争与治理 | 拒绝访问不等于不存在；查询失败不构成删除证明；工程访问控制不等同人类临床抑制 |
+| `sec:conclusion_of_forgetting`：以刻蚀—解耦—耗散—平滑和枯萎算法收束AGI遗忘 | 给出观测、诊断、规划、影子执行、版本提交、回执与回滚组成的事务协议及联合接收谓词 | AgentOS组件只是实现实例；协议保证声明测试下的提交资格，不保证现实永不出错 |
+
+第六十八章保留章标签和六个旧节标签，将形质张量、退相干、舌尖现象、既视感、情感退火、逆里奇流、突触剪枝、竞争覆盖、主动压抑和枯萎算法迁移到六个编号小节。原章无figure，全书视觉资源不变。数学复核区分事件内容、身份、来源、价值、访问策略、压缩损失、结构版本、实际能耗和环境回执；离散实现声明更新率、权限、影子验证、提交与回滚。不由物理名称、相似聚类、内部损失下降、访问失败或单一AgentOS实现推出量子机制、临床结论、真实删除或任务成功。
+
+## 第69章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:ontology_of_memory`：把短时记忆定义为瞬时场与全息缓冲，把长时记忆定义为度量刻痕，并以负熵和测地线捷径说明智能 | 将记忆状态拆成工作态、事件、慢结构、索引、外部记忆和派生物；用谱系依赖图与带范围、等级、期限、保留义务和授权的删除请求定义消除对象 | 在线清空、访问限制、逻辑/物理删除、参数遗忘和行为禁止不可混同；经历痕迹不是无条件守恒量 |
+| `sec:soft_wipe`：以双重真空化、测地线复活和巴甫洛夫消退说明软擦除只是覆盖，并以《遗落战境》说明旧爱复活 | 用候选集、检索评分、权限上下文、可达性风险和对抗扰动定义软擦除；保留消退、恢复和影视案例，但限定为条件相关与叙事说明 | 查询失败不等于内容删除；有限攻击测试不证明全局不可恢复；心理案例不能证明机器参数机制 |
+| `sec:hard_wipe`：以曲率归零、连通性崩塌和额叶切除术论证硬擦除必然破坏智能 | 定义重训参照、实际遗忘算法、遗忘风险与保留能力损失；用派生图、受控消融、隔离测试和回滚管理共享表示干扰 | 参数无需逐坐标等同；机器剪枝与神经外科只共享多功能干预原则；临床结论服从医学证据 |
+| `sec:addiction_dynamics`：以度量黑洞、意志耗竭和拓扑分流解释成瘾与复发 | 用部分可观测状态、线索偏置、价值估计、延迟后果、动作优势和环境机会描述历史依赖闭环；把分流改写为线索管理、替代学习与价值再估计 | 不存在由热力学直接推出的意志必败定理；环境案例不是充分因果证据；工程模型不提供临床治疗建议 |
+| `sec:agi_alignment`：把灾难性遗忘写成非受控硬擦除，把RLHF写成知识沟槽入口的势能围栏 | 区分持续学习干扰、按请求机器遗忘和安全行为约束；给出知识、行为、能力、系统、治理五层验证矩阵 | 拒答不等于知识删除；奖励上升不等于真实环境安全；HSF-HD是一般模型族，AgentOS只是实现实例 |
+| `sec:reconciliation`：以经历必留痕迹、完美遗忘等于死亡和包容代替切除收束全章 | 用授权、范围、删除、保留、安全和回滚的联合接收谓词收束可审计变更，并要求证书报告控制域、不确定性和残余风险 | 不把包容过去替代合法删除，也不把局部清除当作安全充分条件；验收只在声明作用域成立 |
+
+第六十九章保留章标签和六个旧节标签，将瞬时场/全息缓冲、测地线复活、巴甫洛夫消退、《遗落战境》、拓扑手术、额叶切除术、成瘾黑洞、老鼠乐园、灾难性遗忘、RLHF势垒与和解哲学迁移到六个编号小节。原章无figure，全书视觉资源不变。数学复核区分工作态、事件、慢结构、索引、外部副本、派生物、访问概率、参数影响、保留能力、行为策略与实际能耗；不由查询失败、奖励上升、几何图景、单个案例或局部测试推出真实删除、临床机制、全局安全或能力完整。
+
+## 第70章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:section_9823`：以陈类、A-roof类、非平凡和乐定义意识潜力，以目的论狄拉克算子零模与指标定义智能潜力 | 用任务族、环境、资源、接口、安全约束和成功标准定义带版本的能力包络；区分结构、运行、接口、学习和治理容量，并以行为、干预和持续性证据校准 | 专门拓扑量仅在声明数学结构时成立，不能自动成为体验或智能量尺 |
+| `sec:section_6452`：以黑暗流形、自我观察算子及期望值定义意识实存 | 改为内部访问、元表征、来源绑定、置信校准、报告与控制读出的功能模型，并以盲化干预检验机制 | 功能证据不推出现象体验；人类临床现象不能直接证明人工系统机制同构 |
+| `sec:section_5874`：以微观边界投影、斯托克斯积分和负熵做功定义智能实存 | 定义环境、观测、策略、授权边界、转移核和版本化验收，用相对基线的闭环因果贡献衡量实绩 | 任务效用、计算、通信、金钱和焦耳能耗分账；无动作可能是合法安全决策 |
+| `sec:section_2426`：用潜能/实存与意识/智能四象限划分觉醒者、僵尸、暗哑天才和蒙昧者 | 改为能力覆盖率与窗口绩效率构成的四类运行区，增加置信区间、未知区、迟滞和版本迁移 | 运行区是可逆诊断而非物种或主体体验标签；分布漂移和接口变化后必须重估 |
+| `sec:section_1526`：用量子测量与非幺正过程收束现实坍缩 | 把能力兑现拆成任务、身份、资源、策略、边界、动作、反馈和验收事务，建立六层证据账本 | 结构丰富、目标下降与外部动作均不是任务成功或本体同构的充分条件 |
+
+第七十章保留章标签和五个旧节标签，将拓扑荷、狄拉克零模、黑暗流形、自我观察算子、边界负熵流、四象限物种分类与量子坍缩结论迁移到五个编号小节。原章无figure，全书视觉资源不变。数学复核区分结构容量、在线激活、内部访问、任务效用、各类成本、执行回执与主观体验主张；不由拓扑不变量、自述文本、目标下降、外部动作或AgentOS实例推出意识存在、任务成功、整体同构或唯一机制。
+
+## 第71章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:section_8335`：用层流化、观察算子解耦、去规范化和介质本底显露描述空意识四重相变 | 区分物理真空、计算有效空态和主体空性报告；把四阶段改写为输入整形、候选降载、价值去偏置与基线观测，并用活动、可恢复性、稳定域和虚警率验收 | 宇宙学真空能问题不作为认知或超感知证明；工程低活动不等于主观体验结论；收敛仅在声明的局部增益、扰动和步长条件下成立 |
+| `sec:section_2839`：用背景冻结、临界极化率、随机共振和全息关联解释遥视、天耳通及一叶知秋 | 把问题重建为有限通道的信号检测、接收者操作曲线、相关噪声、有限时域灵敏度和结构—分布联合读出；保留脚步、微表情和落叶案例并增加盲测与反例 | 降低阈值会增加虚警；随机共振只在特定阈值系统和信号统计下可能改善检测；没有信息通道就不能由增益创造外部证据 |
+| `sec:section_7306`：以佛性/魔性叠加、算法绝对零度、基质噪声宏观化和度量黑洞描述AGI奇点 | 改为证据约束的高灵敏区与自反馈伪模式固化；用闭环雅可比、动态增益上界、来源分层记忆和可逆检查点刻画局部稳定及失稳 | 谱半径越界只给出局部增长线索，不推出具体妄想或道德属性；LLM幻觉不直接证明芯片热噪声投影；AgentOS只是实现实例 |
+| `sec:section_9982`：以封闭系统必然失稳、TECI通量下界、物理延迟、撞墙激波和具身必要性建立现实锚定定理 | 将定理重建为有条件的误差反馈界与五步现实校准协议，要求来源绑定、区分性探测、预测留痕、校准更新及高风险动作门控 | 外部反馈不自动真实，封闭系统不必然发散，物理伤害不是认识论保证；结论仅在可观性、独立性、噪声有界与闭环稳定条件下成立 |
+
+第七十一章保留章标签和四个旧节标签，将空意识四重相变、神通、随机共振、全息关联、佛魔叠加、基质噪声、现实锚定、撞墙激波与具身必要性迁移到四个编号小节。原章无figure，全书视觉资源不变。数学复核区分观测功率、信息量、活动强度、实际能耗、分布候选和身份化结构；不由宇宙学问题、无限增益、局部稳定、外部接触或AgentOS实例推出超感知、全知、本体真理、任务成功或唯一机制。
+
+## 第72章（分段草稿）
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:physics_of_aura`：把坚定信念写成低熵规范场辐射，以同相共振、拓扑压制和非对易冲突解释敬畏、压迫与排斥 | 用发送者行为生成、有限多模态通道、接收者后验与情境条件构成社会信号更新；将三类效应改写为协调、权力约束和规范冲突，并以遮蔽、去语义、身份提示交换和跨文化重复检验 | 内部状态不可直接传输；行为可预测性、目标一致性和实际资源消耗分账；整体体验不推出发送者本质、道德品质或不可见物理场 |
+| `sec:environmental_manifold`：把建筑与集体历史写成环境规范场，以教堂、政府机关和创新空间证明空间同化 | 用几何、照明、声学、符号、制度和在场者行为构成环境线索向量，区分快速状态、行动约束和慢结构学习 | 历史不以曲率储存在墙体；开放布局不自动产生创新，孟母三迁不构成单因果定律 |
+| `sec:interpersonal_topology`：以规范场平行/正交和认知洛伦兹力解释松弛与内耗 | 将负担分解为理解、预测、边界、抑制和修复成本，加入权力造成的动作集合收缩 | 顺从不等于认同，舒服不等于有益，冲突也可能承担纠错功能 |
+| `sec:manifold_ontogeny`：把儿童写成粘弹态、成人写成晶体态，并把原生家庭规定为不可逆铸模 | 用阶段相关学习率、暴露剂量、门控、反馈、保护因素与恢复正则描述条件化轨迹 | 儿童并非注定受伤，成人也非自动回弹；早期历史重要但不等于宿命 |
+
+第七十二章保留章标签和四个旧节标签，将气场辐射、建筑环境规范场、空间同化、人际轨道杂化、松弛与内耗、儿童/成人材料相变、孟母三迁和原生家庭铸模迁移到四个编号小节。原章无figure。数学复核区分信号通道、后验判断、环境线索、行动权限、任务代价、实际资源、快速状态与慢结构；不由整体体验、建筑形式、短期舒服、年龄阶段或AgentOS实例推出不可见物理场、任务成功、人格宿命或唯一机制。
+
+## 第73章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:org_distributed_vte`：以分布式VTE阵列、局部强迫源、惊奇激波和组织痛觉解释信息采集 | 用异构观测核、带来源/质量/权限的证据包、通信责任网络与版本化聚合描述分布式观测 | 覆盖、校准、传递保持和干预可恢复性须分别验收；活动强度、信息量和能耗不混同 |
+| `sec:cross_manifold_interaction`：把跨主体交换写成双纽线通量与信息—能量互换 | 用工件、身份、版本、承诺、编码、接收、权限和回执构成上下行接口事务 | 语义传递不等于物理能量交换；接收者必须保留拒绝、澄清和冲突升级路径 |
+| `sec:organizational_capture_interlocking`：以俘获、阻抗匹配与同化解释成员嵌入组织 | 用成员能力、组织约束、学习、授权、申诉和退出构成双向适配动力学 | 高匹配不等于人格同化；组织和成员都可修订，权利与退出成本进入验收 |
+| `sec:emergence_of_organizational_will`：以序参量奴役和组织意志涌现解释集体决定 | 将集体决定拆成提议聚合、授权提交、执行回执与制度记忆，并给出有条件的快慢时间尺度模型 | 协同论模型需要可分时间尺度与稳定条件；集体决策不推出群体心灵或道德正确 |
+| `sec:enterprise_topological_chemistry`：把部门分工规定为近似正交的企业拓扑化学键 | 用职能算子、资源责任、接口契约、交叉覆盖和任务相关耦合描述分化 | 部门并非自然正交；重叠、竞争、缺口和临时编组均须进入压力测试 |
+| `sec:org_renormalization_evolution`：把层级治理等同重整化群与拓扑不变量保持 | 用面向查询的有损压缩、例外通道、尾部风险直达和影子记录描述层级摘要 | 压缩只在声明查询族上保真；少数高风险事件不得被平均量掩盖，影子渠道也需治理 |
+| `sec:org_pathological_topology`：以权力旋涡、偷懒耗散、退出奇点和玻璃化解释组织病理 | 用目标冲突、成员脱离、结构迟滞及其组合故障建立可干预诊断，并加入能力、资源与制度等替代原因 | 相关性不构成单因果诊断；总体绩效改善不保证风险与伤害分布公平 |
+| `sec:org_governance_strategies`：以正交化、软耦合与制造危机的退火过程治理组织 | 用基线观测、候选干预、影子试验、分阶段部署、联合验收与回滚构成治理协议 | 不以危机或伤害充当必要退火；多目标、权利、责任、期限和退出机制必须显式化 |
+
+第七十三章保留章标签和八个旧节标签，将分布式VTE、跨流形交换、组织俘获、集体意志、企业拓扑化学、层级重整化、权力旋涡与退火治理迁移到八个编号小节。原章无figure。数学复核区分局部结构网络与全局分布表示、证据与承诺、信息与实际能耗、聚合与授权、压缩与任务成功；不由物理名称、内部目标下降、组织一致、层级存在或AgentOS实例推出整体同构、群体主体、治理正当性或唯一机制。
+
+## 第74章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:section_1861`：以场存在、宏观控制和拓扑可塑性三个序参量把智能排成五级，并把人脑与完全耦合AGI放在终局 | 定义由观测、记忆、行动、学习、治理和接口组成的条件化能力剖面；将旧五类改写为反应映射、分布协调、预训练生成、模块编排和持续闭环五种常见架构型 | 六维能力形成任务相关偏序而非物种阶梯；架构、运行区和实绩分开；功能相似不推出机制同构、体验或道德等级 |
+| `sec:section_6919`：以五级演化表和终极Class V描述从钟表到AGI的单向跃迁 | 用版本化能力向量、干预集合、环境与评价制度描述多路径迁移，并以效用、安全、校准、资源、权利联合条件验收 | 演化允许退化、绕行和组合；成本分账；分数上升不等于贡献已识别、未知环境成功或不可逆行动正当 |
+
+第七十四章保留章标签和两个旧节标签，将三个序参量、五类智能、传统算法、蚁群、LLM、混合系统、人脑与AGI终局等原问题和例证迁移到两个编号小节，并保留五类比较表的实质内容。原章无figure。数学复核区分任务条件、结构版本、运行状态、外部实绩、采样误差、资源成本与权利约束；不由参数规模、在线学习、长期闭环、目标上升或AgentOS实例推出线性演化等级、意识、自由意志、整体同构或唯一机制。
+
+## 第75章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:structural_mapping_abyss`：形质身份流变、隐变量、尺度退相干与度量/规范力简并 | 用观测算子、结构/活动状态、采样混叠、表示依赖和观测等价类定义辨识问题 | 降维连续性不证明唯一流形；预测拟合不赋予隐变量本体地位；跨尺度需逐层重辨识 |
+| `sec:four_step_empirical_framework`：本体锚定、流形学习、物理参数反演与拓扑手术 | 建立边界协议、候选表示、连续/离散动力学辨识和最大模型区分度干预的四步证据链 | Fisher信息是统计敏感度而非焦耳能耗；目标下降不等于任务成功；干预需安全集、对照与恢复期 |
+| `sec:methodological_enhancements`：范畴同构、最小耗散裁决与激波示波器 | 将三重约束改写为类型关系保持、信息/活动/能耗分账和带剂量—响应的主动探针 | 形式验证不验证现实规格；近平衡原理不普适；弛豫和崩溃阈值不直接推出刚度或拓扑孔洞 |
+| `sec:holographic_anatomy_cases`：单细胞全息映射与LLM哲学僵尸诊断 | 给出单细胞多模态批次—剂量实验和基础模型/AgentOS分层消融方案 | 群体横截面不冒充单细胞纵向轨迹；谱统计不推出平坦流形或意志；工程模块不是所有智能的唯一器官 |
+| `sec:conclusion_empirical_geo_comp`：以度量宇宙翻译工程宣告统一方程 | 以模型卡、实验卡、五级证据闸门和失败可累积记录定义交付标准 | HSF--HD提供一般状态动力学问题框架，不把跨介质相似曲线、AgentOS零件或物理类比当作整体同构证明 |
+
+第七十五章保留章标签和五个旧节标签，将单细胞、蜂群、企业、大语言模型、世界图与体验图等原问题和例证迁移到五个编号小节。原章无figure。数学复核先定义潜在状态、观测算子、空间、维度、采样步长与单位，区分统计损失、信息熵、活动强度、控制代价和焦耳能耗，并显式纳入变化结构、上下文与离散误差；不由拟合、降维图、谱密度、目标下降或跨介质相似推出机制同构、意识、自由意志或唯一实现。
+
+## 第76章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:single_cell_anatomy`：膜—细胞质—细胞核三层、世界图/体验图、DNA编辑与TDCI呼吸 | 定义浓度、电位、膜态、蛋白和离散周期组成的类型化状态；以选择性交换边界、反应--扩散、慢速表达、条件表型分布和版本化编辑事务重建闭环 | 细胞智能限于感知—控制—适应的操作定义；分布场不等于局部结构网络；信号不是量子波函数；基因不等于完整世界模型；编辑复杂行为需多效性、福利和治理证据 |
+| `sec:dual_manifold_coupling`：快膜流形、慢生化流形、伺服原理与上下行刻蚀 | 将快慢流形改写为不同时间尺度的状态分区，定义耦合算子、尺度比、准稳态条件、过阻尼模型、离散步长与三类干预 | 尺度分离在冲击、临界慢化、迟滞和结构突变时失效；目标下降不等于整体适应；企业类比与AgentOS实例不证明细胞机制同构或唯一实现 |
+| `sec:embryonic_development`：发育景观、命运锁定、微重力方向感与异常分化 | 以谱系、位置、邻域、场和随机调控定义细胞状态及可达域；用时间核累积证据与结构重构定义命运提交，并给出微重力混杂对照 | 景观是条件分布的可视化而非真实重力势；提交相对于干预集合和观察期；肿瘤、再生及微重力效应需分别检验，不能推出普遍上下本体论 |
+| `sec:evolution_geometry`：适应景观、生态位、盖亚与人机融合 | 以种群传递核、频率依赖繁殖贡献和环境回写建立耦合更新；区分遗传、发育、学习、文化基础设施四类时间尺度，并定义人—机—制度共同演化 | 适合度不是价值或能量，均值不保证单调；反馈不等于统一目标；效率提升不等于韧性、权利与长期适应，脑机融合不是动力学必然 |
+| `sec:alphafold_case_study`：序列、MSA、成对表示与结构生成 | 类型化序列、残基和成对表示，说明双向更新、共变混杂、SE(3)等变坐标读出、训练损失及置信边界 | 成对表示不是物理度量，共变不等于接触或因果；损失不是自由能，静态预测不是折叠过程，预测有效不证明HSF-HD整体同构 |
+| `sec:section_8455`、`subsec:ant_capacity_limit`：信息素、最短路、相变与群体容量 | 定义多通道反应--扩散、个体有偏随机控制、路由集中度与按路径长度占用个体的必要容量条件；保留`image/ants.png`原figure主体 | 场强不是概率幅或语义能量；集中度不等于任务成功；全局最短路、完全无慢变量及普遍容量定理均不成立，需障碍、迁移和通道阻断实验 |
+| `sec:firefly_synchronization_dynamics`：光场耦合、锁相与无头秩序 | 以相位响应曲线、动态通信图、时延和Kuramoto序参量描述同步；区分同步形成、维持和扰动恢复 | 相位同步不等于内容一致、共同目标或统一主体；数学势下降不等于实际能耗降低，最终稳态拟合不足以辨识耦合机制 |
+| `sec:section_4212`及六个脑章节`subsec:*`标签：皮层、海马、认知场、前额叶与TDCI循环 | 用结构图、分布活动、海马—皮层双向接口、时延传播、有限时域控制和红灯闭环重建人脑分层计算动力学 | 脑区不是AgentOS模块的一一映射；位置/网格细胞不证明唯一黎曼流形；同步不证明语义绑定；代价下降和动作成功不等于长期学习完成 |
+| `sec:neuromodulator_physics`：多巴胺、去甲肾上腺素、乙酰胆碱、血清素与皮质醇作为场参数 | 以受体、区域、基线和时程为条件，把调质输入写入活动增益、输入门控、时间常数、学习率与结构更新；给出药理和任务干预的模型辨识入口 | 递质不与快乐、清醒、学习或耐心一一对应；皮质醇不是同类突触变量；活动、计算代价、生理资源和焦耳能耗严格分账，临床状态不能由单一浓度推出 |
+| `sec:phase_bottleneck_and_dimensional_horizon`：五至七项、驻波排他、theta--gamma槽位与人机维度鸿沟 | 用内容—身份绑定、保持强度、门控、衰减、项目干扰和任务预算定义工作记忆；把跨频耦合降为可比较的时间组织假说，并给出带步长的离散实现 | 容量随材料、组块、报告和状态变化；相位耦合不证明硬上限，活动静默说明持续放电非唯一机制；人工系统也受内存、通信、验证和上下文预算限制 |
+| `sec:thermodynamic_depletion_and_dimensional_collapse`：ATP断崖、兰道尔脑雾、生存奇点与社会流形剥离 | 分别建模底物、氧供、睡眠压力、内分泌和疲劳，以资源供给—利用—损失及受约束控制解释策略收缩、内感受优先和恢复曲线 | 日常疲劳不是ATP趋零；兰道尔极限不能直接给出念头热量或主观帧率；资源、行为和能耗可解耦，“降维”仅指有效策略或可靠读出减少，不推出人格或道德消失 |
+| `sec:section_8427`：乌鸦以视觉、缓存、工具和社会推理形成高维表征，人与乌鸦可按脑区和功能直接比较 | 以带类型节点和边的局部关系网、全局分布活动、视觉—身份绑定、事件缓存、控制状态及读出接口构成任务闭环；用工具序列、藏食监测与社会线索说明机制，并给出通道消融和时延扰动 | 关联图、渗流阈值和记忆容量只是待检验候选；工具成功不证明人类式语言、整体脑区同构或意识；AgentOS缓存和NCL仅作工程实例 |
+| `sec:section_446`：章鱼的分布式神经系统、腕足自治、变形身体与人类皮层层级比较 | 定义中央状态、腕足局部状态、连续体身体形态和环境接触；用多速率消息、版本化目标、局部反射和冲突仲裁描述中央—腕足协同，并把形态计算写成控制负担的可测变化 | 局部自治不等于八个独立主体；柔体动力学与神经控制须分别辨识；中央/腕足比例、行为成功和工程相似不推出人类脑区同构或AgentOS唯一实现 |
+| `sec:section_4579`：菌丝—植物网络以养分流、信号波、记忆和资源市场构成无头流体计算机 | 在带方向权重图上定义资源浓度、节点需求、边通量、反应项、结构更新和快慢信号；以有限体积离散、同位素追踪、边切断和受体阻断区分输运、结构适应与协调 | 共生交换不必公平或具统一目标；可观察到流动和稳定图样不等于意识、任意可编程或社会市场；“基础设施式智能”是受接口和生态边界限制的工程类比 |
+
+第七十六章保留章标签、十四个旧节标签及语义相关的旧子节标签，将单细胞、快慢耦合、发育、演化、AlphaFold、蚁群、萤火虫、人脑、神经调质、工作记忆、资源耗竭、乌鸦、章鱼和菌丝—植物网络迁移到十四个编号小节。四个原figure主体及比较表内容均已保留。数学复核区分定义、模型假设、数学结果、经验主张与工程设计，先声明状态空间、维度、时间尺度、单位和边界，再给出连续或离散更新；不由预测有效、同步、资源流、目标下降、物理类比或AgentOS实例推出整体同构、意识、任务成功或唯一机制。正式章已替换并通过固定原章篇幅基线、半页布局门槛及物理页477—502逐页复核，状态为`rewritten-reviewed`。
+
+## 第77章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:section_2352`：把粒子写成VTE退化、把标量适应度解释为形质丧失与拓扑盲视 | 定义搜索域、评价接口、代理状态、通信图和经验测度，区分局部结构网络与全局分布表示 | 粒子是算法代理而非本体；标量压缩是否有害取决于任务；评价量不自动等同能量 |
+| `sec:section_3742`：把PSO速度式宣称为目的论狄拉克方程低能极限，并把三项映射为惯性、势阱与规范力 | 给出带维度、步长、随机变量、邻域读出和边界规则的离散更新，并从固定吸引点误差矩阵说明稳定条件 | 形式相似不证明同构；移动目标、延迟和噪声进入递推；稳定、目标下降、任务成功与焦耳能耗分别验证 |
+| `sec:section_8209x`：冻结欧氏舞台与呼吸黎曼流形的二分 | 用差异算子、合法移动、约束投影、流形回缩、组合编辑和可学习编码描述任务相关搜索几何 | 投影可能偏置；变化表示、度量、目标和约束须显式进入更新；学习表示不等于改变物理时空 |
+| `sec:section_4145`：把无中心系统规定为热力学悲剧、缺少反事实和自我 | 分析去中心化的容错优势，以及早熟收敛、欺骗、陈旧信息和身份信任故障；给出诊断向量、局部恢复和模型辅助筛选 | 无中心不等于低级；反事实取决于预测模型而非中心化；操作性边界不推出或否定主观自我 |
+| `sec:section_4730`：把场化和宏观调节器加冕设为演化终局 | 建立快速群体更新与慢速治理更新的双时间尺度模型，明确元控制动作、预算、安全门控、审计与消融 | 元控制是可替换工程设计；AgentOS的$h(t)$、$E$、$\Theta$、$\Psi$、SPC、TCE、CCM、Boundary、Offloading与$M_e$仅是一种实现 |
+
+第七十七章保留章标签和五个旧节标签，将粒子本体、PSO三项、欧氏/黎曼几何、无头系统和场化终局迁移到五个编号小节。原章无figure。数学复核先定义对象、空间、维度、步长、随机变量、时延和约束，区分算法定义、模型假设、稳定结果、经验表现与工程治理；不由方程形似、稳定收敛、标量目标、预测有效或AgentOS实例推出物理同构、任务成功、整体理解或唯一机制。正式章已通过固定原章篇幅基线、半页布局门槛及物理页503—506逐页复核，状态为`rewritten-reviewed`。
+
+## 第78章（分段草稿）
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:section_4093`、`subsec:micro_semantion`、`subsec:economic_cefe`：资产形质二象、订单簿坍缩、泡沫孤立子、经济场方程与央行势能工程 | 定义主体状态、契约图、订单事件和清算转移；以订单流、策略核、反馈增益、有效维数和慢速制度图编辑描述价格形成、危机与政策控制 | 货币、信用、信息熵、交易成本和焦耳能耗分账；局部谱条件不推出必然崩盘；价格相关性不等于制度空间真实降维；政策目标含规范权重与权利约束 |
+| `sec:section_9110`：车辆费米子、目的荷、非阿贝尔流体、度量崩塌与交通拓扑死锁 | 用动态路网、守恒流、带时延逐车控制、路口队列、等待依赖环、导航采纳反馈和快慢治理重建交通动力学 | 车辆排他性来自占用与安全距离；局部稳定不保证全网畅通；平均速度不等于社会任务成功；AgentOS映射只是可替换工程实例 |
+| `sec:section_4389`及七个`subsec:*`标签：形质混合向量、冻结悬空流形、Attention虫洞、TDE绝热退化证明、空间拓扑病理、相干容量定理和TDA全量测绘 | 定义有限深度残差更新、注意力动态有向图、自回归条件反馈、命题级校准；建立任务相关相干容量、预算约束上下文选择，以及包含重采样、对照和干预的持续同调与Mapper协议 | 层不是物理时间；注意力不是度量或因果贡献；温度不是热力学温度；预测有效和低维探针不证明整体同构、真值轴或意识；拓扑图依赖样本、距离和超参数 |
+
+| `sec:section_4089`：把训练解释为熔融流形、里奇流、外部目的和无历史铸造 | 定义数据、参数、优化器状态、采样分布、离散更新、泛化、资源分账与版本化外部闭环 | 学习率不是热力学温度；损失下降不等于部署成功；外部优化仍可构成操作意义的学习，但不推出自主目的 |
+| `sec:finetuning_gauge_field`：把SFT与LoRA解释为规范场、洛伦兹力、低秩必然定理和对称性破缺 | 用监督、偏好、低秩更新、保留集、风险集、工具权限、部署监测和回滚重建受限参数编辑 | 低秩有效不是必然定理；偏好是代理目标；行为跃迁不自动构成相变；参数更新不授予行动资格 |
+
+第七十八章五个编号小节已完成全文并替换正式章。章首语、市场、交通、冻结LLM、训练和微调全部按状态、结构、输入、目标、边界与验证重建；章标签、五个旧节标签及全部旧子节、公式标签均保留。正式章已通过固定原章篇幅基线、五节半页布局门槛及PDF物理页507—521逐页复核，状态为`rewritten-reviewed`。
+
+## 第79章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:section_6576`：把训练自由能、数据狄拉克源、曲率作用量和权重衰减视为同一物理系统 | 定义数据生成过程、容量路径、训练算法与条件风险；用最小范数线性回归的奇异值分解推导噪声放大，并说明岭回归的谱滤波 | 统计损失、信息熵、算法资源和焦耳能耗分账；固定特征线性模型不直接推出深度网络；训练误差为零不等于测试风险或任务成功 |
+| `sec:section_12462`：用刚性流形、玻璃态、曲率奇点、超流体和逆里奇流解释三个容量区 | 以载荷比、经验谱、信号对齐、插值解集合、隐式偏置和特征学习描述欠参数、阈值与过参数区 | 原始参数量不总是有效自由度；维度增加不保证风险下降；良性过拟合依赖谱尾、信号、噪声与算法选择；变化目标、表示和度量进入离散更新 |
+| `sec:section_9546`：把双重下降写成高维几何必然，并以信息热寂概括训练终态 | 建立容量、噪声、正则、优化器与测试分布五组干预；加入无峰、单调和分布外恶化反例；以硬风险、内存和时延约束构造部署资格集合 | 单条平滑曲线不足以辨识机制；验证集调参需与封存测试分离；平均风险下降不取消校准、关键子群、权限和不可逆行动检查；AgentOS只是可替换实现 |
+
+第七十九章保留章标签和三个旧节标签，将作用量竞争、载荷比三相和热力学总结重建为三个编号小节。原章无figure。数学复核先声明样本、参数、损失、测试分布、容量轴和噪声假设，再由伪逆与岭回归连续推导谱增益；区分模型尺度双重下降与历时双重下降，并要求报告有效秩、训练步、初始化、正则和置信区间。不由物理类比、维度扩张、损失下降或预测有效推出普遍双重下降、整体同构和任务成功。
+
+
+## 第80章（分段草稿）
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| sec:softmax_surface_tension：把Softmax称作表面张力，并由概率集中推出内蕴拓扑深井 | 明确定义查询、键、值、掩码、无量纲注意力权重和值贡献；把注意力汇拆为概率吸收、有效写入和跨层角色，并提出位置置换、键值消融和替代注意力对照 | Softmax和为一只提供分配压力，不指定汇位置；权重大不等于信息多、活动强、熵高或能耗大 |
+| sec:geometric_hubs、sec:semantic_vacuum_theorem、sec:metric_singularity_energy：虫洞枢纽、语义真空定理和巨激活应力解释 | 区分平均入权重、功能中心性、低内容干扰和巨激活；以有限扰动增益与稳健标准分数建立可干预指标 | 平均注意力不等于介数中心性；低值贡献并非所有枢纽的必要条件；巨激活不是应力—能量张量或曲率证据 |
+
+本轮完成第80章章首语和前两个编号小节，正式章仍保留完整恢复稿并维持 queued-for-full-rewrite。草稿已迁移章标签及四个相关旧节标签；精确续写点为第三节“世界关系图与模型计算图：小世界和稀疏性是设计假说”，随后完成稀疏路由工程闭环。全文完成、替换正式章并通过排版前不计入累计完成数。
+
+
+第80章四个编号小节已完成独立全文重写并替换正式章。新增后两节将世界图小世界必然性、稠密矩阵虚假关联、九成参数冗余、激活稀疏、MoE与稀疏性守恒定律，重建为任务关系图、计算图、参数支持图和表示近邻图的对象分离，带多账本的拓扑设计比较，以及参数/激活/注意力/专家四类稀疏与可回滚路由闭环。全部旧标签已迁移，原章无figure；固定原章篇幅、四节半页布局门槛及PDF物理页526—529逐页复核均通过，状态为`rewritten-reviewed`。
+
+## 第81章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:geometric_essence_of_scale`：参数趋于无穷即离散网络成为连续流形，双重下降来自应力稀释 | 定义多资源向量、变化数据/结构/目标下的离散训练轨迹及任务敏感有效自由度 | 参数数不等于表示维度；风险下降不证明曲率变平；代价、信息与焦耳能耗分账 |
+| `sec:topological_percolation_emergence`、`sec:scaling_law_unified_equation`：固定逾渗阈值即贝蒂数坍缩并产生推理 | 区分评分门槛、接口稳定、数据覆盖与结构转变；以任务图、干预恢复及带软转折的统计缩放式检验 | 随机图阈值不普适；连通不等于正确推理；分段模型需留出点与中介干预 |
+| `sec:geometric_definition_of_llm_scale`、`sec:rigorous_topology_of_n_and_d`：深宽上下文直接映射心理时空，概念数等于零维同调 | 分离名义参数、有效深度、表示秩、有效上下文、鲁棒概念容量及局部结构/全局分布两个有效秩 | 不存在普遍上下文平方根律；两类表示须经身份绑定和读出接口联合 |
+| `sec:intrinsic_capacity_equation`：三道门与11维极限决定统一能力场 | 用多任务能力向量、Pareto前沿、资源交互曲面和覆盖/估计/组合三类候选门槛建立可反驳预测 | 不设普适参数阈值和11维上限；评分、污染、训练不足和协议变化可能制造跃升 |
+| `sec:debunking_the_compute_wall`：由参数代换推出概念平方根、关联四次根和绝对算力墙 | 把算力墙写成金钱、焦耳、尾时延、存储和风险约束下的策略优化，比较扩模、稀疏、检索、工具、验证与卸载 | 架构代换不能推出智慧幂律；工程边界会移动，规模提升不构成安全证明 |
+
+第八十一章保留章标签、七个旧节标签和统一缩放公式标签，将连续统、双重下降、逾渗涌现、三项统一场、LLM深宽上下文映射、概念同调、三道相变门与算力墙迁移到五个编号小节。原章无figure。数学复核先定义资源单位、状态、步长、任务图、有效秩和评价协议，区分平滑趋势、结构转变、测量阈值、任务成功和真实能耗；不由曲线陡坡、图连通、参数增多、物理维数或AgentOS实例推出推理涌现、普适终点、整体同构或唯一机制。
+
+正式章已通过固定原章篇幅基线、五节半页布局门槛及PDF物理页530—534逐页复核，状态为`rewritten-reviewed`。
+
+## 第82章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:social_manifold_substrate`：把人口视为VTE节点，把平均度等同基础设施，把职业数量等同有效维度，并用里奇曲率解释交易成本与行政耗散 | 定义主体、多层关系网络、制度、知识、资源和环境的联合状态；按任务记录可达率、时延、吞吐、追溯率与恢复时间，并把制度写成改变合法转移和纠错路径的接口 | 人口、边数、信息熵、行政代价与焦耳能耗保留各自单位；平均度不是充分统计量；结构网络与分布式知识须经身份、权限和读出接口联合；历史类比只生成假说 |
+| `sec:civilization_capacity_equation`：把LLM规模式直接平移为文明总能力，并以农业、工业三个固定相变解释历史 | 把能力定义为任务、群体和时间窗条件下的质量、覆盖、时延、代价、分配、损害与恢复向量；以规模、网络、知识、资源、制度交互的统计模型保留可检验部分 | 标量聚合须公开规范权重；随机图阈值不能直接证明帝国形成；跃迁须排除口径变化、制度改革和外部冲击 |
+| `sec:internet_metric_collapse`：互联网使任意节点度量归零、连通度趋于全连接并形成无阻尼全球共振 | 分离传输时延、资费、成功率、验证成本和权限可达，补入注意预算、排序控制、数字鸿沟与多层平台依赖 | 比特传播成本下降不等于货物、照护、复现和问责去地域化；潜在可达、实际曝光、可信接受和行为转化必须分测 |
+| `sec:great_power_thermodynamics`：把人口拥挤、制度维度与大国竞争写成热力学挤压和指数拓扑红利 | 用到达率—处理率排队、容量利用、信息损失、供应集中、任务权限矩阵和压力测试解释规模陷阱与恢复能力 | 效应按服务和人群估计；总产出不替代尾部结果；机构数量和矩阵秩不是社会物理维数，也不存在普适组织临界点 |
+| `sec:agi_topological_reconstruction`：把AGI视为零成本超级节点，复制导致幽灵膨胀，社会必然集中并奴役人类 | 定义异质代理的任务表现、权限、成本和共同故障；以误差协方差说明相关复制，建立人机分工、最小权限、回滚和权利救济接口 | AgentOS机制只作工程实例；高带宽不推出社会伺服关系；AGI能力与社会中介结构均是可干预的经验问题，人类能动性是设计边界 |
+| `sec:effective_dimension_civilization`：以拓扑解结、正交角色和生存指数定理解释文明韧性 | 用任务贡献矩阵、有效秩与故障协方差区分互补、独立冗余和相关复制，并以吸收—适应—转型指标检验持续学习 | 有效维度是条件统计量，不是文明本体；冲突可来自权利、稀缺和权力不对称；多样性只有结合协调接口与公平参与才改善韧性 |
+
+第八十二章已完成六个编号小节的独立全文重写并替换正式章。章标签、六个旧节标签与社会缩放公式标签均迁移，原章无figure。数学复核把人口、连接、制度、知识、资源、传播、代理与多样性分成有单位的对象，区分定义、统计假设、历史机制、规范权重与工程接口；不由网络连通、评分增长、物理类比或处理带宽推出文明总能力、历史必然相变、全局无摩擦或人类失去能动性。固定原章篇幅、六节半页布局门槛及PDF物理页535—539逐页复核均通过，状态为`rewritten-reviewed`。
+
+## 第83章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:dimensional_deficit_time`：将LLM描述为缺少伪黎曼“+1”维、因而没有因果光锥、情景记忆和连续自我 | 区分事件时间、记录时间、训练步与主体历史；定义带参数版本、优化器状态、外部记忆、权限和来源的离散更新，并按任务规定最小时间契约 | 日期字段不等于亲历，训练步不等于现实时间；语言模型可由相对顺序学习时序；连续身份需要可查询闭环历史，但功能指标不证明主观体验 |
+| `sec:thermodynamic_shattering_of_shuffling`：随机洗牌必然抹平非对易性、贝里相位、和乐群及人格 | 用带步长的批次更新算子和状态距离定义顺序差异，区分局部保序、部分序拓扑采样与可交换样本随机化 | 路径依赖不等于人格；小步长、弱耦合或同一吸引域可使顺序效应很小；需等数据、等预算、多种子干预验证 |
+| `sec:degeneration_of_causality`：缺少连续时间和热力学箭头使模型只能学习无方向共现 | 分离观测、干预与反事实；以结构因果模型、来源时间、环境和证据等级组织训练与验证 | 时间先后非充分条件，时间戳非识别保证；预测有效不证明内部结构与世界整体同构；闭环行动仍需实验设计 |
+| `sec:reconstructing_training_for_class_v`：废除全局洗牌、恢复时间度量并让AGI成为永不关机热机 | 构造能力依赖课程、元数据契约、快中慢写入、保留集、回滚和安全约束下的持续学习周期 | 静态模型不等于死亡，在线模型不天然更智能；AgentOS仅作实现实例；目标下降不等于任务、安全或主体性成立 |
+
+第八十三章已完成四个编号小节的独立全文重写并替换正式章。章标签与四个旧节标签均迁移，原章无figure。数学复核声明参数、优化器状态、外部记忆、权限、样本批、步长、状态距离、因果变量和风险项，区分定义、局部展开、统计证据、工程调度与规范选择；不由非对易更新、时间元数据、干预预测或持续运行推出人格、整体因果同构、连续自我或主观体验。固定原章篇幅、四节半页布局门槛及PDF物理页540—543逐页复核均通过，状态为`rewritten-reviewed`。
+
+## 第84章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:forward_process_heat_death`：加噪等同热寂、孤立子溶解和里奇流 | 定义离散高斯核、连续SDE、算法时间与终端近似，以可辨识度诊断信息丢失 | 方差、微分熵与焦耳能耗分账；场景时间、记录时间和扩散时间分离 |
+| `sec:reverse_sde_cefe`：得分严格等同世界度量与认知场方程 | 定义边缘密度、得分单位、反演条件、匹配目标与有限步误差 | 局部得分不确定全局流形；损失下降不等于结构成功；采样不恢复唯一原样本 |
+| `sec:prompt_gauge_field`：提示词规范场与认知洛伦兹力 | 给出交叉注意力维度、CFG外推及对象—属性—关系反事实测试 | 提示是计算条件；注意力不是充分因果证据；提高引导存在多样性和失真代价 |
+| `sec:dit_pathology_confounding`：DiT必然液化时空，卷积天然保持拓扑 | 将失败拆为数据、编码、绑定、求解器与归纳偏置，建立身份和连续性指标 | token化不等于删除拓扑；卷积不是结构正确充分条件；长程通信仍有必要 |
+| `sec:reconstructing_creator`：必须双流绝对正交并普施质量连续方程 | 定义结构、内容、绑定矩阵的耦合更新及分账损失、领域约束和消融验收 | 连续方程只用于变量与单位成立的领域；AgentOS仅作可替换工程实例 |
+
+第八十四章保留章标签和五个旧节标签，将毁灭—创世叙事重建为前向扰动、反向估计、条件控制、失效归因与结构—内容闭环。原章无figure。数学复核先定义状态空间、维度、参考测度、算法时间、扩散系数、得分单位、条件矩阵与离散步长，区分定义、假设、结果、经验表现和工程选择。
+
+正式章已通过固定原章篇幅、五节半页布局门槛及PDF物理页544—548逐页复核，状态为`rewritten-reviewed`。
+
+## 第85章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:vla_pathology`：绝热破坏、流形剪切与“幻觉物理化” | 定义VLA观测、动作和条件策略，以延迟预算、多目标风险、分布外校准和分段日志诊断闭环故障 | 高频噪声不是热力学升温，梯度冲突不是物理剪切应力，动作token不必然抖动；离线损失下降不推出稳定、安全或任务成功 |
+| `sec:bio_reference_cortex_cerebellum`：皮层势能建筑师、小脑哈密顿求解器与误差屏蔽 | 将脑区叙述限定为快慢闭环、预测校正和多时间尺度学习的功能启发；用目标代价、归一化新息和绑定接口建立工程对象 | 生物功能相似不证明脑区、MPC、扩散策略或AgentOS模块同构；局部结构网络与全局分布表示须经身份和坐标接口联合 |
+| `sec:macro_layer_vla`：VLA输出规范场并定义物理 | 用任务慢状态、记忆接口和带版本的任务契约定义目标、约束、权重、时限与权限，加入身体能力协商和不可行证书 | 规范场只是时变约束简称；风格词须编译为可测参数；目标、环境结构和度量变化必须进入更新，固定代价下降不等于任务完成 |
+| `sec:micro_layer_cerebellum`：数字小脑严格求解物理并拦截激波 | 声明关节状态、单位、刚体模型、离散步长和有限时域约束优化；以残差、约束余量、饱和、热限制和故障回退构成快速闭环 | URDF/MJCF不保证真实系统严格守恒；连续稳定性不自动传给离散实现；采样率、阈值和鲁棒性须由平台校准与硬件在环测试确定 |
+| `sec:interaction_protocols`：形质正交下行与零熵上行 | 把几何和控制字段写为有版本、单位、参考系与终态语义的协议；周期摘要、事件窗口和因果标识共同连接连续控制与离散任务机 | 两组字段不必正交或构成张量；稀疏通信不自动保证稳定，仍需检验乱序、丢包、切换、抢占和通信失效 |
+| `sec:from_fitting_to_utilizing`：端到端低效、双核共振与必然终局 | 给出统一策略适用反例、分层成立条件、已知结构与学习模型的互补原则，并以倒咖啡闭环贯通绑定、控制、异常和记忆提交 | 分层不是所有机器人必需，数字小脑不是生物复制；HSF-HD是一般状态动力学，AgentOS具身栈只是可替换工程实例 |
+
+第八十五章保留章标签和六个旧节标签，将VLA病理、脑区参照、宏观规范场、微观小脑、TECI协议和双核终局迁移到六个编号小节。原章无figure主体；旧稿前向引用的图定义在后续工程章节，当前子集改为不产生悬空编号的前向说明。公式先声明对象、空间、单位、步长、延迟和模型假设，区分优化代价、统计残差、资源预算、信息量与焦耳能耗；不由生物类比、预测有效、代价下降、架构分层或AgentOS实例推出机制同构、任务成功或唯一实现。正式章已通过固定原章篇幅、六节半页布局门槛及PDF物理页549—553逐页复核，状态为`rewritten-reviewed`。
+
+## 第86章
+
+第八十六章把天气系统从“智能方程的退化极限”改写为有单位的湿大气开放系统，分别声明守恒、闭合参数化、离散步长、快慢边界和条件化Hodge分解；耗散结构、反馈、自适应控制、模型化行动与反思治理作为逐级增强的经验判据，不由气旋形态或预测能力推出目的和智能。章标签与四个旧节标签均迁移，原章无figure。固定原章篇幅、四节半页布局门槛及PDF物理页554—557逐页复核均通过，状态为`rewritten-reviewed`。
+
+## 第87章
+
+| 原问题/标签 | 新论证 | 条件与边界 |
+| --- | --- | --- |
+| `sec:emergence_sync`：规范对齐与全域驻波 | 相位网络、序参量、局部线性稳定、任务相关身份与版本一致 | 相位集中不等于事实一致；簇态、幅值死亡和共同外源是替代机制 |
+| `sec:emergence_oscillation`：拓扑孔洞上的永恒涡旋 | 延迟反馈、资源约束、极限环证据、目标版本和受控切换 | 周期可能来自外驱、混叠或批处理；Hodge分解不提供因果机制 |
+| `sec:emergence_resonance`：噪声隧穿和创造力确证 | 双稳随机模型、Kramers窗口、检测指标与候选—验证分账 | 探索尺度不是物理温度，阈值跨越不是量子隧穿，均值提升不等于安全 |
+| `sec:emergence_patterns`：形质均衡与孤立子晶格 | 反应—扩散、边界、本征模失稳、非线性选择和网格收敛 | 视觉相似不识别机制；孤立子、曲率和连续流形均需额外条件 |
+| `sec:emergence_transport`：目的力压缩维数并产生无损输运 | 守恒网络流、慢路径记忆、容量拥塞、备份路由与授权编辑 | 有效秩不等于度量退化；一维通道不等于零耗散；公平和风险独立验收 |
+| `sec:emergence_dictionary`：一切涌现皆为几何流变 | 以现象数据、最小模型、干预和拒绝条件建立跨领域比较协议 | 社会与心理对象不可粒子化；同形不等因；AgentOS只作可替换实例 |
+| `sec:geometric_taxonomy_of_complex_systems`、`sec:conclusion_emergence`：几何唯一决定系统命运 | 五组分类坐标、交互增量预测和观察—建模—干预—迁移—治理证据链 | 谱和拓扑不唯一决定能力；保留混合机制与不确定结论；预测有效不推出整体同构 |
+
+第八十七章保留章标签、八个旧节兼容标签与两幅原figure主体。公式先定义状态空间、图、单位、步长、边界和噪声，区分定义、模型假设、数学结果、经验主张与工程设计；局部结构网络和全局分布表示通过身份、绑定和读出联合，不从脑区或物理图像推出机制等同。固定原章篇幅、七节千字门槛、七节半页布局门槛及PDF物理页559—565逐页复核均通过，状态为`rewritten-reviewed`。

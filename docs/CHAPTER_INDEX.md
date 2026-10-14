@@ -1,6 +1,6 @@
 # 章节目录与全章改写进度
 
-74 章已完整实写并完成篇幅与排版检查，43 章待写。增补分析和恢复原文不计为完成重写。
+87 章已完整实写并完成篇幅与排版检查，30 章待写。增补分析和恢复原文不计为完成重写。
 
 | 卷 | 篇 | 章文件 | 标题 | 状态 |
 | --- | --- | --- | --- | --- |
@@ -90,7 +90,7 @@
 | 3 | 10 | [chp-diffusion_thermodynamics](../chapters/part-10/chp-diffusion_thermodynamics.tex) | 扩散生成的计算动力学：噪声过程、条件引导与结构保持 | 已重写并完成排版复核 |
 | 3 | 10 | [chp-embodied_intelligence_anatomy](../chapters/part-10/chp-embodied_intelligence_anatomy.tex) | 具身智能的分层计算动力学：意图、身体模型与闭环控制 | 已重写并完成排版复核 |
 | 3 | 10 | [chp-degeneration_limit_weather_system](../chapters/part-10/chp-degeneration_limit_weather_system.tex) | 无目的复杂系统的计算动力学：天气、结构与智能边界 | 已重写并完成排版复核 |
-| 3 | 10 | [chp-geometry_of_emergence](../chapters/part-10/chp-geometry_of_emergence.tex) | 复杂系统涌现的几何物理学 — 从盲目相变到目的论场论 | 队列中；原文仍保留 |
+| 3 | 10 | [chp-geometry_of_emergence](../chapters/part-10/chp-geometry_of_emergence.tex) | 涌现的可检验计算动力学：模式形成、输运与跨尺度读出 | 已重写并完成排版复核 |
 | 3 | 10 | [chp-structural_isomorphism_principle](../chapters/part-10/chp-structural_isomorphism_principle.tex) | 复杂系统结构同构原理 — 统一动力学结构与介质层级展开 | 队列中；原文仍保留 |
 | 3 | 11 | [chp-evolutionary_spectrum](../chapters/part-11/chp-evolutionary_spectrum.tex) | 演化谱系 — 智能的形态相图 | 队列中；原文仍保留 |
 | 3 | 11 | [chp-cognitive_heat_engine_metrics](../chapters/part-11/chp-cognitive_heat_engine_metrics.tex) | 认知热机测量学 — 效率、功率与演化的帕累托前沿 | 队列中；原文仍保留 |
