@@ -1,9 +1,9 @@
 {
-  "pages": 565,
-  "bytes": 49905163,
+  "pages": 570,
+  "bytes": 49931331,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 504,
+  "numbered_sections": 509,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3534,7 +3534,42 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "88.1 五元比较接口：共同问题不等于共同实体",
+      "start_pdf_page": 566,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "88.2 耦合更新：由类型正确的模型取代普适作用量",
+      "start_pdf_page": 567,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "88.3 层级展开：功能证据的增加而非本体阶梯",
+      "start_pdf_page": 568,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "88.4 跨介质对应：从严格同构退回可检验保持",
+      "start_pdf_page": 569,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "88.5 智能相态命题：成立条件、反例与工程落点",
+      "start_pdf_page": 569,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 87 chapters; does not validate the full book."
+  "scope": "Review subset: 88 chapters; does not validate the full book."
 }

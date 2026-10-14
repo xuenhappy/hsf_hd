@@ -1726,9 +1726,15 @@
       "source_start_line": 31619,
       "source_end_line": 31821,
       "source_sha256": "21e60ef34e86cc9073531d737596bbe2ada462b045b4558e85835867ece6801a",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "跨介质结构对应：类型化动力学、近似保持与证据边界",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-088-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-evolutionary_spectrum.tex",

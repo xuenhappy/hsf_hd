@@ -86,7 +86,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 85,chapters/part-10/chp-embodied_intelligence_anatomy.tex,rewritten-reviewed,3703,6775,3819,6824,6,1041
 86,chapters/part-10/chp-degeneration_limit_weather_system.tex,rewritten-reviewed,2287,4944,2251,4973,4,1107
 87,chapters/part-10/chp-geometry_of_emergence.tex,rewritten-reviewed,7145,7692,6232,7739,7,1015
-88,chapters/part-10/chp-structural_isomorphism_principle.tex,queued-for-full-rewrite,2317,1742,1789,1789,5,118
+88,chapters/part-10/chp-structural_isomorphism_principle.tex,rewritten-reviewed,2317,6139,1789,6167,5,1015
 89,chapters/part-11/chp-evolutionary_spectrum.tex,queued-for-full-rewrite,1473,1426,1485,1485,4,203
 90,chapters/part-11/chp-cognitive_heat_engine_metrics.tex,queued-for-full-rewrite,1810,1474,1511,1511,4,143
 91,chapters/part-11/chp-pathological_diagnosis.tex,queued-for-full-rewrite,1608,1401,1471,1471,5,0
