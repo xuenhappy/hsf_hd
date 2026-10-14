@@ -1745,9 +1745,15 @@
       "source_start_line": 31848,
       "source_end_line": 31982,
       "source_sha256": "e0f46f329e72c6656436853f44c5b73c91c70a86a5143c0a5cfa3091531358b5",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "智能形态空间：控制集中、闭环耦合与可达迁移",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-089-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-cognitive_heat_engine_metrics.tex",

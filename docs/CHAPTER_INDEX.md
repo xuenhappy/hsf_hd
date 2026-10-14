@@ -92,7 +92,7 @@
 | 3 | 10 | [chp-degeneration_limit_weather_system](../chapters/part-10/chp-degeneration_limit_weather_system.tex) | 无目的复杂系统的计算动力学：天气、结构与智能边界 | 已重写并完成排版复核 |
 | 3 | 10 | [chp-geometry_of_emergence](../chapters/part-10/chp-geometry_of_emergence.tex) | 涌现的可检验计算动力学：模式形成、输运与跨尺度读出 | 已重写并完成排版复核 |
 | 3 | 10 | [chp-structural_isomorphism_principle](../chapters/part-10/chp-structural_isomorphism_principle.tex) | 跨介质结构对应：类型化动力学、近似保持与证据边界 | 已重写并完成排版复核 |
-| 3 | 11 | [chp-evolutionary_spectrum](../chapters/part-11/chp-evolutionary_spectrum.tex) | 演化谱系 — 智能的形态相图 | 队列中；原文仍保留 |
+| 3 | 11 | [chp-evolutionary_spectrum](../chapters/part-11/chp-evolutionary_spectrum.tex) | 智能形态空间：控制集中、闭环耦合与可达迁移 | 已重写并完成排版复核 |
 | 3 | 11 | [chp-cognitive_heat_engine_metrics](../chapters/part-11/chp-cognitive_heat_engine_metrics.tex) | 认知热机测量学 — 效率、功率与演化的帕累托前沿 | 队列中；原文仍保留 |
 | 3 | 11 | [chp-pathological_diagnosis](../chapters/part-11/chp-pathological_diagnosis.tex) | 病理诊断 — 原型智能的几何物理缺陷 | 队列中；原文仍保留 |
 | 3 | 11 | [chp-engineering_implementation](../chapters/part-11/chp-engineering_implementation.tex) | 工程实现 — 构建几何热力学机 | 队列中；原文仍保留 |

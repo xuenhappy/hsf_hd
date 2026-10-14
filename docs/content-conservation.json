@@ -1,9 +1,9 @@
 {
   "checks_passed": true,
-  "original_complete_chapters_verified": 29,
-  "fully_rewritten_chapters_length_verified": 88,
+  "original_complete_chapters_verified": 28,
+  "fully_rewritten_chapters_length_verified": 89,
   "baseline_chapter_chinese_characters": 568727,
-  "current_chapter_chinese_characters": 772263,
+  "current_chapter_chinese_characters": 775814,
   "scope": "Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.",
   "chapters": [
     {
@@ -712,11 +712,11 @@
     },
     {
       "path": "chapters/part-11/chp-evolutionary_spectrum.tex",
-      "original_exposition_preserved": true,
-      "validation_mode": "original-exposition-conservation",
+      "original_exposition_preserved": false,
+      "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 1473,
-      "current_chinese_characters": 1473
+      "current_chinese_characters": 5024
     },
     {
       "path": "chapters/part-11/chp-cognitive_heat_engine_metrics.tex",

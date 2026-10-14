@@ -1,9 +1,9 @@
 {
-  "pages": 570,
-  "bytes": 49931331,
+  "pages": 575,
+  "bytes": 49957974,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 509,
+  "numbered_sections": 513,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3566,10 +3566,38 @@
     {
       "title": "88.5 智能相态命题：成立条件、反例与工程落点",
       "start_pdf_page": 569,
-      "prose_lines": 33,
-      "calibrated_prose_page_equivalents": 0.735,
+      "prose_lines": 48,
+      "calibrated_prose_page_equivalents": 1.069,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "89.1 从形态隐喻到有类型的测量坐标",
+      "start_pdf_page": 572,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "89.2 四类工程原型不是四个必然吸引子",
+      "start_pdf_page": 573,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "89.3 单次语言模型的边界诊断与对照实验",
+      "start_pdf_page": 573,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "89.4 迁移路径：多目标约束下的可达性而非两条测地线",
+      "start_pdf_page": 574,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 88 chapters; does not validate the full book."
+  "scope": "Review subset: 89 chapters; does not validate the full book."
 }
