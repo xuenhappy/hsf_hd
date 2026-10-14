@@ -1,9 +1,9 @@
 {
-  "pages": 575,
-  "bytes": 49957974,
+  "pages": 579,
+  "bytes": 49983212,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 513,
+  "numbered_sections": 517,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3597,7 +3597,35 @@
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "90.1 结构转化效率：从证据到可复用能力的可审计比率",
+      "start_pdf_page": 576,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "90.2 有效认知功率：质量约束下的任务吞吐而非自由能耗散",
+      "start_pdf_page": 577,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "90.3 效率—功率帕累托前沿：条件比较、反例与迁移路径",
+      "start_pdf_page": 578,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "90.4 测量闭环：校准、归因与可复现的智能铭牌",
+      "start_pdf_page": 578,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 89 chapters; does not validate the full book."
+  "scope": "Review subset: 90 chapters; does not validate the full book."
 }

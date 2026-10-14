@@ -1764,9 +1764,15 @@
       "source_start_line": 31982,
       "source_end_line": 32102,
       "source_sha256": "e4de3e64c51bc1a3dc5e68da63dd0c620a69126ab9620096dc893788cec7c469",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "认知热机测量学：结构转化、有效吞吐与帕累托前沿",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-090-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-pathological_diagnosis.tex",

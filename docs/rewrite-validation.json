@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 89,
-  "pending_chapters": 28,
+  "rewritten_chapters": 90,
+  "pending_chapters": 27,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3488,33 +3488,33 @@
     {
       "order": 90,
       "path": "chapters/part-11/chp-cognitive_heat_engine_metrics.tex",
-      "title": "认知热机测量学 — 效率、功率与演化的帕累托前沿",
-      "status": "queued-for-full-rewrite",
+      "title": "认知热机测量学：结构转化、有效吞吐与帕累托前沿",
+      "status": "rewritten-reviewed",
       "original_han_floor": 1810,
-      "new_chapter_prose_han": 1474,
+      "new_chapter_prose_han": 4575,
       "original_readable_units": 1511,
-      "new_readable_units": 1511,
-      "opening_prose_han": 171,
+      "new_readable_units": 4590,
+      "opening_prose_han": 302,
       "sections": [
         {
-          "title": "认知热机效率 ($\\eta_{cog}$)：从信息流到拓扑结构的转化率",
-          "prose_han": 397
+          "title": "结构转化效率：从证据到可复用能力的可审计比率",
+          "prose_han": 1096
         },
         {
-          "title": "认知最大功率 ($P_{cog}^{max}$)：时空介质的吞吐极限",
-          "prose_han": 422
+          "title": "有效认知功率：质量约束下的任务吞吐而非自由能耗散",
+          "prose_han": 1117
         },
         {
-          "title": "智能演化的帕累托前沿 (The Pareto Frontier of Evolution)",
-          "prose_han": 341
+          "title": "效率—功率帕累托前沿：条件比较、反例与迁移路径",
+          "prose_han": 1012
         },
         {
-          "title": "结语：宇宙演化的测地线",
-          "prose_han": 143
+          "title": "测量闭环：校准、归因与可复现的智能铭牌",
+          "prose_han": 1048
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
