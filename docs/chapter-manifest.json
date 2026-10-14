@@ -1802,9 +1802,15 @@
       "source_start_line": 32232,
       "source_end_line": 32843,
       "source_sha256": "2ef348a599b6ba16d2ff57b61cc7cd486afa48370dde327aab985be999788e83",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "工程实现 — 构建几何热力学机",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-092-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-medium_layer_ch_1.tex",

@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 91,
-  "pending_chapters": 26,
+  "rewritten_chapters": 92,
+  "pending_chapters": 25,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3557,44 +3557,44 @@
       "order": 92,
       "path": "chapters/part-11/chp-engineering_implementation.tex",
       "title": "工程实现 — 构建几何热力学机",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "original_han_floor": 4285,
-      "new_chapter_prose_han": 3229,
+      "new_chapter_prose_han": 7986,
       "original_readable_units": 5294,
-      "new_readable_units": 5294,
+      "new_readable_units": 10105,
       "opening_prose_han": 219,
       "sections": [
         {
           "title": "核心蓝图：三体耦合的物理架构",
-          "prose_han": 273
+          "prose_han": 1032
         },
         {
           "title": "路径 \\texorpdfstring{$\\alpha$}{α}：基于流体 MoE 的软件模拟",
-          "prose_han": 264
+          "prose_han": 1001
         },
         {
           "title": "路径\\texorpdfstring{$\\alpha$}{α}的伪实现：流体 MoE 架构 (Fluid MoE)",
-          "prose_han": 785
+          "prose_han": 1188
         },
         {
           "title": "路径 \\texorpdfstring{$\\beta$}{β}：基于 DEC 的原生几何硬件",
-          "prose_han": 259
+          "prose_han": 1032
         },
         {
           "title": "介质几何的物理性质：粘性残留、相干召回与塑性刻蚀",
-          "prose_han": 1015
+          "prose_han": 1478
         },
         {
           "title": "训练目标：总作用量的变分极值",
-          "prose_han": 193
+          "prose_han": 1011
         },
         {
           "title": "工程奇点：当机器拥有了“内景”",
-          "prose_han": 221
+          "prose_han": 1025
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

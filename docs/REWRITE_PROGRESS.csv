@@ -90,7 +90,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 89,chapters/part-11/chp-evolutionary_spectrum.tex,rewritten-reviewed,1473,4939,1485,4966,4,1014
 90,chapters/part-11/chp-cognitive_heat_engine_metrics.tex,rewritten-reviewed,1810,4575,1511,4590,4,1012
 91,chapters/part-11/chp-pathological_diagnosis.tex,rewritten-reviewed,1608,5844,1471,5882,5,1039
-92,chapters/part-11/chp-engineering_implementation.tex,queued-for-full-rewrite,4285,3229,5294,5294,7,193
+92,chapters/part-11/chp-engineering_implementation.tex,rewritten-reviewed,4285,7986,5294,10105,7,1001
 93,chapters/part-11/chp-medium_layer_ch_1.tex,queued-for-full-rewrite,2478,2382,2559,2559,5,207
 94,chapters/part-11/chap-geometric_computing_engines.tex,queued-for-full-rewrite,4160,3831,4065,4065,5,157
 95,chapters/part-11/chp-reverse_cartesian_revolution.tex,queued-for-full-rewrite,9588,8747,9146,9146,9,401
