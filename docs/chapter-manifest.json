@@ -1897,11 +1897,16 @@
       "source_start_line": 34473,
       "source_end_line": 35219,
       "source_sha256": "40266bea205eeca2e455383940e7079df4a9f8db7a24e0a0a06445acc16ee479",
-      "status": "queued-for-full-rewrite",
-      "new_title": "智能运行时：从 HSF-HD 动力学到 AgentOS",
+      "status": "rewritten-reviewed",
+      "new_title": "智能运行时：多速率状态、资源调度与可验证接口",
       "preserved_figure_count": 1,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-with-computational-analysis"
+      "previous_status": "queued-for-full-rewrite",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "checkpoint": "docs/drafts/chapter-097-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chap-agi_cultivation.tex",

@@ -1,9 +1,9 @@
 {
-  "pages": 623,
-  "bytes": 52758608,
+  "pages": 633,
+  "bytes": 54567999,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 554,
+  "numbered_sections": 562,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3884,7 +3884,63 @@
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "97.1 面向约束的编程：从几何隐喻到运行时契约",
+      "start_pdf_page": 624,
+      "prose_lines": 38,
+      "calibrated_prose_page_equivalents": 0.846,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "97.2 动力学运行时：快回路、慢回路与元控制",
+      "start_pdf_page": 625,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "97.3 微观层运行时：多尺度观测、残差路由与形质绑定",
+      "start_pdf_page": 626,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "97.4 分层训练动力学：局部适应、证据穿透与安全提交",
+      "start_pdf_page": 628,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "97.5 基态守护：活性、连续性与故障恢复",
+      "start_pdf_page": 629,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "97.6 资源调度：复杂度、探索强度与记忆回收",
+      "start_pdf_page": 630,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "97.7 Morpho-Lang：类型、编译与可观测执行",
+      "start_pdf_page": 630,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "97.8 工程验收与理论边界：从一般动力学到 AgentOS 实例",
+      "start_pdf_page": 632,
+      "prose_lines": 47,
+      "calibrated_prose_page_equivalents": 1.047,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 96 chapters; does not validate the full book."
+  "scope": "Review subset: 97 chapters; does not validate the full book."
 }

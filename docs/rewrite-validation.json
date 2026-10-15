@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 96,
-  "pending_chapters": 21,
+  "rewritten_chapters": 97,
+  "pending_chapters": 20,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3764,49 +3764,49 @@
     {
       "order": 97,
       "path": "chapters/part-11/chap-software_control_msos.tex",
-      "title": "智能运行时：从 HSF-HD 动力学到 AgentOS",
-      "status": "queued-for-full-rewrite",
+      "title": "智能运行时：多速率状态、资源调度与可验证接口",
+      "status": "rewritten-reviewed",
       "original_han_floor": 9909,
-      "new_chapter_prose_han": 10096,
+      "new_chapter_prose_han": 10155,
       "original_readable_units": 10464,
-      "new_readable_units": 11132,
-      "opening_prose_han": 165,
+      "new_readable_units": 10504,
+      "opening_prose_han": 304,
       "sections": [
         {
-          "title": "编程范式的革命：面向几何的编程 (Geometry-Oriented Programming)",
-          "prose_han": 503
+          "title": "面向约束的编程：从几何隐喻到运行时契约",
+          "prose_han": 1489
         },
         {
-          "title": "动力学运行时 (Dynamics Runtime)：双回路求解器与元认知",
-          "prose_han": 936
+          "title": "动力学运行时：快回路、慢回路与元控制",
+          "prose_han": 1014
         },
         {
-          "title": "微观层运行时 (Micro-Layer Runtime)：层级化预测 ODE 网络与形质激波发生器",
-          "prose_han": 1746
+          "title": "微观层运行时：多尺度观测、残差路由与形质绑定",
+          "prose_han": 1174
         },
         {
-          "title": "微观层的绝热训练动力学：惊奇穿透约束与多尺度梯度流",
-          "prose_han": 1617
+          "title": "分层训练动力学：局部适应、证据穿透与安全提交",
+          "prose_han": 1061
         },
         {
-          "title": "基态代谢守护进程：双重真空能的物理维持与防热寂机制",
-          "prose_han": 1401
+          "title": "基态守护：活性、连续性与故障恢复",
+          "prose_han": 1105
         },
         {
-          "title": "热力学调度器 (Thermodynamic Scheduler)：资源与熵的管理",
-          "prose_han": 1716
+          "title": "资源调度：复杂度、探索强度与记忆回收",
+          "prose_han": 1104
         },
         {
-          "title": "编译器与语言：Morpho-Lang —— 拓扑编程语言",
-          "prose_han": 1357
+          "title": "Morpho-Lang：类型、编译与可观测执行",
+          "prose_han": 1093
         },
         {
-          "title": "计算动力学表达与论证边界",
-          "prose_han": 655
+          "title": "工程验收与理论边界：从一般动力学到 AgentOS 实例",
+          "prose_han": 1811
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
