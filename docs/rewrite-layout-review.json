@@ -1,9 +1,9 @@
 {
-  "pages": 617,
-  "bytes": 52726983,
+  "pages": 623,
+  "bytes": 52758608,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 548,
+  "numbered_sections": 554,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3842,7 +3842,49 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "96.1 思考外化的判据：内部生成、外部展开与资源边界",
+      "start_pdf_page": 618,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "96.2 混合搜索模型：从物理同构退回可计算归约",
+      "start_pdf_page": 619,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "96.3 双向运行时：类型化任务包、证据回流与权限隔离",
+      "start_pdf_page": 620,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "96.4 宏循环：提议、展开、验证、提交与结构内化",
+      "start_pdf_page": 620,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "96.5 实验协议：比较搜索收益、内化质量与接口因果作用",
+      "start_pdf_page": 621,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "96.6 扩展、治理与理论边界：从单机协作到分布式认知基础设施",
+      "start_pdf_page": 622,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 95 chapters; does not validate the full book."
+  "scope": "Review subset: 96 chapters; does not validate the full book."
 }

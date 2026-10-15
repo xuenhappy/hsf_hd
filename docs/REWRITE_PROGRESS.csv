@@ -94,7 +94,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 93,chapters/part-11/chp-medium_layer_ch_1.tex,rewritten-reviewed,2478,5727,2559,5747,5,1005
 94,chapters/part-11/chap-geometric_computing_engines.tex,rewritten-reviewed,4160,5844,4065,5911,5,1046
 95,chapters/part-11/chp-reverse_cartesian_revolution.tex,rewritten-reviewed,9588,10083,9146,10180,9,1003
-96,chapters/part-11/chp-alpha_hsf_architecture.tex,queued-for-full-rewrite,5657,5350,5861,5861,6,584
+96,chapters/part-11/chp-alpha_hsf_architecture.tex,rewritten-reviewed,5657,6975,5861,7023,6,1018
 97,chapters/part-11/chap-software_control_msos.tex,queued-for-full-rewrite,9909,10096,10464,11132,8,503
 98,chapters/part-11/chap-agi_cultivation.tex,queued-for-full-rewrite,13940,13614,14244,14244,10,707
 99,chapters/part-11/chp-synthetic_affective_engineering.tex,queued-for-full-rewrite,2119,1631,1903,1903,5,30

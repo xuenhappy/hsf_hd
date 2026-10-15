@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 95,
-  "pending_chapters": 22,
+  "rewritten_chapters": 96,
+  "pending_chapters": 21,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3724,41 +3724,41 @@
     {
       "order": 96,
       "path": "chapters/part-11/chp-alpha_hsf_architecture.tex",
-      "title": "思考的外化 — 连续流形与离散晶格的波粒双态耦合 (Alpha-HSF)",
-      "status": "queued-for-full-rewrite",
+      "title": "Alpha-HSF：受约束搜索、双向接口与可验证的思考外化",
+      "status": "rewritten-reviewed",
       "original_han_floor": 5657,
-      "new_chapter_prose_han": 5350,
+      "new_chapter_prose_han": 6975,
       "original_readable_units": 5861,
-      "new_readable_units": 5861,
-      "opening_prose_han": 174,
+      "new_readable_units": 7023,
+      "opening_prose_han": 302,
       "sections": [
         {
-          "title": "导论：智能热力学的边界与“思考外化”的必然性",
-          "prose_han": 690
+          "title": "思考外化的判据：内部生成、外部展开与资源边界",
+          "prose_han": 1092
         },
         {
-          "title": "数学物理证明：流形与树的拓扑纠缠",
-          "prose_han": 1155
+          "title": "混合搜索模型：从物理同构退回可计算归约",
+          "prose_han": 1018
         },
         {
-          "title": "软件控制架构：Alpha-HSF 的运行时设计",
-          "prose_han": 712
+          "title": "双向运行时：类型化任务包、证据回流与权限隔离",
+          "prose_han": 1123
         },
         {
-          "title": "算法动力学：外化的 TECI-TDCI 宏循环",
-          "prose_han": 895
+          "title": "宏循环：提议、展开、验证、提交与结构内化",
+          "prose_han": 1148
         },
         {
-          "title": "可验证的工程实验设计 (Experimental Verification)",
-          "prose_han": 1140
+          "title": "实验协议：比较搜索收益、内化质量与接口因果作用",
+          "prose_han": 1163
         },
         {
-          "title": "结论：文明级智能的最终图景 (The Machine's Reality)",
-          "prose_han": 584
+          "title": "扩展、治理与理论边界：从单机协作到分布式认知基础设施",
+          "prose_han": 1129
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

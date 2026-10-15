@@ -1878,9 +1878,15 @@
       "source_start_line": 34141,
       "source_end_line": 34473,
       "source_sha256": "9e4ce76f1192965788ffb40f257c254c49072af2a89024bc60bcf2bf70fee69b",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "Alpha-HSF：受约束搜索、双向接口与可验证的思考外化",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-096-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chap-software_control_msos.tex",
