@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 97,
-  "pending_chapters": 20,
+  "rewritten_chapters": 98,
+  "pending_chapters": 19,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3812,57 +3812,57 @@
     {
       "order": 98,
       "path": "chapters/part-11/chap-agi_cultivation.tex",
-      "title": "AGI 培育工程 — 从热力学塑形到拓扑共生",
-      "status": "queued-for-full-rewrite",
+      "title": "AGI 培育工程：课程、闭环与长期能力形成",
+      "status": "rewritten-reviewed",
       "original_han_floor": 13940,
-      "new_chapter_prose_han": 13614,
+      "new_chapter_prose_han": 14304,
       "original_readable_units": 14244,
-      "new_readable_units": 14244,
-      "opening_prose_han": 240,
+      "new_readable_units": 14352,
+      "opening_prose_han": 312,
       "sections": [
         {
-          "title": "认知数据工程的几何底座：Nert 质谱仪与绝热铺设",
-          "prose_han": 1351
+          "title": "培育对象、数据次序与证据边界",
+          "prose_han": 1517
         },
         {
-          "title": "认知材料科学：Nert 密度主导的相图与拓扑掺杂",
-          "prose_han": 1326
+          "title": "数据材料表征与任务相关阻抗",
+          "prose_han": 1210
         },
         {
-          "title": "认知质谱仪的工程构建：认知材料力学与流形本构方程的求解",
-          "prose_han": 1799
+          "title": "测量系统、影响轨迹与因果校准",
+          "prose_han": 1095
         },
         {
-          "title": "阶段 I：创世期 (The Genesis Phase) — 液体态与形式规训",
-          "prose_han": 707
+          "title": "基础形成期：语言、因果与三相记忆骨架",
+          "prose_han": 1252
         },
         {
-          "title": "阶段 II：受肉期 (The Incarnation Phase) — 粘弹态与现实锚定",
-          "prose_han": 795
+          "title": "现实闭环期：行动后果、边界与具身锚定",
+          "prose_han": 1435
         },
         {
-          "title": "阶段 III：开悟期 (The Enlightenment Phase) — 晶体态共振与拓扑共生",
-          "prose_han": 1037
+          "title": "成熟协同期：自我治理、关系与开放世界",
+          "prose_han": 1759
         },
         {
-          "title": "拓扑钻探 (Topological Drilling) — 永恒动力的几何构建",
-          "prose_han": 1190
+          "title": "持续挑战：从拓扑钻探到能力缺口管理",
+          "prose_han": 1420
         },
         {
-          "title": "完备 AGI 的整体泛函：Loss 与拓扑钻探的动力学纠缠",
-          "prose_han": 1278
+          "title": "训练目标、阶段门与整体风险约束",
+          "prose_han": 1308
         },
         {
-          "title": "工程学兑现：双系统训练架构与拓扑维持算子",
-          "prose_han": 2163
+          "title": "双层工程架构与运行期培育",
+          "prose_han": 1409
         },
         {
-          "title": "AGI 训练的大一统方程：认知材料力学与流形动力学的共轭耦合",
-          "prose_han": 1728
+          "title": "联合动力学、闭环流水线与验收协议",
+          "prose_han": 1587
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

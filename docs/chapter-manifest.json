@@ -1917,9 +1917,16 @@
       "source_start_line": 35219,
       "source_end_line": 36125,
       "source_sha256": "c26fe94c1ed4447c168e33a7bfd8e1ee644556c7cd604a139d343b5a1efb4dcf",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "AGI 培育工程：课程、闭环与长期能力形成",
+      "preserved_figure_count": 0,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "checkpoint": "docs/drafts/chapter-098-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-synthetic_affective_engineering.tex",

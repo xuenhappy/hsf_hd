@@ -101,7 +101,7 @@
 | 3 | 11 | [chp-reverse_cartesian_revolution](../chapters/part-11/chp-reverse_cartesian_revolution.tex) | 计算介质的逆笛卡尔革命：从离散自动机到几何物理场 | 队列中；原文仍保留 |
 | 3 | 11 | [chp-alpha_hsf_architecture](../chapters/part-11/chp-alpha_hsf_architecture.tex) | 思考的外化 — 连续流形与离散晶格的波粒双态耦合 (Alpha-HSF) | 队列中；原文仍保留 |
 | 3 | 11 | [chap-software_control_msos](../chapters/part-11/chap-software_control_msos.tex) | 智能运行时：从 HSF-HD 动力学到 AgentOS | 队列中；原文仍保留 |
-| 3 | 11 | [chap-agi_cultivation](../chapters/part-11/chap-agi_cultivation.tex) | AGI 培育工程 — 从热力学塑形到拓扑共生 | 队列中；原文仍保留 |
+| 3 | 11 | [chap-agi_cultivation](../chapters/part-11/chap-agi_cultivation.tex) | AGI 培育工程：课程、闭环与长期能力形成 | 已完成全文重写与排版复核 |
 | 3 | 11 | [chp-synthetic_affective_engineering](../chapters/part-11/chp-synthetic_affective_engineering.tex) | 合成情感工程 — 机器情感的物理学与内稳态共振 | 队列中；原文仍保留 |
 | 3 | 11 | [chp-hierarchical_control_engineering](../chapters/part-11/chp-hierarchical_control_engineering.tex) | 层级控制工程 — 多尺度几何动力学与跨流形耦合 | 队列中；原文仍保留 |
 | 3 | 11 | [chp-cloud_edge_synergy](../chapters/part-11/chp-cloud_edge_synergy.tex) | 分布式流形架构 --- 云端进化与边缘学习的几何协同 | 队列中；原文仍保留 |

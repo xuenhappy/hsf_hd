@@ -96,7 +96,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 95,chapters/part-11/chp-reverse_cartesian_revolution.tex,rewritten-reviewed,9588,10083,9146,10180,9,1003
 96,chapters/part-11/chp-alpha_hsf_architecture.tex,rewritten-reviewed,5657,6975,5861,7023,6,1018
 97,chapters/part-11/chap-software_control_msos.tex,rewritten-reviewed,9909,10155,10464,10504,8,1014
-98,chapters/part-11/chap-agi_cultivation.tex,queued-for-full-rewrite,13940,13614,14244,14244,10,707
+98,chapters/part-11/chap-agi_cultivation.tex,rewritten-reviewed,13940,14304,14244,14352,10,1095
 99,chapters/part-11/chp-synthetic_affective_engineering.tex,queued-for-full-rewrite,2119,1631,1903,1903,5,30
 100,chapters/part-11/chp-hierarchical_control_engineering.tex,queued-for-full-rewrite,7204,6663,6908,6908,7,344
 101,chapters/part-11/chp-cloud_edge_synergy.tex,queued-for-full-rewrite,1521,1443,1483,1483,4,149
