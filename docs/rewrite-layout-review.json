@@ -1,9 +1,9 @@
 {
-  "pages": 644,
-  "bytes": 54631231,
+  "pages": 649,
+  "bytes": 54660136,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 572,
+  "numbered_sections": 577,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4010,7 +4010,42 @@
       "prose_lines": 43,
       "calibrated_prose_page_equivalents": 0.958,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "99.1 情感协处理器：从激素类比到有类型的全局调制",
+      "start_pdf_page": 645,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "99.2 双微观层：外感受、内感受与内稳态估计",
+      "start_pdf_page": 646,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "99.3 身心耦合：评价、行动倾向与多时间尺度稳定",
+      "start_pdf_page": 646,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "99.4 工程运行时：状态机、记忆接口与安全降级",
+      "start_pdf_page": 647,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "99.5 痛苦的边界：保护信号、主观体验与伦理约束",
+      "start_pdf_page": 648,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 98 chapters; does not validate the full book."
+  "scope": "Review subset: 99 chapters; does not validate the full book."
 }

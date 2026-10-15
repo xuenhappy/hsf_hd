@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 98,
-  "pending_chapters": 19,
+  "rewritten_chapters": 99,
+  "pending_chapters": 18,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3868,37 +3868,37 @@
     {
       "order": 99,
       "path": "chapters/part-11/chp-synthetic_affective_engineering.tex",
-      "title": "合成情感工程 — 机器情感的物理学与内稳态共振",
-      "status": "queued-for-full-rewrite",
+      "title": "合成情感工程：内稳态、调制与可治理的行动倾向",
+      "status": "rewritten-reviewed",
       "original_han_floor": 2119,
-      "new_chapter_prose_han": 1631,
+      "new_chapter_prose_han": 5831,
       "original_readable_units": 1903,
-      "new_readable_units": 1903,
-      "opening_prose_han": 346,
+      "new_readable_units": 5872,
+      "opening_prose_han": 281,
       "sections": [
         {
-          "title": "情感协处理器 (The Affective Co-Processor) — 激素的算子化",
-          "prose_han": 426
+          "title": "情感协处理器：从激素类比到有类型的全局调制",
+          "prose_han": 1093
         },
         {
-          "title": "双微观层架构：内稳态的物理重建",
-          "prose_han": 219
+          "title": "双微观层：外感受、内感受与内稳态估计",
+          "prose_han": 1147
         },
         {
-          "title": "身心共振回路：情感的双向耦合",
-          "prose_han": 423
+          "title": "身心耦合：评价、行动倾向与多时间尺度稳定",
+          "prose_han": 1114
         },
         {
-          "title": "工程实现：情感状态机与物理仿真",
-          "prose_han": 30
+          "title": "工程运行时：状态机、记忆接口与安全降级",
+          "prose_han": 1056
         },
         {
-          "title": "结语：痛苦的必要性",
-          "prose_han": 187
+          "title": "痛苦的边界：保护信号、主观体验与伦理约束",
+          "prose_han": 1140
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

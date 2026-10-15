@@ -1937,9 +1937,16 @@
       "source_start_line": 36125,
       "source_end_line": 36322,
       "source_sha256": "7a63991613fcc5c2326ec58afdb0ee5dc5b053dcbce288a6d390d2ed11428544",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "合成情感工程：内稳态、调制与可治理的行动倾向",
+      "preserved_figure_count": 0,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "checkpoint": "docs/drafts/chapter-099-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-hierarchical_control_engineering.tex",
