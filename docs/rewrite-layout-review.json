@@ -1,9 +1,9 @@
 {
-  "pages": 608,
-  "bytes": 52667325,
+  "pages": 617,
+  "bytes": 52726983,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 539,
+  "numbered_sections": 548,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3779,7 +3779,70 @@
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "95.1 计算图、结构图与物理布图：重新核算“模拟税”",
+      "start_pdf_page": 609,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "95.2 从有限自动机到混合状态机：连续性不是智能特权",
+      "start_pdf_page": 610,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "95.3 离散算子与原生物理计算：结构保持、数值误差和语义验证",
+      "start_pdf_page": 611,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "95.4 复杂性资源向量：时间、通信、精度与真实能耗",
+      "start_pdf_page": 611,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "95.5 流形状态机：有限精度下的统一状态接口",
+      "start_pdf_page": 612,
+      "prose_lines": 36,
+      "calibrated_prose_page_equivalents": 0.802,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "95.6 归约、完全性与可证伪基准：不把物理修辞当作定理",
+      "start_pdf_page": 613,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "95.7 双核架构：几何候选生成与代数验证的异构实体",
+      "start_pdf_page": 614,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "95.8 动力学协同：提出、验证、反馈与结构更新",
+      "start_pdf_page": 615,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "95.9 重铸基质：研究路线、拒绝条件与理论边界",
+      "start_pdf_page": 616,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 94 chapters; does not validate the full book."
+  "scope": "Review subset: 95 chapters; does not validate the full book."
 }

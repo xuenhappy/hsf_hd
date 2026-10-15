@@ -1859,9 +1859,15 @@
       "source_start_line": 33431,
       "source_end_line": 34141,
       "source_sha256": "f7d329053ef69fa2cb344df11a32f34131116d8e856727aa5baf56b54cc36c50",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "计算介质的逆笛卡尔革命：从物理映射到可验证混合计算",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-095-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-alpha_hsf_architecture.tex",

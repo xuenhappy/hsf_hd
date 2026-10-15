@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 94,
-  "pending_chapters": 23,
+  "rewritten_chapters": 95,
+  "pending_chapters": 22,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3672,53 +3672,53 @@
     {
       "order": 95,
       "path": "chapters/part-11/chp-reverse_cartesian_revolution.tex",
-      "title": "计算介质的逆笛卡尔革命：从离散自动机到几何物理场",
-      "status": "queued-for-full-rewrite",
+      "title": "计算介质的逆笛卡尔革命：从物理映射到可验证混合计算",
+      "status": "rewritten-reviewed",
       "original_han_floor": 9588,
-      "new_chapter_prose_han": 8747,
+      "new_chapter_prose_han": 10083,
       "original_readable_units": 9146,
-      "new_readable_units": 9146,
-      "opening_prose_han": 202,
+      "new_readable_units": 10180,
+      "opening_prose_han": 364,
       "sections": [
         {
-          "title": "代数范式的困境：模拟税与拓扑盲视",
-          "prose_han": 520
+          "title": "计算图、结构图与物理布图：重新核算“模拟税”",
+          "prose_han": 1003
         },
         {
-          "title": "自动机理论的升华：从状态点到流形域",
-          "prose_han": 461
+          "title": "从有限自动机到混合状态机：连续性不是智能特权",
+          "prose_han": 1130
         },
         {
-          "title": "几何范式的崛起：让物理去计算",
-          "prose_han": 401
+          "title": "离散算子与原生物理计算：结构保持、数值误差和语义验证",
+          "prose_han": 1085
         },
         {
-          "title": "复杂性理论的重构：从时空到热力学与几何",
-          "prose_han": 610
+          "title": "复杂性资源向量：时间、通信、精度与真实能耗",
+          "prose_han": 1046
         },
         {
-          "title": "流形状态机 (MSM)：面向物理与几何计算的大一统理论",
-          "prose_han": 3159
+          "title": "流形状态机：有限精度下的统一状态接口",
+          "prose_han": 1087
         },
         {
-          "title": "计算复杂性的几何热力学重构：MSM-归约、完全问题与四重约束",
-          "prose_han": 1601
+          "title": "归约、完全性与可证伪基准：不把物理修辞当作定理",
+          "prose_han": 1107
         },
         {
-          "title": "双核架构：Alpha-HSF 的物理实体",
-          "prose_han": 481
+          "title": "双核架构：几何候选生成与代数验证的异构实体",
+          "prose_han": 1083
         },
         {
-          "title": "动力学协同：从并联到纠缠",
-          "prose_han": 872
+          "title": "动力学协同：提出、验证、反馈与结构更新",
+          "prose_han": 1080
         },
         {
-          "title": "结语：重铸基质 (Recasting the Substrate)",
-          "prose_han": 440
+          "title": "重铸基质：研究路线、拒绝条件与理论边界",
+          "prose_han": 1098
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {
