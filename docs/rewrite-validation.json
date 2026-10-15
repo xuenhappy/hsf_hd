@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 92,
-  "pending_chapters": 25,
+  "rewritten_chapters": 93,
+  "pending_chapters": 24,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3600,37 +3600,37 @@
     {
       "order": 93,
       "path": "chapters/part-11/chp-medium_layer_ch_1.tex",
-      "title": "介质层的维度工程 — 智力等级与流形拓扑",
-      "status": "queued-for-full-rewrite",
+      "title": "有效维度的介质工程：拓扑、路由与认知带宽",
+      "status": "rewritten-reviewed",
       "original_han_floor": 2478,
-      "new_chapter_prose_han": 2382,
+      "new_chapter_prose_han": 5727,
       "original_readable_units": 2559,
-      "new_readable_units": 2559,
-      "opening_prose_han": 126,
+      "new_readable_units": 5747,
+      "opening_prose_han": 301,
       "sections": [
         {
-          "title": "生物参照系：折叠的膜 vs. 堆叠的球",
-          "prose_han": 296
+          "title": "生物参照系：从形态类比到可测网络量",
+          "prose_han": 1097
         },
         {
-          "title": "硅基进化：从平面到立方体",
-          "prose_han": 207
+          "title": "硅基介质：物理图、任务图与映射代价",
+          "prose_han": 1103
         },
         {
-          "title": "终极架构：基因缠绕与超流形构建",
-          "prose_han": 330
+          "title": "超流形构建：受许可捷径与任务相关有效维度",
+          "prose_han": 1098
         },
         {
-          "title": "维度霸权：高维智能的优势与代价",
-          "prose_han": 330
+          "title": "高维连接的收益、投影损失与系统性代价",
+          "prose_han": 1005
         },
         {
-          "title": "维度的临界值：也许步于 11 维？",
-          "prose_han": 1093
+          "title": "临界维度：从“十一维猜想”到可验证设计优化",
+          "prose_han": 1123
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

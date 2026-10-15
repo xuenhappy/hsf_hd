@@ -1821,9 +1821,15 @@
       "source_start_line": 32843,
       "source_end_line": 33066,
       "source_sha256": "b981caf258cb5ec5fbdb85f43732f68d6ecd4d5a9cae56ece23840a28a5ff4da",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "有效维度的介质工程：拓扑、路由与认知带宽",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-093-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chap-geometric_computing_engines.tex",
