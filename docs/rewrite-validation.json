@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 93,
-  "pending_chapters": 24,
+  "rewritten_chapters": 94,
+  "pending_chapters": 23,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3636,37 +3636,37 @@
     {
       "order": 94,
       "path": "chapters/part-11/chap-geometric_computing_engines.tex",
-      "title": "几何计算引擎 — 从 DEC 芯片到量子原生智能",
-      "status": "queued-for-full-rewrite",
+      "title": "几何计算引擎：离散算子、异构介质与可验证加速",
+      "status": "rewritten-reviewed",
       "original_han_floor": 4160,
-      "new_chapter_prose_han": 3831,
+      "new_chapter_prose_han": 5844,
       "original_readable_units": 4065,
-      "new_readable_units": 4065,
-      "opening_prose_han": 224,
+      "new_readable_units": 5911,
+      "opening_prose_han": 255,
       "sections": [
         {
-          "title": "计算范式的相变：从代数到几何 (From Algebra to Geometry)",
-          "prose_han": 964
+          "title": "从通用张量核到类型化离散算子",
+          "prose_han": 1057
         },
         {
-          "title": "TPU-G 架构：单纯形核与流形存储 (The TPU-G Architecture)",
-          "prose_han": 933
+          "title": "TPU-G：单纯形存储、局部路由与数值契约",
+          "prose_han": 1179
         },
         {
-          "title": "HSF-HD SoC：混合物理-数字计算机 (The Hybrid Physio-Digital Computer)",
-          "prose_han": 786
+          "title": "异构HSF-HD SoC：快慢回路、边界与故障隔离",
+          "prose_han": 1046
         },
         {
-          "title": "终极形态：量子原生智能 (Quantum Native Intelligence)",
-          "prose_han": 767
+          "title": "量子协处理器：问题映射、测量代价与认识边界",
+          "prose_han": 1142
         },
         {
-          "title": "结语：从“人工智能”到“机器生命”",
-          "prose_han": 157
+          "title": "从芯片原型到可审计计算介质",
+          "prose_han": 1165
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

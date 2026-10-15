@@ -1,9 +1,9 @@
 {
-  "pages": 603,
-  "bytes": 52632202,
+  "pages": 608,
+  "bytes": 52667325,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 534,
+  "numbered_sections": 539,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -3744,7 +3744,42 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "94.1 从通用张量核到类型化离散算子",
+      "start_pdf_page": 604,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "94.2 TPU-G：单纯形存储、局部路由与数值契约",
+      "start_pdf_page": 605,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "94.3 异构HSF-HD SoC：快慢回路、边界与故障隔离",
+      "start_pdf_page": 606,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "94.4 量子协处理器：问题映射、测量代价与认识边界",
+      "start_pdf_page": 607,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "94.5 从芯片原型到可审计计算介质",
+      "start_pdf_page": 607,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 93 chapters; does not validate the full book."
+  "scope": "Review subset: 94 chapters; does not validate the full book."
 }

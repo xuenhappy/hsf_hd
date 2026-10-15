@@ -1840,9 +1840,15 @@
       "source_start_line": 33066,
       "source_end_line": 33431,
       "source_sha256": "29598393d732115a60a5ba67527d78e5a58e93ee320380b3672cc9ec672f98eb",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "几何计算引擎：离散算子、异构介质与可验证加速",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "draft_checkpoint": "docs/drafts/chapter-094-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-reverse_cartesian_revolution.tex",

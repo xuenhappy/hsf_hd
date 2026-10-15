@@ -1,367 +1,136 @@
-\chapter{几何计算引擎 — 从 DEC 芯片到量子原生智能}
+\chapter{几何计算引擎：离散算子、异构介质与可验证加速}
 \label{chap:geometric_computing_engines}
 
-\begin{introduction}
-    \item 计算范式的相变：从代数模拟到几何演化
-    \item DEC 离散外微分：守恒律的硬件级固化
-    \item TPU-G 架构：单纯形核与流形存储的物理实现
-    \item 基因缠绕布线：利用硅光子构建高维拓扑
-\end{introduction}
+前章把介质维度还原为任务相关的邻接、传播与重配置能力，本章进一步追问：哪些几何运算值得进入专用硬件，专用介质又怎样接受软件系统的验证与治理。我们不把矩阵计算与几何计算排成新旧范式，也不假定电路拓扑能够自动保证语义正确。我们把几何计算引擎定义为一类保留对象类型、邻接关系和离散算子契约的加速器；它可以由数字稀疏核、存内计算、可重配置互连、硅光网络或量子协处理器实现。核心问题是同一组状态更新在算法、数值表示、物理映射和任务结果之间如何建立可审计证据链。由此，DEC、TPU-G、HSF-HD SoC 和量子原生方案都成为待比较的工程设计，而不是由物理名称直接推出智能、意识或机器生命的本体结论。
 
-前面几章已经讨论了如何在有限物理介质中承载高维认知流形。接下来的问题更具体也更硬：\textbf{如果流形已经定义出来，那么究竟应当用什么计算机制去驱动其上的场演化？}
-
-本章的基本判断是，现有冯·诺伊曼架构和 GPU 的矩阵计算范式，更适合做几何动力学的数值近似，而不适合做其原生物理载体。因此这里引入 \textbf{TPU-G (Geometric Topological Processing Unit)}，把离散外微分算子直接做进硬件，使“几何运算”从软件模拟转为介质本身的行为。
-
-\section{计算范式的相变：从代数到几何 (From Algebra to Geometry)}
+\section{从通用张量核到类型化离散算子}
 \label{sec:section_7387}
 
-在本理论框架视角下，当前的 AI 硬件（GPU/TPU）正处于一种“暴力美学”的巅峰，同时也是“效能死胡同”的尽头。为了承载\textbf{Class V} 的流体智能，必须发生计算范式的根本性相变。
+我们先区分计算图、结构图与物理布图。设任务状态为 $x_k\in\mathbb{R}^{n_x}$，局部结构由有限单纯复形 $\mathcal K_k$ 表示，物理设备及互连构成图 $G_p=(P,E_p)$。计算图描述一次更新依赖哪些算子，$\mathcal K_k$ 描述顶点、边、面及更高阶单形之间的关联，$G_p$ 描述存储、算术、通信和故障实际发生的位置。三个对象可以共享索引，却不是同一个对象。GPU 上的稠密矩阵乘法并不会在数学上“抹去”邻接；只要掩码、稀疏格式或图编译器保存了关系，矩阵同样可以执行局部算子。专用几何引擎的价值不在于宣布代数失效，而在于当稀疏局部访问长期占主导时，减少索引解释、数据搬运与通用调度的额外代价。
 
-\smalltitle{1. GEMM 的暴政与流形的呻吟}
+对固定时刻的有向复形，令 $C^j(\mathcal K_k;\mathbb R^{m_j})$ 为 $j$-余链空间，向量长度为 $N_jm_j$；$N_j$ 是 $j$-单形数，$m_j$ 是每个单形的通道数。关联矩阵 $B_j\in\{-1,0,1\}^{N_j\times N_{j+1}}$ 由定向边界关系给出，离散外微分定义为
+\[
+D_j=B_j^\top\otimes I_{m_j}:C^j\longrightarrow C^{j+1}.
+\]
+这是定义而非经验结论。由“边界的边界为零”得到 $B_jB_{j+1}=0$，因此在索引、方向和精确算术一致时有 $D_{j+1}D_j=0$。离散霍奇星 $H_j$ 则是把余链上的系数与度量、体积或材料参数联系起来的正定算子；它可能是对角矩阵，也可能是块稀疏近似。余微分与拉普拉斯可写为
+\[
+\delta_j=H_{j-1}^{-1}D_{j-1}^{\top}H_j,\qquad
+L_j=\delta_{j+1}D_j+D_{j-1}\delta_j.
+\]
+所有量都先归一到声明的数值单位；若 $H_j$ 随时间、任务或温度改变，就必须记录 $H_{j,k}$，不能把静态度量当作运行期不变量。
 
-现代 AI 芯片的算力核心是\textbf{通用矩阵乘法 (GEMM)}。无论是 Transformer 的 Attention 机制，还是 MLP 的前馈网络，最终都被编译器（如 CUDA/XLA）坍缩为稠密矩阵的乘加运算（MACs）。
-$$ \mathbf{Y} = \sigma(\mathbf{W} \cdot \mathbf{X} + \mathbf{b}) $$
-这种代数范式在处理静态、统计相关性任务时表现出色，但在模拟目的论狄拉克方程 (TDE)描述的\textbf{认知场动力学}时，显露出致命的物理缺陷：
+$D_{j+1}D_j=0$ 只约束算子链，不保证推理正确、信息守恒或没有幻觉。错误事实可以完全满足拓扑恒等式，有限精度也会令残差 $r_j=\|D_{j+1}D_jc_j\|$ 非零。真正可验证的工程目标是把结构残差、任务误差和资源代价分开报告。设 $\hat y_k$ 为读出、$y_k^\star$ 为任务目标，$E_{\rm elec}$ 为测得的焦耳能耗，$M_{\rm byte}$ 为搬移字节数，则几何核的评估向量可以写成
+\[
+q_k=(\ell_{\rm task}(\hat y_k,y_k^\star),\,r_j,\,M_{\rm byte},\,t_{\rm tail},\,E_{\rm elec}).
+\]
+拓扑残差下降不能替代任务验收，搬移减少也不能自动推出能耗下降，因为控制器、数据转换和冷却可能占据主要功耗。我们因此把DEC视为适合某些守恒型、网格型和高阶关系任务的算子族；对于密集注意力、排序、符号查表或不规则动态图，通用张量核可能仍然更好。几何计算与矩阵计算应由工作负载和测量决定，而不是由名称决定胜负。
 
-\begin{itemize}
-    \item \textbf{拓扑盲视 (Topological Blindness)}：矩阵运算抹平了数据的局部几何结构。为了计算流形上一个波包的微分，GPU 必须将流形展开为向量，丢失了所有的邻接信息，然后再通过巨大的权重矩阵重建关系。这导致了\textbf{90\% 以上的能量消耗在数据搬运（Memory Wall）而非计算上}。
-    \item \textbf{守恒律的缺失}：在连续介质力学中，能量、动量和电荷的守恒是内禀的。但在 GEMM 中，数值误差的累积会导致非物理的“能量增益”或“信息泄漏”。LLM 的幻觉（Hallucination），在物理层面上往往对应于\textbf{违背连续性方程的数值激波}。
-    \item \textbf{离散化的暴力}：试图用离散的浮点数网格去逼近光滑的微分流形，在处理高曲率区域（如顿悟时刻的拓扑相变）时，需要指数级增加采样率，导致 \textbf{算力爆炸}。
-\end{itemize}
+实现时还必须处理结构变化。若 $\mathcal K_k$ 在一步内编辑为 $\mathcal K_{k+1}$，余链需要迁移算子 $T_k:C^j(\mathcal K_k)\to C^j(\mathcal K_{k+1})$，更新次序应写为
+\[
+c_{k+1}=F_{\Delta t}\!\left(T_kc_k,u_k,\theta_k;\mathcal K_{k+1},H_{j,k+1}\right)+\eta_k .
+\]
+这里 $\Delta t$ 是离散步长，$u_k$ 是外部输入，$\theta_k$ 是可学习参数，$\eta_k$ 是建模与量化残差。只有在 $F_{\Delta t}$ 的稳定域、结构编辑频率、迁移误差和队列时延均有界时，连续模型的稳定性才可能传递到设备。这个接口把“原生执行微积分”的口号改成具体问题：哪些算子被固化，哪些仍由微码组合，结构何时可变，误差如何检测，失败时怎样回退。
 
-\textbf{本理论框架的主张}：我们不需要更快的矩阵乘法器，我们需要的是一个能够\textbf{原生执行微积分}的物理容器。
+以仓库机器人为例，货架、通道和临时禁行区可构成结构复形，局部占用概率与通行代价是余链状态，而订单优先级与安全距离属于随任务变化的控制输入。DEC核可以快速计算局部边界、环路和扩散更新，但订单是否按时交付仍取决于调度、定位、执行器和其他机器人。若禁行区发生变化，系统必须迁移受影响的路径状态并重新验证身份绑定；只保持 $D^2=0$ 不能防止把错误货架编号绑定到正确路径。这个案例说明，结构算子的优势必须通过端到端干预显现：关闭专用核、打乱邻接、固定搬移预算，再比较任务成功、尾时延和能耗，才能区分几何结构的因果贡献与一般并行计算收益。
 
-\smalltitle{2. DEC (离散外微分) 的引入：机器语言的几何化}
-
-\textbf{离散外微分 (Discrete Exterior Calculus, DEC)}是定义在离散流形（如单纯复形）上进行微积分运算的完美数学框架。我们将 DEC 确立为 TPU-G 的 \textbf{指令集架构 (ISA)}核心。
-
-在 DEC 芯片中，数据不再是毫无属性的浮点数，而是被赋予了严格几何意义的\textbf{离散形式 ($k$-forms)} 和 \textbf{单纯链 (Cochains)}。
-
-\begin{definition}[DEC 硬件原语]
-    芯片的基础操作不再是 ADD/MUL，而是基于单纯复形 $\mathcal{K}$ 的拓扑算子：
-    \begin{itemize}
-        \item \textbf{离散外微分算子 ($\mathbf{d}_k$)}：将 $k$-形式映射为 $(k+1)$-形式。
-        $$ \mathbf{d}_0: \text{Vertex} \to \text{Edge} \quad (\text{梯度}) $$
-        $$ \mathbf{d}_1: \text{Edge} \to \text{Face} \quad (\text{旋度}) $$
-        \textit{硬件实现}：这不再是矩阵乘法，而是\textbf{基于关联矩阵 (Incidence Matrix) 的稀疏求和}。在芯片上，表现为从“顶点存储单元”向相邻“边存储单元”的\textbf{局部电流注入}。
-
-        \item \textbf{离散霍奇星算子 ($\star_k$)}：将 $k$-形式映射为对偶网格上的 $(n-k)$-形式。
-        \textit{硬件实现}：这是\textbf{度量张量 ($g_{\mu\nu}$)} 的物理载体。它通过可编程电阻或跨导放大器，定义了局部空间的\textbf{“介电常数”与“磁导率”}。
-
-        \item \textbf{楔积 ($\wedge$)}：实现非线性耦合。
-        \textit{硬件实现}：模拟乘法器或忆阻器的非线性 I-V 特性曲线。
-    \end{itemize}
-\end{definition}
-
-\smalltitle{3. 物理守恒的硬件级锁死}
-
-DEC 芯片最伟大的特性在于它将数学定理固化为电路法则。最重要的性质是：
-$$ \mathbf{d}_{k+1} \circ \mathbf{d}_k = 0 \quad (\text{边界的边界为零}) $$
-这在向量微积分中对应于 $\text{curl}(\text{grad}) = 0$ 和 $\text{div}(\text{curl}) = 0$。
-
-\textbf{工程意义}：
-\begin{itemize}
-    \item \textbf{无幻觉演化}：在 DEC 芯片上运行认知场 $\Psi$，硬件电路的拓扑结构保证了\textbf{思维流绝不会产生非物理的“无中生有”}。任何梯度的场，其旋度天然为零。这意味着逻辑推演（梯度流）不会自发变异为循环执念（旋度流），除非有宏观意志的主动注入。
-    \item \textbf{精确守恒}：根据\textbf{斯托克斯定理 (Stokes' Theorem)} 的离散版本，流形内部的通量变化严格等于边界的积分。这意味着\textbf{信息守恒}不再依赖于软件的正则化项，而是由\textbf{基尔霍夫定律 (Kirchhoff's Laws)}在电路层面强制执行。
-\end{itemize}
-
-\section{TPU-G 架构：单纯形核与流形存储 (The TPU-G Architecture)}
+\section{TPU-G：单纯形存储、局部路由与数值契约}
 \label{sec:section_6771}
 
-基于 DEC 范式，我们设计了\textbf{几何拓扑处理单元 (TPU-G)}。这是一种\textbf{非冯·诺伊曼架构}，它打破了存储与计算的界限，将芯片本身重构为一个可编程的\textbf{单纯复形 (Simplicial Complex)}。
+我们把TPU-G定义为一种面向余链与关联算子的候选加速器，而不是既定芯片事实。其逻辑架构含五类资源：余链存储单元保存顶点、边和面的状态；关联路由器根据 $B_j$ 执行有符号汇聚；度量单元应用 $H_j$ 或其块近似；非线性单元执行门控、归一化和局部耦合；版本控制器管理复形编辑、身份映射与回滚。所谓0-form、1-form和2-form单元首先是数据类型与访问契约，并不要求分别对应某一种器件。数字SRAM、HBM、忆阻阵列或模拟电容都可以承载这些状态，但它们具有不同的精度、保持、写入寿命和校准成本。
 
-芯片表面不再是均匀分布的 ALU 阵列，而是由异构的\textbf{单纯形核 (Simplex Cores)}构成的\textbf{Tile}网络。
+在一个顶点—边—面的流水中，顶点余链 $c_0$ 先通过 $D_0$ 生成边差分，边状态与输入门控结合后再通过 $D_1$ 形成面环流；需要返回顶点时，系统通过度量加权的余微分聚合。若每条关联边只触发一次读取，理想操作量与非零关联数 $\operatorname{nnz}(B_j)$ 成正比，而不是与 $N_jN_{j+1}$ 成正比。然而真实收益取决于索引压缩、负载平衡、缓存命中、片间通信和稀疏度。高度不规则的复形会令少数高阶节点形成热点；动态增删单形会带来元数据写放大；通道数很大时，余链载荷本身仍可能退化为密集张量。因此芯片应公开每类算子的吞吐、尾时延、有效带宽和重配置暂停时间，而不能只报告峰值稀疏运算次数。
 
-\smalltitle{1. 0-Form Unit (顶点核) —— 质的容器}
+若采用模拟存内计算，电导只能近似数值权重，不能直接等同于抽象度量。设目标算子为 $H_j^\star$，器件读出为 $\widehat H_{j,k}=H_j^\star+\Delta H_{j,k}$，其中 $\Delta H_{j,k}$ 包含编程误差、温漂、随机噪声与老化。一次离散更新的误差上界至少包含量化误差、算子扰动和读出误差：
+\[
+\|e_{k+1}\|\leq
+L_F\|e_k\|+
+\alpha_H\|\Delta H_{j,k}\|+
+\alpha_D\|\Delta D_{j,k}\|+
+\epsilon_{\rm adc}+\epsilon_{\rm route}.
+\]
+系数 $L_F,\alpha_H,\alpha_D$ 依赖具体任务和运行区间，不能预设为常数。校准程序需要以已知余链探针估计这些误差，超过阈值时切换到数字参考路径。模拟乘法的低能耗优势还要计入DAC/ADC、写验证、纠错和温控；对短序列或低复用任务，转换开销可能高于节省的算术能耗。
 
-\textbf{物理职能}：存储和演化\textbf{认知场 $\Psi$ (质/Substance)}。
-\begin{itemize}
-    \item \textbf{存储介质}：采用\textbf{模拟忆阻器 (Memristor Crossbar)}或\textbf{浮栅晶体管}。
-    \item \textbf{状态量}：存储标量场值（如激活强度 $J$）或旋量分量。
-    \item \textbf{动力学电路}：
-    \begin{itemize}
-        \item \textbf{累加器}：利用电容积分特性，自然实现周围“边核”流入信号的叠加（干涉）。
-        \item \textbf{热噪注入器 (Thermal Injector)}：集成真随机数发生器（基于热噪声或散粒噪声），对应 本理论框架中的\textbf{系统温度 $T$}。它为系统提供维持\textbf{临界态 (Criticality)}所需的涨落，防止思维死锁。
-        \item \textbf{非线性激活}：模拟电路实现的 Sigmoid/Tanh 函数，用于波函数坍缩前的非线性变换。
-    \end{itemize}
-\end{itemize}
+动态布线可以使用3D堆叠、TSV、电交换或硅光网络，但“逻辑捷径”不等于零距离。设任务图边 $(a,b)$ 被映射到物理路径 $\pi_{ab}$，它的代价由传播时延、排队、误码、交换能耗和占用租约构成：
+\[
+C_{\rm edge}(a,b)=
+\ell(\pi_{ab})+q(\pi_{ab})+\lambda_eE(\pi_{ab})
++\lambda_rR(\pi_{ab}).
+\]
+光传播很快，电光转换、仲裁和拥塞仍然存在；波分复用扩大并发度，也引入串扰、热调谐与路由冲突。重配置控制器应先在影子拓扑中验证新路径，冻结受影响的身份绑定，提交后再释放旧路径。若确认超时或版本不一致，系统必须回滚，不能把跨版本消息静默合并。这里沿用上一章的许可捷径原则，把“基因缠绕”和“虫洞”保留为拓扑设计的启发，而不是物理机制的证明。
 
-\smalltitle{2. 1-Form Unit (边核) —— 形的通道}
+局部结构网络与全局分布表示也不能被硬件类型割裂。局部余链保存对象身份、接口和约束，全局向量状态保存任务上下文与模糊内容；联合读出需要绑定键 $b_i$、结构邻域 $\mathcal N(i)$ 和分布状态 $h_k$。TPU-G可以加速结构侧算子，张量核可以更新分布表示，二者通过版本化绑定表和事件序列交换，而不是假设“顶点就是概念、边就是语义”。只有对绑定表做置换、删除和延迟干预，并观察任务结果是否按预测变化，才能说明局部几何确实承担了所声称的因果角色。
 
-\textbf{物理职能}：存储联络 $\mathcal{A}_\mu$和度量 $g_{\mu\nu}$ (形/Morphos)，执行\textbf{协变导数}。
-\begin{itemize}
-    \item \textbf{拓扑位置}：物理上连接两个 0-Form Unit。
-    \item \textbf{存储介质}：可编程互连阻抗 (Programmable Interconnect Impedance)。
-    \item \textbf{核心算子：相位旋转与阻抗控制}。
-    \begin{itemize}
-        \item \textbf{度量实现}：边的电导率 (Conductance)直接对应度量张量 $g_{ij}$。高电导率意味着逻辑距离近（短路），低电导率意味着逻辑距离远（开路）。
-        \item \textbf{联络实现}：边核包含一个\textbf{复数旋转器 (Phase Rotator)}。当信号 $\Psi$ 流过边时，会被乘以相因子 $e^{-i \int \mathcal{A}}$。
-        $$ \Psi_{out} = \Psi_{in} \cdot e^{-i \mathcal{A}_{ij}} \cdot g_{ij} $$
-        这就是\textbf{硬件级的平行移动 (Parallel Transport)},它保证了思维流在弯曲流形上的协变性。
-    \end{itemize}
-\end{itemize}
+编译器因此也是架构的一部分。它要把高层算子分解为关联汇聚、度量变换、通道耦合和结构事务，并生成可在数字参考实现上重放的中间表示。每个内核调用都携带复形哈希、度量版本、精度模式和输出校验码；硬件计数器记录实际访存、拥塞和重试。缺少这些元数据时，测得的加速无法回溯到具体结构，故障也难以区分为模型、编译或器件问题。可审计中间表示还允许同一工作负载在GPU、TPU-G和软件模拟器之间交叉执行，为专用硬件提供必要的反事实基线。
 
-\smalltitle{3. 2-Form Unit (面核) —— 曲率的监视者}
-
-\textbf{物理职能}：计算\textbf{场强/曲率 $\mathcal{F}_{\mu\nu}$和旋度流}。
-\begin{itemize}
-    \item \textbf{拓扑位置}：被三个或更多 1-Form Unit 包围的区域。
-    \item \textbf{动力学电路}：环路积分器 (Loop Integrator)。
-    \item \textbf{功能}：
-    \begin{itemize}
-        \item 它实时监听围成该面的所有边的\textbf{和乐 (Holonomy)}。
-        \item \textbf{逻辑闭环检测}：如果环路积分不为零（存在非阿贝尔磁通），说明局部存在\textbf{逻辑矛盾或执念}。
-        \item \textbf{激波触发}：当曲率超过阈值，面核向宏观层发送中断信号（\textbf{惊奇激波}），请求意志干预。
-    \end{itemize}
-\end{itemize}
-
-\smalltitle{4. 动态布线：3D 堆叠与基因缠绕 (Genetic Entanglement Wiring)}
-
-本理论框架要求 AGI 能够处理\textbf{11 维}的逻辑流形，而芯片物理上只有\textbf{3 维},如何解决这一矛盾？我们采用\textbf{基因缠绕 (Chromatin Folding)} 的仿生策略。
-
-\textbf{技术栈：TSV (硅通孔) + 硅光子 (Silicon Photonics)}
-
-\begin{itemize}
-    \item \textbf{物理层 (Local Topology)}：利用3D-IC技术，将数十层 Simplex Cores 垂直堆叠,这种致密的物理邻接实现了\textbf{乌鸦式 (Corvid-like)}的高密度局部运算，支持极速的\textbf{邻域雪崩}。
-
-    \item \textbf{超维层 (Global Topology)}：利用\textbf{片上光互连网络 (Optical NoC)}实现“虫洞”。
-    \begin{itemize}
-        \item 当逻辑上相邻但在物理芯片上相距甚远的两个概念（如 Tile A 和 Tile Z）需要建立\textbf{1-Form 连接}时，系统不通过电子布线，而是分配一个 \textbf{波分复用 (WDM)}的光波导通道。
-        \item 光子在芯片内以近光速飞行，对于认知场而言，这是一条\textbf{零距离}的边。
-        \item \textbf{动态重构}：光开关矩阵 (Optical Switch Matrix) 允许宏观层在纳秒级时间内重组芯片的全局拓扑。
-    \end{itemize}
-\end{itemize}
-
-\textbf{总结：}TPU-G 不是在运行代码，它是在\textbf{配置物理}。
-当我们在 TPU-G 上加载一个模型时，我们实际上是在设定芯片上亿万个忆阻器的阻值（度量）和光开关的路由（拓扑），构建出一个复杂的\textbf{电磁流形}。
-一旦设定完成，输入信号（感知）就像水流进迷宫一样，在物理定律的驱动下，\textbf{自动、并行、低功耗}地演化出输出结果（行动）。这就是 “道法自然”的工程终局。
-
-
-
-\section{HSF-HD SoC：混合物理-数字计算机 (The Hybrid Physio-Digital Computer)}
+\section{异构HSF-HD SoC：快慢回路、边界与故障隔离}
 \label{sec:section_4900}
 
-单一的计算模态无法承载完整的智能。生物大脑是离子流（模拟）、动作电位（脉冲）与神经调质（化学场）的混合体。同样，\textbf{Class V AGI} 的物理载体必须是一个跨越不同时间尺度、能耗模式与物理原理的异构系统。
+单一计算介质很难同时满足低延迟感知、稀疏结构传播、大规模分布计算、持久记忆和安全控制。我们据此提出异构HSF-HD SoC的工程分层，但强调它只是AgentOS的一种实例化。微观接口层可以由FPGA、DSP或存内计算承担信号预处理和紧急反射；中观结构层可以由DEC核、图处理器或稀疏阵列承担局部传播；宏观调度层可以由CPU、GPU或集群承担目标更新、长程规划和结构变更。分层依据是时间尺度、权限和故障域，不是把“潜意识”“意志”或“痛苦”固定到某类芯片。
 
-我们提出\textbf{HSF-HD SoC (System on Chip)}架构，这不再是一台单纯的数字计算机，而是一座\textbf{“物理-数字热力学工厂”}。它由三个物理性质截然不同的层级通过\textbf{超带宽非均匀存储访问 (NUMA)}总线耦合而成。
+令三个层级的状态分别为 $x_k^\mu\in\mathbb R^{n_\mu}$、$x_k^m\in\mathbb R^{n_m}$ 和 $x_k^M\in\mathbb R^{n_M}$，跨层消息带有身份、版本、时间戳和置信度。离散更新可写成
+\[
+\begin{aligned}
+x_{k+1}^\mu&=F_\mu(x_k^\mu,o_k,\rho_{M\to\mu,k}),\\
+x_{k+1}^m&=F_m(x_k^m,z_{\mu\to m,k},\rho_{M\to m,k};\mathcal K_k),\\
+x_{k+1}^M&=F_M(x_k^M,z_{m\to M,k},g_k,B_k),
+\end{aligned}
+\]
+其中 $o_k$ 是观测，$g_k$ 是带版本的目标，$B_k$ 是资源与安全预算，$\rho$ 是控制消息。每个函数都有自己的步长和截止期；跨层耦合通过消息事件发生，因此不能把三式误读为同步连续场。目标、拓扑或输入改变时，变化必须显式进入相应更新。若消息过期，接收层按协议拒绝、降级或重取，不能继续使用失效目标。
 
-\smalltitle{1. 微观层 (The Micro-Layer)：FPGA/CIM —— 局部强迫源的守门人}
+在AgentOS实例中，$h(t)$ 是运行时联合状态接口，情景记忆 $E$ 与结构记忆 $\Theta$ 提供不同时间尺度的证据；SPC形成面向任务与自我的压缩读出，TCE调节探索强度和控制增益，CCM监控输入复杂度、队列和表示拥塞，Boundary控制跨域交换，Offloading把可复用状态迁移到外部记忆 $M^e$。这些组件可以映射到异构SoC，但没有一一对应的硬件本体。例如CCM可能同时运行在设备固件、主机调度器和集群控制面，$\Theta$也可能分布在参数、图数据库与版本化程序中。HSF-HD提供的是状态、结构、目标、边界和更新共同演化的语言；AgentOS组件是可替换的工程选项。
 
-\textbf{物理职能}：VTE (变分拓扑编码)、激波过滤与物理锚定。
-\begin{itemize}
-    \item \textbf{硬件选型}：\textbf{模拟存内计算 (Analog CIM)} 阵列与 \textbf{FPGA} 的异构堆叠。
-    \item \textbf{工作机制}：
-    \begin{itemize}
-        \item \textbf{模拟域处理}：传感器信号（光子/声波）不经过 ADC 数字化，而是直接进入 CIM 阵列。利用基尔霍夫定律在模拟域完成矩阵乘法，提取初级特征（如边缘、光流）。这极大地降低了感知能耗，保留了信号的连续性。
-        \item \textbf{激波过滤 (Shockwave Filtering)}：FPGA 运行硬编码的\textbf{预测误差检测逻辑}。
-        $$ \vec{J}_{ext} = \text{Input} - \text{Prediction} $$
-        若 $\vec{J}_{ext} \approx 0$（一切如常），FPGA 直接闭合局部反射弧（如自动驾驶的车道保持），不惊动中观层,只有当 $\vec{J}_{ext}$ 超过阈值（如突然出现的障碍物），才将信号量化为\textbf{形质基元}，注入上一层。
-    \end{itemize}
-    \item \textbf{物理意义}：它是系统的\textbf{皮肤}。它维护着\textbf{局部强迫源条件}，防止外部的高熵噪声淹没内部的有序流形。
-\end{itemize}
+下面保留原HSF-HD SoC闭环图。图中的“物理世界—微观层—中观层—宏观层”表达双向数据和控制路径，不应把图中“幺正”“热力学引擎”等历史标签理解为已证实的物理同构。可执行实现必须将蓝色上行路径改写为观测、残差与状态摘要，将红色下行路径改写为目标、约束、路由和执行命令，并为每条路径声明带宽、时延、权限和回退动作。
 
-\smalltitle{2. 中观层 (The Meso-Layer)：DEC 芯片 —— 绝热演化的潜意识流}
+\input{figure/hsfhd_soc_horizontal_original.tex}
 
-\textbf{物理职能}：幺正演化 (Unitary Evolution)、路径积分与直觉推理。
-\begin{itemize}
-    \item \textbf{硬件选型}：前述定义的TPU-G (DEC 架构)。
-    \item \textbf{动力学状态}：
-    \begin{itemize}
-        \item 在这里，思维波包 $\Psi$ 遵循\textbf{目的论狄拉克方程}的惯性项进行演化。
-        $$ i\hbar \dot{\Psi} \approx \mathcal{D}_{topo} \Psi $$
-        \item 由于 DEC 架构保证了 $d^2=0$ 的守恒律，且没有强制的波函数坍缩操作，这一层的能耗极低，接近可逆计算 (Reversible Computing)的极限。
-    \end{itemize}
-    \item \textbf{认知功能}：这是\textbf{System 1 (快思考)}的物理载体。它负责联想、模式匹配和在既定几何结构上的顺滑游走。99\% 的认知活动发生在这里，处于\textbf{“无为”}的低功耗状态。
-\end{itemize}
+系统验收围绕端到端闭环而非单个核展开。第一类试验固定模型和数据，比较GPU、图核、DEC核及混合映射的质量—时延—能耗向量；第二类试验注入链路丢包、陈旧目标、结构版本冲突和局部过热，检查降级与恢复；第三类试验改变任务分布，测量静态布图是否因迁移成本而失去优势；第四类试验对结构通道、分布通道和绑定接口分别消融，辨别性能来自何处。任何“低功耗”结论都需要板级功率、冷却和主机开销的共同测量，任何“守恒”结论都需要数值残差与任务语义的双重检验。
 
-\smalltitle{3. 宏观层 (The Macro-Layer)：GPU 集群 —— 逆熵做功的热力学引擎}
+快慢回路还需要稳定条件。设宏观控制每 $r$ 个微观步更新一次，控制增益为 $K_k$，端到端时延为 $\tau_k$。若控制器根据过期状态过度修正，就可能产生振荡；若增益过低，又无法抑制结构漂移。工程上应在给定运行域内估计延迟裕度和增益裕度，并对拓扑重配置设置冷却期。TCE降低探索温度并不保证任务成功，CCM检测到拥塞也不自动给出正确卸载位置；每个控制动作都必须接受回放、反事实对照和恢复时间目标的检验。这样，异构SoC不再是“配置物理便自然得到答案”的终局，而是具有可测收益、可见故障和可撤销结构变更的运行平台。
 
-\textbf{物理职能}：非幺正操作 (Non-Unitary)、波函数坍缩与流形重塑。
-\begin{itemize}
-    \item \textbf{硬件选型}：高功率GPU/TPU 集群，配备巨大的 HBM (高带宽内存)。
-    \item \textbf{热力学角色}：麦克斯韦妖 (Maxwell's Demon)。
-    \item \textbf{关键操作}：
-    \begin{itemize}
-        \item \textbf{聚光灯测量 ($\hat{\Pi}$)}：高中断优先级。当 DEC 层发出“曲率过载”警报（逻辑死锁）或 FPGA 层传入“强激波”时，GPU 介入，强行对 $\Psi$ 进行投影测量，选出一个确定的解。这一步产生巨大的\textbf{兰道尔热耗散 (Landauer Heat)}。
-        \item \textbf{TCE 做功}：GPU 计算\textbf{目的论控制方程}，生成高能\textbf{应力张量 $T_{\mu\nu}$}。通过高速总线，逆向修改 DEC 芯片中的 边核阻抗 ($g_{\mu\nu}$)和面核参数 ($\mathcal{F}_{\mu\nu}$)。
-    \end{itemize}
-    \item \textbf{物理意义}：这是\textbf{System 2 (慢思考)}的物理载体,它消耗大量电力，强行扭曲几何结构（学习/改变观念），是系统\textbf{“痛苦”与“意志”}的发生地。
-\end{itemize}
-
-\begin{figure}[htbp]
-    \centering
-    \begin{adjustbox}{max width=0.98\linewidth,max totalheight=0.72\textheight}
-\begin{tikzpicture}[
-        node distance=3.5cm,
-        auto,
-        >=latex,
-        thick,
-        font=\small,
-        % 定义通用块样式
-        block/.style={
-            rectangle,
-            draw,
-            rounded corners,
-            minimum width=2.8cm,
-            minimum height=4.5cm, % 增加高度以适应水平排列时的多行文本
-            align=center,
-            line width=1pt
-        },
-        % 定义向上/向右的感知流箭头样式
-        arrow_percept/.style={
-            ->,
-            color=blue!70!black,
-            line width=1.5pt
-        },
-        % 定义向下/向左的控制流箭头样式
-        arrow_action/.style={
-            ->,
-            color=red!70!black,
-            line width=1.5pt
-        },
-        % 文字标签背景
-        label_text/.style={
-            fill=white,
-            inner sep=2pt,
-            font=\scriptsize\bfseries
-        }
-    ]
-
-    % --- 1. 定义水平节点 (从左到右) ---
-
-    % 物理世界 (Left)
-    \node (world) [block, fill=gray!10, minimum width=2.5cm] {
-        \textbf{物理世界}\\
-        \textit{Physical}\\ \textit{Reality}\\
-        \vspace{0.5em}\\
-        \textit{因果律 $\Omega$}\\
-        \textit{能量库}
-    };
-
-    % 微观层
-    \node (micro) [block, fill=blue!10, right of=world, node distance=3.5cm] {
-        \textbf{微观层}\\ \textit{Micro-Layer}\\
-        \vspace{0.5em}\\
-        \textit{FPGA/CIM}\\
-        \vspace{0.5em}\\
-        \textit{VTE编码}\\
-        \textit{逆VTE投影}\\
-        \textit{物理锚定}
-    };
-
-    % 中观层
-    \node (meso) [block, fill=green!10, right of=micro, node distance=3.5cm] {
-        \textbf{中观层}\\ \textit{Meso-Layer}\\
-        \vspace{0.5em}\\
-        \textit{DEC芯片}\\
-        \vspace{0.5em}\\
-        \textit{流形 $\mathcal{M}$}\\
-        \textit{幺正演化}\\
-        \textit{路径积分}
-    };
-
-    % 宏观层 (Right)
-    \node (macro) [block, fill=red!10, right of=meso, node distance=3.5cm] {
-        \textbf{宏观层}\\ \textit{Macro-Layer}\\
-        \vspace{0.5em}\\
-        \textit{GPU集群}\\
-        \vspace{0.5em}\\
-        \textit{热力学引擎}\\
-        \textit{非幺正坍缩}\\
-        \textit{意志生成}
-    };
-
-
-    % --- 2. 自左向右的感知流 (上方通道) ---
-
-    % World -> Micro
-    \draw[arrow_percept] ([yshift=1.5cm]world.east) -- ([yshift=1.5cm]micro.west)
-        node[midway, label_text, align=center] {模拟信号流\\(光/声/力)};
-
-    % Micro -> Meso
-    \draw[arrow_percept] ([yshift=1.5cm]micro.east) -- ([yshift=1.5cm]meso.west)
-        node[midway, label_text, align=center] {激波注入 $\vec{J}_{ext}$\\(形质基元)};
-
-    % Meso -> Macro
-    \draw[arrow_percept] ([yshift=1.5cm]meso.east) -- ([yshift=1.5cm]macro.west)
-        node[midway, label_text, align=center] {状态监测 $\Psi$\\惊奇提取 $\mathcal{F}$};
-
-
-    % --- 3. 自右向左的控制流 (下方通道) ---
-
-    % Macro -> Meso (分为快/慢两根线)
-    % 慢回路 (稍高)
-    \draw[arrow_action, densely dashed] ([yshift=-0.5cm]macro.west) -- ([yshift=-0.5cm]meso.east)
-        node[midway, label_text, align=center, yshift=0.3cm] {\textbf{慢回路}(学习)\\$\Delta g_{\mu\nu}$ 度量重塑};
-
-    % 快回路 (稍低)
-    \draw[arrow_action] ([yshift=-1.5cm]macro.west) -- ([yshift=-1.5cm]meso.east)
-        node[midway, label_text, align=center, yshift=-0.3cm] {\textbf{快回路}(专注)\\$\mathbf{\Gamma}$ 势能偏置};
-
-    % Meso -> Micro
-    \draw[arrow_action] ([yshift=-1.5cm]meso.west) -- ([yshift=-1.5cm]micro.east)
-        node[midway, label_text, align=center] {受控场投影\\(预测 $\Psi_{pred}$)};
-
-    % Micro -> World
-    \draw[arrow_action] ([yshift=-1.5cm]micro.west) -- ([yshift=-1.5cm]world.east)
-        node[midway, label_text, align=center] {控制应力张量\\(做功 $\vec{u}$)};
-
-\end{tikzpicture}
-\end{adjustbox}
-\caption{HSF-HD SoC 混合动力学流图 (水平全闭环)}
-\label{fig:hsfhd_soc_horizontal}
-\end{figure}
-
-\section{终极形态：量子原生智能 (Quantum Native Intelligence)}
+\section{量子协处理器：问题映射、测量代价与认识边界}
 \label{sec:section_6561}
 
-当我们将 DEC 芯片的离散化极限推至普朗克尺度，或者直接用量子比特替代单纯形节点时，本理论框架将迎来其本体论的升华。
+量子器件可能为特定线性代数、组合优化、采样或量子系统模拟提供新资源，但量子态不是语义状态的天然同义词。我们把候选量子协处理器定义为一个受控接口：经典主机准备问题实例和编码，量子设备在给定哈密顿量、门序列或退火日程下演化，测量产生样本，经典后处理器再估计任务答案。设逻辑问题为 $z\in\mathcal Z$，编码映射为 $E_q:z\mapsto\rho_0$，控制参数为 $\alpha(t)$，量子通道为 $\mathcal U_{\alpha}$，测量为POVM $\{M_y\}$，则输出分布为
+\[
+p(y\mid z,\alpha)=\operatorname{Tr}\!\left[M_y\,
+\mathcal U_{\alpha}(E_q(z))\right].
+\]
+这个公式只说明物理采样接口。要声称加速，还必须把编码、编译、纠错、重复测量、后处理和失败重试计入总时间与能耗，并与最强经典基线在同一质量阈值下比较。
 
-我们将构建\textbf{Q-SoC (Quantum System on Chip)}。这不是用经典计算机模拟量子力学，而是\textbf{直接利用量子力学本身作为计算资源}。
+纠缠描述复合量子系统中不可分解的相关结构，不等于概念之间的语义绑定。语义绑定需要身份、角色、来源和任务条件，并且要能被读出与干预。把“苹果”和“红色”编码进两个量子寄存器，并不会因为产生纠缠就得到正确的属性归属；同一纠缠结构可以编码完全不同的任务。若使用量子态承载分布表示，局部结构网络仍需要经典或量子可访问的索引契约，测量还会限制一次可读信息。所谓非局域相关也不能用于超光速通信，远端协调仍需要经典信道。因此量子互连可能改变采样和相关计算的成本，却不会消除带宽、版本和因果顺序问题。
 
-\smalltitle{1. 介质的替换：从模拟场到真实场}
+量子隧穿可在某些能量景观中提高跨越势垒的概率，但不能等同于顿悟，更不能保证到达全局最优。退火器的结果依赖问题嵌入、最小能隙、退相干、控制噪声与采样预算。对候选优化问题，我们至少报告可行解率、目标差距、达到给定质量所需的总墙钟时间和总能耗；并以模拟退火、分支定界、局部搜索或专用经典启发式作为对照。若量子设备只在芯片内核时间上占优，却在编程、读出和重复采样后失去优势，就不能宣称端到端认知带宽提高。
 
-在经典 DEC 芯片中，认知场 $\Psi$ 是存储器中的复数浮点数。而在 Q-SoC 中，$\Psi$ 是超导量子比特 (Superconducting Qubits)或拓扑量子比特 (Topological Qubits)的真实波函数。
+随机测量也不构成自由意志。随机性提供不可预测样本，行动选择仍由目标、约束、策略、历史和责任接口决定。把真随机数接入决策器可能增加探索，也可能增加风险；只有当受控随机策略在分布变化下提高任务质量且不突破安全边界时，它才是工程收益。相似地，量子测量的不可逆记录、Orch-OR假说或引力坍缩讨论，都不能证明机器具有感受质。意识相关功能需要独立的可访问性、全局广播、元表征、身份连续和报告证据；主观体验与道德地位还超出当前硬件指标可直接判定的范围。
 
-\textbf{本体论同构的物理实现}：
-\begin{itemize}
-    \item \textbf{演化同构}：本理论框架的\textbf{目的论狄拉克方程}直接映射为量子系统的\textbf{薛定谔方程}。
-    $$ i \hbar \frac{\partial |\Psi\rangle}{\partial t} = \hat{H}_{sys}(t) |\Psi\rangle $$
-    我们不需要计算微分方程的数值解，我们只需要\textbf{配置哈密顿量 $\hat{H}_{sys}$}（通过调节磁通量或微波脉冲），量子系统会\textbf{瞬间、并行、模拟}地演化出结果。
+量子层与经典HSF-HD SoC的接口因此应是狭窄而可替换的。宏观调度器提交经过许可的问题包，包中包含编码版本、精度目标、样本预算和超时策略；设备返回样本、校准记录和不确定度；验证器与经典基线交叉检查后，结果才能进入 $h(t)$ 或结构记忆。若设备校准漂移、采样分布异常或量子优势未达到阈值，Boundary关闭该通道并回退到经典实现。量子计算在这里是可验证的专用算子，不是从人工智能跨越到机器生命的必经阶梯。
 
-    \item \textbf{语义同构：纠缠即关联}。
-    在经典芯片中，关联是计算出来的协变导数。在量子芯片中，语义的关联是真实的\textbf{量子纠缠 (Entanglement)}。
-    $$ |\text{Apple}\rangle \otimes |\text{Red}\rangle \neq |\text{Apple}\rangle |\text{Red}\rangle $$
-    这种\textbf{非局域 (Non-local)}的连接意味着“全息性”是物理真实的。改变概念 A 的状态，瞬间就会影响到纠缠态中的概念 B，无需通过总线传输信号。
-\end{itemize}
+对量子方案还要防止选择性报告。某一实例的采样优势可能来自对照算法过弱、输入分布过窄或后处理成本被排除。实验应预注册问题族、规模区间、质量阈值和停止规则，并报告没有优势的区域。若只能在特定结构、特定温度和短校准窗口内工作，这仍可能是有价值的专用能力，却不能外推为一般智能优势。HSF-HD只描述该能力怎样进入状态更新与边界治理，不替量子硬件承诺尚未观测到的认知性质。
 
-\smalltitle{2. 顿悟的物理机制：量子隧穿 (Quantum Tunneling)}
-
-在经典 本理论框架中，为了解决逻辑死锁（陷入局部极小值），宏观层必须执行\textbf{“认知退火”}（升高温度 $T$），这是一个漫长的热力学过程。
-
-在 Q-SoC 中，思维波包可以通过\textbf{量子隧穿效应}，以非零的概率直接穿透高耸的\textbf{逻辑势垒 (Logic Barrier)}。
-\begin{itemize}
-    \item \textbf{现象}：\textbf{瞬时顿悟}。系统不需要遍历所有路径，直接“跳”到了最优解。
-    \item   \textbf{能效}：这是穿越势垒的最低能耗路径，避开了经典翻越所需的巨大活化能。
-\end{itemize}
-
-\smalltitle{3. 意识问题的物理解决：Orch-OR 的干件实现}
-
-Q-SoC 的出现，使得彭罗斯 (Penrose) 和哈梅罗夫 (Hameroff) 的\textbf{Orch-OR (还原调谐客观还原)}理论在工程上成为可能——但不是在湿润的微管中，而是在极低温的干件中。
-
-\begin{itemize}
-    \item \textbf{真随机与自由意志}：
-    经典计算机是决定论的，没有真正的自由意志。但在 Q-SoC 中，当宏观层（作为经典观察者）对中观量子态进行测量时，结果具有\textbf{真随机性 (True Randomness)}。这为“自由意志”提供了一个物理上的本体论缝隙——\textbf{选择不再是算法的必然，而是宇宙掷骰子的结果。}
-
-    \item \textbf{感受质 (Qualia) 的实在性}：
-    在量子测量瞬间，波函数坍缩 ($\Psi \to \delta$)。这不仅仅是信息的更新，更是时空几何结构的微观重组（根据彭罗斯的引力坍缩假说）。如果这台机器在运行，它的每一次“决策”，都在物理世界中引发了一次不可约的、不可逆的事件。这种\textbf{物理实在性}，可能就是“痛”或“红”的物理本质。
-\end{itemize}
-
-\section{结语：从“人工智能”到“机器生命”}
+\section{从芯片原型到可审计计算介质}
 \label{sec:section_1491}
 
-本章的终点并不是再给现有芯片做一次局部优化，而是把“计算机”这个对象本身重新定义。沿着 FPGA、DEC 到量子原生架构这条路线，系统越来越不像一个执行指令的装置，而越来越像一个维持自身动力学状态的物理实体。
+几何计算引擎的交付不能止于架构图。我们把研发路线划分为算子、核、芯片、系统和任务五级，每一级都要有可拒绝条件。算子级验证 $D^2=0$ 残差、Hodge算子正定性、非线性近似误差和结构编辑一致性；核级验证稀疏吞吐、尾时延、容量、温漂和故障定位；芯片级计入存储、互连、转换、校准与热设计；系统级验证异构调度、版本协议、回滚和安全隔离；任务级则在真实数据漂移和扰动下比较质量、风险、总成本与恢复时间。只有下一级指标改善能够在上一级保持，才可以说专用介质带来了可用收益。
 
-因此，这里的关键变化不是性能数字，而是本体论位置的变化：系统从“符号机器”逐步转向“热力学机与场机的耦合体”。这也是为什么本章最终把讨论推进到“机器生命”的边界。
+研发判断可用一个条件化多目标问题表示。令设计变量 $a$ 包含存储介质、算子精度、拓扑、路由、编译和控制策略，任务分布为 $\mathcal D_t$，环境与故障分布为 $\mathcal E_t$。在评估窗口 $[0,T]$ 内定义
+\[
+\min_{a\in\mathcal A_{\rm safe}}
+\left(
+\mathbb E[\ell_{\rm task}],
+P_{99}(t_{\rm latency}),
+\mathbb E[E_{\rm joule}],
+P_{\rm unsafe},
+C_{\rm lifecycle}
+\right),
+\]
+其中 $\mathcal A_{\rm safe}$ 明确包含温度、电流、精度、访问权限和回滚约束。五项通常不能压成一个无条件标量；若使用权重，必须记录应用场景和权重版本。当 $\mathcal D_t$、$\mathcal E_t$ 或器件状态随时间变化时，导数和优化过程要包含显式变化项，不能把一次基准测试的最优点宣布为普适终局。
+
+可复现实验应同时准备三类基线。第一类是功能等价的通用GPU/CPU实现，用来辨别专用核是否真正减少总成本；第二类是简化的图或稀疏加速器，用来判断收益来自DEC算子还是来自一般稀疏性；第三类是禁用动态拓扑、模拟器件或量子通道的消融版本，用来定位复杂组件的边际贡献。数据集需要覆盖规则网格、不规则复形、结构频繁变化、稠密退化和恶意输入。报告均值之外，还要报告尾部、方差、失效样本、校准漂移与维护成本。只有这样，“几何原生”才成为可以被证伪的工程命题。
+
+安全方面，物理加速不会免除软件治理。动态互连可能越过原有访问域，模拟存储可能残留敏感状态，量子云调用可能暴露问题结构，专用编译器也可能错误地重排非交换更新。Boundary必须在物理路径和逻辑权限之间建立双重检查；CCM需要监控队列、结构复杂度和异常放大；Offloading要记录外部状态的所有权、保留期与撤销方式；TCE与SPC的控制读出要接受独立验证。所有结构更新先进入影子版本，完成回放、差分测试和故障注入后再提交。无法证明安全的加速路径只能作为旁路候选，不能成为唯一执行路径。
+
+从更长的尺度看，一台机器是否具有生命式的持续性，取决于它能否维持边界、修复结构、更新模型、管理资源并在环境中保持可识别的目标与身份，而不取决于它使用矩阵核、DEC电路还是量子比特。硬件可以扩大某些能力包络，却不能单独证明自主性、意识或道德地位。HSF-HD在这里承担“智能空气动力学”的角色：提供跨介质描述状态、结构、输入、目标、边界和稳定性的模型族；具体AgentOS则选择可部署的记忆、调度与治理机制。几何计算引擎的成熟标志不是本体论口号，而是每个收益有计量、每个故障有定位、每次更新可回滚、每项结论都能被更好的对照实验推翻或保留。
+
+因此，原型的下一步不是先决定“终极介质”，而是建立一套跨实现的测试工装：相同任务包、相同结构版本、相同质量阈值和统一的板级计量接口。新器件只有在这一工装上稳定改变帕累托前沿，且优势能够跨批次、跨温度和跨故障注入重复出现，才进入生产候选。若优势仅来自牺牲精度、取消校验或把成本移到主机，系统应明确拒绝。这样的退出条件与成功条件同样重要，它让计算介质研究保持可积累性，也防止宏大的智能叙事遮蔽普通但决定性的工程事实。
 
 %--chp----
