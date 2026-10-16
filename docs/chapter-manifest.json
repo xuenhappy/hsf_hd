@@ -2065,9 +2065,15 @@
       "source_start_line": 37967,
       "source_end_line": 38147,
       "source_sha256": "f1b9a566a7484682270b4d91283cbfdf434a33b28059767c03fbcfe922b059ce",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "跨载体实现关系：碳硅比较、设计闭环与证据边界",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "checkpoint": "docs/drafts/chapter-106-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-topological_biogenesis.tex",
