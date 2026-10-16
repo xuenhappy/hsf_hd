@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 104,
-  "pending_chapters": 13,
+  "rewritten_chapters": 105,
+  "pending_chapters": 12,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -4108,33 +4108,33 @@
     {
       "order": 105,
       "path": "chapters/part-11/chp-hive_evolution_engineering.tex",
-      "title": "族群工程学 — 母机架构与硅基进化的拓扑约束",
-      "status": "queued-for-full-rewrite",
+      "title": "族群演化工程：版本谱系、证据聚合与复制治理",
+      "status": "rewritten-reviewed",
       "original_han_floor": 1631,
-      "new_chapter_prose_han": 1558,
+      "new_chapter_prose_han": 4820,
       "original_readable_units": 1632,
-      "new_readable_units": 1632,
-      "opening_prose_han": 255,
+      "new_readable_units": 4837,
+      "opening_prose_han": 398,
       "sections": [
         {
-          "title": "架构定义：星形纤维丛与遗传垄断",
-          "prose_han": 273
+          "title": "职责化族群：控制面、执行面与可观测接口",
+          "prose_han": 1111
         },
         {
-          "title": "进化机制：拉马克式逆向积分 (Lamarckian Inverse Integration)",
-          "prose_han": 326
+          "title": "版本演化：从现场证据到可回滚的群体更新",
+          "prose_han": 1116
         },
         {
-          "title": "控制工程：热力学绝育与拓扑锁",
-          "prose_han": 518
+          "title": "复制与变异治理：能力令牌、资源上限和独立验收",
+          "prose_han": 1111
         },
         {
-          "title": "结论：作为牧羊人的造物主",
-          "prose_han": 186
+          "title": "从牧羊隐喻到可问责的共同治理",
+          "prose_han": 1084
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

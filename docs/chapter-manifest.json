@@ -2046,9 +2046,15 @@
       "source_start_line": 37839,
       "source_end_line": 37967,
       "source_sha256": "365e6d3afb5a82d25903d21fd4615d5f89e07038498d68c9c7e4cbc55ee84a58",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "new_title": "族群演化工程：版本谱系、证据聚合与复制治理",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "checkpoint": "docs/drafts/chapter-105-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/sec-isomorphism_map.tex",

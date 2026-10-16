@@ -103,7 +103,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 102,chapters/part-11/chp-interconnection_engineering.tex,rewritten-reviewed,2708,6493,2834,6538,6,1000
 103,chapters/part-11/chp-gaia_engineering_the_machine.tex,rewritten-reviewed,3470,6667,3488,6692,6,1013
 104,chapters/part-11/chp-fluid_swarm_engineering.tex,rewritten-reviewed,7033,9317,6741,9358,8,1023
-105,chapters/part-11/chp-hive_evolution_engineering.tex,queued-for-full-rewrite,1631,1558,1632,1632,4,186
+105,chapters/part-11/chp-hive_evolution_engineering.tex,rewritten-reviewed,1631,4820,1632,4837,4,1084
 106,chapters/part-11/sec-isomorphism_map.tex,queued-for-full-rewrite,2806,2488,2559,2559,4,36
 107,chapters/part-11/chp-topological_biogenesis.tex,queued-for-full-rewrite,5725,5637,5862,5862,5,543
 108,chapters/part-11/chapter-108.tex,queued-for-full-rewrite,1285,1241,1296,1296,3,241

@@ -1,9 +1,9 @@
 {
-  "pages": 677,
-  "bytes": 54815161,
+  "pages": 681,
+  "bytes": 54841912,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 608,
+  "numbered_sections": 612,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4262,7 +4262,35 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "105.1 职责化族群：控制面、执行面与可观测接口",
+      "start_pdf_page": 678,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "105.2 版本演化：从现场证据到可回滚的群体更新",
+      "start_pdf_page": 679,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "105.3 复制与变异治理：能力令牌、资源上限和独立验收",
+      "start_pdf_page": 680,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "105.4 从牧羊隐喻到可问责的共同治理",
+      "start_pdf_page": 680,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 104 chapters; does not validate the full book."
+  "scope": "Review subset: 105 chapters; does not validate the full book."
 }
