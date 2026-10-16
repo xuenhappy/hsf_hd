@@ -1,9 +1,9 @@
 {
   "checks_passed": true,
-  "original_complete_chapters_verified": 15,
-  "fully_rewritten_chapters_length_verified": 102,
+  "original_complete_chapters_verified": 14,
+  "fully_rewritten_chapters_length_verified": 103,
   "baseline_chapter_chinese_characters": 568727,
-  "current_chapter_chinese_characters": 808098,
+  "current_chapter_chinese_characters": 811419,
   "scope": "Pending chapters retain complete original exposition; individually rewritten chapters use length/structure audit instead of verbatim conservation. Scientific claims not validated by these mechanical checks.",
   "chapters": [
     {
@@ -824,11 +824,11 @@
     },
     {
       "path": "chapters/part-11/chp-gaia_engineering_the_machine.tex",
-      "original_exposition_preserved": true,
-      "validation_mode": "original-exposition-conservation",
+      "original_exposition_preserved": false,
+      "validation_mode": "full-rewrite-length-and-structure",
       "checks_passed": true,
       "baseline_chinese_characters": 3470,
-      "current_chinese_characters": 3470
+      "current_chinese_characters": 6791
     },
     {
       "path": "chapters/part-11/chp-fluid_swarm_engineering.tex",

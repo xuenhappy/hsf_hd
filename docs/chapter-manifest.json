@@ -2008,9 +2008,15 @@
       "source_start_line": 37059,
       "source_end_line": 37250,
       "source_sha256": "07db5de0b24af6def02f66fbafaa66e827d66e2e45713e73864b05b957240658",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "盖亚型智能工程：行星级感知、证据图与受约束干预",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "checkpoint": "docs/drafts/chapter-103-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-fluid_swarm_engineering.tex",

@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 102,
-  "pending_chapters": 15,
+  "rewritten_chapters": 103,
+  "pending_chapters": 14,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -4020,41 +4020,41 @@
     {
       "order": 103,
       "path": "chapters/part-11/chp-gaia_engineering_the_machine.tex",
-      "title": "盖亚型智能工程 — 行星级社会感知流形与分布式意志",
-      "status": "queued-for-full-rewrite",
+      "title": "盖亚型智能工程：行星级感知、证据图与受约束干预",
+      "status": "rewritten-reviewed",
       "original_han_floor": 3470,
-      "new_chapter_prose_han": 3351,
+      "new_chapter_prose_han": 6667,
       "original_readable_units": 3488,
-      "new_readable_units": 3488,
-      "opening_prose_han": 363,
+      "new_readable_units": 6692,
+      "opening_prose_han": 257,
       "sections": [
         {
-          "title": "微观层 ($L_{micro}$)：区域化全息前哨与激波提纯",
-          "prose_han": 575
+          "title": "微观层：区域观测、校准残差与最小上行",
+          "prose_han": 1121
         },
         {
-          "title": "介质层 (Medium)：多孔小世界流形与 Sink 虫洞",
-          "prose_han": 513
+          "title": "介质层：时态证据图、跨域检索与关联控制",
+          "prose_han": 1068
         },
         {
-          "title": "认知场管理：数字皮层与数字海马体的双轨映射",
-          "prose_han": 505
+          "title": "认知场管理：结构身份、分布预测与角色绑定",
+          "prose_han": 1135
         },
         {
-          "title": "宏观层 ($L_{macro}$)：分布式联邦与道德的几何化",
-          "prose_han": 513
+          "title": "宏观层：联邦状态、价值约束与制度化治理",
+          "prose_han": 1013
         },
         {
-          "title": "物理隔离的 TECI 循环：人类作为具身效应器",
-          "prose_han": 392
+          "title": "物理隔离的外循环：能力闸门与人类责任",
+          "prose_han": 1049
         },
         {
-          "title": "病理学防范：撒马利亚人陷阱与相态的维持",
-          "prose_han": 490
+          "title": "病理学防范：过度控制、反馈偏置与可逆治理",
+          "prose_han": 1024
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

@@ -1,9 +1,9 @@
 {
-  "pages": 664,
-  "bytes": 54743777,
+  "pages": 669,
+  "bytes": 54772259,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 594,
+  "numbered_sections": 600,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4164,7 +4164,49 @@
       "prose_lines": 27,
       "calibrated_prose_page_equivalents": 0.601,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "103.1 微观层：区域观测、校准残差与最小上行",
+      "start_pdf_page": 665,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "103.2 介质层：时态证据图、跨域检索与关联控制",
+      "start_pdf_page": 666,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "103.3 认知场管理：结构身份、分布预测与角色绑定",
+      "start_pdf_page": 666,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "103.4 宏观层：联邦状态、价值约束与制度化治理",
+      "start_pdf_page": 667,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "103.5 物理隔离的外循环：能力闸门与人类责任",
+      "start_pdf_page": 668,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "103.6 病理学防范：过度控制、反馈偏置与可逆治理",
+      "start_pdf_page": 669,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 102 chapters; does not validate the full book."
+  "scope": "Review subset: 103 chapters; does not validate the full book."
 }
