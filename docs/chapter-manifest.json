@@ -2084,9 +2084,15 @@
       "source_start_line": 38147,
       "source_end_line": 38396,
       "source_sha256": "519776e4b2bf98aa6a817566a903abbd6c8537735df1081d9cec752cad75ae41",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "可计算生物发生：多尺度状态、干预闭环与安全边界",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "checkpoint": "docs/drafts/chapter-107-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chapter-108.tex",
