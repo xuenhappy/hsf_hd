@@ -1,9 +1,9 @@
 {
-  "pages": 655,
-  "bytes": 54698366,
+  "pages": 659,
+  "bytes": 54716366,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 584,
+  "numbered_sections": 588,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4094,7 +4094,35 @@
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "101.1 边缘必要性：时延、状态所有权与故障边界",
+      "start_pdf_page": 656,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "101.2 分工机制：本地适应、群体训练与证据分层",
+      "start_pdf_page": 657,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "101.3 跨域协议：证据上传、候选发布与一致性边界",
+      "start_pdf_page": 657,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "101.4 总结：多中心学习的稳定循环与治理边界",
+      "start_pdf_page": 658,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 100 chapters; does not validate the full book."
+  "scope": "Review subset: 101 chapters; does not validate the full book."
 }
