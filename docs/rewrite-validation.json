@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 103,
-  "pending_chapters": 14,
+  "rewritten_chapters": 104,
+  "pending_chapters": 13,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -4060,49 +4060,49 @@
     {
       "order": 104,
       "path": "chapters/part-11/chp-fluid_swarm_engineering.tex",
-      "title": "流体群脑工程 — 场致动力学与相变通信架构",
-      "status": "queued-for-full-rewrite",
+      "title": "流体群脑工程：分布式状态场、相态调度与可验证协作",
+      "status": "rewritten-reviewed",
       "original_han_floor": 7033,
-      "new_chapter_prose_han": 5825,
+      "new_chapter_prose_han": 9317,
       "original_readable_units": 6741,
-      "new_readable_units": 6741,
-      "opening_prose_han": 352,
+      "new_readable_units": 9358,
+      "opening_prose_han": 284,
       "sections": [
         {
-          "title": "本体论重构：从智能体集合到离散认知场",
-          "prose_han": 845
+          "title": "双尺度本体：具身节点、结构网络与分布状态",
+          "prose_han": 1171
         },
         {
-          "title": "群体动力学方程：认知洛伦兹力",
-          "prose_han": 584
+          "title": "受约束群体动力学：从场语言到可执行控制",
+          "prose_han": 1271
         },
         {
-          "title": "相变触发机制：惊奇激波与热力学淬火",
-          "prose_han": 670
+          "title": "相态触发：惊奇证据、迟滞切换与安全回退",
+          "prose_han": 1023
         },
         {
-          "title": "通信网络架构：构建“数字以太”",
-          "prose_han": 633
+          "title": "通信介质：时空邻域、双通道传输与一致性边界",
+          "prose_han": 1027
         },
         {
-          "title": "协议层：HSF-HD 场协议 (Field Protocol)",
-          "prose_han": 414
+          "title": "场协议：可合并状态、控制原语与端到端治理",
+          "prose_han": 1076
         },
         {
-          "title": "算法实现：分布式哈密顿求解器",
-          "prose_han": 350
+          "title": "分布式求解：局部滚动优化、异步协商与验证闭环",
+          "prose_han": 1225
         },
         {
-          "title": "混合拓扑增强：虚拟中枢与全息制导",
-          "prose_han": 1094
+          "title": "混合拓扑：虚拟中枢、拓扑手术与去中心回退",
+          "prose_han": 1126
         },
         {
-          "title": "双网协同 — 场域介质与符号总线的正交分工",
-          "prose_han": 883
+          "title": "双网协同：连续状态介质与符号任务总线",
+          "prose_han": 1114
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

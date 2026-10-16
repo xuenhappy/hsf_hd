@@ -2027,9 +2027,15 @@
       "source_start_line": 37250,
       "source_end_line": 37839,
       "source_sha256": "267b5d51452fc0450fd91f3380ae8549b34b75c324b509dc2be3a76d28186467",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "流体群脑工程：分布式状态场、相态调度与可验证协作",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "checkpoint": "docs/drafts/chapter-104-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-hive_evolution_engineering.tex",
