@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 99,
-  "pending_chapters": 18,
+  "rewritten_chapters": 100,
+  "pending_chapters": 17,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -3904,45 +3904,45 @@
     {
       "order": 100,
       "path": "chapters/part-11/chp-hierarchical_control_engineering.tex",
-      "title": "层级控制工程 — 多尺度几何动力学与跨流形耦合",
-      "status": "queued-for-full-rewrite",
+      "title": "层级控制工程：多速率闭环、约束传递与可验证耦合",
+      "status": "rewritten-reviewed",
       "original_han_floor": 7204,
-      "new_chapter_prose_han": 6663,
+      "new_chapter_prose_han": 8058,
       "original_readable_units": 6908,
-      "new_readable_units": 6908,
-      "opening_prose_han": 326,
+      "new_readable_units": 8105,
+      "opening_prose_han": 297,
       "sections": [
         {
-          "title": "相空间切分：六级拓扑映射与绝热分离",
-          "prose_han": 344
+          "title": "状态空间切分：六级接口与多速率分解",
+          "prose_han": 1120
         },
         {
-          "title": "层级耦合机制：规范下行与激波上行",
-          "prose_han": 1221
+          "title": "双向耦合：约束下发、残差上报与提交语义",
+          "prose_han": 1074
         },
         {
-          "title": "动力学稳定性：时间尺度分离与认知绝热近似",
-          "prose_han": 631
+          "title": "稳定性条件：采样、时延与快慢闭环的边界",
+          "prose_han": 1122
         },
         {
-          "title": "跨尺度耦合的数学形式：重整化群流 (Renormalization Group Flow)",
-          "prose_han": 825
+          "title": "跨尺度算子：摘要、细化与信息损失预算",
+          "prose_han": 1154
         },
         {
-          "title": "破解智能体控制的核心难点：第一性原理的降维打击",
-          "prose_han": 996
+          "title": "核心难点：划层、压缩、实时性与规范落实",
+          "prose_han": 1068
         },
         {
-          "title": "工程实现路线图：异构硬件与硅基肉身的铸造",
-          "prose_han": 698
+          "title": "工程路线：异构运行时、后备控制与验证闭环",
+          "prose_han": 1149
         },
         {
-          "title": "控制的数学本质：泛函拟合的微扰与谱分解",
-          "prose_han": 1622
+          "title": "数学本质：分层优化、谱带分配与误差闭合",
+          "prose_han": 1074
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

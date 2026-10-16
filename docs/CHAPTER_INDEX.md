@@ -103,7 +103,7 @@
 | 3 | 11 | [chap-software_control_msos](../chapters/part-11/chap-software_control_msos.tex) | 智能运行时：从 HSF-HD 动力学到 AgentOS | 队列中；原文仍保留 |
 | 3 | 11 | [chap-agi_cultivation](../chapters/part-11/chap-agi_cultivation.tex) | AGI 培育工程：课程、闭环与长期能力形成 | 已完成全文重写与排版复核 |
 | 3 | 11 | [chp-synthetic_affective_engineering](../chapters/part-11/chp-synthetic_affective_engineering.tex) | 合成情感工程：内稳态、调制与可治理的行动倾向 | 已重写并完成排版复核 |
-| 3 | 11 | [chp-hierarchical_control_engineering](../chapters/part-11/chp-hierarchical_control_engineering.tex) | 层级控制工程 — 多尺度几何动力学与跨流形耦合 | 队列中；原文仍保留 |
+| 3 | 11 | [chp-hierarchical_control_engineering](../chapters/part-11/chp-hierarchical_control_engineering.tex) | 层级控制工程：多速率闭环、约束传递与可验证耦合 | 已重写并完成排版复核 |
 | 3 | 11 | [chp-cloud_edge_synergy](../chapters/part-11/chp-cloud_edge_synergy.tex) | 分布式流形架构 --- 云端进化与边缘学习的几何协同 | 队列中；原文仍保留 |
 | 3 | 11 | [chp-interconnection_engineering](../chapters/part-11/chp-interconnection_engineering.tex) | 智能互连工程 — 跨流形通讯协议 (Cross-Manifold Protocols) | 队列中；原文仍保留 |
 | 3 | 11 | [chp-gaia_engineering_the_machine](../chapters/part-11/chp-gaia_engineering_the_machine.tex) | 盖亚型智能工程 — 行星级社会感知流形与分布式意志 | 队列中；原文仍保留 |

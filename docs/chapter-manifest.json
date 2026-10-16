@@ -1957,9 +1957,15 @@
       "source_start_line": 36322,
       "source_end_line": 36730,
       "source_sha256": "1a6557fde81fbd425ea9032ea91c35b247cadf316146dcb4e60d6387e32b6c70",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "层级控制工程：多速率闭环、约束传递与可验证耦合",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "queued-for-full-rewrite",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "checkpoint": "docs/drafts/chapter-100-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-cloud_edge_synergy.tex",

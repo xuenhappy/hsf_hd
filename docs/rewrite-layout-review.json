@@ -1,9 +1,9 @@
 {
-  "pages": 649,
-  "bytes": 54660136,
+  "pages": 655,
+  "bytes": 54698366,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 577,
+  "numbered_sections": 584,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4045,7 +4045,56 @@
       "prose_lines": 30,
       "calibrated_prose_page_equivalents": 0.668,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "100.1 状态空间切分：六级接口与多速率分解",
+      "start_pdf_page": 650,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "100.2 双向耦合：约束下发、残差上报与提交语义",
+      "start_pdf_page": 651,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "100.3 稳定性条件：采样、时延与快慢闭环的边界",
+      "start_pdf_page": 652,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "100.4 跨尺度算子：摘要、细化与信息损失预算",
+      "start_pdf_page": 652,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "100.5 核心难点：划层、压缩、实时性与规范落实",
+      "start_pdf_page": 653,
+      "prose_lines": 27,
+      "calibrated_prose_page_equivalents": 0.601,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "100.6 工程路线：异构运行时、后备控制与验证闭环",
+      "start_pdf_page": 654,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "100.7 数学本质：分层优化、谱带分配与误差闭合",
+      "start_pdf_page": 655,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 99 chapters; does not validate the full book."
+  "scope": "Review subset: 100 chapters; does not validate the full book."
 }
