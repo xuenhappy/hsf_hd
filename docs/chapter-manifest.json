@@ -1995,7 +1995,7 @@
       "source_start_line": 36835,
       "source_end_line": 37059,
       "source_sha256": "a811570d1312e18813b83f24c50cdaf57e17b60d43bd14c2d9b21d3c550f6427",
-      "status": "rewritten-awaiting-layout-review",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
       "previous_status": "full-content-restored-awaiting-sectionwise-revision"
     },

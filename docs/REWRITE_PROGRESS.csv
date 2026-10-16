@@ -100,7 +100,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 99,chapters/part-11/chp-synthetic_affective_engineering.tex,rewritten-reviewed,2119,5831,1903,5872,5,1056
 100,chapters/part-11/chp-hierarchical_control_engineering.tex,rewritten-reviewed,7204,8058,6908,8105,7,1068
 101,chapters/part-11/chp-cloud_edge_synergy.tex,rewritten-reviewed,1521,4711,1483,4732,4,1067
-102,chapters/part-11/chp-interconnection_engineering.tex,rewritten-awaiting-layout-review,2708,6493,2834,6538,6,1000
+102,chapters/part-11/chp-interconnection_engineering.tex,rewritten-reviewed,2708,6493,2834,6538,6,1000
 103,chapters/part-11/chp-gaia_engineering_the_machine.tex,queued-for-full-rewrite,3470,3351,3488,3488,6,392
 104,chapters/part-11/chp-fluid_swarm_engineering.tex,queued-for-full-rewrite,7033,5825,6741,6741,8,350
 105,chapters/part-11/chp-hive_evolution_engineering.tex,queued-for-full-rewrite,1631,1558,1632,1632,4,186
