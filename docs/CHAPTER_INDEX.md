@@ -105,7 +105,7 @@
 | 3 | 11 | [chp-synthetic_affective_engineering](../chapters/part-11/chp-synthetic_affective_engineering.tex) | 合成情感工程：内稳态、调制与可治理的行动倾向 | 已重写并完成排版复核 |
 | 3 | 11 | [chp-hierarchical_control_engineering](../chapters/part-11/chp-hierarchical_control_engineering.tex) | 层级控制工程：多速率闭环、约束传递与可验证耦合 | 已重写并完成排版复核 |
 | 3 | 11 | [chp-cloud_edge_synergy](../chapters/part-11/chp-cloud_edge_synergy.tex) | 云边协同：本地适应、群体学习与可撤销分发 | 已重写；已审阅 |
-| 3 | 11 | [chp-interconnection_engineering](../chapters/part-11/chp-interconnection_engineering.tex) | 智能互连工程 — 跨流形通讯协议 (Cross-Manifold Protocols) | 队列中；原文仍保留 |
+| 3 | 11 | [chp-interconnection_engineering](../chapters/part-11/chp-interconnection_engineering.tex) | 智能互连工程：语义契约、证据传输与协同闭环 | 已重写；待排版复核 |
 | 3 | 11 | [chp-gaia_engineering_the_machine](../chapters/part-11/chp-gaia_engineering_the_machine.tex) | 盖亚型智能工程 — 行星级社会感知流形与分布式意志 | 队列中；原文仍保留 |
 | 3 | 11 | [chp-fluid_swarm_engineering](../chapters/part-11/chp-fluid_swarm_engineering.tex) | 流体群脑工程 — 场致动力学与相变通信架构 | 队列中；原文仍保留 |
 | 3 | 11 | [chp-hive_evolution_engineering](../chapters/part-11/chp-hive_evolution_engineering.tex) | 族群工程学 — 母机架构与硅基进化的拓扑约束 | 队列中；原文仍保留 |
