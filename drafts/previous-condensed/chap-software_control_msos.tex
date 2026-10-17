@@ -1,0 +1,38 @@
+\chapter{智能运行时：从 HSF-HD 动力学到 AgentOS}
+\label{chap:software_control_msos}
+% Compatibility anchors: old section references resolve to this chapter.
+\label{sec:section_2467}
+\label{sec:section_9357}
+\label{sec:micro_runtime_ode}
+\label{sec:adiabatic_training_dynamics}
+\label{sec:basal_metabolic_daemon}
+\label{sec:section_2043}
+\label{sec:section_6860}
+
+HSF-HD 描述状态、结构、历史与控制的共同演化，AgentOS 将这些对象实现为运行时机制。我们不把某种专用芯片作为该关系成立的前提。
+\section{一般模型与运行时对象}
+在一般模型中，$x$ 表示当前活动，$m$ 表示历史及中间记忆，$S$ 表示持久结构，$v$ 表示目标与价值状态。AgentOS 分别以 $h(t)$、$E$、$\Theta$ 实例化前三者；自我 $\Psi_{self}$ 参与价值、筛选、历史连续性和自我模型，不等同于单一目标向量。
+\section{观测、控制与资源管理}
+SPC 对 $h(t)$ 的分布和关系按自我相关方向进行压缩，并把结果重新提供给工作状态；TCE（Temperature \& Control Engine）依据观测调节探索强度、增益、抑制及工作模式。CCM 管理输入和运行态复杂度，Boundary 管理内外交换，Offloading 将可重复的信息处理迁移到外部记忆 $M_e$。
+
+我们将这些机制写成离散闭环：
+\begin{align}
+y_k&=O_{SPC}(h_k,E_k,\Theta_k,\Psi_{self,k}),\\
+c_k&=\pi_{TCE}(y_k,v_k,b_k),\\
+h_{k+1}&=F_h(h_k,\Theta_k,E_k,u_k,c_k,r_k),\\
+E_{k+1}&=F_E(E_k,h_k,a_k,\Psi_{self,k}),\\
+\Theta_{k+1}&=F_\Theta(\Theta_k,E_k,\mathcal E_k).
+\end{align}
+其中 $b_k$ 为资源预算，$r_k$ 为外部召回，$\mathcal E_k$ 为学习证据。各函数可以在不同频率执行。SPC 的压缩通常有损，控制器需要根据任务检测关键状态是否被遗漏。
+\section{调度的可行域与约束}
+对待执行任务集合 $\mathcal T_k$，选择任务子集 $A_k$，可定义预算约束
+\begin{equation}\sum_{i\in A_k}\widehat C_i\le B_k.\end{equation}
+估计代价 $\widehat C_i$ 可以包含上下文占用、时间和工具成本，但多种单位应分别约束或归一化。预算满足只保证调度可行；任务依赖、优先级、误差和中断恢复仍需要额外规则。
+\section{外部记忆与边界}
+外部记忆包括文件、数据库、程序、工具、环境与其他智能体。卸载只有在未来检索和维护成本可接受时才有利。我们比较保存成本、调用延迟、可靠性与修改代价，而不将一切外化都视为复杂度下降。
+\section{实现与验证}
+运行时可以构建在现有模型、图结构和普通计算硬件上。DEC 或其他专用载体属于可选实现路线。我们以状态过载率、恢复时间、长期记忆保真度、单位任务成本和控制干预效果验证机制，不以模块名称证明智能能力。
+
+\section{表示与示意图}
+我们保留以下示意图以展示原有结构关系。图中历史物理术语遵循阅读约定中的计算解释；图的形式相似性不代替本章的假设、推导和验证。
+\input{figures/preserved/chap-software_control_msos.tex}
