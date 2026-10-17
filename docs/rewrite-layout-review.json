@@ -1,9 +1,9 @@
 {
-  "pages": 689,
-  "bytes": 54893574,
+  "pages": 692,
+  "bytes": 54910628,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 621,
+  "numbered_sections": 624,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4353,7 +4353,28 @@
       "prose_lines": 28,
       "calibrated_prose_page_equivalents": 0.624,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "108.1 时间推断接口：从“未来感知”到条件预测",
+      "start_pdf_page": 690,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "108.2 时间表征与风险张力：多条未来如何作用于现在",
+      "start_pdf_page": 691,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "108.3 反事实规划与时间一致性：从边值隐喻到滚动控制",
+      "start_pdf_page": 692,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 107 chapters; does not validate the full book."
+  "scope": "Review subset: 108 chapters; does not validate the full book."
 }

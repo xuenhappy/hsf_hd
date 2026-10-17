@@ -2103,9 +2103,15 @@
       "source_start_line": 38396,
       "source_end_line": 38488,
       "source_sha256": "21f1facf7eeb0a1a8bde1b09cd3390494f40af85c3e9746b871e65cd738dc564",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "面向未来的智能：概率预测、反事实规划与时间一致性",
+      "rewrite_method": "individually-authored-complete-body",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "checkpoint": "docs/drafts/chapter-108-checkpoint.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "chapters/part-11/chp-conclusion.tex",
