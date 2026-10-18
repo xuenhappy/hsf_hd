@@ -1,0 +1,19 @@
+\chapter{质：属性表示与活动状态}
+\label{chp:qualia_activation}
+% Compatibility anchors: old section references resolve to this chapter.
+\label{sec:qualia_definition}
+\label{sec:qualia_elements}
+\label{sec:activation_field}
+\label{sec:qualia_function}
+
+我们将“质”作为属性与内容的建模术语。颜色、词义特征、置信度和情绪标签都可以作为属性，但其编码值与真实体验不能直接等同。
+\section{向量、概率与周期变量}
+属性向量 $q\in\mathbb{R}^d$ 不必归一化；概率 $p$ 则满足 $p_i\ge0$、$\sum_i p_i=1$。对 logits $z$ 与尺度 $T>0$，我们定义
+\begin{equation}p_i=\frac{\exp(z_i/T)}{\sum_j\exp(z_j/T)}.\end{equation}
+信息熵 $H(p)=-\sum_i p_i\log p_i$ 对分布定义，不能直接用于任意向量的分量。$T$ 调整分布的相对集中程度，不具有热力学温度单位。
+
+相位 $\theta\in\mathbb{R}/2\pi\mathbb{Z}$ 可表示周期状态，复数形式 $a e^{i\theta}$ 可表达带方向的组合。模平方只有在模型明确规定并归一化时才能解释为概率。
+\section{活动强度与资源代价}
+状态强度可定义为 $I(q)=\|q\|^2$，执行代价可以定义为运算次数、延迟或实际功耗。两者需要通过实现测量建立关系。我们不会从状态强度增加直接推断硬件能耗按相同比例增加。
+\section{有界投影的能力与边界}
+对闭凸集合 $C$，投影 $P_C(q)$ 给出最近可行点。若 $C$ 为半径 $r$ 的球，则 $\|P_C(q)\|\le r$。这只保证属性位于指定域内，不保证任务正确、梯度有效或闭环收敛。投影也可能删除任务所需的信息，需通过消融检查。

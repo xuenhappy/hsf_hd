@@ -1,0 +1,35 @@
+\chapter{状态演化方程：传播、反馈与结构耦合}
+\label{chp:evolution_equation_ch}
+% Compatibility anchors: old section references resolve to this chapter.
+\label{sec:section_2382}
+\label{sec:section_954}
+\label{sec:section_9016}
+\label{sec:micro_structure_of_inertia}
+\label{sec:broadband_excitation}
+\label{sec:meaning_phase_transition}
+\label{sec:section_4495}
+
+我们从明确的更新机制构造状态演化方程，并在给定条件下推导其性质。本章给出固定结构上的线性特例，并说明结构变化、反馈和时间离散如何改变其结论。
+\section{局部传播与输入控制}
+在固定的无向非负权图上，$L_S$ 为拉普拉斯，$R\succeq0$ 为抑制矩阵，$B$ 与 $U$ 为输入和控制映射。我们定义
+\begin{equation}\dot x=-(L_S+R)x+Bu+Uc.\label{eq:hsf_linear_state}\end{equation}
+所有项具有相同状态变化率单位。控制 $c$ 可以是反馈，也可以是外部设定；二者的稳定性条件不同。该方程不需要量子或引力假设。
+\section{有界响应的推导}
+令 $A=L_S+R$，假设 $A=A^\top\succeq\alpha I$，$\alpha>0$。对 $V=\frac12\|x\|^2$，记 $b=Bu+Uc$，可得
+\begin{align}\dot V&=-x^\top Ax+x^\top b\\
+&\le-\alpha\|x\|^2+\|x\|\|b\|\\
+&\le-\frac\alpha2\|x\|^2+\frac{1}{2\alpha}\|b\|^2.
+\end{align}
+若 $\|b(t)\|\le M$，则由积分因子得到
+\begin{equation}V(t)\le e^{-\alpha t}V(0)+\frac{M^2}{2\alpha^2}(1-e^{-\alpha t}).\end{equation}
+因此有界输入产生有界状态；输入为零时状态指数衰减。这不意味着任务获得解决，因为任务读出和目标满足性尚未纳入结论。
+\section{结构变化与闭环反馈}
+若 $A(S(t))\succeq\alpha I$ 在所有时刻统一成立，同一欧氏范数估计仍适用。若采用随结构变化的度量 $P(t)$，则 $V=x^\top P(t)x/2$ 的导数还包含 $x^\top\dot P x/2$，不能省略。
+
+对于反馈 $c=Kx$，有效矩阵为 $A-UK$。必须重新检查其对称部分是否正定；控制幅度更大并不保证更稳定。非线性模型则需要局部线性化、共同 Lyapunov 函数或其他明确条件。
+\section{时间离散与步长}
+对无输入模型，显式 Euler 更新为 $x_{k+1}=(I-\Delta t A)x_k$。若 $A$ 对称正定，各模态乘子为 $1-\Delta t\lambda_i$，收敛要求 $0<\Delta t<2/\lambda_{\max}(A)$。连续模型稳定不自动意味着任意离散步长稳定。
+\section{复数传播的专门模型}
+若某实现需要相位组合，可以定义 $\dot\phi=(-iH-D)\phi+j$，其中 $H=H^\dagger$、$D=D^\dagger\succeq0$。直接计算得到
+\begin{equation}\frac{d}{dt}\|\phi\|^2=-2\phi^\dagger D\phi+2\operatorname{Re}(\phi^\dagger j).\end{equation}
+只有 $D=0$ 且 $j=0$ 时模长守恒。该式是复数线性系统的性质，不赋予认知状态量子测量含义。

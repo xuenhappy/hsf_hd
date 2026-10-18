@@ -1,0 +1,19 @@
+\chapter{构成方程：表示绑定与结构适应}
+\label{chp:constitutive_equation}
+% Compatibility anchors: old section references resolve to this chapter.
+\label{sec:static_constitution}
+\label{sec:dynamic_evolution}
+\label{sec:existence_criterion}
+\label{sec:genesis_algorithm}
+
+我们把构成方程定义为结构与内容怎样共同产生任务表示的计算规则。不同实现可以使用不同绑定函数。
+\section{绑定函数与类型}
+令 $S\in\mathcal S$、$X\in\mathbb R^{n\times d}$，任务表示为 $Z=B(S,X)$。$B$ 可以是关系编码、消息传递或联合注意力，其值域由后续读出规定。若使用 $S\otimes X$，必须说明张量阶数和解码规则。
+\section{从目标函数到结构更新}
+设 $S$ 暂以欧氏参数向量表示，目标函数为
+\begin{equation}\mathcal J(S;X,m,v)=\ell(B(S,X),y)+\lambda\Omega(S)+\beta\mathcal C(S,m,v).\end{equation}
+我们要求各项为无量纲或通过系数完成尺度匹配。固定其余变量时，若 $\mathcal J$ 可微，梯度更新为 $\dot S=-\varepsilon_S\nabla_S\mathcal J$。链式法则给出
+\begin{equation}\frac{d\mathcal J}{dt}=-\varepsilon_S\|\nabla_S\mathcal J\|^2\le0.\end{equation}
+这个结论保证固定目标下的单调性，不保证全局最优。若 $X,m,v$ 同时改变，还存在关于这些变量的偏导项，不能继续无条件宣称单调。
+\section{约束与离散实现}
+若 $S\in C$，可采用 $S_{k+1}=P_C(S_k-\eta\nabla\mathcal J(S_k))$。对凸可微目标、闭凸集合和适当步长，可进一步分析收敛。图节点或边的新增属于离散事件，需要单独的结构编辑规则及代价，不能由连续梯度公式直接覆盖。

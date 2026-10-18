@@ -1,0 +1,48 @@
+\begin{figure}[htbp]
+\centering
+\begin{adjustbox}{max width=0.98\linewidth,max totalheight=0.72\textheight}
+\begin{tikzpicture}[
+    node distance=2cm,
+    auto,
+    block/.style={
+        rectangle,
+        draw,
+        thick,
+        fill=white,
+        text width=3cm,
+        align=center,
+        minimum height=3cm
+    },
+    line/.style={
+        draw, -latex', thick
+    },
+    interface/.style={
+        rectangle,
+        draw,
+        fill=gray!20,
+        minimum height=4cm,
+        minimum width=1cm,
+        align=center,
+        rotate=0
+    }
+]
+
+% Nodes
+\node [block, fill=blue!10] (geo) {\textbf{几何核}\\(TPU-G)\\ \footnotesize{连续流形 $\mathcal{M}$}\\ \footnotesize{模拟/光子}\\ \footnotesize{直觉/本理论框架}};
+\node [interface, right of=geo, node distance=4cm] (wpi) {\textbf{W}\\ \textbf{P}\\ \textbf{I}};
+\node [block, fill=red!10, right of=wpi, node distance=4cm] (alg) {\textbf{代数核}\\(Logic Core)\\ \footnotesize{离散符号 $\mathcal{S}$}\\ \footnotesize{数字逻辑}\\ \footnotesize{推理/Turing}};
+
+% Arrows
+\draw [->, thick] (geo.20) -- node [above, font=\scriptsize] {波 $\Psi$ (模拟)} (wpi.160);
+\draw [->, thick] (wpi.20) -- node [above, font=\scriptsize] {粒子语义子 (数字)} (alg.160);
+
+\draw [->, thick] (alg.200) -- node [below, font=\scriptsize] {指令/控制 (数字)} (wpi.340);
+\draw [->, thick] (wpi.200) -- node [below, font=\scriptsize] {势能/场 $\mathbf{\Gamma}$ (模拟)} (geo.340);
+
+\node [below of=wpi, node distance=3cm] {波粒二象性接口};
+
+\end{tikzpicture}
+\end{adjustbox}
+\caption{双院制芯片架构：几何核与代数核的物理耦合}
+\label{fig:bicameral_chip}
+\end{figure}

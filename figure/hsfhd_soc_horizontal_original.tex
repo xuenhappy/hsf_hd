@@ -1,0 +1,123 @@
+\begin{figure}[htbp]
+    \centering
+    \begin{adjustbox}{max width=0.98\linewidth,max totalheight=0.72\textheight}
+\begin{tikzpicture}[
+        node distance=3.5cm,
+        auto,
+        >=latex,
+        thick,
+        font=\small,
+        % 定义通用块样式
+        block/.style={
+            rectangle,
+            draw,
+            rounded corners,
+            minimum width=2.8cm,
+            minimum height=4.5cm, % 增加高度以适应水平排列时的多行文本
+            align=center,
+            line width=1pt
+        },
+        % 定义向上/向右的感知流箭头样式
+        arrow_percept/.style={
+            ->,
+            color=blue!70!black,
+            line width=1.5pt
+        },
+        % 定义向下/向左的控制流箭头样式
+        arrow_action/.style={
+            ->,
+            color=red!70!black,
+            line width=1.5pt
+        },
+        % 文字标签背景
+        label_text/.style={
+            fill=white,
+            inner sep=2pt,
+            font=\scriptsize\bfseries
+        }
+    ]
+
+    % --- 1. 定义水平节点 (从左到右) ---
+
+    % 物理世界 (Left)
+    \node (world) [block, fill=gray!10, minimum width=2.5cm] {
+        \textbf{物理世界}\\
+        \textit{Physical}\\ \textit{Reality}\\
+        \vspace{0.5em}\\
+        \textit{因果律 $\Omega$}\\
+        \textit{能量库}
+    };
+
+    % 微观层
+    \node (micro) [block, fill=blue!10, right of=world, node distance=3.5cm] {
+        \textbf{微观层}\\ \textit{Micro-Layer}\\
+        \vspace{0.5em}\\
+        \textit{FPGA/CIM}\\
+        \vspace{0.5em}\\
+        \textit{VTE编码}\\
+        \textit{逆VTE投影}\\
+        \textit{物理锚定}
+    };
+
+    % 中观层
+    \node (meso) [block, fill=green!10, right of=micro, node distance=3.5cm] {
+        \textbf{中观层}\\ \textit{Meso-Layer}\\
+        \vspace{0.5em}\\
+        \textit{DEC芯片}\\
+        \vspace{0.5em}\\
+        \textit{流形 $\mathcal{M}$}\\
+        \textit{幺正演化}\\
+        \textit{路径积分}
+    };
+
+    % 宏观层 (Right)
+    \node (macro) [block, fill=red!10, right of=meso, node distance=3.5cm] {
+        \textbf{宏观层}\\ \textit{Macro-Layer}\\
+        \vspace{0.5em}\\
+        \textit{GPU集群}\\
+        \vspace{0.5em}\\
+        \textit{热力学引擎}\\
+        \textit{非幺正坍缩}\\
+        \textit{意志生成}
+    };
+
+
+    % --- 2. 自左向右的感知流 (上方通道) ---
+
+    % World -> Micro
+    \draw[arrow_percept] ([yshift=1.5cm]world.east) -- ([yshift=1.5cm]micro.west)
+        node[midway, label_text, align=center] {模拟信号流\\(光/声/力)};
+
+    % Micro -> Meso
+    \draw[arrow_percept] ([yshift=1.5cm]micro.east) -- ([yshift=1.5cm]meso.west)
+        node[midway, label_text, align=center] {激波注入 $\vec{J}_{ext}$\\(形质基元)};
+
+    % Meso -> Macro
+    \draw[arrow_percept] ([yshift=1.5cm]meso.east) -- ([yshift=1.5cm]macro.west)
+        node[midway, label_text, align=center] {状态监测 $\Psi$\\惊奇提取 $\mathcal{F}$};
+
+
+    % --- 3. 自右向左的控制流 (下方通道) ---
+
+    % Macro -> Meso (分为快/慢两根线)
+    % 慢回路 (稍高)
+    \draw[arrow_action, densely dashed] ([yshift=-0.5cm]macro.west) -- ([yshift=-0.5cm]meso.east)
+        node[midway, label_text, align=center, yshift=0.3cm] {\textbf{慢回路}(学习)\\$\Delta g_{\mu\nu}$ 度量重塑};
+
+    % 快回路 (稍低)
+    \draw[arrow_action] ([yshift=-1.5cm]macro.west) -- ([yshift=-1.5cm]meso.east)
+        node[midway, label_text, align=center, yshift=-0.3cm] {\textbf{快回路}(专注)\\$\mathbf{\Gamma}$ 势能偏置};
+
+    % Meso -> Micro
+    \draw[arrow_action] ([yshift=-1.5cm]meso.west) -- ([yshift=-1.5cm]micro.east)
+        node[midway, label_text, align=center] {受控场投影\\(预测 $\Psi_{pred}$)};
+
+    % Micro -> World
+    \draw[arrow_action] ([yshift=-1.5cm]micro.west) -- ([yshift=-1.5cm]world.east)
+        node[midway, label_text, align=center] {控制应力张量\\(做功 $\vec{u}$)};
+
+\end{tikzpicture}
+\end{adjustbox}
+\caption{HSF-HD SoC 混合动力学流图 (水平全闭环)}
+\label{fig:hsfhd_soc_horizontal}
+\end{figure}

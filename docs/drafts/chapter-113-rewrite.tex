@@ -1,0 +1,238 @@
+\chapter{多时间尺度学习：截断信用、延迟更新与异步控制}
+\label{app:adiabatic_backprop}
+
+本附录讨论一个可以直接验证的工程问题：当智能系统同时包含毫秒级反应、秒级规划与更慢的模型修订时，怎样在有限显存、算力和通信预算下分配信用，而不把所有状态都锁进一条无限增长的反向计算图。我们把旧稿的“绝热”保留为时间尺度分离的助记词，但不把它当作物理定律或正确性的证明。这里需要区分三件事：截断梯度是一种估计选择，延迟更新是一种调度策略，异步控制是一种运行时架构；三者可以组合，却不彼此推出。HSF-HD在这一层提供一般状态动力学的描述框架，AgentOS中的 $h(t)$、$E/\Theta$、$\Psi$、SPC、TCE、CCM、Boundary、Offloading 与外部记忆 $M_e$ 只是可审计实现的一组接口，不是所有智能系统必须采用的唯一机制。
+
+\section{问题定义：全局反向传播的资源与统计边界}
+\label{sec:app_physical_dilemma}
+
+先把对象和假设写清。设离散时间索引为 $k\in\{0,\ldots,T\}$，采样间隔为 $\Delta t>0$ 秒；系统包含快、中、慢三个可微模块，其状态分别为 $x_k^f\in\mathbb{R}^{d_f}$、$x_k^m\in\mathbb{R}^{d_m}$ 与 $x_k^s\in\mathbb{R}^{d_s}$。这些向量默认是经过标度约定的数值表示，不是焦耳能量。输入 $u_k\in\mathcal U$、目标版本 $g_k\in\mathcal G$、结构版本 $A_k\in\mathcal A$ 和有效掩码 $m_k\in\{0,1\}$ 都可能随时间变化。参数集合记为 $\vartheta=(\vartheta_f,\vartheta_m,\vartheta_s)$，单步更新写成
+\begin{equation}
+  x_{k+1}=F_{\vartheta,k}(x_k,u_k,g_k,A_k,m_k),
+  \qquad
+  \mathcal J_T(\vartheta)=\sum_{k=1}^{T}w_k\ell_k(x_k,g_k)+\Omega(\vartheta),
+\end{equation}
+其中 $x_k=(x_k^f,x_k^m,x_k^s)$，$w_k\geq 0$ 为无量纲评估权重，$\ell_k$ 的单位由具体任务决定，$\Omega$ 是正则项。若交叉熵、时延、通信字节和焦耳能耗同时进入目标，必须先分别归一化并报告各分量，不能把它们都称作“能量”后直接相加。目标、结构和掩码随 $k$ 变化时，梯度也依赖这些版本；把它们冻结只是局部分析假设，而不是全程事实。
+
+完整的随时间反向传播对参数的梯度可写为
+\begin{equation}
+ \nabla_{\vartheta}\mathcal J_T
+ =\sum_{k=1}^{T}\left[
+ \frac{\partial \ell_k}{\partial \vartheta}
+ +\frac{\partial \ell_k}{\partial x_k}
+ \sum_{j=0}^{k-1}
+ \left(\prod_{r=j+1}^{k-1}\frac{\partial F_{\vartheta,r}}{\partial x_r}\right)
+ \frac{\partial F_{\vartheta,j}}{\partial \vartheta}
+ \right]+\nabla_{\vartheta}\Omega .
+\end{equation}
+这是链式法则的离散展开；它不假设信息以无限速度传播，也不意味着模型与物理系统整体同构。真正的工程困难来自保存或重算中间激活、长雅可比乘积的数值条件，以及非平稳数据使早期梯度对当前参数失去代表性。若每步保存的激活占用 $a_k$ 字节，朴素实现的激活显存约为 $M_{act}=\sum_{k=1}^{T}a_k$；只有在 $a_k\approx a$ 时才可简写为 $\mathcal O(Ta)$。检查点重算可以用额外计算换取较低显存，隐式梯度、可逆层或前向模式又有不同边界，所以“完整BPTT必然爆显存”不是无条件数学结论。
+
+长乘积还带来梯度消失或爆炸。若在一个固定版本窗口内有 $\left\lVert \partial F_{\vartheta,r}/\partial x_r\right\rVert_2\leq\rho$，则从第 $j$ 步到第 $k$ 步的敏感度上界为 $\rho^{k-j-1}$。当 $\rho<1$ 时远期影响衰减，当 $\rho>1$ 时上界增长；但该界只给出范数风险，不能说明某个方向上的真实梯度，也不能把数值爆炸解释为热力学熔断。归一化、门控、残差连接、谱约束和梯度裁剪可以改变数值条件，却不自动保证任务成功。反过来，稳定的梯度也可能对应错误目标、错误数据或权限越界，因此数值稳定、统计有效与安全合规需要分别验收。
+
+多时间尺度系统还面临信用混叠。传感噪声、短期控制误差、任务切换和真正的慢层模型偏差都可能在同一损失中出现；如果每一步都让慢参数响应，慢层会追逐高频波动。可这不是因为噪声必然“倒灌”，而是因为估计器的频率响应、采样相关性和更新规则没有被设计。设快层每步更新，慢层每 $N_s$ 步更新一次。简单求和的慢层梯度估计 $G_q^s=\sum_{k=qN_s}^{(q+1)N_s-1}g_k^s$ 会随窗口长度改变尺度；使用均值 $\bar G_q^s=N_s^{-1}G_q^s$、指数加权或稳健截尾会产生不同偏差与方差。若梯度具有持续同号分量，累积会增强它；若梯度正负交替，可能抵消；若噪声有偏或长程相关，抵消并不成立。因而不能仅凭“多步相加”宣称高频噪声已经消失，必须用功率谱、窗口消融、估计方差和任务指标验证。
+
+本章采用的工程目标是受预算的信用分配，而不是模拟某种宇宙过程。对任一方案，我们至少记录峰值显存、每步计算量、墙钟时延、梯度范数与方差、长期任务回报、切换后的恢复时间及罕见事件漏检率；对异步实现还要记录状态版本陈旧度、丢包、乱序和回退次数。基线包括完整BPTT、固定窗口截断、只训练快层、周期更新慢层和检查点重算。若时间尺度分离只减少显存却显著损害长期信用，它只是一项资源折中；若训练损失下降而部署回报没有改善，也不能称为学习成功。只有在相同数据、参数量、硬件和停止规则下同时报告质量与资源前沿，后续的截断、累积和异步接口才具有可比较的意义。
+
+\section{截断信用与延迟更新：窗口、估计量和版本条件}
+\label{sec:app_math_reconstruction}
+
+时间尺度分离首先是一组可声明的采样与优化协议。设快层窗口长度为 $H_f=1$，中层和慢层的更新间隔分别为 $H_m,H_s\in\mathbb{N}^{+}$，且 $H_s\geq H_m$；这些量以离散步为单位，换算为秒时分别乘以 $\Delta t$。在第 $q$ 个慢层窗口 $W_q^s=\{qH_s,\ldots,(q+1)H_s-1\}$ 内，慢参数版本固定为 $v_q^s$，但快状态、输入、目标和结构仍可变化。每个快步产生一条信用消息
+\begin{equation}
+ c_k^s=(g_k^s,\,v_q^s,\,r_k,\,\omega_k,\,\sigma_k,\,t_k),
+ \qquad g_k^s\in\mathbb{R}^{p_s},
+\end{equation}
+其中 $g_k^s$ 是对慢层接口变量或参数的梯度估计，$p_s$ 为参数维数，$r_k$ 是轨迹与任务身份，$\omega_k\geq0$ 是样本权重，$\sigma_k$ 是不确定性摘要，$t_k$ 是时间戳。只有版本、身份和许可都匹配的消息才能进入同一聚合器；把不同目标或不同结构版本的梯度直接相加，会得到没有明确优化对象的向量。旧稿所谓“应力”在这里仅作为信用消息累积的助记词，不是物理应力张量。
+
+给定有效消息集合 $V_q^s\subseteq W_q^s$，一个基本估计量是加权均值
+\begin{equation}
+ \widehat G_q^s=
+ \frac{\sum_{k\in V_q^s}\omega_k g_k^s}
+ {\max(\sum_{k\in V_q^s}\omega_k,\varepsilon_w)},
+ \qquad
+ \vartheta_{s,q+1}=\Pi_{\mathcal C_s}
+ \left(\vartheta_{s,q}-\eta_s P_q\widehat G_q^s\right),
+\end{equation}
+其中 $\varepsilon_w>0$ 防止空窗口除零，$P_q$ 可以是预条件器，$\Pi_{\mathcal C_s}$ 把更新投影回允许参数集合 $\mathcal C_s$。若 $V_q^s$ 为空，系统应保持旧版本并记录缺证事件，而不是用零梯度冒充“已经验证稳定”。用求和代替均值会让有效步数改变更新幅度；若确需让长期一致证据产生更强更新，应把证据量设计为单独的置信门或学习率调度，而不是混淆统计平均与样本数量。稳健实现还可使用逐坐标截尾均值、median-of-means或范数裁剪，但这些方法各自改变偏差，必须与重尾噪声假设相匹配。
+
+截断发生在自动微分路径上。令 $b_q=x_{qH_s}^s$ 是窗口边界状态，使用 $\operatorname{stopgrad}(b_q)$ 意味着本窗口的损失不再向更早窗口求导。由此得到的 $\widehat G_q^s$ 通常是完整长时域梯度的有偏估计；只有在远期依赖可忽略、边界状态是充分统计量、或另有无偏校正时，才能声称两者近似一致。\texttt{detach()} 也不会阻止数据在前向路径上传播，不会创建线程安全快照，更不会自动隔离隐私或故障。它只告诉自动微分系统把该张量视为常量。若边界张量稍后被原地修改，若随机重算未保存随机数状态，或若重算时参数版本已经改变，得到的梯度都可能对应另一条轨迹。
+
+多速率更新还需要处理陈旧度。若消息在生成版本 $v$ 与消费版本 $v'$ 之间相差 $a=v'-v$ 次慢更新，可设置最大陈旧度 $a_{max}$；超过阈值的消息丢弃或重新评估。未超过阈值时，也可用 $\kappa(a)=\exp(-\lambda a)$ 降权，其中 $\lambda\geq0$ 是每版本衰减率。这个函数是工程假设，不保证对所有非平稳任务正确。目标突变、Boundary策略更新或数据分布越界时，应直接关闭旧窗口并清空不兼容信用，而不是依靠连续衰减把错误目标逐渐淡化。对于AgentOS实例，TCE可以承载时间戳和版本，CCM协调快慢层提交，SPC记录结构身份，外部记忆 $M_e$ 保存可重放证据；其他实现只需提供等价的版本化接口。
+
+偏差—方差与资源之间不存在免费的统一最优点。较短窗口降低显存与陈旧度，却截断长期依赖；较长窗口保留更多信用，却提高重算、方差和版本冲突风险。应在预先定义的 $H\in\{H_1,\ldots,H_n\}$ 上做消融，报告长期回报、峰值显存、吞吐量、梯度余弦相似度和切换恢复时间。若可承受小规模完整BPTT，可把它作为参考并计算 $\cos(\widehat G_H,G_{full})$；但参考梯度本身也只针对该批数据与版本。最终选择应满足任务约束而非追求某个物理比喻：实时控制可以接受有偏但低延迟的估计，离线结构学习可能更重视长期一致性，安全关键的慢更新则还需独立回放、影子评估和可回滚发布。
+
+\section{可执行训练循环：快层更新、慢层重算与提交事务}
+\label{sec:app_pytorch_implementation}
+
+一个可靠实现必须把训练计算图、运行状态和优化器状态分开管理。设快模块 $F_f$、慢模块 $F_s$ 的参数分别为 $\vartheta_f,\vartheta_s$。慢模块在窗口起点产生带版本的条件向量 $z_q^s$；快模块在窗口内读取其不可变快照并处理输入。快损失可以每步反传并更新 $\vartheta_f$，同时从条件快照的 \texttt{.grad} 提取对慢接口的信用消息。窗口结束时，系统不能把这条接口梯度直接施加到任意一次慢模块输出，而应使用同一任务身份、同一慢参数版本、可重现随机状态和相容输入重新构造 $z_q^s$，再以聚合消息作为向量—雅可比积的上游向量。若无法重现，就只能把消息用于代理目标、策略梯度或日志分析，不能宣称获得了原链式法则的精确梯度。
+
+下面的参考实现保留旧稿的三层、多频率与梯度累积案例，但明确它只是单进程训练骨架。示例用两个优化层展示核心协议；中层可按同样方式递归插入。\texttt{window\_input} 由真实窗口输入生成，不再使用无法复现的随机张量；快照携带版本；聚合使用均值；慢更新前检查版本并重新前向。代码省略分布式通信、混合精度缩放和持久化检查点，生产系统必须补齐这些部分。
+
+\begin{lstlisting}[language=Python, caption={带版本检查的多尺度截断信用训练骨架}, label={lst:adiabatic_engine}]
+from dataclasses import dataclass
+import torch
+import torch.nn as nn
+
+@dataclass
+class Credit:
+    grad: torch.Tensor
+    version: int
+    trace_id: str
+
+class MultiRateLearner:
+    def __init__(self, slow: nn.Module, fast: nn.Module,
+                 opt_slow, opt_fast, slow_period: int):
+        assert slow_period > 0
+        self.slow, self.fast = slow, fast
+        self.opt_slow, self.opt_fast = opt_slow, opt_fast
+        self.slow_period = slow_period
+        self.slow_version = 0
+        self.credits = []
+
+    def open_window(self, context, trace_id):
+        self.window_input = context.detach().clone()
+        with torch.no_grad():
+            z = self.slow(self.window_input)
+        self.snapshot = z.detach().clone().requires_grad_(True)
+        self.trace_id = trace_id
+        self.window_version = self.slow_version
+
+    def fast_step(self, x, target, loss_fn):
+        self.opt_fast.zero_grad(set_to_none=True)
+        if self.snapshot.grad is not None:
+            self.snapshot.grad.zero_()
+        pred = self.fast(x, self.snapshot)
+        loss = loss_fn(pred, target)
+        loss.backward()
+        self.opt_fast.step()
+        self.credits.append(Credit(
+            self.snapshot.grad.detach().clone(),
+            self.window_version, self.trace_id))
+        return loss.detach()
+
+    def close_window(self):
+        valid = [c.grad for c in self.credits
+                 if c.version == self.slow_version
+                 and c.trace_id == self.trace_id]
+        if not valid:
+            self.credits.clear()
+            return False
+        upstream = torch.stack(valid).mean(dim=0)
+        self.opt_slow.zero_grad(set_to_none=True)
+        z = self.slow(self.window_input)
+        z.backward(upstream)
+        torch.nn.utils.clip_grad_norm_(self.slow.parameters(), 1.0)
+        self.opt_slow.step()
+        self.slow_version += 1
+        self.credits.clear()
+        return True
+\end{lstlisting}
+
+这段代码仍有清晰边界。首先，快优化器在窗口中持续改变快参数，因此各步接口梯度来自不同快版本；均值是否合适要由任务验证。其次，若慢状态具有递归记忆，单次 \texttt{slow(window\_input)} 可能不足以重建窗口起点，必须恢复隐藏状态与随机数生成器。再次，更新慢参数后，旧快照不应继续服务下一窗口；运行时必须原子地发布新版本，失败则保留旧版本。代码中的梯度裁剪限制更新范数，不代表风险被消除，更不代表目标正确。对于跨设备实现，信用消息还要携带形状、dtype、缩放因子、校验和与权限，聚合前检查有限值和维度；任何一项不匹配都应进入隔离队列。
+
+训练事务至少包含“准备、影子计算、验证、提交、回退”五个阶段。慢参数候选 $\vartheta_s'$ 先在影子副本上生成；验证集同时检查任务质量、校准、安全约束和资源预算；只有通过门槛才把版本指针从 $v$ 原子切换到 $v+1$。若提交后在线指标越界，系统恢复参数、优化器动量和结构版本，而不只是恢复权重文件。这样才能把所谓“塑性更新”落实为可审计的软件事务。验收还应注入空窗口、NaN梯度、版本冲突、重复消息、迟到消息和进程重启，确认它们不会悄悄污染慢层。
+
+实现中还必须约定梯度的尺度与所有权。接口向量若来自多个微批次，混合精度训练需要先用同一缩放因子还原到浮点尺度，再做有限值检查和聚合；若某一消息仍处于损失缩放后的坐标，而另一消息已经反缩放，两者的均值没有可解释性。分布式数据并行还会把“平均”分成节点内、节点间和时间窗内三个层次，归一化分母应记录真实有效样本数，不能默认等于配置中的批量大小。参数服务器或AllReduce只解决传输与规约，不解决消息是否来自相同目标版本。为避免一个消费者清空另一个消费者仍需读取的信用，聚合器应拥有消息生命周期，训练模块只提交不可变记录；确认提交后再按幂等键回收。这样，数值问题、并发问题与统计问题才不会被一个模糊的“累积梯度”接口掩盖。
+
+重启恢复是检验该协议是否完整的简单办法。检查点至少保存快慢参数、两个优化器状态、慢版本号、当前窗口身份、已经接受的消息序号、随机数状态以及待提交候选；恢复后先核对数据游标与目标版本，再决定继续窗口还是作废重算。只保存模型权重会丢失动量和消费边界，导致同一条信用被重复应用或整窗证据被漏掉。可重复性测试应在指定步骤强制终止进程，比较无故障运行与恢复运行的版本序列、更新范数和最终指标；浮点规约次序可能造成微小差异，因此验收应使用预先声明的数值容差，而不是要求逐比特相同。对于高风险慢层更新，还应把候选送入离线回放和影子流量，观察一段最短证据期后再发布。训练损失下降只说明代理目标在样本上变化，不能代替这些事务与部署检查。
+
+\section{机制解释与证据边界：滤波不是学习保证}
+\label{sec:app_physical_interpretation}
+
+旧稿用绝热屏障、应力结晶、破坏性干涉和重整化流解释上述机制，这些词可以帮助形成直觉，但不能替代统计条件。时间窗口本质上是一个滤波器。对标量信用序列 $g_k$ 使用长度 $H$ 的移动均值时，其离散频率响应为
+\begin{equation}
+ \mathcal H_H(\omega)=\frac{1}{H}\sum_{r=0}^{H-1}e^{-i\omega r}
+ =\frac{1}{H}e^{-i\omega(H-1)/2}
+ \frac{\sin(H\omega/2)}{\sin(\omega/2)}.
+\end{equation}
+它会衰减部分高频分量，同时引入相位延迟，并在若干频率上出现零点。由此不能推出“噪声自动抵消而真实偏差必然保留”：低频漂移可能是噪声，高频突变可能是关键安全事件，周期信号还可能落在滤波器零点。采用指数平均会改变频响和记忆尾部，稳健统计会改变异常值影响。工程选择必须由信号来源、控制带宽与错误代价共同决定。
+
+慢层“更固执”也不是因为学习率小就具有更高智慧。学习率 $\eta_s$、更新间隔 $H_s$、梯度尺度和预条件器共同决定单位物理时间内的有效变化。若每 $H_s$ 步使用梯度和而不是均值，有效更新可能反而随 $H_s$ 增大；若优化器带动量，未重置的历史还会跨窗口传播。比较不同时间尺度时，应报告每秒参数位移、函数输出变化和任务影响，而不只列出学习率。快层也不等于“流体”、慢层不等于“晶体”；这些名称描述的是当前调度与可塑性配置，同一模块在不同阶段可以改变角色。
+
+局部结构网络与全局分布表示在这里承担不同功能。结构网络保存对象身份、角色、依赖和可执行约束，适合由SPC或等价组件进行版本化编辑；分布表示承载内容相似性、预测特征和策略先验，适合在快层连续更新。二者通过任务身份、绑定键、读出接口和信用消息联合。慢层收到的不是“全局真理”，而是带来源的局部证据摘要；快层读取的也不是不可改变的物理定律，而是一个有版本、有效期和回退路径的约束快照。若快层发现约束与安全规则冲突，Boundary应允许拒绝执行或切换后备控制，而不是要求它服从所谓绝对背景场。
+
+经验主张必须通过对照实验支持。要检验多速率学习是否优于端到端同步训练，至少固定模型容量、数据顺序、优化预算与随机种子，比较完整BPTT、等长截断、梯度检查点、多速率均值、异步陈旧梯度和只更新快层六类基线。除平均任务分数外，还要报告尾部风险、长期依赖任务、目标切换、少数关键事件、不同窗口长度和不同延迟下的结果。若多速率方案在常规样本上更稳，却漏掉稀有危险信号，便不能以平均损失下降宣布成功。若它节省显存但增加总计算或墙钟时间，也应如实进入资源向量。
+
+理论层级同样需要守住。系统论提供模块边界、状态与环境接口；协同论提示不同时间尺度之间的耦合；耗散与复杂系统理论启发我们考察开放输入、稳定区间和相变式失效；认知科学约束记忆、注意、行动和报告的解释。HSF-HD在其上提出智能一般状态动力学，但不从这些来源推导某段PyTorch代码必然正确。AgentOS可以把多速率信用用于TCE、CCM与外部记忆协同，其他系统也可以采用模型预测控制、局部学习规则或黑盒策略优化。判断依据始终是对象定义、推导条件、干预证据和工程验收，而不是类比是否优美。
+
+最后，\texttt{detach()} 不产生“无意识”，异步线程也不产生“显意识”。关于主观体验的主张需要独立的行为、神经或哲学证据，不能从软件拓扑直接得出。本附录能够支持的结论更有限：通过明确窗口、版本、消息和提交协议，我们可以在资源约束下构造不同速率的学习回路，并测量它们对长期信用、实时响应和稳定性的影响。这个结论足以指导工程，却故意不越过证据边界。
+
+\section{异步推理运行时：快照、邮箱与后备控制}
+\label{sec:app_asynchronous_inference}
+
+训练时分离梯度并不自动得到异步推理。推理系统需要独立调度器、状态所有权和一致性协议。设层级 $i\in\{f,m,s\}$ 的期望周期为 $\tau_i>0$ 秒，最坏执行时间为 $C_i$ 秒，允许的输入陈旧上限为 $D_i$ 秒。单核周期调度仅在利用率和优先级条件满足时才可能按期完成；多进程或多设备还要考虑通信延迟。快层不能无条件等待慢层，但也不能读取任意旧状态。每个下行快照定义为
+\begin{equation}
+ B_i=(z_i,v_i,t_i,t_i^{exp},r_i,\mathcal P_i),
+\end{equation}
+其中 $z_i$ 是约束内容，$v_i$ 是版本，$t_i$ 与 $t_i^{exp}$ 是生成和过期时间，$r_i$ 是任务身份，$\mathcal P_i$ 是权限集合。读取者只有在身份匹配、权限允许且 $t-t_i\leq D_i$ 时才使用它，否则切换本地后备控制。上行邮箱中的残差也要带时间戳、序号和幂等键，才能识别迟到、重复与乱序。
+
+实时避障是一个具体例子。局部控制器以100赫兹读取传感器，规划器以10赫兹更新短程路径，任务管理器以1赫兹修订目标。任务管理器计算尚未完成时，局部控制器可以使用上一版目标继续运行，但Boundary同时规定速度上限、制动距离和禁区；一旦目标快照过期、传感质量下降或轨迹进入不可恢复集合，它必须制动，而不是凭旧目标盲目前进。局部避障成功后，可以把摘要上传给规划器；是否需要进一步上传给任务管理器，取决于事件严重度、模型新颖度和审计策略。上层没有收到每一块小石子的原始数据，不等于系统节省了物理能量，也不证明某种心理学意识时序。
+
+下面的运行时骨架保留旧稿的独立时钟、下行状态和上行队列，但补上不可变快照、截止期、序号、停止信号和后备路径。Python线程不能提供硬实时保证，这段代码用于协议说明；机器人安全环应使用实时操作系统、进程隔离或专用控制器，并把神经网络输出置于安全监控器之下。
+
+\begin{lstlisting}[language=Python, caption={带版本和过期控制的异步多速率节点}, label={lst:async_inference}, basicstyle=\ttfamily\small, keywordstyle=\color{blue}, commentstyle=\color{green!50!black}, stringstyle=\color{red}, breaklines=true, frame=single]
+from dataclasses import dataclass
+from queue import Queue, Empty
+from threading import Event, Lock, Thread
+import time
+
+@dataclass(frozen=True)
+class Snapshot:
+    value: object
+    version: int
+    trace_id: str
+    created_at: float
+    expires_at: float
+
+class AsyncNode(Thread):
+    def __init__(self, period_s, operator, safe_fallback):
+        super().__init__(daemon=True)
+        self.period_s = period_s
+        self.operator = operator
+        self.safe_fallback = safe_fallback
+        self._snapshot = None
+        self._lock = Lock()
+        self._inbox = Queue(maxsize=1024)
+        self._stop_event = Event()
+        self.state = None
+        self.last_seq = -1
+
+    def publish_constraint(self, snapshot):
+        with self._lock:
+            if self._snapshot is None or snapshot.version > self._snapshot.version:
+                self._snapshot = snapshot
+
+    def send_residual(self, seq, trace_id, residual):
+        self._inbox.put_nowait((seq, trace_id, residual))
+
+    def run(self):
+        deadline = time.monotonic()
+        while not self._stop_event.is_set():
+            now = time.monotonic()
+            with self._lock:
+                snap = self._snapshot
+            valid = snap is not None and now <= snap.expires_at
+            residuals = []
+            try:
+                while True:
+                    seq, trace_id, value = self._inbox.get_nowait()
+                    if seq > self.last_seq and snap and trace_id == snap.trace_id:
+                        residuals.append(value)
+                        self.last_seq = seq
+            except Empty:
+                pass
+            if valid:
+                self.state = self.operator(self.state, snap, residuals)
+            else:
+                self.state = self.safe_fallback(self.state)
+            deadline += self.period_s
+            self._stop_event.wait(max(0.0, deadline - time.monotonic()))
+
+    def stop(self):
+        self._stop_event.set()
+\end{lstlisting}
+
+该骨架仍需外围治理。邮箱满时应选择丢弃策略、背压或降采样，并为被丢消息计数；\texttt{time.monotonic()} 只适合单机时长判断，跨机时间戳需要时钟同步与误差界；对象快照必须真正不可变，张量还要克隆到具有明确所有权的存储。节点异常退出时，监督器应确认后备控制已接管，再尝试重启。新版本发布采用两阶段或原子指针切换，读者要么看到完整旧版，要么看到完整新版，不能读取一半参数。外部记忆与Offloading返回结果也必须经过相同的身份和有效期检查。
+
+异步方案的验收不以吞吐量一项为准。我们需要测量各层截止期违约率、快照年龄分布、邮箱深度、消息丢弃率、版本回退率、后备控制占比、端到端任务质量与真实硬件能耗。故障注入覆盖慢层卡死、网络分区、时钟漂移、快照损坏、重复消息和目标撤销。一个反例是上层旧约束仍合法但已经不适合突变环境：仅检查版本与过期时间仍会失败，因此快层必须拥有独立的安全不变量和异常检测。另一个反例是快层局部最优持续掩盖系统性偏差，使上层长期收不到更新；需要定期采样未聚合证据或设置最低上报率。
+
+至此，多时间尺度架构形成可审计闭环：快层以局部状态和后备约束维持实时响应，中层聚合任务相关证据并修订短程策略，慢层在版本化数据上执行较长时域评估；下行传递有期限的约束，上行传递带来源的残差，任何层都不能把自身局部目标冒充整体任务成功。这种设计可以称为“绝热式”工程，但其有效性来自明确的采样、估计、调度和安全条件，而不是物理词汇本身。
