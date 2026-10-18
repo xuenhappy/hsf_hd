@@ -2226,9 +2226,18 @@
       "source_start_line": 40121,
       "source_end_line": 40146,
       "source_sha256": "181a3526ce0b932a7bacf1a31b0e7f8075c3a2608af2c99f9a64c925717baad2",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "跨域概念对照：从物理隐喻到计算定义",
+      "preserved_figure_count": 0,
+      "preserved_table_count": 1,
+      "preserved_listing_count": 0,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "rewrite_method": "individually-authored-complete-rewrite",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "argument_map": "docs/argument-maps/chapter-114.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "appendices/sec-section_7739.tex",

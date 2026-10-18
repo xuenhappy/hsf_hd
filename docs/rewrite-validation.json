@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 113,
-  "pending_chapters": 4,
+  "rewritten_chapters": 114,
+  "pending_chapters": 3,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -4432,16 +4432,25 @@
     {
       "order": 114,
       "path": "appendices/sec-section_8308.tex",
-      "title": "形质编码全息表 (The Rosetta Stone of MSC)",
-      "status": "queued-for-full-rewrite",
+      "title": "跨域概念对照：从物理隐喻到计算定义",
+      "status": "rewritten-reviewed",
       "original_han_floor": 442,
-      "new_chapter_prose_han": 38,
+      "new_chapter_prose_han": 2528,
       "original_readable_units": 39,
-      "new_readable_units": 39,
-      "opening_prose_han": 38,
-      "sections": [],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "new_readable_units": 2539,
+      "opening_prose_han": 230,
+      "sections": [
+        {
+          "title": "对照协议：共同关系不等于对象同一",
+          "prose_han": 1013
+        },
+        {
+          "title": "使用方法：由类比生成假说，再以干预淘汰",
+          "prose_han": 1285
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

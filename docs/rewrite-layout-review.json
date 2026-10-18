@@ -1,9 +1,9 @@
 {
-  "pages": 760,
-  "bytes": 55572723,
+  "pages": 762,
+  "bytes": 55585360,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 653,
+  "numbered_sections": 655,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4577,7 +4577,21 @@
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "114.1 对照协议：共同关系不等于对象同一",
+      "start_pdf_page": 761,
+      "prose_lines": 26,
+      "calibrated_prose_page_equivalents": 0.579,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "114.2 使用方法：由类比生成假说，再以干预淘汰",
+      "start_pdf_page": 762,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 113 chapters; does not validate the full book."
+  "scope": "Review subset: 114 chapters; does not validate the full book."
 }
