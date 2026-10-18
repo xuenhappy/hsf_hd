@@ -1,9 +1,9 @@
 {
-  "pages": 765,
-  "bytes": 55600595,
+  "pages": 768,
+  "bytes": 55622299,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 657,
+  "numbered_sections": 660,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4605,7 +4605,28 @@
       "prose_lines": 32,
       "calibrated_prose_page_equivalents": 0.713,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "116.1 来源理论的分层阅读：先学对象，再比较关系",
+      "start_pdf_page": 766,
+      "prose_lines": 33,
+      "calibrated_prose_page_equivalents": 0.735,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "116.2 认知与复杂系统文献：从启发假说到干预证据",
+      "start_pdf_page": 767,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "116.3 工具链与复现实作：把阅读结论变成可撤销实验",
+      "start_pdf_page": 767,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 115 chapters; does not validate the full book."
+  "scope": "Review subset: 116 chapters; does not validate the full book."
 }

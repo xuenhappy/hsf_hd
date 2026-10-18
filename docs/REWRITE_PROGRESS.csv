@@ -114,5 +114,5 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 113,appendices/app-adiabatic_backprop.tex,rewritten-reviewed,3713,5976,4404,6564,5,1058
 114,appendices/sec-section_8308.tex,rewritten-reviewed,442,2528,39,2539,2,1013
 115,appendices/sec-section_7739.tex,rewritten-reviewed,685,2470,530,2492,2,1038
-116,appendices/sec-section_9411.tex,queued-for-full-rewrite,1015,1009,1306,1306,0,0
+116,appendices/sec-section_9411.tex,rewritten-reviewed,1015,3442,1306,3589,3,1041
 117,appendices/sec-section_5204.tex,queued-for-full-rewrite,2628,2792,2432,2901,2,469

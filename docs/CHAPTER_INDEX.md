@@ -119,5 +119,5 @@
 | 附录 | — | [app-adiabatic_backprop](../appendices/app-adiabatic_backprop.tex) | 多时间尺度学习：截断信用、延迟更新与异步控制 | 已重写并完成排版复核 |
 | 附录 | — | [sec-section_8308](../appendices/sec-section_8308.tex) | 跨域概念对照：从物理隐喻到计算定义 | 已重写并完成排版复核 |
 | 附录 | — | [sec-section_7739](../appendices/sec-section_7739.tex) | 多数学视角的互译协议：对象、条件与工程选择 | 已重写并完成排版复核 |
-| 附录 | — | [sec-section_9411](../appendices/sec-section_9411.tex) | 推荐阅读书目 | 队列中；原文仍保留 |
+| 附录 | — | [sec-section_9411](../appendices/sec-section_9411.tex) | 阅读与实现路线：来源理论、证据边界和复现实作 | 已重写并完成排版复核 |
 | 附录 | — | [sec-section_5204](../appendices/sec-section_5204.tex) | 理论与工程约化：从一般动力学到离散网络 | 队列中；原文仍保留 |

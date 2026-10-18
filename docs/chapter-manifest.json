@@ -2269,9 +2269,17 @@
       "source_start_line": 40201,
       "source_end_line": 40334,
       "source_sha256": "a40dd2e859d30bf5ecf545911d755a9f2ac30ad6efe2175fbfd242bb6990f163",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "阅读与实现路线：来源理论、证据边界和复现实作",
+      "preserved_figure_count": 0,
+      "preserved_table_count": 0,
+      "rewrite_method": "individually-authored-complete-rewrite",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "argument_map": "docs/argument-maps/chapter-116.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "appendices/sec-section_5204.tex",
