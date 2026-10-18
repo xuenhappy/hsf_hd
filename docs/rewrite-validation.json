@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 114,
-  "pending_chapters": 3,
+  "rewritten_chapters": 115,
+  "pending_chapters": 2,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -4456,16 +4456,25 @@
     {
       "order": 115,
       "path": "appendices/sec-section_7739.tex",
-      "title": "HSF-HD 的多语种对照表 — 数学视角的罗塞塔石碑",
-      "status": "queued-for-full-rewrite",
+      "title": "多数学视角的互译协议：对象、条件与工程选择",
+      "status": "rewritten-reviewed",
       "original_han_floor": 685,
-      "new_chapter_prose_han": 517,
+      "new_chapter_prose_han": 2470,
       "original_readable_units": 530,
-      "new_readable_units": 530,
-      "opening_prose_han": 517,
-      "sections": [],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "new_readable_units": 2492,
+      "opening_prose_han": 226,
+      "sections": [
+        {
+          "title": "互译对象：五种语言共享接口而不共享本体",
+          "prose_han": 1038
+        },
+        {
+          "title": "工程选择：以问题、证据和失败模式决定视角",
+          "prose_han": 1206
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

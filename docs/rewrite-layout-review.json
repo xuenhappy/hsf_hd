@@ -1,9 +1,9 @@
 {
-  "pages": 762,
-  "bytes": 55585360,
+  "pages": 765,
+  "bytes": 55600595,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 655,
+  "numbered_sections": 657,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4591,7 +4591,21 @@
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "115.1 互译对象：五种语言共享接口而不共享本体",
+      "start_pdf_page": 763,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "115.2 工程选择：以问题、证据和失败模式决定视角",
+      "start_pdf_page": 764,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 114 chapters; does not validate the full book."
+  "scope": "Review subset: 115 chapters; does not validate the full book."
 }

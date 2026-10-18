@@ -2248,9 +2248,17 @@
       "source_start_line": 40146,
       "source_end_line": 40201,
       "source_sha256": "46aa4a02c616b77a4d4a8abf4aef021f80a722bbbb7b8a49912d89752349e02c",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "多数学视角的互译协议：对象、条件与工程选择",
+      "preserved_figure_count": 0,
+      "preserved_table_count": 1,
+      "rewrite_method": "individually-authored-complete-rewrite",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "argument_map": "docs/argument-maps/chapter-115.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "appendices/sec-section_9411.tex",
