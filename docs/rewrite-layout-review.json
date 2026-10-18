@@ -1,9 +1,9 @@
 {
-  "pages": 768,
-  "bytes": 55622299,
+  "pages": 773,
+  "bytes": 55652993,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 660,
+  "numbered_sections": 665,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4626,7 +4626,42 @@
       "prose_lines": 29,
       "calibrated_prose_page_equivalents": 0.646,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "117.1 约化契约：多重数学视角与离散对象",
+      "start_pdf_page": 769,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "117.2 网络状态动力学：扩散、漂移、控制与稳定条件",
+      "start_pdf_page": 770,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "117.3 TPU-G 候选算子：从解析公式到可综合原语",
+      "start_pdf_page": 771,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "117.4 代码与硬件映射：复杂度、单位和故障域分账",
+      "start_pdf_page": 771,
+      "prose_lines": 29,
+      "calibrated_prose_page_equivalents": 0.646,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "117.5 全书收口：从理论地图到可证伪工程",
+      "start_pdf_page": 772,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 116 chapters; does not validate the full book."
+  "scope": "Review subset: 117 chapters; does not validate the full book."
 }

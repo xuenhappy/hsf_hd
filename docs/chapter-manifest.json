@@ -2290,11 +2290,17 @@
       "source_start_line": 40334,
       "source_end_line": 40528,
       "source_sha256": "0892416faf92722dfacfee5a49ee315ac2056620f388800e347208ec19ded9eb",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "new_title": "理论与工程约化：从一般动力学到离散网络",
       "preserved_figure_count": 0,
+      "preserved_table_count": 2,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-with-computational-analysis"
+      "previous_status": "full-content-restored-with-computational-analysis",
+      "rewrite_method": "individually-authored-complete-rewrite",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "argument_map": "docs/argument-maps/chapter-117.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     }
   ],
   "recovery_note": "All 117 complete baseline chapter bodies restored; 16 computational analyses are additions, not replacements. Original prefaces and 14 volume/part lead-ins restored.",
