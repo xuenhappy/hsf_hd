@@ -1,9 +1,9 @@
 {
-  "pages": 716,
-  "bytes": 55041224,
+  "pages": 753,
+  "bytes": 55529492,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 643,
+  "numbered_sections": 648,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4507,7 +4507,42 @@
       "prose_lines": 31,
       "calibrated_prose_page_equivalents": 0.69,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "112.1 输入检疫与数值边界：从物理封顶改写为类型化预条件",
+      "start_pdf_page": 717,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "112.2 联合路由与内容聚合：从四维通量改写为可归因权重",
+      "start_pdf_page": 718,
+      "prose_lines": 32,
+      "calibrated_prose_page_equivalents": 0.713,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "112.3 局部专家与多速率更新：从辛演化改写为受约束离散动力学",
+      "start_pdf_page": 719,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "112.4 慢速观测与元控制：从宏观意志改写为版本化闭环",
+      "start_pdf_page": 720,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "112.5 循环推理、训练目标与验收：从草稿纸扩散改写为有限时域求解",
+      "start_pdf_page": 721,
+      "prose_lines": 34,
+      "calibrated_prose_page_equivalents": 0.757,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 111 chapters; does not validate the full book."
+  "scope": "Review subset: 112 chapters; does not validate the full book."
 }

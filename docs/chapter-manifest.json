@@ -2182,9 +2182,18 @@
       "source_start_line": 39663,
       "source_end_line": 39791,
       "source_sha256": "1f68d03c21c8c7411f40ecf7766b80552b7d74f033768ffb0b4c386023c76ff0",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "Fluid MoE数学蓝图：约束路由、多速率更新与可验证循环",
+      "preserved_figure_count": 0,
+      "preserved_table_count": 0,
+      "preserved_listing_count": 1,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "rewrite_method": "individually-authored-complete-rewrite",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "argument_map": "docs/argument-maps/chapter-112.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "appendices/app-adiabatic_backprop.tex",

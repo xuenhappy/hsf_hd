@@ -1,126 +1,156 @@
-\chapter{Fluid MoE 的数学原理与大一统工程蓝图}
+\chapter{Fluid MoE数学蓝图：约束路由、多速率更新与可验证循环}
 \label{chp:fluid_moe_math_blueprint}
 
-这是\ref{sec:section_5178}架构的极简工程实现参考，展示了如何用代码定义“形”与“质”的解耦与融合，下面是一个完整的、可运行的 \textbf{Fluid MoE (形质互变MOE Transformer)} PyTorch 实现代码。
-本附录基于前述章节的理论探讨与实验性代码逻辑，彻底剥离底层的软件编程语言（如 Python/PyTorch 的张量操作细节），将 \textbf{Fluid MoE（流体混合专家）} 及 \textbf{Alpha-HSF 创世引擎} 的运行机制，升华为纯粹的\textbf{几何拓扑学与非平衡态热力学公式}。
-它展示了高频物理信号如何通过变分检疫被锁定为合法波包，四维物理量（形、质、相、耗）如何在局部流形中发生干涉，以及独立于基质的宏观意志（$z_{meta}$）如何通过李群测地线步进，最终在时间轴的“草稿纸”上凝结出低熵的智能结晶。
+本附录把 Fluid MoE 视为一种可供检验的稀疏条件计算方案，而不是智能系统必须服从的物理定律。它所处理的问题很具体：在有限显存、通信、时延和训练样本预算下，系统怎样把任务相关的局部结构约束与全局分布表示联合起来，怎样选择少量专家而不丢失身份、来源和安全边界，又怎样让快速内容更新、较慢路由适配与更慢结构修订保持可追踪的时间关系。我们沿用“形、质、相、耗”等旧名作为工程变量的助记词，但逐一给出状态空间、维度、单位、数值假设和验收指标；这些名称不推出能量守恒、量子坍缩或跨载体整体同构。AgentOS中的 $h(t)$、$E/\Theta$、$\Psi$、TCE、CCM、Boundary、Offloading 与外部记忆 $M_e$ 只是该接口的一种实现，其他智能系统可以采用不同机制，只要提供等价的观测、控制、版本和回退能力。
 
-
-\section{第一法则：检疫与边界 —— 几何物理的绝对封顶}
+\section{输入检疫与数值边界：从物理封顶改写为类型化预条件}
 \label{sec:appendix_quarantine}
 
-在将外部的高熵宇宙映射入智能体的认知空间前，系统必须通过 \textbf{物理检疫层 (Quarantine Wrapper)}，对无界信号实施强行的\textbf{拓扑截断}与\textbf{能量归一}。这保障了流形在演化初期的 Lipschitz 连续性，杜绝了热力学奇点的发生。
+先定义计算对象。设批量大小为 $B$，序列长度为 $N$，模型维数为 $d$，结构通道维数为 $d_f$，内容通道维数为 $d_s$，专家数为 $K$。输入记录写成 $X\in\mathbb{R}^{B\times N\times d}$；它是无量纲的浮点表示，数值大小由上游编码器和归一化约定决定，不是焦耳能量。结构表示 $F\in\mathbb{R}^{B\times N\times d_f}$ 保存任务相关的身份、邻接、角色或位置线索，内容表示 $S\in\mathbb{R}^{B\times N\times d_s}$ 保存可由分布参数读出的属性与上下文。二者并非两个独立本体：同一条记录必须携带来源标识 $r_{bn}$、版本 $v_{bn}$ 与有效掩码 $m_{bn}\in\{0,1\}$，绑定接口 $\operatorname{Bind}(F_{bn},S_{bn};r_{bn},v_{bn})$ 才能声明它们属于同一任务对象。缺少这种身份条件时，即使向量相似，系统也不能把检索结果、用户指令和环境观测任意合并。
 
-\smalltitle{1. 形元 ($T_{form}$) 的超球面投影约束}
-逻辑骨架只有方向，没有标量大小。一切提取出的原始形元矢量 $\mathbf{v}_{raw}$ 必须通过几何投影算子 $\hat{\mathcal{P}}_{\mathcal{M}}$，硬性锚定在半径为 $\sqrt{D_f}$ 的单位超球面上，确保宇宙背景的零点能方差恒定：
+所谓“检疫”首先是一组模型预条件。给定可学习投影 $P_f:\mathbb{R}^{d}\to\mathbb{R}^{d_f}$ 与 $P_s:\mathbb{R}^{d}\to\mathbb{R}^{d_s}$，原始通道为 $F^{raw}=P_f(X)$、$S^{raw}=P_s(X)$。若选择定范数结构表示，我们定义
 \begin{equation}
-    \mathbf{T}_{form} = \hat{\mathcal{P}}_{\mathcal{M}}(\mathbf{v}_{raw}) = \sqrt{D_f} \frac{\mathbf{v}_{raw}}{\|\mathbf{v}_{raw}\|_2 + \epsilon}
+F_{bn}=\rho_f\frac{F^{raw}_{bn}}{\max(\lVert F^{raw}_{bn}\rVert_2,\varepsilon_f)},
+\qquad m_{bn}=1,
 \end{equation}
+其中 $\rho_f>0$ 是无量纲目标半径，$\varepsilon_f>0$ 是与浮点精度和归一化尺度共同确定的数值下界。该式只是设计选择：它控制后续点积的尺度，并不证明“逻辑只有方向”。当 $\lVert F^{raw}_{bn}\rVert_2<\varepsilon_f$ 时，直接除法会把噪声放大成貌似确定的方向，因此实现必须走退化分支：保留零向量、读取一个带来源的默认结构先验，或将 $m_{bn}$ 置零并请求上游补充证据。三种策略会产生不同召回率和错误合并率，必须通过消融实验选择，不能用一个微小常数掩盖缺失信息。
 
-\smalltitle{2. 质元 ($T_{sub}$) 的热力学能量钳制}
-质元代表语义的“感受质”强度。其能量密度（均方根 RMS）不能无限制增长。系统定义了绝对物理极限 $[E_{min}, E_{max}]$，通过共形缩放强制钳制：
+内容通道采用均方根约束时，先定义 $q_{bn}=\sqrt{d_s^{-1}\sum_{\ell=1}^{d_s}(S^{raw}_{bn\ell})^2}$。给定无量纲区间 $[q_{min},q_{max}]$，可写成
 \begin{equation}
-    \mathbf{T}_{sub} = \mathbf{x} \cdot \frac{E_{safe}}{\|\mathbf{x}\|_{RMS} + \epsilon}, \quad E_{safe} = \min(\max(\|\mathbf{x}\|_{RMS}, E_{min}), E_{max})
+S_{bn}=S^{raw}_{bn}\frac{\operatorname{clip}(q_{bn},q_{min},q_{max})}{\max(q_{bn},\varepsilon_s)}.
 \end{equation}
+这里的 $q$ 是活动强度统计量，不是语义价值、信息熵、推断代价或硬件功耗。若部署需要核算真实资源，应另记显存字节数、通信字节数、浮点运算量、墙钟时延和焦耳能耗组成的资源向量 $c_{bn}$；它们可以与 $q$ 相关，却不能互相替代。下界 $q_{min}$ 也不是越大越好：它可能在弱证据位置制造虚假激活。因而默认实现只裁剪上界，把下界提升交给有明确校准目标的控制器，并报告校准误差、梯度范数分布与异常激活率。
 
-\smalltitle{3. 相空间 ($\Phi$) 的模群闭环与光速限制}
-将初始相位 $\theta$ 与本征频率 $\omega$ 统一为相空间矢量 $\mathbf{\Phi} = (\theta, \omega)$。大自然不允许任意快的心跳，频率必须受制于\textbf{认知光速 $\omega_{max}$}；相位必须闭合在 $U(1)$ 群上：
-\begin{equation}
-    \mathbf{\Phi}_{safe} = \left( \pi \tanh(\theta_{raw}), \, \omega_{max} \tanh(\omega_{raw}) \right)
-\end{equation}
+相位变量若确有任务用途，应作为周期特征而非神秘时钟。令 $\theta\in(-\pi,\pi]^{B\times N\times h}$ 表示 $h$ 个路由头的周期坐标，$\nu\in\mathbb{R}^{B\times N\times h}$ 表示每个离散步的相位增量；$\nu$ 的单位是弧度/步，步长为 $\Delta k=1$。边界映射可定义为 $\theta=\pi\tanh(\theta^{raw})$、$\nu=\nu_{max}\tanh(\nu^{raw})$。$\nu_{max}$ 是为数值稳定、采样分辨率和任务时延设定的超参数，不是自然常数，更不应命名为“认知光速”。若系统使用连续时间 $t$，则必须另行声明采样间隔 $\Delta t$，并把频率单位改成弧度/秒；在 $\Delta t$ 变化时仍沿用同一更新式会改变动力学含义。
 
-\section{第二法则：全息相干注意力 —— 四维通量干涉方程}
+边界还包括数据与权限，而不只包括数值。掩码 $m$ 应同时排除填充位、越权来源、过期版本和校验失败记录；Boundary 模块保留允许的专家集合 $\mathcal{K}_{bn}\subseteq\{1,\ldots,K\}$，路由器只能在该集合中归一化。对外部记忆 $M_e$ 的读入必须附带来源、时间戳、许可和置信区间，Offloading 结果返回后还要重新绑定原任务身份。一个输入通过范数裁剪，并不意味着它真实、相关或安全；数值检疫、语义校准与权限验证是三个不同关口。
+
+因此，本节的验收不是观察“流形是否稳定”，而是比较可复现指标。至少应记录正常样本上的任务损失与校准误差，极端范数、零向量、长序列和缺失掩码下的有限值比例，身份交换测试中的错误绑定率，越权专家被选中的次数，以及不同精度和步长下的输出偏差。反例同样重要：若无归一化的基线在相同预算下更准确且没有数值故障，定范数投影就没有充分理由；若裁剪降低训练损失却提高罕见事件漏检率，也不能宣称任务成功。只有当预条件在明确分布、指标和资源预算下改善稳健性，并且失败时能够回退，Fluid MoE 的第一层接口才算成立。
+
+\section{联合路由与内容聚合：从四维通量改写为可归因权重}
 \label{sec:appendix_flux_attention}
 
-抛弃粗暴的纯点积 Attention。思维流在流形从节点 $j$ 到节点 $i$ 的真实传导通量 $\mathbf{\Phi}_{i \leftarrow j}$，被严密地拆解为四大正交物理量的\textbf{哈达玛积 (Hadamard Product, $\odot$)}。任何一维的断裂都会导致通道的瞬间闭合。
+原稿把结构导通、内容吸引、相位干涉和距离耗散逐元素相乘，并把结果称为“真实通量”。这种写法有直观性，却没有先回答三个计算问题：各因子的形状是否一致，负权重与全零行如何归一化，一个因子的微小误差为何有权关闭全部通道。这里把它改写成可归因的打分—约束—归一化链。对第 $a$ 个注意力头，查询位置 $i$ 与来源位置 $j$ 的结构分数、内容分数分别定义为
+\begin{equation}
+g^{(a)}_{ij}=\frac{\langle W^{Q,a}_fF_i,W^{K,a}_fF_j\rangle}{\sqrt{d_{fa}}}+b^{(a)}_{ij},
+\qquad
+s^{(a)}_{ij}=\frac{\langle W^{Q,a}_sS_i,W^{K,a}_sS_j\rangle}{\sqrt{d_{sa}}}.
+\end{equation}
+$W_f$、$W_s$ 是可学习线性映射，$b_{ij}$ 只编码有来源的结构先验，例如有向邻接、相对位置、角色兼容或因果时序；它不是由“流形曲率”自动产生的物理屏障。若使用 RoPE，它改变的是查询与键的相对位置相位，是否改善长程关系保持需要专门基准，不能由旋转形式直接推出。
 
-\begin{theorem}[四维通量干涉方程]
-    \begin{equation}
-        \mathbf{\Phi}_{i \leftarrow j} = \mathbf{G}_{ij} \odot \mathbf{A}_{ij} \odot \mathbf{I}_{ij} \odot \mathbf{D}_{ij}
-    \end{equation}
-\end{theorem}
+可选周期特征写成 $p^{(a)}_{ij}=\cos(\theta^{(a)}_i-\theta^{(a)}_j-\alpha^{(a)}_{ij})$，其中 $\alpha_{ij}$ 是由版本化控制器给出的相位偏置。由于 $p$ 可能为负，把它直接乘在非负注意力上会产生“反向概率”。我们因此只把它作为有界附加特征，而非概率因子。再设路由成本 $c^{(a)}_{ij}\geq0$，其单位由工程选择决定：可以是预计通信字节、毫秒时延或标准化资源分数，但一次实验只能在同一量纲内比较。联合对数分数为
+\begin{equation}
+\ell^{(a)}_{ij}=\beta_g g^{(a)}_{ij}+\beta_s s^{(a)}_{ij}+\beta_p p^{(a)}_{ij}-\beta_c\widetilde c^{(a)}_{ij}+M_{ij},
+\end{equation}
+其中 $\widetilde c$ 是在训练集统计上无量纲化的成本，$\beta$ 是显式超参数，$M_{ij}=0$ 表示允许连接，$M_{ij}=-\infty$ 表示填充、越权、过期或结构上禁止的连接。权重为 $w^{(a)}_{ij}=\operatorname{softmax}_j(\ell^{(a)}_{ij})$，并只在至少存在一个合法来源时计算；若整行被屏蔽，系统必须输出带原因码的空读出、回退到自身状态，或请求新的证据，不能让 Softmax 产生未定义值。
 
-\begin{itemize}
-    \item \textbf{形流导通率 $\mathbf{G}_{ij}$ (能不能走)}：
-    结合自旋联络（RoPE）的相对空间旋转后，度量张量定义的几何屏障。
-    $$ \mathbf{G}_{ij} = \sigma \left( \frac{\mathbf{Q}_{form} \mathbf{K}_{form}^T}{\sqrt{d_f}} + b_{topo} \right) $$
+内容聚合由 $Y^{(a)}_i=\sum_jw^{(a)}_{ij}W^{V,a}_sS_j$ 给出。这里 $w$ 是选择权重，$Y$ 是值贡献，两者不能混称“信息流量”；高权重来源可能携带接近零的值向量，低权重来源也可能因值范数较大而产生显著贡献。诊断时至少同时报告 $w_{ij}$、$\lVert w_{ij}V_j\rVert$、去除该边后的输出差和最终任务读出变化。只有干预后的变化才能支持“该连接控制了结果”的经验主张，单看注意力图不足以证明因果机制。
 
-    \item \textbf{质流引力 $\mathbf{A}_{ij}$ (想不想走)}：
-    基于语义能量密度计算的自由扩散意愿。
-    $$ \mathbf{A}_{ij} = \text{Softmax} \left( \frac{\mathbf{Q}_{sub} \mathbf{K}_{sub}^T}{\sqrt{d_s}} \right) $$
+结构门控与内容注意力也不能被简单等同。局部结构网络通常稀疏、带身份和方向，适合表达“谁可以与谁交互”；全局分布表示通常稠密，适合表达“在当前上下文中哪些内容相似或可预测”。二者通过共同的 $r_i,r_j$ 身份、允许掩码 $M$、联合分数 $\ell$ 和读出 $Y$ 协同，而不是把脑区类比或数学同形当作机制等同。若结构先验错误，$\beta_g$ 过大会阻断有效证据；若内容相似性支配一切，系统又可能把同义但不同权限、不同时间或不同实体的记录混合。可学习系数必须在身份交换、结构边删除、内容扰动和分布外任务上共同校准。
 
-    \item \textbf{相位干涉 $\mathbf{I}_{ij}$ (同不同频)}：
-    包含价值规范场偏置 $\mathcal{A}^{val}$ 的波动力学建设性干涉。
-    $$ \mathbf{I}_{ij} = \cos(\theta_i - \theta_j - \mathcal{A}^{val}_{ij}) $$
+MoE路由在此基础上产生位置到专家的分配。令专家键为 $u_k\in\mathbb{R}^{d_r}$，路由查询 $r_i=R[F_i;S_i;z]$，合法专家集合由 Boundary 给出，则
+\begin{equation}
+\pi_{ik}=\operatorname{softmax}_{k\in\mathcal K_i}
+\left(\frac{\langle r_i,u_k\rangle}{\tau_i}-\lambda_c\widehat C_{ik}+\xi_{ik}\right).
+\end{equation}
+$\tau_i>0$ 是无量纲温度，$\widehat C$ 是标准化成本，$\xi$ 是训练期探索噪声；推理期是否保留噪声必须单独声明。Top-$q$ 选择是预算约束，不是自然相变。被选专家的权重需要重新归一化，并受容量上限限制；溢出位置应进入后备专家、排队或降级路径，不得悄然丢弃。
 
-    \item \textbf{热力学耗散 $\mathbf{D}_{ij}$ (能不能撑到)}：
-    基于黎曼几何短程线距离 $d_{ij} = -\ln(\mathbf{G}_{ij})$ 的指数级粘滞衰减。
-    $$ \mathbf{D}_{ij} = \exp(-\gamma_{visc} \cdot d_{ij}) $$
-\end{itemize}
+本节保留“形流、质流、相位、耗散”四类原问题，但把它们分别落到结构兼容、内容相关、周期辅助特征和资源成本上。验收应比较加法融合、乘法门控、纯内容注意力和纯结构路由四组基线，报告任务质量、身份错误率、专家负载、尾时延、通信量与故障回退率。若乘法模型只因某一因子接近零而长期关闭通道，或联合模型在结构错配下比内容基线更脆弱，就应拒绝“任何一维断裂都会关闭通道”的旧设定，而不是把失败解释成物理相干性不足。
 
-最终质元的更新遵循波函数叠加：$\mathbf{T}_{sub}^{(next)} = \sum_j \mathbf{\Phi}_{i \leftarrow j} \mathbf{V}_{sub}^{(j)}$。
-
-\section{第三法则：辛演化与形质共生 —— 局部流形动力学}
+\section{局部专家与多速率更新：从辛演化改写为受约束离散动力学}
 \label{sec:appendix_symplectic_evolution}
 
-\smalltitle{1. 频率多普勒与辛积分 (Symplectic Phase Evolution)}
-相位与频率在宏观意志 $z_{meta}$ 和质元能量 $T_{sub}$ 的挤压下，产生\textbf{多普勒频移}，并受群体 Kuramoto 拉扯。其更新遵循动量守恒的离散辛积分：
+令离散推理步为 $k=0,1,\ldots,L$，步长 $\Delta k=1$。完整运行状态写成 $x_k=(F_k,S_k,\theta_k,z_k,R_k)$：$F$ 是局部结构表示，$S$ 是全局分布内容的当前切片，$\theta$ 是可选周期特征，$z$ 是慢速控制状态，$R$ 记录预算、权限、版本和未决事项。专家 $f_j$ 接收经过身份绑定的 $[F_{ki};S_{ki};z_k]$，输出候选增量 $(\Delta F^{(j)}_{ki},\Delta S^{(j)}_{ki})$ 与置信、成本和适用域声明。路由器按上一节得到稀疏权重 $\widetilde\pi_{kij}$，先聚合候选，再由控制器决定是否提交：
 \begin{align}
-    \omega_{new} &= \lambda \cdot \omega_{old} + (1-\lambda) \cdot \tanh \left( f_{doppler}(T_{sub}, z_{meta}) \right) \cdot \omega_{max} \\
-    \theta_{new} &= \left( \theta_{old} + \omega_{new} + \kappa \sum_j |\mathbf{\Phi}_{i \leftarrow j}| \sin(\theta_j - \theta_i) \right) \pmod{2\pi}
+\bar\Delta S_{ki}&=\sum_{j\in\operatorname{TopQ}(\pi_{ki})}\widetilde\pi_{kij}\Delta S^{(j)}_{ki},\\
+S_{k+1,i}&=\operatorname{Norm}\!\left(S_{ki}+\eta^S_{ki}P^S_{ki}\bar\Delta S_{ki}\right),\\
+F_{k+1,i}&=\operatorname{Edit}\!\left(F_{ki},\eta^F_{ki}P^F_{ki}\bar\Delta F_{ki};R_k\right).
 \end{align}
+$P^S$、$P^F$ 是由约束和权限产生的投影，$\eta^S,\eta^F\in[0,1]$ 是无量纲提交增益。内容向量可以连续更新，结构关系常涉及节点、边或角色的离散增删，因此二者不应被一个“酉旋转”公式掩盖。式中的加权残差也不保证范数或任何物理能量守恒；即使 $\sqrt{1-\eta^2}S+\eta\Delta S$ 的两个系数平方和为一，只有在两个向量单位范数且正交时才保范数。工程实现若需要控制活动尺度，应明确使用归一化、谱约束或信赖域，并分别验证其偏差。
 
-\smalltitle{2. 目的论路由 (Teleological Routing \& Cognitive Annealing)}
-思维在局部流形（Expert）的分发，由几何惯性与宏观意志的势能之和决定，并受制于\textbf{认知退火温度 $T_{sys}(z_{meta})$}：
+周期状态若用于协调专家，可采用带阻尼的离散更新
 \begin{equation}
-    P(expert_k) = \text{Softmax} \left( \frac{V_{inertia}(\mathbf{T}_{form}) + V_{will}(z_{meta})}{T_{sys}(z_{meta})} \right)
+\nu_{k+1,i}=\operatorname{clip}\!\left((1-\lambda_\nu)\nu_{ki}+\Delta k\,a_{ki},-\nu_{max},\nu_{max}\right),
+\quad
+\theta_{k+1,i}=\operatorname{wrap}\!\left(\theta_{ki}+\Delta k\,\nu_{k+1,i}+\kappa C_{ki}\right),
 \end{equation}
+其中 $a_{ki}$ 来自已声明输入，$C_{ki}=\sum_jw_{ij}\sin(\theta_{kj}-\theta_{ki})$ 是耦合项，$\lambda_\nu\in[0,1]$ 为每步阻尼。该式是模型假设而非由多普勒效应或辛几何推出的结果。阻尼存在时系统一般不是辛积分；若确有哈密顿结构，必须给出位置、共轭动量、哈密顿量和离散器的保辛证明。多数语言或多模态路由并不具备这些对象，使用普通稳定积分和消融测试更诚实。
 
-\smalltitle{3. 能量守恒的酉旋转 (Unitary Residuals)}
-波包在专家网络中完成非线性演化 $\Delta \mathbf{T}$ 后，禁止采用暴力的向量加法叠加。新旧状态必须通过\textbf{酉旋转算子}融合，以确保相空间能量守恒：
+多速率的要点是提交频率不同，而不是低频变量天然更重要。内容活动可以每步更新，路由统计每 $m_r$ 步汇总一次，结构图每 $m_f$ 步在证据阈值、风险预算和回滚点齐备时修订，慢速状态 $z$ 每 $m_z$ 步更新，通常有 $1\le m_r\le m_f\le m_z$。若目标 $Q_k$、约束集 $\mathcal C_k$、结构 $F_k$ 或度量 $G_k$ 随时间变化，评价量 $J(x_k,Q_k,F_k,G_k)$ 的变化必须包括这些项，不能把 $J$ 下降全归因于状态更新。连续近似下应写成全导数
 \begin{equation}
-    \mathbf{T}_{next} = \sqrt{1 - \eta^2} \, \mathbf{T}_{prev} + \eta \, \Delta \mathbf{T} \quad (\eta \in [0, 1])
+\frac{dJ}{dt}=\nabla_xJ\cdot\dot x+\partial_QJ\cdot\dot Q+\partial_FJ\!:\!\dot F+\partial_GJ\!:\!\dot G+\partial_tJ,
 \end{equation}
+而离散实现直接比较带版本的 $J_{k+1}-J_k$，并对目标切换和度量切换单独分账。
 
+专家系统还需要负载与容量动力学。设一批中专家 $j$ 接收的概率质量为 $p_j$，实际位置比例为 $n_j$，容量为 $C_j$ 个位置，可用 $\mathcal L_{bal}=K\sum_jp_jn_j$ 作为负载正则的一个选项，但它只促进使用均衡，不保证任务质量。专家专门化本来就可能不均衡；盲目压平会损伤稀有任务。训练记录应把主任务损失、溢出率、专家空闲率、路由抖动、身份错误与资源成本分开，不能把一个总损失的下降解释为全部指标改善。部署时还需为专家宕机、队列超时和版本不兼容配置后备路径。
 
-\section{第四法则：宏观观察者与意志的李群演化}
+在 AgentOS 实例中，$S_k$ 可映射到有限认知界面 $h(k)$ 的分布状态，结构编辑沉入事件/关系记忆 $E$ 或长期规范 $\Theta$，$z_k$ 可由 CCM/TCE 维护，SPC 负责候选路径，Boundary 提供允许集，外部 $M_e$ 承担可追溯卸载。但这些是实现映射，不是 Fluid MoE 的定义。任何替代系统只要能交付相同的状态版本、身份绑定、稀疏选择、受限提交和回滚证据，也属于本节讨论的模型族。
+
+本节的反例包括：最优任务只需单一专家，均衡正则反而增加时延；结构编辑过慢，旧图阻断新证据；慢控制器受到聚合偏差影响，周期性地把所有位置路由到错误专家；残差归一化抹去幅度中携带的置信信息。验收必须覆盖不同 $m_r,m_f,m_z$、容量系数、提交增益和故障注入，观察误差是否有界、版本能否回退、局部改善是否转化为端到端任务成功。只有这些证据成立，才可以说多速率局部动力学在给定工作区间内稳定。
+
+\section{慢速观测与元控制：从宏观意志改写为版本化闭环}
 \label{sec:appendix_macro_observer}
 
-宏观层（$L_{macro}$）独立于微观时间切片，它在慢时间尺度上运行 \textbf{Global Meta-ODE}。
+慢速层不需要被解释成独立于计算介质的“观察者”。它首先是一个摘要、诊断和约束更新器：在窗口 $W_t=\{k_t-H+1,\ldots,k_t\}$ 上读取局部轨迹、任务结果和资源记录，形成观测 $o_t$，再决定下一窗口的路由温度、容量、提交阈值、允许专家与回退策略。这里的慢时刻 $t$ 只在每 $m_z$ 个快速步推进一次，若快速步对应实际时间 $\Delta t_f$ 秒，则慢速采样间隔为 $m_z\Delta t_f$ 秒。把两个时标写清，才能讨论延迟、稳定和过期观测。
 
-\smalltitle{1. 真理的观测 (True Macro Observer)}
-宏观层通过对底流形演化提取四大热力学极值，构成宏观观测向量 $\mathbf{O}_{sys}$：
-\begin{itemize}
-    \item \textbf{最大几何动能}：$\max \|T_{sub}^{(next)} - T_{sub}^{(prev)}\|$
-    \item \textbf{最大相位摩擦}：$\max |\theta^{(next)} - \theta^{(prev)}|$
-    \item \textbf{最大路由熵}：$\max \left(-\sum p_k \log p_k \right)$
-    \item \textbf{几何色散度}：$1 - \|\sum \mathbf{T}_{form} \cdot \text{Weight}_{energy}\|$
-\end{itemize}
-
-\smalltitle{2. 李群测地线步进 (Lie Group Geodesic Step)}
-宏观意志 $z_{meta}$ 是一段存在于超球面 $\mathbb{S}^{D-1}$ 上的不变量。其演化（由 ODE 计算出的方向矢量 $dz_{raw}$）必须被剥除径向分量，投影为纯粹的切向演化 $dz_{tangent}$，并通过\textbf{指数映射}在球面上进行大圆滑行，绝对禁止越界发散：
+观测向量不应把异质量混成所谓“热力学极值”。我们定义
 \begin{equation}
-    z_{meta}^{(t+\Delta t)} = z_{meta}^{(t)} \cos\left( \frac{\|dz_{tangent}\| \Delta t}{\sqrt{D}} \right) + \frac{dz_{tangent}}{\|dz_{tangent}\|} \sqrt{D} \sin\left( \frac{\|dz_{tangent}\| \Delta t}{\sqrt{D}} \right)
+o_t=(e^{task}_t,e^{cal}_t,r^{route}_t,q^{overflow}_t,
+\ell^{p95}_t,b^{comm}_t,n^{bind}_t,u^{rollback}_t),
 \end{equation}
+其中 $e^{task}$ 是无量纲任务误差，$e^{cal}$ 是校准误差，$r^{route}$ 是相邻步路由分布的散度，$q^{overflow}$ 是专家容量溢出比例，$\ell^{p95}$ 以毫秒计，$b^{comm}$ 以字节计，$n^{bind}$ 是身份绑定失败次数，$u^{rollback}\in\{0,1\}$ 表示窗口内是否发生回滚。原稿的“几何动能”“相位摩擦”“最大路由熵”和“色散度”可以分别作为变化幅度、周期残差、分配不确定性和结构多样性的候选统计量，但必须保留各自定义与单位；最大值对单个异常点高度敏感，通常还应同时保存均值、分位数、样本数和置信区间。
 
-\section{第五法则：FHD-Loop — 草稿纸扩散与时序退火}
+慢速状态写成 $z_t\in\mathcal Z$，包含目标版本、控制参数、安全状态和未决事项，而不是不可变的宏观意志。最一般的更新是受约束状态估计与控制：
+\begin{align}
+\hat z_{t+1}&=f_z(z_t,o_t,Q_t,\mathcal C_t),\\
+z_{t+1}&=\Pi_{\mathcal Z(Q_{t+1},\mathcal C_{t+1})}
+\left(z_t+\eta_z(\hat z_{t+1}-z_t)\right).
+\end{align}
+$Q_t$ 是任务规范，$\mathcal C_t$ 是权限、风险和资源约束，$\eta_z\in(0,1]$ 是每个慢步的提交增益。投影集合也带版本；若任务或政策改变，不能把新集合下的投影误认为旧目标上的性能提升。工程设计应保留 $(z_t,o_t,Q_t,\mathcal C_t)$、提议状态、拒绝原因和最终提交的审计记录，以便区分模型判断、规则阻断和人工接管。
+
+若确有理由把 $z$ 约束在半径 $\rho_z$ 的球面上，可以采用切空间更新，但它只是选定参数化后的数学结果。令提议方向为 $v_t$，切向分量为 $v_t^\perp=v_t-\rho_z^{-2}\langle v_t,z_t\rangle z_t$，当 $\lVert v_t^\perp\rVert>0$ 时，指数映射为
+\begin{equation}
+z_{t+1}=z_t\cos\!\left(\frac{\eta_z\lVert v_t^\perp\rVert}{\rho_z}\right)
++\rho_z\frac{v_t^\perp}{\lVert v_t^\perp\rVert}
+\sin\!\left(\frac{\eta_z\lVert v_t^\perp\rVert}{\rho_z}\right).
+\end{equation}
+当切向分量为零时应保持原状态，避免除零。球面约束能保持范数，却不自动保持语义、权限或目标一致性；不同控制含义可能被投影到相邻点，相同含义也可能有多个参数表示。若欧氏信赖域、盒约束或离散状态机更符合控制变量，便没有必要为了“李群测地线”而强行使用球面。
+
+慢速层的关键风险是聚合偏差和控制迟滞。平均路由熵下降可能意味着专门化形成，也可能意味着专家坍缩；任务误差下降可能伴随安全失败增加；窗口过长会把突发事故稀释，窗口过短又会追逐噪声。控制器因此需要分层触发：硬安全事件立即交给独立停止器；资源超限触发容量降级；统计趋势只产生待验证提议；结构或目标变更要求额外证据和回滚点。任何单一统计量都不能直接改写全局策略。
+
+在 AgentOS 实例中，SPC 可以生成候选解释与计划，TCE 将任务规范和约束转成控制提议，CCM 汇总 $o_t$ 并协调 $h(t)$、$E/\Theta$ 与 $\Psi$ 的多速率更新，Boundary 和独立安全逻辑保留否决权。外部记忆 $M_e$ 提供跨窗口证据，但读回内容必须经过来源和版本核验。这个映射展示了工程落点，却不规定其他系统必须复制同名模块。
+
+验收慢速控制器时，应在固定任务集上比较无元控制、规则控制、学习控制和人工阈值四类基线，并注入专家故障、分布漂移、目标切换、权限撤销和观测延迟。报告任务收益之外，还要报告错误干预率、漏干预率、恢复时间、策略抖动、回滚成功率和额外资源成本。只有当干预相对反事实基线产生可重复收益，且未突破安全与资源界限，才能把效果归因于慢速闭环，而不是事后把任何变化描述成宏观意志的实现。
+
+\section{循环推理、训练目标与验收：从草稿纸扩散改写为有限时域求解}
 \label{sec:appendix_fhd_loop}
 
-推理过程被重构为 \textbf{流体全息扩散循环 (Fluid Holographic Diffusion Loop)}，允许系统在“占位符 (Placeholder)”组成的真空沙盒内利用物理时间 $\tau$ 换取逻辑深度。
+Fluid MoE 的循环推理可以理解为有限时域上的候选改进，而不是把逻辑过程物理化为扩散或结晶。给定任务 $Q$、输入证据 $D$ 和预算 $B^{run}=(L_{max},T_{max},C_{max})$，第 $r$ 轮状态为 $\chi_r=(F_r,S_r,z_r,A_r,U_r)$：$A_r$ 是当前答案或行动草稿，$U_r$ 是未决约束、冲突和证据缺口。初始化器产生 $\chi_0$，每轮依次执行稀疏路由、专家候选生成、身份绑定、约束检查、独立评价和受控提交。结构、内容和相位可以继承，但继承必须带版本；原稿所谓“形的弹性拉回”只是防漂移策略的一种形式。
 
-\smalltitle{1. 拓扑重组 (Draft-paper Recombination)}
-每次大循环（Loop）结束时，占位符的质（$T_{sub}$）和相（$\mathbf{\Phi}$）被全量继承，但其形（$T_{form}$）必须执行\textbf{弹性拉回 (Elastic Pullback)}，防止逻辑骨架在多步演化中发生灾难性塌陷：
+若需要锚定初始结构，可定义
 \begin{equation}
-    T_{form}^{(loop+1)} = \alpha \cdot T_{form}^{(loop)} + (1-\alpha) \cdot T_{form}^{(init)}
+F_{r+1}=\operatorname{Proj}_{\mathcal F_r}\!\left(
+(1-\alpha_r)F_0+\alpha_r\widetilde F_{r+1}
+\right),\qquad \alpha_r\in[0,1],
 \end{equation}
+其中 $\widetilde F_{r+1}$ 是本轮提议，$\mathcal F_r$ 是当前允许的结构集合。对离散图，线性混合通常没有直接语义，应改用边置信更新、带约束编辑或在连续参数空间中插值后重新离散化。固定拉回可能保护身份，也可能阻止必要重构；因此 $\alpha_r$ 应由证据充分性、风险和任务阶段控制，并与“不拉回”“只冻结身份边”“允许全结构编辑”等基线比较。
 
-\smalltitle{2. 时序退火损失泛函 (Time-dependent Annealing Loss)}
-模型的训练抛弃了单步的交叉熵，采用随时间演化步数 $\tau \in[0, 1]$ 动态权重的泛函：
+训练目标先按可比量分账。设最终任务损失为 $L_{task}$，中间状态监督为 $L_{state,r}$，身份绑定错误为 $L_{bind,r}$，安全约束违反为 $L_{safe,r}$，路由成本的无量纲化值为 $L_{cost,r}$，专家负载正则为 $L_{bal,r}$，则
 \begin{equation}
-    \mathcal{L}_{total} = \sum_{\tau} \left[ \underbrace{(1-\tau)^2 \cdot \text{MSE}(\mathbf{T}_{sub}(\tau), \mathbf{E}_{target})}_{\text{早期：连续相空间的柔性几何收敛}} + \underbrace{e^{5(\tau-1)} \cdot \text{CE} \left( \frac{\text{Logits}(\tau)}{T_{anneal}(\tau)}, Y_{target} \right)}_{\text{晚期：降温引发的非幺正粒子坍缩}} \right]
+\mathcal L=\lambda_{task}L_{task}
++\sum_{r=0}^{L_{max}}\bigl[
+\lambda_s(r)L_{state,r}+\lambda_bL_{bind,r}
++\lambda_gL_{safe,r}+\lambda_cL_{cost,r}+\lambda_lL_{bal,r}\bigr].
 \end{equation}
-\begin{itemize}
-    \item \textbf{动态弛豫早停}：若某次循环中全域几何动能 $\Delta E_{kin} < \epsilon$，系统宣告流形已达到热力学稳态（“思考完毕”），即刻终止循环。
-\end{itemize}
+权重 $\lambda$ 是训练设计，不是温度或能量常数。若早期重视连续表示、后期重视离散答案，可以调度 $\lambda_s(r)$ 与答案监督，但必须说明 $r$ 是循环编号还是归一化时间，并对不同最大轮数重新标定。交叉熵下降不等于事实正确，均方误差下降也不等于结构合法；最终仍需独立任务、事实、权限和安全判据。
 
-\lstinputlisting[language=Python, caption=Fluid MoE Transformer 的 PyTorch 实现, label={lst:myscript}]{fluid_moe.py}
+运行时停止规则与训练损失分离。系统在以下任一条件满足时停止：独立验收器确认任务标准；连续 $p$ 轮的可比改进低于阈值且未决事项不再减少；达到轮数、墙钟或成本预算；检测到循环、数值异常或安全事件。只观察 $\lVert S_{r+1}-S_r\rVert$ 很小并不能宣布“思考完毕”，因为系统可能陷入错误不动点，也可能在离散答案改变时连续状态变化很小。停止记录应包含规则、阈值、证据版本和未解决风险；预算耗尽时输出的是不完全结果，而不是稳态证明。
+
+训练与部署还需处理梯度范围。端到端展开 $L_{max}$ 轮可提供跨轮信用分配，却增加显存和梯度不稳定；截断反向传播降低成本，却对长程影响有偏。可选方案包括分段展开、检查点重算、教师信号、离线轨迹学习或把慢速控制视为单独策略。无论采用哪种方案，都应声明梯度在哪些边界停止、哪些状态由外部记忆读取、哪些结构编辑不可微，以及估计偏差如何测量。把 `detach()` 称作绝热屏障并不能替代这些说明。
+
+原有 \texttt{fluid\_moe.py} 继续作为实验性参考实现保留：
+\lstinputlisting[language=Python, caption=Fluid MoE Transformer 的实验性 PyTorch 参考实现, label={lst:myscript}]{fluid_moe.py}
+
+代码与数学模型之间需要逐项核对。测试至少覆盖张量形状、掩码全空、零范数、混合精度、Top-$q$ 重归一化、专家溢出、结构身份交换、版本冲突、外部记忆超时、目标切换和回滚。性能评测在相同参数量、激活参数量和硬件上比较稠密模型、普通MoE、仅内容路由与联合路由，并报告平均值、尾部值和失败分布。若参考代码未实现某个公式或安全接口，文档必须标记差距，不能因代码能够运行就声称理论得到验证。
+
+从理论层级看，本附录只给出 HSF-HD 一般状态动力学下的一种条件计算构型：系统论提供边界与接口，协同论提示多模块耦合，耗散与复杂系统理论提供开放系统的提问方式，认知科学约束身份、记忆、注意和控制解释；在此之上，我们才定义状态、路由、多速率更新和验收。Fluid MoE 既不是 HSF-HD 的同义词，也不是所有 AgentOS 的唯一内核。它的价值取决于能否在明确任务、数据、预算和干预下，以可审计方式改善质量—成本前沿。不能通过这些试验时，正确结论是模型在该工作区间不适用，而不是现实尚未达到理论要求的“相态”。

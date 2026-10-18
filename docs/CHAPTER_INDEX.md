@@ -115,7 +115,7 @@
 | 3 | 11 | [chp-conclusion](../chapters/part-11/chp-conclusion.tex) | 结语 — 造物主的几何学 | 队列中；原文仍保留 |
 | 附录 | — | [sec-section_4647](../appendices/sec-section_4647.tex) | 微分几何与代数拓扑基础速查 | 已重写并完成排版复核 |
 | 附录 | — | [chp-cpd_standard_model](../appendices/chp-cpd_standard_model.tex) | CPD标准模型：状态、观测、控制与可检验相态 | 已重写并复核 |
-| 附录 | — | [chp-fluid_moe_math_blueprint](../appendices/chp-fluid_moe_math_blueprint.tex) | Fluid MoE 的数学原理与大一统工程蓝图 | 队列中；原文仍保留 |
+| 附录 | — | [chp-fluid_moe_math_blueprint](../appendices/chp-fluid_moe_math_blueprint.tex) | Fluid MoE数学蓝图：约束路由、多速率更新与可验证循环 | 已重写并复核 |
 | 附录 | — | [app-adiabatic_backprop](../appendices/app-adiabatic_backprop.tex) | 多尺度绝热反向传播 — 在现有硅基架构上铸造时间分离的几何引擎 | 队列中；原文仍保留 |
 | 附录 | — | [sec-section_8308](../appendices/sec-section_8308.tex) | 形质编码全息表 (The Rosetta Stone of MSC) | 队列中；原文仍保留 |
 | 附录 | — | [sec-section_7739](../appendices/sec-section_7739.tex) | HSF-HD 的多语种对照表 — 数学视角的罗塞塔石碑 | 队列中；原文仍保留 |
