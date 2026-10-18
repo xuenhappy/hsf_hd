@@ -2122,9 +2122,16 @@
       "source_start_line": 38488,
       "source_end_line": 39371,
       "source_sha256": "dfa15f4de25be0d3ef14c101ca22f8a14adc5a7390eee300517e9e097ee37896",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "结语：自我塑造、文明协同与模型边界",
+      "rewrite_method": "individually-authored-complete-body-recovered-from-reviewed-pdf",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "checkpoint": "docs/drafts/chapter-109-checkpoint.md",
+      "argument_map": "docs/argument-maps/chapter-109.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "appendices/sec-section_4647.tex",

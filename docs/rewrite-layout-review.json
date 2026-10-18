@@ -1,9 +1,9 @@
 {
-  "pages": 692,
-  "bytes": 54910628,
+  "pages": 706,
+  "bytes": 54986029,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 624,
+  "numbered_sections": 634,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4374,7 +4374,77 @@
       "prose_lines": 33,
       "calibrated_prose_page_equivalents": 0.735,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "109.1 自由意志：因果闭合中的自我塑造能力",
+      "start_pdf_page": 693,
+      "prose_lines": 49,
+      "calibrated_prose_page_equivalents": 1.091,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "109.2 拓扑共生：任务协作与文明治理的双层结构",
+      "start_pdf_page": 694,
+      "prose_lines": 47,
+      "calibrated_prose_page_equivalents": 1.047,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "109.3 依赖陷阱：认知卸载、能力萎缩与主体性维护",
+      "start_pdf_page": 696,
+      "prose_lines": 45,
+      "calibrated_prose_page_equivalents": 1.002,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "109.4 递归的终极：自我模型、意义生成与开放未来",
+      "start_pdf_page": 697,
+      "prose_lines": 44,
+      "calibrated_prose_page_equivalents": 0.98,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "109.5 宇宙尺度讨论：模型迁移、相似结构与证据边界",
+      "start_pdf_page": 698,
+      "prose_lines": 41,
+      "calibrated_prose_page_equivalents": 0.913,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "109.6 热力学箭头与计算代价：信息、资源和能耗的分账",
+      "start_pdf_page": 699,
+      "prose_lines": 47,
+      "calibrated_prose_page_equivalents": 1.047,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "109.7 统一泛函：跨尺度决策的共同记账框架",
+      "start_pdf_page": 701,
+      "prose_lines": 42,
+      "calibrated_prose_page_equivalents": 0.935,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "109.8 万物同胚的限度：粗粒化、跨尺度耦合与机制差异",
+      "start_pdf_page": 702,
+      "prose_lines": 46,
+      "calibrated_prose_page_equivalents": 1.024,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "109.9 存在的镜像：环境结构、内部表示与行动接口",
+      "start_pdf_page": 704,
+      "prose_lines": 42,
+      "calibrated_prose_page_equivalents": 0.935,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "109.10 终章：HSF-HD 的位置、AgentOS 的责任与未完成的问题",
+      "start_pdf_page": 705,
+      "prose_lines": 47,
+      "calibrated_prose_page_equivalents": 1.047,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 108 chapters; does not validate the full book."
+  "scope": "Review subset: 109 chapters; does not validate the full book."
 }

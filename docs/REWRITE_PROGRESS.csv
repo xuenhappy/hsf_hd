@@ -107,7 +107,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 106,chapters/part-11/sec-isomorphism_map.tex,rewritten-reviewed,2806,4888,2559,4911,4,1045
 107,chapters/part-11/chp-topological_biogenesis.tex,rewritten-reviewed,5725,5966,5862,5984,5,1033
 108,chapters/part-11/chapter-108.tex,rewritten-reviewed,1285,3901,1296,3919,3,1023
-109,chapters/part-11/chp-conclusion.tex,queued-for-full-rewrite,15644,14784,15197,15197,9,371
+109,chapters/part-11/chp-conclusion.tex,rewritten-reviewed,15644,16808,15197,17039,10,1438
 110,appendices/sec-section_4647.tex,queued-for-full-rewrite,431,418,456,456,0,0
 111,appendices/chp-cpd_standard_model.tex,queued-for-full-rewrite,3527,3285,3431,3431,7,140
 112,appendices/chp-fluid_moe_math_blueprint.tex,queued-for-full-rewrite,1325,1194,1256,1256,5,158
