@@ -2204,9 +2204,18 @@
       "source_start_line": 39791,
       "source_end_line": 40121,
       "source_sha256": "7a8682a929fed16506028ee710f33e0278149d7a3d269711d6a78091fb4c1d4c",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "多时间尺度学习：截断信用、延迟更新与异步控制",
+      "preserved_figure_count": 0,
+      "preserved_table_count": 0,
+      "preserved_listing_count": 2,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "rewrite_method": "individually-authored-complete-rewrite",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "argument_map": "docs/argument-maps/chapter-113.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "appendices/sec-section_8308.tex",

@@ -111,7 +111,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 110,appendices/sec-section_4647.tex,rewritten-reviewed,431,2392,456,2398,2,1058
 111,appendices/chp-cpd_standard_model.tex,rewritten-reviewed,3527,8087,3431,8151,7,1058
 112,appendices/chp-fluid_moe_math_blueprint.tex,rewritten-reviewed,1325,5813,1256,5854,5,1036
-113,appendices/app-adiabatic_backprop.tex,queued-for-full-rewrite,3713,2711,4404,4404,5,106
+113,appendices/app-adiabatic_backprop.tex,rewritten-reviewed,3713,5976,4404,6564,5,1058
 114,appendices/sec-section_8308.tex,queued-for-full-rewrite,442,38,39,39,0,0
 115,appendices/sec-section_7739.tex,queued-for-full-rewrite,685,517,530,530,0,0
 116,appendices/sec-section_9411.tex,queued-for-full-rewrite,1015,1009,1306,1306,0,0

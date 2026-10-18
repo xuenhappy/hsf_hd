@@ -1,9 +1,9 @@
 {
-  "pages": 753,
-  "bytes": 55529492,
+  "pages": 760,
+  "bytes": 55572723,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 648,
+  "numbered_sections": 653,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4542,7 +4542,42 @@
       "prose_lines": 34,
       "calibrated_prose_page_equivalents": 0.757,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "113.1 问题定义：全局反向传播的资源与统计边界",
+      "start_pdf_page": 754,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "113.2 截断信用与延迟更新：窗口、估计量和版本条件",
+      "start_pdf_page": 755,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "113.3 可执行训练循环：快层更新、慢层重算与提交事务",
+      "start_pdf_page": 756,
+      "prose_lines": 36,
+      "calibrated_prose_page_equivalents": 0.802,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "113.4 机制解释与证据边界：滤波不是学习保证",
+      "start_pdf_page": 758,
+      "prose_lines": 30,
+      "calibrated_prose_page_equivalents": 0.668,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "113.5 异步推理运行时：快照、邮箱与后备控制",
+      "start_pdf_page": 758,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 112 chapters; does not validate the full book."
+  "scope": "Review subset: 113 chapters; does not validate the full book."
 }
