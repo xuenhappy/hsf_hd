@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 110,
-  "pending_chapters": 7,
+  "rewritten_chapters": 111,
+  "pending_chapters": 6,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -4316,45 +4316,45 @@
     {
       "order": 111,
       "path": "appendices/chp-cpd_standard_model.tex",
-      "title": "附录特辑：跨载体认知唯象动力学 (CPD) — 智能的极简标准模型",
-      "status": "queued-for-full-rewrite",
+      "title": "CPD标准模型：状态、观测、控制与可检验相态",
+      "status": "rewritten-reviewed",
       "original_han_floor": 3527,
-      "new_chapter_prose_han": 3285,
+      "new_chapter_prose_han": 8087,
       "original_readable_units": 3431,
-      "new_readable_units": 3431,
-      "opening_prose_han": 301,
+      "new_readable_units": 8151,
+      "opening_prose_han": 230,
       "sections": [
         {
-          "title": "总纲：跨载体的结构同构与极简模型",
-          "prose_han": 140
+          "title": "建模对象与极简接口：从普遍同构退回任务相关比较",
+          "prose_han": 1124
         },
         {
-          "title": "基础场论构架：三场一洞的拓扑纠缠",
-          "prose_han": 488
+          "title": "状态、观测、控制与未决约束：把“三场一洞”改写为计算对象",
+          "prose_han": 1202
         },
         {
-          "title": "物理化重构：重新定义自我与目标",
-          "prose_han": 200
+          "title": "自我与目标：从涡旋隐喻到跨时身份和可修订规范",
+          "prose_han": 1111
         },
         {
-          "title": "相态智能 (Phase Theory)：在临界边缘的冲浪",
-          "prose_han": 381
+          "title": "相态智能：基于序参量、迟滞与切换风险的运行区间",
+          "prose_han": 1101
         },
         {
-          "title": "双重记忆架构 (Dual Memory Architecture)：结构与动力学的绝对剥离",
-          "prose_han": 1056
+          "title": "双重记忆架构：局部结构、全局分布与可迁移策略的协同",
+          "prose_han": 1058
         },
         {
-          "title": "终极收束：AGI 的“三体”物理公式",
-          "prose_han": 293
+          "title": "AGI组合式模型：结构记忆、策略先验与运行时控制",
+          "prose_han": 1146
         },
         {
-          "title": "工程学的分水岭：双通道解耦与相态感知 AGI",
-          "prose_han": 426
+          "title": "工程分水岭：表征—控制解耦、因果接口与验收协议",
+          "prose_han": 1115
         }
       ],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

@@ -109,7 +109,7 @@ order,path,status,original_han_floor,new_chapter_prose_han,original_readable_uni
 108,chapters/part-11/chapter-108.tex,rewritten-reviewed,1285,3901,1296,3919,3,1023
 109,chapters/part-11/chp-conclusion.tex,rewritten-reviewed,15644,16808,15197,17039,10,1438
 110,appendices/sec-section_4647.tex,rewritten-reviewed,431,2392,456,2398,2,1058
-111,appendices/chp-cpd_standard_model.tex,queued-for-full-rewrite,3527,3285,3431,3431,7,140
+111,appendices/chp-cpd_standard_model.tex,rewritten-reviewed,3527,8087,3431,8151,7,1058
 112,appendices/chp-fluid_moe_math_blueprint.tex,queued-for-full-rewrite,1325,1194,1256,1256,5,158
 113,appendices/app-adiabatic_backprop.tex,queued-for-full-rewrite,3713,2711,4404,4404,5,106
 114,appendices/sec-section_8308.tex,queued-for-full-rewrite,442,38,39,39,0,0

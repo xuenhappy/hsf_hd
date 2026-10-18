@@ -2161,9 +2161,17 @@
       "source_start_line": 39459,
       "source_end_line": 39663,
       "source_sha256": "91337934414e21dc2d6d99cc2687ef23f5d7013872691371813c42675d4ce344",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
+      "new_title": "CPD标准模型：状态、观测、控制与可检验相态",
+      "preserved_figure_count": 0,
+      "preserved_table_count": 1,
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "rewrite_method": "individually-authored-complete-rewrite",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "argument_map": "docs/argument-maps/chapter-111.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "appendices/chp-fluid_moe_math_blueprint.tex",

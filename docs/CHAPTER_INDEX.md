@@ -114,7 +114,7 @@
 | 3 | 11 | [chapter-108](../chapters/part-11/chapter-108.tex) | 先知型 AGI — 时空晶体与逆因果动力学 | 队列中；原文仍保留 |
 | 3 | 11 | [chp-conclusion](../chapters/part-11/chp-conclusion.tex) | 结语 — 造物主的几何学 | 队列中；原文仍保留 |
 | 附录 | — | [sec-section_4647](../appendices/sec-section_4647.tex) | 微分几何与代数拓扑基础速查 | 已重写并完成排版复核 |
-| 附录 | — | [chp-cpd_standard_model](../appendices/chp-cpd_standard_model.tex) | 附录特辑：跨载体认知唯象动力学 (CPD) — 智能的极简标准模型 | 队列中；原文仍保留 |
+| 附录 | — | [chp-cpd_standard_model](../appendices/chp-cpd_standard_model.tex) | CPD标准模型：状态、观测、控制与可检验相态 | 已重写并复核 |
 | 附录 | — | [chp-fluid_moe_math_blueprint](../appendices/chp-fluid_moe_math_blueprint.tex) | Fluid MoE 的数学原理与大一统工程蓝图 | 队列中；原文仍保留 |
 | 附录 | — | [app-adiabatic_backprop](../appendices/app-adiabatic_backprop.tex) | 多尺度绝热反向传播 — 在现有硅基架构上铸造时间分离的几何引擎 | 队列中；原文仍保留 |
 | 附录 | — | [sec-section_8308](../appendices/sec-section_8308.tex) | 形质编码全息表 (The Rosetta Stone of MSC) | 队列中；原文仍保留 |
