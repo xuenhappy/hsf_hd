@@ -2142,9 +2142,15 @@
       "source_start_line": 39376,
       "source_end_line": 39459,
       "source_sha256": "03661d8bc7dd0e16b5d5fe52429f269ad7fc7c162b816bf37c7f93c18823e2af",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "formatting_normalized": true,
-      "previous_status": "full-content-restored-awaiting-sectionwise-revision"
+      "previous_status": "full-content-restored-awaiting-sectionwise-revision",
+      "new_title": "微分几何与代数拓扑基础速查",
+      "rewrite_method": "individually-authored-complete-rewrite",
+      "heading_depth": "chapter-opening-and-numbered-sections",
+      "minimum_section_prose_han": 1000,
+      "argument_map": "docs/argument-maps/chapter-110.md",
+      "layout_review": "docs/rewrite-layout-review.json"
     },
     {
       "path": "appendices/chp-cpd_standard_model.tex",

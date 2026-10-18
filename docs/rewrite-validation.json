@@ -2,8 +2,8 @@
   "claimed_chapters_pass": true,
   "all_chapters_rewritten": false,
   "total_chapters": 117,
-  "rewritten_chapters": 109,
-  "pending_chapters": 8,
+  "rewritten_chapters": 110,
+  "pending_chapters": 7,
   "minimum_section_prose_han": 1000,
   "minimum_opening_prose_han": 200,
   "count_policy": "New prose Han >= all original source Han; readable Han/Latin-word/number units also compared with baseline (code included). Section prose excludes math, code, figures, tables, captions, headings and TeX metadata. Half-page layout reviewed separately.",
@@ -4293,15 +4293,24 @@
       "order": 110,
       "path": "appendices/sec-section_4647.tex",
       "title": "微分几何与代数拓扑基础速查",
-      "status": "queued-for-full-rewrite",
+      "status": "rewritten-reviewed",
       "original_han_floor": 431,
-      "new_chapter_prose_han": 418,
+      "new_chapter_prose_han": 2392,
       "original_readable_units": 456,
-      "new_readable_units": 456,
-      "opening_prose_han": 418,
-      "sections": [],
-      "claimed_rewritten": false,
-      "claimed_checks_pass": false,
+      "new_readable_units": 2398,
+      "opening_prose_han": 201,
+      "sections": [
+        {
+          "title": "纤维丛、截面与联络：从类型化状态到跨位置比较",
+          "prose_han": 1133
+        },
+        {
+          "title": "曲率与同调：路径依赖、结构摘要及其验证边界",
+          "prose_han": 1058
+        }
+      ],
+      "claimed_rewritten": true,
+      "claimed_checks_pass": true,
       "issues": []
     },
     {

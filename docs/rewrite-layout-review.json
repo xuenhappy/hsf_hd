@@ -1,9 +1,9 @@
 {
-  "pages": 706,
-  "bytes": 54986029,
+  "pages": 708,
+  "bytes": 54998352,
   "text_height_pdf_points": 697.89,
   "median_prose_line_pitch_pdf_points": 15.54,
-  "numbered_sections": 634,
+  "numbered_sections": 636,
   "half_page_checks_pass": true,
   "physical_page_clipping": [],
   "sections": [
@@ -4444,7 +4444,21 @@
       "prose_lines": 47,
       "calibrated_prose_page_equivalents": 1.047,
       "half_page_prose_pass": true
+    },
+    {
+      "title": "110.1 纤维丛、截面与联络：从类型化状态到跨位置比较",
+      "start_pdf_page": 707,
+      "prose_lines": 31,
+      "calibrated_prose_page_equivalents": 0.69,
+      "half_page_prose_pass": true
+    },
+    {
+      "title": "110.2 曲率与同调：路径依赖、结构摘要及其验证边界",
+      "start_pdf_page": 708,
+      "prose_lines": 28,
+      "calibrated_prose_page_equivalents": 0.624,
+      "half_page_prose_pass": true
     }
   ],
-  "scope": "Review subset: 109 chapters; does not validate the full book."
+  "scope": "Review subset: 110 chapters; does not validate the full book."
 }
